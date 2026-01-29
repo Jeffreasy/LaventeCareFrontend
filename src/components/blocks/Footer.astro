@@ -33,7 +33,7 @@ const currentYear = new Date().getFullYear();
             <ul class="space-y-2">
               {column.links.map((link) => (
                 <li>
-                  <a href={`/${link.link.cached_url}`} class="hover:text-primary transition-colors">
+                  <a href={`/${link.link.cached_url}`} class="hover:text-active transition-colors">
                     {link.label}
                   </a>
                 </li>
