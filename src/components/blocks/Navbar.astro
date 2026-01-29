@@ -104,7 +104,7 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
         </summary>
 
         <!-- Mobile Menu Content -->
-        <div class="absolute top-16 left-0 right-0 clinical-glass border-t border-white/10">
+        <div class="absolute top-16 left-0 right-0 bg-[oklch(0.15_0.05_168)]/95 backdrop-blur-3xl border-t border-white/10 shadow-2xl h-[calc(100vh-4rem)] overflow-y-auto">
           <div class="px-4 py-4 space-y-2">
             {
               menu.map((item) => {
@@ -171,19 +171,33 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
   const mobileMenu = document.getElementById('mobile-menu') as HTMLDetailsElement;
   
   if (mobileMenu) {
+    // 0. Scroll Lock Logic
+    const toggleScrollLock = (isOpen: boolean) => {
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    };
+
+    // Listen for toggle events (native <details> behavior)
+    mobileMenu.addEventListener('toggle', () => {
+      toggleScrollLock(mobileMenu.open);
+    });
+
     // 1. Auto-close on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.removeAttribute('open');
+        // Toggle event will handle scroll unlock
       });
     });
 
     // 2. Click outside to close
     document.addEventListener('click', (e) => {
-      // If clicking outside the menu (and it's not the summary toggle itself)
-      // Note: Summary toggle handles its own open/close via native HTML behavior
       if (mobileMenu.hasAttribute('open') && !mobileMenu.contains(e.target as Node)) {
         mobileMenu.removeAttribute('open');
+        // Toggle event will handle scroll unlock
       }
     });
   }
