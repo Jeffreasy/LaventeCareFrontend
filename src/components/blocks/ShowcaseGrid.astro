@@ -10,6 +10,14 @@ try {
   const response = await fetch(`${API_URL}/api/v1/showcase`);
   if (response.ok) {
     tenants = await response.json();
+    
+    // TEMPORARY FIX: Hardcode correct URL for De Koninklijke Loop
+    tenants = tenants.map(tenant => {
+      if (tenant.slug === 'dkl') {
+        return { ...tenant, app_url: 'https://de-koninklijkeloop.vercel.app' };
+      }
+      return tenant;
+    });
   } else {
     // Graceful fallback (Silence is Golden)
     console.error('Failed to fetch showcase tenants');
