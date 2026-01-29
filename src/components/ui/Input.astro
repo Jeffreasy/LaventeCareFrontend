@@ -1,0 +1,55 @@
+---
+import { cn } from '../../lib/utils';
+
+export interface Props {
+  type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url';
+  name: string;
+  id?: string;
+  placeholder?: string;
+  value?: string;
+  required?: boolean;
+  disabled?: boolean;
+  class?: string;
+  error?: string;
+}
+
+const {
+  type = 'text',
+  name,
+  id,
+  placeholder,
+  value,
+  required,
+  disabled,
+  class: className,
+  error,
+  ...rest
+} = Astro.props;
+
+const inputId = id || name;
+---
+
+<div class="w-full">
+  <input
+    type={type}
+    name={name}
+    id={inputId}
+    placeholder={placeholder}
+    value={value}
+    required={required}
+    disabled={disabled}
+    class={cn(
+      'w-full px-4 py-3 rounded-xl',
+      'bg-white/5 border border-white/10',
+      'text-white placeholder:text-white/50',
+      'focus:outline-none focus:ring-2 focus:ring-[oklch(0.70_0.18_158)] focus:border-[oklch(0.70_0.18_158)]/50',
+      'backdrop-blur-sm',
+      'transition-all duration-200',
+      'disabled:opacity-50 disabled:cursor-not-allowed',
+      error && 'border-red-500 focus:ring-red-500',
+      className
+    )}
+    {...rest}
+  />
+  {error && <p class="mt-1 text-sm text-red-400">{error}</p>}
+</div>

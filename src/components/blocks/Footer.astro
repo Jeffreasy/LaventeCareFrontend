@@ -1,0 +1,76 @@
+---
+interface FooterColumn {
+  title: string;
+  links: Array<{
+    label: string;
+    link: { cached_url: string };
+  }>;
+}
+
+interface SocialLink {
+  platform: string;
+  url: string;
+}
+
+interface Props {
+  columns: FooterColumn[];
+  socialLinks: SocialLink[];
+  copyright: string;
+}
+
+const { columns, socialLinks, copyright } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-background/95 backdrop-blur-xl text-muted-foreground border-t border-white/10">
+  <div class="container mx-auto px-4 py-12">
+    <!-- Footer Columns -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      {
+        columns.map((column) => (
+          <div>
+            <h3 class="text-foreground font-semibold mb-4">{column.title}</h3>
+            <ul class="space-y-2">
+              {column.links.map((link) => (
+                <li>
+                  <a href={`/${link.link.cached_url}`} class="hover:text-primary transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Social Links & Copyright -->
+    <div
+      class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center"
+    >
+      <!-- Social Links -->
+      {
+        socialLinks.length > 0 && (
+          <div class="flex space-x-4 mb-4 md:mb-0">
+            {socialLinks.map((social) => (
+              <a
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted-foreground hover:text-white transition-colors"
+                aria-label={social.platform}
+              >
+                <span class="text-sm uppercase">{social.platform}</span>
+              </a>
+            ))}
+          </div>
+        )
+      }
+
+      <!-- Copyright -->
+      <p class="text-sm text-muted-foreground">
+        {copyright.replace('2026', currentYear.toString())}
+      </p>
+    </div>
+  </div>
+</footer>

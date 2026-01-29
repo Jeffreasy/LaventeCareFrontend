@@ -1,0 +1,103 @@
+---
+interface MenuItem {
+  label: string;
+  link: { cached_url: string };
+}
+
+interface Props {
+  logo?: {
+    filename: string;
+    alt?: string;
+  };
+  menu: MenuItem[];
+  siteName?: string;
+}
+
+const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-100 border-b border-white/10 bg-background/80 backdrop-blur-xl transition-all duration-300"
+  transition:name="navbar"
+>
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-2">
+        {
+          logo?.filename ? (
+            <img src={logo.filename} alt={logo.alt || siteName} class="h-8" />
+          ) : (
+            <span class="text-xl font-bold text-[oklch(0.70_0.18_158)] font-display">
+              {siteName}
+            </span>
+          )
+        }
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        {
+          menu.map((item) => {
+            const href = item.link.cached_url === 'home' ? '/' : `/${item.link.cached_url}`;
+            return (
+              <a
+                href={href}
+                class="text-white/70 hover:text-[oklch(0.70_0.18_158)] transition-colors font-medium hover:bg-white/5 px-3 py-2 rounded-lg"
+              >
+                {item.label}
+              </a>
+            );
+          })
+        }
+      </div>
+
+      <!-- Mobile Menu Button (Pure CSS Details) -->
+      <details class="md:hidden group">
+        <summary class="list-none p-2 text-white/70 hover:text-white cursor-pointer">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </summary>
+
+        <!-- Mobile Menu Content -->
+        <div class="absolute top-16 left-0 right-0 clinical-glass border-t border-white/10">
+          <div class="px-4 py-4 space-y-2">
+            {
+              menu.map((item) => {
+                const href = item.link.cached_url === 'home' ? '/' : `/${item.link.cached_url}`;
+                return (
+                  <a
+                    href={href}
+                    class="block py-2 text-white/70 hover:text-[oklch(0.70_0.18_158)] transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                );
+              })
+            }
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Open/Close animation for details dropdown */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] summary svg {
+    transform: rotate(90deg);
+  }
+
+  details summary svg {
+    transition: transform 0.3s ease;
+  }
+</style>

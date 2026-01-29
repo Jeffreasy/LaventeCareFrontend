@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/blocks/Hero.astro';
+
+// Type-safe hero data
+const heroData = {
+	headline: 'De toekomst van zorg, vandaag',
+	subtitle: '✨ Trusted by 10,000+ healthcare professionals',
+	description:
+		'LaventeCare biedt een enterprise-grade platform voor moderne zorgverlening. Veilig, betrouwbaar, en AVG-compliant.',
+	ctaPrimary: {
+		label: 'Start gratis trial',
+		url: '/contact',
+	},
+	ctaSecondary: {
+		label: 'Bekijk demo',
+		url: '#diensten',
+	},
+	alignment: 'center' as const,
+	size: 'large' as const,
+};
+---
+
+<Layout title="LaventeCare - Home">
+	<Hero {...heroData} />
+
+	<!-- Features Section - Full Width Background -->
+	<section class="bg-background py-24" aria-labelledby="features-heading">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-16">
+				<h2
+					id="features-heading"
+					class="text-4xl md:text-5xl font-bold text-white mb-4 font-display"
+				>
+					Onze Diensten
+				</h2>
+				<p class="text-xl text-white/70 max-w-2xl mx-auto">
+					Enterprise-grade zorgoplossingen met moderne technologie
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8">
+				<div
+					class="clinical-glass p-8 rounded-2xl hover:scale-105 transition-transform duration-300 border border-white/10"
+				>
+					<div class="text-5xl mb-4">🏥</div>
+					<h3 class="text-2xl font-bold text-white mb-3 font-display">Zorgplatform</h3>
+					<p class="text-white/70">
+						Modern platform voor efficiënte zorgverlening en patiëntbeheer
+					</p>
+				</div>
+
+				<div
+					class="clinical-glass p-8 rounded-2xl hover:scale-105 transition-transform duration-300 border border-white/10"
+				>
+					<div class="text-5xl mb-4">📊</div>
+					<h3 class="text-2xl font-bold text-white mb-3 font-display">Analytics</h3>
+					<p class="text-white/70">
+						Datagedreven inzichten voor betere besluitvorming en efficiëntie
+					</p>
+				</div>
+
+				<div
+					class="clinical-glass p-8 rounded-2xl hover:scale-105 transition-transform duration-300 border border-white/10"
+				>
+					<div class="text-5xl mb-4">🔒</div>
+					<h3 class="text-2xl font-bold text-white mb-3 font-display">Veiligheid</h3>
+					<p class="text-white/70">AVG-compliant en beveiligd volgens de hoogste standaarden</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
