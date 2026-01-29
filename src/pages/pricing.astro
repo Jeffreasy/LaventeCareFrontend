@@ -5,156 +5,97 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Prijzen & Tiers - LaventeCare">
   <div class="container mx-auto px-4 py-24">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h1 class="text-5xl font-black text-white mb-6 font-display tracking-tight">Transparante <span class="text-active">Prijzen</span></h1>
+      <h1 class="text-4xl md:text-5xl font-black text-white mb-6 font-display tracking-tight">Transparante <span class="text-active">Prijzen</span></h1>
       <p class="text-xl text-white/70 font-ui">
         Kies het pakket dat bij uw ambities past. Of u nu net begint of klaar bent voor <span class="text-white font-bold">enterprise</span> schaal.
       </p>
     </div>
 
-    <!-- Pricing Cards -->
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24">
-      <!-- Essential -->
-      <div class="clinical-glass p-8 rounded-2xl border border-white/10 flex flex-col hover:border-active/20 transition-colors">
-        <h3 class="text-2xl font-bold text-white mb-2 font-display">Essential</h3>
-        <p class="text-white/60 mb-6 text-sm font-ui">Perfect voor starters</p>
-        <div class="text-4xl font-bold text-white mb-8 font-display">€499<span class="text-lg text-white/40 font-normal">/maand</span></div>
+    <!-- Pricing Cards (Service Components) -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-24">
+      
+      <!-- Slot 1: Setup & Onboarding (One-time) -->
+      <div class="clinical-glass p-8 rounded-2xl border border-white/10 flex flex-col hover:border-active/20 transition-colors order-2 md:order-1">
+        <h3 class="text-2xl font-bold text-white mb-2 font-display">Setup & Onboarding</h3>
+        <p class="text-white/60 mb-6 text-sm font-ui">Start de samenwerking</p>
+        <div class="text-4xl font-bold text-white mb-2 font-display">€450 - €950<span class="text-lg text-white/40 font-normal block mt-1">Eenmalig</span></div>
         
+        <div class="h-px bg-white/10 my-8"></div>
+
         <ul class="space-y-4 mb-8 flex-1">
-          <li class="flex items-center text-white/80 font-ui">
-            <svg class="w-5 h-5 text-active mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Basis Landing Page
+          <li class="flex items-start text-white/80 font-ui">
+            <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span>Configuratie <strong>Secure Auth Environment</strong></span>
           </li>
-          <li class="flex items-center text-white/80 font-ui">
-            <svg class="w-5 h-5 text-active mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            SSL Certificaat
+          <li class="flex items-start text-white/80 font-ui">
+             <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span>Tenant Setup & Admin Creatie</span>
           </li>
-          <li class="flex items-center text-white/80 font-ui">
-            <svg class="w-5 h-5 text-active mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Email Support
+          <li class="flex items-start text-white/80 font-ui">
+            <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <span>SMTP & Mail Configuratie</span>
           </li>
         </ul>
         
-        <!-- STANDARD SIGNUP -->
-        <a href="/contact?type=signup&plan=essential" class="block text-center py-3 rounded-lg border border-white/20 text-white hover:bg-white/10 transition-colors font-bold font-ui">Start Essential</a>
+        <a href="/contact?type=setup" class="block text-center py-3 rounded-lg border border-white/20 text-white hover:bg-white/10 transition-colors font-bold font-ui">Start Setup</a>
       </div>
 
-      <!-- Professional -->
-      <div class="clinical-glass p-8 rounded-2xl border-2 border-active relative flex flex-col transform scale-105 shadow-2xl shadow-active/10 z-10">
-        <div class="absolute top-0 right-0 bg-active text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg tracking-wider font-display">POPULAIR</div>
-        <h3 class="text-2xl font-bold text-white mb-2 font-display">Professional</h3>
-        <p class="text-white/60 mb-6 text-sm font-ui">Voor groeiende bedrijven</p>
-        <div class="text-4xl font-bold text-white mb-8 font-display">€999<span class="text-lg text-white/40 font-normal">/maand</span></div>
+      <!-- Slot 2: Managed Security & Hosting (Recurring - Featured) -->
+      <div class="clinical-glass p-8 rounded-2xl border-2 border-active relative flex flex-col transform md:scale-110 shadow-2xl shadow-active/20 z-10 order-1 md:order-2">
+        <div class="absolute top-0 right-0 bg-active text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg tracking-wider font-display">SUBSCRIPTION</div>
+        <h3 class="text-2xl font-bold text-white mb-2 font-display">Managed Security</h3>
+        <p class="text-white/60 mb-6 text-sm font-ui">Enterprise-grade hosting & monitoring</p>
+        <div class="text-4xl font-bold text-white mb-2 font-display">€75 - €150<span class="text-lg text-white/40 font-normal block mt-1">/maand (per tenant)</span></div>
         
+        <div class="h-px bg-white/10 my-8"></div>
+
         <ul class="space-y-4 mb-8 flex-1">
-          <li class="flex items-center text-white/80 font-ui">
-             <svg class="w-5 h-5 text-active mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <strong>SMTP Integratie</strong> (Eigen mailservers)
+          <li class="flex items-start text-white/80 font-ui">
+             <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            <span><strong>Anti-Gravity Security Suite</strong> (Ingebouwde hack-preventie)</span>
           </li>
-          <li class="flex items-center text-white/80 font-ui">
-             <svg class="w-5 h-5 text-active mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Meerdere pagina's
+          <li class="flex items-start text-white/80 font-ui">
+             <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+            <span>Managed Hosting (Frontend + API)</span>
           </li>
-          <li class="flex items-center text-white/80 font-ui">
-            <svg class="w-5 h-5 text-active mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Priority Support
+          <li class="flex items-start text-white/80 font-ui">
+            <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            <span>GDPR-proof Logging & Backups</span>
+          </li>
+          <li class="flex items-start text-white/80 font-ui">
+            <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            <span>Centraal Backend Onderhoud</span>
           </li>
         </ul>
         
-        <!-- STANDARD SIGNUP -->
-        <a href="/contact?type=signup&plan=professional" class="block text-center py-3 rounded-lg bg-active text-white font-bold hover:bg-active/90 transition-colors font-ui shadow-lg shadow-active/25">Kies Professional</a>
+        <a href="/contact?type=hosting" class="block text-center py-3 rounded-lg bg-active text-white font-bold hover:bg-active/90 transition-colors font-ui shadow-lg shadow-active/25">Kies Subscription</a>
       </div>
 
-      <!-- Advanced -->
-      <div class="clinical-glass p-8 rounded-2xl border border-white/10 flex flex-col hover:border-active/20 transition-colors">
-        <h3 class="text-2xl font-bold text-white mb-2 font-display">Advanced</h3>
-        <p class="text-white/60 mb-6 text-sm font-ui">Full-service maatwerk</p>
-        <div class="text-4xl font-bold text-white mb-8 font-display">€2499<span class="text-lg text-white/40 font-normal">/maand</span></div>
+      <!-- Slot 3: IoT Connectivity (Usage) -->
+      <div class="clinical-glass p-8 rounded-2xl border border-white/10 flex flex-col hover:border-active/20 transition-colors order-3">
+        <h3 class="text-2xl font-bold text-white mb-2 font-display">IoT Connectivity</h3>
+        <p class="text-white/60 mb-6 text-sm font-ui">Schaalbaar per device</p>
+        <div class="text-4xl font-bold text-white mb-2 font-display">€2 - €5<span class="text-lg text-white/40 font-normal block mt-1">/maand (per device)</span></div>
         
+        <div class="h-px bg-white/10 my-8"></div>
+
         <ul class="space-y-4 mb-8 flex-1">
-           <li class="flex items-center text-white/80 font-ui">
-            <svg class="w-5 h-5 text-active mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            <strong>Realtime Convex Engine</strong>
+           <li class="flex items-start text-white/80 font-ui">
+            <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+            <span>Secure HMAC Telemetrie</span>
           </li>
-          <li class="flex items-center text-white/80 font-ui">
-            <svg class="w-5 h-5 text-active mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Custom Applications
+          <li class="flex items-start text-white/80 font-ui">
+             <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+            <span>Real-time Data Storage</span>
           </li>
-           <li class="flex items-center text-white/80 font-ui">
-            <svg class="w-5 h-5 text-active mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            Geavanceerde Security Audit
+           <li class="flex items-start text-white/80 font-ui">
+            <svg class="w-5 h-5 text-active mr-3 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+            <span>Managed Infrastructure</span>
           </li>
         </ul>
         
-        <!-- ENTERPRISE CONTACT -->
-        <a href="/contact?type=enterprise" class="block text-center py-3 rounded-lg border border-white/20 text-white hover:bg-white/10 transition-colors font-bold font-ui">Contacteer Sales</a>
+        <a href="/contact?type=iot" class="block text-center py-3 rounded-lg border border-white/20 text-white hover:bg-white/10 transition-colors font-bold font-ui">Connect Hardware</a>
       </div>
-    </div>
-
-    <!-- Comparison Table -->
-    <div class="max-w-4xl mx-auto overflow-x-auto">
-      <h2 class="text-3xl font-bold text-white mb-8 text-center font-display">Vergelijk de Features</h2>
-      <table class="w-full text-left border-collapse">
-        <thead>
-          <tr>
-            <th class="p-4 border-b border-white/10 text-white/60 font-normal font-ui">Feature</th>
-            <th class="p-4 border-b border-white/10 text-white font-bold text-center font-display">Essential</th>
-            <th class="p-4 border-b border-white/10 text-active font-bold text-center font-display">Professional</th>
-            <th class="p-4 border-b border-white/10 text-white font-bold text-center font-display">Advanced</th>
-          </tr>
-        </thead>
-        <tbody class="text-white/80 font-ui">
-          <tr class="hover:bg-active/5 transition-colors">
-            <td class="p-4 border-b border-white/5">Domeinnaam & Hosting</td>
-             <td class="p-4 border-b border-white/5 text-center text-green-400">
-                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            </td>
-            <td class="p-4 border-b border-white/5 text-center text-green-400">
-                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            </td>
-            <td class="p-4 border-b border-white/5 text-center text-green-400">
-                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            </td>
-          </tr>
-          <tr class="hover:bg-active/5 transition-colors">
-            <td class="p-4 border-b border-white/5">SMTP Integratie</td>
-            <td class="p-4 border-b border-white/5 text-center text-white/20">
-                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </td>
-             <td class="p-4 border-b border-white/5 text-center text-green-400">
-                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            </td>
-            <td class="p-4 border-b border-white/5 text-center text-green-400">
-                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            </td>
-          </tr>
-          <tr class="hover:bg-white/5 transition-colors">
-            <td class="p-4 border-b border-white/5">Realtime Convex Engine</td>
-            <td class="p-4 border-b border-white/5 text-center text-white/20">
-                 <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </td>
-            <td class="p-4 border-b border-white/5 text-center text-white/20">
-                 <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </td>
-             <td class="p-4 border-b border-white/5 text-center text-green-400">
-                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-            </td>
-          </tr>
-          <tr class="hover:bg-white/5 transition-colors">
-            <td class="p-4 border-b border-white/5">Maatwerk Dashboard</td>
-            <td class="p-4 border-b border-white/5 text-center text-white/20">
-                 <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </td>
-            <td class="p-4 border-b border-white/5 text-center font-bold">Lite</td>
-            <td class="p-4 border-b border-white/5 text-center font-bold">Full</td>
-          </tr>
-          <tr class="hover:bg-white/5 transition-colors">
-            <td class="p-4 border-b border-white/5">SLA Support</td>
-            <td class="p-4 border-b border-white/5 text-center">Standard</td>
-            <td class="p-4 border-b border-white/5 text-center">Priority</td>
-            <td class="p-4 border-b border-white/5 text-center">24/7 Dedicated</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </Layout>
