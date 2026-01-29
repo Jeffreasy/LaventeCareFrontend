@@ -4,7 +4,7 @@ import Card from '../components/ui/Card.astro';
 import { ContactForm } from '../components/islands/ContactForm';
 
 const pageTitle = 'Contact - LaventeCare';
-const pageDescription = 'Neem contact met ons op via het formulier';
+const pageDescription = 'Neem contact op met LaventeCare voor high-performance web development en veilige backend oplossingen.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -24,7 +24,7 @@ const pageDescription = 'Neem contact met ons op via het formulier';
       </div>
 
       <Card padding="lg" class="max-w-2xl mx-auto">
-        <ContactForm client:load />
+        <ContactForm client:visible />
       </Card>
     </div>
   </section>
@@ -46,6 +46,8 @@ const pageDescription = 'Neem contact met ons op via het formulier';
           <p class="text-white/70 text-sm">info@laventecare.nl</p>
         </Card>
 
+        <!-- Placeholder Data Commented Out for SEO Trust -->
+        <!--
         <Card hover padding="md" class="text-center">
           <div class="text-3xl mb-3">📞</div>
           <h3 class="font-semibold text-white mb-2">Telefoon</h3>
@@ -57,7 +59,10 @@ const pageDescription = 'Neem contact met ons op via het formulier';
           <h3 class="font-semibold text-white mb-2">Adres</h3>
           <p class="text-white/70 text-sm">Amsterdam, Nederland</p>
         </Card>
+        -->
       </div>
+    </div>
+  </section>
     </div>
   </section>
 </Layout>

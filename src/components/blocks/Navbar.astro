@@ -27,7 +27,7 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
       <a href="/" class="flex items-center space-x-2">
         {
           logo?.filename ? (
-            <img src={logo.filename} alt={logo.alt || siteName} class="h-8" />
+            <img src={logo.filename} alt={logo.alt || siteName} width="32" height="32" class="h-8 w-auto" />
           ) : (
             <span class="text-xl font-bold text-[oklch(0.70_0.18_158)] font-display">
               {siteName}

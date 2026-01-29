@@ -1,5 +1,6 @@
 ---
 import type { ShowcaseTenant } from '../../lib/types';
+import Card from '../ui/Card.astro';
 
 const API_URL = import.meta.env.PUBLIC_API_URL;
 let tenants: ShowcaseTenant[] = [];
@@ -23,69 +24,73 @@ try {
   <section class="py-24 relative overflow-hidden">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
-        <span class="text-[oklch(0.70_0.18_158)] font-semibold tracking-wider uppercase mb-4 block">Ecosystem Spotlight</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Powered by LaventeCare</h2>
-        <p class="text-white/70 max-w-2xl mx-auto">
-          Ontdek innovatieve bedrijven die bouwen op ons platform.
+        <span class="text-[oklch(0.70_0.18_158)] font-semibold tracking-wider uppercase mb-4 block">Ecosystem & Agency Portfolio</span>
+        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 font-display">Powered by LaventeCare</h2>
+        <p class="text-white/70 max-w-2xl mx-auto text-lg">
+          Van SaaS-security tot maatwerk platforms. Ontdek wat wij bouwen.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {tenants.map((tenant) => (
-          <a 
-            href={tenant.app_url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="clinical-glass p-6 rounded-2xl border border-white/10 hover:border-[oklch(0.70_0.18_158)]/50 transition-all duration-300 group hover:-translate-y-1 block h-full flex flex-col"
-          >
-            <div class="flex items-start justify-between mb-4">
-              <div class="flex items-center space-x-3">
-                 <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shrink-0">
-                    {tenant.logo_url ? (
-                      <img src={tenant.logo_url} alt={tenant.name} class="w-full h-full object-cover" />
-                    ) : (
-                      <span class="text-xl font-bold text-white/50">{tenant.name.charAt(0)}</span>
-                    )}
-                 </div>
-                 <div>
-                    <h3 class="text-lg font-bold text-white group-hover:text-[oklch(0.70_0.18_158)] transition-colors leading-tight">
-                      {tenant.name}
-                    </h3>
-                    {tenant.tagline && (
-                      <p class="text-xs text-white/50 line-clamp-1">{tenant.tagline}</p>
-                    )}
-                 </div>
-              </div>
-              
-              <span class="px-2 py-1 rounded text-[10px] font-bold uppercase tracking-wider bg-[oklch(0.70_0.18_158)]/10 text-[oklch(0.70_0.18_158)] border border-[oklch(0.70_0.18_158)]/20">
-                {tenant.category || 'App'}
-              </span>
-            </div>
-            
-            <p class="text-white/70 text-sm mb-4 line-clamp-2 flex-grow">
-              {tenant.description}
-            </p>
-
-            {/* Tags */}
-            {tenant.tags && tenant.tags.length > 0 && (
-                <div class="flex flex-wrap gap-2 mb-4">
-                    {tenant.tags.slice(0, 3).map(tag => (
-                        <span class="text-xs text-white/40 bg-white/5 px-2 py-0.5 rounded border border-white/5">
-                            #{tag}
-                        </span>
-                    ))}
-                    {tenant.tags.length > 3 && (
-                        <span class="text-xs text-white/20 px-1">+{tenant.tags.length - 3}</span>
-                    )}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 auto-rows-fr">
+        {tenants.map((tenant, index) => {
+           return (
+            <a 
+              href={tenant.app_url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="group block h-full"
+            >
+              <Card hover class="h-full flex flex-col transition-transform duration-500 hover:-translate-y-2">
+                <div class="flex items-start justify-between mb-6">
+                  <div class="flex items-center space-x-4">
+                     <div class="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center overflow-hidden shrink-0 shadow-inner">
+                        {tenant.logo_url ? (
+                          <img src={tenant.logo_url} alt={tenant.name} width="56" height="56" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+                        ) : (
+                          <span class="text-2xl font-bold text-white/50">{tenant.name.charAt(0)}</span>
+                        )}
+                     </div>
+                     <div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-active transition-colors leading-tight font-display">
+                          {tenant.name}
+                        </h3>
+                        {tenant.tagline && (
+                          <p class="text-sm text-white/50 line-clamp-1">{tenant.tagline}</p>
+                        )}
+                     </div>
+                  </div>
+                  
+                  <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">
+                    {tenant.category || 'App'}
+                  </span>
                 </div>
-            )}
-
-            <div class="flex items-center text-[oklch(0.70_0.18_158)] text-sm font-medium mt-auto border-t border-white/5 pt-4">
-              <span>Bezoek Website</span>
-              <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </div>
-          </a>
-        ))}
+                
+                <p class="text-white/70 text-base mb-6 line-clamp-3 flex-grow leading-relaxed">
+                  {tenant.description}
+                </p>
+    
+                {/* Tags */}
+                {tenant.tags && tenant.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        {tenant.tags.slice(0, 3).map(tag => (
+                            <span class="text-xs text-white/40 bg-white/5 px-2.5 py-1 rounded-md border border-white/5 font-medium">
+                                #{tag}
+                            </span>
+                        ))}
+                        {tenant.tags.length > 3 && (
+                            <span class="text-xs text-white/20 px-2 flex items-center">+{tenant.tags.length - 3}</span>
+                        )}
+                    </div>
+                )}
+    
+                <div class="flex items-center text-active text-sm font-bold mt-auto border-t border-white/5 pt-5 group/link">
+                  <span class="group-hover/link:underline">Bezoek Project</span>
+                  <svg class="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+              </Card>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>

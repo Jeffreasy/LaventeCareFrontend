@@ -17,6 +17,10 @@ interface Props {
   };
   ctaPrimary?: CTA;
   ctaSecondary?: CTA;
+  stats?: {
+    value: string;
+    label: string;
+  }[];
   alignment?: 'left' | 'center' | 'right';
   size?: 'small' | 'medium' | 'large';
   class?: string;
@@ -29,6 +33,7 @@ const {
   backgroundImage,
   ctaPrimary,
   ctaSecondary,
+  stats,
   alignment = 'center',
   size = 'large',
   class: className,
@@ -183,25 +188,23 @@ const headingSize = {
       }
 
       <!-- Stats Section -->
-      <div
-        class={cn(
-          'grid grid-cols-3 gap-8 mt-12 pt-12 border-t border-white/10',
-          alignment === 'center' && 'max-w-2xl mx-auto'
-        )}
-      >
-        <div class="text-center">
-          <div class="text-4xl md:text-5xl font-bold text-white mb-2 font-display">10k+</div>
-          <div class="text-sm text-white/70">Patiënten</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl md:text-5xl font-bold text-white mb-2 font-display">99.9%</div>
-          <div class="text-sm text-white/70">Uptime</div>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl md:text-5xl font-bold text-white mb-2 font-display">24/7</div>
-          <div class="text-sm text-white/70">Support</div>
-        </div>
-      </div>
+      {
+        stats && stats.length > 0 && (
+          <div
+            class={cn(
+              'grid grid-cols-3 gap-8 mt-12 pt-12 border-t border-white/10',
+              alignment === 'center' && 'max-w-2xl mx-auto'
+            )}
+          >
+            {stats.map((stat) => (
+              <div class="text-center">
+                <div class="text-4xl md:text-5xl font-bold text-white mb-2 font-display">{stat.value}</div>
+                <div class="text-sm text-white/70">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
 
