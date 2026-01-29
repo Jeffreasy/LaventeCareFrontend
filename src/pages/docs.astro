@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Developer Portal - LaventeCare">
+  <div class="container mx-auto px-4 py-24">
+    <div class="flex flex-col md:flex-row gap-12">
+      <!-- Sidebar -->
+      <aside class="w-full md:w-64 flex-shrink-0">
+        <div class="sticky top-24">
+          <h3 class="font-bold text-white mb-4 px-2 tracking-wide uppercase text-sm text-[oklch(0.70_0.18_158)]">Developer Portal</h3>
+          
+          <div class="mb-8">
+            <h4 class="text-white/50 text-xs font-bold uppercase mb-2 px-2">Guides</h4>
+            <ul class="space-y-1">
+              <li><a href="#intro" class="block px-2 py-1 text-white bg-white/10 rounded">Introductie</a></li>
+              <li><a href="#integration" class="block px-2 py-1 text-white/60 hover:text-white transition-colors">Integration</a></li>
+              <li><a href="#iot-guide" class="block px-2 py-1 text-white/60 hover:text-white transition-colors">IoT Telemetry</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white/50 text-xs font-bold uppercase mb-2 px-2">API Reference</h4>
+            <ul class="space-y-1">
+              <li><a href="#auth" class="block px-2 py-1 text-white/60 hover:text-white transition-colors">Authentication</a></li>
+              <li><a href="#endpoints" class="block px-2 py-1 text-white/60 hover:text-white transition-colors">Public Endpoints</a></li>
+              <li><a href="#models" class="block px-2 py-1 text-white/60 hover:text-white transition-colors">Data Models</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <div class="flex-1 min-w-0">
+        <div class="clinical-glass p-10 rounded-2xl border border-white/10">
+          <h1 class="text-4xl font-bold text-white mb-6">LaventeCare Developer Portal</h1>
+          <p class="text-xl text-white/70 mb-8 border-b border-white/10 pb-8">
+            Technical Hub voor integratie met de LaventeCare Core.
+          </p>
+
+          <article class="prose prose-invert max-w-none space-y-12">
+            
+            <!-- Integration Section -->
+            <div id="integration">
+              <h2 class="text-2xl font-bold text-white mb-4">Integration Guide</h2>
+              <p class="text-white/70 mb-4">
+                Verbind uw Astro applicatie met onze beveiligde backend.
+              </p>
+              
+              <div class="bg-black/30 rounded-lg p-6 border border-white/10 mb-6">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs text-white/50 uppercase font-bold">Installation</span>
+                </div>
+                <code class="font-mono text-sm text-[oklch(0.70_0.18_158)]">
+                  npm install @laventecare/sdk<br/>
+                  npx laventecare init
+                </code>
+              </div>
+            </div>
+
+            <!-- IoT Guide Section -->
+            <div id="iot-guide">
+              <h2 class="text-2xl font-bold text-white mb-4">IoT Telemetry Guide</h2>
+              <div class="bg-[oklch(0.70_0.18_158)]/5 border-l-4 border-[oklch(0.70_0.18_158)] p-4 rounded-r-lg mb-6">
+                <h4 class="font-bold text-[oklch(0.70_0.18_158)] mb-1">HMAC Authentication</h4>
+                <p class="text-sm text-white/80">Hardware devices gebruiken HMAC-SHA256 signatures in plaats van JWTs. Dit voorkomt replay attacks en garandeert data-integriteit.</p>
+              </div>
+
+               <p class="text-white/70 mb-4"><strong>Payload Structure:</strong></p>
+               <pre class="bg-black/30 p-4 rounded-lg overflow-x-auto text-sm text-white/80 border border-white/10"><code>{`{
+  "device_id": "550e8400-e29b-41d4-a716-446655440000",
+  "timestamp": 1706555555,
+  "metrics": {
+    "temperature": 22.5,
+    "humidity": 45.2
+  },
+  "signature": "hmac_sha256_hash_here"
+}`}</code></pre>
+            </div>
+
+            <!-- Auth Section -->
+            <div id="auth">
+              <h2 class="text-2xl font-bold text-white mb-4">Authentication (Anti-Gravity Law #2)</h2>
+              <p class="text-white/70 mb-4">
+                Onze API gebruikt <strong>JWT (JSON Web Tokens)</strong> in `HttpOnly` cookies voor sessiebeheer. Client-side access tokens zijn kortlevend.
+                <br/><br/>
+                <strong>Security Headers:</strong> Elke request moet een geldig `X-CSRF-Token` bevatten.
+              </p>
+            </div>
+
+            <!-- Endpoints Section -->
+            <div id="endpoints">
+              <h2 class="text-2xl font-bold text-white mb-4">Public Endpoints</h2>
+              
+              <div class="space-y-4">
+                <!-- Endpoint -->
+                <div class="group border-b border-white/5 pb-4">
+                  <div class="flex items-center space-x-3 mb-2">
+                    <span class="px-2 py-1 rounded bg-green-500/20 text-green-400 text-xs font-bold border border-green-500/30">GET</span>
+                    <code class="text-white font-mono text-sm">/v1/health</code>
+                  </div>
+                  <p class="text-white/60 text-sm">Liveness & DB connectivity check.</p>
+                </div>
+
+                <!-- Endpoint -->
+                <div class="group border-b border-white/5 pb-4">
+                   <div class="flex items-center space-x-3 mb-2">
+                    <span class="px-2 py-1 rounded bg-blue-500/20 text-blue-400 text-xs font-bold border border-blue-500/30">POST</span>
+                    <code class="text-white font-mono text-sm">/v1/auth/login</code>
+                  </div>
+                  <p class="text-white/60 text-sm">Credential validation. Returns HttpOnly cookies.</p>
+                </div>
+
+                 <!-- Endpoint -->
+                <div class="group border-b border-white/5 pb-4">
+                   <div class="flex items-center space-x-3 mb-2">
+                    <span class="px-2 py-1 rounded bg-blue-500/20 text-blue-400 text-xs font-bold border border-blue-500/30">POST</span>
+                    <code class="text-white font-mono text-sm">/v1/iot/telemetry</code>
+                  </div>
+                  <p class="text-white/60 text-sm">Ingest IoT data points (Rate Limit: 1000 req/min).</p>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

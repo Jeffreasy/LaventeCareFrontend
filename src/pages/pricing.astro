@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Prijzen & Tiers - LaventeCare">
+  <div class="container mx-auto px-4 py-24">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h1 class="text-5xl font-bold text-white mb-6">Transparante Prijzen</h1>
+      <p class="text-xl text-white/70">
+        Kies het pakket dat bij uw ambities past. Of u nu net begint of klaar bent voor enterprise schaal.
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24">
+      <!-- Essential -->
+      <div class="clinical-glass p-8 rounded-2xl border border-white/10 flex flex-col">
+        <h3 class="text-2xl font-bold text-white mb-2">Essential</h3>
+        <p class="text-white/60 mb-6 text-sm">Perfect voor starters</p>
+        <div class="text-4xl font-bold text-white mb-8">€499<span class="text-lg text-white/40 font-normal">/maand</span></div>
+        
+        <ul class="space-y-4 mb-8 flex-1">
+          <li class="flex items-center text-white/80">
+            <svg class="w-5 h-5 text-[oklch(0.70_0.18_158)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Basis Landing Page
+          </li>
+          <li class="flex items-center text-white/80">
+            <svg class="w-5 h-5 text-[oklch(0.70_0.18_158)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            SSL Certificaat
+          </li>
+          <li class="flex items-center text-white/80">
+            <svg class="w-5 h-5 text-[oklch(0.70_0.18_158)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Email Support
+          </li>
+        </ul>
+        
+        <!-- STANDARD SIGNUP -->
+        <a href="/contact?type=signup&plan=essential" class="block text-center py-3 rounded-lg border border-white/20 text-white hover:bg-white/10 transition-colors">Start Essential</a>
+      </div>
+
+      <!-- Professional -->
+      <div class="clinical-glass p-8 rounded-2xl border-2 border-[oklch(0.70_0.18_158)]/50 relative flex flex-col transform scale-105 shadow-2xl shadow-[oklch(0.70_0.18_158)]/10 z-10">
+        <div class="absolute top-0 right-0 bg-[oklch(0.70_0.18_158)] text-black text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">POPULAIR</div>
+        <h3 class="text-2xl font-bold text-white mb-2">Professional</h3>
+        <p class="text-white/60 mb-6 text-sm">Voor groeiende bedrijven</p>
+        <div class="text-4xl font-bold text-white mb-8">€999<span class="text-lg text-white/40 font-normal">/maand</span></div>
+        
+        <ul class="space-y-4 mb-8 flex-1">
+          <li class="flex items-center text-white/80">
+             <svg class="w-5 h-5 text-[oklch(0.70_0.18_158)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <strong>SMTP Integratie</strong> (Eigen mailservers)
+          </li>
+          <li class="flex items-center text-white/80">
+             <svg class="w-5 h-5 text-[oklch(0.70_0.18_158)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Meerdere pagina's
+          </li>
+          <li class="flex items-center text-white/80">
+            <svg class="w-5 h-5 text-[oklch(0.70_0.18_158)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Priority Support
+          </li>
+        </ul>
+        
+        <!-- STANDARD SIGNUP -->
+        <a href="/contact?type=signup&plan=professional" class="block text-center py-3 rounded-lg bg-[oklch(0.70_0.18_158)] text-black font-bold hover:bg-[oklch(0.70_0.18_158)]/90 transition-colors">Kies Professional</a>
+      </div>
+
+      <!-- Advanced -->
+      <div class="clinical-glass p-8 rounded-2xl border border-white/10 flex flex-col">
+        <h3 class="text-2xl font-bold text-white mb-2">Advanced</h3>
+        <p class="text-white/60 mb-6 text-sm">Full-service maatwerk</p>
+        <div class="text-4xl font-bold text-white mb-8">€2499<span class="text-lg text-white/40 font-normal">/maand</span></div>
+        
+        <ul class="space-y-4 mb-8 flex-1">
+           <li class="flex items-center text-white/80">
+            <svg class="w-5 h-5 text-[oklch(0.70_0.18_158)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <strong>Realtime Convex Engine</strong>
+          </li>
+          <li class="flex items-center text-white/80">
+            <svg class="w-5 h-5 text-[oklch(0.70_0.18_158)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Custom Applications
+          </li>
+           <li class="flex items-center text-white/80">
+            <svg class="w-5 h-5 text-[oklch(0.70_0.18_158)] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            Geavanceerde Security Audit
+          </li>
+        </ul>
+        
+        <!-- ENTERPRISE CONTACT -->
+        <a href="/contact?type=enterprise" class="block text-center py-3 rounded-lg border border-white/20 text-white hover:bg-white/10 transition-colors">Contacteer Sales</a>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="max-w-4xl mx-auto overflow-x-auto">
+      <h2 class="text-3xl font-bold text-white mb-8 text-center">Vergelijk de Features</h2>
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr>
+            <th class="p-4 border-b border-white/10 text-white/60 font-normal">Feature</th>
+            <th class="p-4 border-b border-white/10 text-white font-bold text-center">Essential</th>
+            <th class="p-4 border-b border-white/10 text-[oklch(0.70_0.18_158)] font-bold text-center">Professional</th>
+            <th class="p-4 border-b border-white/10 text-white font-bold text-center">Advanced</th>
+          </tr>
+        </thead>
+        <tbody class="text-white/80">
+          <tr class="hover:bg-white/5 transition-colors">
+            <td class="p-4 border-b border-white/5">Domeinnaam & Hosting</td>
+             <td class="p-4 border-b border-white/5 text-center text-green-400">
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </td>
+            <td class="p-4 border-b border-white/5 text-center text-green-400">
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </td>
+            <td class="p-4 border-b border-white/5 text-center text-green-400">
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </td>
+          </tr>
+          <tr class="hover:bg-white/5 transition-colors">
+            <td class="p-4 border-b border-white/5">SMTP Integratie</td>
+            <td class="p-4 border-b border-white/5 text-center text-white/20">
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </td>
+             <td class="p-4 border-b border-white/5 text-center text-green-400">
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </td>
+            <td class="p-4 border-b border-white/5 text-center text-green-400">
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </td>
+          </tr>
+          <tr class="hover:bg-white/5 transition-colors">
+            <td class="p-4 border-b border-white/5">Realtime Convex Engine</td>
+            <td class="p-4 border-b border-white/5 text-center text-white/20">
+                 <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </td>
+            <td class="p-4 border-b border-white/5 text-center text-white/20">
+                 <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </td>
+             <td class="p-4 border-b border-white/5 text-center text-green-400">
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </td>
+          </tr>
+          <tr class="hover:bg-white/5 transition-colors">
+            <td class="p-4 border-b border-white/5">Maatwerk Dashboard</td>
+            <td class="p-4 border-b border-white/5 text-center text-white/20">
+                 <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </td>
+            <td class="p-4 border-b border-white/5 text-center font-bold">Lite</td>
+            <td class="p-4 border-b border-white/5 text-center font-bold">Full</td>
+          </tr>
+          <tr class="hover:bg-white/5 transition-colors">
+            <td class="p-4 border-b border-white/5">SLA Support</td>
+            <td class="p-4 border-b border-white/5 text-center">Standard</td>
+            <td class="p-4 border-b border-white/5 text-center">Priority</td>
+            <td class="p-4 border-b border-white/5 text-center">24/7 Dedicated</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Layout>

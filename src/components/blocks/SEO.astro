@@ -8,14 +8,14 @@ interface Props extends Partial<SEOProps> {
 const {
   title = 'LaventeCare',
   description = 'Enterprise Astro + Storyblok CMS',
-  ogImage,
+  image,
   noindex = false,
 } = Astro.props;
 
 const siteUrl = Astro.site?.href || 'http://localhost:4321';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
-const ogImageUrl = ogImage?.filename
-  ? new URL(ogImage.filename, siteUrl).href
+const ogImageUrl = image?.filename
+  ? new URL(image.filename, siteUrl).href
   : new URL('/og-image.png', siteUrl).href;
 ---
 

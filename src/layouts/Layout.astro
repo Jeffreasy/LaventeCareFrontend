@@ -2,7 +2,7 @@
 import Navbar from '../components/blocks/Navbar.astro';
 import Footer from '../components/blocks/Footer.astro';
 import SEO from '../components/blocks/SEO.astro';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -21,20 +21,7 @@ interface Props {
 const { title, description, seoOverride } = Astro.props;
 
 // Static site settings (previously from Storyblok)
-const settings = {
-  site_name: 'LaventeCare',
-  meta_title: 'LaventeCare',
-  meta_description: 'Enterprise Astro Application',
-  favicon: [{ filename: '/favicon.svg' }],
-  logo: [{ filename: '/logo.svg', alt: 'LaventeCare' }],
-  main_menu: [],
-  footer_columns: [],
-  social_links: [],
-  copyright_text: '© 2026 LaventeCare',
-  gtm_id: null,
-  cookie_consent_code: null,
-  og_image: null,
-};
+import { settings } from '../lib/config';
 ---
 
 <!doctype html>
@@ -55,11 +42,11 @@ const settings = {
     <SEO 
       title={seoOverride?.title || title || settings.meta_title}
       description={seoOverride?.description || description || settings.meta_description}
-      ogImage={seoOverride?.image || settings.og_image?.[0]}
+      image={seoOverride?.image || settings.og_image?.[0]}
     />
 
-    <!-- Astro View Transitions API -->
-    <ViewTransitions />
+    <!-- Astro Client Router (View Transitions) -->
+    <ClientRouter />
 
     <!-- GTM Head Script -->
     {settings.gtm_id && (

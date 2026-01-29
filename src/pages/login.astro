@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Login - LaventeCare">
+  <div class="min-h-screen flex items-center justify-center -mt-24"> <!-- Negative margin to offset header -->
+    <div class="clinical-glass p-8 rounded-2xl border border-white/10 w-full max-w-md relative overflow-hidden">
+      <!-- Loading Overlay -->
+      <div id="loading" class="absolute inset-0 bg-black/80 backdrop-blur-sm z-20 hidden items-center justify-center flex-col">
+          <div class="w-10 h-10 border-4 border-[oklch(0.70_0.18_158)] border-t-transparent rounded-full animate-spin mb-4"></div>
+          <p class="text-[oklch(0.70_0.18_158)] font-mono text-sm animate-pulse">Authenticating...</p>
+      </div>
+
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-white mb-2">Welcome Back</h1>
+        <p class="text-white/60">Enter your credentials to access the console</p>
+      </div>
+
+      <!-- Error Message -->
+      <div id="error-message" class="hidden bg-red-500/10 border border-red-500/50 text-red-200 px-4 py-3 rounded-lg mb-6 text-sm"></div>
+
+      <form class="space-y-6" id="login-form">
+        <div>
+          <label for="email" class="block text-sm font-medium text-white/70 mb-2">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+            class="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[oklch(0.70_0.18_158)] transition-colors"
+            placeholder="name@company.com"
+          />
+        </div>
+
+        <div>
+           <label for="password" class="block text-sm font-medium text-white/70 mb-2">Password</label>
+           <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            required
+             class="w-full bg-black/20 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[oklch(0.70_0.18_158)] transition-colors"
+            placeholder="••••••••"
+          />
+        </div>
+
+        <button 
+          type="submit" 
+          class="w-full bg-[oklch(0.70_0.18_158)] text-black font-bold py-3 rounded-lg hover:bg-[oklch(0.70_0.18_158)]/90 transition-colors cursor-pointer"
+        >
+          Sign In
+        </button>
+      </form>
+      
+      <div class="mt-6 text-center text-sm">
+        <a href="#" class="text-white/40 hover:text-white transition-colors">Forgot password?</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('login-form') as HTMLFormElement;
+  const loading = document.getElementById('loading');
+  const errorMsg = document.getElementById('error-message');
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!loading || !errorMsg) return;
+
+    // Reset UI
+    loading.classList.remove('hidden');
+    loading.classList.add('flex');
+    errorMsg.classList.add('hidden');
+    errorMsg.textContent = '';
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    try {
+      // Simulate network delay for UX (Anti-Gravity "Silence is Golden" doesn't mean instant feedback ;) )
+      // Just kidding, actual request:
+      // Use local proxy to avoid CORS issues with custom headers
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // No need to send X-Public-Key here, the proxy handles it
+        },
+        body: JSON.stringify(data),
+        // credentials: 'include', // Not strictly needed for same-origin proxy, but good practice if we want to forward browser cookies
+      });
+
+      if (response.ok) {
+        // Success
+        window.location.href = '/platform';
+      } else {
+        // Handle Error
+        const result = await response.json().catch(() => ({}));
+        loading.classList.add('hidden');
+        loading.classList.remove('flex');
+        
+        errorMsg.textContent = result.message || 'Authentication failed. Invalid credentials.';
+        errorMsg.classList.remove('hidden');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      loading.classList.add('hidden');
+      loading.classList.remove('flex');
+      errorMsg.textContent = 'Network error. Please try again later.';
+      errorMsg.classList.remove('hidden');
+    }
+  });
+</script>

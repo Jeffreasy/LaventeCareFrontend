@@ -1,71 +1,87 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/blocks/Hero.astro';
+import ShowcaseGrid from '../components/blocks/ShowcaseGrid.astro';
 
 // Type-safe hero data
 const heroData = {
-	headline: 'De toekomst van zorg, vandaag',
-	subtitle: '✨ Trusted by 10,000+ healthcare professionals',
+	headline: 'The Foundation for Growth',
+	subtitle: 'Next-Gen Web Infrastructure & Digital Experiences.',
 	description:
-		'LaventeCare biedt een enterprise-grade platform voor moderne zorgverlening. Veilig, betrouwbaar, en AVG-compliant.',
+		'LaventeCare biedt het ultieme fundament voor uw digitale ambities. Van bliksemsnelle websites tot complexe data-gedreven applicaties.',
 	ctaPrimary: {
 		label: 'Start gratis trial',
 		url: '/contact',
 	},
 	ctaSecondary: {
-		label: 'Bekijk demo',
-		url: '#diensten',
+		label: 'Ontdek het ecosysteem',
+		url: '#ecosystem',
 	},
 	alignment: 'center' as const,
 	size: 'large' as const,
 };
 ---
 
-<Layout title="LaventeCare - Home">
+<Layout title="LaventeCare - The Foundation for Growth">
 	<Hero {...heroData} />
+	
+	<ShowcaseGrid />
 
-	<!-- Features Section - Full Width Background -->
-	<section class="bg-background py-24" aria-labelledby="features-heading">
-		<div class="container mx-auto px-4">
-			<div class="text-center mb-16">
-				<h2
-					id="features-heading"
-					class="text-4xl md:text-5xl font-bold text-white mb-4 font-display"
-				>
-					Onze Diensten
+	<!-- Service Intro Section -->
+	<section id="ecosystem" class="bg-background py-24 relative overflow-hidden">
+		<!-- Decorative bg element -->
+		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[oklch(0.70_0.18_158)]/5 rounded-full blur-3xl pointer-events-none"></div>
+
+		<div class="container mx-auto px-4 relative">
+			<div class="max-w-4xl mx-auto text-center mb-20">
+				<span class="text-[oklch(0.70_0.18_158)] font-semibold tracking-wider uppercase mb-4 block">Het Ecosysteem</span>
+				<h2 class="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
+					Meer dan alleen code
 				</h2>
-				<p class="text-xl text-white/70 max-w-2xl mx-auto">
-					Enterprise-grade zorgoplossingen met moderne technologie
+				<p class="text-xl text-white/70">
+					LaventeCare is niet zomaar een development agency. Wij bieden een geïntegreerd platform waar snelheid, veiligheid en schaalbaarheid samenkomen. Uw centrale hub voor digitale innovatie.
 				</p>
 			</div>
 
+			<!-- USPs Section -->
 			<div class="grid md:grid-cols-3 gap-8">
+				<!-- USP 1: Snelheid -->
 				<div
-					class="clinical-glass p-8 rounded-2xl hover:scale-105 transition-transform duration-300 border border-white/10"
+					class="clinical-glass p-8 rounded-2xl hover:scale-105 transition-transform duration-300 border border-white/10 group"
 				>
-					<div class="text-5xl mb-4">🏥</div>
-					<h3 class="text-2xl font-bold text-white mb-3 font-display">Zorgplatform</h3>
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center mb-6 group-hover:from-blue-500/30 group-hover:to-purple-500/30 transition-colors">
+						<svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+					</div>
+					<h3 class="text-2xl font-bold text-white mb-3 font-display">Ultieme Snelheid</h3>
 					<p class="text-white/70">
-						Modern platform voor efficiënte zorgverlening en patiëntbeheer
+						Gebouwd op <strong>Astro</strong>. Wij leveren nagenoeg nul overbodige JavaScript aan de browser. Dit resulteert in topscores in Google Lighthouse en een ongeëvenaarde gebruikerservaring.
 					</p>
 				</div>
 
+				<!-- USP 2: Security -->
 				<div
-					class="clinical-glass p-8 rounded-2xl hover:scale-105 transition-transform duration-300 border border-white/10"
+					class="clinical-glass p-8 rounded-2xl hover:scale-105 transition-transform duration-300 border border-white/10 group"
 				>
-					<div class="text-5xl mb-4">📊</div>
-					<h3 class="text-2xl font-bold text-white mb-3 font-display">Analytics</h3>
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[oklch(0.70_0.18_158)]/20 to-green-500/20 flex items-center justify-center mb-6 group-hover:from-[oklch(0.70_0.18_158)]/30 group-hover:to-green-500/30 transition-colors">
+						<svg class="w-8 h-8 text-[oklch(0.70_0.18_158)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+					</div>
+					<h3 class="text-2xl font-bold text-white mb-3 font-display">Militaire Beveiliging</h3>
 					<p class="text-white/70">
-						Datagedreven inzichten voor betere besluitvorming en efficiëntie
+						Onze <strong>Anti-Gravity</strong> backend architectuur beschermt uw data met Row Level Security (RLS) en constante-tijd cryptografie. Input is toxic, verificatie is heilig.
 					</p>
 				</div>
 
+				<!-- USP 3: Flexibiliteit -->
 				<div
-					class="clinical-glass p-8 rounded-2xl hover:scale-105 transition-transform duration-300 border border-white/10"
+					class="clinical-glass p-8 rounded-2xl hover:scale-105 transition-transform duration-300 border border-white/10 group"
 				>
-					<div class="text-5xl mb-4">🔒</div>
-					<h3 class="text-2xl font-bold text-white mb-3 font-display">Veiligheid</h3>
-					<p class="text-white/70">AVG-compliant en beveiligd volgens de hoogste standaarden</p>
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-6 group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-colors">
+						<svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+					</div>
+					<h3 class="text-2xl font-bold text-white mb-3 font-display">Totale Flexibiliteit</h3>
+					<p class="text-white/70">
+						Van een high-converting <strong>landing page</strong> tot een complex <strong>IoT-dashboard</strong>. Het fundament schaalt moeiteloos mee met uw ambities, zonder technische limieten.
+					</p>
 				</div>
 			</div>
 		</div>
