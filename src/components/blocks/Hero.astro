@@ -63,7 +63,7 @@ const headingSize = {
 
 <section
   class={cn(
-    'relative overflow-hidden flex items-center min-h-[95vh]',
+    'relative overflow-hidden flex items-center min-h-[85vh] md:min-h-[95vh]',
     sizeClasses[size],
     className
   )}
@@ -191,13 +191,13 @@ const headingSize = {
         stats && stats.length > 0 && (
           <div
             class={cn(
-              'grid grid-cols-3 gap-8 mt-12 pt-12 border-t border-white/10',
+              'grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-12 border-t border-white/10',
               alignment === 'center' && 'max-w-2xl mx-auto'
             )}
           >
             {stats.map((stat) => (
-              <div class="text-center">
-                <div class="text-4xl md:text-5xl font-bold text-active mb-2 font-display">{stat.value}</div>
+              <div class="text-center flex flex-row md:flex-col justify-between md:justify-center items-center px-4 md:px-0">
+                <div class="text-3xl md:text-5xl font-bold text-active mb-0 md:mb-2 font-display">{stat.value}</div>
                 <div class="text-sm text-white/70">{stat.label}</div>
               </div>
             ))}
