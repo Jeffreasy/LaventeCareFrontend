@@ -18,7 +18,7 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
 ---
 
 <nav
-  class="fixed top-0 left-0 right-0 z-100 border-b border-white/10 bg-background/80 backdrop-blur-xl transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/80 backdrop-blur-xl transition-all duration-300"
   transition:name="navbar"
 >
   <div class="container mx-auto px-4">
@@ -92,7 +92,7 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
       </div>
 
       <!-- Mobile Menu Button (Pure CSS Details) -->
-      <details class="md:hidden group">
+      <details id="mobile-menu" class="md:hidden group">
         <summary class="list-none p-2 text-white/70 hover:text-white cursor-pointer">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -164,3 +164,27 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
     transition: transform 0.3s ease;
   }
 </style>
+
+
+<script>
+  // Mobile Menu Logic
+  const mobileMenu = document.getElementById('mobile-menu') as HTMLDetailsElement;
+  
+  if (mobileMenu) {
+    // 1. Auto-close on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.removeAttribute('open');
+      });
+    });
+
+    // 2. Click outside to close
+    document.addEventListener('click', (e) => {
+      // If clicking outside the menu (and it's not the summary toggle itself)
+      // Note: Summary toggle handles its own open/close via native HTML behavior
+      if (mobileMenu.hasAttribute('open') && !mobileMenu.contains(e.target as Node)) {
+        mobileMenu.removeAttribute('open');
+      }
+    });
+  }
+</script>
