@@ -71,7 +71,7 @@ const headingSize = {
   <!-- Animated Gradient Background -->
   <div class="absolute inset-0 z-0">
     <div
-      class="absolute inset-0 bg-linear-to-br from-active via-[oklch(0.65_0.16_160)] to-secondary"
+      class="absolute inset-0 bg-linear-to-br from-active via-secondary to-active/50 opacity-20"
     >
     </div>
     <div class="absolute inset-0 bg-background/60 backdrop-blur-sm"></div>
@@ -81,13 +81,13 @@ const headingSize = {
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <!-- Large floating circle -->
     <div
-      class="absolute top-20 right-10 w-96 h-96 rounded-full bg-active/20 blur-3xl animate-float-slow"
+      class="absolute top-20 right-10 w-96 h-96 rounded-full bg-active/10 blur-3xl animate-float-slow"
     >
     </div>
 
     <!-- Medium floating blob -->
     <div
-      class="absolute bottom-20 left-10 w-72 h-72 rounded-full bg-secondary/25 blur-2xl animate-float-medium"
+      class="absolute bottom-20 left-10 w-72 h-72 rounded-full bg-secondary/10 blur-2xl animate-float-medium"
     >
     </div>
 
@@ -97,7 +97,7 @@ const headingSize = {
     >
     </div>
     <div
-      class="absolute bottom-1/3 right-1/3 w-40 h-40 rounded-full bg-white/8 blur-xl animate-float-slow"
+      class="absolute bottom-1/3 right-1/3 w-40 h-40 rounded-full bg-white/5 blur-xl animate-float-slow"
       style="animation-delay: 2s;"
     >
     </div>
@@ -119,7 +119,7 @@ const headingSize = {
       {
         subtitle && (
           <div class={cn('inline-flex', alignment === 'center' && 'justify-center')}>
-            <span class="clinical-glass px-6 py-2.5 rounded-full text-sm font-medium text-white/90 backdrop-blur-xl border border-white/20 shadow-lg">
+            <span class="clinical-glass px-6 py-2.5 rounded-full text-xs font-bold tracking-[0.15em] uppercase text-active backdrop-blur-xl border border-white/10 shadow-lg animate-in fade-in slide-in-from-top-4 duration-1000">
               {subtitle}
             </span>
           </div>
@@ -130,14 +130,14 @@ const headingSize = {
       <h1
         class={cn(
           headingSize[size],
-          'font-display font-bold leading-[1.1] tracking-tight',
+          'font-display font-black leading-[1.0] tracking-tight',
           alignment === 'left' && 'text-left',
           alignment === 'center' && 'text-center',
           alignment === 'right' && 'text-right'
         )}
       >
         <span
-          class="bg-linear-to-r from-white via-white/95 to-white/90 bg-clip-text text-transparent drop-shadow-2xl animate-gradient-x"
+          class="bg-linear-to-r from-white via-white/95 to-white/70 bg-clip-text text-transparent drop-shadow-sm"
         >
           {headline}
         </span>

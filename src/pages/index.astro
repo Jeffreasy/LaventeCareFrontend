@@ -9,7 +9,7 @@ const heroData = {
 	headline: 'The Foundation for Digital Growth',
 	subtitle: 'Next-Gen Web Infrastructure & Digital Experiences.',
 	description:
-		'LaventeCare biedt het ultieme fundament voor uw digitale ambities. Van bliksemsnelle websites tot complexe data-gedreven applicaties.',
+		'LaventeCare biedt het ultieme fundament voor uw digitale ambities. Van <span class="text-active font-bold">bliksemsnelle websites</span> tot <span class="text-active font-bold">complexe data-gedreven applicaties</span>.',
 	ctaPrimary: {
 		label: 'Start gratis trial',
 		url: '/contact',
@@ -52,12 +52,14 @@ const jsonLd = {
 	<!-- Service Intro Section -->
 	<section id="ecosystem" class="bg-background py-24 relative overflow-hidden">
 		<!-- Decorative bg element -->
-		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[oklch(0.70_0.18_158)]/5 rounded-full blur-3xl pointer-events-none"></div>
+		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-active/5 rounded-full blur-3xl pointer-events-none"></div>
 
 		<div class="container mx-auto px-4 relative">
 			<div class="max-w-4xl mx-auto text-center mb-20">
-				<span class="text-[oklch(0.70_0.18_158)] font-semibold tracking-wider uppercase mb-4 block">Het Ecosysteem</span>
-				<h2 class="text-4xl md:text-5xl font-bold text-white mb-6 font-display">
+				<span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+					>Het Ecosysteem</span
+				>
+				<h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight leading-[1.1]">
 					Meer dan alleen code
 				</h2>
 				<p class="text-xl text-white/70">
@@ -87,8 +89,8 @@ const jsonLd = {
 				<div
 					class="md:col-span-4 clinical-glass p-8 rounded-3xl hover:scale-[1.02] transition-transform duration-300 border border-white/10 group"
 				>
-					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[oklch(0.70_0.18_158)]/20 to-green-500/20 flex items-center justify-center mb-6 group-hover:from-[oklch(0.70_0.18_158)]/30 group-hover:to-green-500/30 transition-colors">
-						<svg class="w-8 h-8 text-[oklch(0.70_0.18_158)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+					<div class="w-14 h-14 rounded-xl bg-gradient-to-br from-active/20 to-green-500/20 flex items-center justify-center mb-6 group-hover:from-active/30 group-hover:to-green-500/30 transition-colors">
+						<svg class="w-8 h-8 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
 					</div>
 					<h3 class="text-2xl font-bold text-white mb-3 font-display">Militaire Beveiliging</h3>
 					<p class="text-white/70">
