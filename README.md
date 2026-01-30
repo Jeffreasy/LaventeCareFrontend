@@ -23,9 +23,8 @@ De applicatie draait op `http://localhost:4321`
 ### Component-Driven Design
 
 - **UI Components** (`src/components/ui/`): Herbruikbare primitive components (Button, Card, etc.)
-- **Sections** (`src/components/sections/`): Samengestelde secties (Hero, Stats, Testimonial)
-- **Structure** (`src/components/structure/`): Layout components (Navbar, Footer, SEO)
-
+- **Blocks** (`src/components/blocks/`): Samengestelde secties (Hero, Navbar, Footer)
+- **Islands** (`src/components/islands/`): Interactieve React components
 ### Type Safety
 
 - **Build-time**: TypeScript interfaces voor compile-time garanties
@@ -38,12 +37,13 @@ De applicatie draait op `http://localhost:4321`
 src/
 ├── components/
 │   ├── ui/             # Primitive UI componenten (Button, Card, Input)
-│   ├── sections/       # Content secties (Hero, Stats, Testimonial)
-│   └── structure/      # Layout components (Navbar, Footer, Page)
+│   ├── blocks/         # Page sections & Layout (Hero, Navbar, Footer)
+│   └── islands/        # Interactive React componenten (Forms, Toggles)
 ├── layouts/
 │   └── Layout.astro    # Base layout met SEO en metadata
 ├── lib/
 │   ├── utils.ts        # cn() utility (Tailwind class merging)
+│   ├── convex.ts       # Convex backend initialization
 │   └── image.ts        # Image optimization helpers
 ├── pages/              # Astro routing
 ├── styles/
