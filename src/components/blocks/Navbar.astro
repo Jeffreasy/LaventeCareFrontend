@@ -27,7 +27,13 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
       <a href="/" class="flex items-center space-x-2 group">
         {
           logo?.filename ? (
-            <img src={logo.filename} alt={logo.alt || siteName} width="32" height="32" class="h-8 w-auto group-hover:opacity-80 transition-opacity" />
+            <img
+              src={logo.filename}
+              alt={logo.alt || siteName}
+              width="32"
+              height="32"
+              class="h-8 w-auto group-hover:opacity-80 transition-opacity"
+            />
           ) : (
             <span class="text-xl font-black text-active font-display tracking-tight group-hover:opacity-80 transition-opacity">
               {siteName}
@@ -41,19 +47,29 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
         {
           menu.map((item) => {
             const href = item.link.cached_url === 'home' ? '/' : `/${item.link.cached_url}`;
-            
+
             if (item.items && item.items.length > 0) {
               return (
                 <div class="relative group">
                   <button class="flex items-center space-x-1 text-white/70 hover:text-active transition-colors font-medium hover:bg-white/5 px-3 py-2 rounded-lg cursor-pointer">
                     <span class="font-ui tracking-wide text-sm">{item.label}</span>
-                    <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    <svg
+                      class="w-4 h-4 transition-transform group-hover:rotate-180"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
-                  
+
                   <div class="absolute left-0 top-full pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200 min-w-[200px]">
-                    <div class="clinical-glass rounded-xl border border-white/10 p-2 shadow-xl flex flex-col gap-1 backdrop-blur-3xl">
+                    <div class="bg-background/95 backdrop-blur-3xl rounded-xl border border-white/10 p-2 shadow-xl flex flex-col gap-1">
                       {item.items.map((subItem) => (
                         <a
                           href={`/${subItem.link.cached_url}`}
@@ -82,18 +98,27 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
 
       <!-- Login Button (Desktop) -->
       <div class="hidden md:flex items-center space-x-4">
-        <a 
-          href="/login" 
+        <a
+          href="/login"
           class="px-5 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-active/10 hover:border-active/20 hover:text-active text-white font-medium transition-all duration-300 flex items-center space-x-2 font-ui shadow-sm"
         >
-          <svg class="w-4 h-4 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+          <svg class="w-4 h-4 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+            ></path></svg
+          >
           <span>Login</span>
         </a>
       </div>
 
       <!-- Mobile Menu Button (Pure CSS Details) -->
       <details id="mobile-menu" class="md:hidden group">
-        <summary class="list-none p-2 text-white/70 hover:text-white cursor-pointer transition-colors">
+        <summary
+          class="list-none p-2 text-white/70 hover:text-white cursor-pointer transition-colors"
+        >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
@@ -104,12 +129,14 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
         </summary>
 
         <!-- Mobile Menu Content -->
-        <div class="absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-3xl border-t border-white/10 shadow-2xl h-[calc(100vh-4rem)] overflow-y-auto">
+        <div
+          class="absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-3xl border-t border-white/10 shadow-2xl h-[calc(100vh-4rem)] overflow-y-auto"
+        >
           <div class="px-4 py-4 space-y-2">
             {
               menu.map((item) => {
                 const href = item.link.cached_url === 'home' ? '/' : `/${item.link.cached_url}`;
-                
+
                 if (item.items && item.items.length > 0) {
                   return (
                     <div class="space-y-1">
@@ -139,7 +166,10 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
               })
             }
             <div class="pt-6 border-t border-white/5 mt-4">
-              <a href="/login" class="block w-full text-center py-4 rounded-xl bg-active/10 text-active font-bold border border-active/20 hover:bg-active/20 transition-all">
+              <a
+                href="/login"
+                class="block w-full text-center py-4 rounded-xl bg-active/10 text-active font-bold border border-active/20 hover:bg-active/20 transition-all"
+              >
                 Login
               </a>
             </div>
@@ -165,11 +195,10 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
   }
 </style>
 
-
 <script>
   // Mobile Menu Logic
   const mobileMenu = document.getElementById('mobile-menu') as HTMLDetailsElement;
-  
+
   if (mobileMenu) {
     // 0. Scroll Lock Logic
     const toggleScrollLock = (isOpen: boolean) => {
@@ -186,7 +215,7 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
     });
 
     // 1. Auto-close on link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
+    mobileMenu.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         mobileMenu.removeAttribute('open');
         // Toggle event will handle scroll unlock
