@@ -82,10 +82,14 @@ export const POST: APIRoute = async ({ request }) => {
             // - No Partitioned (CHIPS conflict)
             // - SameSite=Lax (Best for top-level navigation + AJAX)
             // - Path=/ (Universal)
-            // - HttpOnly (Security)
-            const newCookie = `${nameValue}; Path=/; HttpOnly; SameSite=Lax${maxAgeAttr}`;
+            // - HttpOnly (CONDITIONAL: False for csrf_token)
 
-            console.log(`[Proxy] Rebuilt Cookie: ${nameValue.substring(0, 20)}... | Attributes: Path=/; HttpOnly; SameSite=Lax${maxAgeAttr}`);
+            const isCsrf = nameValue.trim().startsWith('csrf_token=');
+            const httpOnlyAttr = isCsrf ? '' : '; HttpOnly';
+
+            const newCookie = `${nameValue}; Path=/${httpOnlyAttr}; SameSite=Lax${maxAgeAttr}`;
+
+            console.log(`[Proxy] Rebuilt Cookie: ${nameValue.substring(0, 20)}... | Attributes: P=/${httpOnlyAttr}; SS=Lax${maxAgeAttr}`);
             headers.append('Set-Cookie', newCookie);
         });
 

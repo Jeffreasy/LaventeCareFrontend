@@ -23,6 +23,10 @@ export const ALL: APIRoute = async ({ request, params, url }) => {
     // Debug Log (Development only)
     if (import.meta.env.DEV) {
         console.log(`[Universal Proxy] ${request.method} ${url.pathname} -> ${targetUrl}`);
+        const c = request.headers.get('cookie');
+        const csrf = request.headers.get('x-csrf-token');
+        console.log(`[Universal Proxy] In Cookies: ${c ? 'Present' : 'Missing'} (${c?.length} chars)`);
+        console.log(`[Universal Proxy] In CSRF Header: ${csrf ? 'Present' : 'Missing'} (${csrf})`);
     }
 
     // Clone Headers (Filter Host to avoid SNI issues)
@@ -78,7 +82,11 @@ export const ALL: APIRoute = async ({ request, params, url }) => {
                 let maxAgeAttr = maxAgeMatch ? `; Max-Age=${maxAgeMatch[1]}` : '';
 
                 // Rebuild Safe Cookie
-                const newCookie = `${nameValue}; Path=/; HttpOnly; SameSite=Lax${maxAgeAttr}`;
+                // csrf_token MUST be accessible to JS (not HttpOnly)
+                const isCsrf = nameValue.trim().startsWith('csrf_token=');
+                const httpOnlyAttr = isCsrf ? '' : '; HttpOnly';
+
+                const newCookie = `${nameValue}; Path=/${httpOnlyAttr}; SameSite=Lax${maxAgeAttr}`;
 
                 if (import.meta.env.DEV) {
                     console.log(`[Universal Proxy] Rebuilt Cookie: ${nameValue.substring(0, 20)}...`);
@@ -87,6 +95,12 @@ export const ALL: APIRoute = async ({ request, params, url }) => {
                 resHeaders.append('set-cookie', newCookie);
             });
         }
+
+        // Fix: content-encoding mismatch (ERR_CONTENT_DECODING_FAILED)
+        // Fetch decodes automatically, but headers might claim it is still gzipped
+        resHeaders.delete('content-encoding');
+        resHeaders.delete('content-length');
+        resHeaders.delete('transfer-encoding');
 
         // Return Proxied Response
         return new Response(backendResponse.body, {

@@ -12,11 +12,11 @@ const API_BASE = '';
 const TENANT_ID = import.meta.env.PUBLIC_TENANT_ID;
 
 // Helper to extract CSRF token from cookies
-function getCSRFToken(): string {
-    if (typeof document === 'undefined') return '';
-    const match = document.cookie.match(new RegExp('(^| )csrf_token=([^;]+)'));
-    return match ? match[2] : '';
-}
+const getCsrfToken = (): string | null => {
+    if (typeof document === 'undefined') return null;
+    const match = document.cookie.match(/(^|;)\s*csrf_token=([^;]+)/);
+    return match ? match[2] : null;
+};
 
 class ApiClient {
     private isRefreshing = false;
@@ -35,7 +35,7 @@ class ApiClient {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Tenant-ID': TENANT_ID,
-                'X-CSRF-Token': getCSRFToken(), // ✅ Injected for Cross-Origin POST
+                'X-CSRF-Token': getCsrfToken(), // ✅ Injected for Cross-Origin POST
                 ...options.headers,
             },
         };
