@@ -27,6 +27,59 @@ export interface User {
     organization_id: string;
 }
 
+export interface ConvexCredentials {
+    token: string;
+}
+
+// ============================================
+// Email Configuration Types
+// ============================================
+
+/**
+ * SMTP Configuration
+ * Used for configuring custom email server per tenant
+ */
+export interface SMTPConfig {
+    host: string;
+    port: number;
+    user: string;
+    password: string; // Plaintext in memory only, SHA-256 hashed before API transmission
+    from: string;
+    tls_mode: 'starttls' | 'tls';
+}
+
+/**
+ * Mail Configuration Response
+ * Backend never returns password for security
+ */
+export interface MailConfigResponse {
+    configured: boolean;
+    config?: {
+        host: string;
+        port: number;
+        user: string;
+        from: string;
+        tls_mode: string;
+    };
+}
+
+/**
+ * Email Delivery Statistics
+ */
+export interface EmailStats {
+    queue: {
+        pending: number;
+        processing: number;
+        sent: number;
+        failed: number;
+    };
+    delivery: {
+        delivered: number;
+        bounced: number;
+        spam: number;
+    };
+}
+
 export interface AuthResponse {
     token: string;
     user: User;

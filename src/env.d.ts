@@ -19,3 +19,14 @@ declare module '@alpinejs/collapse' {
     const collapse: PluginCallback;
     export default collapse;
 }
+
+// Astro Middleware Locals
+declare namespace App {
+    interface Locals {
+        isLoggedIn: boolean;
+        isAdmin: boolean;
+        accessToken?: string;
+        csrfToken?: string;
+    }
+}
+

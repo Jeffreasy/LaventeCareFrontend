@@ -1,78 +1,104 @@
 import type { APIRoute } from 'astro';
 
-// Force dynamic mode for this endpoint (fixes "POST not available in static endpoints" error)
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
     const API_URL = import.meta.env.PUBLIC_API_URL;
-    const APP_KEY = import.meta.env.PUBLIC_APP_KEY;
     const TENANT_ID = import.meta.env.PUBLIC_TENANT_ID;
 
-    console.log('[Proxy] Starting login request');
-    console.log(`[Proxy] Target: ${API_URL}/api/v1/auth/login`);
+    console.log('[Proxy] ===== LOGIN REQUEST START =====');
+    console.log('[Proxy] API_URL:', API_URL);
+    console.log('[Proxy] TENANT_ID:', TENANT_ID);
 
     try {
-        // Safe request body parsing
-        let data;
-        try {
-            data = await request.json();
-        } catch (e) {
-            console.error('[Proxy] Failed to parse client request JSON:', e);
-            return new Response(JSON.stringify({ message: 'Invalid JSON body in request' }), {
-                status: 400,
-                headers: { 'Content-Type': 'application/json' }
-            });
-        }
+        const data = await request.json();
+        console.log('[Proxy] Request body received:', {
+            email: data.email,
+            passwordLength: data.password?.length || 0
+        });
+
+        const requestBody = JSON.stringify(data);
+        console.log('[Proxy] Sending to backend...');
 
         const response = await fetch(`${API_URL}/api/v1/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-Public-Key': APP_KEY,
-                'X-Tenant-ID': TENANT_ID,
-                'Origin': 'http://localhost:4321', // Emulate allowed origin
+                'X-Tenant-ID': TENANT_ID,  // Only required header
             },
-            body: JSON.stringify(data),
+            body: requestBody,
         });
 
-        console.log(`[Proxy] Upstream Status: ${response.status}`);
+        console.log(`[Proxy] Status: ${response.status}`);
 
         const responseText = await response.text();
         let responseData;
 
-        // Attempt parsing only if there is content
-        if (responseText && responseText.trim().length > 0) {
-            try {
-                responseData = JSON.parse(responseText);
-            } catch (e) {
-                console.warn('[Proxy] Response was not JSON:', responseText);
-                responseData = { message: response.statusText, raw: responseText };
-            }
+        try {
+            responseData = JSON.parse(responseText);
+        } catch {
+            responseData = { message: response.statusText };
+        }
+
+        // CRITICAL: Extract cookies using Node.js Fetch API method
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+
+        // Node.js 18+ has getSetCookie() method
+        let cookies: string[] = [];
+        const rawResponseHeaders = response.headers as any;
+
+        if (typeof rawResponseHeaders.getSetCookie === 'function') {
+            cookies = rawResponseHeaders.getSetCookie();
+            console.log(`[Proxy] Using getSetCookie(), found ${cookies.length}`);
         } else {
-            // Empty body (common for 401/404/204)
-            responseData = { message: response.statusText || 'No detailed error message from server' };
+            console.warn('[Proxy] getSetCookie() not found! Node version might be too old.');
+            const rawHeader = response.headers.get('set-cookie');
+            if (rawHeader) {
+                console.log(`[Proxy] Fallback: Found raw 'set-cookie' header (length: ${rawHeader.length})`);
+                // Warning: This might be a merged string. Without a parser we can't split safely.
+                // We wrap it in array to allow attempts, but this is suboptimal.
+                cookies = [rawHeader];
+            } else {
+                console.warn('[Proxy] No set-cookie header found in fallback mode.');
+            }
         }
 
-        // Forward the Set-Cookie header if present
-        const setCookie = response.headers.get('set-cookie');
-        const headers = new Headers({
-            'Content-Type': 'application/json',
+        console.log(`[Proxy] Processing ${cookies.length} cookies...`);
+
+        cookies.forEach((cookie: string) => {
+            // ATOMIC RECONSTRUCTION STRATEGY
+            // Instead of regex patching, we parse and rebuild the cookie to guarantee validity.
+
+            // 1. Extract Name=Value (First part)
+            const parts = cookie.split(';');
+            const nameValue = parts[0];
+
+            // 2. Extract Max-Age (Persistence)
+            let maxAgeMatch = cookie.match(/Max-Age=([^;]+)/i);
+            let maxAgeAttr = maxAgeMatch ? `; Max-Age=${maxAgeMatch[1]}` : '';
+
+            // 3. Construct Clean Cookie for Localhost
+            // - No Secure (HTTP)
+            // - No Partitioned (CHIPS conflict)
+            // - SameSite=Lax (Best for top-level navigation + AJAX)
+            // - Path=/ (Universal)
+            // - HttpOnly (Security)
+            const newCookie = `${nameValue}; Path=/; HttpOnly; SameSite=Lax${maxAgeAttr}`;
+
+            console.log(`[Proxy] Rebuilt Cookie: ${nameValue.substring(0, 20)}... | Attributes: Path=/; HttpOnly; SameSite=Lax${maxAgeAttr}`);
+            headers.append('Set-Cookie', newCookie);
         });
-
-        if (setCookie) {
-            headers.append('Set-Cookie', setCookie);
-        }
 
         return new Response(JSON.stringify(responseData), {
             status: response.status,
-            headers: headers,
+            headers,
         });
 
     } catch (error) {
-        console.error('[Proxy] Internal Error:', error);
+        console.error('[Proxy] Error:', error);
         return new Response(JSON.stringify({
-            message: 'Internal Proxy Error',
-            details: error instanceof Error ? error.message : String(error)
+            message: 'Proxy Error',
+            details: error instanceof Error ? error.message : 'Unknown error'
         }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' }

@@ -1,0 +1,137 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import EmailConfig from '../../components/islands/EmailConfig';
+
+// Force server rendering for auth middleware
+export const prerender = false;
+---
+
+<Layout title="Admin Settings - LaventeCare">
+  <div class="min-h-screen pt-24 pb-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <div class="mb-8">
+          <a href="/admin" class="text-active hover:text-active/80 transition-colors font-ui text-sm mb-2 inline-flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to Admin
+          </a>
+          <h1 class="text-4xl font-bold text-white mb-2 font-display tracking-tight">
+            System <span class="text-active">Settings</span>
+          </h1>
+          <p class="text-white/60 font-ui">Configure email, security and integrations</p>
+        </div>
+
+        <!-- Settings Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <!-- Sidebar Navigation -->
+          <div class="lg:col-span-1">
+            <nav class="clinical-glass p-4 space-y-1">
+              <button 
+                data-tab="email" 
+                class="tab-button w-full text-left px-4 py-3 rounded-lg transition-all font-ui active"
+              >
+                <div class="flex items-center space-x-3">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                  <span>Email Configuration</span>
+                </div>
+              </button>
+
+              <!-- Future tabs -->
+              <button 
+                class="w-full text-left px-4 py-3 rounded-lg transition-all font-ui opacity-50 cursor-not-allowed" 
+                disabled
+              >
+                <div class="flex items-center space-x-3">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                  </svg>
+                  <span>Security</span>
+                  <span class="text-xs text-white/40 ml-auto">Soon</span>
+                </div>
+              </button>
+
+              <button 
+                class="w-full text-left px-4 py-3 rounded-lg transition-all font-ui opacity-50 cursor-not-allowed" 
+                disabled
+              >
+                <div class="flex items-center space-x-3">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                  <span>Integrations</span>
+                  <span class="text-xs text-white/40 ml-auto">Soon</span>
+                </div>
+              </button>
+            </nav>
+          </div>
+
+          <!-- Content Area -->
+          <div class="lg:col-span-3">
+            <div class="clinical-glass p-8">
+              <!-- Email Tab Content -->
+              <div id="email-tab" class="tab-content">
+                <EmailConfig client:load />
+              </div>
+
+              <!-- Future tab contents -->
+              <div id="security-tab" class="tab-content hidden">
+                <p class="text-white/60">Security settings coming soon...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .tab-button {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .tab-button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .tab-button.active {
+    background: oklch(0.70 0.18 158 / 0.1);
+    color: oklch(0.70 0.18 158);
+    border-left: 3px solid oklch(0.70 0.18 158);
+  }
+</style>
+
+<script>
+  // Tab switching logic (pure CSS approach for future enhancement)
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabContents = document.querySelectorAll('.tab-content');
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (button.hasAttribute('disabled')) return;
+
+      const tabId = button.getAttribute('data-tab');
+      
+      // Remove active class from all buttons
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to clicked button
+      button.classList.add('active');
+
+      // Hide all tab contents
+      tabContents.forEach(content => content.classList.add('hidden'));
+      
+      // Show selected tab content
+      const targetTab = document.getElementById(`${tabId}-tab`);
+      if (targetTab) {
+        targetTab.classList.remove('hidden');
+      }
+    });
+  });
+</script>

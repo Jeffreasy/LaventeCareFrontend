@@ -34,3 +34,10 @@ export const SOCIAL_LINKS = [
     // { platform: 'GitHub', url: 'https://github.com/yourorg' },
     // { platform: 'Twitter', url: 'https://twitter.com/yourorg' },
 ] as const;
+
+// API Endpoints
+export const API_ENDPOINTS = {
+    MAIL_CONFIG: '/api/v1/admin/mail-config',
+    EMAIL_STATS: '/api/v1/admin/email-stats',
+    MAIL_TEST: '/api/v1/admin/mail-config/test',
+} as const;

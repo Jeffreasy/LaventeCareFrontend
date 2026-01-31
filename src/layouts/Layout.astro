@@ -45,6 +45,9 @@ import { settings } from '../lib/config';
       image={seoOverride?.image || settings.og_image?.[0]}
     />
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content={Astro.locals.csrfToken} />
+
     <!-- Astro Client Router (View Transitions) -->
     <ClientRouter />
 

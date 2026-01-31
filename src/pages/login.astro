@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Force server rendering for auth middleware
+export const prerender = false;
 ---
 
 <Layout title="Login - LaventeCare">
@@ -92,8 +95,8 @@ import Layout from '../layouts/Layout.astro';
       });
 
       if (response.ok) {
-        // Success
-        window.location.href = '/platform';
+        // Success - force full page reload to update server-side navbar
+        window.location.replace('/platform');
       } else {
         // Handle Error
         const result = await response.json().catch(() => ({}));

@@ -1,5 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Force server rendering for auth middleware
+export const prerender = false;
 ---
 
 <Layout title="Het Ecosysteem - LaventeCare">
