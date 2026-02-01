@@ -3,7 +3,10 @@ export const settings = {
     meta_title: 'LaventeCare',
     meta_description: 'Enterprise Astro Application',
     favicon: [{ filename: '/favicon.svg' }],
-    logo: [{ filename: '/logo.svg', alt: 'LaventeCare' }],
+    logo: [{
+        filename: 'https://res.cloudinary.com/dgfuv7wif/image/upload/v1769967340/Gemini_Generated_Image_g7euilg7euilg7eu-removebg-preview_1_dwzy2f_c_crop_w_1920_h_1920_ar_1_1_g_auto_e_improve_e_sharpen_u6yfpq.png',
+        alt: 'LaventeCare'
+    }],
     main_menu: [
         {
             label: 'Home',
