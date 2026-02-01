@@ -8,7 +8,11 @@ import vercel from "@astrojs/vercel";
 // https://astro.build/config
 export default defineConfig({
     output: 'server', // ✅ Server-side rendering for auth middleware
-    adapter: vercel(),
+    adapter: vercel({
+        webAnalytics: {
+            enabled: true,
+        },
+    }),
     // Change to your production URL later
     site: 'http://localhost:4321',
 
@@ -27,11 +31,11 @@ export default defineConfig({
         headers: {
             'Content-Security-Policy': [
                 "default-src 'self'",
-                "script-src 'self' 'unsafe-inline'",
+                "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
                 "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com",
                 "img-src 'self' data: https:",
                 "font-src 'self' data: https://fonts.gstatic.com https://api.fontshare.com https://cdn.fontshare.com",
-                "connect-src 'self' https://laventecareauthsystems.onrender.com https://tangible-hyena-200.convex.cloud https://tangible-hyena-200.convex.site",
+                "connect-src 'self' https://laventecareauthsystems.onrender.com https://tangible-hyena-200.convex.cloud https://tangible-hyena-200.convex.site https://vitals.vercel-insights.com",
                 "frame-ancestors 'none'",
                 "base-uri 'self'",
                 "form-action 'self'"
