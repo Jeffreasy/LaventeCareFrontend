@@ -35,7 +35,7 @@ class ApiClient {
             headers: {
                 'Content-Type': 'application/json',
                 'X-Tenant-ID': TENANT_ID,
-                'X-CSRF-Token': getCsrfToken(), // ✅ Injected for Cross-Origin POST
+                'X-CSRF-Token': getCsrfToken() ?? '', // ✅ Injected for Cross-Origin POST
                 ...options.headers,
             },
         };
