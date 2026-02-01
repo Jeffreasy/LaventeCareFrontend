@@ -3,29 +3,134 @@ import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout title="Onze Diensten - LaventeCare">
+  <!-- Hero Section -->
   <div class="container mx-auto px-4 py-24">
-    <h1 class="text-4xl font-bold text-white mb-6">Onze Diensten</h1>
-    <p class="text-xl text-white/70 mb-12 max-w-3xl">
-      Ontdek hoe LaventeCare uw digitale aanwezigheid kan transformeren met onze gespecialiseerde oplossingen.
-    </p>
+    <div class="max-w-6xl mx-auto text-center">
+      <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Service Ecosystem</span>
+      <h1 class="text-5xl md:text-6xl font-black text-white mb-6 font-display tracking-tight">Onze Diensten</h1>
+      <p class="text-xl md:text-2xl text-white/70 mb-16 max-w-3xl mx-auto">
+        Van <span class="text-white font-semibold">bliksemsnelle landing pages</span> tot <span class="text-white font-semibold">enterprise-grade applicaties</span>. Ontdek hoe LaventeCare uw digitale aanwezigheid transformeert.
+      </p>
+    </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="clinical-glass p-8 rounded-2xl border border-white/10 hover:border-[oklch(0.70_0.18_158)]/50 transition-colors">
-        <h2 class="text-2xl font-bold text-white mb-4">Landing Pages</h2>
-        <p class="text-white/70 mb-6">High-performance pagina's ontworpen voor conversie en snelheid.</p>
-        <a href="/services/landing-pages" class="text-[oklch(0.70_0.18_158)] hover:underline">Meer informatie &rarr;</a>
+    <!-- Asymmetric Services Grid -->
+    <div class="max-w-6xl mx-auto">
+      <!-- Row 1: Landing Pages (Major) + Custom Apps -->
+      <div class="grid md:grid-cols-12 gap-8 mb-8">
+        <!-- Landing Pages - 8 columns (Major Feature) -->
+        <a 
+          href="/services/landing-pages" 
+          class="md:col-span-8 clinical-glass p-10 rounded-3xl border border-white/10 hover:border-[oklch(0.70_0.18_158)]/50 hover:-translate-y-2 transition-all duration-300 group block"
+        >
+          <div class="flex items-start gap-6">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-emerald-500/20 flex items-center justify-center flex-shrink-0 group-hover:from-blue-500/30 group-hover:to-emerald-500/30 transition-colors">
+              <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-3xl font-bold text-white mb-3 font-display group-hover:text-[oklch(0.70_0.18_158)] transition-colors">Landing Pages</h2>
+              <p class="text-white/70 text-lg mb-6 leading-relaxed">
+                High-performance pagina's die <span class="text-white font-medium">converteren</span>. Gebouwd met Astro 5, real-time data via Convex, en enterprise-grade beveiliging. Perfect voor SaaS, events, en lokale bedrijven.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10">100/100 Lighthouse</span>
+                <span class="text-xs px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10">Real-time Data</span>
+                <span class="text-xs px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10">SEO Optimized</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center text-[oklch(0.70_0.18_158)] text-sm font-bold mt-6 pt-6 border-t border-white/5">
+            <span class="group-hover:underline">Meer informatie</span>
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+        </a>
+
+        <!-- Custom Apps - 4 columns -->
+        <a 
+          href="/services/custom-apps" 
+          class="md:col-span-4 clinical-glass p-8 rounded-3xl border border-white/10 hover:border-[oklch(0.70_0.18_158)]/50 hover:-translate-y-2 transition-all duration-300 group block flex flex-col"
+        >
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[oklch(0.70_0.18_158)]/20 to-green-500/20 flex items-center justify-center mb-6 group-hover:from-[oklch(0.70_0.18_158)]/30 group-hover:to-green-500/30 transition-colors">
+            <svg class="w-8 h-8 text-[oklch(0.70_0.18_158)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <h2 class="text-2xl font-bold text-white mb-3 font-display group-hover:text-[oklch(0.70_0.18_158)] transition-colors">Maatwerk Applicaties</h2>
+          <p class="text-white/70 mb-6 leading-relaxed flex-1">
+            CRM-dashboards, data-platforms, en interne tools gebouwd met <span class="text-white font-medium">Go</span>, <span class="text-white font-medium">PostgreSQL</span>, en <span class="text-white font-medium">Convex</span>.
+          </p>
+          <div class="flex items-center text-[oklch(0.70_0.18_158)] text-sm font-bold mt-auto pt-6 border-t border-white/5">
+            <span class="group-hover:underline">Meer informatie</span>
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </div>
+        </a>
       </div>
 
-      <div class="clinical-glass p-8 rounded-2xl border border-white/10 hover:border-[oklch(0.70_0.18_158)]/50 transition-colors">
-        <h2 class="text-2xl font-bold text-white mb-4">Webshops</h2>
-        <p class="text-white/70 mb-6">Schaalbare e-commerce oplossingen die groeien met uw bedrijf.</p>
-        <a href="/services/webshops" class="text-[oklch(0.70_0.18_158)] hover:underline">Meer informatie &rarr;</a>
+      <!-- Row 2: Webshops (Major) -->
+      <div class="grid md:grid-cols-12 gap-8">
+        <!-- Webshops - Full Width with Internal Layout -->
+        <a 
+          href="/services/webshops" 
+          class="md:col-span-12 clinical-glass p-10 rounded-3xl border border-white/10 hover:border-[oklch(0.70_0.18_158)]/50 hover:-translate-y-1 transition-all duration-300 group block"
+        >
+          <div class="flex flex-col md:flex-row items-start gap-8">
+            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0 group-hover:from-orange-500/30 group-hover:to-pink-500/30 transition-colors">
+              <svg class="w-8 h-8 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h2 class="text-3xl font-bold text-white mb-3 font-display group-hover:text-[oklch(0.70_0.18_158)] transition-colors">Schaalbare Webshops</h2>
+              <p class="text-white/70 text-lg mb-6 leading-relaxed">
+                Headless e-commerce platforms met <span class="text-white font-medium">Shopify</span>, <span class="text-white font-medium">Snipcart</span>, of custom solutions. Naadloze betalingen via Mollie, Stripe, en Adyen. Van B2C retail tot enterprise wholesale portals.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10">Headless Commerce</span>
+                <span class="text-xs px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10">Payment Integration</span>
+                <span class="text-xs px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10">Mobile-First</span>
+                <span class="text-xs px-3 py-1.5 rounded-full bg-white/5 text-white/70 border border-white/10">Real-time Inventory</span>
+              </div>
+            </div>
+            <div class="flex items-center text-[oklch(0.70_0.18_158)] text-sm font-bold md:self-end">
+              <span class="group-hover:underline">Meer informatie</span>
+             <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </div>
+          </div>
+        </a>
       </div>
+    </div>
+  </div>
 
-      <div class="clinical-glass p-8 rounded-2xl border border-white/10 hover:border-[oklch(0.70_0.18_158)]/50 transition-colors">
-        <h2 class="text-2xl font-bold text-white mb-4">Maatwerk Applicaties</h2>
-        <p class="text-white/70 mb-6">Complex business logica vertaald naar intuïtieve interfaces.</p>
-        <a href="/services/custom-apps" class="text-[oklch(0.70_0.18_158)] hover:underline">Meer informatie &rarr;</a>
+  <!-- CTA Section -->
+  <div class="container mx-auto px-4 pb-24">
+    <div class="max-w-4xl mx-auto clinical-glass p-12 rounded-2xl border border-white/10 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4 font-display">Klaar om te Starten?</h2>
+      <p class="text-white/70 mb-8 max-w-2xl mx-auto">
+        Bekijk onze portfolio met concrete voorbeelden, of neem direct contact op voor een vrijblijvend gesprek over uw project.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/portfolio" 
+          class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-br from-[oklch(0.70_0.18_158)] to-[oklch(0.60_0.15_158)] text-white font-semibold hover:shadow-lg hover:shadow-[oklch(0.70_0.18_158)]/20 transition-all duration-300"
+        >
+          Bekijk Portfolio
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+        <a 
+          href="/contact" 
+          class="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-all duration-300"
+        >
+          Neem Contact Op
+        </a>
       </div>
     </div>
   </div>
