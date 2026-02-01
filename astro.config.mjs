@@ -21,6 +21,31 @@ export default defineConfig({
             // @ts-ignore
             tailwindcss()
         ],
+        build: {
+            // Manual chunk splitting for better caching
+            rollupOptions: {
+                output: {
+                    manualChunks: {
+                        // Separate React vendor chunk
+                        'react-vendor': ['react', 'react-dom'],
+                        // Separate form libraries (biggest bundle)
+                        'form-vendor': ['@conform-to/react', '@conform-to/zod', 'zod'],
+                        // Analytics vendor chunk
+                        'analytics-vendor': ['@vercel/analytics', '@vercel/speed-insights', 'web-vitals'],
+                        // Nanostores
+                        'store-vendor': ['nanostores', '@nanostores/persistent'],
+                    },
+                },
+            },
+            // Increase chunk size warning limit (we have intentional large chunks)
+            chunkSizeWarningLimit: 600,
+            // Use esbuild minifier (faster, built-in)
+            minify: 'esbuild',
+        },
+        // Optimize dependencies
+        optimizeDeps: {
+            include: ['react', 'react-dom', '@conform-to/react', '@conform-to/zod'],
+        },
     },
 
     integrations: [
