@@ -22,7 +22,7 @@ const { columns, socialLinks, copyright } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-background/95 backdrop-blur-xl text-muted-foreground border-t border-white/10">
+<footer class="bg-background/95 backdrop-blur-xl text-white/70 border-t border-white/10">
   <div class="container mx-auto px-4 py-12">
     <!-- Footer Columns -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -33,7 +33,7 @@ const currentYear = new Date().getFullYear();
             <ul class="space-y-2">
               {column.links.map((link) => (
                 <li>
-                  <a href={`/${link.link.cached_url}`} class="hover:text-active transition-colors">
+                  <a href={`/${link.link.cached_url}`} class="hover:text-active transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-active focus-visible:outline-offset-2 focus-visible:rounded">
                     {link.label}
                   </a>
                 </li>
@@ -45,25 +45,10 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- LaventeCare Branding -->
-    <div class="border-t border-white/10 py-8 grid md:grid-cols-2 gap-6">
-        <div class="flex items-center space-x-4">
-             <div class="w-10 h-10 rounded-lg bg-active/10 flex items-center justify-center border border-active/20 shrink-0">
-                <svg class="w-6 h-6 text-active" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-             </div>
-             <div>
-                <span class="block text-white font-bold text-sm font-display tracking-tight">Powered by LaventeCare</span>
-                <span class="block text-white/50 text-xs font-ui">Enterprise Astro Architecture</span>
-             </div>
-        </div>
-
-        <div class="flex items-center space-x-4 md:justify-end">
-            <div class="flex items-center px-4 py-2 rounded-lg bg-white/5 border border-white/10">
-                <div class="w-2 h-2 rounded-full bg-active animate-pulse mr-2"></div>
-                <span class="text-xs text-white/70 font-mono">auth_system: <span class="text-active">online</span></span>
-            </div>
-        </div>
+    <div class="border-t border-white/10 py-8 text-center">
+      <p class="text-white/60 text-sm font-ui">
+        Built with <span class="text-active font-semibold">LaventeCare</span> Enterprise Astro Architecture
+      </p>
     </div>
 
     <!-- Social Links & Copyright -->
@@ -79,7 +64,7 @@ const currentYear = new Date().getFullYear();
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-muted-foreground hover:text-white transition-colors"
+                class="text-white/70 hover:text-white transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-active focus-visible:outline-offset-2 focus-visible:rounded"
                 aria-label={social.platform}
               >
                 <span class="text-sm uppercase">{social.platform}</span>
@@ -90,7 +75,7 @@ const currentYear = new Date().getFullYear();
       }
 
       <!-- Copyright -->
-      <p class="text-sm text-muted-foreground">
+      <p class="text-sm text-white/60">
         {copyright.replace('2026', currentYear.toString())}
       </p>
     </div>

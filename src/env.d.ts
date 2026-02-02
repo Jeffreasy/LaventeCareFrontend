@@ -2,7 +2,6 @@
 /// <reference types="@types/alpinejs" />
 
 interface ImportMetaEnv {
-    readonly STORYBLOK_TOKEN: string;
     readonly PROD: boolean;
 }
 
