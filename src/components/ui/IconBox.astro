@@ -1,0 +1,23 @@
+---
+import { cn } from '../../lib/utils';
+import type { LucideIcon } from 'lucide-react';
+
+export interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  icon?: LucideIcon;
+}
+
+const { size = 'md', class: className, icon: Icon } = Astro.props;
+
+const sizeClasses = {
+  sm: 'icon-box w-10 h-10',
+  md: 'icon-box',
+  lg: 'icon-box-lg',
+};
+---
+
+<div class={cn(sizeClasses[size], className)}>
+  {Icon && <Icon className="w-6 h-6 text-white" />}
+  <slot />
+</div>

@@ -20,13 +20,42 @@
   --color-warning: oklch(0.75 0.15 90);
   --color-error: oklch(0.60 0.22 25);
   
-  /* Design Tokens */
-  --radius-action: 0.75rem;
-  --radius-card: 1rem;
-  --radius-modal: 1.5rem;
+  /* Extended Color Tokens - Gradients & Variants */
+  --color-active-gradient-from: oklch(0.70 0.18 158);
+  --color-active-gradient-to: oklch(0.60 0.15 158);
+  --color-icon-bg: oklch(0.70 0.18 158 / 0.2);
+  --color-icon-bg-hover: oklch(0.70 0.18 158 / 0.3);
+  
+  /* Radius Tokens - Clinical Glass Standards */
+  --radius-utility: 0.5rem;      /* Badges, small elements */
+  --radius-action: 0.75rem;      /* Buttons, inputs */
+  --radius-card: 1rem;           /* Cards, panels */
+  --radius-feature: 1.5rem;      /* Feature cards, large panels */
+  --radius-hero: 2rem;           /* Hero sections, modals */
+  
+  /* Spacing Tokens */
+  --spacing-section: 6rem;       /* Section vertical spacing */
+  --spacing-container-sm: 1rem;  /* Mobile container padding */
+  --spacing-container-md: 1.5rem;  
+  --spacing-container-lg: 2rem;  /* Desktop container padding */
+  
+  /* Animation Tokens */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Z-Index Scale */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-grain: 40;
+  --z-modal: 50;
+  --z-navbar: 50;
+  
+  /* Typography */
   --font-display: Satoshi, ui-sans-serif, system-ui, sans-serif;
   --font-ui: Geist, ui-sans-serif, system-ui, sans-serif;
-  --spacing-section: 6rem;
 }
 
 /* ============================================
@@ -223,4 +252,48 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/* ============================================
+   Utility Classes - Reusable Patterns
+   ============================================ */
+
+/* Icon Box Pattern (eliminates 50+ hardcoded instances) */
+.icon-box {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-action);
+  background: linear-gradient(to bottom right,
+    var(--color-active-gradient-from),
+    var(--color-active-gradient-to)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-box-lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-feature);
+}
+
+/* Feature Card Hover Pattern */
+.feature-card {
+  transition: border-color var(--transition-base), 
+              transform var(--transition-base);
+}
+
+.feature-card:hover {
+  border-color: oklch(var(--color-active) / 0.3);
+  transform: translateY(-0.25rem);
+}
+
+/* Bullet Point Accent */
+.bullet-accent {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-active);
 }
