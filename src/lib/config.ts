@@ -41,35 +41,29 @@ export const settings = {
     ],
     footer_columns: [
         {
+            title: 'Diensten',
+            links: [
+                { label: 'Alle Diensten', link: { cached_url: 'services' } },
+                { label: 'Landing Pages', link: { cached_url: 'services/landing-pages' } },
+                { label: 'Webshops', link: { cached_url: 'services/webshops' } },
+                { label: 'Maatwerk Applicaties', link: { cached_url: 'services/custom-apps' } },
+                { label: 'Prijzen', link: { cached_url: 'pricing' } }
+            ]
+        },
+        {
+            title: 'Resources',
+            links: [
+                { label: 'Developer Portal', link: { cached_url: 'docs' } },
+                { label: 'Security', link: { cached_url: 'security' } },
+                { label: 'Het Platform', link: { cached_url: 'platform' } }
+            ]
+        },
+        {
             title: 'Bedrijf',
             links: [
-                { label: 'Over LaventeCare', link: { cached_url: '#' } },
-                { label: 'Missie & Visie', link: { cached_url: '#' } },
-                { label: 'Contact', link: { cached_url: 'contact' } }
-            ]
-        },
-        {
-            title: 'Technologie',
-            links: [
-                { label: 'Astro', link: { cached_url: '#' } },
-                { label: 'Go', link: { cached_url: '#' } },
-                { label: 'PostgreSQL', link: { cached_url: '#' } },
-                { label: 'Convex', link: { cached_url: '#' } }
-            ]
-        },
-        {
-            title: 'Juridisch',
-            links: [
-                { label: 'Privacy Policy', link: { cached_url: '#' } },
-                { label: 'GDPR Compliance', link: { cached_url: '#' } },
-                { label: 'Algemene Voorwaarden', link: { cached_url: '#' } }
-            ]
-        },
-        {
-            title: 'Status',
-            links: [
-                { label: 'System Status', link: { cached_url: '#' } },
-                { label: 'Uptime', link: { cached_url: '#' } }
+                { label: 'Over LaventeCare', link: { cached_url: 'platform' } },
+                { label: 'Contact', link: { cached_url: 'contact' } },
+                { label: 'Admin Login', link: { cached_url: 'login' } }
             ]
         }
     ],
