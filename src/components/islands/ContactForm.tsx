@@ -36,10 +36,22 @@ export function ContactForm({ onSuccess }: Props) {
                 const data = Object.fromEntries(formData) as ContactFormData;
                 const validated = contactSchema.parse(data);
 
-                // Simulate API call (replace with actual endpoint)
-                await new Promise(resolve => setTimeout(resolve, 1000));
+                // Backend accepts {name, email, message} — prepend subject to message
+                const response = await fetch('/api/v1/public/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: validated.name,
+                        email: validated.email,
+                        message: `[${validated.subject}]\n\n${validated.message}`,
+                    }),
+                });
 
-                console.log('Form submitted:', validated);
+                if (!response.ok) {
+                    throw new Error(`Server responded with ${response.status}`);
+                }
+
+                if (import.meta.env.DEV) console.log('Form submitted:', validated);
                 setSubmitStatus('success');
 
                 if (onSuccess) {
@@ -49,7 +61,7 @@ export function ContactForm({ onSuccess }: Props) {
                 // Reset form after successful submission
                 event.currentTarget.reset();
             } catch (error) {
-                console.error('Form submission error:', error);
+                if (import.meta.env.DEV) console.error('Form submission error:', error);
                 setSubmitStatus('error');
             } finally {
                 setIsSubmitting(false);
@@ -144,14 +156,16 @@ export function ContactForm({ onSuccess }: Props) {
 
                 {/* Status Messages */}
                 {submitStatus === 'success' && (
-                    <div className="p-4 rounded-xl bg-success/20 border border-success/30 text-white">
-                        ✓ Bericht succesvol verzonden!
+                    <div className="p-4 rounded-xl bg-success/20 border border-success/30 text-white flex items-center gap-2">
+                        <svg className="w-5 h-5 text-success shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                        Bericht succesvol verzonden!
                     </div>
                 )}
 
                 {submitStatus === 'error' && (
-                    <div className="p-4 rounded-xl bg-error/20 border border-error/30 text-white">
-                        ✗ Er is iets misgegaan. Probeer het opnieuw.
+                    <div className="p-4 rounded-xl bg-error/20 border border-error/30 text-white flex items-center gap-2">
+                        <svg className="w-5 h-5 text-error shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                        Er is iets misgegaan. Probeer het opnieuw.
                     </div>
                 )}
             </form>

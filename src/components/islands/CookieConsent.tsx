@@ -57,7 +57,7 @@ export function CookieConsent() {
                 >
                     <div className="cookie-banner__content">
                         <div className="cookie-banner__text">
-                            <h3 className="cookie-banner__title">🍪 Cookie Voorkeuren</h3>
+                            <h3 className="cookie-banner__title">Cookie Voorkeuren</h3>
                             <p className="cookie-banner__description">
                                 We gebruiken cookies om jouw ervaring te verbeteren en onze website te optimaliseren.
                                 Jouw privacy is belangrijk voor ons - data wordt opgeslagen in de EU volgens GDPR-richtlijnen.
@@ -178,7 +178,7 @@ export function CookieConsent() {
                         </div>
 
                         <p className="cookie-modal__footer">
-                            Meer informatie in ons <a href="/privacy" className="cookie-modal__link">privacybeleid</a>.
+                            Meer informatie in ons <a href="/docs" className="cookie-modal__link">privacybeleid</a>.
                         </p>
                     </div>
                 </div>

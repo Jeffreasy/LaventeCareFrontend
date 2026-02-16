@@ -62,7 +62,7 @@ export default function EmailConfig() {
         }
     }
 
-    async function handleSave(e: React.FormEvent) {
+    async function handleSave(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
         // Validation
@@ -314,7 +314,7 @@ export default function EmailConfig() {
                     <button
                         type="submit"
                         disabled={isSaving}
-                        className="px-6 py-3 rounded-lg bg-[oklch(0.70_0.18_158)] text-white font-bold hover:bg-[oklch(0.60_0.20_160)] transition-all duration-300 flex items-center justify-center space-x-2 font-ui shadow-lg shadow-[oklch(0.70_0.18_158)]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="px-6 py-3 rounded-lg bg-primary text-white font-bold hover:bg-primary-hover transition-all duration-300 flex items-center justify-center space-x-2 font-ui shadow-lg shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {isSaving ? (
                             <>
@@ -371,7 +371,7 @@ export default function EmailConfig() {
             {/* Info Panel */}
             <div className="mt-8 p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
                 <div className="flex items-start space-x-3">
-                    <svg className="w-5 h-5 text-blue-300 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-300 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     <div className="text-sm text-blue-200 font-ui">

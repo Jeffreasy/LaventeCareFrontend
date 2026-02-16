@@ -4,7 +4,6 @@ import Card from '../ui/Card.astro';
 
 const API_URL = import.meta.env.PUBLIC_API_URL;
 let tenants: ShowcaseTenant[] = [];
-let error = null;
 
 try {
   const response = await fetch(`${API_URL}/api/v1/showcase`);
@@ -14,11 +13,11 @@ try {
     // Data is now correct from backend
   } else {
     // Graceful fallback (Silence is Golden)
-    console.error('Failed to fetch showcase tenants');
+    if (import.meta.env.DEV) console.error('Failed to fetch showcase tenants');
   }
 } catch (e) {
   // Non-blocking error handling
-  console.error('Showcase fetch fetch error', e);
+  if (import.meta.env.DEV) console.error('Showcase fetch error', e);
 }
 ---
 

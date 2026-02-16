@@ -6,13 +6,13 @@ interface Props extends Partial<SEOProps> {
 }
 
 const {
-  title = 'LaventeCare',
-  description = 'Enterprise Astro + Convex Real-time Platform',
+  title = 'LaventeCare — Webbureau Amsterdam',
+  description = 'LaventeCare — Professioneel webbureau in Amsterdam. Snelle websites, webshops en apps op maat.',
   image,
   noindex = false,
 } = Astro.props;
 
-const siteUrl = Astro.site?.href || 'http://localhost:4321';
+const siteUrl = Astro.site?.href || 'https://lavente.care';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const ogImageUrl = image?.filename
   ? new URL(image.filename, siteUrl).href

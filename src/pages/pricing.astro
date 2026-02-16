@@ -2,16 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Prijzen & Tiers - LaventeCare">
+<Layout
+  title="Website Prijzen — LaventeCare"
+  description="Wat kost een website laten maken? Transparante prijzen voor websites, webshops en maatwerk apps. Inclusief hosting en onderhoud."
+>
   <div class="container mx-auto px-4 py-24">
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h1 class="text-4xl md:text-5xl font-black text-white mb-6 font-display tracking-tight">
         Transparante <span class="text-active">Prijzen</span>
       </h1>
       <p class="text-xl text-white/70 font-ui">
-        Kies het pakket dat bij uw ambities past. Of u nu net begint of klaar bent voor <span
-          class="text-white font-bold">enterprise</span
-        > schaal.
+        Kies het pakket dat bij uw ambities past. Of u nu net begint of klaar bent voor
+        <span class="text-white font-bold">grootschalige</span> groei.
       </p>
     </div>
 
@@ -19,9 +21,9 @@ import Layout from '../layouts/Layout.astro';
     <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto mb-24">
       <!-- Slot 1: Setup & Onboarding (One-time) -->
       <div
-        class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 flex flex-col hover:border-active/20 transition-colors order-2 md:order-1"
+        class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 flex flex-col hover:border-active/20 transition-colors order-2 md:order-1"
       >
-        <h3 class="text-2xl font-bold text-white mb-2 font-display">Setup & Onboarding</h3>
+        <h3 class="text-2xl font-bold text-white mb-2 font-display">Opzet & Inrichting</h3>
         <p class="text-white/60 mb-6 text-sm font-ui">Professionele implementatie</p>
         <div class="text-4xl font-bold text-white mb-2 font-display">
           <span class="text-2xl align-top opacity-60">vanaf</span> €450<span
@@ -44,7 +46,7 @@ import Layout from '../layouts/Layout.astro';
                 stroke-width="2"
                 d="M5 13l4 4L19 7"></path></svg
             >
-            <span>Configuratie <strong>Bank-Grade Auth</strong> Environment</span>
+            <span>Configuratie <strong>veilige inlogomgeving</strong></span>
           </li>
           <li class="flex items-start text-white/80 font-ui">
             <svg
@@ -58,7 +60,7 @@ import Layout from '../layouts/Layout.astro';
                 stroke-width="2"
                 d="M5 13l4 4L19 7"></path></svg
             >
-            <span>Custom Tenant & Admin Role Setup</span>
+            <span>Beheerder & gebruikersrollen instellen</span>
           </li>
           <li class="flex items-start text-white/80 font-ui">
             <svg
@@ -72,31 +74,31 @@ import Layout from '../layouts/Layout.astro';
                 stroke-width="2"
                 d="M5 13l4 4L19 7"></path></svg
             >
-            <span>Dedicated SMTP & Security Headers</span>
+            <span>E-mail configuratie & beveiligingsheaders</span>
           </li>
         </ul>
 
         <a
           href="/contact?type=setup"
           class="block text-center py-3 rounded-lg border border-white/20 text-white hover:bg-white/10 transition-colors font-bold font-ui"
-          >Start Setup</a
+          >Start opzet</a
         >
       </div>
 
       <!-- Slot 2: Managed Security & Hosting (Recurring - Featured) -->
       <div
-        class="clinical-glass p-8 rounded-[var(--radius-feature)] border-2 border-active relative flex flex-col transform md:scale-110 shadow-2xl shadow-active/20 z-10 order-1 md:order-2"
+        class="clinical-glass p-8 rounded-(--radius-feature) border-2 border-active relative flex flex-col transform md:scale-110 shadow-2xl shadow-active/20 z-10 order-1 md:order-2"
       >
         <div
           class="absolute top-0 right-0 bg-active text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg tracking-wider font-display"
         >
-          SUBSCRIPTION
+          ABONNEMENT
         </div>
-        <h3 class="text-2xl font-bold text-white mb-2 font-display">Managed Security</h3>
-        <p class="text-white/60 mb-6 text-sm font-ui">Enterprise-grade hosting & monitoring</p>
+        <h3 class="text-2xl font-bold text-white mb-2 font-display">Beheerd Hosting</h3>
+        <p class="text-white/60 mb-6 text-sm font-ui">Professionele hosting & monitoring</p>
         <div class="text-4xl font-bold text-white mb-2 font-display">
           <span class="text-2xl align-top opacity-60">vanaf</span> €75<span
-            class="text-lg text-white/40 font-normal block mt-1">/maand (per tenant)</span
+            class="text-lg text-white/40 font-normal block mt-1">/maand (per project)</span
           >
         </div>
         <p class="text-sm text-white/50 font-ui italic">+ Support: €50/uur (na goedkeuring)</p>
@@ -116,7 +118,7 @@ import Layout from '../layouts/Layout.astro';
                 d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
               ></path></svg
             >
-            <span><strong>Anti-Gravity Security Suite</strong> (Ingebouwde hack-preventie)</span>
+            <span><strong>Ingebouwde beveiliging</strong> (hack-preventie)</span>
           </li>
           <li class="flex items-start text-white/80 font-ui">
             <svg
@@ -131,7 +133,7 @@ import Layout from '../layouts/Layout.astro';
                 d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
               ></path></svg
             >
-            <span>Managed Hosting (Frontend + API)</span>
+            <span>Beheerde hosting (website + API)</span>
           </li>
           <li class="flex items-start text-white/80 font-ui">
             <svg
@@ -146,7 +148,7 @@ import Layout from '../layouts/Layout.astro';
                 d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
               ></path></svg
             >
-            <span>GDPR-proof Logging & Backups</span>
+            <span>AVG-proof logboek & back-ups</span>
           </li>
           <li class="flex items-start text-white/80 font-ui">
             <svg
@@ -167,19 +169,19 @@ import Layout from '../layouts/Layout.astro';
         <a
           href="/contact?type=hosting"
           class="block text-center py-3 rounded-lg bg-active text-white font-bold hover:bg-active/90 transition-colors font-ui shadow-lg shadow-active/25"
-          >Kies Subscription</a
+          >Kies abonnement</a
         >
       </div>
 
       <!-- Slot 3: IoT Connectivity (Usage) -->
       <div
-        class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 flex flex-col hover:border-active/20 transition-colors order-3"
+        class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 flex flex-col hover:border-active/20 transition-colors order-3"
       >
-        <h3 class="text-2xl font-bold text-white mb-2 font-display">IoT Connectivity</h3>
-        <p class="text-white/60 mb-6 text-sm font-ui">Schaalbaar per device</p>
+        <h3 class="text-2xl font-bold text-white mb-2 font-display">IoT Koppeling</h3>
+        <p class="text-white/60 mb-6 text-sm font-ui">Schaalbaar per apparaat</p>
         <div class="text-4xl font-bold text-white mb-2 font-display">
           <span class="text-2xl align-top opacity-60">vanaf</span> €2<span
-            class="text-lg text-white/40 font-normal block mt-1">/maand (per device)</span
+            class="text-lg text-white/40 font-normal block mt-1">/maand (per apparaat)</span
           >
         </div>
 
@@ -199,7 +201,7 @@ import Layout from '../layouts/Layout.astro';
                 d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
               ></path></svg
             >
-            <span>Secure HMAC Telemetrie</span>
+            <span>Veilige sensordata</span>
           </li>
           <li class="flex items-start text-white/80 font-ui">
             <svg
@@ -214,7 +216,7 @@ import Layout from '../layouts/Layout.astro';
                 d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
               ></path></svg
             >
-            <span>Real-time Data Storage</span>
+            <span>Directe data-opslag</span>
           </li>
           <li class="flex items-start text-white/80 font-ui">
             <svg
@@ -229,14 +231,14 @@ import Layout from '../layouts/Layout.astro';
                 d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
               ></path></svg
             >
-            <span>Managed Infrastructure</span>
+            <span>Beheerde infrastructuur</span>
           </li>
         </ul>
 
         <a
           href="/contact?type=iot"
           class="block text-center py-3 rounded-lg border border-white/20 text-white hover:bg-white/10 transition-colors font-bold font-ui"
-          >Connect Hardware</a
+          >Koppel hardware</a
         >
       </div>
     </div>
@@ -244,11 +246,11 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- Maintenance vs Support Strategy Section -->
   <div
-    class="max-w-5xl mx-auto mb-24 clinical-glass p-8 md:p-12 rounded-[var(--radius-hero)] border border-active/20"
+    class="max-w-5xl mx-auto mb-24 clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-active/20"
   >
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-display">
-        Wat dekt de <span class="text-active">€75 Subscription?</span>
+        Wat dekt de <span class="text-active">€75 abonnement?</span>
       </h2>
       <p class="text-white/70 font-ui text-lg max-w-2xl mx-auto">
         Zie dit als uw <span class="text-white font-bold">digitale verzekering</span>. Wij
@@ -258,7 +260,9 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="grid md:grid-cols-2 gap-8">
       <!-- Included -->
-      <div class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-active/20 bg-active/5">
+      <div
+        class="clinical-glass p-8 rounded-(--radius-feature) border border-active/20 bg-active/5"
+      >
         <div class="flex items-center mb-6 border-b border-active/10 pb-4">
           <div class="w-10 h-10 rounded-full bg-active/20 flex items-center justify-center mr-4">
             <svg class="w-6 h-6 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -277,16 +281,20 @@ import Layout from '../layouts/Layout.astro';
         <ul class="space-y-4">
           <li class="flex items-start text-white/80 font-ui text-sm">
             <span class="mr-3 text-active">•</span>
-            <span><strong>Security Patches:</strong> Directe fixes bij nieuwe kwetsbaarheden.</span>
-          </li>
-          <li class="flex items-start text-white/80 font-ui text-sm">
-            <span class="mr-3 text-active">•</span>
-            <span><strong>Uptime Garantie:</strong> 24/7 monitoring van servers & database.</span>
+            <span
+              ><strong>Beveiligingsupdates:</strong> Directe fixes bij nieuwe kwetsbaarheden.</span
+            >
           </li>
           <li class="flex items-start text-white/80 font-ui text-sm">
             <span class="mr-3 text-active">•</span>
             <span
-              ><strong>Email Deliverability:</strong> Zorgen dat systeem-mails niet in spam belanden.</span
+              ><strong>Beschikbaarheidsgarantie:</strong> 24/7 monitoring van servers & database.</span
+            >
+          </li>
+          <li class="flex items-start text-white/80 font-ui text-sm">
+            <span class="mr-3 text-active">•</span>
+            <span
+              ><strong>E-mail bezorging:</strong> Zorgen dat systeem-mails niet in spam belanden.</span
             >
           </li>
           <li class="flex items-start text-white/80 font-ui text-sm">
@@ -297,7 +305,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- Not Included -->
-      <div class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/5">
+      <div class="clinical-glass p-8 rounded-(--radius-feature) border border-white/5">
         <div class="flex items-center mb-6 border-b border-white/5 pb-4">
           <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mr-4">
             <svg class="w-6 h-6 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -309,7 +317,7 @@ import Layout from '../layouts/Layout.astro';
             >
           </div>
           <div>
-            <h3 class="text-xl font-bold text-white font-display">Support & Features</h3>
+            <h3 class="text-xl font-bold text-white font-display">Ondersteuning & Uitbreidingen</h3>
             <p class="text-white/40 text-xs font-bold uppercase tracking-wider">
               €50/uur (Na goedkeuring)
             </p>
@@ -319,16 +327,16 @@ import Layout from '../layouts/Layout.astro';
           <li class="flex items-start text-white/60 font-ui text-sm">
             <span class="mr-3 text-white/20">•</span>
             <span
-              ><strong>Content Wijzigingen:</strong> Teksten, afbeeldingen of blogs aanpassen.</span
+              ><strong>Content wijzigingen:</strong> Teksten, afbeeldingen of blogs aanpassen.</span
             >
           </li>
           <li class="flex items-start text-white/60 font-ui text-sm">
             <span class="mr-3 text-white/20">•</span>
-            <span><strong>Nieuwe Features:</strong> "Ik wil een extra gebruikersrol of knop".</span>
+            <span><strong>Nieuwe functies:</strong> "Ik wil een extra gebruikersrol of knop".</span>
           </li>
           <li class="flex items-start text-white/60 font-ui text-sm">
             <span class="mr-3 text-white/20">•</span>
-            <span><strong>Design Tweaks:</strong> Logo vergroten, kleuren aanpassen.</span>
+            <span><strong>Ontwerp aanpassingen:</strong> Logo vergroten, kleuren aanpassen.</span>
           </li>
           <li class="flex items-start text-white/60 font-ui text-sm">
             <span class="mr-3 text-white/20">•</span>
@@ -348,148 +356,209 @@ import Layout from '../layouts/Layout.astro';
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <!-- 1. Core Security -->
       <div
-        class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 hover:border-active/20 transition-colors"
+        class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 hover:border-active/20 transition-colors"
       >
         <div class="flex items-center mb-6">
-          <span class="text-3xl mr-4">🛡️</span>
+          <div
+            class="w-10 h-10 rounded-lg bg-active/20 flex items-center justify-center mr-4 shrink-0"
+          >
+            <svg class="w-6 h-6 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+              ></path></svg
+            >
+          </div>
           <div>
-            <h3 class="text-xl font-bold text-white font-display">Core Security</h3>
+            <h3 class="text-xl font-bold text-white font-display">Kernbeveiliging</h3>
             <p class="text-active text-sm font-bold uppercase tracking-wider">
-              "Bank-Grade Protection"
+              "Bankwaardig beveiligd"
             </p>
           </div>
         </div>
         <ul class="space-y-3">
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Multi-Factor Authenticatie (MFA-First):</strong> Standaard ingebouwde
-            TOTP support & backup-codes.
+            <strong class="text-white">Twee-factor authenticatie (2FA):</strong> Standaard ingebouwde
+            verificatie & noodcodes.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Wachtwoord Kluis:</strong> Bcrypt (Cost 12) hashing volgens 2026
-            standaarden.
+            <strong class="text-white">Wachtwoord versleuteling:</strong> Bcrypt (Cost 12) hashing volgens
+            2026 standaarden.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Intelligent Sessiebeheer:</strong> Dual-Token systeem (Access +
-            Rotating Refresh).
+            <strong class="text-white">Intelligent sessiebeheer:</strong> Dubbel-token systeem (korte
+            & hernieuwbare sessies).
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Active Threat Defense:</strong> Rate Limiting (25 req/s) & IP-blokkades.
+            <strong class="text-white">Actieve dreigingsafweer:</strong> Snelheidsbeperking (25 verz./s)
+            & IP-blokkades.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Anti-Gravity Architectuur:</strong> "Input is Toxic" & "Silence
-            is Golden" filosofie.
+            <strong class="text-white">Beveiligingsarchitectuur:</strong> "Alle invoer is verdacht" &
+            "Geen informatie lekken" filosofie.
           </li>
         </ul>
       </div>
 
       <!-- 2. Multi-Tenancy -->
       <div
-        class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 hover:border-active/20 transition-colors"
+        class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 hover:border-active/20 transition-colors"
       >
         <div class="flex items-center mb-6">
-          <span class="text-3xl mr-4">🏢</span>
+          <div
+            class="w-10 h-10 rounded-lg bg-active/20 flex items-center justify-center mr-4 shrink-0"
+          >
+            <svg class="w-6 h-6 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+              ></path></svg
+            >
+          </div>
           <div>
-            <h3 class="text-xl font-bold text-white font-display">Multi-Tenancy</h3>
+            <h3 class="text-xl font-bold text-white font-display">Meerdere omgevingen</h3>
             <p class="text-active text-sm font-bold uppercase tracking-wider">
-              "Jouw Organisatie, Jouw Data"
+              "Uw organisatie, uw data"
             </p>
           </div>
         </div>
         <ul class="space-y-3">
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">IJzersterke Data Isolatie:</strong> Row Level Security (RLS) garandeert
-            strikte scheiding.
+            <strong class="text-white">IJzersterke data-isolatie:</strong> Strikte scheiding door beveiligde
+            database-regels.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Context-Aware Toegang:</strong> Eén account, veilig toegang tot
-            meerdere tenants.
+            <strong class="text-white">Contextbewuste toegang:</strong> Eén account, veilig toegang tot
+            meerdere omgevingen.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Custom Email Gateways:</strong> Eigen SMTP-servers per tenant (SendGrid/Mailgun).
+            <strong class="text-white">Eigen e-mail servers:</strong> Aparte mail-configuratie per project.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Versleutelde Configuraties:</strong> AES-encryptie voor API-keys
-            en secrets.
+            <strong class="text-white">Versleutelde configuraties:</strong> AES-encryptie voor API-sleutels
+            en geheimen.
           </li>
         </ul>
       </div>
 
       <!-- 3. Compliance & Audit -->
       <div
-        class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 hover:border-active/20 transition-colors"
+        class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 hover:border-active/20 transition-colors"
       >
         <div class="flex items-center mb-6">
-          <span class="text-3xl mr-4">⚖️</span>
+          <div
+            class="w-10 h-10 rounded-lg bg-active/20 flex items-center justify-center mr-4 shrink-0"
+          >
+            <svg class="w-6 h-6 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+              ></path></svg
+            >
+          </div>
           <div>
-            <h3 class="text-xl font-bold text-white font-display">Compliance & Audit</h3>
+            <h3 class="text-xl font-bold text-white font-display">Naleving & Logboek</h3>
             <p class="text-active text-sm font-bold uppercase tracking-wider">
-              "Juridisch Waterdicht"
+              "Juridisch waterdicht"
             </p>
           </div>
         </div>
         <ul class="space-y-3">
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Onweerlegbare Audit Logs:</strong> Immutable (Append-Only) logboek
-            voor elke actie.
+            <strong class="text-white">Onweerlegbare logboeken:</strong> Onveranderlijk (alleen toevoegen)
+            logboek voor elke actie.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Forensische Integriteit:</strong> Database voorkomt wijziging/verwijdering
+            <strong class="text-white">Forensische integriteit:</strong> Database voorkomt wijziging/verwijdering
             van logs.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Privacy by Design:</strong> Automatische "Janitor" voor dataminimalisatie.
+            <strong class="text-white">Privacy by design:</strong> Automatische opschoning voor dataminimalisatie.
           </li>
         </ul>
       </div>
 
       <!-- 4. IoT & Hardware Ready -->
       <div
-        class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 hover:border-active/20 transition-colors"
+        class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 hover:border-active/20 transition-colors"
       >
         <div class="flex items-center mb-6">
-          <span class="text-3xl mr-4">📡</span>
+          <div
+            class="w-10 h-10 rounded-lg bg-active/20 flex items-center justify-center mr-4 shrink-0"
+          >
+            <svg class="w-6 h-6 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.14 0M1.394 9.393c5.857-5.858 15.355-5.858 21.213 0"
+              ></path></svg
+            >
+          </div>
           <div>
-            <h3 class="text-xl font-bold text-white font-display">IoT & Hardware Ready</h3>
-            <p class="text-active text-sm font-bold uppercase tracking-wider">"Connect Anything"</p>
+            <h3 class="text-xl font-bold text-white font-display">IoT & Hardware</h3>
+            <p class="text-active text-sm font-bold uppercase tracking-wider">"Koppel alles"</p>
           </div>
         </div>
         <ul class="space-y-3">
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Lightweight Telemetry:</strong> Geoptimaliseerde endpoints voor
+            <strong class="text-white">Lichtgewicht sensordata:</strong> Geoptimaliseerde eindpunten voor
             ESP32/C++.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">HMAC Signatures:</strong> Efficiënte crypto-auth zonder zware JWT-parsing.
+            <strong class="text-white">HMAC handtekeningen:</strong> Efficiënte authenticatie zonder zware
+            bewerkingen.
           </li>
           <li class="text-white/70 font-ui text-sm">
-            <strong class="text-white">Replay Attack Preventie:</strong> Verplichte timestamps in datapakketten.
+            <strong class="text-white">Herhaalingsaanval preventie:</strong> Verplichte tijdstempels in
+            datapakketten.
           </li>
         </ul>
       </div>
 
       <!-- 5. Performance & Tech (Full Width) -->
       <div
-        class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 hover:border-active/20 transition-colors md:col-span-2"
+        class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 hover:border-active/20 transition-colors md:col-span-2"
       >
         <div class="flex items-center mb-6 justify-center">
-          <span class="text-3xl mr-4">🚀</span>
+          <div
+            class="w-10 h-10 rounded-lg bg-active/20 flex items-center justify-center mr-4 shrink-0"
+          >
+            <svg class="w-6 h-6 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg
+            >
+          </div>
           <div>
-            <h3 class="text-xl font-bold text-white font-display">Performance & Tech</h3>
-            <p class="text-active text-sm font-bold uppercase tracking-wider">"Built for Speed"</p>
+            <h3 class="text-xl font-bold text-white font-display">Snelheid & Techniek</h3>
+            <p class="text-active text-sm font-bold uppercase tracking-wider">
+              "Gebouwd voor snelheid"
+            </p>
           </div>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
           <div class="bg-white/5 p-4 rounded-lg">
-            <strong class="text-white block mb-1">Zero-Latency RBAC</strong>
-            <p class="text-white/60 text-sm font-ui">Rollen in token gebakken (0ms vertraging).</p>
+            <strong class="text-white block mb-1">Directe toegangscontrole</strong>
+            <p class="text-white/60 text-sm font-ui">Rollen worden meegestuurd (0ms vertraging).</p>
           </div>
           <div class="bg-white/5 p-4 rounded-lg">
-            <strong class="text-white block mb-1">High-Performance Backend</strong>
+            <strong class="text-white block mb-1">Krachtige backend</strong>
             <p class="text-white/60 text-sm font-ui">Golang engine op HTTP/2.</p>
           </div>
           <div class="bg-white/5 p-4 rounded-lg">
-            <strong class="text-white block mb-1">Type-Safe Database</strong>
-            <p class="text-white/60 text-sm font-ui">Gecompileerde sqlc queries (No Injection).</p>
+            <strong class="text-white block mb-1">Veilige database-queries</strong>
+            <p class="text-white/60 text-sm font-ui">
+              Gecompileerde queries (geen injectie mogelijk).
+            </p>
           </div>
         </div>
       </div>

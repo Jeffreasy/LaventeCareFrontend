@@ -15,10 +15,19 @@ interface Props {
 }
 
 const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+/** Check if a menu item or any of its children match the current path */
+function isActive(item: MenuItem): boolean {
+  const href = item.link.cached_url === 'home' ? '/' : `/${item.link.cached_url}`;
+  if (currentPath === href || currentPath.startsWith(href + '/')) return true;
+  if (item.items) return item.items.some((sub) => currentPath === `/${sub.link.cached_url}`);
+  return false;
+}
 ---
 
 <nav
-  class="fixed top-0 left-0 right-0 z-50 clinical-glass border-b border-white/10 transition-[background-color,border-color,box-shadow] duration-300"
+  class="fixed top-4 left-4 right-4 z-50 clinical-glass rounded-2xl border-b border-white/10 transition-[background-color,border-color,box-shadow] duration-300"
   transition:name="navbar"
   role="navigation"
   aria-label="Main navigation"
@@ -51,12 +60,13 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
         {
           menu.map((item) => {
             const href = item.link.cached_url === 'home' ? '/' : `/${item.link.cached_url}`;
+            const active = isActive(item);
 
             if (item.items && item.items.length > 0) {
               return (
                 <div class="relative group">
-                  <button 
-                    class="flex items-center space-x-1 text-white/70 hover:text-active transition-colors font-medium hover:bg-white/5 px-3 py-2 rounded-lg cursor-pointer"
+                  <button
+                    class={`flex items-center space-x-1 transition-colors font-medium hover:bg-white/5 px-3 py-2 rounded-lg cursor-pointer ${active ? 'text-active' : 'text-white/70 hover:text-active'}`}
                     aria-label={`Open ${item.label} menu`}
                     aria-expanded="false"
                     aria-haspopup="true"
@@ -78,16 +88,24 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
                     </svg>
                   </button>
 
-                  <div class="absolute left-0 top-full pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-[opacity,transform] duration-200 min-w-[200px]" role="menu">
+                  <div
+                    class="absolute left-0 top-full pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-[opacity,transform] duration-200 min-w-[200px]"
+                    role="menu"
+                  >
                     <div class="bg-background/95 backdrop-blur-3xl rounded-xl border border-white/10 p-2 shadow-xl flex flex-col gap-1">
-                      {item.items.map((subItem) => (
-                        <a
-                          href={`/${subItem.link.cached_url}`}
-                          class="block px-4 py-2 text-sm text-white/70 hover:text-active hover:bg-white/5 rounded-lg transition-colors font-ui"
-                        >
-                          {subItem.label}
-                        </a>
-                      ))}
+                      {item.items.map((subItem) => {
+                        const subHref = `/${subItem.link.cached_url}`;
+                        const subActive = currentPath === subHref;
+                        return (
+                          <a
+                            href={subHref}
+                            class={`block px-4 py-2 text-sm hover:bg-white/5 rounded-lg transition-colors font-ui ${subActive ? 'text-active bg-active/5' : 'text-white/70 hover:text-active'}`}
+                            aria-current={subActive ? 'page' : undefined}
+                          >
+                            {subItem.label}
+                          </a>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -97,7 +115,8 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
             return (
               <a
                 href={href}
-                class="text-white/70 hover:text-active transition-colors font-medium hover:bg-white/5 px-3 py-2 rounded-lg font-ui tracking-wide text-sm"
+                class={`transition-colors font-medium hover:bg-white/5 px-3 py-2 rounded-lg font-ui tracking-wide text-sm ${active ? 'text-active' : 'text-white/70 hover:text-active'}`}
+                aria-current={active ? 'page' : undefined}
               >
                 {item.label}
               </a>
@@ -106,85 +125,118 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
         }
 
         {/* Admin Dropdown (visible only when logged in) */}
-        {Astro.locals.isAdmin && (
-          <div class="relative group">
-            <button 
-              class="flex items-center space-x-1 text-white/70 hover:text-active transition-colors font-medium hover:bg-white/5 px-3 py-2 rounded-lg cursor-pointer"
-              aria-label="Open admin menu"
-              aria-expanded="false"
-              aria-haspopup="true"
+        {
+          Astro.locals.isAdmin && (
+            <div class="relative group">
+              <button
+                class="flex items-center space-x-1 text-white/70 hover:text-active transition-colors font-medium hover:bg-white/5 px-3 py-2 rounded-lg cursor-pointer"
+                aria-label="Open admin menu"
+                aria-expanded="false"
+                aria-haspopup="true"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <span class="font-ui tracking-wide text-sm">Admin</span>
+                <svg
+                  class="w-4 h-4 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              <div
+                class="absolute left-0 top-full pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-[opacity,transform] duration-200 min-w-[200px]"
+                role="menu"
+              >
+                <div class="bg-background/95 backdrop-blur-3xl rounded-xl border border-white/10 p-2 shadow-xl flex flex-col gap-1">
+                  <a
+                    href="/admin"
+                    class="block px-4 py-2 text-sm text-white/70 hover:text-active hover:bg-white/5 rounded-lg transition-colors font-ui"
+                  >
+                    Dashboard
+                  </a>
+                  <a
+                    href="/admin/settings"
+                    class="block px-4 py-2 text-sm text-white/70 hover:text-active hover:bg-white/5 rounded-lg transition-colors font-ui"
+                  >
+                    Settings
+                  </a>
+                </div>
+              </div>
+            </div>
+          )
+        }
+      </div>
+
+      <!-- Auth Buttons (Desktop) -->
+      <div class="hidden md:flex items-center space-x-4">
+        {
+          Astro.locals.isLoggedIn ? (
+            <form action="/api/auth/logout" method="POST">
+              <button
+                type="submit"
+                class="px-5 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-red-500/10 hover:border-red-500/20 hover:text-red-400 text-white font-medium transition-all duration-300 flex items-center space-x-2 font-ui shadow-sm cursor-pointer"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                  />
+                </svg>
+                <span>Logout</span>
+              </button>
+            </form>
+          ) : (
+            <a
+              href="/login"
+              class="px-5 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-active/10 hover:border-active/20 hover:text-active text-white font-medium transition-all duration-300 flex items-center space-x-2 font-ui shadow-sm"
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-              <span class="font-ui tracking-wide text-sm">Admin</span>
               <svg
-                class="w-4 h-4 transition-transform group-hover:rotate-180"
+                class="w-4 h-4 text-active"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                aria-hidden="true"
               >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M19 9l-7 7-7-7"
+                  d="M11 16l4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                 />
               </svg>
-            </button>
-
-            <div class="absolute left-0 top-full pt-2 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-[opacity,transform] duration-200 min-w-[200px]" role="menu">
-              <div class="bg-background/95 backdrop-blur-3xl rounded-xl border border-white/10 p-2 shadow-xl flex flex-col gap-1">
-                <a
-                  href="/admin"
-                  class="block px-4 py-2 text-sm text-white/70 hover:text-active hover:bg-white/5 rounded-lg transition-colors font-ui"
-                >
-                  Dashboard
-                </a>
-                <a
-                  href="/admin/settings"
-                  class="block px-4 py-2 text-sm text-white/70 hover:text-active hover:bg-white/5 rounded-lg transition-colors font-ui"
-                >
-                  Settings
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-
-      <!-- Auth Buttons (Desktop) -->
-      <div class="hidden md:flex items-center space-x-4">
-        {Astro.locals.isLoggedIn ? (
-          <form action="/api/auth/logout" method="POST">
-            <button
-              type="submit"
-              class="px-5 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-red-500/10 hover:border-red-500/20 hover:text-red-400 text-white font-medium transition-all duration-300 flex items-center space-x-2 font-ui shadow-sm cursor-pointer"
-            >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-              </svg>
-              <span>Logout</span>
-            </button>
-          </form>
-        ) : (
-          <a
-            href="/login"
-            class="px-5 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-active/10 hover:border-active/20 hover:text-active text-white font-medium transition-all duration-300 flex items-center space-x-2 font-ui shadow-sm"
-          >
-            <svg class="w-4 h-4 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M11 16l4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-              ></path>
-            </svg>
-            <span>Login</span>
-          </a>
-        )}
+              <span>Login</span>
+            </a>
+          )
+        }
       </div>
 
       <!-- Mobile Menu Button (Pure CSS Details) -->
@@ -242,46 +294,50 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
                 );
               })
             }
-            
+
             {/* Admin Section (Mobile) */}
-            {Astro.locals.isAdmin && (
-              <div class="pt-6 border-t border-white/5">
-                <span class="block px-2 text-sm font-bold text-white/40 uppercase tracking-widest font-display mb-2">
-                  Admin
-                </span>
-                <a
-                  href="/admin"
-                  class="block py-3 text-white/70 hover:text-active transition-colors font-ui text-lg font-medium border-b border-white/5"
-                >
-                  Dashboard
-                </a>
-                <a
-                  href="/admin/settings"
-                  class="block py-3 text-white/70 hover:text-active transition-colors font-ui text-lg font-medium border-b border-white/5"
-                >
-                  Settings
-                </a>
-              </div>
-            )}
+            {
+              Astro.locals.isAdmin && (
+                <div class="pt-6 border-t border-white/5">
+                  <span class="block px-2 text-sm font-bold text-white/40 uppercase tracking-widest font-display mb-2">
+                    Admin
+                  </span>
+                  <a
+                    href="/admin"
+                    class="block py-3 text-white/70 hover:text-active transition-colors font-ui text-lg font-medium border-b border-white/5"
+                  >
+                    Dashboard
+                  </a>
+                  <a
+                    href="/admin/settings"
+                    class="block py-3 text-white/70 hover:text-active transition-colors font-ui text-lg font-medium border-b border-white/5"
+                  >
+                    Settings
+                  </a>
+                </div>
+              )
+            }
 
             <div class="pt-6 border-t border-white/5 mt-4">
-              {Astro.locals.isLoggedIn ? (
-                <form action="/api/auth/logout" method="POST">
-                  <button
-                    type="submit"
-                    class="block w-full text-center py-4 rounded-xl bg-red-500/10 text-red-400 font-bold border border-red-500/20 hover:bg-red-500/20 transition-all cursor-pointer"
+              {
+                Astro.locals.isLoggedIn ? (
+                  <form action="/api/auth/logout" method="POST">
+                    <button
+                      type="submit"
+                      class="block w-full text-center py-4 rounded-xl bg-red-500/10 text-red-400 font-bold border border-red-500/20 hover:bg-red-500/20 transition-all cursor-pointer"
+                    >
+                      Logout
+                    </button>
+                  </form>
+                ) : (
+                  <a
+                    href="/login"
+                    class="block w-full text-center py-4 rounded-xl bg-active/10 text-active font-bold border border-active/20 hover:bg-active/20 transition-all"
                   >
-                    Logout
-                  </button>
-                </form>
-              ) : (
-                <a
-                  href="/login"
-                  class="block w-full text-center py-4 rounded-xl bg-active/10 text-active font-bold border border-active/20 hover:bg-active/20 transition-all"
-                >
-                  Login
-                </a>
-              )}
+                    Login
+                  </a>
+                )
+              }
             </div>
           </div>
         </div>
@@ -308,7 +364,7 @@ const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
   nav button:focus-visible,
   nav a:focus-visible,
   nav summary:focus-visible {
-    outline: 2px solid oklch(0.70 0.18 158);
+    outline: 2px solid oklch(0.7 0.18 158);
     outline-offset: 2px;
     border-radius: 0.5rem;
   }

@@ -77,11 +77,8 @@ function logMetric(metric: Metric) {
     console.log(`Rating: ${metric.rating}`);
     console.groupEnd();
 
-    // In production, send to analytics or monitoring service
-    if (import.meta.env.PROD && exceeded) {
-        // Could send to Vercel Analytics or custom monitoring
-        console.warn(`Performance budget exceeded: ${metric.name} = ${metric.value}`);
-    }
+    // In production, could send to Vercel Analytics or custom monitoring
+    // No console output in production (Silence is Golden)
 }
 
 /**

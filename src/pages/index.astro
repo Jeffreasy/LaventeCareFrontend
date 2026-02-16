@@ -6,25 +6,24 @@ import FAQSection from '../components/blocks/FAQSection.astro';
 import IconBox from '../components/ui/IconBox.astro';
 import { Zap, Shield, Database } from 'lucide-react';
 
-
 // Type-safe hero data
 const heroData = {
-	headline: 'The Foundation for Digital Growth',
-	subtitle: 'Next-Gen Web Infrastructure & Digital Experiences.',
+	headline: 'Snelle websites die klanten opleveren',
+	subtitle: 'Webbureau voor websites, webshops & apps',
 	description:
-		'LaventeCare biedt het ultieme fundament voor uw digitale ambities. Van <span class="text-active font-bold">bliksemsnelle websites</span> tot <span class="text-active font-bold">complexe data-gedreven applicaties</span>.',
+		'Wij bouwen websites die <span class="text-active font-bold">razendsnel laden</span>, hoog scoren in Google en uw bezoekers omzetten in klanten. Van een professionele website tot een complete <span class="text-active font-bold">webshop of maatwerk applicatie</span>.',
 	ctaPrimary: {
-		label: 'Start gratis trial',
+		label: 'Gratis adviesgesprek',
 		url: '/contact',
 	},
 	ctaSecondary: {
-		label: 'Ontdek het ecosysteem',
+		label: 'Bekijk ons werk',
 		url: '#ecosystem',
 	},
 	stats: [
 		{ value: '100/100', label: 'Lighthouse Score' },
-		{ value: 'Zero-JS', label: 'Runtime' },
-		{ value: 'Anti-Gravity', label: 'Security' },
+		{ value: '0s', label: 'Laadtijd' },
+		{ value: '100%', label: 'Veilig' },
 	],
 	alignment: 'center' as const,
 	size: 'large' as const,
@@ -34,10 +33,10 @@ const jsonLd = {
 	'@context': 'https://schema.org',
 	'@type': 'Organization',
 	name: 'LaventeCare',
-	url: 'https://laventecare.nl',
-	logo: 'https://laventecare.nl/logo.png',
+	url: 'https://lavente.care',
+	logo: 'https://lavente.care/logo.png',
 	description:
-		'LaventeCare is a high-performance web agency in Amsterdam specialized in Astro-based infrastructure and secure backend systems.',
+		'Professioneel webbureau in Amsterdam. Snelle websites, webshops en maatwerk apps. 100/100 Lighthouse score.',
 	address: {
 		'@type': 'PostalAddress',
 		addressLocality: 'Amsterdam',
@@ -48,13 +47,16 @@ const jsonLd = {
 
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-<Layout title="LaventeCare - The Foundation for Growth">
+<Layout
+	title="LaventeCare — Webbureau voor Snelle, Veilige Websites"
+	description="Professioneel webbureau in Amsterdam. Wij bouwen snelle websites, webshops en maatwerk applicaties. 100/100 Lighthouse score. Veilig, schaalbaar en SEO-geoptimaliseerd."
+>
 	<Hero {...heroData} />
 
 	<ShowcaseGrid />
 
 	<!-- Service Intro Section -->
-	<section id="ecosystem" class="bg-background py-24 relative overflow-hidden">
+	<section id="ecosystem" class="py-24 relative overflow-hidden">
 		<!-- Decorative bg element -->
 		<div
 			class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-active/5 rounded-full blur-3xl pointer-events-none"
@@ -64,17 +66,16 @@ const jsonLd = {
 		<div class="container mx-auto px-4 relative">
 			<div class="max-w-4xl mx-auto text-center mb-20">
 				<span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
-					>Het Ecosysteem</span
+					>Onze aanpak</span
 				>
 				<h2
 					class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight leading-[1.1]"
 				>
-					Meer dan alleen code
+					Waarom LaventeCare?
 				</h2>
 				<p class="text-xl text-white/70">
-					LaventeCare is niet zomaar een development agency. Wij bieden een geïntegreerd platform
-					waar snelheid, veiligheid en schaalbaarheid samenkomen. Uw centrale hub voor digitale
-					innovatie.
+					Wij combineren snelheid, veiligheid en schaalbaarheid in elk project. Geen templates —
+					alles wordt op maat gebouwd voor uw doelen.
 				</p>
 			</div>
 
@@ -83,44 +84,47 @@ const jsonLd = {
 			<div class="grid md:grid-cols-12 gap-8">
 				<!-- USP 1: Snelheid (Major Feature - 8 Cols) -->
 				<div
-					class="md:col-span-8 clinical-glass p-10 rounded-[var(--radius-hero)] hover:scale-[1.02] transition-transform duration-[var(--transition-base)] border border-white/10 group flex flex-col justify-between"
+					class="md:col-span-8 clinical-glass p-10 rounded-(--radius-hero) hover:scale-[1.02] transition-transform duration-(--transition-base) border border-border group flex flex-col justify-between"
 				>
 					<div>
 						<IconBox icon={Zap} size="lg" class="mb-8 group-hover:scale-110 transition-transform" />
-						<h3 class="text-3xl font-bold text-white mb-4 font-display">Ultieme Snelheid</h3>
+						<h3 class="text-3xl font-bold text-white mb-4 font-display">Razendsnel</h3>
 						<p class="text-xl text-white/70 max-w-2xl">
-							Gebouwd op <strong>Astro</strong>. Wij leveren nagenoeg nul overbodige JavaScript aan
-							de browser. Dit resulteert in topscores in Google Lighthouse en een ongeëvenaarde
-							gebruikerservaring.
+							Uw website laadt in minder dan 1 seconde. Dit betekent hogere Google-rankings, meer
+							bezoekers en een betere gebruikerservaring.
 						</p>
 					</div>
 				</div>
 
 				<!-- USP 2: Security (Compact - 4 Cols) -->
 				<div
-					class="md:col-span-4 clinical-glass p-8 rounded-[var(--radius-hero)] hover:scale-[1.02] transition-transform duration-[var(--transition-base)] border border-white/10 group"
+					class="md:col-span-4 clinical-glass p-8 rounded-(--radius-hero) hover:scale-[1.02] transition-transform duration-(--transition-base) border border-border group"
 				>
-					<IconBox icon={Shield} size="lg" class="mb-6 group-hover:scale-110 transition-transform" />
-					<h3 class="text-2xl font-bold text-white mb-3 font-display">Militaire Beveiliging</h3>
+					<IconBox
+						icon={Shield}
+						size="lg"
+						class="mb-6 group-hover:scale-110 transition-transform"
+					/>
+					<h3 class="text-2xl font-bold text-white mb-3 font-display">IJzersterke beveiliging</h3>
 					<p class="text-white/70">
-						Onze <strong>Anti-Gravity</strong> backend architectuur beschermt uw data met Row Level Security
-						(RLS).
+						Uw data is beschermd met de hoogste beveiligingsstandaarden. Elke website wordt gebouwd
+						met veiligheid als fundament.
 					</p>
 				</div>
 
 				<!-- USP 3: Flexibiliteit (Wide Banner - 12 Cols) -->
 				<div
-					class="md:col-span-12 clinical-glass p-8 md:p-12 rounded-[var(--radius-hero)] hover:scale-[1.01] transition-transform duration-[var(--transition-base)] border border-white/10 group flex flex-col md:flex-row items-center gap-8"
+					class="md:col-span-12 clinical-glass p-8 md:p-12 rounded-(--radius-hero) hover:scale-[1.01] transition-transform duration-(--transition-base) border border-border group flex flex-col md:flex-row items-center gap-8"
 				>
 					<IconBox icon={Database} size="lg" class="group-hover:scale-110 transition-transform" />
 					<div class="text-center md:text-left">
 						<h3 class="text-2xl md:text-3xl font-bold text-white mb-3 font-display">
-							Totale Flexibiliteit
+							Groeit met u mee
 						</h3>
 						<p class="text-xl text-white/70">
-							Van een high-converting <strong>landing page</strong> tot een complex <strong
-								>IoT-dashboard</strong
-							>. Het fundament schaalt moeiteloos mee met uw ambities, zonder technische limieten.
+							Van een professionele <strong>website</strong> tot een complete
+							<strong>webshop of applicatie</strong>. Onze oplossingen schalen moeiteloos mee met uw
+							groei.
 						</p>
 					</div>
 				</div>

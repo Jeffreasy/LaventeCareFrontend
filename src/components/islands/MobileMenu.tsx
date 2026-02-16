@@ -18,7 +18,7 @@ export function MobileMenu({ items }: Props) {
     return (
         <DialogTrigger>
             <AriaButton
-                className="lg:hidden p-2 text-white hover:text-[oklch(0.70_0.18_158)] transition-colors"
+                className="lg:hidden p-2 text-white hover:text-active transition-colors"
                 onPress={() => mobileMenuOpen.set(!isOpen)}
             >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -31,7 +31,7 @@ export function MobileMenu({ items }: Props) {
                             <a
                                 key={item.href}
                                 href={item.href}
-                                className="text-2xl font-display text-white hover:text-[oklch(0.70_0.18_158)] transition-colors"
+                                className="text-2xl font-display text-white hover:text-active transition-colors"
                                 onClick={() => mobileMenuOpen.set(false)}
                             >
                                 {item.label}

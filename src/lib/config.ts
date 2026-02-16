@@ -1,7 +1,7 @@
 export const settings = {
     site_name: 'LaventeCare',
     meta_title: 'LaventeCare',
-    meta_description: 'Enterprise Astro Application',
+    meta_description: 'LaventeCare biedt bliksemsnelle websites en veilige backend-systemen. Enterprise Astro-infrastructuur met Anti-Gravity beveiliging.',
     favicon: [{ filename: '/favicon.svg' }],
     logo: [{
         filename: 'https://res.cloudinary.com/dgfuv7wif/image/upload/v1769967340/Gemini_Generated_Image_g7euilg7euilg7eu-removebg-preview_1_dwzy2f_c_crop_w_1920_h_1920_ar_1_1_g_auto_e_improve_e_sharpen_u6yfpq.png',
@@ -14,7 +14,7 @@ export const settings = {
         },
         {
             label: 'Diensten',
-            link: { cached_url: '#' },
+            link: { cached_url: 'services' },
             items: [
                 { label: 'Landing Pages', link: { cached_url: 'services/landing-pages' } },
                 { label: 'Webshops', link: { cached_url: 'services/webshops' } },
@@ -71,5 +71,5 @@ export const settings = {
     copyright_text: '© 2026 LaventeCare',
     gtm_id: null,
     cookie_consent_code: null,
-    og_image: null,
+    og_image: [{ filename: 'https://res.cloudinary.com/dgfuv7wif/image/upload/v1769967340/Gemini_Generated_Image_g7euilg7euilg7eu-removebg-preview_1_dwzy2f_c_crop_w_1920_h_1920_ar_1_1_g_auto_e_improve_e_sharpen_u6yfpq.png', alt: 'LaventeCare' }],
 };

@@ -1,22 +1,15 @@
 /// <reference types="astro/client" />
-/// <reference types="@types/alpinejs" />
 
 interface ImportMetaEnv {
     readonly PROD: boolean;
+    readonly DEV: boolean;
+    readonly SITE: string;
+    readonly PUBLIC_API_URL: string;
+    readonly PUBLIC_TENANT_ID: string;
 }
 
 interface ImportMeta {
     readonly env: ImportMetaEnv;
-}
-
-interface Window {
-    Alpine: import('alpinejs').Alpine;
-}
-
-declare module '@alpinejs/collapse' {
-    import { PluginCallback } from 'alpinejs';
-    const collapse: PluginCallback;
-    export default collapse;
 }
 
 // Astro Middleware Locals

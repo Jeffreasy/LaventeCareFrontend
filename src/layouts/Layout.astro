@@ -5,6 +5,8 @@ import SEO from '../components/blocks/SEO.astro';
 import { ClientRouter } from 'astro:transitions';
 import { CookieConsent } from '../components/islands/CookieConsent';
 import { AnalyticsProvider } from '../components/islands/AnalyticsProvider';
+import { GlobalLoader } from '../components/islands/GlobalLoader';
+import { NotificationToast } from '../components/islands/NotificationToast';
 import '../styles/global.css';
 
 interface Props {
@@ -33,6 +35,8 @@ import { settings } from '../lib/config';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href={settings.favicon?.[0]?.filename || '/favicon.svg'} />
     <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0d2818" />
+    <meta name="google-site-verification" content="InPi-pFXOpFmi6hKGp7_u2VnGrYyL9RUewuw-ApcCeI" />
 
     <!-- Google Fonts: Geist & Satoshi (Fontshare) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,13 +78,21 @@ import { settings } from '../lib/config';
               })(window,document,'script','dataLayer',gtmId);
             }
           } catch (e) {
-            console.error('[GTM] Consent check failed:', e);
+            // Silence in production (L9)
           }
         })();
       </script>
     )}
   </head>
   <body>
+    <!-- [C2] Skip to Content — WCAG 2.4.1 -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-active focus:text-background focus:rounded-lg focus:font-semibold focus:shadow-lg"
+    >
+      Skip to content
+    </a>
+
     <!-- GTM Body Noscript -->
     {settings.gtm_id && (
       <noscript>
@@ -99,7 +111,7 @@ import { settings } from '../lib/config';
       siteName={settings.site_name}
     />
     
-    <main>
+    <main id="main-content">
       <slot />
     </main>
 
@@ -108,6 +120,10 @@ import { settings } from '../lib/config';
       socialLinks={settings.social_links || []} 
       copyright={settings.copyright_text || '© 2026 LaventeCare'}
     />
+
+    <!-- Global UI Islands -->
+    <GlobalLoader client:visible />
+    <NotificationToast client:idle />
 
     <!-- GDPR Cookie Consent Banner -->
     <CookieConsent client:load />

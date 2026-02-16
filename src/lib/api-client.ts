@@ -45,11 +45,11 @@ class ApiClient {
 
         // If 401 and not already refreshing, attempt token refresh
         if (response.status === 401 && !this.isRefreshing) {
-            console.log('[ApiClient] 401 detected, attempting token refresh...');
+            if (import.meta.env.DEV) console.log('[ApiClient] 401 detected, attempting token refresh...');
             const refreshed = await this.refreshToken();
 
             if (refreshed) {
-                console.log('[ApiClient] Token refreshed, retrying request...');
+                if (import.meta.env.DEV) console.log('[ApiClient] Token refreshed, retrying request...');
                 // Retry original request with new access token
                 response = await fetch(url, fetchOptions);
             }
@@ -72,7 +72,7 @@ class ApiClient {
         this.isRefreshing = true;
 
         try {
-            console.log('[ApiClient] Calling refresh endpoint:', `${API_BASE}/api/v1/auth/refresh`);
+            if (import.meta.env.DEV) console.log('[ApiClient] Calling refresh endpoint:', `${API_BASE}/api/v1/auth/refresh`);
             const response = await fetch(`${API_BASE}/api/v1/auth/refresh`, {
                 method: 'POST',
                 credentials: 'include', // Sends refresh_token cookie
@@ -83,7 +83,7 @@ class ApiClient {
             });
 
             if (response.ok) {
-                console.log('[ApiClient] Token refresh successful');
+                if (import.meta.env.DEV) console.log('[ApiClient] Token refresh successful');
                 // Backend sets new access_token + refresh_token via Set-Cookie
 
                 // Execute all queued requests
@@ -94,12 +94,12 @@ class ApiClient {
             }
 
             // Refresh failed - likely expired refresh token
-            console.warn('[ApiClient] Token refresh failed, redirecting to login');
+            if (import.meta.env.DEV) console.warn('[ApiClient] Token refresh failed, redirecting to login');
             window.location.href = '/login';
             return false;
 
         } catch (error) {
-            console.error('[ApiClient] Token refresh error:', error);
+            if (import.meta.env.DEV) console.error('[ApiClient] Token refresh error:', error);
             window.location.href = '/login';
             return false;
         } finally {
@@ -113,7 +113,8 @@ class ApiClient {
     async get<T>(endpoint: string): Promise<T> {
         const response = await this.fetch(endpoint, { method: 'GET' });
         if (!response.ok) {
-            throw new Error(`GET ${endpoint} failed: ${response.status}`);
+            const body = await response.text().catch(() => '');
+            throw new Error(`GET ${endpoint} failed: ${response.status} — ${body}`);
         }
         return response.json();
     }
@@ -127,7 +128,8 @@ class ApiClient {
             body: JSON.stringify(body),
         });
         if (!response.ok) {
-            throw new Error(`POST ${endpoint} failed: ${response.status}`);
+            const resBody = await response.text().catch(() => '');
+            throw new Error(`POST ${endpoint} failed: ${response.status} — ${resBody}`);
         }
         return response.json();
     }
@@ -138,7 +140,8 @@ class ApiClient {
     async delete(endpoint: string): Promise<void> {
         const response = await this.fetch(endpoint, { method: 'DELETE' });
         if (!response.ok) {
-            throw new Error(`DELETE ${endpoint} failed: ${response.status}`);
+            const body = await response.text().catch(() => '');
+            throw new Error(`DELETE ${endpoint} failed: ${response.status} — ${body}`);
         }
     }
 }

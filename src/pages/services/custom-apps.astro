@@ -1,19 +1,36 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import IconBox from '../../components/ui/IconBox.astro';
-import FeatureCard from '../../components/ui/FeatureCard.astro';
-import Badge from '../../components/ui/Badge.astro';
-import { Zap, Lock, BarChart3, Code, Server, Terminal, Users, LineChart, Settings } from 'lucide-react';
+import {
+  Zap,
+  Lock,
+  BarChart3,
+  Code,
+  Server,
+  Terminal,
+  Users,
+  LineChart,
+  Settings,
+} from 'lucide-react';
 ---
 
-<Layout title="Maatwerk Applicaties - LaventeCare">
+<Layout
+  title="Maatwerk Webapplicatie laten bouwen — LaventeCare"
+  description="Maatwerk webapplicatie nodig? Wij bouwen dashboards, portals en interne tools. Veilig, schaalbaar en volledig op maat."
+>
   <!-- Hero Section -->
   <div class="container mx-auto px-4 py-24">
     <div class="max-w-6xl mx-auto">
-      <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Diensten</span>
-      <h1 class="text-5xl md:text-6xl font-black text-white mb-6 font-display tracking-tight">Maatwerk Applicaties</h1>
+      <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+        >Diensten</span
+      >
+      <h1 class="text-5xl md:text-6xl font-black text-white mb-6 font-display tracking-tight">
+        Maatwerk Applicaties
+      </h1>
       <p class="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl">
-        Van <span class="text-white font-semibold">CRM-dashboards</span> tot <span class="text-white font-semibold">complexe data-platforms</span>. Wij bouwen enterprise-grade applicaties die precies doen wat u nodig heeft.
+        Van <span class="text-white font-semibold">CRM-dashboards</span> tot <span
+          class="text-white font-semibold">complexe data-platforms</span
+        >. Wij bouwen professionele applicaties die precies doen wat u nodig heeft.
       </p>
     </div>
   </div>
@@ -21,82 +38,107 @@ import { Zap, Lock, BarChart3, Code, Server, Terminal, Users, LineChart, Setting
   <!-- USPs Grid -->
   <div class="container mx-auto px-4 pb-16">
     <div class="max-w-6xl mx-auto">
-      <div class="clinical-glass p-10 rounded-[var(--radius-feature)] border border-white/10 mb-16">
-        <h2 class="text-3xl font-bold text-white mb-8 font-display">Waarom LaventeCare voor Maatwerk</h2>
+      <div class="clinical-glass p-10 rounded-(--radius-feature) border border-white/10 mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8 font-display">
+          Waarom LaventeCare voor Maatwerk
+        </h2>
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Real-time Data -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Zap} />
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">Real-time Data Synchronisatie</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Direct Bijgewerkte Data</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  Met <span class="text-white font-medium">Convex</span> en <span class="text-white font-medium">WebSockets</span> bouwen we applicaties die instant reageren op datawijzigingen. Ideaal voor dashboards en collaboratieve tools.
+                  Met <span class="text-white font-medium">Convex</span> en <span
+                    class="text-white font-medium">WebSockets</span
+                  > bouwen we applicaties die instant reageren op datawijzigingen. Ideaal voor dashboards
+                  en collaboratieve tools.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Enterprise Security -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Lock} />
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">Enterprise-Grade Authenticatie</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Professionele Beveiliging</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  Onze <span class="text-white font-medium">Go backend</span> implementeert JWT-based auth met refresh tokens, 2FA/OTP, en Row Level Security (RLS) voor absolute data-isolatie.
+                  Onze <span class="text-white font-medium">Go backend</span> implementeert veilige inlogsystemen
+                  met vernieuwbare sessies, tweefactorauthenticatie en strikte data-isolatie.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Admin Dashboards -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={BarChart3} />
               <div>
                 <h3 class="text-xl font-bold text-white mb-2">Krachtige Admin Dashboards</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  "Deep Tech" glassmorphism interfaces met real-time analytics, export functionaliteit, en intuïtieve data-visualisatie. Referentie: <span class="text-white font-medium">De Koninklijke Loop</span>.
+                  Moderne glasmorfisme-interfaces met directe statistieken, export functionaliteit
+                  en intuïtieve datavisualisatie. Referentie: <span class="text-white font-medium"
+                    >De Koninklijke Loop</span
+                  >.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Type-Safe Development -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Code} />
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">Type-Safe Development</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Foutvrije Code</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  End-to-end <span class="text-white font-medium">TypeScript</span>, van database schema (met <span class="text-white font-medium">Zod</span>) tot frontend. Minder bugs, snellere development cycles.
+                  Volledig <span class="text-white font-medium">TypeScript</span>, van database
+                  schema (met <span class="text-white font-medium">Zod</span>) tot frontend. Minder
+                  fouten, snellere ontwikkeling.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Scalable Architecture -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Server} />
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">Multi-tenant Architectuur</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Schaalbare Architectuur</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  Schaal zonder grenzen. Onze <span class="text-white font-medium">PostgreSQL</span> setup met partitioning en RLS isoleert tenants volledig en bespaart 25% geheugen.
+                  Schaal zonder grenzen. Onze <span class="text-white font-medium">PostgreSQL</span> opzet
+                  met partitionering en data-isolatie scheidt omgevingen volledig en bespaart 25% geheugen.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- API-First -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Terminal} />
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">API-First Design</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Koppelingen Eerst</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  Bouw op een robuuste RESTful API met automatische documentatie (OpenAPI) en rate limiting. Klaar voor toekomstige integraties.
+                  Bouw op een robuuste API met automatische documentatie en snelheidsbeperking.
+                  Klaar voor toekomstige integraties.
                 </p>
               </div>
             </div>
@@ -105,34 +147,40 @@ import { Zap, Lock, BarChart3, Code, Server, Terminal, Users, LineChart, Setting
       </div>
 
       <!-- Tech Stack -->
-      <div class="clinical-glass p-10 rounded-[var(--radius-feature)] border border-white/10 mb-16">
-        <h2 class="text-3xl font-bold text-white mb-3 font-display">Onze Tech Stack voor Maatwerk</h2>
-        <p class="text-white/60 mb-8">De tools waarmee we enterprise applicaties bouwen</p>
-        
+      <div class="clinical-glass p-10 rounded-(--radius-feature) border border-white/10 mb-16">
+        <h2 class="text-3xl font-bold text-white mb-3 font-display">
+          Onze Technologie voor Maatwerk
+        </h2>
+        <p class="text-white/60 mb-8">De tools waarmee we professionele applicaties bouwen</p>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Framework -->
           <div>
-            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">Framework</h3>
+            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">
+              Framework
+            </h3>
             <div class="space-y-3">
               <div class="flex items-center gap-3 text-white/80">
                 <div class="bullet-accent"></div>
                 <span class="font-medium">Astro 5</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">React 19</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
-                <span class="font-medium">Alpine.js</span>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
+                <span class="font-medium">TypeScript</span>
               </div>
-              <p class="text-sm text-white/50 pl-5">Modulaire, schaalbare frontend architectuur</p>
+              <p class="text-sm text-white/50 pl-5">Modulaire, schaalbare frontend</p>
             </div>
           </div>
 
           <!-- Backend & Data -->
           <div>
-            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">Backend & Data</h3>
+            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">
+              Backend & Data
+            </h3>
             <div class="space-y-3">
               <div class="flex items-center gap-3 text-white/80">
                 <div class="bullet-accent"></div>
@@ -143,7 +191,7 @@ import { Zap, Lock, BarChart3, Code, Server, Terminal, Users, LineChart, Setting
                 <span class="font-medium">PostgreSQL</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Convex</span>
               </div>
               <p class="text-sm text-white/50 pl-5">Veilig, snel, en schaalbaar</p>
@@ -152,18 +200,20 @@ import { Zap, Lock, BarChart3, Code, Server, Terminal, Users, LineChart, Setting
 
           <!-- UI/UX & Media -->
           <div>
-            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">UI/UX & Media</h3>
+            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">
+              UI/UX & Media
+            </h3>
             <div class="space-y-3">
               <div class="flex items-center gap-3 text-white/80">
                 <div class="bullet-accent"></div>
                 <span class="font-medium">Tailwind CSS 4</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Radix UI</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Cloudinary</span>
               </div>
               <p class="text-sm text-white/50 pl-5">Moderne, toegankelijke interfaces</p>
@@ -176,44 +226,71 @@ import { Zap, Lock, BarChart3, Code, Server, Terminal, Users, LineChart, Setting
       <div class="mb-16">
         <h2 class="text-3xl font-bold text-white mb-3 font-display">Wat Bouwen We?</h2>
         <p class="text-white/60 mb-8">Van CRM tot complexe data-platforms</p>
-        
+
         <div class="grid md:grid-cols-3 gap-6">
           <!-- CRM & Admin -->
-          <div class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 hover:border-active/30 transition-all duration-[var(--transition-base)]">
+          <div
+            class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 hover:border-active/30 transition-all duration-(--transition-base)"
+          >
             <IconBox icon={Users} size="lg" class="mb-4" />
-            <h3 class="text-xl font-bold text-white mb-3 font-display">CRM & Admin Panels</h3>
+            <h3 class="text-xl font-bold text-white mb-3 font-display">CRM & Beheer Dashboards</h3>
             <p class="text-white/70 text-sm leading-relaxed mb-4">
-              Complete administratieve dashboards met registratiebeheer, donatie-tracking, media-bibliotheek en gebruikersmanagement.
+              Complete administratieve dashboards met registratiebeheer, donatie-tracking,
+              media-bibliotheek en gebruikersmanagement.
             </p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Real-time Updates</span>
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Export/Import</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Directe updates</span
+              >
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Importeren/Exporteren</span
+              >
             </div>
           </div>
 
           <!-- Data Dashboards -->
-          <div class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 hover:border-active/30 transition-all duration-[var(--transition-base)]">
+          <div
+            class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 hover:border-active/30 transition-all duration-(--transition-base)"
+          >
             <IconBox icon={LineChart} size="lg" class="mb-4" />
-            <h3 class="text-xl font-bold text-white mb-3 font-display">Data Analytics Platforms</h3>
+            <h3 class="text-xl font-bold text-white mb-3 font-display">Data-analyse Platforms</h3>
             <p class="text-white/70 text-sm leading-relaxed mb-4">
-              Visualiseer complexe datasets met interactieve grafieken, filters, en export-functionaliteit. Perfect voor business intelligence.
+              Visualiseer complexe datasets met interactieve grafieken, filters, en
+              export-functionaliteit. Perfect voor bedrijfsinzichten.
             </p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Visualisatie</span>
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Filters</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Visualisatie</span
+              >
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Filters</span
+              >
             </div>
           </div>
 
           <!-- Internal Tools -->
-          <div class="clinical-glass p-8 rounded-[var(--radius-feature)] border border-white/10 hover:border-active/30 transition-all duration-[var(--transition-base)]">
+          <div
+            class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 hover:border-active/30 transition-all duration-(--transition-base)"
+          >
             <IconBox icon={Settings} size="lg" class="mb-4" />
             <h3 class="text-xl font-bold text-white mb-3 font-display">Interne Workflow Tools</h3>
             <p class="text-white/70 text-sm leading-relaxed mb-4">
-              Streamline uw bedrijfsprocessen met custom-built tools voor facturatie, projectmanagement, of resource planning.
+              Vereenvoudig uw bedrijfsprocessen met op maat gemaakte tools voor facturatie,
+              projectmanagement of resource planning.
             </p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Automation</span>
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Integraties</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Automatisering</span
+              >
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Integraties</span
+              >
             </div>
           </div>
         </div>
@@ -221,23 +298,31 @@ import { Zap, Lock, BarChart3, Code, Server, Terminal, Users, LineChart, Setting
 
       <!-- CTA Section -->
       <div class="clinical-glass p-12 rounded-2xl border border-white/10 text-center">
-        <h2 class="text-3xl font-bold text-white mb-4 font-display">Klaar voor een Maatwerk Applicatie?</h2>
+        <h2 class="text-3xl font-bold text-white mb-4 font-display">
+          Klaar voor een Maatwerk Applicatie?
+        </h2>
         <p class="text-white/70 mb-8 max-w-2xl mx-auto">
-          Bekijk onze portfolio met concrete voorbeelden zoals <span class="text-white font-medium">De Koninklijke Loop</span>, of neem direct contact op voor een vrijblijvend gesprek.
+          Bekijk onze portfolio met concrete voorbeelden zoals <span class="text-white font-medium"
+            >De Koninklijke Loop</span
+          >, of neem direct contact op voor een vrijblijvend gesprek.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
-            href="/portfolio" 
-            class="inline-flex items-center justify-center px-8 py-4 rounded-[var(--radius-action)] bg-gradient-to-br from-[var(--color-active-gradient-from)] to-[var(--color-active-gradient-to)] text-white font-semibold hover:shadow-lg hover:shadow-active/20 transition-all duration-[var(--transition-base)]"
+          <a
+            href="/contact?ref=custom-apps"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-(--radius-action) bg-linear-to-br from-(--color-active-gradient-from) to-active-gradient-to text-white font-semibold hover:shadow-lg hover:shadow-active/20 transition-all duration-(--transition-base)"
           >
             Bekijk Portfolio
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
           </a>
-          <a 
-            href="/contact" 
-            class="inline-flex items-center justify-center px-8 py-4 rounded-[var(--radius-action)] border border-white/20 text-white font-semibold hover:bg-white/5 transition-all duration-[var(--transition-base)]"
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-(--radius-action) border border-white/20 text-white font-semibold hover:bg-white/5 transition-all duration-(--transition-base)"
           >
             Neem Contact Op
           </a>

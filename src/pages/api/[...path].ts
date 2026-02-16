@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { applySanitizedCookies } from '../../lib/cookie-utils';
 
 export const prerender = false;
 
@@ -16,8 +17,6 @@ export const ALL: APIRoute = async ({ request, params, url }) => {
     }
 
     // Construct Target URL
-    // Backend expects /api/v1/..., and path usually starts with v1/
-    // We assume the file is at src/pages/api/[...path].ts
     const targetUrl = `${API_URL}/api/${path}${url.search}`;
 
     // Debug Log (Development only)
@@ -56,48 +55,10 @@ export const ALL: APIRoute = async ({ request, params, url }) => {
         // Process Response Attributes
         const resHeaders = new Headers(backendResponse.headers);
 
-        // ATOMIC COOKIE RECONSTRUCTION (Copy from login.ts Fix)
-        // Ensures backend cookies are stripped of 'Secure', 'Partitioned' and 'Domain' for Localhost
-        const rawRes = backendResponse as any;
-        let cookies: string[] = [];
-
-        // Node 18+ support
-        if (typeof rawRes.headers.getSetCookie === 'function') {
-            cookies = rawRes.headers.getSetCookie();
-        } else {
-            const c = backendResponse.headers.get('set-cookie');
-            if (c) cookies = [c];
-        }
-
-        if (cookies.length > 0) {
-            resHeaders.delete('set-cookie'); // Clear originals
-
-            cookies.forEach(cookie => {
-                // Parse Name=Value
-                const parts = cookie.split(';');
-                const nameValue = parts[0];
-
-                // Preserve Max-Age if present
-                let maxAgeMatch = cookie.match(/Max-Age=([^;]+)/i);
-                let maxAgeAttr = maxAgeMatch ? `; Max-Age=${maxAgeMatch[1]}` : '';
-
-                // Rebuild Safe Cookie
-                // csrf_token MUST be accessible to JS (not HttpOnly)
-                const isCsrf = nameValue.trim().startsWith('csrf_token=');
-                const httpOnlyAttr = isCsrf ? '' : '; HttpOnly';
-
-                const newCookie = `${nameValue}; Path=/${httpOnlyAttr}; SameSite=Lax${maxAgeAttr}`;
-
-                if (import.meta.env.DEV) {
-                    console.log(`[Universal Proxy] Rebuilt Cookie: ${nameValue.substring(0, 20)}...`);
-                }
-
-                resHeaders.append('set-cookie', newCookie);
-            });
-        }
+        // Use shared cookie sanitization
+        applySanitizedCookies(backendResponse, resHeaders, import.meta.env.DEV);
 
         // Fix: content-encoding mismatch (ERR_CONTENT_DECODING_FAILED)
-        // Fetch decodes automatically, but headers might claim it is still gzipped
         resHeaders.delete('content-encoding');
         resHeaders.delete('content-length');
         resHeaders.delete('transfer-encoding');
@@ -109,10 +70,9 @@ export const ALL: APIRoute = async ({ request, params, url }) => {
         });
 
     } catch (error) {
-        console.error('[Universal Proxy] Error:', error);
+        if (import.meta.env.DEV) console.error('[Universal Proxy] Error:', error);
         return new Response(JSON.stringify({
-            error: 'Universal Proxy Gateway Error',
-            details: error instanceof Error ? error.message : String(error)
+            error: 'Service temporarily unavailable. Please try again later.',
         }), {
             status: 502,
             headers: { 'Content-Type': 'application/json' }

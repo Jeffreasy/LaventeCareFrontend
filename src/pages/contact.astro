@@ -3,8 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/ui/Card.astro';
 import { ContactForm } from '../components/islands/ContactForm';
 
-const pageTitle = 'Contact - LaventeCare';
-const pageDescription = 'Neem contact op met LaventeCare voor high-performance web development en veilige backend oplossingen.';
+const pageTitle = 'Contact opnemen — LaventeCare';
+const pageDescription =
+  'Neem contact op voor een vrijblijvend gesprek over uw website, webshop of applicatie. Wij reageren binnen 24 uur.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -19,7 +20,9 @@ const pageDescription = 'Neem contact op met LaventeCare voor high-performance w
           Neem <span class="text-active">contact</span> op
         </h1>
         <p class="text-xl text-white/70 font-ui">
-          Vul het formulier in en we nemen <span class="text-white font-medium">zo snel mogelijk</span> contact met je op.
+          Vul het formulier in en we nemen <span class="text-white font-medium"
+            >zo snel mogelijk</span
+          > contact met u op.
         </p>
       </div>
 
@@ -30,7 +33,7 @@ const pageDescription = 'Neem contact op met LaventeCare voor high-performance w
   </section>
 
   <!-- Contact Info Section -->
-  <section class="bg-background py-16" aria-labelledby="contact-info-heading">
+  <section class="py-16" aria-labelledby="contact-info-heading">
     <div class="container mx-auto px-4">
       <h2
         id="contact-info-heading"
@@ -41,28 +44,53 @@ const pageDescription = 'Neem contact op met LaventeCare voor high-performance w
 
       <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         <Card hover padding="md" class="text-center">
-          <div class="text-3xl mb-3">📧</div>
+          <div class="flex items-center justify-center mb-3">
+            <svg class="w-8 h-8 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              ></path></svg
+            >
+          </div>
           <h3 class="font-semibold text-white mb-2">Email</h3>
-          <p class="text-white/70 text-sm">info@laventecare.nl</p>
-        </Card>
-
-        <!-- Placeholder Data Commented Out for SEO Trust -->
-        <!--
-        <Card hover padding="md" class="text-center">
-          <div class="text-3xl mb-3">📞</div>
-          <h3 class="font-semibold text-white mb-2">Telefoon</h3>
-          <p class="text-white/70 text-sm">+31 (0) 20 123 4567</p>
+          <a
+            href="mailto:info@laventecare.nl"
+            class="text-active hover:text-primary-hover transition-colors text-sm font-medium"
+            >info@laventecare.nl</a
+          >
         </Card>
 
         <Card hover padding="md" class="text-center">
-          <div class="text-3xl mb-3">📍</div>
-          <h3 class="font-semibold text-white mb-2">Adres</h3>
-          <p class="text-white/70 text-sm">Amsterdam, Nederland</p>
+          <div class="flex items-center justify-center mb-3">
+            <svg class="w-8 h-8 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Reactietijd</h3>
+          <p class="text-white/70 text-sm">Binnen 24 uur op werkdagen</p>
         </Card>
-        -->
+
+        <Card hover padding="md" class="text-center">
+          <div class="flex items-center justify-center mb-3">
+            <svg class="w-8 h-8 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-white mb-2">Website</h3>
+          <p class="text-white/70 text-sm">laventecare.nl</p>
+        </Card>
       </div>
-    </div>
-  </section>
     </div>
   </section>
 </Layout>

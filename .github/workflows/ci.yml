@@ -82,7 +82,7 @@ jobs:
         run: npm ci
       
       - name: Build Application
-        run: STORYBLOK_TOKEN=${{ secrets.STORYBLOK_TOKEN }} npm run build
+        run: npm run build
       
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4

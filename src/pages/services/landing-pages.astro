@@ -1,17 +1,32 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import IconBox from '../../components/ui/IconBox.astro';
-import { Palette, Zap, Search, Globe, Smartphone, TrendingUp, Monitor, MapPin, Calendar } from 'lucide-react';
+import {
+  Palette,
+  Zap,
+  Search,
+  Globe,
+  Smartphone,
+  TrendingUp,
+  Monitor,
+  MapPin,
+  Calendar,
+} from 'lucide-react';
 ---
 
-<Layout title="Landing Pages - LaventeCare">
+<Layout
+  title="Professionele Website laten maken — LaventeCare"
+  description="Website laten maken? Wij bouwen snelle, SEO-geoptimaliseerde websites die bezoekers omzetten in klanten. Inclusief design, ontwikkeling en hosting."
+>
   <!-- Hero Section -->
   <div class="container mx-auto px-4 py-24">
     <div class="max-w-6xl mx-auto">
       <span class="text-active font-semibold tracking-wider uppercase mb-4 block">Diensten</span>
       <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Landing Pages die Converteren</h1>
       <p class="text-xl md:text-2xl text-white/70 mb-12 max-w-3xl">
-        Geen statische folder, maar een <span class="text-white font-semibold">levende, meetbare</span> ervaring. Gebouwd met enterprise-grade technologie voor maximale performance en schaalbaarheid.
+        Geen statische folder, maar een <span class="text-white font-semibold"
+          >levende, meetbare</span
+        > ervaring. Gebouwd met bewezen technologie voor maximale snelheid en schaalbaarheid.
       </p>
     </div>
   </div>
@@ -19,82 +34,106 @@ import { Palette, Zap, Search, Globe, Smartphone, TrendingUp, Monitor, MapPin, C
   <!-- Concrete USPs -->
   <div class="container mx-auto px-4 pb-16">
     <div class="max-w-6xl mx-auto">
-      <div class="clinical-glass p-10 rounded-[var(--radius-feature)] border border-white/10 mb-16">
-        <h2 class="text-3xl font-bold text-white mb-8">Waarom LaventeCare Landing Pages Anders Zijn</h2>
+      <div class="clinical-glass p-10 rounded-(--radius-feature) border border-white/10 mb-16">
+        <h2 class="text-3xl font-bold text-white mb-8">
+          Waarom LaventeCare Landing Pages Anders Zijn
+        </h2>
         <div class="grid md:grid-cols-2 gap-6">
           <!-- Real-time & Schaalbaarheid -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Zap} />
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">Real-time & Schaalbaar</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Direct & Schaalbaar</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  Dankzij <span class="text-white font-medium">Convex</span> verwerken we real-time data zoals voorraden of live boekingen zonder pagina refresh. Je landing page is een levend systeem.
+                  Dankzij <span class="text-white font-medium">Convex</span> verwerken we live data zoals
+                  voorraden of boekingen zonder pagina refresh. Uw landing page is een levend systeem.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Enterprise Security -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Search} />
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">Enterprise-Grade Beveiliging</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Professionele Beveiliging</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  Met onze <span class="text-white font-medium">Go (Golang) backend</span> implementeren we robuuste authenticatie (JWT, OTP/2FA) en rate-limiting. Veiligheid is geen optie, maar standaard.
+                  Met onze <span class="text-white font-medium">Go (Golang) backend</span> implementeren
+                  we robuuste authenticatie (JWT, OTP/2FA) en rate-limiting. Veiligheid is geen optie,
+                  maar standaard.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Performance Monitoring -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={TrendingUp} />
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">Meetbare Performance</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Meetbare Resultaten</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  Met <span class="text-white font-medium">Vercel Speed Insights</span> en <span class="text-white font-medium">Web Vitals</span> garanderen we top-scores. Geen gevoel, maar data-driven optimalisatie.
+                  Met <span class="text-white font-medium">Vercel Speed Insights</span> en <span
+                    class="text-white font-medium">Web Vitals</span
+                  > garanderen we top-scores. Geen gevoel, maar datagedreven optimalisatie.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Accessibility & Quality -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Palette} />
               <div>
                 <h3 class="text-xl font-bold text-white mb-2">Toegankelijkheid & Kwaliteit</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  We testen op toegankelijkheid met <span class="text-white font-medium">Axe Core</span> en <span class="text-white font-medium">Playwright</span>. Essentieel voor SEO en inclusiviteit.
+                  We testen op toegankelijkheid met <span class="text-white font-medium"
+                    >Axe Core</span
+                  > en <span class="text-white font-medium">Playwright</span>. Essentieel voor SEO
+                  en inclusiviteit.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Type-Safe Development -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Smartphone} />
               <div>
-                <h3 class="text-xl font-bold text-white mb-2">Type-Safe Development</h3>
+                <h3 class="text-xl font-bold text-white mb-2">Foutvrije Code</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  Alle projecten in <span class="text-white font-medium">TypeScript</span>. Dit betekent minder bugs, stabielere code en snellere development cycles.
+                  Alle projecten in <span class="text-white font-medium">TypeScript</span>. Dit
+                  betekent minder fouten, stabielere code en snellere ontwikkeling.
                 </p>
               </div>
             </div>
           </div>
 
           <!-- Edge Deployment -->
-          <div class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-[var(--transition-base)]">
+          <div
+            class="group hover:bg-white/5 p-6 rounded-xl transition-all duration-(--transition-base)"
+          >
             <div class="flex items-start gap-4">
               <IconBox icon={Globe} />
               <div>
                 <h3 class="text-xl font-bold text-white mb-2">Wereldwijd Razendsnel</h3>
                 <p class="text-white/70 text-sm leading-relaxed">
-                  Via <span class="text-white font-medium">Vercel Edge Network</span> wordt je site fysiek dichtbij de bezoeker geserveerd. Waar ter wereld ze ook zijn.
+                  Via <span class="text-white font-medium">Vercel Edge Network</span> wordt uw site fysiek
+                  dichtbij de bezoeker geserveerd. Waar ter wereld ze ook zijn.
                 </p>
               </div>
             </div>
@@ -104,13 +143,15 @@ import { Palette, Zap, Search, Globe, Smartphone, TrendingUp, Monitor, MapPin, C
 
       <!-- Tech Stack Grid -->
       <div class="clinical-glass p-10 rounded-2xl border border-white/10 mb-16">
-        <h2 class="text-3xl font-bold text-white mb-3">Onze Tech Stack</h2>
-        <p class="text-white/60 mb-8">De tools waarmee we premium landing pages bouwen</p>
-        
+        <h2 class="text-3xl font-bold text-white mb-3">Onze Technologie</h2>
+        <p class="text-white/60 mb-8">De tools waarmee we snelle websites bouwen</p>
+
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Framework -->
           <div>
-            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">Framework</h3>
+            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">
+              Framework
+            </h3>
             <div class="space-y-3">
               <div class="flex items-center gap-3 text-white/80">
                 <div class="bullet-accent"></div>
@@ -120,24 +161,26 @@ import { Palette, Zap, Search, Globe, Smartphone, TrendingUp, Monitor, MapPin, C
                 <div class="bullet-accent"></div>
                 <span class="font-medium">React 19</span>
               </div>
-              <p class="text-sm text-white/50 pl-5">Maximale snelheid door Island Architecture</p>
+              <p class="text-sm text-white/50 pl-5">Maximale snelheid door slim laden</p>
             </div>
           </div>
 
           <!-- Backend & Data -->
           <div>
-            <h3 class="text-sm font-semibold text-[oklch(0.70_0.18_158)] uppercase tracking-wider mb-4">Backend & Data</h3>
+            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">
+              Backend & Data
+            </h3>
             <div class="space-y-3">
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Go (Golang)</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Convex</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">PostgreSQL</span>
               </div>
               <p class="text-sm text-white/50 pl-5">Snelle data-afhandeling en veilige opslag</p>
@@ -146,38 +189,44 @@ import { Palette, Zap, Search, Globe, Smartphone, TrendingUp, Monitor, MapPin, C
 
           <!-- UI/UX & Media -->
           <div>
-            <h3 class="text-sm font-semibold text-[oklch(0.70_0.18_158)] uppercase tracking-wider mb-4">UI/UX & Media</h3>
+            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">
+              UI/UX & Media
+            </h3>
             <div class="space-y-3">
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Tailwind CSS 4</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Radix UI</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Cloudinary</span>
               </div>
-              <p class="text-sm text-white/50 pl-5">Moderne, responsieve en toegankelijke designs</p>
+              <p class="text-sm text-white/50 pl-5">
+                Moderne, responsieve en toegankelijke designs
+              </p>
             </div>
           </div>
 
           <!-- Testing & Quality -->
           <div>
-            <h3 class="text-sm font-semibold text-[oklch(0.70_0.18_158)] uppercase tracking-wider mb-4">Testing & Monitoring</h3>
+            <h3 class="text-sm font-semibold text-active uppercase tracking-wider mb-4">
+              Testen & Monitoring
+            </h3>
             <div class="space-y-3">
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Playwright</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Vitest</span>
               </div>
               <div class="flex items-center gap-3 text-white/80">
-                <div class="w-2 h-2 rounded-full bg-[oklch(0.70_0.18_158)]"></div>
+                <div class="w-2 h-2 rounded-full bg-active"></div>
                 <span class="font-medium">Axe Core</span>
               </div>
               <p class="text-sm text-white/50 pl-5">Een website die altijd werkt, zonder bugs</p>
@@ -190,44 +239,68 @@ import { Palette, Zap, Search, Globe, Smartphone, TrendingUp, Monitor, MapPin, C
       <div class="mb-16">
         <h2 class="text-3xl font-bold text-white mb-3">Wat Voor Landing Pages Bouwen We?</h2>
         <p class="text-white/60 mb-8">Van simpel tot complex, altijd met premium kwaliteit</p>
-        
+
         <div class="grid md:grid-cols-3 gap-6">
           <!-- SaaS Product -->
-          <div class="clinical-glass p-8 rounded-xl border border-white/10 hover:border-active/30 transition-all duration-[var(--transition-base)]">
+          <div
+            class="clinical-glass p-8 rounded-xl border border-white/10 hover:border-active/30 transition-all duration-(--transition-base)"
+          >
             <IconBox icon={Monitor} size="lg" class="mb-4" />
-            <h3 class="text-xl font-bold text-white mb-3">SaaS Product Pages</h3>
+            <h3 class="text-xl font-bold text-white mb-3">Productpagina's</h3>
             <p class="text-white/70 text-sm leading-relaxed mb-4">
-              Met real-time dashboards, interactieve demos, en beveiligde klantomgevingen.
+              Met live dashboards, interactieve demos en beveiligde klantomgevingen.
             </p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Real-time Data</span>
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Auth Flows</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Live data</span
+              >
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Inlogsystemen</span
+              >
             </div>
           </div>
 
           <!-- Lokale Bedrijven -->
-          <div class="clinical-glass p-8 rounded-xl border border-white/10 hover:border-active/30 transition-all duration-[var(--transition-base)]">
+          <div
+            class="clinical-glass p-8 rounded-xl border border-white/10 hover:border-active/30 transition-all duration-(--transition-base)"
+          >
             <IconBox icon={MapPin} size="lg" class="mb-4" />
             <h3 class="text-xl font-bold text-white mb-3">Lokale Bedrijven</h3>
             <p class="text-white/70 text-sm leading-relaxed mb-4">
               Met interactieve kaarten (Leaflet), boekingssystemen, en lokale SEO optimalisatie.
             </p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Maps</span>
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Bookings</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Kaarten</span
+              >
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Boekingen</span
+              >
             </div>
           </div>
 
           <!-- Event & Campaign -->
-          <div class="clinical-glass p-8 rounded-xl border border-white/10 hover:border-active/30 transition-all duration-[var(--transition-base)]">
+          <div
+            class="clinical-glass p-8 rounded-xl border border-white/10 hover:border-active/30 transition-all duration-(--transition-base)"
+          >
             <IconBox icon={Calendar} size="lg" class="mb-4" />
-            <h3 class="text-xl font-bold text-white mb-3">Events & Campaigns</h3>
+            <h3 class="text-xl font-bold text-white mb-3">Evenementen & Campagnes</h3>
             <p class="text-white/70 text-sm leading-relaxed mb-4">
-              Met registratieflows, countdown timers, en real-time analytics voor maximale conversie.
+              Met registratieprocessen, afteltimers en live statistieken voor maximale conversie.
             </p>
             <div class="flex flex-wrap gap-2">
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Forms</span>
-              <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10">Analytics</span>
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Formulieren</span
+              >
+              <span
+                class="text-xs px-3 py-1 rounded-full bg-white/5 text-white/70 border border-white/10"
+                >Statistieken</span
+              >
             </div>
           </div>
         </div>
@@ -235,23 +308,28 @@ import { Palette, Zap, Search, Globe, Smartphone, TrendingUp, Monitor, MapPin, C
 
       <!-- CTA Section -->
       <div class="clinical-glass p-12 rounded-2xl border border-white/10 text-center">
-        <h2 class="text-3xl font-bold text-white mb-4">Klaar voor een Premium Landing Page?</h2>
+        <h2 class="text-3xl font-bold text-white mb-4">Klaar voor een Professionele Website?</h2>
         <p class="text-white/70 mb-8 max-w-2xl mx-auto">
-          Bekijk onze portfolio of neem direct contact op voor een vrijblijvend gesprek over jouw project.
+          Bekijk onze portfolio of neem direct contact op voor een vrijblijvend gesprek over uw
+          project.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a 
-            href="/portfolio" 
-            class="inline-flex items-center justify-center px-8 py-4 rounded-[var(--radius-action)] bg-gradient-to-br from-[var(--color-active-gradient-from)] to-[var(--color-active-gradient-to)] text-white font-semibold hover:shadow-lg hover:shadow-active/20 transition-all duration-[var(--transition-base)]"
+          <a
+            href="/contact?ref=landing-pages"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-(--radius-action) bg-linear-to-br from-(--color-active-gradient-from) to-active-gradient-to text-white font-semibold hover:shadow-lg hover:shadow-active/20 transition-all duration-(--transition-base)"
           >
             Bekijk Portfolio
             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
           </a>
-          <a 
-            href="/contact" 
-            class="inline-flex items-center justify-center px-8 py-4 rounded-[var(--radius-action)] border border-white/20 text-white font-semibold hover:bg-white/5 transition-all duration-[var(--transition-base)]"
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-(--radius-action) border border-white/20 text-white font-semibold hover:bg-white/5 transition-all duration-(--transition-base)"
           >
             Neem Contact Op
           </a>
