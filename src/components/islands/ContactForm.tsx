@@ -28,6 +28,7 @@ export function ContactForm({ onSuccess }: Props) {
 
         async onSubmit(event, { formData }) {
             event.preventDefault();
+            const formElement = event.currentTarget as HTMLFormElement;
             setIsSubmitting(true);
             setSubmitStatus('idle');
 
@@ -59,7 +60,8 @@ export function ContactForm({ onSuccess }: Props) {
                 }
 
                 // Reset form after successful submission
-                event.currentTarget.reset();
+                // NOTE: Use saved reference — event.currentTarget is null after await
+                formElement.reset();
             } catch (error) {
                 if (import.meta.env.DEV) console.error('Form submission error:', error);
                 setSubmitStatus('error');
