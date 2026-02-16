@@ -23,48 +23,43 @@ export const loadingMessage = atom<string>('');
 // ============================================
 
 export interface Notification {
-    id: string;
-    type: 'success' | 'error' | 'warning' | 'info';
-    message: string;
-    duration?: number; // milliseconds
+  id: string;
+  type: 'success' | 'error' | 'warning' | 'info';
+  message: string;
+  duration?: number; // milliseconds
 }
 
 // Map store for notifications (can hold multiple)
 export const notifications = map<Record<string, Notification>>({});
 
 // Helper: Add notification
-export function addNotification(
-    type: Notification['type'],
-    message: string,
-    duration = 5000
-) {
-    const id = `notif-${Date.now()}-${Math.random()}`;
-    const notification: Notification = { id, type, message, duration };
+export function addNotification(type: Notification['type'], message: string, duration = 5000) {
+  const id = `notif-${Date.now()}-${Math.random()}`;
+  const notification: Notification = { id, type, message, duration };
 
-    notifications.setKey(id, notification);
+  notifications.setKey(id, notification);
 
-    // Auto-remove after duration
-    if (duration > 0) {
-        setTimeout(() => {
-            removeNotification(id);
-        }, duration);
-    }
+  // Auto-remove after duration
+  if (duration > 0) {
+    setTimeout(() => {
+      removeNotification(id);
+    }, duration);
+  }
 
-    return id;
+  return id;
 }
 
 // Helper: Remove notification
 export function removeNotification(id: string) {
-    const current = notifications.get();
-    const { [id]: removed, ...rest } = current;
-    notifications.set(rest);
+  const current = notifications.get();
+  const { [id]: removed, ...rest } = current;
+  notifications.set(rest);
 }
 
 // Helper: Clear all notifications
 export function clearNotifications() {
-    notifications.set({});
+  notifications.set({});
 }
-
 
 // ============================================
 // Utility Functions
@@ -72,32 +67,32 @@ export function clearNotifications() {
 
 // Start loading with optional message
 export function startLoading(message = '') {
-    isLoading.set(true);
-    loadingMessage.set(message);
+  isLoading.set(true);
+  loadingMessage.set(message);
 }
 
 // Stop loading
 export function stopLoading() {
-    isLoading.set(false);
-    loadingMessage.set('');
+  isLoading.set(false);
+  loadingMessage.set('');
 }
 
 // Show success notification
 export function showSuccess(message: string) {
-    return addNotification('success', message);
+  return addNotification('success', message);
 }
 
 // Show error notification
 export function showError(message: string) {
-    return addNotification('error', message);
+  return addNotification('error', message);
 }
 
 // Show warning notification
 export function showWarning(message: string) {
-    return addNotification('warning', message);
+  return addNotification('warning', message);
 }
 
 // Show info notification
 export function showInfo(message: string) {
-    return addNotification('info', message);
+  return addNotification('info', message);
 }

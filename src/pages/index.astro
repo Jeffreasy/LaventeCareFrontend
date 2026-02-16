@@ -8,129 +8,129 @@ import { Zap, Shield, Database } from 'lucide-react';
 
 // Type-safe hero data
 const heroData = {
-	headline: 'Snelle websites die klanten opleveren',
-	subtitle: 'Webbureau voor websites, webshops & apps',
-	description:
-		'Wij bouwen websites die <span class="text-active font-bold">razendsnel laden</span>, hoog scoren in Google en uw bezoekers omzetten in klanten. Van een professionele website tot een complete <span class="text-active font-bold">webshop of maatwerk applicatie</span>.',
-	ctaPrimary: {
-		label: 'Gratis adviesgesprek',
-		url: '/contact',
-	},
-	ctaSecondary: {
-		label: 'Bekijk ons werk',
-		url: '#ecosystem',
-	},
-	stats: [
-		{ value: '100/100', label: 'Lighthouse Score' },
-		{ value: '0s', label: 'Laadtijd' },
-		{ value: '100%', label: 'Veilig' },
-	],
-	alignment: 'center' as const,
-	size: 'large' as const,
+  headline: 'Snelle websites die klanten opleveren',
+  subtitle: 'Webbureau voor websites, webshops & apps',
+  description:
+    'Wij bouwen websites die <span class="text-active font-bold">razendsnel laden</span>, hoog scoren in Google en uw bezoekers omzetten in klanten. Van een professionele website tot een complete <span class="text-active font-bold">webshop of maatwerk applicatie</span>.',
+  ctaPrimary: {
+    label: 'Gratis adviesgesprek',
+    url: '/contact',
+  },
+  ctaSecondary: {
+    label: 'Bekijk ons werk',
+    url: '#ecosystem',
+  },
+  stats: [
+    { value: '100/100', label: 'Lighthouse Score' },
+    { value: '0s', label: 'Laadtijd' },
+    { value: '100%', label: 'Veilig' },
+  ],
+  alignment: 'center' as const,
+  size: 'large' as const,
 };
 
 const jsonLd = {
-	'@context': 'https://schema.org',
-	'@type': 'Organization',
-	name: 'LaventeCare',
-	url: 'https://lavente.care',
-	logo: 'https://lavente.care/logo.png',
-	description:
-		'Professioneel webbureau in Amsterdam. Snelle websites, webshops en maatwerk apps. 100/100 Lighthouse score.',
-	address: {
-		'@type': 'PostalAddress',
-		addressLocality: 'Amsterdam',
-		addressCountry: 'NL',
-	},
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'LaventeCare',
+  url: 'https://lavente.care',
+  logo: 'https://lavente.care/logo.png',
+  description:
+    'Professioneel webbureau in Amsterdam. Snelle websites, webshops en maatwerk apps. 100/100 Lighthouse score.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Amsterdam',
+    addressCountry: 'NL',
+  },
 };
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
-	title="LaventeCare — Webbureau voor Snelle, Veilige Websites"
-	description="Professioneel webbureau in Amsterdam. Wij bouwen snelle websites, webshops en maatwerk applicaties. 100/100 Lighthouse score. Veilig, schaalbaar en SEO-geoptimaliseerd."
+  title="LaventeCare — Webbureau voor Snelle, Veilige Websites"
+  description="Professioneel webbureau in Amsterdam. Wij bouwen snelle websites, webshops en maatwerk applicaties. 100/100 Lighthouse score. Veilig, schaalbaar en SEO-geoptimaliseerd."
 >
-	<Hero {...heroData} />
+  <Hero {...heroData} />
 
-	<ShowcaseGrid />
+  <ShowcaseGrid />
 
-	<!-- Service Intro Section -->
-	<section id="ecosystem" class="py-24 relative overflow-hidden">
-		<!-- Decorative bg element -->
-		<div
-			class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-active/5 rounded-full blur-3xl pointer-events-none"
-		>
-		</div>
+  <!-- Service Intro Section -->
+  <section id="ecosystem" class="py-24 relative overflow-hidden">
+    <!-- Decorative bg element -->
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-active/5 rounded-full blur-3xl pointer-events-none"
+    >
+    </div>
 
-		<div class="container mx-auto px-4 relative">
-			<div class="max-w-4xl mx-auto text-center mb-20">
-				<span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
-					>Onze aanpak</span
-				>
-				<h2
-					class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight leading-[1.1]"
-				>
-					Waarom LaventeCare?
-				</h2>
-				<p class="text-xl text-white/70">
-					Wij combineren snelheid, veiligheid en schaalbaarheid in elk project. Geen templates —
-					alles wordt op maat gebouwd voor uw doelen.
-				</p>
-			</div>
+    <div class="container mx-auto px-4 relative">
+      <div class="max-w-4xl mx-auto text-center mb-20">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+          >Onze aanpak</span
+        >
+        <h2
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight leading-[1.1]"
+        >
+          Waarom LaventeCare?
+        </h2>
+        <p class="text-xl text-white/70">
+          Wij combineren snelheid, veiligheid en schaalbaarheid in elk project. Geen templates —
+          alles wordt op maat gebouwd voor uw doelen.
+        </p>
+      </div>
 
-			<!-- USPs Section -->
-			<!-- USPs Section (Asymmetric Layout) -->
-			<div class="grid md:grid-cols-12 gap-8">
-				<!-- USP 1: Snelheid (Major Feature - 8 Cols) -->
-				<div
-					class="md:col-span-8 clinical-glass p-10 rounded-(--radius-hero) hover:scale-[1.02] transition-transform duration-(--transition-base) border border-border group flex flex-col justify-between"
-				>
-					<div>
-						<IconBox icon={Zap} size="lg" class="mb-8 group-hover:scale-110 transition-transform" />
-						<h3 class="text-3xl font-bold text-white mb-4 font-display">Razendsnel</h3>
-						<p class="text-xl text-white/70 max-w-2xl">
-							Uw website laadt in minder dan 1 seconde. Dit betekent hogere Google-rankings, meer
-							bezoekers en een betere gebruikerservaring.
-						</p>
-					</div>
-				</div>
+      <!-- USPs Section -->
+      <!-- USPs Section (Asymmetric Layout) -->
+      <div class="grid md:grid-cols-12 gap-8">
+        <!-- USP 1: Snelheid (Major Feature - 8 Cols) -->
+        <div
+          class="md:col-span-8 clinical-glass p-10 rounded-(--radius-hero) hover:scale-[1.02] transition-transform duration-(--transition-base) border border-border group flex flex-col justify-between"
+        >
+          <div>
+            <IconBox icon={Zap} size="lg" class="mb-8 group-hover:scale-110 transition-transform" />
+            <h3 class="text-3xl font-bold text-white mb-4 font-display">Razendsnel</h3>
+            <p class="text-xl text-white/70 max-w-2xl">
+              Uw website laadt in minder dan 1 seconde. Dit betekent hogere Google-rankings, meer
+              bezoekers en een betere gebruikerservaring.
+            </p>
+          </div>
+        </div>
 
-				<!-- USP 2: Security (Compact - 4 Cols) -->
-				<div
-					class="md:col-span-4 clinical-glass p-8 rounded-(--radius-hero) hover:scale-[1.02] transition-transform duration-(--transition-base) border border-border group"
-				>
-					<IconBox
-						icon={Shield}
-						size="lg"
-						class="mb-6 group-hover:scale-110 transition-transform"
-					/>
-					<h3 class="text-2xl font-bold text-white mb-3 font-display">IJzersterke beveiliging</h3>
-					<p class="text-white/70">
-						Uw data is beschermd met de hoogste beveiligingsstandaarden. Elke website wordt gebouwd
-						met veiligheid als fundament.
-					</p>
-				</div>
+        <!-- USP 2: Security (Compact - 4 Cols) -->
+        <div
+          class="md:col-span-4 clinical-glass p-8 rounded-(--radius-hero) hover:scale-[1.02] transition-transform duration-(--transition-base) border border-border group"
+        >
+          <IconBox
+            icon={Shield}
+            size="lg"
+            class="mb-6 group-hover:scale-110 transition-transform"
+          />
+          <h3 class="text-2xl font-bold text-white mb-3 font-display">IJzersterke beveiliging</h3>
+          <p class="text-white/70">
+            Uw data is beschermd met de hoogste beveiligingsstandaarden. Elke website wordt gebouwd
+            met veiligheid als fundament.
+          </p>
+        </div>
 
-				<!-- USP 3: Flexibiliteit (Wide Banner - 12 Cols) -->
-				<div
-					class="md:col-span-12 clinical-glass p-8 md:p-12 rounded-(--radius-hero) hover:scale-[1.01] transition-transform duration-(--transition-base) border border-border group flex flex-col md:flex-row items-center gap-8"
-				>
-					<IconBox icon={Database} size="lg" class="group-hover:scale-110 transition-transform" />
-					<div class="text-center md:text-left">
-						<h3 class="text-2xl md:text-3xl font-bold text-white mb-3 font-display">
-							Groeit met u mee
-						</h3>
-						<p class="text-xl text-white/70">
-							Van een professionele <strong>website</strong> tot een complete
-							<strong>webshop of applicatie</strong>. Onze oplossingen schalen moeiteloos mee met uw
-							groei.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+        <!-- USP 3: Flexibiliteit (Wide Banner - 12 Cols) -->
+        <div
+          class="md:col-span-12 clinical-glass p-8 md:p-12 rounded-(--radius-hero) hover:scale-[1.01] transition-transform duration-(--transition-base) border border-border group flex flex-col md:flex-row items-center gap-8"
+        >
+          <IconBox icon={Database} size="lg" class="group-hover:scale-110 transition-transform" />
+          <div class="text-center md:text-left">
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 font-display">
+              Groeit met u mee
+            </h3>
+            <p class="text-xl text-white/70">
+              Van een professionele <strong>website</strong> tot een complete
+              <strong>webshop of applicatie</strong>. Onze oplossingen schalen moeiteloos mee met uw
+              groei.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<FAQSection />
+  <FAQSection />
 </Layout>

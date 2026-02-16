@@ -33,19 +33,29 @@ import { settings } from '../lib/config';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href={settings.favicon?.[0]?.filename || '/favicon.svg'} />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={settings.favicon?.[0]?.filename || '/favicon.svg'}
+    />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0d2818" />
     <meta name="google-site-verification" content="InPi-pFXOpFmi6hKGp7_u2VnGrYyL9RUewuw-ApcCeI" />
 
     <!-- Google Fonts: Geist & Satoshi (Fontshare) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- SEO Meta Tags - Props are compatible at runtime -->
-    <SEO 
+    <SEO
       title={seoOverride?.title || title || settings.meta_title}
       description={seoOverride?.description || description || settings.meta_description}
       image={seoOverride?.image || settings.og_image?.[0]}
@@ -58,31 +68,13 @@ import { settings } from '../lib/config';
     <ClientRouter />
 
     <!-- GTM Head Script - Consent-Gated -->
-    {settings.gtm_id && (
-      <script is:inline define:vars={{ gtmId: settings.gtm_id }}>
-        // Wait for consent before loading GTM
-        (function checkConsent() {
-          try {
-            const consentData = localStorage.getItem('consent_state');
-            if (!consentData) {
-              setTimeout(checkConsent, 500);
-              return;
-            }
-            
-            const consent = JSON.parse(consentData);
-            if (consent.marketing) {
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer',gtmId);
-            }
-          } catch (e) {
-            // Silence in production (L9)
-          }
-        })();
-      </script>
-    )}
+    {
+      settings.gtm_id && (
+        <script
+          set:html={`(function checkConsent(){try{var d=localStorage.getItem("consent_state");if(!d){setTimeout(checkConsent,500);return}var c=JSON.parse(d);if(c.marketing){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f)})(window,document,"script","dataLayer","${settings.gtm_id}")}}catch(e){}})();`}
+        />
+      )
+    }
   </head>
   <body>
     <!-- [C2] Skip to Content — WCAG 2.4.1 -->
@@ -94,30 +86,32 @@ import { settings } from '../lib/config';
     </a>
 
     <!-- GTM Body Noscript -->
-    {settings.gtm_id && (
-      <noscript>
-        <iframe 
-          src={`https://www.googletagmanager.com/ns.html?id=${settings.gtm_id}`}
-          height="0" 
-          width="0" 
-          style="display:none;visibility:hidden"
-        />
-      </noscript>
-    )}
+    {
+      settings.gtm_id && (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${settings.gtm_id}`}
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          />
+        </noscript>
+      )
+    }
 
-    <Navbar 
-      logo={settings.logo?.[0]} 
+    <Navbar
+      logo={settings.logo?.[0]}
       menu={settings.main_menu || []}
       siteName={settings.site_name}
     />
-    
+
     <main id="main-content">
       <slot />
     </main>
 
-    <Footer 
-      columns={settings.footer_columns || []} 
-      socialLinks={settings.social_links || []} 
+    <Footer
+      columns={settings.footer_columns || []}
+      socialLinks={settings.social_links || []}
       copyright={settings.copyright_text || '© 2026 LaventeCare'}
     />
 
@@ -127,20 +121,18 @@ import { settings } from '../lib/config';
 
     <!-- GDPR Cookie Consent Banner -->
     <CookieConsent client:load />
-    
+
     <!-- Vercel Analytics & Speed Insights (Consent-Gated) -->
     <AnalyticsProvider client:load />
-    
+
     <!-- Performance Monitoring (Dev Only) -->
-    {import.meta.env.DEV && (
-      <script>
-        import { initPerformanceMonitoring } from '../lib/performance/performanceMonitor';
-        if (typeof window !== 'undefined') {
-          window.addEventListener('load', () => {
-            initPerformanceMonitoring();
-          });
-        }
-      </script>
-    )}
+    <script>
+      import { initPerformanceMonitoring } from '../lib/performance/performanceMonitor';
+      if (import.meta.env.DEV && typeof window !== 'undefined') {
+        window.addEventListener('load', () => {
+          initPerformanceMonitoring();
+        });
+      }
+    </script>
   </body>
 </html>
