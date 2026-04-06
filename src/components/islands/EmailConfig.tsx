@@ -377,8 +377,8 @@ export default function EmailConfig() {
                     <div className="text-sm text-blue-200 font-ui">
                         <p className="font-bold mb-1">Security Note:</p>
                         <ul className="list-disc list-inside space-y-1 text-blue-200/80">
-                            <li>Password is hashed (SHA-256) client-side before transmission</li>
-                            <li>Backend encrypts hashed password with AES-256-GCM</li>
+                            <li>Password travels over HTTPS via same-origin proxy</li>
+                            <li>Backend encrypts password with AES-256-GCM before storage</li>
                             <li>Password is never returned by the API</li>
                             <li>Only allowed ports: 25, 465, 587, 2525</li>
                         </ul>

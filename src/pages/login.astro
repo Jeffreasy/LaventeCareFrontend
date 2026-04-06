@@ -118,7 +118,7 @@ export const prerender = false;
 
       if (response.ok) {
         // Success - force full page reload to update server-side navbar
-        window.location.replace('/platform');
+        window.location.replace('/admin');
       } else {
         // Handle Error
         const result = await response.json().catch(() => ({}));

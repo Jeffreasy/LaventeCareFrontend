@@ -9,17 +9,7 @@
 import type { SMTPConfig, MailConfigResponse, EmailStats } from '../types';
 import { apiClient } from '../api-client';
 
-/**
- * Hash password client-side using SHA-256
- * Security: Password is hashed before transmission over network
- */
-export async function hashPassword(plaintext: string): Promise<string> {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(plaintext);
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
-}
+
 
 /**
  * Get current SMTP configuration
@@ -34,14 +24,13 @@ export async function getMailConfig(): Promise<MailConfigResponse> {
  * Password is hashed client-side before transmission
  */
 export async function updateMailConfig(config: SMTPConfig): Promise<void> {
-  // Hash password client-side
-  const hashedPassword = await hashPassword(config.password);
-
+  // Password is sent plaintext over same-origin BFF proxy (HTTPS in transit).
+  // Backend encrypts with AES-256-GCM before storage.
   await apiClient.post('/api/v1/admin/mail-config', {
     host: config.host,
     port: config.port,
     user: config.user,
-    password: hashedPassword, // ✅ Hashed, not plaintext
+    password: config.password,
     from: config.from,
     tls_mode: config.tls_mode,
   });
@@ -68,16 +57,10 @@ export async function getEmailStats(): Promise<EmailStats> {
 export async function testMailConnection(
   config: SMTPConfig
 ): Promise<{ success: boolean; message: string }> {
-  // Hash password before sending
-  const hashedPassword = await hashPassword(config.password);
-
   try {
     return await apiClient.post<{ success: boolean; message: string }>(
       '/api/v1/admin/mail-config/test',
-      {
-        ...config,
-        password: hashedPassword,
-      }
+      config
     );
   } catch (error) {
     // If endpoint doesn't exist, return friendly message
