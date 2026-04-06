@@ -1,6 +1,6 @@
 Bedrijfsplan
 
-High-Performance Web, IoT & Security Solutions
+AI Prompt Engineering, Web & IoT Solutions
 
 **LaventeCare**
 Dronten
@@ -21,13 +21,14 @@ De technische expertise en drijfveer achter LaventeCare.
 
 ## Persoonlijke Achtergrond
 
-Als full-stack developer en IoT-engineer met diepgaande ervaring in zowel hardware (C++/ESP32) als cloud-architecturen (Go, Next.js, Astro, Convex), is de oprichting van LaventeCare een logisch gevolg van een unieke technische slagkracht. De combinatie van low-level firmware development en high-performance web engineering is zeldzaam in de Nederlandse markt en vormt de kern van het onderscheidend vermogen.
+Als AI prompt engineer en full-stack developer met diepgaande ervaring in zowel AI-automatisering en LLM-integratie als hardware (C++/ESP32) en cloud-architecturen (Go, Next.js, Astro, Convex), is de oprichting van LaventeCare een logisch gevolg van een unieke technische slagkracht. De combinatie van AI prompt engineering, low-level firmware development en high-performance web engineering is zeldzaam in de Nederlandse markt en vormt de kern van het onderscheidend vermogen.
 
 ### Opleiding
 
 * MBO Niveau 4 — Persoonlijk Begeleider Specifieke Doelgroepen (2017–2018)
 * MBO Niveau 3 — Medewerker Maatschappelijke Zorg (2015–2017)
 * Autodidact Software Engineering: Full-stack development, IoT, Go, Rust, Cloud Security
+* AI & Prompt Engineering: GPT-4, Claude, LangChain, RAG-systemen, custom AI-agents
 * Continue zelfstudie: Hardware-programmering (C++/ESP32), cryptografie, netwerkprotocollen
 
 ### Werkervaring
@@ -36,7 +37,7 @@ Als full-stack developer en IoT-engineer met diepgaande ervaring in zowel hardwa
 
 Oprichter & Lead Developer — LaventeCare
 
-End-to-end development van complexe digitale ecosystemen: IoT-telemetrie, maatwerk platformen, security-architectuur (Go), en conversion-driven lead-gen portalen.
+End-to-end development van complexe digitale ecosystemen: AI prompt engineering, IoT-telemetrie, maatwerk platformen, security-architectuur (Go), en conversion-driven lead-gen portalen.
 
 2018 – heden
 
@@ -46,7 +47,11 @@ Intensieve individuele begeleiding van cliënten met niet-aangeboren hersenletse
 
 ## Technische Expertise
 
-LaventeCare onderscheidt zich door een uitzonderlijk breed technisch spectrum. Van het schrijven van firmware op microcontrollers tot het bouwen van Zero-Trust security backends en pixel-perfect frontends — alles onder één dak.
+LaventeCare onderscheidt zich door een uitzonderlijk breed technisch spectrum. Van AI prompt engineering en custom agents tot het schrijven van firmware op microcontrollers en het bouwen van Zero-Trust security backends — alles onder één dak.
+
+#### AI & Prompt Engineering (GPT-4/Claude/LangChain)
+
+Custom AI-workflows, intelligente agents en LLM-integraties. Van prompt design en chain-of-thought reasoning tot productie-klare RAG-systemen die bedrijfsprocessen automatiseren met betrouwbare, consistente output.
 
 #### IoT & Embedded Systems (C++/ESP32)
 
@@ -70,7 +75,7 @@ Een eerlijke analyse van sterktes, zwaktes, kansen en bedreigingen.
 
 #### Sterktes
 
-* End-to-end expertise: van chip tot cloud (C++ → Go → React/Astro)
+* End-to-end expertise: van AI tot chip tot cloud (AI Prompt Engineering → C++ → Go → React/Astro)
 * Eigen security-laag (LaventeCare Auth) als strategische lock-in
 * Bewezen track record met complexe projecten (DKL, SmartCoolCare, MKB-portalen)
 * Islands Architecture: ongeëvenaarde performance (100/100 Lighthouse)
@@ -86,8 +91,9 @@ Een eerlijke analyse van sterktes, zwaktes, kansen en bedreigingen.
 
 #### Kansen
 
+* Explosieve groei van AI-adoptie: bedrijven zoeken actief naar AI prompt engineering expertise
 * Groeiende vraag naar IoT en Smart Industry in Nederland
-* MKB zoekt actief naar digitalisering en procesoptimalisatie
+* MKB zoekt actief naar digitalisering en procesoptimalisatie via AI-automatisering
 * Evenementensector herstelt en professionaliseert registratiestromen
 * Toenemende eisen aan cybersecurity creëren vraag naar Zero-Trust oplossingen
 * SaaS- en MRR-model zorgt voor schaalbare, voorspelbare omzet
@@ -96,7 +102,7 @@ Een eerlijke analyse van sterktes, zwaktes, kansen en bedreigingen.
 
 * Concurrentie van grote web agencies met meer personeel
 * Snelle technologische veranderingen vereisen continue investering
-* Klanten kunnen bij groei overstappen naar enterprise-oplossingen
+* Snelle evolutie van AI-modellen vereist continue bijscholing en hervalidatie van prompt-strategieën
 * Economische onzekerheid kan investeringen in digitalisering remmen
 * Wet DBA: risico op schijnzelfstandigheid bij langdurige opdrachten
 
@@ -113,19 +119,25 @@ Een eerlijke analyse van sterktes, zwaktes, kansen en bedreigingen.
 
 **Hoofdstuk 2**# De Onderneming: LaventeCare
 
-High-Performance Web, IoT & Security Solutions. Kernactiviteiten, USP's en bewezen track record.
+AI Prompt Engineering, Web & IoT Solutions. Kernactiviteiten, USP's en bewezen track record.
 
 ## Missie & Visie
 
 #### Missie
 
-LaventeCare digitaliseert complexe bedrijfsprocessen en slaat een naadloze brug tussen hardware, software en de eindgebruiker. Wij leveren geen standaard templates, maar bouwen bliksemsnelle, veilige en op maat gemaakte digitale ecosystemen. Van de fysieke sensor tot de cloud: wij bieden één gestroomlijnde, robuuste oplossing.
+LaventeCare combineert AI prompt engineering met full-stack development om complexe bedrijfsprocessen te digitaliseren. Wij slaan een naadloze brug tussen kunstmatige intelligentie, hardware, software en de eindgebruiker. Geen standaard templates, maar bliksemsnelle, AI-gedreven en op maat gemaakte digitale ecosystemen. Van prompt tot productie, van sensor tot cloud: één gestroomlijnde, robuuste oplossing.
 
 #### Visie
 
-Vooruitstrevende technologie — zoals real-time databases, IoT-telemetrie en Zero-Trust security — moet toegankelijk en werkbaar zijn voor het MKB, de evenementensector en de industrie. Veiligheid en performance zijn daarbij geen optionele modules, maar de absolute standaard.
+Vooruitstrevende technologie — zoals AI-automatisering, real-time databases, IoT-telemetrie en Zero-Trust security — moet toegankelijk en werkbaar zijn voor het MKB, de evenementensector en de industrie. Veiligheid en performance zijn daarbij geen optionele modules, maar de absolute standaard.
 
 ## Kernactiviteiten & Portfolio
+
+#### AI & Prompt Engineering
+
+Custom AI-agents, LLM-integratie en professionele prompt engineering voor bedrijfsprocessen. Van intelligente workflows en RAG-systemen tot AI-gedreven development pipelines. Ontwerp, optimalisatie en implementatie van de instructies waarmee AI-modellen betrouwbare, consistente resultaten leveren in productieomgevingen.
+
+**Doelgroep:** MKB, softwarebedrijven, organisaties met ongestructureerde data
 
 #### IoT & Hardware Monitoring
 
@@ -147,7 +159,7 @@ Conversiegerichte portalen waar vraag en aanbod samenkomen (zoals het Tuinplatfo
 
 #### LaventeCare Core (Security & Auth)
 
-De Go-gebaseerde back-end technologie die fungeert als het hart van alle applicaties. 'Bank-Grade' authenticatie met Dual-Token architectuur, Zero-Latency RBAC en 'Database Fortress' (Row Level Security) om cross-tenant datalekken onmogelijk te maken.
+De Go-gebaseerde back-end technologie die fungeert als het hart van alle applicaties. Enterprise-grade authenticatie met Dual-Token architectuur, Zero-Latency RBAC en 'Database Fortress' (Row Level Security) om cross-tenant datalekken onmogelijk te maken. Klanten profiteren vanaf dag één van enterprise-grade architectuur — dezelfde Zero-Trust security, multi-tenant isolatie en schaalbaarheid die normaal gereserveerd is voor grote organisaties.
 
 **Doelgroep:** Alle klanten — ingebed in elk project
 
@@ -155,7 +167,7 @@ De Go-gebaseerde back-end technologie die fungeert als het hart van alle applica
 
 #### Van Chip tot Cloud (End-to-End Expertise)
 
-LaventeCare bezit de unieke technische slagkracht om zowel low-level firmware (C++) te schrijven als geavanceerde cloud-architecturen en frontends te ontwerpen. Klanten hebben hierdoor slechts één technische partner nodig voor hun gehele infrastructuur.
+LaventeCare bezit de unieke technische slagkracht om AI-workflows te ontwerpen, low-level firmware (C++) te schrijven, en geavanceerde cloud-architecturen en frontends te bouwen. Van prompt engineering tot microcontroller — klanten hebben slechts één technische partner nodig voor hun gehele infrastructuur.
 
 #### Anti-Gravity Security & Performance
 
@@ -302,9 +314,10 @@ Tekort IT-professionals NL
 
 ### Markttrends
 
+* AI-adoptie explodeert: bedrijven zoeken professionele prompt engineering en LLM-integratie-expertise
 * Smart Industry / Industrie 4.0: groeiende vraag naar IoT-monitoring en predictive maintenance
 * Zero-Trust Security wordt de nieuwe standaard — zeker in sectoren met gevoelige data
-* MKB verschuift van standaard SaaS naar maatwerk dat aansluit op hun specifieke workflow
+* MKB verschuift van standaard SaaS naar AI-gedreven maatwerk dat aansluit op hun specifieke workflow
 * Real-time data en reactieve applicaties vervangen traditionele CRUD-systemen
 * Edge computing en serverless architecturen maken high-performance toegankelijker
 * Evenementensector professionaliseert registratie- en betalingsinfrastructuur na COVID
@@ -325,7 +338,7 @@ De markt voor webontwikkeling is competitief, maar LaventeCare opereert in een n
 
 #### Marktpositie LaventeCare
 
-LaventeCare opereert in een niche waar regionale concurrenten slechts één of twee disciplines beheersen. Dotlab en vergelijkbare agencies bouwen standaard websites, maar missen hardware-integratie en security-expertise. IoT-specialisten zoals Tribetech leveren hardware maar geen webplatformen. Full-stack agencies zoals Pixel Developers bouwen moderne webapplicaties, maar missen de firmware- en Zero-Trust security-laag. LaventeCare is de enige partij in de regio die alle drie disciplines (IoT-firmware, Zero-Trust security én high-performance web) onder één dak levert — tegen aanzienlijk lagere tarieven dan enterprise-agencies.
+LaventeCare opereert in een niche waar regionale concurrenten slechts één of twee disciplines beheersen. Dotlab en vergelijkbare agencies bouwen standaard websites, maar missen AI-expertise, hardware-integratie en security-kennis. IoT-specialisten zoals Tribetech leveren hardware maar geen AI-workflows of webplatformen. Full-stack agencies zoals Pixel Developers bouwen moderne webapplicaties, maar missen de AI prompt engineering-, firmware- en Zero-Trust security-laag. LaventeCare is de enige partij in de regio die alle vier disciplines (AI prompt engineering, IoT-firmware, Zero-Trust security én high-performance web) onder één dak levert — tegen aanzienlijk lagere tarieven dan enterprise-agencies.
 
 **Hoofdstuk 4**# Marketing & Acquisitie
 
@@ -350,7 +363,7 @@ B2B-acquisitie in de tech-sector draait om vertrouwen, bewezen resultaten en str
 De website is het digitale vlaggenschip van LaventeCare. Gebouwd met dezelfde tech-stack die we aan klanten verkopen (Astro + React Islands), fungeert het als een live demonstratie van de kwaliteit en performance die we leveren.
 
 * Live portfolio met interactieve case studies en resultaten
-* Technische blog: architectuur, security, IoT-insights
+* Technische blog: AI prompt engineering, architectuur, security, IoT-insights
 * 100/100 Lighthouse score als bewijs van expertise
 * Conversiegerichte contactflow met lage drempel
 * SEO-optimalisatie op branche-specifieke zoektermen

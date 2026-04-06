@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import ProcessTimeline from '../components/blocks/ProcessTimeline.astro';
+import Icon from '../components/ui/Icon.astro';
 
 const processSteps = [
   {
@@ -9,28 +10,28 @@ const processSteps = [
     title: 'Kennismaking & Intake',
     description: 'Vrijblijvend gesprek (30 min) om scope, verwachtingen en haalbaarheid vast te stellen. Go/no-go op basis van technische complexiteit en budget.',
     price: 'Gratis',
-    icon: '☕',
+    icon: 'coffee',
   },
   {
     phase: '2',
     title: 'Technische Discovery',
     description: 'Diepte-analyse van technische vereisten, architectuurontwerp en een gedetailleerd Blueprint-document. U ontvangt een bruikbaar document — ongeacht of het project doorgaat.',
     price: '€750 – €2.500',
-    icon: '🔍',
+    icon: 'search',
   },
   {
     phase: '3',
     title: 'Ontwikkeling & Oplevering',
     description: 'Agile ontwikkeling in sprints van 2 weken. Tussentijdse demo\'s en acceptatietests. Facturatie op milestones.',
     price: '€95/uur',
-    icon: '⚡',
+    icon: 'zap',
   },
   {
     phase: '4',
     title: 'SLA & Doorontwikkeling',
     description: 'Na oplevering start het SLA-traject. Doorontwikkeling en feature requests als retainer of op uurbasis.',
     price: 'vanaf €75/mnd',
-    icon: '🔄',
+    icon: 'refresh-cw',
   },
 ];
 ---
@@ -83,9 +84,9 @@ const processSteps = [
       <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 max-w-3xl mx-auto mb-16">
         <h3 class="text-lg font-bold text-white mb-4 font-display">Betalingsvoorwaarden</h3>
         <ul class="space-y-3 text-sm font-ui text-white/70">
-          <li class="flex gap-3"><span class="text-active">•</span> Betalingstermijn: <strong class="text-white">14 dagen</strong> na factuurdatum</li>
-          <li class="flex gap-3"><span class="text-active">•</span> Discovery-fases worden <strong class="text-white">vooraf</strong> gefactureerd</li>
-          <li class="flex gap-3"><span class="text-active">•</span> SLA-abonnementen: <strong class="text-white">maandelijks vooraf</strong> via automatisch incasso</li>
+          <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Betalingstermijn: <strong class="text-white">14 dagen</strong> na factuurdatum</li>
+          <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Discovery-fases worden <strong class="text-white">vooraf</strong> gefactureerd</li>
+          <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> SLA-abonnementen: <strong class="text-white">maandelijks vooraf</strong> via automatisch incasso</li>
         </ul>
       </div>
 
@@ -99,7 +100,7 @@ const processSteps = [
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="clinical-glass p-6 rounded-(--radius-feature) border border-cta/20 bg-cta/5">
             <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
-              <span class="text-cta">✓</span> Ideale match
+              <Icon name="check" size={16} class="text-cta shrink-0" /> Ideale match
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/60">
               <li>Budget vanaf €3.000 voor maatwerk</li>
@@ -110,7 +111,7 @@ const processSteps = [
           </div>
           <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
             <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
-              <span class="text-white/40">→</span> Doorverwijzing
+              <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> Doorverwijzing
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/40">
               <li>Budget onder €3.000 → low-code alternatieven</li>

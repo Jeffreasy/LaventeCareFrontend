@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon from '../../components/ui/Icon.astro';
 
 const results = [
   { value: '500+', label: 'Deelnemers geregistreerd' },
@@ -38,7 +39,7 @@ const challenges = [
     <div class="container mx-auto px-4">
       <!-- Hero -->
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">📋 Case Study</span>
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"><Icon name="clipboard-list" size={16} class="text-active" /> Case Study</span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
           De Koninklijke <span class="text-active">Loop</span>
         </h1>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon from '../../components/ui/Icon.astro';
 
 const features = [
   { title: 'Multi-step Offertes', desc: 'Gestructureerde offertetrajecten die conversie maximaliseren.' },
@@ -19,7 +20,7 @@ const features = [
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">🎯 Lead Generation</span>
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"><Icon name="target" size={16} class="text-active" /> Lead Generation</span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
           Bezoekers worden <span class="text-active">klanten</span>
         </h1>
@@ -47,9 +48,9 @@ const features = [
         <h2 class="text-xl font-bold text-white mb-4 font-display">Doelgroep</h2>
         <p class="text-white/70 font-ui mb-4">Lokale dienstverleners en aannemers die vastlopen in standaardsoftware:</p>
         <ul class="space-y-2 text-sm font-ui text-white/60">
-          <li class="flex items-start gap-3"><span class="text-active">•</span> Bouw & aannemerij</li>
-          <li class="flex items-start gap-3"><span class="text-active">•</span> Groenvoorziening & hoveniers</li>
-          <li class="flex items-start gap-3"><span class="text-active">•</span> Automotive & garages</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Bouw & aannemerij</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Groenvoorziening & hoveniers</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automotive & garages</li>
         </ul>
       </div>
 

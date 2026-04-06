@@ -2,12 +2,13 @@
 import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import PillarCard from '../../components/blocks/PillarCard.astro';
+import Icon from '../../components/ui/Icon.astro';
 
 const pillars = [
   {
     title: 'AI & Prompt Engineering',
     description: 'Custom AI-agents, LLM-integratie en professionele prompt engineering. Van intelligente workflows tot RAG-systemen die uw bedrijfsdata benutten.',
-    icon: '🧠',
+    icon: 'brain-circuit',
     tags: ['GPT-4', 'Claude', 'LangChain', 'RAG', 'Custom Agents'],
     href: '/diensten/ai-prompt-engineering',
     featured: true,
@@ -15,28 +16,28 @@ const pillars = [
   {
     title: 'IoT & Hardware Monitoring',
     description: 'End-to-end telemetrie-oplossingen voor de industrie en koeltechniek. ESP32/C++ firmware met deep-sleep en BLE-integratie, gekoppeld aan live dashboards.',
-    icon: '📡',
+    icon: 'radio',
     tags: ['C++', 'ESP32', 'BLE', 'Deep-sleep', 'Convex'],
     href: '/diensten/iot-hardware',
   },
   {
     title: 'Maatwerk Platformen & Events',
     description: 'Complexe, data-intensieve platformen voor goede doelen en evenementen. Registratie, ticketing, donaties en real-time datatoegang.',
-    icon: '🏗️',
+    icon: 'building-2',
     tags: ['Astro', 'React 19', 'Convex', 'Go Auth', 'Vercel'],
     href: '/diensten/maatwerk-platformen',
   },
   {
     title: 'Matchmaking & Lead Generation',
     description: 'Conversiegerichte portalen waar vraag en aanbod samenkomen. Veilige klantomgevingen, multi-step offertetrajecten en geavanceerde lead-management.',
-    icon: '🎯',
+    icon: 'target',
     tags: ['Next.js', 'Supabase', 'SEO', 'Vercel'],
     href: '/diensten/lead-generation',
   },
   {
     title: 'LaventeCare Core — Security & Auth',
     description: 'De Go-gebaseerde back-end die fungeert als het hart van alle applicaties. Bank-Grade authenticatie, Zero-Trust API\'s en Database Fortress.',
-    icon: '🛡️',
+    icon: 'shield-check',
     tags: ['Go', 'PostgreSQL', 'Redis', 'JWT', 'RBAC'],
     href: '/diensten/security',
     featured: true,
@@ -71,17 +72,17 @@ const pillars = [
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
-            <span class="text-2xl block mb-3">🏭</span>
+            <Icon name="factory" size={24} class="text-active block mb-3 mx-auto" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">Industrie & Installatietechniek</h3>
             <p class="text-white/50 text-xs font-ui">IoT-monitoring en Smart Industry oplossingen voor producenten en installateurs.</p>
           </div>
           <div class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
-            <span class="text-2xl block mb-3">🏢</span>
+            <Icon name="building" size={24} class="text-active block mb-3 mx-auto" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">Groot MKB</h3>
             <p class="text-white/50 text-xs font-ui">Bouw, groenvoorziening en automotive. Gesloten portalen en lead-management.</p>
           </div>
           <div class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
-            <span class="text-2xl block mb-3">🎗️</span>
+            <Icon name="heart" size={24} class="text-active block mb-3 mx-auto" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">Non-Profits & Events</h3>
             <p class="text-white/50 text-xs font-ui">Betrouwbare registraties, ticketstromen en financiële transacties.</p>
           </div>

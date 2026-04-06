@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/ui/Card.astro';
 import { ContactForm } from '../components/islands/ContactForm';
+import Icon from '../components/ui/Icon.astro';
 
 const pageTitle = 'Contact — LaventeCare';
 const pageDescription =
@@ -43,7 +44,7 @@ const pageDescription =
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
         <Card hover padding="md" class="text-center">
-          <span class="text-2xl block mb-3">📧</span>
+          <Icon name="mail" size={24} class="text-active block mb-3 mx-auto" />
           <h3 class="font-semibold text-white mb-2 text-sm font-display">Email</h3>
           <a
             href="mailto:jeffrey@laventecare.nl"
@@ -52,19 +53,19 @@ const pageDescription =
         </Card>
 
         <Card hover padding="md" class="text-center">
-          <span class="text-2xl block mb-3">⏱️</span>
+          <Icon name="clock" size={24} class="text-active block mb-3 mx-auto" />
           <h3 class="font-semibold text-white mb-2 text-sm font-display">Reactietijd</h3>
           <p class="text-white/70 text-sm font-ui">Binnen 24 uur op werkdagen</p>
         </Card>
 
         <Card hover padding="md" class="text-center">
-          <span class="text-2xl block mb-3">📍</span>
+          <Icon name="map-pin" size={24} class="text-active block mb-3 mx-auto" />
           <h3 class="font-semibold text-white mb-2 text-sm font-display">Locatie</h3>
           <p class="text-white/70 text-sm font-ui">Dronten, Nederland</p>
         </Card>
 
         <Card hover padding="md" class="text-center">
-          <span class="text-2xl block mb-3">💼</span>
+          <Icon name="briefcase" size={24} class="text-active block mb-3 mx-auto" />
           <h3 class="font-semibold text-white mb-2 text-sm font-display">LinkedIn</h3>
           <a
             href="https://linkedin.com/in/jeffrey-lavente"

@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon from '../../components/ui/Icon.astro';
 
 const features = [
   { title: 'Custom AI Agents', desc: 'Autonome digitale medewerkers die taken uitvoeren, data analyseren en beslissingen nemen op basis van uw bedrijfslogica.' },
@@ -28,7 +29,7 @@ const useCases = [
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">🧠 AI & Prompt Engineering</span>
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"><Icon name="brain-circuit" size={16} class="text-active" /> AI & Prompt Engineering</span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
           Intelligentie die <span class="text-active">werkt</span>
         </h1>
@@ -120,10 +121,10 @@ const useCases = [
         <h2 class="text-xl font-bold text-white mb-4 font-display">Voor wie?</h2>
         <p class="text-white/70 font-ui mb-4">Organisaties die AI willen inzetten als strategisch voordeel:</p>
         <ul class="space-y-2 text-sm font-ui text-white/60">
-          <li class="flex items-start gap-3"><span class="text-active">•</span> MKB dat repetitieve processen wil automatiseren</li>
-          <li class="flex items-start gap-3"><span class="text-active">•</span> Softwarebedrijven die AI-features willen toevoegen</li>
-          <li class="flex items-start gap-3"><span class="text-active">•</span> Organisaties met grote hoeveelheden ongestructureerde data</li>
-          <li class="flex items-start gap-3"><span class="text-active">•</span> Bedrijven die custom ChatGPT-achtige tools willen voor intern gebruik</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> MKB dat repetitieve processen wil automatiseren</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Softwarebedrijven die AI-features willen toevoegen</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Organisaties met grote hoeveelheden ongestructureerde data</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Bedrijven die custom ChatGPT-achtige tools willen voor intern gebruik</li>
         </ul>
       </div>
 

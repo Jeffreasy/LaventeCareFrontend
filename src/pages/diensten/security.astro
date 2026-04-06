@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon from '../../components/ui/Icon.astro';
 
 const laws = [
   {
@@ -44,7 +45,7 @@ const laws = [
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">🛡️ LaventeCare Core</span>
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"><Icon name="shield-check" size={16} class="text-active" /> LaventeCare Core</span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
           Anti-Gravity <span class="text-active">Security</span>
         </h1>
@@ -87,19 +88,19 @@ const laws = [
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-active/20 bg-active/5">
           <h3 class="text-lg font-bold text-white mb-4 font-display">Architecturale Beveiliging</h3>
           <ul class="space-y-3 text-sm font-ui text-white/70">
-            <li class="flex gap-3"><span class="text-active">•</span> Multi-tenant isolation via Row Level Security</li>
-            <li class="flex gap-3"><span class="text-active">•</span> Dual-Token authenticatie (access + refresh)</li>
-            <li class="flex gap-3"><span class="text-active">•</span> Zero-Trust API design: geen open endpoints</li>
-            <li class="flex gap-3"><span class="text-active">•</span> Rate limiting (25 req/s, burst 50)</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Multi-tenant isolation via Row Level Security</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Dual-Token authenticatie (access + refresh)</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Zero-Trust API design: geen open endpoints</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Rate limiting (25 req/s, burst 50)</li>
           </ul>
         </div>
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
           <h3 class="text-lg font-bold text-white mb-4 font-display">Operationele Beveiliging</h3>
           <ul class="space-y-3 text-sm font-ui text-white/70">
-            <li class="flex gap-3"><span class="text-active">•</span> MFA-first voor alle admin-interfaces</li>
-            <li class="flex gap-3"><span class="text-active">•</span> Automated token purging (The Janitor)</li>
-            <li class="flex gap-3"><span class="text-active">•</span> Content Security Policy enforcement</li>
-            <li class="flex gap-3"><span class="text-active">•</span> CORS-whitelisting per tenant</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> MFA-first voor alle admin-interfaces</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automated token purging (The Janitor)</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Content Security Policy enforcement</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> CORS-whitelisting per tenant</li>
           </ul>
         </div>
       </div>

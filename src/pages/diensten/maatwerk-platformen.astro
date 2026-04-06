@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon from '../../components/ui/Icon.astro';
 
 const features = [
   { title: 'Registratie & Ticketing', desc: 'Complexe registratiestromen met meerdere deelnemerstypes.' },
@@ -19,7 +20,7 @@ const features = [
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">🏗️ Maatwerk Platformen</span>
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"><Icon name="building-2" size={16} class="text-active" /> Maatwerk Platformen</span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
           Platformen die <span class="text-active">presteren</span>
         </h1>

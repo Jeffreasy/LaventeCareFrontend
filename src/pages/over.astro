@@ -3,34 +3,35 @@ import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import StatCard from '../components/ui/StatCard.astro';
 import TechStackBadge from '../components/ui/TechStackBadge.astro';
+import Icon from '../components/ui/Icon.astro';
 
 const expertiseDomains = [
   {
-    icon: '🧠',
+    icon: 'brain-circuit',
     title: 'AI & Prompt Engineering',
     techs: ['GPT-4', 'Claude', 'LangChain', 'Custom Agents'],
     description: 'Custom AI-workflows, intelligente agents en LLM-integraties. Van prompt design tot productie-klare AI-oplossingen die bedrijfsprocessen automatiseren.',
   },
   {
-    icon: '📡',
+    icon: 'radio',
     title: 'IoT & Embedded Systems',
     techs: ['C++', 'ESP32', 'BLE', 'OTA Updates'],
     description: 'Deep-sleep firmware, sensortelemetrie en over-the-air updates. Hardware monitoring met real-time cloud-synchronisatie.',
   },
   {
-    icon: '⚙️',
+    icon: 'cog',
     title: 'Backend & Security Engineering',
     techs: ['Go', 'PostgreSQL', 'Redis', 'Zero-Trust'],
     description: 'Dual-Token architectuur, Row Level Security, immutable audit logs, Zero-Trust API\'s met rate limiting en RBAC.',
   },
   {
-    icon: '🖥️',
+    icon: 'monitor',
     title: 'Full-Stack Web Development',
     techs: ['Astro', 'Next.js', 'React 19', 'Convex'],
     description: 'Islands Architecture voor perfecte Lighthouse scores. Real-time dashboards, server-side rendering en conversiegerichte frontends.',
   },
   {
-    icon: '☁️',
+    icon: 'cloud',
     title: 'Cloud & DevOps',
     techs: ['Vercel', 'Render', 'CI/CD', 'Sentry'],
     description: 'Deployment op edge-netwerken. Geautomatiseerde pipelines, monitoring, SSL en managed hosting architecturen.',
@@ -38,10 +39,10 @@ const expertiseDomains = [
 ];
 
 const kernwaarden = [
-  { icon: '🔒', title: 'Veiligheid als standaard', desc: 'Niet als optionele module, maar als fundament.' },
-  { icon: '🔗', title: 'End-to-end verantwoordelijkheid', desc: 'Van sensor tot dashboard, alles onder één dak.' },
-  { icon: '📈', title: 'Schaalbare architectuur', desc: 'Oplossingen die meegroeien met de klant.' },
-  { icon: '🤝', title: 'Transparantie', desc: 'Langdurige partnerschappen boven snelle projecten.' },
+  { icon: 'lock', title: 'Veiligheid als standaard', desc: 'Niet als optionele module, maar als fundament.' },
+  { icon: 'link', title: 'End-to-end verantwoordelijkheid', desc: 'Van sensor tot dashboard, alles onder één dak.' },
+  { icon: 'trending-up', title: 'Schaalbare architectuur', desc: 'Oplossingen die meegroeien met de klant.' },
+  { icon: 'handshake', title: 'Transparantie', desc: 'Langdurige partnerschappen boven snelle projecten.' },
 ];
 ---
 
@@ -79,7 +80,7 @@ const kernwaarden = [
       <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-active/20 bg-active/5">
           <h2 class="text-xl font-bold text-white mb-4 font-display flex items-center gap-3">
-            <span class="text-xl">🎯</span> Missie
+            <Icon name="target" size={20} class="text-active" /> Missie
           </h2>
           <p class="text-white/70 text-sm leading-relaxed font-ui">
             LaventeCare digitaliseert complexe bedrijfsprocessen en slaat een naadloze brug tussen hardware, software en de eindgebruiker. Wij leveren geen standaard templates, maar bouwen bliksemsnelle, veilige en op maat gemaakte digitale ecosystemen. Van de fysieke sensor tot de cloud: <span class="text-white font-semibold">één gestroomlijnde, robuuste oplossing</span>.
@@ -87,7 +88,7 @@ const kernwaarden = [
         </div>
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
           <h2 class="text-xl font-bold text-white mb-4 font-display flex items-center gap-3">
-            <span class="text-xl">🔭</span> Visie
+            <Icon name="telescope" size={20} class="text-active" /> Visie
           </h2>
           <p class="text-white/70 text-sm leading-relaxed font-ui">
             Vooruitstrevende technologie — zoals real-time databases, IoT-telemetrie en Zero-Trust security — moet <span class="text-white font-semibold">toegankelijk en werkbaar</span> zijn voor het MKB, de evenementensector en de industrie. Veiligheid en performance zijn daarbij geen optionele modules, maar de absolute standaard.
@@ -118,7 +119,7 @@ const kernwaarden = [
         <!-- Opleiding -->
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
           <h2 class="text-xl font-bold text-white mb-5 font-display flex items-center gap-3">
-            <span class="text-xl">🎓</span> Opleiding
+            <Icon name="graduation-cap" size={20} class="text-active" /> Opleiding
           </h2>
           <ul class="space-y-4">
             <li>
@@ -139,7 +140,7 @@ const kernwaarden = [
         <!-- Werkervaring -->
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
           <h2 class="text-xl font-bold text-white mb-5 font-display flex items-center gap-3">
-            <span class="text-xl">💼</span> Werkervaring
+            <Icon name="briefcase" size={20} class="text-active" /> Werkervaring
           </h2>
           <ul class="space-y-4">
             <li>
@@ -175,7 +176,7 @@ const kernwaarden = [
         {expertiseDomains.map((domain) => (
           <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors">
             <div class="flex items-center gap-3 mb-4">
-              <span class="text-2xl">{domain.icon}</span>
+              <Icon name={domain.icon as any} size={24} class="text-active" />
               <h3 class="text-lg font-bold text-white font-display">{domain.title}</h3>
             </div>
             <p class="text-white/60 text-sm leading-relaxed mb-4 font-ui">{domain.description}</p>
@@ -201,7 +202,7 @@ const kernwaarden = [
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
         {kernwaarden.map((waarde) => (
           <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
-            <span class="text-2xl block mb-3">{waarde.icon}</span>
+            <Icon name={waarde.icon as any} size={24} class="text-active block mb-3" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">{waarde.title}</h3>
             <p class="text-white/50 text-xs font-ui">{waarde.desc}</p>
           </div>

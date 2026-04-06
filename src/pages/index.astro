@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/blocks/Hero.astro';
+import Icon from '../components/ui/Icon.astro';
 import FAQSection from '../components/blocks/FAQSection.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import StatCard from '../components/ui/StatCard.astro';
@@ -61,28 +62,28 @@ const pillars = [
   {
     title: 'IoT & Hardware',
     description: 'End-to-end telemetrie met ESP32/C++ firmware, deep-sleep, BLE-integratie en live cloud dashboards. Van de fysieke sensor tot het dashboard.',
-    icon: '📡',
+    icon: 'radio',
     tags: ['C++', 'ESP32', 'BLE', 'Convex'],
     href: '/diensten/iot-hardware',
   },
   {
     title: 'Maatwerk Platformen',
     description: 'Complexe, data-intensieve platformen voor evenementen en non-profits. Registratie, ticketing, donaties en real-time data.',
-    icon: '🏗️',
+    icon: 'building-2',
     tags: ['Astro', 'React 19', 'Convex', 'Go'],
     href: '/diensten/maatwerk-platformen',
   },
   {
     title: 'Lead Generation',
     description: 'Conversiegerichte portalen voor het MKB. Multi-step offertetrajecten, lead-management dashboards en SEO-optimalisatie.',
-    icon: '🎯',
+    icon: 'target',
     tags: ['Next.js', 'Supabase', 'SEO', 'Vercel'],
     href: '/diensten/lead-generation',
   },
   {
     title: 'Security & Auth',
     description: 'De Go-gebaseerde kern van alle applicaties. Bank-Grade authenticatie, Zero-Trust API\'s, Row Level Security en immutable audit logs.',
-    icon: '🛡️',
+    icon: 'shield-check',
     tags: ['Go', 'PostgreSQL', 'Redis', 'JWT'],
     href: '/diensten/security',
     featured: true,
@@ -130,7 +131,7 @@ const pillars = [
         <!-- USP 1 -->
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors">
           <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">🔗</span>
+            <Icon name="link" size={24} class="text-active" />
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">Van Chip tot Cloud</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
@@ -141,7 +142,7 @@ const pillars = [
         <!-- USP 2 -->
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors">
           <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">⚡</span>
+            <Icon name="zap" size={24} class="text-active" />
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">Anti-Gravity Security</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
@@ -152,7 +153,7 @@ const pillars = [
         <!-- USP 3 -->
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors">
           <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
-            <span class="text-2xl">🚀</span>
+            <Icon name="gauge" size={24} class="text-active" />
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">100/100 Performance</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
