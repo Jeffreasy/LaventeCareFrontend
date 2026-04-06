@@ -1,8 +1,8 @@
 export const settings = {
   site_name: 'LaventeCare',
-  meta_title: 'LaventeCare — High-Performance Web, IoT & Security Solutions',
+  meta_title: 'LaventeCare — AI Prompt Engineering, Web & IoT Solutions',
   meta_description:
-    'LaventeCare digitaliseert complexe bedrijfsprocessen. Van IoT-firmware tot cloud-architectuur, van chip tot cloud. Veilig, snel en schaalbaar. Dronten, Nederland.',
+    'LaventeCare combineert AI prompt engineering met full-stack development en IoT-expertise. Custom AI-oplossingen, snelle webapplicaties en embedded systems. Dronten, Nederland.',
   favicon: [{ filename: '/favicon.svg' }],
   logo: [
     {
@@ -24,6 +24,7 @@ export const settings = {
       label: 'Diensten',
       link: { cached_url: 'diensten' },
       items: [
+        { label: 'AI & Prompt Engineering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
         { label: 'Maatwerk Platformen', link: { cached_url: 'diensten/maatwerk-platformen' } },
         { label: 'Lead Generation', link: { cached_url: 'diensten/lead-generation' } },
@@ -48,6 +49,7 @@ export const settings = {
     {
       title: 'Diensten',
       links: [
+        { label: 'AI & Prompt Engineering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
         { label: 'Maatwerk Platformen', link: { cached_url: 'diensten/maatwerk-platformen' } },
         { label: 'Lead Generation', link: { cached_url: 'diensten/lead-generation' } },
@@ -84,7 +86,7 @@ export const settings = {
     {
       filename:
         'https://res.cloudinary.com/dgfuv7wif/image/upload/v1769967340/Gemini_Generated_Image_g7euilg7euilg7eu-removebg-preview_1_dwzy2f_c_crop_w_1920_h_1920_ar_1_1_g_auto_e_improve_e_sharpen_u6yfpq.png',
-      alt: 'LaventeCare — High-Performance Web, IoT & Security Solutions',
+      alt: 'LaventeCare — AI Prompt Engineering, Web & IoT Solutions',
     },
   ],
 };

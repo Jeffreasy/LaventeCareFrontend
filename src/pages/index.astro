@@ -8,9 +8,9 @@ import PillarCard from '../components/blocks/PillarCard.astro';
 
 const heroData = {
   headline: 'Van Chip tot Cloud',
-  subtitle: 'High-Performance Web, IoT & Security Solutions',
+  subtitle: 'AI Prompt Engineering, Web & IoT Solutions',
   description:
-    'Ik digitaliseer complexe bedrijfsprocessen en sla een naadloze brug tussen <span class="text-active font-bold">hardware</span>, <span class="text-active font-bold">software</span> en de eindgebruiker. Geen standaard templates — maar bliksemsnelle, veilige en op maat gemaakte <span class="text-active font-bold">digitale ecosystemen</span>.',
+    'Ik combineer <span class="text-active font-bold">AI prompt engineering</span> met full-stack development en sla een naadloze brug tussen <span class="text-active font-bold">hardware</span>, <span class="text-active font-bold">software</span> en de eindgebruiker. Geen standaard templates — maar bliksemsnelle, AI-gedreven en op maat gemaakte <span class="text-active font-bold">digitale ecosystemen</span>.',
   ctaPrimary: {
     label: 'Gratis Intake Gesprek',
     url: '/contact',
@@ -35,11 +35,11 @@ const jsonLd = {
   url: 'https://lavente.care',
   logo: 'https://lavente.care/logo.png',
   description:
-    'LaventeCare digitaliseert complexe bedrijfsprocessen. Van IoT-firmware tot cloud-architectuur, van chip tot cloud. High-Performance Web, IoT & Security Solutions.',
+    'LaventeCare combineert AI prompt engineering met full-stack development en IoT-expertise. Custom AI-workflows, high-performance webapplicaties en embedded systems.',
   founder: {
     '@type': 'Person',
     name: 'Jeffrey Lavente',
-    jobTitle: 'Full-Stack Developer & IoT Engineer',
+    jobTitle: 'AI Prompt Engineer & Full-Stack Developer',
   },
   address: {
     '@type': 'PostalAddress',
@@ -51,6 +51,7 @@ const jsonLd = {
   areaServed: 'NL',
   priceRange: '€€',
   knowsAbout: [
+    'AI Prompt Engineering', 'LLM Integration', 'Custom GPT Development',
     'IoT Development', 'ESP32 Firmware', 'Go Backend', 'Astro Framework',
     'React', 'Zero-Trust Security', 'Web Development', 'Cloud Architecture',
   ],
@@ -92,7 +93,7 @@ const pillars = [
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
-  title="LaventeCare — High-Performance Web, IoT & Security Solutions"
+  title="LaventeCare — AI Prompt Engineering, Web & IoT Solutions"
   description="LaventeCare digitaliseert complexe bedrijfsprocessen. Van IoT-firmware tot cloud-architectuur. Veilig, snel en schaalbaar. Dronten, Nederland."
 >
   <Hero {...heroData} />
@@ -286,7 +287,7 @@ const pillars = [
           Jeffrey Lavente
         </h2>
         <p class="text-white/70 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-ui">
-          Full-stack developer en IoT-engineer. Met een achtergrond in de zorg en een passie voor technologie bouw ik oplossingen die écht werken — niet duur en ingewikkeld, maar precies goed.
+          AI prompt engineer en full-stack developer. Met een achtergrond in de zorg en een passie voor technologie bouw ik AI-gedreven oplossingen die écht werken — niet duur en ingewikkeld, maar precies goed.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/over" class="btn-secondary">
