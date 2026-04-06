@@ -1,0 +1,60 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  icon: string;
+  tags?: string[];
+  href: string;
+  featured?: boolean;
+  class?: string;
+}
+
+const { title, description, icon, tags = [], href, featured = false, class: className } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    'group block clinical-glass p-6 md:p-8 rounded-(--radius-feature) border hover:-translate-y-1 transition-all duration-(--transition-base) pillar-accent',
+    featured
+      ? 'border-active/30 bg-active/5'
+      : 'border-white/8 hover:border-active/30',
+    className,
+  ]}
+>
+  <!-- Icon -->
+  <div class="w-12 h-12 rounded-xl bg-active/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-active/20 transition-all duration-300">
+    <span class="text-2xl" aria-hidden="true">{icon}</span>
+  </div>
+
+  <!-- Content -->
+  <h3 class="text-xl md:text-2xl font-bold text-white mb-3 font-display group-hover:text-active transition-colors">
+    {title}
+  </h3>
+  <p class="text-white/70 mb-5 leading-relaxed font-ui text-sm md:text-base">
+    {description}
+  </p>
+
+  <!-- Tags -->
+  {tags.length > 0 && (
+    <div class="flex flex-wrap gap-2 mb-5">
+      {tags.map((tag) => (
+        <span class="tech-badge-subtle text-[11px]">{tag}</span>
+      ))}
+    </div>
+  )}
+
+  <!-- Arrow -->
+  <div class="flex items-center text-active text-sm font-bold pt-4 border-t border-white/5">
+    <span class="group-hover:underline">Meer informatie</span>
+    <svg
+      class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    </svg>
+  </div>
+</a>

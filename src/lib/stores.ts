@@ -52,7 +52,8 @@ export function addNotification(type: Notification['type'], message: string, dur
 // Helper: Remove notification
 export function removeNotification(id: string) {
   const current = notifications.get();
-  const { [id]: removed, ...rest } = current;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { [id]: _removed, ...rest } = current;
   notifications.set(rest);
 }
 

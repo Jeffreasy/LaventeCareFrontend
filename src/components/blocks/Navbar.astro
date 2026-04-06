@@ -195,8 +195,11 @@ function isActive(item: MenuItem): boolean {
         }
       </div>
 
-      <!-- Auth Buttons (Desktop) -->
-      <div class="hidden md:flex items-center space-x-4">
+      {/* Desktop CTA + Auth */}
+      <div class="hidden md:flex items-center space-x-3">
+        <a href="/contact" class="px-5 py-2 rounded-lg text-sm font-semibold border border-active/60 text-active hover:bg-active hover:text-white transition-colors min-h-10 flex items-center font-ui">
+          Contact
+        </a>
         {
           Astro.locals.isLoggedIn ? (
             <form action="/api/auth/logout" method="POST">
@@ -248,17 +251,30 @@ function isActive(item: MenuItem): boolean {
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
+              class="hamburger-top"
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
+              d="M4 6h16"></path>
+            <path
+              class="hamburger-mid"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 12h16"></path>
+            <path
+              class="hamburger-bot"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 18h16"></path>
           </svg>
         </summary>
 
         <!-- Mobile Menu Content -->
         <div
           id="mobile-menu-content"
-          class="absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-3xl border-t border-white/10 shadow-2xl h-[calc(100vh-4rem)] overflow-y-auto"
+          class="absolute top-16 left-0 right-0 bg-background/[0.98] backdrop-blur-3xl border-t border-white/10 shadow-2xl h-[calc(100vh-4rem)] overflow-y-auto"
           role="menu"
         >
           <div class="px-4 py-4 space-y-2">
@@ -287,7 +303,8 @@ function isActive(item: MenuItem): boolean {
                 return (
                   <a
                     href={href}
-                    class="block py-3 text-white/70 hover:text-active transition-colors font-ui text-lg font-medium border-b border-white/5 last:border-0"
+                    class={`block py-3 hover:text-active transition-colors font-ui text-lg font-medium border-b border-white/5 last:border-0 ${currentPath === href ? 'text-active' : 'text-white/70'}`}
+                    aria-current={currentPath === href ? 'page' : undefined}
                   >
                     {item.label}
                   </a>
@@ -318,13 +335,19 @@ function isActive(item: MenuItem): boolean {
               )
             }
 
-            <div class="pt-6 border-t border-white/5 mt-4">
+            <div class="pt-6 border-t border-white/5 mt-4 space-y-3">
+              <a
+                href="/contact"
+                class="block w-full text-center py-4 rounded-xl font-bold border border-active/60 text-active hover:bg-active hover:text-white transition-colors"
+              >
+                Contact
+              </a>
               {
                 Astro.locals.isLoggedIn ? (
                   <form action="/api/auth/logout" method="POST">
                     <button
                       type="submit"
-                      class="block w-full text-center py-4 rounded-xl bg-red-500/10 text-red-400 font-bold border border-red-500/20 hover:bg-red-500/20 transition-all cursor-pointer"
+                      class="block w-full text-center py-4 rounded-xl bg-red-500/10 text-red-400 font-bold border border-red-500/20 hover:bg-red-500/20 transition-colors cursor-pointer"
                     >
                       Logout
                     </button>
@@ -332,7 +355,7 @@ function isActive(item: MenuItem): boolean {
                 ) : (
                   <a
                     href="/login"
-                    class="block w-full text-center py-4 rounded-xl bg-active/10 text-active font-bold border border-active/20 hover:bg-active/20 transition-all"
+                    class="block w-full text-center py-4 rounded-xl bg-active/10 text-active font-bold border border-active/20 hover:bg-active/20 transition-colors"
                   >
                     Login
                   </a>
@@ -352,19 +375,29 @@ function isActive(item: MenuItem): boolean {
     display: none;
   }
 
-  details[open] summary svg {
-    transform: rotate(90deg);
+  /* Hamburger → X animation */
+  details summary svg path {
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    transform-origin: center;
   }
 
-  details summary svg {
-    transition: transform 0.3s ease;
+  details[open] summary .hamburger-top {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  details[open] summary .hamburger-mid {
+    opacity: 0;
+  }
+
+  details[open] summary .hamburger-bot {
+    transform: translateY(-6px) rotate(-45deg);
   }
 
   /* Focus indicators for accessibility */
   nav button:focus-visible,
   nav a:focus-visible,
   nav summary:focus-visible {
-    outline: 2px solid oklch(0.7 0.18 158);
+    outline: 2px solid oklch(0.60 0.14 200);
     outline-offset: 2px;
     border-radius: 0.5rem;
   }

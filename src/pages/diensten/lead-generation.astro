@@ -1,0 +1,83 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+
+const features = [
+  { title: 'Multi-step Offertes', desc: 'Gestructureerde offertetrajecten die conversie maximaliseren.' },
+  { title: 'Lead Management', desc: 'Geavanceerde dashboards voor lead-opvolging en analyse.' },
+  { title: 'Veilige Klantomgeving', desc: 'Beveiligde portalen voor klantcommunicatie en projectstatus.' },
+  { title: 'SEO-optimalisatie', desc: 'Branche-specifieke zoektermen en technische SEO.' },
+  { title: 'Conversie-optimalisatie', desc: 'Data-gedreven aanpassingen voor hogere conversie.' },
+  { title: 'Automatische E-mails', desc: 'Lead-notificaties en follow-up workflows.' },
+];
+---
+
+<Layout
+  title="Lead Generation & Matchmaking — LaventeCare"
+  description="Conversiegerichte portalen voor het MKB. Multi-step offertetrajecten, lead-management en SEO-optimalisatie. Next.js, Supabase en Vercel."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">🎯 Lead Generation</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+          Bezoekers worden <span class="text-active">klanten</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
+          Conversiegerichte portalen waar vraag en aanbod samenkomen. Veilige klantomgevingen, multi-step offertetrajecten en geavanceerde lead-management dashboards om de bedrijfsvoering van het MKB te stroomlijnen.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {['Next.js', 'Supabase', 'Vercel', 'SEO', 'Analytics'].map((t) => (
+            <TechStackBadge tech={t} />
+          ))}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+        {features.map((f) => (
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
+            <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
+            <p class="text-white/60 text-xs font-ui">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Doelgroep -->
+      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16">
+        <h2 class="text-xl font-bold text-white mb-4 font-display">Doelgroep</h2>
+        <p class="text-white/70 font-ui mb-4">Lokale dienstverleners en aannemers die vastlopen in standaardsoftware:</p>
+        <ul class="space-y-2 text-sm font-ui text-white/60">
+          <li class="flex items-start gap-3"><span class="text-active">•</span> Bouw & aannemerij</li>
+          <li class="flex items-start gap-3"><span class="text-active">•</span> Groenvoorziening & hoveniers</li>
+          <li class="flex items-start gap-3"><span class="text-active">•</span> Automotive & garages</li>
+        </ul>
+      </div>
+
+      <!-- Referenties -->
+      <div class="max-w-3xl mx-auto">
+        <p class="text-white/50 text-sm font-ui mb-4 text-center">Referentieprojecten</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="https://www.cfbouw.nl/" target="_blank" rel="noopener noreferrer" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
+            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">C&F Bouw</h3>
+            <p class="text-white/60 text-sm font-ui">Lead-generation portaal voor de bouwsector.</p>
+          </a>
+          <a href="https://tuinhub.nl/" target="_blank" rel="noopener noreferrer" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
+            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">TuinHub</h3>
+            <p class="text-white/60 text-sm font-ui">Matchmaking-platform voor tuineigenaren en hoveniers.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact?type=leadgen" class="btn-primary">
+        Meer leads genereren
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

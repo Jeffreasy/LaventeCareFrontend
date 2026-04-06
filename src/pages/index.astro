@@ -1,29 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/blocks/Hero.astro';
-import ShowcaseGrid from '../components/blocks/ShowcaseGrid.astro';
 import FAQSection from '../components/blocks/FAQSection.astro';
-import IconBox from '../components/ui/IconBox.astro';
-import { Zap, Shield, Database } from 'lucide-react';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import StatCard from '../components/ui/StatCard.astro';
+import PillarCard from '../components/blocks/PillarCard.astro';
 
-// Type-safe hero data
 const heroData = {
-  headline: 'Snelle websites die klanten opleveren',
-  subtitle: 'Webbureau voor websites, webshops & apps',
+  headline: 'Van Chip tot Cloud',
+  subtitle: 'High-Performance Web, IoT & Security Solutions',
   description:
-    'Wij bouwen websites die <span class="text-active font-bold">razendsnel laden</span>, hoog scoren in Google en uw bezoekers omzetten in klanten. Van een professionele website tot een complete <span class="text-active font-bold">webshop of maatwerk applicatie</span>.',
+    'Ik digitaliseer complexe bedrijfsprocessen en sla een naadloze brug tussen <span class="text-active font-bold">hardware</span>, <span class="text-active font-bold">software</span> en de eindgebruiker. Geen standaard templates — maar bliksemsnelle, veilige en op maat gemaakte <span class="text-active font-bold">digitale ecosystemen</span>.',
   ctaPrimary: {
-    label: 'Gratis adviesgesprek',
+    label: 'Gratis Intake Gesprek',
     url: '/contact',
   },
   ctaSecondary: {
-    label: 'Bekijk ons werk',
-    url: '#ecosystem',
+    label: 'Bekijk mijn werk',
+    url: '/portfolio',
   },
   stats: [
     { value: '100/100', label: 'Lighthouse Score' },
-    { value: '0s', label: 'Laadtijd' },
-    { value: '100%', label: 'Veilig' },
+    { value: '6+', label: 'Live Projecten' },
+    { value: 'Zero-Trust', label: 'Security Standaard' },
   ],
   alignment: 'center' as const,
   size: 'large' as const,
@@ -31,102 +30,274 @@ const heroData = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': 'ProfessionalService',
   name: 'LaventeCare',
   url: 'https://lavente.care',
   logo: 'https://lavente.care/logo.png',
   description:
-    'Professioneel webbureau in Amsterdam. Snelle websites, webshops en maatwerk apps. 100/100 Lighthouse score.',
+    'LaventeCare digitaliseert complexe bedrijfsprocessen. Van IoT-firmware tot cloud-architectuur, van chip tot cloud. High-Performance Web, IoT & Security Solutions.',
+  founder: {
+    '@type': 'Person',
+    name: 'Jeffrey Lavente',
+    jobTitle: 'Full-Stack Developer & IoT Engineer',
+  },
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Amsterdam',
+    streetAddress: 'Spiegelstraat 6',
+    postalCode: '8251 ZB',
+    addressLocality: 'Dronten',
     addressCountry: 'NL',
   },
+  areaServed: 'NL',
+  priceRange: '€€',
+  knowsAbout: [
+    'IoT Development', 'ESP32 Firmware', 'Go Backend', 'Astro Framework',
+    'React', 'Zero-Trust Security', 'Web Development', 'Cloud Architecture',
+  ],
 };
+
+const pillars = [
+  {
+    title: 'IoT & Hardware',
+    description: 'End-to-end telemetrie met ESP32/C++ firmware, deep-sleep, BLE-integratie en live cloud dashboards. Van de fysieke sensor tot het dashboard.',
+    icon: '📡',
+    tags: ['C++', 'ESP32', 'BLE', 'Convex'],
+    href: '/diensten/iot-hardware',
+  },
+  {
+    title: 'Maatwerk Platformen',
+    description: 'Complexe, data-intensieve platformen voor evenementen en non-profits. Registratie, ticketing, donaties en real-time data.',
+    icon: '🏗️',
+    tags: ['Astro', 'React 19', 'Convex', 'Go'],
+    href: '/diensten/maatwerk-platformen',
+  },
+  {
+    title: 'Lead Generation',
+    description: 'Conversiegerichte portalen voor het MKB. Multi-step offertetrajecten, lead-management dashboards en SEO-optimalisatie.',
+    icon: '🎯',
+    tags: ['Next.js', 'Supabase', 'SEO', 'Vercel'],
+    href: '/diensten/lead-generation',
+  },
+  {
+    title: 'Security & Auth',
+    description: 'De Go-gebaseerde kern van alle applicaties. Bank-Grade authenticatie, Zero-Trust API\'s, Row Level Security en immutable audit logs.',
+    icon: '🛡️',
+    tags: ['Go', 'PostgreSQL', 'Redis', 'JWT'],
+    href: '/diensten/security',
+    featured: true,
+  },
+];
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
-  title="LaventeCare — Webbureau voor Snelle, Veilige Websites"
-  description="Professioneel webbureau in Amsterdam. Wij bouwen snelle websites, webshops en maatwerk applicaties. 100/100 Lighthouse score. Veilig, schaalbaar en SEO-geoptimaliseerd."
+  title="LaventeCare — High-Performance Web, IoT & Security Solutions"
+  description="LaventeCare digitaliseert complexe bedrijfsprocessen. Van IoT-firmware tot cloud-architectuur. Veilig, snel en schaalbaar. Dronten, Nederland."
 >
   <Hero {...heroData} />
 
-  <ShowcaseGrid />
-
-  <!-- Service Intro Section -->
-  <section id="ecosystem" class="py-24 relative overflow-hidden">
-    <!-- Decorative bg element -->
-    <div
-      class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-active/5 rounded-full blur-3xl pointer-events-none"
-    >
-    </div>
+  <!-- Kernactiviteiten -->
+  <section class="section-padding relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-active/5 rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="container mx-auto px-4 relative">
-      <div class="max-w-4xl mx-auto text-center mb-20">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
-          >Onze aanpak</span
-        >
-        <h2
-          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight leading-[1.1]"
-        >
-          Waarom LaventeCare?
-        </h2>
-        <p class="text-xl text-white/70">
-          Wij combineren snelheid, veiligheid en schaalbaarheid in elk project. Geen templates —
-          alles wordt op maat gebouwd voor uw doelen.
-        </p>
+      <SectionHeader
+        label="Kernactiviteiten"
+        heading='Wat ik <span class="text-active">bouw</span>'
+        description="Vier gespecialiseerde pijlers, één complete oplossing. Van de chip in uw sensor tot het dashboard op uw scherm."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {pillars.map((pillar) => (
+          <PillarCard {...pillar} />
+        ))}
       </div>
+    </div>
+  </section>
 
-      <!-- USPs Section -->
-      <!-- USPs Section (Asymmetric Layout) -->
-      <div class="grid md:grid-cols-12 gap-8">
-        <!-- USP 1: Snelheid (Major Feature - 8 Cols) -->
-        <div
-          class="md:col-span-8 clinical-glass p-10 rounded-(--radius-hero) hover:scale-[1.02] transition-transform duration-(--transition-base) border border-border group flex flex-col justify-between"
-        >
-          <div>
-            <IconBox icon={Zap} size="lg" class="mb-8 group-hover:scale-110 transition-transform" />
-            <h3 class="text-3xl font-bold text-white mb-4 font-display">Razendsnel</h3>
-            <p class="text-xl text-white/70 max-w-2xl">
-              Uw website laadt in minder dan 1 seconde. Dit betekent hogere Google-rankings, meer
-              bezoekers en een betere gebruikerservaring.
-            </p>
+  <!-- USPs -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Onderscheidend vermogen"
+        heading='Waarom <span class="text-active">LaventeCare</span>?'
+        description="De combinatie van hardware-engineering en cloud-architectuur onder één dak is zeldzaam. Precies dát maakt het verschil."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- USP 1 -->
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors">
+          <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+            <span class="text-2xl">🔗</span>
           </div>
-        </div>
-
-        <!-- USP 2: Security (Compact - 4 Cols) -->
-        <div
-          class="md:col-span-4 clinical-glass p-8 rounded-(--radius-hero) hover:scale-[1.02] transition-transform duration-(--transition-base) border border-border group"
-        >
-          <IconBox
-            icon={Shield}
-            size="lg"
-            class="mb-6 group-hover:scale-110 transition-transform"
-          />
-          <h3 class="text-2xl font-bold text-white mb-3 font-display">IJzersterke beveiliging</h3>
-          <p class="text-white/70">
-            Uw data is beschermd met de hoogste beveiligingsstandaarden. Elke website wordt gebouwd
-            met veiligheid als fundament.
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Van Chip tot Cloud</h3>
+          <p class="text-white/60 text-sm leading-relaxed font-ui">
+            Eén partner voor uw gehele infrastructuur — van firmware op de microcontroller tot het dashboard in de browser.
           </p>
         </div>
 
-        <!-- USP 3: Flexibiliteit (Wide Banner - 12 Cols) -->
-        <div
-          class="md:col-span-12 clinical-glass p-8 md:p-12 rounded-(--radius-hero) hover:scale-[1.01] transition-transform duration-(--transition-base) border border-border group flex flex-col md:flex-row items-center gap-8"
-        >
-          <IconBox icon={Database} size="lg" class="group-hover:scale-110 transition-transform" />
-          <div class="text-center md:text-left">
-            <h3 class="text-2xl md:text-3xl font-bold text-white mb-3 font-display">
-              Groeit met u mee
-            </h3>
-            <p class="text-xl text-white/70">
-              Van een professionele <strong>website</strong> tot een complete
-              <strong>webshop of applicatie</strong>. Onze oplossingen schalen moeiteloos mee met uw
-              groei.
-            </p>
+        <!-- USP 2 -->
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors">
+          <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+            <span class="text-2xl">⚡</span>
           </div>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Anti-Gravity Security</h3>
+          <p class="text-white/60 text-sm leading-relaxed font-ui">
+            Veiligheid zit ingebakken in de architectuur. Niet achteraf als plugin, maar als fundament van elke regel code.
+          </p>
+        </div>
+
+        <!-- USP 3 -->
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors">
+          <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+            <span class="text-2xl">🚀</span>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">100/100 Performance</h3>
+          <p class="text-white/60 text-sm leading-relaxed font-ui">
+            Perfecte Lighthouse scores en Islands Architecture. Uw website laadt voor de klant überhaupt kan knipperen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+      <div class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <StatCard value="100/100" label="Lighthouse Score" />
+          <StatCard value="€9,2 mrd" label="IoT Markt NL" />
+          <StatCard value="6+" label="Live Projecten" />
+          <StatCard value="€95" label="Uurtarief" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Preview -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Referenties"
+        heading='Gebouwd door <span class="text-active">LaventeCare</span>'
+        description="Recente projecten uit ons ecosysteem. Van event-platformen tot IoT-producten."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Project 1: De Koninklijke Loop -->
+        <a href="https://dekoninklijkeloop.nl" target="_blank" rel="noopener noreferrer" class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">De Koninklijke Loop</h3>
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Event</span>
+          </div>
+          <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
+            Real-time registratieplatform voor liefdadigheidsevenement. 500+ deelnemers, live dashboard en geautomatiseerde e-mailbevestigingen.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
+          </div>
+          <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
+            Bekijk project
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </span>
+        </a>
+
+        <!-- Project 2: SmartCoolCare -->
+        <a href="https://www.smartcoolcare.nl" target="_blank" rel="noopener noreferrer" class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">SmartCoolCare</h3>
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">IoT</span>
+          </div>
+          <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
+            IoT-koelmonitoring met ESP32 sensoren, BLE-communicatie en real-time cloud dashboards. Temperatuur- en luchtvochtigheidsmetingen 24/7.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">C++</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">ESP32</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">BLE</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
+          </div>
+          <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
+            Bekijk project
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </span>
+        </a>
+
+        <!-- Project 3: C&F Bouw -->
+        <a href="https://cfbouw.nl" target="_blank" rel="noopener noreferrer" class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">C&F Bouw</h3>
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Lead-Gen</span>
+          </div>
+          <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
+            Lead-generatie portaal voor bouwbedrijf. Multi-step offerteformulier, projectgalerij en geautomatiseerde klantcommunicatie.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Next.js</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
+          </div>
+          <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
+            Bekijk project
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </span>
+        </a>
+
+        <!-- Project 4: Dustin Auto Garage -->
+        <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-xl font-bold text-white font-display">Dustin Auto Garage</h3>
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Platform</span>
+          </div>
+          <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
+            Volledig werkplaats-managementsysteem met Kanban-bord, CRM, voertuigbeheer, RDW-integratie en facturatie.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">React 19</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
+          </div>
+          <span class="text-white/30 text-sm font-ui italic">In ontwikkeling</span>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/portfolio" class="btn-secondary">
+          Bekijk alle projecten
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Personal Touch / CTA -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto text-center">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block">De mens achter de code</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
+          Jeffrey Lavente
+        </h2>
+        <p class="text-white/70 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-ui">
+          Full-stack developer en IoT-engineer. Met een achtergrond in de zorg en een passie voor technologie bouw ik oplossingen die écht werken — niet duur en ingewikkeld, maar precies goed.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/over" class="btn-secondary">
+            Lees mijn verhaal
+          </a>
+          <a href="/contact" class="btn-primary">
+            Plan een intake
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>

@@ -1,0 +1,19 @@
+---
+interface Props {
+  tech: string;
+  variant?: 'primary' | 'secondary' | 'subtle';
+  class?: string;
+}
+
+const { tech, variant = 'primary', class: className } = Astro.props;
+
+const variantClasses = {
+  primary: 'tech-badge',
+  secondary: 'tech-badge bg-cta/10 text-cta border-cta/20',
+  subtle: 'tech-badge-subtle',
+};
+---
+
+<span class:list={[variantClasses[variant], className]}>
+  {tech}
+</span>

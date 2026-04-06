@@ -25,7 +25,8 @@ async function decodeRole(accessToken: string): Promise<string | null> {
     const { payload } = await jwtVerify(accessToken, getJWKS(), {
       issuer: 'https://laventecareauthsystems.onrender.com',
     });
-    return (payload as any).role || null;
+    const p = payload as { role?: string };
+    return p.role || null;
   } catch {
     // Token invalid, expired, or JWKS unreachable → fail secure
     return null;

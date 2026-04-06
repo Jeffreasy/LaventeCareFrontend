@@ -2,6 +2,7 @@ import { useForm, getFormProps, getInputProps, getTextareaProps } from '@conform
 import { parseWithZod } from '@conform-to/zod';
 import { z } from 'zod';
 import { useState } from 'react';
+import { submitContactForm } from '@/lib/api/publicApi';
 
 // Contact form validation schema
 const contactSchema = z.object({
@@ -38,19 +39,11 @@ export function ContactForm({ onSuccess }: Props) {
                 const validated = contactSchema.parse(data);
 
                 // Backend accepts {name, email, message} — prepend subject to message
-                const response = await fetch('/api/v1/public/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        name: validated.name,
-                        email: validated.email,
-                        message: `[${validated.subject}]\n\n${validated.message}`,
-                    }),
+                await submitContactForm({
+                    name: validated.name,
+                    email: validated.email,
+                    message: `[${validated.subject}]\n\n${validated.message}`,
                 });
-
-                if (!response.ok) {
-                    throw new Error(`Server responded with ${response.status}`);
-                }
 
                 if (import.meta.env.DEV) console.log('Form submitted:', validated);
                 setSubmitStatus('success');

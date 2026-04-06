@@ -1,0 +1,245 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import StatCard from '../components/ui/StatCard.astro';
+import TechStackBadge from '../components/ui/TechStackBadge.astro';
+
+const expertiseDomains = [
+  {
+    icon: '📡',
+    title: 'IoT & Embedded Systems',
+    techs: ['C++', 'ESP32', 'BLE', 'OTA Updates'],
+    description: 'Deep-sleep firmware, sensortelemetrie en over-the-air updates. Hardware monitoring met real-time cloud-synchronisatie.',
+  },
+  {
+    icon: '⚙️',
+    title: 'Backend & Security Engineering',
+    techs: ['Go', 'PostgreSQL', 'Redis', 'Zero-Trust'],
+    description: 'Dual-Token architectuur, Row Level Security, immutable audit logs, Zero-Trust API\'s met rate limiting en RBAC.',
+  },
+  {
+    icon: '🖥️',
+    title: 'Full-Stack Web Development',
+    techs: ['Astro', 'Next.js', 'React 19', 'Convex'],
+    description: 'Islands Architecture voor perfecte Lighthouse scores. Real-time dashboards, server-side rendering en conversiegerichte frontends.',
+  },
+  {
+    icon: '☁️',
+    title: 'Cloud & DevOps',
+    techs: ['Vercel', 'Render', 'CI/CD', 'Sentry'],
+    description: 'Deployment op edge-netwerken. Geautomatiseerde pipelines, monitoring, SSL en managed hosting architecturen.',
+  },
+];
+
+const kernwaarden = [
+  { icon: '🔒', title: 'Veiligheid als standaard', desc: 'Niet als optionele module, maar als fundament.' },
+  { icon: '🔗', title: 'End-to-end verantwoordelijkheid', desc: 'Van sensor tot dashboard, alles onder één dak.' },
+  { icon: '📈', title: 'Schaalbare architectuur', desc: 'Oplossingen die meegroeien met de klant.' },
+  { icon: '🤝', title: 'Transparantie', desc: 'Langdurige partnerschappen boven snelle projecten.' },
+];
+---
+
+<Layout
+  title="Over Jeffrey Lavente — LaventeCare"
+  description="Leer Jeffrey Lavente kennen: full-stack developer en IoT-engineer. Van de zorg naar technologie. De mens achter LaventeCare."
+>
+  <!-- Hero -->
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+          <!-- Avatar Placeholder -->
+          <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-active/10 border-2 border-active/30 flex items-center justify-center flex-shrink-0 mx-auto md:mx-0">
+            <span class="text-4xl md:text-5xl font-black text-active font-display">JL</span>
+          </div>
+
+          <div>
+            <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Over de oprichter</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight">
+              Jeffrey Lavente
+            </h1>
+            <p class="text-lg md:text-xl text-white/70 leading-relaxed font-ui">
+              Full-stack developer en IoT-engineer met diepgaande ervaring in zowel hardware (C++/ESP32) als cloud-architecturen (Go, Next.js, Astro, Convex).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Missie & Visie -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-active/20 bg-active/5">
+          <h2 class="text-xl font-bold text-white mb-4 font-display flex items-center gap-3">
+            <span class="text-xl">🎯</span> Missie
+          </h2>
+          <p class="text-white/70 text-sm leading-relaxed font-ui">
+            LaventeCare digitaliseert complexe bedrijfsprocessen en slaat een naadloze brug tussen hardware, software en de eindgebruiker. Wij leveren geen standaard templates, maar bouwen bliksemsnelle, veilige en op maat gemaakte digitale ecosystemen. Van de fysieke sensor tot de cloud: <span class="text-white font-semibold">één gestroomlijnde, robuuste oplossing</span>.
+          </p>
+        </div>
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
+          <h2 class="text-xl font-bold text-white mb-4 font-display flex items-center gap-3">
+            <span class="text-xl">🔭</span> Visie
+          </h2>
+          <p class="text-white/70 text-sm leading-relaxed font-ui">
+            Vooruitstrevende technologie — zoals real-time databases, IoT-telemetrie en Zero-Trust security — moet <span class="text-white font-semibold">toegankelijk en werkbaar</span> zijn voor het MKB, de evenementensector en de industrie. Veiligheid en performance zijn daarbij geen optionele modules, maar de absolute standaard.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Motivatie -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 relative">
+          <div class="absolute top-4 left-6 text-4xl text-active/30 font-display">"</div>
+          <blockquote class="text-base md:text-lg text-white/80 leading-relaxed font-ui pl-4 md:pl-8 border-l-2 border-active/40">
+            De drijfveer achter LaventeCare is de overtuiging dat elk bedrijf — groot of klein — recht heeft op technologie die <span class="text-white font-semibold">écht werkt</span>. Niet een dure enterprise-oplossing die na zes maanden stof vangt, en niet een goedkoop template dat bij de eerste groeispurt vastloopt. De combinatie van hardware-engineering en cloud-architectuur onder één dak is zeldzaam, en precies dát maakt het mogelijk om oplossingen te bouwen die van chip tot cloud <span class="text-active font-semibold">naadloos samenwerken</span>.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achtergrond -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Opleiding -->
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
+          <h2 class="text-xl font-bold text-white mb-5 font-display flex items-center gap-3">
+            <span class="text-xl">🎓</span> Opleiding
+          </h2>
+          <ul class="space-y-4">
+            <li>
+              <p class="text-white font-semibold text-sm">MBO Niveau 4</p>
+              <p class="text-white/60 text-sm font-ui">Persoonlijk Begeleider Specifieke Doelgroepen (2017–2018)</p>
+            </li>
+            <li>
+              <p class="text-white font-semibold text-sm">MBO Niveau 3</p>
+              <p class="text-white/60 text-sm font-ui">Medewerker Maatschappelijke Zorg (2015–2017)</p>
+            </li>
+            <li>
+              <p class="text-white font-semibold text-sm">Autodidact Software Engineering</p>
+              <p class="text-white/60 text-sm font-ui">Full-stack, IoT, Go, Rust, Cloud Security</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Werkervaring -->
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
+          <h2 class="text-xl font-bold text-white mb-5 font-display flex items-center gap-3">
+            <span class="text-xl">💼</span> Werkervaring
+          </h2>
+          <ul class="space-y-4">
+            <li>
+              <div class="flex items-baseline justify-between">
+                <p class="text-white font-semibold text-sm">Oprichter & Lead Developer</p>
+                <span class="text-active text-xs font-bold">2023 – heden</span>
+              </div>
+              <p class="text-white/60 text-sm font-ui">LaventeCare — End-to-end development van complexe digitale ecosystemen.</p>
+            </li>
+            <li>
+              <div class="flex items-baseline justify-between">
+                <p class="text-white font-semibold text-sm">1-op-1 Begeleider NAH++</p>
+                <span class="text-active text-xs font-bold">2018 – heden</span>
+              </div>
+              <p class="text-white/60 text-sm font-ui">'s Heeren Loo — Intensieve individuele begeleiding. Analytisch denkvermogen en probleemoplossend handelen onder druk.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technische Expertise -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Technische expertise"
+        heading='Uitzonderlijk breed <span class="text-active">spectrum</span>'
+        description="Van het schrijven van firmware op microcontrollers tot het bouwen van Zero-Trust security backends en pixel-perfect frontends — alles onder één dak."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {expertiseDomains.map((domain) => (
+          <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">{domain.icon}</span>
+              <h3 class="text-lg font-bold text-white font-display">{domain.title}</h3>
+            </div>
+            <p class="text-white/60 text-sm leading-relaxed mb-4 font-ui">{domain.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {domain.techs.map((tech) => (
+                <TechStackBadge tech={tech} variant="subtle" />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Kernwaarden -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Kernwaarden"
+        heading='Waar ik voor <span class="text-active">sta</span>'
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        {kernwaarden.map((waarde) => (
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
+            <span class="text-2xl block mb-3">{waarde.icon}</span>
+            <h3 class="text-sm font-bold text-white mb-2 font-display">{waarde.title}</h3>
+            <p class="text-white/50 text-xs font-ui">{waarde.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bedrijfsgegevens -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 max-w-3xl mx-auto">
+        <h2 class="text-xl font-bold text-white mb-6 font-display text-center">Bedrijfsgegevens</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-ui">
+          <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">Rechtsvorm</span>
+            <span class="text-white font-medium">Eenmanszaak (ZZP)</span>
+          </div>
+          <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">KVK-nummer</span>
+            <span class="text-white font-medium">88162710</span>
+          </div>
+          <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">Opgericht</span>
+            <span class="text-white font-medium">17 oktober 2022</span>
+          </div>
+          <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">Vestiging</span>
+            <span class="text-white font-medium">Dronten, Nederland</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact" class="btn-primary text-lg px-10">
+        Neem contact op
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -123,7 +123,7 @@ class ApiClient {
   /**
    * Helper: POST request
    */
-  async post<T>(endpoint: string, body: any): Promise<T> {
+  async post<T>(endpoint: string, body: unknown): Promise<T> {
     const response = await this.fetch(endpoint, {
       method: 'POST',
       body: JSON.stringify(body),

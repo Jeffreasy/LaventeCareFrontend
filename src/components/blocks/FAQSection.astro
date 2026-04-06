@@ -1,6 +1,4 @@
 ---
-import { cn } from '../../lib/utils';
-
 interface FAQItem {
   question: string;
   answer: string;
@@ -13,112 +11,102 @@ interface FAQCategory {
 
 const faqs: FAQCategory[] = [
   {
-    title: 'Agency & Maatwerk',
+    title: 'Over LaventeCare',
     items: [
       {
-        question: 'Bouwen jullie ook applicaties op maat?',
+        question: 'Wat doet LaventeCare precies?',
         answer:
-          'Absoluut. Naast onze Auth Systems functioneren wij als een high-end development agency. Wij bouwen complete digitale ecosystemen, van bliksemsnelle websites tot complexe SaaS-platformen en IoT-dashboards, die naadloos integreren met ons beveiligingssysteem.',
+          'LaventeCare is een technisch bureau in Dronten dat complexe bedrijfsprocessen digitaliseert. Wij ontwerpen en bouwen complete digitale ecosystemen — van IoT-firmware op ESP32-microcontrollers tot high-performance webplatformen en Zero-Trust security backends. Onze expertise bestrijkt de volledige keten: "van chip tot cloud".',
       },
       {
-        question: 'Wat is LaventeCare Auth Systems precies?',
+        question: 'Voor wie is LaventeCare bedoeld?',
         answer:
-          'Dit is onze core technologie: een "Headless" Authenticatie Provider die wij inzetten voor onze eigen projecten én als losstaand product aanbieden. Het handelt alle complexe beveiliging af, zodat wij (of jouw team) ons puur kunnen focussen op de unieke features van de applicatie.',
+          'Wij werken uitsluitend B2B en richten ons op drie doelgroepen: (1) Industrie en installatietechniek die IoT-monitoring en remote dashboards nodig heeft, (2) MKB-bedrijven in de bouw, groenvoorziening en automotive die maatwerk portalen nodig hebben voor lead-management en klantcommunicatie, en (3) evenementenorganisatoren en non-profits die betrouwbare registratie-, ticketing- en donatieplatformen zoeken.',
       },
       {
-        question: 'Doen jullie ook projecten zonder jullie Auth Systeem?',
+        question: 'Waarin verschilt LaventeCare van een gewoon webbureau?',
         answer:
-          'Zeker. Hoewel ons Auth Systeem direct "Day 1" beveiliging biedt, zijn wij experts in Astro, React en moderne web-architectuur. Wij nemen projecten aan variërend van high-performance landing pages tot volledige bedrijfsapplicaties, met of zonder onze specifieke backend modules.',
+          'Traditionele webbureaus bouwen websites. LaventeCare bouwt complete digitale ecosystemen — inclusief IoT-firmware (C++/ESP32), Zero-Trust security (Go), en high-performance frontends (Astro/React). Wij zijn de enige partij in de regio die hardware-integratie, security-engineering én webontwikkeling onder één dak levert. Dat betekent één aanspreekpunt voor uw gehele digitale infrastructuur.',
       },
     ],
   },
   {
-    title: 'Beveiliging & Privacy',
+    title: 'Diensten & Expertise',
     items: [
       {
-        question: 'Wat is de "Database Fortress" (De ultieme vangrail)?',
+        question: 'Welke soorten projecten bouwen jullie?',
         answer:
-          'Dit is onze garantie tegen datalekken. We gebruiken **Row Level Security (RLS)** op databaseniveau. Dit betekent dat de database *zelf* de tenant_id controleert. Zelfs als een programmeur in de API-laag vergeet een check toe te voegen, weigert de database toegang. Dit voorkomt effectief "Cross-Tenant Data Leakage", een beveiligingsniveau dat zeldzaam is in standaard webapps.',
+          'Wij werken in vier kerngebieden: (1) IoT & Hardware Monitoring — ESP32-sensornetwerken met real-time cloud dashboards, (2) Maatwerk Platformen — complexe webapplicaties voor evenementen, non-profits en bedrijfsprocessen, (3) Lead Generation — conversiegerichte portalen met offertetrajecten en klantomgevingen voor het MKB, en (4) Security & Auth — onze Go-gebaseerde Zero-Trust backend die in elk project is ingebouwd.',
       },
       {
-        question: 'Wat zijn de "5 Anti-Gravity Wetten"?',
+        question: 'Wat is de "Islands Architecture" en waarom scoren jullie sites 100/100?',
         answer:
-          'Onze architectuur volgt 5 strikte principes van "vijandigheid": 1. **Input is Toxic** (geen byte wordt vertrouwd zonder validatie), 2. **Silence is Golden** (lek nooit interne errors/stack traces), 3. **The Database is a Fortress** (type-safe queries via sqlc, geen string-plakken), 4. **Race Conditions are Fatal** (paranoïde state management), en 5. **Dependency Paranoia** (alleen bewezen packages).',
+          'Islands Architecture (via het Astro-framework) laadt alleen interactieve componenten als "eilandjes" van JavaScript, terwijl de rest van de pagina puur statische HTML is. Dit resulteert in extreem snelle laadtijden en perfecte 100/100 Google Lighthouse scores op Performance, Accessibility, Best Practices en SEO. Snellere sites betekenen hogere conversies: elke seconde extra laadtijd kost gemiddeld 7% omzetverlies.',
       },
       {
-        question: 'Hoe veilig zijn wachtwoorden en sessies?',
+        question: 'Kunnen jullie IoT-sensoren koppelen aan een dashboard?',
         answer:
-          'Wij hanteren een "Bank-Grade Protection" standaard. Wachtwoorden worden gehasht met **Bcrypt (Cost 12)** en nooit als platte tekst opgeslagen. Voor sessies gebruiken we een **Dual-Token systeem** (kortlevende Access Tokens + roterende Refresh Tokens) en slaan deze op in HttpOnly cookies. Daarnaast is er **Active Threat Defense** met Rate Limiting (25 req/s) om brute-force aanvallen direct af te slaan.',
-      },
-      {
-        question: 'Ondersteunen jullie Multi-Factor Authenticatie (MFA)?',
-        answer:
-          'Ja, dit is "MFA-First". Wij bieden standaard ingebouwde ondersteuning voor TOTP (Authenticator apps zoals Google/Microsoft) en genereren cryptografische backup-codes voor noodtoegang. Veiligheid is bij ons geen optie, maar de standaard.',
+          'Ja, dit is één van onze kernactiviteiten. Wij ontwikkelen firmware in C++ voor ESP32-microcontrollers met deep-sleep energiebeheer en BLE-communicatie. Sensordata wordt real-time gesynchroniseerd via Convex naar interactieve cloud dashboards. Inclusief kritieke alarmering, historische grafieken en HMAC-SHA256 authenticatie per device. Denk aan koelmonitoring (SmartCoolCare), klimaatbeheersing of preventief onderhoud.',
       },
     ],
   },
   {
-    title: 'Integratie & Functionaliteit',
+    title: 'Security & Privacy',
     items: [
       {
-        question: 'Welk type tokens gebruiken jullie voor sessies?',
+        question: 'Wat is "Anti-Gravity Security"?',
         answer:
-          'Wij gebruiken een Dual-Token systeem voor optimale balans tussen veiligheid en gebruiksgemak: Access Tokens (kortlevende JWTs, bijv. 15 minuten) voor snelle toegang, en Refresh Tokens (langer houdbaar, veilig opgeslagen en geroteerd) om diefstal te voorkomen.',
+          'Anti-Gravity is onze security-filosofie: veiligheid zit ingebakken in elke laag van de architectuur, niet achteraf als plugin. Dit omvat 5 strikte principes: (1) Input is Toxic — alle invoer wordt gevalideerd, (2) Silence is Golden — geen interne errors naar de client, (3) Database Fortress — Row Level Security en type-safe queries, (4) Race Conditions are Fatal — stateless handler design, en (5) Dependency Paranoia — minimale, bewezen packages.',
       },
       {
-        question: 'Kan ik mijn eigen e-mailinstellingen gebruiken?',
+        question: 'Hoe beschermen jullie klantdata bij multi-tenant systemen?',
         answer:
-          'Absoluut. Elke tenant kan een **Custom Email Gateway** (zoals SendGrid, Mailgun of eigen SMTP) configureren. Emails worden verstuurd namens hun eigen domein. Alle gevoelige configuraties (zoals API-keys) worden AES-versleuteld opgeslagen met een unieke Tenant Secret Key.',
+          'Wij gebruiken Row Level Security (RLS) op databaseniveau. Dit betekent dat de database zélf controleert welke tenant bij welke data mag. Zelfs als een programmeur een check mist, weigert de database toegang. Samen met Dual-Token authenticatie (kortlevende Access + roterende Refresh Tokens), rate limiting (25 req/s) en immutable audit logs is cross-tenant datalekken architectureel onmogelijk gemaakt.',
       },
       {
-        question: 'Hoe beheer ik de rechten van mijn gebruikers?',
+        question: 'Zijn jullie oplossingen AVG-compliant?',
         answer:
-          'Het systeem werkt met een **Zero-Latency RBAC** model. Rollen (Admin, Editor, Viewer) zitten direct in het token gebakken, waardoor toegangscontrole geen extra database-query kost (0ms vertraging). Dit zorgt voor maximale performance zonder in te leveren op veiligheid.',
-      },
-      {
-        question: 'Kan één gebruiker bij meerdere organisaties?',
-        answer:
-          'Ja, wij ondersteunen **Context-Aware Toegang**. Een gebruiker heeft één centraal account en kan veilig schakelen tussen verschillende organisaties (Tenants) waar hij/zij toegang toe heeft, zonder opnieuw in te loggen. De data blijft strikt gescheiden dankzij RLS.',
+          'Ja. Wij passen Privacy by Design toe: dataminimalisatie, geautomatiseerde token-opschoning ("The Janitor"), versleutelde opslag van credentials (AES), en immutable audit logs voor forensische integriteit. Verwerkersovereenkomsten zijn beschikbaar voor alle klanten en er is een geteste procedure voor datalekken.',
       },
     ],
   },
   {
-    title: 'Compliance & Beheer',
+    title: 'Proces & Werkwijze',
     items: [
       {
-        question: 'Zijn de Audit Logs écht onweerlegbaar?',
+        question: 'Hoe verloopt het traject van intake tot oplevering?',
         answer:
-          'Ja. Onze audit logs zijn **Immutable (Append-only)** en ontworpen voor forensische integriteit. We hebben harde database-restricties ingesteld die voorkomen dat logs gewijzigd of verwijderd kunnen worden, zelfs niet door de applicatie zelf. Dit maakt de logs juridisch waterdicht voor compliance en bewijsvoering.',
+          'Ons proces bestaat uit 4 fasen: (1) Gratis Intake (30 min) — scope, haalbaarheid en budgetindicatie, (2) Technische Discovery (€750–€2.500) — diepte-analyse en gedetailleerd Blueprint-document, (3) Ontwikkeling — agile sprints van 2 weken met tussentijdse demo\'s en acceptatie, facturatie op milestones (40/40/20), en (4) SLA & Doorontwikkeling — managed hosting, security patches en doorontwikkeling via een maandelijks abonnement.',
       },
       {
-        question: 'Wat gebeurt er met sessies als een gebruiker uitlogt?',
+        question: 'Hoe lang duurt een gemiddeld project?',
         answer:
-          'Bij een uitlog-actie wordt de gehele "Token Family" ingetrokken. Dit zorgt ervoor dat alle actieve sessies op dat apparaat (en eventuele gekloonde tokens) direct onbruikbaar worden gemaakt.',
+          'Dat hangt af van de complexiteit. Een conversiegericht lead-generation portaal is in 4–6 weken live. Een volledig maatwerk platform met IoT-integratie duurt 8–16 weken. De Technische Discovery (fase 2) geeft altijd een nauwkeurige planning vooraf. Wij werken in sprints van 2 weken met tussentijdse demo\'s, zodat u altijd voortgang ziet.',
       },
       {
-        question: 'Hoe zit het met inactieve accounts of tokens?',
+        question: 'Bieden jullie ook doorlopend beheer na oplevering?',
         answer:
-          'Wij passen **Privacy by Design** toe via "The Janitor". Dit geautomatiseerde proces schoont continu verlopen sessies en tokens op om dataminimalisatie te garanderen en de database schoon te houden.',
+          'Ja, via ons SLA-model. Na oplevering start een Managed Security abonnement (vanaf €75/maand) dat hosting, de Anti-Gravity Security Suite, dagelijkse backups, monitoring via Sentry, en centrale patches omvat. Dit vervangt traditionele hosting en garandeert dat uw applicatie veilig en up-to-date blijft. Doorontwikkeling wordt bij het Pro-pakket (€250/maand) vergoed als retainer-uren.',
       },
     ],
   },
   {
-    title: 'Kosten & Licenties',
+    title: 'Kosten & Investering',
     items: [
       {
-        question: 'Waarom zijn er eenmalige Setup & Onboarding kosten?',
+        question: 'Wat kost een project bij LaventeCare?',
         answer:
-          'Dit dekt de volledige technische inrichting van uw "Secure Auth Environment". Wij configureren de tenant-specifieke database, stellen de SMTP-mailservers in, koppelen de frontend en zorgen voor een veilige overdracht van de eerste admin-credentials. Het is een eenmalige investering in een veilig fundament.',
+          'Ons uurtarief is €95. Een Technische Discovery start vanaf €750 (eenmalig). Projecten worden gefactureerd op milestones (40% bij start, 40% bij bèta, 20% na livegang). Na oplevering geldt een SLA-abonnement: Basic (€75/mnd) voor hosting en security, Pro (€250/mnd) inclusief retainer-uren, of Enterprise (€500/mnd) voor prioriteitssupport en uitgebreide SLA.',
       },
       {
-        question: 'Wat houdt het "Managed Security" abonnement in?',
+        question: 'Hoe worden IoT-devices berekend?',
         answer:
-          'Dit vervangt traditionele hosting. Voor een vast bedrag (vanaf €75/mnd) krijgt u niet alleen hosting, maar onze volledige "Anti-Gravity Security Suite". Dit omvat actieve hack-preventie, GDPR-proof logging, dagelijkse backups en – cruciaal – centraal onderhoud en patching van de backend. U betaalt voor gemoedsrust.',
+          'IoT-koppeling werkt op een usage-based model vanaf €2 per device per maand. Dit omvat veilige sensordata-ingest, real-time opslag, cloud-dashboard toegang en HMAC-authenticatie per apparaat. Het schaalt mee: 10 sensoren of 10.000 — de architectuur groeit met u mee.',
       },
       {
-        question: 'Hoe worden de kosten voor IoT-devices berekend?',
+        question: 'Is de Technische Discovery los bruikbaar als ik niet verder ga?',
         answer:
-          'Dit is een "Usage Based" model (vanaf €2 per device/maand). Wij bieden **Lightweight Telemetry** endpoints die geoptimaliseerd zijn voor hardware (ESP32/C++). Authenticatie verloopt via efficiënte **HMAC-SHA256 Signatures** om "heavy" JWT-parsing op de chip te voorkomen en replay-attacks uit te sluiten.',
+          'Ja, absoluut. De Discovery levert een gedetailleerd Blueprint-document op dat u eigendom is. Dit bevat de technische architectuur, requirements-analyse, risico-inventarisatie en een gefundeerde kostenraming. Het document is bruikbaar ongeacht of u het project met LaventeCare of een andere partij uitvoert.',
       },
     ],
   },
@@ -160,7 +148,7 @@ const faqSchema = {
         >
       </h2>
       <p class="text-white/60 max-w-2xl mx-auto text-lg leading-relaxed font-ui">
-        Alles wat je moet weten over het LaventeCare Auth System, beveiliging en integratie.
+        Alles over onze werkwijze, technologie, beveiliging en kosten. Staat uw vraag er niet bij? <a href="/contact" class="text-active hover:underline">Neem contact op</a>.
       </p>
     </div>
 

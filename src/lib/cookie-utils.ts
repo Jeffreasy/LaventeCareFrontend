@@ -10,7 +10,7 @@
  * Handles both Node 18+ `getSetCookie()` and legacy fallback.
  */
 export function extractSetCookies(response: Response): string[] {
-  const rawRes = response as any;
+  const rawRes = response as Response & { headers: { getSetCookie?: () => string[] } };
 
   if (typeof rawRes.headers.getSetCookie === 'function') {
     return rawRes.headers.getSetCookie();

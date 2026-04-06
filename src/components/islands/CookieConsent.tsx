@@ -178,7 +178,7 @@ export function CookieConsent() {
                         </div>
 
                         <p className="cookie-modal__footer">
-                            Meer informatie in ons <a href="/docs" className="cookie-modal__link">privacybeleid</a>.
+                            Vragen over ons cookiebeleid? <a href="/contact" className="cookie-modal__link">Neem contact op</a>.
                         </p>
                     </div>
                 </div>

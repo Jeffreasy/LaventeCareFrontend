@@ -46,7 +46,8 @@ export default defineConfig({
             filter: (page) =>
                 !page.includes('/admin') &&
                 !page.includes('/docs') &&
-                !page.includes('/api/'),
+                !page.includes('/api/') &&
+                !page.includes('/login'),
         }),
     ],
 });

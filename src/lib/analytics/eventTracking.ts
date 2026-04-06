@@ -64,6 +64,7 @@ export interface AdminEvent {
  * Track custom conversion goal
  * Only sends event if user has given analytics consent
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function trackConversionGoal(goal: string, properties?: Record<string, any>): void {
   // Validate consent
   if (!hasAnalyticsConsent()) {

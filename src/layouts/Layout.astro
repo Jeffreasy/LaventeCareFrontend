@@ -39,7 +39,7 @@ import { settings } from '../lib/config';
       href={settings.favicon?.[0]?.filename || '/favicon.svg'}
     />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#0d2818" />
+    <meta name="theme-color" content="#0C4A6E" />
     <meta name="google-site-verification" content="InPi-pFXOpFmi6hKGp7_u2VnGrYyL9RUewuw-ApcCeI" />
 
     <!-- Google Fonts: Geist & Satoshi (Fontshare) -->
@@ -64,6 +64,37 @@ import { settings } from '../lib/config';
     <!-- CSRF Token -->
     <meta name="csrf-token" content={Astro.locals.csrfToken} />
 
+    <!-- Sitewide Organization Schema (E-E-A-T) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LaventeCare",
+      "url": "https://lavente.care",
+      "logo": "https://lavente.care/og-image.png",
+      "founder": {
+        "@type": "Person",
+        "name": "Jeffrey Lavente",
+        "jobTitle": "Full-Stack Developer & IoT Engineer"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Dronten",
+        "addressRegion": "Flevoland",
+        "postalCode": "8251 ZB",
+        "addressCountry": "NL"
+      },
+      "sameAs": [
+        "https://linkedin.com/in/jeffrey-lavente",
+        "https://github.com/Jeffreasy"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@laventecare.nl",
+        "contactType": "customer service",
+        "availableLanguage": "Dutch"
+      }
+    })} />
+
     <!-- Astro Client Router (View Transitions) -->
     <ClientRouter />
 
@@ -84,6 +115,13 @@ import { settings } from '../lib/config';
     >
       Skip to content
     </a>
+
+    <!-- Ambient Mesh Background Animation -->
+    <div class="ambient-mesh" aria-hidden="true">
+      <div class="ambient-mesh__orb ambient-mesh__orb--1"></div>
+      <div class="ambient-mesh__orb ambient-mesh__orb--2"></div>
+      <div class="ambient-mesh__orb ambient-mesh__orb--3"></div>
+    </div>
 
     <!-- GTM Body Noscript -->
     {

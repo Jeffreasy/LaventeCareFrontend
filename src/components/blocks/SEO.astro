@@ -6,8 +6,8 @@ interface Props extends Partial<SEOProps> {
 }
 
 const {
-  title = 'LaventeCare — Webbureau Amsterdam',
-  description = 'LaventeCare — Professioneel webbureau in Amsterdam. Snelle websites, webshops en apps op maat.',
+  title = 'LaventeCare — High-Performance Web, IoT & Security Solutions',
+  description = 'LaventeCare digitaliseert complexe bedrijfsprocessen. Van IoT-firmware tot cloud-architectuur, van chip tot cloud. Veilig, snel en schaalbaar. Dronten, Nederland.',
   image,
   noindex = false,
 } = Astro.props;
@@ -24,6 +24,9 @@ const ogImageUrl = image?.filename
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 {noindex && <meta name="robots" content="noindex,nofollow" />}
+<meta name="author" content="Jeffrey Lavente" />
+<meta name="geo.region" content="NL-FL" />
+<meta name="geo.placename" content="Dronten" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
@@ -31,6 +34,8 @@ const ogImageUrl = image?.filename
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content="LaventeCare" />
+<meta property="og:locale" content="nl_NL" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageUrl} />

@@ -2,6 +2,15 @@
     "regions": [
         "iad1"
     ],
+    "redirects": [
+        { "source": "/services", "destination": "/diensten", "permanent": true },
+        { "source": "/services/landing-pages", "destination": "/diensten/lead-generation", "permanent": true },
+        { "source": "/services/webshops", "destination": "/diensten/maatwerk-platformen", "permanent": true },
+        { "source": "/services/custom-apps", "destination": "/diensten/maatwerk-platformen", "permanent": true },
+        { "source": "/platform", "destination": "/over", "permanent": true },
+        { "source": "/security", "destination": "/diensten/security", "permanent": true },
+        { "source": "/docs", "destination": "/", "permanent": true }
+    ],
     "headers": [
         {
             "source": "/(.*)",

@@ -17,7 +17,7 @@ export interface Organization {
   created_at: string; // ISO Date "2026-01-28 19:46:35.281574+00"
   updated_at: string;
   app_url: string; // "https://laventecare.nl"
-  mail_config?: any; // hidden/optional
+  mail_config?: unknown; // hidden/optional
 }
 
 export interface User {

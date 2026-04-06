@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+
+const laws = [
+  {
+    num: '01',
+    title: 'Alle invoer is verdacht',
+    subtitle: 'Input is Toxic',
+    desc: 'Nooit blindelings vertrouwen. Alles wordt getypeerd, gevalideerd en gesanitized via strict type-checking. SQL Injection is onmogelijk gemaakt via gecompileerde queries.',
+  },
+  {
+    num: '02',
+    title: 'Geen informatie lekken',
+    subtitle: 'Silence is Golden',
+    desc: 'Nooit interne state of stack traces lekken naar de client. Monitoring via interne logs en Sentry, generieke HTTP responses naar buiten.',
+  },
+  {
+    num: '03',
+    title: 'Database als kluis',
+    subtitle: 'The Database is a Fortress',
+    desc: 'Row Level Security op alle kritieke tabellen. De database zélf handhaaft wie welke data mag zien. Cross-tenant datalekken zijn wiskundig onmogelijk.',
+  },
+  {
+    num: '04',
+    title: 'Bescherming tegen conflicten',
+    subtitle: 'Race Conditions are Fatal',
+    desc: 'Handlers zijn stateless. Gedeelde resources beschermd via mutexen of channels. Geen race conditions mogelijk, zelfs onder zware belasting.',
+  },
+  {
+    num: '05',
+    title: 'Minimale afhankelijkheden',
+    subtitle: 'Dependency Paranoia',
+    desc: 'Voorkeur voor standard library en bewezen packages. Geen bloatware. Geautomatiseerde vulnerability scanning en regelmatige audits.',
+  },
+];
+---
+
+<Layout
+  title="Security & Auth — LaventeCare Core"
+  description="De 5 Anti-Gravity Beveiligingswetten. Dual-Token architectuur, Zero-Trust API's, Row Level Security. Bank-Grade beveiliging voor elke applicatie."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">🛡️ LaventeCare Core</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+          Anti-Gravity <span class="text-active">Security</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
+          De Go-gebaseerde back-end technologie die fungeert als het hart van alle applicaties. Bank-Grade authenticatie met Dual-Token architectuur, Zero-Latency RBAC en Database Fortress om cross-tenant datalekken onmogelijk te maken.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {['Go', 'PostgreSQL', 'Redis', 'JWT', 'RBAC', 'RLS', 'Sentry'].map((t) => (
+            <TechStackBadge tech={t} />
+          ))}
+        </div>
+      </div>
+
+      <!-- The 5 Laws -->
+      <SectionHeader
+        label="De 5 Wetten"
+        heading='Anti-Gravity <span class="text-active">Beveiligingsprincipes</span>'
+        description="Veiligheid als fundament, niet als optionele module. Deze vijf principes zijn ingebakken in elke regel code."
+      />
+
+      <div class="space-y-4 max-w-4xl mx-auto mb-16">
+        {laws.map((law) => (
+          <div class="clinical-glass p-5 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors group">
+            <div class="flex items-start gap-4 md:gap-6">
+              <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-active/10 flex items-center justify-center flex-shrink-0 group-hover:bg-active/20 transition-colors">
+                <span class="text-active text-sm md:text-base font-bold font-display">{law.num}</span>
+              </div>
+              <div>
+                <h3 class="text-base md:text-lg font-bold text-white mb-1 font-display">{law.title}</h3>
+                <p class="text-active text-xs font-bold uppercase tracking-wider mb-2 font-display">{law.subtitle}</p>
+                <p class="text-white/60 text-sm leading-relaxed font-ui">{law.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Architecture Highlights -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-active/20 bg-active/5">
+          <h3 class="text-lg font-bold text-white mb-4 font-display">Architecturale Beveiliging</h3>
+          <ul class="space-y-3 text-sm font-ui text-white/70">
+            <li class="flex gap-3"><span class="text-active">•</span> Multi-tenant isolation via Row Level Security</li>
+            <li class="flex gap-3"><span class="text-active">•</span> Dual-Token authenticatie (access + refresh)</li>
+            <li class="flex gap-3"><span class="text-active">•</span> Zero-Trust API design: geen open endpoints</li>
+            <li class="flex gap-3"><span class="text-active">•</span> Rate limiting (25 req/s, burst 50)</li>
+          </ul>
+        </div>
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
+          <h3 class="text-lg font-bold text-white mb-4 font-display">Operationele Beveiliging</h3>
+          <ul class="space-y-3 text-sm font-ui text-white/70">
+            <li class="flex gap-3"><span class="text-active">•</span> MFA-first voor alle admin-interfaces</li>
+            <li class="flex gap-3"><span class="text-active">•</span> Automated token purging (The Janitor)</li>
+            <li class="flex gap-3"><span class="text-active">•</span> Content Security Policy enforcement</li>
+            <li class="flex gap-3"><span class="text-active">•</span> CORS-whitelisting per tenant</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact?type=security" class="btn-primary">
+        Beveilig uw applicatie
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

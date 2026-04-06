@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import ProcessTimeline from '../components/blocks/ProcessTimeline.astro';
+
+const processSteps = [
+  {
+    phase: '1',
+    title: 'Kennismaking & Intake',
+    description: 'Vrijblijvend gesprek (30 min) om scope, verwachtingen en haalbaarheid vast te stellen. Go/no-go op basis van technische complexiteit en budget.',
+    price: 'Gratis',
+    icon: '☕',
+  },
+  {
+    phase: '2',
+    title: 'Technische Discovery',
+    description: 'Diepte-analyse van technische vereisten, architectuurontwerp en een gedetailleerd Blueprint-document. U ontvangt een bruikbaar document — ongeacht of het project doorgaat.',
+    price: '€750 – €2.500',
+    icon: '🔍',
+  },
+  {
+    phase: '3',
+    title: 'Ontwikkeling & Oplevering',
+    description: 'Agile ontwikkeling in sprints van 2 weken. Tussentijdse demo\'s en acceptatietests. Facturatie op milestones.',
+    price: '€95/uur',
+    icon: '⚡',
+  },
+  {
+    phase: '4',
+    title: 'SLA & Doorontwikkeling',
+    description: 'Na oplevering start het SLA-traject. Doorontwikkeling en feature requests als retainer of op uurbasis.',
+    price: 'vanaf €75/mnd',
+    icon: '🔄',
+  },
+];
+---
+
+<Layout
+  title="Werkwijze — LaventeCare"
+  description="Hoe werkt een project met LaventeCare? Van gratis intake tot SLA-ondersteuning. Transparant, gestructureerd en zonder verrassingen."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Werkwijze"
+        heading='Van idee tot <span class="text-active">productie</span>'
+        description="Complexe B2B-projecten vereisen een gestructureerd proces. Mijn vierfasen-model waarborgt dat elke investering zich terugbetaalt."
+      />
+
+      <!-- Process Timeline -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <ProcessTimeline steps={processSteps} />
+      </div>
+
+      <!-- Facturatieflow -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <SectionHeader
+          label="Facturatie"
+          heading='Gefaseerde <span class="text-active">facturatie</span>'
+          description="Gezonde cashflow voor beide partijen. Elke fase beschermt uw investering."
+        />
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+            <div class="text-3xl font-black text-active font-display mb-1">40%</div>
+            <p class="text-white/70 text-xs font-ui">Na goedkeuring Blueprint</p>
+            <p class="text-white/40 text-[10px] font-ui mt-1">Dekking initiële kosten</p>
+          </div>
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+            <div class="text-3xl font-black text-active font-display mb-1">40%</div>
+            <p class="text-white/70 text-xs font-ui">Bij bèta-oplevering</p>
+            <p class="text-white/40 text-[10px] font-ui mt-1">Tussentijdse acceptatie</p>
+          </div>
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+            <div class="text-3xl font-black text-active font-display mb-1">20%</div>
+            <p class="text-white/70 text-xs font-ui">Na livegang & acceptatie</p>
+            <p class="text-white/40 text-[10px] font-ui mt-1">Waarborg voor klant</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Betalingsvoorwaarden -->
+      <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 max-w-3xl mx-auto mb-16">
+        <h3 class="text-lg font-bold text-white mb-4 font-display">Betalingsvoorwaarden</h3>
+        <ul class="space-y-3 text-sm font-ui text-white/70">
+          <li class="flex gap-3"><span class="text-active">•</span> Betalingstermijn: <strong class="text-white">14 dagen</strong> na factuurdatum</li>
+          <li class="flex gap-3"><span class="text-active">•</span> Discovery-fases worden <strong class="text-white">vooraf</strong> gefactureerd</li>
+          <li class="flex gap-3"><span class="text-active">•</span> SLA-abonnementen: <strong class="text-white">maandelijks vooraf</strong> via automatisch incasso</li>
+        </ul>
+      </div>
+
+      <!-- Wanneer wel/niet -->
+      <div class="max-w-3xl mx-auto">
+        <SectionHeader
+          label="Transparantie"
+          heading='Eerlijk over <span class="text-active">verwachtingen</span>'
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="clinical-glass p-6 rounded-(--radius-feature) border border-cta/20 bg-cta/5">
+            <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
+              <span class="text-cta">✓</span> Ideale match
+            </h3>
+            <ul class="space-y-2 text-sm font-ui text-white/60">
+              <li>Budget vanaf €3.000 voor maatwerk</li>
+              <li>Duidelijke probleemstelling</li>
+              <li>Bereidheid tot technisch gesprek</li>
+              <li>Langetermijn samenwerking</li>
+            </ul>
+          </div>
+          <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
+            <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
+              <span class="text-white/40">→</span> Doorverwijzing
+            </h3>
+            <ul class="space-y-2 text-sm font-ui text-white/40">
+              <li>Budget onder €3.000 → low-code alternatieven</li>
+              <li>Alleen prijsinformatie zonder context</li>
+              <li>Gratis proof-of-concept → betaalde discovery</li>
+              <li>Template-oplossing (WordPress/Wix)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact" class="btn-primary text-lg px-10">
+        Start met een intake
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

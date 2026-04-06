@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+
+const results = [
+  { value: 'Multi-tenant', label: 'Architectuur' },
+  { value: 'Real-time', label: 'Data synchronisatie' },
+  { value: 'RDW', label: 'Kenteken API integratie' },
+  { value: 'RBAC', label: 'Rolgebaseerde toegang' },
+];
+
+const challenges = [
+  {
+    title: 'Multi-tenant isolatie',
+    desc: 'Meerdere garages op één platform, maar data mag nooit lekken tussen tenants. Elke garage ziet alleen zijn eigen klanten en voertuigen.',
+  },
+  {
+    title: 'Real-time werkplaatsbeheer',
+    desc: 'Monteurs moeten live zien welke auto\'s in de werkplaats staan, welke onderhoudsbeurten lopen en wat de status is — zonder pagina te verversen.',
+  },
+  {
+    title: 'RDW-integratie voor voertuigdata',
+    desc: 'Bij het invoeren van een kenteken moet het systeem automatisch merk, model, bouwjaar en APK-status ophalen uit de RDW open data API.',
+  },
+  {
+    title: 'Complexe rolhiërarchie',
+    desc: 'Eigenaar, manager, monteur en receptionist hebben elk andere rechten. Het systeem moet IDOR-attacks voorkomen op elk niveau.',
+  },
+];
+---
+
+<Layout
+  title="Case Study: Dustin Auto Garage — LaventeCare"
+  description="Hoe LaventeCare een volledig werkplaats-managementsysteem bouwde met Kanban-bord, CRM, RDW-integratie en multi-tenant architectuur."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">📋 Case Study</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+          Dustin Auto <span class="text-active">Garage</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
+          Een volledig werkplaats-managementsysteem met Kanban-bord, CRM, voertuigbeheer, RDW-integratie en facturatie. Gebouwd voor multi-tenant schaalbaarheid.
+        </p>
+        <div class="flex flex-wrap items-center gap-4 mb-8">
+          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Werkplaatsbeheer</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          {['Astro', 'React 19', 'Convex', 'Go Auth', 'RDW API'].map((t) => (
+            <TechStackBadge tech={t} />
+          ))}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
+        {results.map((r) => (
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+            <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">{r.value}</div>
+            <p class="text-white/50 text-xs font-ui">{r.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="max-w-4xl mx-auto mb-16">
+        <SectionHeader label="De uitdaging" heading='Garage-chaos naar <span class="text-active">digitaal systeem</span>' />
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {challenges.map((c) => (
+            <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
+              <h3 class="text-sm font-bold text-white mb-2 font-display">{c.title}</h3>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto mb-16">
+        <SectionHeader label="De oplossing" heading='Alles-in-één <span class="text-active">garagebeheer</span>' />
+        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 space-y-6">
+          <div>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Kanban Werkplaatsbord</h3>
+            <p class="text-white/60 text-sm font-ui leading-relaxed">
+              Real-time Kanban-bord via Convex waar werkorders van "Ingepland" naar "In behandeling" naar "Gereed" bewegen. Monteurs slepen kaarten, managers zien de status live. Drag-and-drop met optimistic updates.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white mb-2 font-display">RDW Kenteken Lookup</h3>
+            <p class="text-white/60 text-sm font-ui leading-relaxed">
+              Bij het invoeren van een kenteken haalt het systeem automatisch voertuigdata op uit de RDW Open Data API: merk, model, bouwjaar, brandstoftype en APK-vervaldag. Inclusief AI-gestuurde kentekenherkenning via camera (xAI Grok Vision).
+            </p>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Split-Role Security Model</h3>
+            <p class="text-white/60 text-sm font-ui leading-relaxed">
+              Vier rollen (eigenaar, manager, monteur, receptionist) met hiërarchische RBAC. Elke API-call wordt server-side gevalideerd op rolniveau. Cross-tenant isolatie maakt het onmogelijk om data van andere garages in te zien.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-white/50 text-sm font-ui mb-4">Maatwerk bedrijfssoftware nodig?</p>
+      <a href="/contact?type=platform" class="btn-primary">
+        Bespreek uw project
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

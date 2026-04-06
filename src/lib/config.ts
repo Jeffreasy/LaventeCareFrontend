@@ -1,8 +1,8 @@
 export const settings = {
   site_name: 'LaventeCare',
-  meta_title: 'LaventeCare',
+  meta_title: 'LaventeCare — High-Performance Web, IoT & Security Solutions',
   meta_description:
-    'LaventeCare biedt bliksemsnelle websites en veilige backend-systemen. Enterprise Astro-infrastructuur met Anti-Gravity beveiliging.',
+    'LaventeCare digitaliseert complexe bedrijfsprocessen. Van IoT-firmware tot cloud-architectuur, van chip tot cloud. Veilig, snel en schaalbaar. Dronten, Nederland.',
   favicon: [{ filename: '/favicon.svg' }],
   logo: [
     {
@@ -17,69 +17,74 @@ export const settings = {
       link: { cached_url: 'home' },
     },
     {
+      label: 'Over',
+      link: { cached_url: 'over' },
+    },
+    {
       label: 'Diensten',
-      link: { cached_url: 'services' },
+      link: { cached_url: 'diensten' },
       items: [
-        { label: 'Landing Pages', link: { cached_url: 'services/landing-pages' } },
-        { label: 'Webshops', link: { cached_url: 'services/webshops' } },
-        { label: 'Maatwerk Applicaties', link: { cached_url: 'services/custom-apps' } },
-        { label: 'Alle Diensten', link: { cached_url: 'services' } },
+        { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
+        { label: 'Maatwerk Platformen', link: { cached_url: 'diensten/maatwerk-platformen' } },
+        { label: 'Lead Generation', link: { cached_url: 'diensten/lead-generation' } },
+        { label: 'Security & Auth', link: { cached_url: 'diensten/security' } },
+        { label: 'Alle Diensten', link: { cached_url: 'diensten' } },
       ],
     },
     {
-      label: 'Het Ecosysteem',
-      link: { cached_url: 'platform' },
+      label: 'Portfolio',
+      link: { cached_url: 'portfolio' },
     },
     {
-      label: 'Security',
-      link: { cached_url: 'security' },
+      label: 'Werkwijze',
+      link: { cached_url: 'werkwijze' },
     },
     {
       label: 'Prijzen',
       link: { cached_url: 'pricing' },
-    },
-    {
-      label: 'Documentatie',
-      link: { cached_url: 'docs' },
     },
   ],
   footer_columns: [
     {
       title: 'Diensten',
       links: [
-        { label: 'Alle Diensten', link: { cached_url: 'services' } },
-        { label: 'Landing Pages', link: { cached_url: 'services/landing-pages' } },
-        { label: 'Webshops', link: { cached_url: 'services/webshops' } },
-        { label: 'Maatwerk Applicaties', link: { cached_url: 'services/custom-apps' } },
+        { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
+        { label: 'Maatwerk Platformen', link: { cached_url: 'diensten/maatwerk-platformen' } },
+        { label: 'Lead Generation', link: { cached_url: 'diensten/lead-generation' } },
+        { label: 'Security & Auth', link: { cached_url: 'diensten/security' } },
         { label: 'Prijzen', link: { cached_url: 'pricing' } },
-      ],
-    },
-    {
-      title: 'Resources',
-      links: [
-        { label: 'Developer Portal', link: { cached_url: 'docs' } },
-        { label: 'Security', link: { cached_url: 'security' } },
-        { label: 'Het Platform', link: { cached_url: 'platform' } },
       ],
     },
     {
       title: 'Bedrijf',
       links: [
-        { label: 'Over LaventeCare', link: { cached_url: 'platform' } },
+        { label: 'Over Jeffrey', link: { cached_url: 'over' } },
+        { label: 'Portfolio', link: { cached_url: 'portfolio' } },
+        { label: 'Werkwijze', link: { cached_url: 'werkwijze' } },
         { label: 'Contact', link: { cached_url: 'contact' } },
+      ],
+    },
+    {
+      title: 'Resources',
+      links: [
+        { label: 'LinkedIn', link: { cached_url: 'https://linkedin.com/in/jeffrey-lavente' } },
+        { label: 'GitHub', link: { cached_url: 'https://github.com/Jeffreasy' } },
         { label: 'Admin Login', link: { cached_url: 'login' } },
       ],
     },
   ],
-  social_links: [],
-  copyright_text: '© 2026 LaventeCare',
+  social_links: [
+    { platform: 'LinkedIn', url: 'https://linkedin.com/in/jeffrey-lavente' },
+    { platform: 'GitHub', url: 'https://github.com/Jeffreasy' },
+  ],
+  copyright_text: '© 2026 LaventeCare — Jeffrey Lavente | KVK 88162710 | Dronten',
   gtm_id: null,
   cookie_consent_code: null,
   og_image: [
     {
       filename:
         'https://res.cloudinary.com/dgfuv7wif/image/upload/v1769967340/Gemini_Generated_Image_g7euilg7euilg7eu-removebg-preview_1_dwzy2f_c_crop_w_1920_h_1920_ar_1_1_g_auto_e_improve_e_sharpen_u6yfpq.png',
-      alt: 'LaventeCare',
+      alt: 'LaventeCare — High-Performance Web, IoT & Security Solutions',
     },
   ],
 };

@@ -3,26 +3,25 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/ui/Card.astro';
 import { ContactForm } from '../components/islands/ContactForm';
 
-const pageTitle = 'Contact opnemen — LaventeCare';
+const pageTitle = 'Contact — LaventeCare';
 const pageDescription =
-  'Neem contact op voor een vrijblijvend gesprek over uw website, webshop of applicatie. Wij reageren binnen 24 uur.';
+  'Neem contact op voor een gratis intake gesprek van 30 minuten. Bespreek uw project, scope en technische haalbaarheid.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <!-- Contact Hero Section -->
-  <section class="bg-linear-to-b from-panel to-background py-24">
+  <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center mb-12">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Contact</span>
         <h1
-          class="text-5xl md:text-6xl font-black text-white mb-4 font-display tracking-tight"
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight"
           transition:name="contact-title"
         >
-          Neem <span class="text-active">contact</span> op
+          Laten we <span class="text-active">praten</span>
         </h1>
-        <p class="text-xl text-white/70 font-ui">
-          Vul het formulier in en we nemen <span class="text-white font-medium"
-            >zo snel mogelijk</span
-          > contact met u op.
+        <p class="text-lg md:text-xl text-white/70 font-ui">
+          Begin met een <span class="text-white font-semibold">gratis intake gesprek</span> van 30 minuten. We bespreken de scope, technische haalbaarheid en budgetindicatie.
         </p>
       </div>
 
@@ -33,63 +32,70 @@ const pageDescription =
   </section>
 
   <!-- Contact Info Section -->
-  <section class="py-16" aria-labelledby="contact-info-heading">
+  <section class="section-padding" aria-labelledby="contact-info-heading">
     <div class="container mx-auto px-4">
       <h2
         id="contact-info-heading"
-        class="text-3xl font-bold text-center text-white mb-8 font-display"
+        class="text-2xl md:text-3xl font-bold text-center text-white mb-8 font-display"
       >
         Andere manieren om <span class="text-active">contact</span> op te nemen
       </h2>
 
-      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
         <Card hover padding="md" class="text-center">
-          <div class="flex items-center justify-center mb-3">
-            <svg class="w-8 h-8 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-              ><path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path></svg
-            >
-          </div>
-          <h3 class="font-semibold text-white mb-2">Email</h3>
+          <span class="text-2xl block mb-3">📧</span>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">Email</h3>
           <a
             href="mailto:info@laventecare.nl"
-            class="text-active hover:text-primary-hover transition-colors text-sm font-medium"
-            >info@laventecare.nl</a
-          >
+            class="text-active hover:text-primary-hover transition-colors text-sm font-medium font-ui"
+          >info@laventecare.nl</a>
         </Card>
 
         <Card hover padding="md" class="text-center">
-          <div class="flex items-center justify-center mb-3">
-            <svg class="w-8 h-8 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-white mb-2">Reactietijd</h3>
-          <p class="text-white/70 text-sm">Binnen 24 uur op werkdagen</p>
+          <span class="text-2xl block mb-3">⏱️</span>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">Reactietijd</h3>
+          <p class="text-white/70 text-sm font-ui">Binnen 24 uur op werkdagen</p>
         </Card>
 
         <Card hover padding="md" class="text-center">
-          <div class="flex items-center justify-center mb-3">
-            <svg class="w-8 h-8 text-active" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-              ></path>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-white mb-2">Website</h3>
-          <p class="text-white/70 text-sm">laventecare.nl</p>
+          <span class="text-2xl block mb-3">📍</span>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">Locatie</h3>
+          <p class="text-white/70 text-sm font-ui">Dronten, Nederland</p>
         </Card>
+
+        <Card hover padding="md" class="text-center">
+          <span class="text-2xl block mb-3">💼</span>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">LinkedIn</h3>
+          <a
+            href="https://linkedin.com/in/jeffrey-lavente"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-active hover:text-primary-hover transition-colors text-sm font-medium font-ui"
+          >Connecten</a>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intake info -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto">
+        <h3 class="text-lg font-bold text-white mb-4 font-display text-center">Wat kunt u verwachten?</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          <div>
+            <span class="text-active text-2xl font-black font-display block mb-1">30 min</span>
+            <p class="text-white/60 text-xs font-ui">Vrijblijvend intake gesprek</p>
+          </div>
+          <div>
+            <span class="text-active text-2xl font-black font-display block mb-1">Go/No-Go</span>
+            <p class="text-white/60 text-xs font-ui">Eerlijk advies over haalbaarheid</p>
+          </div>
+          <div>
+            <span class="text-active text-2xl font-black font-display block mb-1">24 uur</span>
+            <p class="text-white/60 text-xs font-ui">Reactie op werkdagen</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
