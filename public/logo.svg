@@ -1,30 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" fill="none">
   <defs>
-    <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:oklch(70% 0.18 158);stop-opacity:1" />
-      <stop offset="100%" style="stop-color:oklch(55% 0.15 171);stop-opacity:1" />
+    <linearGradient id="lc-infinity" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#0891B2" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="lc-glow" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#0891B2" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.4" />
     </linearGradient>
   </defs>
-  
-  <!-- Medical Cross with Glass Effect -->
-  <g transform="translate(100, 100)">
-    <!-- Outer glow -->
-    <rect x="-35" y="-70" width="70" height="140" rx="12" fill="url(#logo-gradient)" opacity="0.2" filter="blur(8px)"/>
-    <rect x="-70" y="-35" width="140" height="70" rx="12" fill="url(#logo-gradient)" opacity="0.2" filter="blur(8px)"/>
-    
-    <!-- Main cross -->
-    <rect x="-30" y="-65" width="60" height="130" rx="10" fill="url(#logo-gradient)" opacity="0.9"/>
-    <rect x="-65" y="-30" width="130" height="60" rx="10" fill="url(#logo-gradient)" opacity="0.9"/>
-    
-    <!-- Glass highlight -->
-    <rect x="-25" y="-60" width="50" height="60" rx="8" fill="white" opacity="0.15"/>
-    <rect x="-60" y="-25" width="60" height="50" rx="8" fill="white" opacity="0.15"/>
-    
-    <!-- Center circle -->
-    <circle cx="0" cy="0" r="18" fill="oklch(15% 0.05 168)" opacity="0.8"/>
-    <circle cx="0" cy="0" r="12" fill="white" opacity="0.25"/>
+
+  <!-- Glow -->
+  <path
+    d="M 55 20 C 18 20, 18 80, 55 80 C 82 80, 90 50, 100 50 C 110 50, 118 20, 145 20 C 182 20, 182 80, 145 80 C 118 80, 110 50, 100 50 C 90 50, 82 20, 55 20 Z"
+    stroke="url(#lc-glow)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"
+    style="filter: blur(4px);"
+  />
+
+  <!-- Infinity Path -->
+  <path
+    d="M 55 20 C 18 20, 18 80, 55 80 C 82 80, 90 50, 100 50 C 110 50, 118 20, 145 20 C 182 20, 182 80, 145 80 C 118 80, 110 50, 100 50 C 90 50, 82 20, 55 20 Z"
+    stroke="url(#lc-infinity)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"
+  />
+
+  <!-- Globe (left loop) -->
+  <g opacity="0.7">
+    <circle cx="55" cy="50" r="12" stroke="#0891B2" stroke-width="1.5" />
+    <ellipse cx="55" cy="50" rx="5" ry="12" stroke="#0891B2" stroke-width="1.2" />
+    <line x1="43" y1="50" x2="67" y2="50" stroke="#0891B2" stroke-width="1.2" />
   </g>
-  
-  <!-- Text -->
-  <text x="100" y="175" font-family="Satoshi, sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="url(#logo-gradient)">LaventeCare</text>
+
+  <!-- Code cross (right loop) -->
+  <g opacity="0.8">
+    <path d="M 138 50 L 152 50 M 145 43 L 145 57" stroke="#059669" stroke-width="3.5" stroke-linecap="round" />
+  </g>
 </svg>

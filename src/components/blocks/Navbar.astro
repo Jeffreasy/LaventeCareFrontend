@@ -15,6 +15,7 @@ interface Props {
 }
 
 const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
+import Logo from '../ui/Logo.astro';
 const currentPath = Astro.url.pathname;
 
 /** Check if a menu item or any of its children match the current path */
@@ -35,25 +36,7 @@ function isActive(item: MenuItem): boolean {
   <div class="container mx-auto px-4">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2 group">
-        {
-          logo?.filename ? (
-            <img
-              src={`${logo.filename}?w=128&h=128&f=webp&q=90`}
-              alt={logo.alt || siteName}
-              width="64"
-              height="64"
-              loading="eager"
-              decoding="async"
-              class="h-16 w-auto group-hover:opacity-80 transition-opacity"
-            />
-          ) : (
-            <span class="text-xl font-black text-active font-display tracking-tight group-hover:opacity-80 transition-opacity">
-              {siteName}
-            </span>
-          )
-        }
-      </a>
+      <Logo size="md" showText={true} />
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex items-center space-x-8">

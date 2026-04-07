@@ -1,0 +1,101 @@
+---
+interface Props {
+  class?: string;
+  showText?: boolean;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className, showText = false, size = 'md' } = Astro.props;
+
+const sizeMap = {
+  sm: 'h-6',
+  md: 'h-8',
+  lg: 'h-10',
+};
+
+const textSizeMap = {
+  sm: 'text-sm',
+  md: 'text-lg',
+  lg: 'text-2xl',
+};
+
+// Unique ID to avoid SVG gradient conflicts
+const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<a href="/" class:list={['logo-mark inline-flex items-center gap-2.5 no-underline', className]} aria-label="LaventeCare — Home">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 200 100"
+    class:list={[sizeMap[size], 'w-auto']}
+    role="img"
+    aria-hidden="true"
+  >
+    <defs>
+      <linearGradient id={`${uid}-g`} x1="0%" y1="50%" x2="100%" y2="50%">
+        <stop offset="0%" stop-color="#0891B2" />
+        <stop offset="100%" stop-color="#059669" />
+      </linearGradient>
+      <linearGradient id={`${uid}-gl`} x1="0%" y1="50%" x2="100%" y2="50%">
+        <stop offset="0%" stop-color="#0891B2" stop-opacity="0.35" />
+        <stop offset="100%" stop-color="#059669" stop-opacity="0.35" />
+      </linearGradient>
+    </defs>
+
+    {/* Glow */}
+    <path
+      d="M 55 20 C 18 20, 18 80, 55 80 C 82 80, 90 50, 100 50 C 110 50, 118 20, 145 20 C 182 20, 182 80, 145 80 C 118 80, 110 50, 100 50 C 90 50, 82 20, 55 20 Z"
+      fill="none"
+      stroke={`url(#${uid}-gl)`}
+      stroke-width="16"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="logo-glow"
+    />
+
+    {/* Main infinity */}
+    <path
+      d="M 55 20 C 18 20, 18 80, 55 80 C 82 80, 90 50, 100 50 C 110 50, 118 20, 145 20 C 182 20, 182 80, 145 80 C 118 80, 110 50, 100 50 C 90 50, 82 20, 55 20 Z"
+      fill="none"
+      stroke={`url(#${uid}-g)`}
+      stroke-width="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    {/* Globe detail in left loop */}
+    <g opacity="0.6">
+      <circle cx="55" cy="50" r="12" fill="none" stroke="#0891B2" stroke-width="1.5" />
+      <ellipse cx="55" cy="50" rx="5" ry="12" fill="none" stroke="#0891B2" stroke-width="1.2" />
+      <line x1="43" y1="50" x2="67" y2="50" stroke="#0891B2" stroke-width="1.2" />
+    </g>
+
+    {/* Code cross in right loop */}
+    <g opacity="0.75">
+      <path d="M 138 50 L 152 50 M 145 43 L 145 57" stroke="#059669" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+  </svg>
+
+  {showText && (
+    <span class:list={[textSizeMap[size], 'font-black font-display tracking-tight text-white whitespace-nowrap leading-none']}>
+      Lavente<span class="text-active">Care</span>
+    </span>
+  )}
+</a>
+
+<style>
+  .logo-glow {
+    filter: blur(3px);
+  }
+
+  .logo-mark {
+    text-decoration: none;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .logo-mark:hover svg {
+      filter: drop-shadow(0 0 10px oklch(0.60 0.14 200 / 0.4));
+      transition: filter 0.3s ease;
+    }
+  }
+</style>
