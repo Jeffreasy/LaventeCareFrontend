@@ -3,6 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
+import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
+
+const lighthouseScores = [
+  { category: 'Performance', score: 98 },
+  { category: 'Accessibility', score: 96 },
+  { category: 'Best Practices', score: 92 },
+  { category: 'SEO', score: 100 },
+];
 
 const results = [
   { value: '2 regio\'s', label: 'Actief in Nederland' },
@@ -102,6 +110,16 @@ const challenges = [
             </p>
           </div>
         </div>
+      </div>
+
+      <!-- Lighthouse Scores -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <LighthouseScoreBlock
+          projectName="TuinHub"
+          scores={lighthouseScores}
+          context="Dankzij Next.js static generation en branche-specifieke SEO-landingspagina's behaal ik uitstekende scores over alle categorieën. Een perfecte 100 op SEO bevestigt de effectiviteit van de lokale zoekstrategie."
+          liveUrl="https://tuinhub.nl/"
+        />
       </div>
     </div>
   </section>

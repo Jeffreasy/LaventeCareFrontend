@@ -3,6 +3,14 @@ import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
+import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
+
+const lighthouseScores = [
+  { category: 'Performance', score: 71 },
+  { category: 'Accessibility', score: 95 },
+  { category: 'Best Practices', score: 96 },
+  { category: 'SEO', score: 100 },
+];
 
 const results = [
   { value: '€10K+', label: 'Opgehaald voor goede doelen' },
@@ -43,7 +51,7 @@ const challenges = [
           Whisky for <span class="text-active">Charity</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Een evenementenplatform voor liefdadigheid waar whisky-liefhebbers en goede doelen samenkomen. Veilige donatiestromen, orderverwerking en volledig geautomatiseerde communicatie.
+          Een liefdadigheidsplatform op het snijvlak van kunst, whisky en goede doelen. Veilige donatiestromen, veilingverwerking en volledig geautomatiseerde communicatie. Eén van mijn eerste projecten — het fundament waarop de LaventeCare stack is gebouwd.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
           <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Charity</span>
@@ -102,6 +110,16 @@ const challenges = [
             </p>
           </div>
         </div>
+      </div>
+
+      <!-- Lighthouse Scores -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <LighthouseScoreBlock
+          projectName="Whisky for Charity"
+          scores={lighthouseScores}
+          context="Als één van mijn eerste projecten scoort Whisky for Charity een perfecte 100 op SEO en sterke cijfers op Accessibility en Best Practices. De Performance-score (71) weerspiegelt de legacy-architectuur — een bewuste keuze om niet te refactoren zolang het platform stabiel draait."
+          liveUrl="https://www.whiskyforcharity.com/"
+        />
       </div>
     </div>
   </section>

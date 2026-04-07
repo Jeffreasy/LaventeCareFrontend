@@ -3,37 +3,45 @@ import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
+import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
+
+const lighthouseScores = [
+  { category: 'Performance', score: 99 },
+  { category: 'Accessibility', score: 95 },
+  { category: 'Best Practices', score: 96 },
+  { category: 'SEO', score: 92 },
+];
 
 const results = [
-  { value: 'Multi-tenant', label: 'Architectuur' },
-  { value: 'Real-time', label: 'Convex synchronisatie' },
-  { value: 'IoT', label: 'Smart Home integratie' },
-  { value: 'OAuth2', label: 'Google Calendar sync' },
+  { value: 'Dynamisch', label: 'Aanpasbare QR codes' },
+  { value: 'Real-time', label: 'Scan analytics' },
+  { value: 'HQ Export', label: 'SVG & PNG downloads' },
+  { value: 'Branded', label: 'Custom styling' },
 ];
 
 const challenges = [
   {
-    title: 'Multi-tenant data isolatie',
-    desc: 'Een persoonlijk dashboard dat als SaaS-platform kan schalen naar meerdere gebruikers, met strikte data-scheiding per tenant.',
+    title: 'Dynamische QR codes',
+    desc: 'QR codes die na het printen nog gewijzigd kunnen worden. De bestemmings-URL moet aanpasbaar zijn zonder de fysieke code te vervangen.',
   },
   {
-    title: 'Real-time data uit meerdere bronnen',
-    desc: 'Google Calendar, Gmail, financiële data en IoT-sensoren moeten allemaal real-time gesynchroniseerd worden in één dashboard.',
+    title: 'Real-time scan tracking',
+    desc: 'Elke scan moet geregistreerd worden met tijdstip, locatie en apparaattype. Gebruikers willen live inzicht in hun QR-campagnes.',
   },
   {
-    title: 'Complexe state management',
-    desc: 'Duizenden datapunten uit verschillende bronnen vereisen geavanceerd state management zonder performance-verlies.',
+    title: 'Professionele export-kwaliteit',
+    desc: 'QR codes moeten in hoge resolutie geëxporteerd worden voor drukwerk — pixel-perfect in SVG en PNG formaat.',
   },
   {
-    title: 'Security voor persoonlijke data',
-    desc: 'Financiële gegevens, e-mails en agenda\'s bevatten zeer gevoelige informatie. Zero-Trust security is geen optie maar een vereiste.',
+    title: 'Brand-consistentie',
+    desc: 'Bedrijven willen QR codes die aansluiten bij hun huisstijl — custom kleuren, logo-integratie en vormgeving.',
   },
 ];
 ---
 
 <Layout
-  title="Case Study: JeffDash — LaventeCare"
-  description="Hoe LaventeCare een persoonlijk SaaS-dashboard ecosysteem bouwde met multi-tenant architectuur, real-time synchronisatie en IoT-integraties."
+  title="Case Study: JeffDash — Dynamische QR Codes — LaventeCare"
+  description="Professionele dynamische QR codes die je op elk moment kunt aanpassen. Scan-tracking in realtime, analytics en hoge kwaliteit downloads. Gebouwd door LaventeCare."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -43,10 +51,10 @@ const challenges = [
           Jeff<span class="text-active">Dash</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Een persoonlijk SaaS-dashboard ecosysteem met multi-tenant architectuur, real-time data synchronisatie, IoT-integraties en geavanceerd state management. Het eigen product dat de volledige LaventeCare stack demonstreert.
+          Professionele dynamische QR codes die mee veranderen met jouw merk. Maak QR codes die je op elk moment kunt aanpassen, volg scans in realtime, analyseer je publiek en download in hoge kwaliteit.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
-          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">SaaS Platform</span>
+          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">QR Platform</span>
           <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 text-white/50 border border-white/10">Eigen Product</span>
           <a href="https://www.jeffdash.com/" target="_blank" rel="noopener noreferrer" class="text-active text-sm font-semibold hover:underline flex items-center gap-1">
             Bekijk live
@@ -54,7 +62,7 @@ const challenges = [
           </a>
         </div>
         <div class="flex flex-wrap gap-2">
-          {['Next.js', 'Convex', 'React 19', 'Go Auth', 'Google OAuth2'].map((t) => (
+          {['Next.js', 'Convex', 'React 19', 'Go Auth'].map((t) => (
             <TechStackBadge tech={t} />
           ))}
         </div>
@@ -70,7 +78,7 @@ const challenges = [
       </div>
 
       <div class="max-w-4xl mx-auto mb-16">
-        <SectionHeader label="De uitdaging" heading='Alles in <span class="text-active">één scherm</span>' />
+        <SectionHeader label="De uitdaging" heading='Meer dan een <span class="text-active">statische code</span>' />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {challenges.map((c) => (
             <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
@@ -82,34 +90,44 @@ const challenges = [
       </div>
 
       <div class="max-w-4xl mx-auto mb-16">
-        <SectionHeader label="De oplossing" heading='Full-stack <span class="text-active">SaaS</span> architectuur' />
+        <SectionHeader label="De oplossing" heading='Dynamisch QR <span class="text-active">ecosysteem</span>' />
         <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 space-y-6">
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Convex Real-time Engine</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Dynamische QR Engine</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Alle dashboard-data wordt gesynchroniseerd via Convex reactieve queries. Wijzigingen in één tab verschijnen direct in alle andere sessies. Server-side functies garanderen data-integriteit.
+              QR codes worden gegenereerd met aanpasbare bestemmings-URL's. Na het printen kan de eigenaar de bestemming wijzigen zonder de fysieke code te vervangen. Ideaal voor marketingcampagnes, visitekaartjes en productverpakkingen.
             </p>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Google API Integratie</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Real-time Scan Analytics</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              OAuth2-gekoppelde synchronisatie met Google Calendar en Gmail. Automatische cron-jobs halen agenda-events en e-mails op, verwerken ze en presenteren ze in het dashboard met privacy-first masking.
+              Elke scan wordt geregistreerd via Convex met tijdstip, apparaattype en herkomst. Gebruikers zien live dashboards met scan-trends, geografische spreiding en campagne-performance.
             </p>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">LaventeCare Auth (Go)</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Branded QR Design</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Dual-Token authenticatie met JWKS-validatie. Multi-tenant isolatie via Row Level Security. Elke API-call wordt geautoriseerd en geaudit. CSRF-bescherming op alle mutaties.
+              Custom kleurselectie, logo-integratie en vormgeving zodat elke QR code past bij de huisstijl van het merk. Export in SVG en hoge-resolutie PNG voor pixel-perfect drukwerk.
             </p>
           </div>
         </div>
+      </div>
+
+      <!-- Lighthouse Scores -->
+      <div class="max-w-4xl mx-auto mb-16">
+        <LighthouseScoreBlock
+          projectName="JeffDash"
+          scores={lighthouseScores}
+          context="Met een geoptimaliseerde Next.js build en minimale client-side JavaScript behaal ik een 99 op Performance. De combinatie van server-side rendering en edge-caching resulteert in razendsnelle laadtijden."
+          liveUrl="https://www.jeffdash.com/"
+        />
       </div>
     </div>
   </section>
 
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
-      <p class="text-white/50 text-sm font-ui mb-4">Eigen SaaS-platform bouwen?</p>
+      <p class="text-white/50 text-sm font-ui mb-4">Eigen QR-platform of SaaS-product bouwen?</p>
       <a href="/contact?type=platform" class="btn-primary">
         Bespreek uw idee
         <Icon name="arrow-right" size={16} />
