@@ -19,7 +19,23 @@ const useCases = [
   { title: 'Data-analyse & inzichten', desc: 'Natuurlijke-taal queries op uw database: "Wat was onze omzet vorige maand per regio?"' },
   { title: 'Code-assistentie & review', desc: 'Custom AI-tools die codekwaliteit bewaken, bugs detecteren en refactoring suggesties doen.' },
 ];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'AI Prompt Engineering',
+  description: 'Professionele AI prompt engineering diensten: custom AI-agents, LLM-integratie, RAG-systemen en workflow-automatisering.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://lavente.care',
+  },
+  areaServed: 'NL',
+  serviceType: 'AI Prompt Engineering & LLM Integration',
+  serviceOutput: 'Custom AI-agents, LLM-integraties, RAG-systemen en geautomatiseerde workflows',
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="AI Prompt Engineering — LaventeCare"

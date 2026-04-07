@@ -36,7 +36,23 @@ const laws = [
     desc: 'Voorkeur voor standard library en bewezen packages. Geen bloatware. Geautomatiseerde vulnerability scanning en regelmatige audits.',
   },
 ];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Security & Auth — LaventeCare Core',
+  description: 'De 5 Anti-Gravity Beveiligingswetten. Dual-Token architectuur, Zero-Trust APIs, Row Level Security. Bank-Grade beveiliging.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://lavente.care',
+  },
+  areaServed: 'NL',
+  serviceType: 'Application Security & Authentication Engineering',
+  serviceOutput: 'Zero-Trust security backends met Dual-Token auth, RLS, rate limiting en immutable audit logs',
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="Security & Auth — LaventeCare Core"

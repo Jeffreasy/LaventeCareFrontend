@@ -12,7 +12,23 @@ const features = [
   { title: 'Kritieke alarmering', desc: 'Automatische notificaties bij drempelwaarden.' },
   { title: 'Cloud-synchronisatie', desc: 'Sensordata real-time verwerkt en opgeslagen.' },
 ];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'IoT & Hardware Monitoring',
+  description: 'End-to-end IoT-oplossingen: ESP32/C++ firmware, deep-sleep, BLE, sensortelemetrie en live cloud dashboards.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://lavente.care',
+  },
+  areaServed: 'NL',
+  serviceType: 'IoT Development & Hardware Monitoring',
+  serviceOutput: 'ESP32 firmware, sensornetwerken, cloud dashboards en real-time monitoring systemen',
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="IoT & Hardware Monitoring — LaventeCare"

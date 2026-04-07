@@ -47,7 +47,8 @@ export default defineConfig({
                 !page.includes('/admin') &&
                 !page.includes('/docs') &&
                 !page.includes('/api/') &&
-                !page.includes('/login'),
+                !page.includes('/login') &&
+                !page.includes('/pricing'),
         }),
     ],
 });

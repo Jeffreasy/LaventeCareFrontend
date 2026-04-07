@@ -12,7 +12,7 @@ const heroData = {
   headline: 'Van Chip tot Cloud',
   subtitle: 'AI Prompt Engineering, Web & IoT Solutions',
   description:
-    'Ik combineer <span class="text-active font-bold">AI prompt engineering</span> met full-stack development en sla een naadloze brug tussen <span class="text-active font-bold">hardware</span>, <span class="text-active font-bold">software</span> en de eindgebruiker. Geen standaard templates — maar bliksemsnelle, AI-gedreven en op maat gemaakte <span class="text-active font-bold">digitale ecosystemen</span>.',
+    'Van de zorg naar technologie: ik combineer <span class="text-active font-bold">AI prompt engineering</span> met full-stack development en bouw digitale ecosystemen die <span class="text-active font-bold">structuur</span>, <span class="text-active font-bold">veiligheid</span> en snelheid als fundament hebben. Geen standaard templates — maar op maat gemaakte <span class="text-active font-bold">"Forten"</span> voor uw bedrijf.',
   ctaPrimary: {
     label: 'Gratis Intake Gesprek',
     url: '/contact',
@@ -22,9 +22,9 @@ const heroData = {
     url: '/portfolio',
   },
   stats: [
-    { value: '100/100', label: 'Lighthouse Score' },
+    { value: 'Direct laden', label: 'Razendsnel — Top 1% snelheid' },
     { value: '6+', label: 'Live Projecten' },
-    { value: 'Zero-Trust', label: 'Security Standaard' },
+    { value: 'Onkraakbaar', label: 'Bankbeveiliging Ingebakken' },
   ],
   alignment: 'center' as const,
   size: 'large' as const,
@@ -37,7 +37,7 @@ const jsonLd = {
   url: 'https://lavente.care',
   logo: 'https://lavente.care/logo.png',
   description:
-    'LaventeCare combineert AI prompt engineering met full-stack development en IoT-expertise. Custom AI-workflows, high-performance webapplicaties en embedded systems.',
+    'LaventeCare — opgericht door Jeffrey Lavente, van intensieve NAH-zorg naar IT-architectuur. Combineert AI prompt engineering met Zero-Trust security en IoT-expertise voor enterprise-grade MKB-oplossingen.',
   founder: {
     '@type': 'Person',
     name: 'Jeffrey Lavente',
@@ -134,9 +134,9 @@ const pillars = [
           <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
             <Icon name="link" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Van Chip tot Cloud</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Eén aanspreekpunt</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Eén partner voor uw gehele infrastructuur — van firmware op de microcontroller tot het dashboard in de browser.
+            Van het idee tot het werkende product — alles via één partner. Geen schakels, geen miscommunicatie, geen vertraging.
           </p>
         </div>
 
@@ -145,9 +145,9 @@ const pillars = [
           <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
             <Icon name="zap" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Anti-Gravity Security</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Bankbeveiliging ingebakken</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Veiligheid zit ingebakken in de architectuur. Niet achteraf als plugin, maar als fundament van elke regel code.
+            Uw klantdata is structureel beschermd. Niet achteraf als optie, maar als fundament van elke applicatie die ik bouw.
           </p>
         </div>
 
@@ -156,9 +156,9 @@ const pillars = [
           <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
             <Icon name="gauge" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">100/100 Performance</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Websites die verkopen</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Perfecte Lighthouse scores en Islands Architecture. Uw website laadt voor de klant überhaupt kan knipperen.
+            Uw site laadt in een fractie van een seconde. Elke seconde sneller = 7% meer conversie. Mijn projecten scoren in de top 1% van het web.
           </p>
         </div>
       </div>
@@ -170,10 +170,50 @@ const pillars = [
     <div class="container mx-auto px-4">
       <div class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value="100/100" label="Lighthouse Score" />
-          <StatCard value="€9,2 mrd" label="IoT Markt NL" />
+          <StatCard value="<1.5s" label="Gemiddelde Laadtijd" />
+          <StatCard value="99/100" label="Google PageSpeed" />
           <StatCard value="6+" label="Live Projecten" />
           <StatCard value="€95" label="Uurtarief" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof: Verifieerbare Lighthouse Scores -->
+  <section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto">
+        <div class="text-center mb-6">
+          <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-2 block">Verifieerbaar bewijs</span>
+          <h2 class="text-xl md:text-2xl font-bold text-white font-display">Google Lighthouse Scores</h2>
+          <p class="text-white/50 text-sm font-ui mt-2">Onafhankelijk gemeten door Google — niet door mij. Verifieer het zelf.</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <!-- Project highlight -->
+          <div class="flex-1 text-center md:text-left">
+            <p class="text-white/40 text-xs font-ui uppercase tracking-wider mb-1">Uitgelicht project</p>
+            <h3 class="text-lg font-bold text-white font-display mb-1">C&F Bouw</h3>
+            <p class="text-white/60 text-sm font-ui mb-3">Lead-generation portaal • +340% organisch verkeer</p>
+            <a href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fwww.cfbouw.nl%2F" target="_blank" rel="noopener noreferrer" class="text-active text-sm font-bold hover:underline flex items-center gap-1 justify-center md:justify-start">
+              Verifieer op PageSpeed Insights
+              <Icon name="external-link" size={12} />
+            </a>
+          </div>
+
+          <!-- Gauges -->
+          <div class="flex items-center justify-center gap-4 md:gap-6">
+            <LighthouseGauge score={99} label="Perf" size="md" />
+            <LighthouseGauge score={97} label="A11y" size="md" />
+            <LighthouseGauge score={100} label="BP" size="md" />
+            <LighthouseGauge score={100} label="SEO" size="md" />
+          </div>
+        </div>
+
+        <div class="text-center mt-6">
+          <a href="/portfolio" class="text-white/40 text-sm font-ui hover:text-active transition-colors">
+            Bekijk alle projectscores →
+          </a>
         </div>
       </div>
     </div>

@@ -42,7 +42,7 @@ export const settings = {
     },
     {
       label: 'Prijzen',
-      link: { cached_url: 'pricing' },
+      link: { cached_url: 'prijzen' },
     },
   ],
   footer_columns: [
@@ -54,7 +54,7 @@ export const settings = {
         { label: 'Maatwerk Platformen', link: { cached_url: 'diensten/maatwerk-platformen' } },
         { label: 'Lead Generation', link: { cached_url: 'diensten/lead-generation' } },
         { label: 'Security & Auth', link: { cached_url: 'diensten/security' } },
-        { label: 'Prijzen', link: { cached_url: 'pricing' } },
+        { label: 'Prijzen', link: { cached_url: 'prijzen' } },
       ],
     },
     {

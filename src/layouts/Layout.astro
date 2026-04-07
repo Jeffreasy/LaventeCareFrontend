@@ -26,6 +26,52 @@ const { title, description, seoOverride } = Astro.props;
 
 // Static site settings
 import { settings } from '../lib/config';
+
+// Generate BreadcrumbList from URL path
+const siteUrl = Astro.site?.href || 'https://lavente.care';
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+
+const breadcrumbLabels: Record<string, string> = {
+  'over': 'Over',
+  'diensten': 'Diensten',
+  'portfolio': 'Portfolio',
+  'werkwijze': 'Werkwijze',
+  'pricing': 'Prijzen',
+  'prijzen': 'Prijzen',
+  'contact': 'Contact',
+  'ai-prompt-engineering': 'AI & Prompt Engineering',
+  'iot-hardware': 'IoT & Hardware',
+  'maatwerk-platformen': 'Maatwerk Platformen',
+  'lead-generation': 'Lead Generation',
+  'security': 'Security & Auth',
+  'cf-bouw': 'C&F Bouw',
+  'de-koninklijke-loop': 'De Koninklijke Loop',
+  'dustin-auto-garage': 'Dustin Auto Garage',
+  'jeffdash': 'JeffDash',
+  'smartcoolcare': 'SmartCoolCare',
+  'tuinhub': 'TuinHub',
+  'whisky-for-charity': 'Whisky for Charity',
+};
+
+const breadcrumbItems = [
+  { name: 'Home', url: siteUrl },
+  ...pathSegments.map((segment, index) => {
+    const url = new URL('/' + pathSegments.slice(0, index + 1).join('/'), siteUrl).href;
+    const name = breadcrumbLabels[segment] || segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
+    return { name, url };
+  }),
+];
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbItems.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: item.url,
+  })),
+};
 ---
 
 <!doctype html>
@@ -94,6 +140,11 @@ import { settings } from '../lib/config';
         "availableLanguage": "Dutch"
       }
     })} />
+
+    <!-- BreadcrumbList Schema (SEO Rich Results) -->
+    {pathSegments.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    )}
 
     <!-- Astro Client Router (View Transitions) -->
     <ClientRouter />

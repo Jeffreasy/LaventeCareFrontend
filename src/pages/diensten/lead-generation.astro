@@ -11,7 +11,23 @@ const features = [
   { title: 'Conversie-optimalisatie', desc: 'Data-gedreven aanpassingen voor hogere conversie.' },
   { title: 'Automatische E-mails', desc: 'Lead-notificaties en follow-up workflows.' },
 ];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Lead Generation & Matchmaking',
+  description: 'Conversiegerichte portalen voor het MKB. Multi-step offertetrajecten, lead-management en SEO-optimalisatie.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://lavente.care',
+  },
+  areaServed: 'NL',
+  serviceType: 'Lead Generation Platform Development',
+  serviceOutput: 'Conversiegerichte portalen met offertetrajecten, lead-management dashboards en SEO-optimalisatie',
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="Lead Generation & Matchmaking — LaventeCare"

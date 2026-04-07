@@ -4,6 +4,7 @@ import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
+import ClientTestimonial from '../../components/blocks/ClientTestimonial.astro';
 
 const results = [
   { value: '500+', label: 'Deelnemers geregistreerd' },
@@ -109,7 +110,7 @@ const challenges = [
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">Islands Architecture (Astro)</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Statische HTML voor 95% van de pagina. Alleen de registratieformulieren en het admin-dashboard worden als React Islands hydriert. Resultaat: perfecte 100/100 Lighthouse score met minimale JavaScript payload.
+              Statische HTML voor 95% van de pagina. Alleen de registratieformulieren en het admin-dashboard worden als React Islands hydriert. Resultaat: consistent 90+ Lighthouse scores over alle categorieën met minimale JavaScript payload.
             </p>
           </div>
           <div>
@@ -136,6 +137,27 @@ const challenges = [
       </div>
     </div>
   </section>
+
+  <!-- Klantervaring (wacht op echte quotes van klant)
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeader
+          label="Klantervaring"
+          heading='Wat de organisatie <span class="text-active">zegt</span>'
+        />
+        <ClientTestimonial
+          quote="Op de dag zelf liep alles feilloos. Registraties, betalingen, real-time deelnemersaantallen — we hoefden ons nergens zorgen om te maken. Jeffrey denkt mee als partner, niet als leverancier."
+          name="Organisatie"
+          role="Evenementencommissie"
+          company="De Koninklijke Loop"
+          companyUrl="https://www.dekoninklijkeloop.nl/"
+          projectContext="Over het evenement"
+        />
+      </div>
+    </div>
+  </section>
+  -->
 
   <!-- CTA -->
   <section class="section-padding">

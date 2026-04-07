@@ -11,7 +11,23 @@ const features = [
   { title: 'Admin Dashboard', desc: 'Centraal beheer voor gebruikers, data en content.' },
   { title: 'Orderverwerking', desc: 'Van bestelling tot levering, volledig geautomatiseerd.' },
 ];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Maatwerk Platformen & Events',
+  description: 'Complexe, data-intensieve platformen voor evenementen en non-profits. Registratie, ticketing, donaties en real-time data.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://lavente.care',
+  },
+  areaServed: 'NL',
+  serviceType: 'Custom Web Platform Development',
+  serviceOutput: 'Maatwerk webplatformen met registratie, ticketing, donaties en real-time dashboards',
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="Maatwerk Platformen & Events — LaventeCare"

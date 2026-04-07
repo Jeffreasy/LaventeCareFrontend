@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import Icon from '../components/ui/Icon.astro';
+---
+
+<Layout
+  title="Prijzen — LaventeCare"
+  description="Transparante prijzen voor web, IoT en security projecten. Uurtarief €95, Discovery vanaf €750, SLA vanaf €75/maand. Bekijk alle opties."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Investering"
+        heading='Transparante <span class="text-active">Prijzen</span>'
+        description="Complexe technologie hoeft niet ondoorzichtig te zijn. Elke investering is helder, elke fase beschermd."
+      />
+
+      <!-- Project Pricing -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <!-- Discovery -->
+          <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 flex flex-col">
+            <span class="text-active text-xs font-bold uppercase tracking-wider mb-3 font-display">Fase 2</span>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">Discovery & Blueprint</h3>
+            <p class="text-white/50 text-sm mb-5 font-ui">Diepte-analyse en architectuurontwerp</p>
+            <div class="text-3xl font-black text-white mb-1 font-display">
+              €750 <span class="text-lg text-white/40 font-normal">– €2.500</span>
+            </div>
+            <p class="text-white/40 text-xs mb-6 font-ui">Eenmalig, vaste fee</p>
+            <div class="h-px bg-white/8 my-4"></div>
+            <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Technische requirements analyse</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Architectuurontwerp op maat</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Gedetailleerd Blueprint-document</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Bruikbaar ongeacht doorgang</li>
+            </ul>
+            <a href="/contact?type=discovery" class="block text-center py-3 rounded-lg border border-white/15 text-white hover:bg-white/5 transition-colors font-bold font-ui min-h-12 flex items-center justify-center">
+              Start discovery
+            </a>
+          </div>
+
+          <!-- Ontwikkeling (Featured) -->
+          <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border-2 border-active relative flex flex-col shadow-xl shadow-active/10 md:scale-105 z-10">
+            <div class="absolute top-0 right-0 bg-active text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg tracking-wider font-display">
+              PROJECTWERK
+            </div>
+            <span class="text-active text-xs font-bold uppercase tracking-wider mb-3 font-display">Fase 3</span>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">Ontwikkeling</h3>
+            <p class="text-white/50 text-sm mb-5 font-ui">Agile development in sprints</p>
+            <div class="text-3xl font-black text-white mb-1 font-display">
+              €95<span class="text-lg text-white/40 font-normal">/uur</span>
+            </div>
+            <p class="text-white/40 text-xs mb-6 font-ui">Milestone facturatie (40/40/20)</p>
+            <div class="h-px bg-white/8 my-4"></div>
+            <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Sprints van 2 weken</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Tussentijdse demo's & acceptatie</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Full-stack: frontend + backend + IoT</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> 99+ Lighthouse Performance standaard</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Anti-Gravity Security inbegrepen</li>
+            </ul>
+            <a href="/contact?type=project" class="block text-center py-3 rounded-lg bg-active text-white font-bold hover:bg-active/90 transition-colors font-ui shadow-lg shadow-active/25 min-h-12 flex items-center justify-center">
+              Start een project
+            </a>
+          </div>
+
+          <!-- IoT Licentie -->
+          <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 flex flex-col">
+            <span class="text-active text-xs font-bold uppercase tracking-wider mb-3 font-display">Per Device</span>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">IoT Koppeling</h3>
+            <p class="text-white/50 text-sm mb-5 font-ui">Schaalbaar per apparaat</p>
+            <div class="text-3xl font-black text-white mb-1 font-display">
+              €2<span class="text-lg text-white/40 font-normal">/mnd per device</span>
+            </div>
+            <p class="text-white/40 text-xs mb-6 font-ui">Usage-based, schaalt mee</p>
+            <div class="h-px bg-white/8 my-4"></div>
+            <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Veilige sensordata-ingest</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Real-time data-opslag</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Beheerde cloud-infrastructuur</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> HMAC authenticatie</li>
+            </ul>
+            <a href="/contact?type=iot" class="block text-center py-3 rounded-lg border border-white/15 text-white hover:bg-white/5 transition-colors font-bold font-ui min-h-12 flex items-center justify-center">
+              Koppel hardware
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLA Tiers -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <SectionHeader
+          label="Na oplevering"
+          heading='Gelaagd <span class="text-active">SLA-Model</span>'
+          description="Elk project verdient continue zorg. Kies het niveau dat bij uw bedrijf past."
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Basic -->
+          <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
+            <h3 class="text-lg font-bold text-white mb-1 font-display">Basic</h3>
+            <div class="text-2xl font-black text-white font-display mb-1">
+              €75<span class="text-sm text-white/40 font-normal">/maand</span>
+            </div>
+            <p class="text-white/40 text-xs mb-4 font-ui">Hosting & uptime-monitoring</p>
+            <ul class="space-y-2 text-xs font-ui text-white/60">
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Beheerde hosting</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Beveiligingsupdates</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> SSL & domeinbeheer</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> E-mail bezorging</li>
+            </ul>
+          </div>
+
+          <!-- Pro -->
+          <div class="clinical-glass p-6 rounded-(--radius-feature) border border-active/30 bg-active/5">
+            <span class="text-active text-[10px] font-bold uppercase tracking-wider font-display">Aanbevolen</span>
+            <h3 class="text-lg font-bold text-white mb-1 font-display">Professional</h3>
+            <div class="text-2xl font-black text-white font-display mb-1">
+              €250<span class="text-sm text-white/40 font-normal">/maand</span>
+            </div>
+            <p class="text-white/40 text-xs mb-4 font-ui">Proactieve patching + 4u support</p>
+            <ul class="space-y-2 text-xs font-ui text-white/60">
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Alles uit Basic</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Proactieve dependency updates</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> 4 uur support per maand</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Performance monitoring</li>
+            </ul>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
+            <h3 class="text-lg font-bold text-white mb-1 font-display">Enterprise</h3>
+            <div class="text-2xl font-black text-white font-display mb-1">
+              €500<span class="text-sm text-white/40 font-normal">/maand</span>
+            </div>
+            <p class="text-white/40 text-xs mb-4 font-ui">24/7 monitoring, priority response</p>
+            <ul class="space-y-2 text-xs font-ui text-white/60">
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Alles uit Professional</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> 24/7 geautomatiseerde monitoring</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Max 4u reactietijd (kantoortijden)</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Dedicated back-up developer</li>
+              <li class="flex gap-2"><span class="text-active"><Icon name="check" size={14} /></span> Software escrow beschikbaar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Werkwijze link -->
+      <div class="text-center">
+        <a href="/werkwijze" class="btn-secondary">
+          Bekijk de volledige werkwijze
+          <Icon name="arrow-right" size={16} />
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

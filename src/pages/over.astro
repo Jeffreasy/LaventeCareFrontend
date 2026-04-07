@@ -44,11 +44,42 @@ const kernwaarden = [
   { icon: 'trending-up', title: 'Schaalbare architectuur', desc: 'Oplossingen die meegroeien met de klant.' },
   { icon: 'handshake', title: 'Transparantie', desc: 'Langdurige partnerschappen boven snelle projecten.' },
 ];
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jeffrey Lavente',
+  jobTitle: 'AI Prompt Engineer & Full-Stack Developer',
+  description: 'Van intensieve 1-op-1 begeleiding in de NAH-zorg naar IT-architectuur. Combineert psychologisch inzicht met AI-gedreven development en Zero-Trust security.',
+  url: 'https://lavente.care/over',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'LaventeCare',
+    url: 'https://lavente.care',
+  },
+  knowsAbout: [
+    'AI Prompt Engineering', 'LLM Integration', 'Go', 'PostgreSQL',
+    'React', 'Next.js', 'Astro', 'C++', 'ESP32', 'IoT',
+    'Zero-Trust Security', 'Cloud Architecture',
+    'NAH Begeleiding', 'Psychologische Analyse',
+  ],
+  sameAs: [
+    'https://linkedin.com/in/jeffrey-lavente',
+    'https://github.com/Jeffreasy',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dronten',
+    addressRegion: 'Flevoland',
+    addressCountry: 'NL',
+  },
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
 <Layout
   title="Over Jeffrey Lavente — LaventeCare"
-  description="Leer Jeffrey Lavente kennen: AI prompt engineer en full-stack developer. Van de zorg naar technologie. De mens achter LaventeCare."
+  description="Van intensieve NAH-zorg naar IT-architectuur. Jeffrey Lavente combineert psychologisch inzicht met AI-gedreven development. De mens achter LaventeCare."
 >
   <!-- Hero -->
   <section class="section-padding pt-32 md:pt-40">
@@ -66,7 +97,7 @@ const kernwaarden = [
               Jeffrey Lavente
             </h1>
             <p class="text-lg md:text-xl text-white/70 leading-relaxed font-ui">
-              AI prompt engineer en full-stack developer met diepgaande ervaring in zowel AI-automatisering als hardware (C++/ESP32) en cloud-architecturen (Go, Next.js, Astro, Convex).
+              Van intensieve 1-op-1 begeleiding in de NAH-zorg naar IT-architectuur. Ik combineer <span class="text-white font-semibold">psychologisch inzicht</span> met AI-gedreven development en bouw digitale systemen die — net als in de zorg — <span class="text-active font-semibold">structuur, veiligheid en menselijkheid</span> als fundament hebben.
             </p>
           </div>
         </div>
@@ -74,38 +105,94 @@ const kernwaarden = [
     </div>
   </section>
 
-  <!-- Missie & Visie -->
+  <!-- Van Zorg naar Tech -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-active/20 bg-active/5">
-          <h2 class="text-xl font-bold text-white mb-4 font-display flex items-center gap-3">
-            <Icon name="target" size={20} class="text-active" /> Missie
-          </h2>
-          <p class="text-white/70 text-sm leading-relaxed font-ui">
-            LaventeCare digitaliseert complexe bedrijfsprocessen en slaat een naadloze brug tussen hardware, software en de eindgebruiker. Ik lever geen standaard templates, maar bouw bliksemsnelle, veilige en op maat gemaakte digitale ecosystemen. Van de fysieke sensor tot de cloud: <span class="text-white font-semibold">één gestroomlijnde, robuuste oplossing</span>.
+      <div class="max-w-4xl mx-auto">
+        <SectionHeader
+          label="Het verhaal"
+          heading='Van menselijke zorg naar <span class="text-active">digitale systemen</span>'
+        />
+        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5">
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            Jarenlang werkte ik als intensief 1-op-1 begeleider van individuen met complexe (niet-aangeboren) hersenletsels. In die wereld leerde ik een fundamentele les: <span class="text-white font-semibold">waar chaos heerst, is rust, structuur en grenzeloze toewijding essentieel</span>.
           </p>
-        </div>
-        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
-          <h2 class="text-xl font-bold text-white mb-4 font-display flex items-center gap-3">
-            <Icon name="telescope" size={20} class="text-active" /> Visie
-          </h2>
-          <p class="text-white/70 text-sm leading-relaxed font-ui">
-            Vooruitstrevende technologie — zoals real-time databases, IoT-telemetrie en Zero-Trust security — moet <span class="text-white font-semibold">toegankelijk en werkbaar</span> zijn voor het MKB, de evenementensector en de industrie. Veiligheid en performance zijn daarbij geen optionele modules, maar de absolute standaard.
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            Vandaag pas ik diezelfde psychologische blik toe op software-architectuur. Het internet is onvoorspelbaar; daarom bouw ik <span class="text-active font-semibold">"Forten"</span> in plaats van gewone websites. Mijn missie is niet het typen van regels code, maar het ontwerpen van digitale ecosystemen die robuust, veilig en beheersbaar zijn.
           </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
+              <Icon name="brain-circuit" size={20} class="text-active mx-auto mb-2" />
+              <p class="text-white text-xs font-bold font-display">Analytisch in chaos</p>
+              <p class="text-white/50 text-[11px] font-ui">Helder denken als alles complex is</p>
+            </div>
+            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
+              <Icon name="lock" size={20} class="text-active mx-auto mb-2" />
+              <p class="text-white text-xs font-bold font-display">Grenzen stellen</p>
+              <p class="text-white/50 text-[11px] font-ui">Beveiligen is zorgverlening</p>
+            </div>
+            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
+              <Icon name="handshake" size={20} class="text-active mx-auto mb-2" />
+              <p class="text-white text-xs font-bold font-display">1-op-1 verantwoordelijk</p>
+              <p class="text-white/50 text-[11px] font-ui">Geen schakel, maar eigenaar</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Motivatie -->
+  <!-- Bouwen in het AI-tijdperk -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeader
+          label="De werkwijze"
+          heading='Bouwen in het <span class="text-active">AI-tijdperk</span>'
+        />
+        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8">
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            Ik geloof in radicale eerlijkheid: ik ben geen codeklopper die al twintig jaar op een kantoor zit. We leven in een nieuw tijdperk. Ik fungeer als de <span class="text-white font-semibold">IT-Architect</span> en gebruik geavanceerde AI-modellen als mijn uitvoerende bouwteam.
+          </p>
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            AI bouwt razendsnel, maar heeft de neiging om "happy paths" te kiezen. Hier ligt mijn absolute kracht: ik bepaal de blauwdruk, hanteer <span class="text-active font-semibold">Spartaanse veiligheidsregels</span> (zoals Zero-Trust en Row Level Security) en stuur de AI bij waar nodig. Door fouten didactisch te analyseren en de architectuur constant te versterken, lever ik in mijn eentje sneller enterprise-concepten dan een traditioneel bureau.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mt-6 p-4 rounded-lg bg-active/5 border border-active/15">
+            <div class="flex-1 flex items-start gap-3">
+              <Icon name="cog" size={18} class="text-active flex-shrink-0 mt-0.5" />
+              <div>
+                <p class="text-white text-xs font-bold font-display">AI = Uitvoerder</p>
+                <p class="text-white/60 text-[11px] font-ui">Razendsnel bouwen, itereren en testen</p>
+              </div>
+            </div>
+            <div class="flex-1 flex items-start gap-3">
+              <Icon name="brain-circuit" size={18} class="text-active flex-shrink-0 mt-0.5" />
+              <div>
+                <p class="text-white text-xs font-bold font-display">Ik = Architect</p>
+                <p class="text-white/60 text-[11px] font-ui">Blauwdruk, veiligheid en kwaliteitscontrole</p>
+              </div>
+            </div>
+            <div class="flex-1 flex items-start gap-3">
+              <Icon name="lock" size={18} class="text-active flex-shrink-0 mt-0.5" />
+              <div>
+                <p class="text-white text-xs font-bold font-display">Database Fortress</p>
+                <p class="text-white/60 text-[11px] font-ui">De AI in toom, de data onkraakbaar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Radicale Eerlijkheid Quote -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 relative">
           <div class="absolute top-4 left-6 text-4xl text-active/30 font-display">"</div>
           <blockquote class="text-base md:text-lg text-white/80 leading-relaxed font-ui pl-4 md:pl-8 border-l-2 border-active/40">
-            De drijfveer achter LaventeCare is de overtuiging dat elk bedrijf — groot of klein — recht heeft op technologie die <span class="text-white font-semibold">écht werkt</span>. Niet een dure enterprise-oplossing die na zes maanden stof vangt, en niet een goedkoop template dat bij de eerste groeispurt vastloopt. De combinatie van hardware-engineering en cloud-architectuur onder één dak is zeldzaam, en precies dát maakt het mogelijk om oplossingen te bouwen die van chip tot cloud <span class="text-active font-semibold">naadloos samenwerken</span>.
+            Ik geloof niet in perfectie, ik geloof in <span class="text-white font-semibold">extreme leergierigheid, transparantie en keiharde veiligheid</span>. Ik beloof je niet de infrastructuur van een internationale bank, maar ik bied je wel de paranoïde veiligheidsprincipes ervan, toegepast op maatwerk MKB-, IoT- en webprojecten. Leren door te bouwen, zonder ooit compromissen te sluiten op de veiligheid van <span class="text-active font-semibold">jouw data</span>.
           </blockquote>
         </div>
       </div>
@@ -155,7 +242,7 @@ const kernwaarden = [
                 <p class="text-white font-semibold text-sm">1-op-1 Begeleider NAH++</p>
                 <span class="text-active text-xs font-bold">2018 – heden</span>
               </div>
-              <p class="text-white/60 text-sm font-ui">'s Heeren Loo — Intensieve individuele begeleiding. Analytisch denkvermogen en probleemoplossend handelen onder druk.</p>
+              <p class="text-white/60 text-sm font-ui">'s Heeren Loo — Intensieve individuele begeleiding van cliënten met NAH++. Analytisch blijven in chaos, 1-op-1 verantwoordelijkheid nemen, grenzen stellen en veilige structuren bouwen.</p>
             </li>
           </ul>
         </div>

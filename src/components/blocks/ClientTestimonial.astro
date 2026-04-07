@@ -1,0 +1,54 @@
+---
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  companyUrl?: string;
+  projectContext?: string;
+}
+
+const { quote, name, role, company, companyUrl, projectContext } = Astro.props;
+---
+
+<div class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-active/15 relative">
+  <!-- Quote icon -->
+  <div class="absolute top-4 right-6 text-3xl text-active/20 font-display select-none" aria-hidden="true">"</div>
+
+  <!-- Project context label -->
+  {projectContext && (
+    <span class="inline-flex items-center gap-1.5 text-active text-[10px] font-bold uppercase tracking-wider mb-4 font-display">
+      <Icon name="heart" size={12} class="text-active" />
+      {projectContext}
+    </span>
+  )}
+
+  <!-- Quote -->
+  <blockquote class="text-sm md:text-base text-white/80 leading-relaxed font-ui mb-6 italic">
+    "{quote}"
+  </blockquote>
+
+  <!-- Attribution -->
+  <div class="flex items-center gap-3">
+    <div class="w-10 h-10 rounded-full bg-active/10 border border-active/20 flex items-center justify-center flex-shrink-0">
+      <span class="text-xs font-black text-active font-display">
+        {name.split(' ').map(n => n[0]).join('')}
+      </span>
+    </div>
+    <div>
+      <p class="text-white text-sm font-semibold font-display">{name}</p>
+      <p class="text-white/50 text-xs font-ui">
+        {role} —{' '}
+        {companyUrl ? (
+          <a href={companyUrl} target="_blank" rel="noopener noreferrer" class="text-active hover:underline">
+            {company}
+          </a>
+        ) : (
+          <span>{company}</span>
+        )}
+      </p>
+    </div>
+  </div>
+</div>

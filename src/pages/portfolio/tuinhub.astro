@@ -4,6 +4,7 @@ import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
+import ClientTestimonial from '../../components/blocks/ClientTestimonial.astro';
 
 const lighthouseScores = [
   { category: 'Performance', score: 98 },
@@ -15,7 +16,7 @@ const lighthouseScores = [
 const results = [
   { value: '2 regio\'s', label: 'Actief in Nederland' },
   { value: 'Real-time', label: 'Lead-notificaties' },
-  { value: '100/100', label: 'Lighthouse Score' },
+  { value: '97 avg', label: 'Lighthouse Score' },
   { value: 'Multi-step', label: 'Offertetrajecten' },
 ];
 
@@ -123,6 +124,27 @@ const challenges = [
       </div>
     </div>
   </section>
+
+  <!-- Klantervaring (wacht op echte quotes van klant)
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeader
+          label="Klantervaring"
+          heading='Wat de klant <span class="text-active">zegt</span>'
+        />
+        <ClientTestimonial
+          quote="Sinds de lancering krijgen we structureel betere leads binnen. Het platform matcht klanten met de juiste hovenier op basis van regio en specialisatie. Precies wat we nodig hadden."
+          name="TuinHub"
+          role="Platform eigenaar"
+          company="TuinHub"
+          companyUrl="https://tuinhub.nl/"
+          projectContext="Over het platform"
+        />
+      </div>
+    </div>
+  </section>
+  -->
 
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">

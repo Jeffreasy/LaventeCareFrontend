@@ -17,7 +17,7 @@ export const PERFORMANCE_BUDGETS = {
  */
 export const ROUTE_BUDGETS: Record<string, Partial<typeof PERFORMANCE_BUDGETS>> = {
   '/': { LCP: 2000 }, // Homepage - strictest
-  '/pricing': { LCP: 2000 }, // Marketing page
+  '/prijzen': { LCP: 2000 }, // Marketing page
   '/contact': { LCP: 2200 }, // Conversion page
   '/services': { LCP: 2200 }, // Marketing pages
   '/admin': { LCP: 3000 }, // Authenticated, more lenient
