@@ -71,6 +71,7 @@ export const settings = {
       links: [
         { label: 'LinkedIn', link: { cached_url: 'https://linkedin.com/in/jeffrey-lavente' } },
         { label: 'GitHub', link: { cached_url: 'https://github.com/Jeffreasy' } },
+        { label: 'Instagram', link: { cached_url: 'https://www.instagram.com/jjalavente/' } },
         { label: 'Admin Login', link: { cached_url: 'login' } },
       ],
     },
@@ -78,6 +79,7 @@ export const settings = {
   social_links: [
     { platform: 'LinkedIn', url: 'https://linkedin.com/in/jeffrey-lavente' },
     { platform: 'GitHub', url: 'https://github.com/Jeffreasy' },
+    { platform: 'Instagram', url: 'https://www.instagram.com/jjalavente/' },
   ],
   copyright_text: '© 2026 LaventeCare — Jeffrey Lavente | KVK 88162710 | Dronten',
   gtm_id: null,

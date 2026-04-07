@@ -62,10 +62,12 @@ const personSchema = {
     'React', 'Next.js', 'Astro', 'C++', 'ESP32', 'IoT',
     'Zero-Trust Security', 'Cloud Architecture',
     'NAH Begeleiding', 'Psychologische Analyse',
+    'Calisthenics', 'Discipline & Mental Resilience',
   ],
   sameAs: [
     'https://linkedin.com/in/jeffrey-lavente',
     'https://github.com/Jeffreasy',
+    'https://www.instagram.com/jjalavente/',
   ],
   address: {
     '@type': 'PostalAddress',
@@ -220,6 +222,55 @@ const personSchema = {
                 <p class="text-white/60 text-[11px] font-ui">De AI in toom, de data onkraakbaar</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- De kracht van de fundamenten -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeader
+          label="De discipline"
+          heading='De kracht van de <span class="text-active">fundamenten</span>'
+        />
+        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5">
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            Technologie vereist dezelfde toewijding als topsport. Naast mijn werk als IT-architect train ik al <span class="text-white font-semibold">13 jaar op elite-niveau in calisthenics</span>. Deze discipline — het jarenlang perfectioneren van de absolute fundamenten zonder afhankelijk te zijn van externe hulpmiddelen — vormt de kern van hoe ik leef én hoe ik software bouw.
+          </p>
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            <span class="text-active font-semibold">Geen shortcuts, geen overbodige ballast</span>, maar ijzersterke systemen die gebouwd zijn op een onwrikbare basis. Die extreme consistentie en focus neem ik mee in elk digitaal ecosysteem dat ik oplever.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
+              <Icon name="trending-up" size={20} class="text-active mx-auto mb-2" />
+              <p class="text-white text-xs font-bold font-display">13 jaar consistent</p>
+              <p class="text-white/50 text-[11px] font-ui">Discipline is geen woord, maar bewijs</p>
+            </div>
+            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
+              <Icon name="cog" size={20} class="text-active mx-auto mb-2" />
+              <p class="text-white text-xs font-bold font-display">Fundamenten eerst</p>
+              <p class="text-white/50 text-[11px] font-ui">Geen hulpmiddelen, pure basis</p>
+            </div>
+            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
+              <Icon name="shield-check" size={20} class="text-active mx-auto mb-2" />
+              <p class="text-white text-xs font-bold font-display">Brein, systeem, lichaam</p>
+              <p class="text-white/50 text-[11px] font-ui">100% balans op elk vlak</p>
+            </div>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/8 flex items-center justify-center sm:justify-start gap-2">
+            <a
+              href="https://www.instagram.com/jjalavente/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm text-white/50 hover:text-active transition-colors font-ui"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              Bekijk mijn training op Instagram
+              <Icon name="external-link" size={12} class="opacity-50" />
+            </a>
           </div>
         </div>
       </div>
@@ -389,10 +440,9 @@ const personSchema = {
     height: 160px;
     border-radius: 1rem;
     overflow: hidden;
-    /* Gradient border effect */
     box-shadow:
-      0 0 0 2px rgba(var(--color-active-rgb, 0 210 211), 0.3),
-      0 0 30px -5px rgba(var(--color-active-rgb, 0 210 211), 0.15),
+      0 0 0 2px color-mix(in oklch, var(--color-active) 30%, transparent),
+      0 0 30px -5px color-mix(in oklch, var(--color-active) 15%, transparent),
       0 8px 24px -8px rgba(0, 0, 0, 0.4);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
   }
@@ -400,8 +450,8 @@ const personSchema = {
   .profile-photo-container:hover {
     transform: scale(1.03);
     box-shadow:
-      0 0 0 2px rgba(var(--color-active-rgb, 0 210 211), 0.5),
-      0 0 40px -5px rgba(var(--color-active-rgb, 0 210 211), 0.25),
+      0 0 0 2px color-mix(in oklch, var(--color-active) 50%, transparent),
+      0 0 40px -5px color-mix(in oklch, var(--color-active) 25%, transparent),
       0 16px 40px -8px rgba(0, 0, 0, 0.5);
   }
 
