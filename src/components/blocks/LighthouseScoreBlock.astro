@@ -51,8 +51,8 @@ const averageScore = Math.round(scores.reduce((sum, s) => sum + s.score, 0) / sc
       </div>
     </div>
 
-    {/* Gauges row */}
-    <div class="flex items-center justify-around gap-4 mb-6">
+    {/* Gauges grid */}
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6 place-items-center mb-6">
       {scores.map((s) => (
         <LighthouseGauge score={s.score} label={s.category} size={gaugeSize} />
       ))}

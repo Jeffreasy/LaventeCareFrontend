@@ -202,11 +202,15 @@ const pillars = [
           </div>
 
           <!-- Gauges -->
-          <div class="flex items-center justify-center gap-4 md:gap-6">
-            <LighthouseGauge score={99} label="Perf" size="md" />
-            <LighthouseGauge score={97} label="A11y" size="md" />
-            <LighthouseGauge score={100} label="BP" size="md" />
-            <LighthouseGauge score={100} label="SEO" size="md" />
+          <div class="grid grid-cols-4 gap-3 md:gap-6 place-items-center">
+            <LighthouseGauge score={99} label="Perf" size="sm" class="md:hidden" />
+            <LighthouseGauge score={97} label="A11y" size="sm" class="md:hidden" />
+            <LighthouseGauge score={100} label="BP" size="sm" class="md:hidden" />
+            <LighthouseGauge score={100} label="SEO" size="sm" class="md:hidden" />
+            <LighthouseGauge score={99} label="Perf" size="md" class="hidden md:flex" />
+            <LighthouseGauge score={97} label="A11y" size="md" class="hidden md:flex" />
+            <LighthouseGauge score={100} label="BP" size="md" class="hidden md:flex" />
+            <LighthouseGauge score={100} label="SEO" size="md" class="hidden md:flex" />
           </div>
         </div>
 
