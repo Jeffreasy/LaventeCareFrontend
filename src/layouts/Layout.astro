@@ -12,6 +12,7 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
   seoOverride?: {
     title?: string;
     description?: string;
@@ -22,7 +23,7 @@ interface Props {
   };
 }
 
-const { title, description, seoOverride } = Astro.props;
+const { title, description, noindex, seoOverride } = Astro.props;
 
 // Static site settings
 import { settings } from '../lib/config';
@@ -105,6 +106,7 @@ const breadcrumbSchema = {
       title={seoOverride?.title || title || settings.meta_title}
       description={seoOverride?.description || description || settings.meta_description}
       image={seoOverride?.image || settings.og_image?.[0]}
+      noindex={noindex}
     />
 
     <!-- CSRF Token -->

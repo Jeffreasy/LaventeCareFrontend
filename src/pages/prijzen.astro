@@ -2,10 +2,65 @@
 import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import Icon from '../components/ui/Icon.astro';
+
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'LaventeCare',
+  url: 'https://www.laventecare.nl/prijzen',
+  priceRange: '€75 - €500/maand',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'LaventeCare Diensten & SLA',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Technische Discovery & Blueprint',
+        price: '750',
+        priceCurrency: 'EUR',
+        description: 'Diepte-analyse van technische vereisten, architectuurontwerp en een gedetailleerd Blueprint-document.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Ontwikkeling (uurtarief)',
+        price: '95',
+        priceCurrency: 'EUR',
+        unitText: 'per uur',
+        description: 'Agile development in sprints van 2 weken met tussentijdse demo\'s en milestone facturatie.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'SLA Basic',
+        price: '75',
+        priceCurrency: 'EUR',
+        unitText: 'per maand',
+        description: 'Beheerde hosting, beveiligingsupdates, SSL & domeinbeheer.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'SLA Professional',
+        price: '250',
+        priceCurrency: 'EUR',
+        unitText: 'per maand',
+        description: 'Proactieve patching, 4 uur support per maand, performance monitoring.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'SLA Enterprise',
+        price: '500',
+        priceCurrency: 'EUR',
+        unitText: 'per maand',
+        description: '24/7 monitoring, max 4u reactietijd, dedicated back-up developer.',
+      },
+    ],
+  },
+};
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
+
 <Layout
-  title="Prijzen — LaventeCare"
+  title="Prijzen & Tarieven: Transparant Maatwerk — LaventeCare"
   description="Transparante prijzen voor web, IoT en security projecten. Uurtarief €95, Discovery vanaf €750, SLA vanaf €75/maand. Bekijk alle opties."
 >
   <section class="section-padding pt-32 md:pt-40">

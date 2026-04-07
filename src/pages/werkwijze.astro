@@ -34,10 +34,30 @@ const processSteps = [
     icon: 'refresh-cw',
   },
 ] as const;
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Hoe werkt een project met LaventeCare?',
+  description: 'Van gratis intake tot SLA-ondersteuning. Een gestructureerd vierfasen-model voor B2B IT-projecten.',
+  step: processSteps.map((s) => ({
+    '@type': 'HowToStep',
+    name: `Fase ${s.phase}: ${s.title}`,
+    text: s.description,
+  })),
+  totalTime: 'P12W',
+  estimatedCost: {
+    '@type': 'MonetaryAmount',
+    currency: 'EUR',
+    value: '95',
+  },
+};
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+
 <Layout
-  title="Werkwijze — LaventeCare"
+  title="Werkwijze: Van Intake tot Oplevering — LaventeCare"
   description="Hoe werkt een project met LaventeCare? Van gratis intake tot SLA-ondersteuning. Transparant, gestructureerd en zonder verrassingen."
 >
   <section class="section-padding pt-32 md:pt-40">
@@ -50,7 +70,7 @@ const processSteps = [
 
       <!-- Process Timeline -->
       <div class="max-w-5xl mx-auto mb-16">
-        <ProcessTimeline steps={processSteps} />
+        <ProcessTimeline steps={[...processSteps]} />
       </div>
 
       <!-- Facturatieflow -->

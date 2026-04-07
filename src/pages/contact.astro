@@ -4,10 +4,32 @@ import Card from '../components/ui/Card.astro';
 import { ContactForm } from '../components/islands/ContactForm';
 import Icon from '../components/ui/Icon.astro';
 
-const pageTitle = 'Contact — LaventeCare';
+const pageTitle = 'Contact & Gratis Intake — LaventeCare';
 const pageDescription =
-  'Neem contact op voor een gratis intake gesprek van 30 minuten. Bespreek uw project, scope en technische haalbaarheid.';
+  'Neem contact op voor een gratis intake gesprek van 30 minuten. Bespreek uw project, scope en technische haalbaarheid. Reactie binnen 24 uur.';
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact LaventeCare',
+  description: pageDescription,
+  url: 'https://www.laventecare.nl/contact',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'LaventeCare',
+    email: 'jeffrey@laventecare.nl',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      email: 'jeffrey@laventecare.nl',
+      availableLanguage: ['Dutch', 'English'],
+      areaServed: 'NL',
+    },
+  },
+};
 ---
+
+<script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
 
 <Layout title={pageTitle} description={pageDescription}>
   <!-- Contact Hero Section -->
