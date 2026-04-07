@@ -4,4 +4,4 @@ Disallow: /admin
 Disallow: /api/
 Disallow: /login
 
-Sitemap: https://lavente.care/sitemap-index.xml
+Sitemap: https://www.laventecare.nl/sitemap-index.xml

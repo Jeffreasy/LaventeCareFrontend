@@ -28,7 +28,7 @@ const { title, description, seoOverride } = Astro.props;
 import { settings } from '../lib/config';
 
 // Generate BreadcrumbList from URL path
-const siteUrl = Astro.site?.href || 'https://lavente.care';
+const siteUrl = Astro.site?.href || 'https://www.laventecare.nl';
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
 
 const breadcrumbLabels: Record<string, string> = {
@@ -115,8 +115,8 @@ const breadcrumbSchema = {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "LaventeCare",
-      "url": "https://lavente.care",
-      "logo": "https://lavente.care/og-image.png",
+      "url": "https://www.laventecare.nl",
+      "logo": "https://www.laventecare.nl/og-image.png",
       "founder": {
         "@type": "Person",
         "name": "Jeffrey Lavente",

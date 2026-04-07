@@ -14,7 +14,7 @@ export default defineConfig({
             enabled: true,
         },
     }),
-    site: process.env.SITE || 'https://lavente.care',
+    site: process.env.SITE || 'https://www.laventecare.nl',
 
     vite: {
         plugins: [

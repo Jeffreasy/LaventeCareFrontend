@@ -12,7 +12,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const siteUrl = Astro.site?.href || 'https://lavente.care';
+const siteUrl = Astro.site?.href || 'https://www.laventecare.nl';
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
 const ogImageUrl = image?.filename
   ? new URL(image.filename, siteUrl).href
