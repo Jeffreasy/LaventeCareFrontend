@@ -188,13 +188,15 @@ const breadcrumbSchema = {
     <AnalyticsProvider client:load />
 
     <!-- Performance Monitoring (Dev Only) -->
-    <script>
-      import { initPerformanceMonitoring } from '../lib/performance/performanceMonitor';
-      if (import.meta.env.DEV && typeof window !== 'undefined') {
-        window.addEventListener('load', () => {
-          initPerformanceMonitoring();
-        });
-      }
-    </script>
+    {import.meta.env.DEV && (
+      <script>
+        import { initPerformanceMonitoring } from '../lib/performance/performanceMonitor';
+        if (typeof window !== 'undefined') {
+          window.addEventListener('load', () => {
+            initPerformanceMonitoring();
+          });
+        }
+      </script>
+    )}
   </body>
 </html>

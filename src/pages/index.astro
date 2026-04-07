@@ -36,6 +36,7 @@ const jsonLd = {
   name: 'LaventeCare',
   url: 'https://www.laventecare.nl',
   logo: 'https://www.laventecare.nl/og-image.png',
+  image: 'https://www.laventecare.nl/og-image.png',
   description:
     'LaventeCare — opgericht door Jeffrey Lavente, van intensieve NAH-zorg naar IT-architectuur. Combineert AI prompt engineering met Zero-Trust security en IoT-expertise voor enterprise-grade MKB-oplossingen.',
   founder: {
@@ -51,8 +52,22 @@ const jsonLd = {
     addressRegion: 'Flevoland',
     addressCountry: 'NL',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 52.5286,
+    longitude: 5.7178,
+  },
+  telephone: '+31-6-12345678',
   areaServed: 'NL',
   priceRange: '€€',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '17:00',
+    },
+  ],
   knowsAbout: [
     'AI Prompt Engineering', 'LLM Integration', 'Custom GPT Development',
     'IoT Development', 'ESP32 Firmware', 'Go Backend', 'Astro Framework',
