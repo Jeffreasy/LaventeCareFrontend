@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import ProcessTimeline from '../components/blocks/ProcessTimeline.astro';
-import Icon from '../components/ui/Icon.astro';
+import Icon, { type IconName } from '../components/ui/Icon.astro';
 
 const processSteps = [
   {
@@ -33,7 +33,7 @@ const processSteps = [
     price: 'vanaf €75/mnd',
     icon: 'refresh-cw',
   },
-];
+] as const;
 ---
 
 <Layout
@@ -130,9 +130,7 @@ const processSteps = [
     <div class="container mx-auto px-4 text-center">
       <a href="/contact" class="btn-primary text-lg px-10">
         Start met een intake
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
+        <Icon name="arrow-right" size={20} />
       </a>
     </div>
   </section>

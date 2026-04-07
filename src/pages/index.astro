@@ -6,6 +6,7 @@ import FAQSection from '../components/blocks/FAQSection.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import StatCard from '../components/ui/StatCard.astro';
 import PillarCard from '../components/blocks/PillarCard.astro';
+import LighthouseGauge from '../components/ui/LighthouseGauge.astro';
 
 const heroData = {
   headline: 'Van Chip tot Cloud',
@@ -88,7 +89,7 @@ const pillars = [
     href: '/diensten/security',
     featured: true,
   },
-];
+] as const;
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -184,7 +185,7 @@ const pillars = [
       <SectionHeader
         label="Referenties"
         heading='Gebouwd door <span class="text-active">LaventeCare</span>'
-        description="Recente projecten uit ons ecosysteem. Van event-platformen tot IoT-producten."
+        description="Recente projecten uit mijn ecosysteem. Van event-platformen tot IoT-producten."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -202,9 +203,15 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
           </div>
+          <!-- Lighthouse Scores -->
+          <div class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5">
+            <LighthouseGauge score={93} label="Perf" size="sm" />
+            <LighthouseGauge score={95} label="A11y" size="sm" />
+            <LighthouseGauge score={92} label="BP" size="sm" />
+          </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             Bekijk project
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
           </span>
         </a>
 
@@ -223,9 +230,16 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">BLE</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
           </div>
+          <!-- Lighthouse Scores -->
+          <div class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5">
+            <LighthouseGauge score={99} label="Perf" size="sm" />
+            <LighthouseGauge score={90} label="A11y" size="sm" />
+            <LighthouseGauge score={96} label="BP" size="sm" />
+            <LighthouseGauge score={100} label="SEO" size="sm" />
+          </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             Bekijk project
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
           </span>
         </a>
 
@@ -243,9 +257,16 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
           </div>
+          <!-- Lighthouse Scores -->
+          <div class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5">
+            <LighthouseGauge score={99} label="Perf" size="sm" />
+            <LighthouseGauge score={97} label="A11y" size="sm" />
+            <LighthouseGauge score={100} label="BP" size="sm" />
+            <LighthouseGauge score={100} label="SEO" size="sm" />
+          </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             Bekijk project
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
           </span>
         </a>
 
@@ -271,9 +292,7 @@ const pillars = [
       <div class="text-center mt-8">
         <a href="/portfolio" class="btn-secondary">
           Bekijk alle projecten
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
+          <Icon name="arrow-right" size={16} />
         </a>
       </div>
     </div>
@@ -296,9 +315,7 @@ const pillars = [
           </a>
           <a href="/contact" class="btn-primary">
             Plan een intake
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
+            <Icon name="arrow-right" size={16} />
           </a>
         </div>
       </div>

@@ -125,7 +125,7 @@ AI Prompt Engineering, Web & IoT Solutions. Kernactiviteiten, USP's en bewezen t
 
 #### Missie
 
-LaventeCare combineert AI prompt engineering met full-stack development om complexe bedrijfsprocessen te digitaliseren. Wij slaan een naadloze brug tussen kunstmatige intelligentie, hardware, software en de eindgebruiker. Geen standaard templates, maar bliksemsnelle, AI-gedreven en op maat gemaakte digitale ecosystemen. Van prompt tot productie, van sensor tot cloud: één gestroomlijnde, robuuste oplossing.
+LaventeCare combineert AI prompt engineering met full-stack development om complexe bedrijfsprocessen te digitaliseren. Ik sla een naadloze brug tussen kunstmatige intelligentie, hardware, software en de eindgebruiker. Geen standaard templates, maar bliksemsnelle, AI-gedreven en op maat gemaakte digitale ecosystemen. Van prompt tot productie, van sensor tot cloud: één gestroomlijnde, robuuste oplossing.
 
 #### Visie
 
@@ -261,7 +261,7 @@ B2B-doelgroepen, markttrends en concurrentiepositie.
 
 ## De Doelgroep
 
-LaventeCare richt zich op specifieke, kapitaalkrachtige B2B-niches waar technologie een direct concurrentievoordeel oplevert. Geen massamarkt, maar gerichte verticals waar onze end-to-end expertise het verschil maakt.
+LaventeCare richt zich op specifieke, kapitaalkrachtige B2B-niches waar technologie een direct concurrentievoordeel oplevert. Geen massamarkt, maar gerichte verticals waar mijn end-to-end expertise het verschil maakt.
 
 #### Industrie & Installatietechniek
 
@@ -360,7 +360,7 @@ B2B-acquisitie in de tech-sector draait om vertrouwen, bewezen resultaten en str
 
 ### Professionele Website
 
-De website is het digitale vlaggenschip van LaventeCare. Gebouwd met dezelfde tech-stack die we aan klanten verkopen (Astro + React Islands), fungeert het als een live demonstratie van de kwaliteit en performance die we leveren.
+De website is het digitale vlaggenschip van LaventeCare. Gebouwd met dezelfde tech-stack die ik aan klanten lever (Astro + React Islands), fungeert het als een live demonstratie van de kwaliteit en performance die ik lever.
 
 * Live portfolio met interactieve case studies en resultaten
 * Technische blog: AI prompt engineering, architectuur, security, IoT-insights

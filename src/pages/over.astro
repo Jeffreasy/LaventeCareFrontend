@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import StatCard from '../components/ui/StatCard.astro';
 import TechStackBadge from '../components/ui/TechStackBadge.astro';
-import Icon from '../components/ui/Icon.astro';
+import Icon, { type IconName } from '../components/ui/Icon.astro';
 
 const expertiseDomains = [
   {
@@ -83,7 +83,7 @@ const kernwaarden = [
             <Icon name="target" size={20} class="text-active" /> Missie
           </h2>
           <p class="text-white/70 text-sm leading-relaxed font-ui">
-            LaventeCare digitaliseert complexe bedrijfsprocessen en slaat een naadloze brug tussen hardware, software en de eindgebruiker. Wij leveren geen standaard templates, maar bouwen bliksemsnelle, veilige en op maat gemaakte digitale ecosystemen. Van de fysieke sensor tot de cloud: <span class="text-white font-semibold">één gestroomlijnde, robuuste oplossing</span>.
+            LaventeCare digitaliseert complexe bedrijfsprocessen en slaat een naadloze brug tussen hardware, software en de eindgebruiker. Ik lever geen standaard templates, maar bouw bliksemsnelle, veilige en op maat gemaakte digitale ecosystemen. Van de fysieke sensor tot de cloud: <span class="text-white font-semibold">één gestroomlijnde, robuuste oplossing</span>.
           </p>
         </div>
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
@@ -176,7 +176,7 @@ const kernwaarden = [
         {expertiseDomains.map((domain) => (
           <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors">
             <div class="flex items-center gap-3 mb-4">
-              <Icon name={domain.icon as any} size={24} class="text-active" />
+              <Icon name={domain.icon as IconName} size={24} class="text-active" />
               <h3 class="text-lg font-bold text-white font-display">{domain.title}</h3>
             </div>
             <p class="text-white/60 text-sm leading-relaxed mb-4 font-ui">{domain.description}</p>
@@ -202,7 +202,7 @@ const kernwaarden = [
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
         {kernwaarden.map((waarde) => (
           <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
-            <Icon name={waarde.icon as any} size={24} class="text-active block mb-3" />
+            <Icon name={waarde.icon as IconName} size={24} class="text-active block mb-3" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">{waarde.title}</h3>
             <p class="text-white/50 text-xs font-ui">{waarde.desc}</p>
           </div>
@@ -243,9 +243,7 @@ const kernwaarden = [
     <div class="container mx-auto px-4 text-center">
       <a href="/contact" class="btn-primary text-lg px-10">
         Neem contact op
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
+        <Icon name="arrow-right" size={20} />
       </a>
     </div>
   </section>

@@ -1,0 +1,90 @@
+---
+import LighthouseGauge from '../ui/LighthouseGauge.astro';
+import Icon from '../ui/Icon.astro';
+
+interface ScoreEntry {
+  category: string;
+  score: number;
+}
+
+interface Props {
+  projectName: string;
+  scores: ScoreEntry[];
+  context?: string;
+  auditDate?: string;
+  liveUrl?: string;
+  variant?: 'full' | 'compact';
+  class?: string;
+}
+
+const {
+  projectName,
+  scores,
+  context,
+  auditDate,
+  liveUrl,
+  variant = 'full',
+  class: className,
+} = Astro.props;
+
+const gaugeSize = variant === 'compact' ? 'sm' : 'md';
+
+const averageScore = Math.round(scores.reduce((sum, s) => sum + s.score, 0) / scores.length);
+---
+
+{variant === 'full' ? (
+  <div class:list={['lighthouse-block clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 relative overflow-hidden', className]}>
+    {/* Subtle glow accent */}
+    <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-success/5 blur-3xl pointer-events-none"></div>
+
+    {/* Header */}
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-8 h-8 rounded-lg bg-success/10 flex items-center justify-center">
+        <Icon name="gauge" size={16} class="text-success" />
+      </div>
+      <div>
+        <h3 class="text-sm font-bold text-white font-display">Lighthouse Audit</h3>
+        <p class="text-[10px] text-white/40 font-ui">
+          {projectName}
+          {auditDate && <span> — {auditDate}</span>}
+        </p>
+      </div>
+    </div>
+
+    {/* Gauges row */}
+    <div class="flex items-center justify-around gap-4 mb-6">
+      {scores.map((s) => (
+        <LighthouseGauge score={s.score} label={s.category} size={gaugeSize} />
+      ))}
+    </div>
+
+    {/* Context text */}
+    {context && (
+      <p class="text-white/50 text-xs font-ui leading-relaxed border-t border-white/5 pt-4">
+        {context}
+      </p>
+    )}
+
+    {/* Live audit link */}
+    {liveUrl && (
+      <a
+        href={liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-[10px] font-bold text-active mt-3 hover:underline font-ui uppercase tracking-wider"
+      >
+        Verifieer live
+        <Icon name="external-link" size={10} />
+      </a>
+    )}
+  </div>
+) : (
+  /* Compact variant for portfolio cards */
+  <div class:list={['flex items-center gap-3 pt-4 border-t border-white/5', className]}>
+    <div class="flex items-center gap-2.5">
+      {scores.map((s) => (
+        <LighthouseGauge score={s.score} label={s.category} size="sm" />
+      ))}
+    </div>
+  </div>
+)}

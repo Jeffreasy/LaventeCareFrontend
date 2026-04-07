@@ -59,8 +59,8 @@ export function CookieConsent() {
                         <div className="cookie-banner__text">
                             <h3 className="cookie-banner__title">Cookie Voorkeuren</h3>
                             <p className="cookie-banner__description">
-                                We gebruiken cookies om jouw ervaring te verbeteren en onze website te optimaliseren.
-                                Jouw privacy is belangrijk voor ons - data wordt opgeslagen in de EU volgens GDPR-richtlijnen.
+                                Ik gebruik cookies om jouw ervaring te verbeteren en de website te optimaliseren.
+                                Jouw privacy is belangrijk voor mij — data wordt opgeslagen in de EU volgens GDPR-richtlijnen.
                             </p>
                         </div>
 
@@ -136,7 +136,7 @@ export function CookieConsent() {
                                     </label>
                                 </div>
                                 <p className="preference-item__description">
-                                    Helpt ons begrijpen hoe bezoekers onze website gebruiken via Vercel Analytics.
+                                    Helpt mij begrijpen hoe bezoekers de website gebruiken via Vercel Analytics.
                                     Data wordt opgeslagen in de EU.
                                 </p>
                             </div>
@@ -178,7 +178,7 @@ export function CookieConsent() {
                         </div>
 
                         <p className="cookie-modal__footer">
-                            Vragen over ons cookiebeleid? <a href="/contact" className="cookie-modal__link">Neem contact op</a>.
+                            Vragen over het cookiebeleid? <a href="/contact" className="cookie-modal__link">Neem contact op</a>.
                         </p>
                     </div>
                 </div>

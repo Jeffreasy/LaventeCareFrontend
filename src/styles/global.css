@@ -517,6 +517,56 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
+   Lighthouse Gauge — SVG Arc Animation
+   ============================================ */
+
+@keyframes gauge-fill {
+  from {
+    stroke-dashoffset: var(--gauge-circumference);
+    opacity: 0.3;
+  }
+  to {
+    stroke-dashoffset: var(--gauge-offset);
+    opacity: 1;
+  }
+}
+
+@keyframes gauge-score-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.lighthouse-gauge__arc {
+  filter: drop-shadow(0 0 6px var(--gauge-glow));
+  animation: gauge-fill 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+}
+
+.lighthouse-gauge__score {
+  animation: gauge-score-reveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;
+}
+
+/* Scroll-driven progressive enhancement */
+@supports (animation-timeline: view()) {
+  .lighthouse-block .lighthouse-gauge__arc {
+    animation: gauge-fill linear forwards;
+    animation-timeline: view();
+    animation-range: entry 10% entry 60%;
+  }
+
+  .lighthouse-block .lighthouse-gauge__score {
+    animation: gauge-score-reveal linear forwards;
+    animation-timeline: view();
+    animation-range: entry 30% entry 70%;
+  }
+}
+
+/* ============================================
    Accessibility: Reduced Motion
    ============================================ */
 
@@ -526,8 +576,20 @@ h1, h2, h3, h4, h5, h6 {
   .animate-float-slow,
   .animate-float-medium,
   .animate-float-fast,
-  .animate-bounce {
+  .animate-bounce,
+  .lighthouse-gauge__arc,
+  .lighthouse-gauge__score {
     animation: none !important;
+  }
+
+  .lighthouse-gauge__arc {
+    stroke-dashoffset: var(--gauge-offset) !important;
+    opacity: 1 !important;
+  }
+
+  .lighthouse-gauge__score {
+    opacity: 1 !important;
+    transform: scale(1) !important;
   }
 
   .clinical-glass,

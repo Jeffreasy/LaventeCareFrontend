@@ -1,12 +1,12 @@
 ---
-import Icon from '../ui/Icon.astro';
+import Icon, { type IconName } from '../ui/Icon.astro';
 
 interface Step {
   phase: string;
   title: string;
   description: string;
   price?: string;
-  icon: string;
+  icon: IconName;
 }
 
 interface Props {
@@ -40,7 +40,7 @@ const { steps, class: className } = Astro.props;
         {/* Content */}
         <div class="flex-1 md:text-center md:mt-4">
           <div class="flex md:justify-center mb-1" aria-hidden="true">
-            <Icon name={step.icon as any} size={20} class="text-active" />
+            <Icon name={step.icon} size={20} class="text-active" />
           </div>
           <h3 class="text-base md:text-lg font-bold text-white mb-2 font-display">
             {step.title}
