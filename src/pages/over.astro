@@ -50,6 +50,7 @@ const personSchema = {
   name: 'Jeffrey Lavente',
   jobTitle: 'AI Prompt Engineer & Full-Stack Developer',
   description: 'Van intensieve 1-op-1 begeleiding in de NAH-zorg naar IT-architectuur. Combineert psychologisch inzicht met AI-gedreven development en Zero-Trust security.',
+  image: 'https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-512,h-512,fo-face,f-auto,q-85',
   url: 'https://lavente.care/over',
   worksFor: {
     '@type': 'Organization',
@@ -85,13 +86,53 @@ const personSchema = {
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
-        <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-          <!-- Avatar Placeholder -->
-          <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-active/10 border-2 border-active/30 flex items-center justify-center flex-shrink-0 mx-auto md:mx-0">
-            <span class="text-4xl md:text-5xl font-black text-active font-display">JL</span>
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+          <!-- Profile Photo — Professional ImageKit with full device support -->
+          <div class="profile-photo-wrapper flex-shrink-0">
+            <div class="profile-photo-container">
+              <picture>
+                <!-- Mobile: Square crop, smaller payload -->
+                <source
+                  media="(max-width: 639px)"
+                  srcset="
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-160,h-160,fo-face,f-auto,q-80,e-sharpen 1x,
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-320,h-320,fo-face,f-auto,q-75,e-sharpen 2x
+                  "
+                />
+                <!-- Tablet: Slightly larger, portrait aspect -->
+                <source
+                  media="(max-width: 1023px)"
+                  srcset="
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-200,h-240,fo-face,f-auto,q-82,e-sharpen 1x,
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-400,h-480,fo-face,f-auto,q-78,e-sharpen 2x
+                  "
+                />
+                <!-- Desktop: Full quality portrait -->
+                <source
+                  media="(min-width: 1024px)"
+                  srcset="
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-220,h-280,fo-face,f-auto,q-85,e-sharpen 1x,
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-440,h-560,fo-face,f-auto,q-80,e-sharpen 2x
+                  "
+                />
+                <!-- Fallback -->
+                <img
+                  src="https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-220,h-280,fo-face,f-auto,q-85,e-sharpen"
+                  alt="Jeffrey Lavente — oprichter LaventeCare"
+                  width="220"
+                  height="280"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                  class="profile-photo-img"
+                />
+              </picture>
+              <!-- Subtle inner glow overlay -->
+              <div class="profile-photo-overlay" aria-hidden="true"></div>
+            </div>
           </div>
 
-          <div>
+          <div class="text-center md:text-left">
             <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Over de oprichter</span>
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight">
               Jeffrey Lavente
@@ -335,3 +376,73 @@ const personSchema = {
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Profile Photo — Responsive container */
+  .profile-photo-wrapper {
+    position: relative;
+  }
+
+  .profile-photo-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 1rem;
+    overflow: hidden;
+    /* Gradient border effect */
+    box-shadow:
+      0 0 0 2px rgba(var(--color-active-rgb, 0 210 211), 0.3),
+      0 0 30px -5px rgba(var(--color-active-rgb, 0 210 211), 0.15),
+      0 8px 24px -8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  }
+
+  .profile-photo-container:hover {
+    transform: scale(1.03);
+    box-shadow:
+      0 0 0 2px rgba(var(--color-active-rgb, 0 210 211), 0.5),
+      0 0 40px -5px rgba(var(--color-active-rgb, 0 210 211), 0.25),
+      0 16px 40px -8px rgba(0, 0, 0, 0.5);
+  }
+
+  .profile-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* Inner glow overlay for depth */
+  .profile-photo-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+  }
+
+  /* Tablet: portrait ratio */
+  @media (min-width: 640px) {
+    .profile-photo-container {
+      width: 200px;
+      height: 240px;
+      border-radius: 1.25rem;
+    }
+    .profile-photo-overlay {
+      border-radius: 1.25rem;
+    }
+  }
+
+  /* Desktop: larger portrait */
+  @media (min-width: 1024px) {
+    .profile-photo-container {
+      width: 220px;
+      height: 280px;
+      border-radius: 1.5rem;
+    }
+    .profile-photo-overlay {
+      border-radius: 1.5rem;
+    }
+  }
+</style>
