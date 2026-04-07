@@ -92,6 +92,8 @@ const breadcrumbSchema = {
     <!-- Google Fonts: Geist & Satoshi (Fontshare) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -109,45 +111,13 @@ const breadcrumbSchema = {
       noindex={noindex}
     />
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content={Astro.locals.csrfToken} />
+    <!-- CSRF Token (only render if available) -->
+    {Astro.locals.csrfToken && <meta name="csrf-token" content={Astro.locals.csrfToken} />}
 
-    <!-- Sitewide Organization Schema (E-E-A-T) -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "LaventeCare",
-      "url": "https://www.laventecare.nl",
-      "logo": "https://www.laventecare.nl/og-image.png",
-      "founder": {
-        "@type": "Person",
-        "name": "Jeffrey Lavente",
-        "jobTitle": "AI Prompt Engineer & Full-Stack Developer"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dronten",
-        "addressRegion": "Flevoland",
-        "postalCode": "8251 ZB",
-        "addressCountry": "NL"
-      },
-      "sameAs": [
-        "https://linkedin.com/in/jeffrey-lavente",
-        "https://github.com/Jeffreasy",
-        "https://www.instagram.com/jjalavente/"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "jeffrey@laventecare.nl",
-        "contactType": "customer service",
-        "availableLanguage": "Dutch"
-      }
-    })} />
+    <!-- Organization Schema moved to page-level (index.astro) to avoid duplication -->
 
     <!-- BreadcrumbList Schema (SEO Rich Results) -->
-    {pathSegments.length > 0 && (
-      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-    )}
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
     <!-- Astro Client Router (View Transitions) -->
     <ClientRouter />

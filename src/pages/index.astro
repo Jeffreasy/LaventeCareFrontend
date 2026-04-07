@@ -35,7 +35,7 @@ const jsonLd = {
   '@type': 'ProfessionalService',
   name: 'LaventeCare',
   url: 'https://www.laventecare.nl',
-  logo: 'https://www.laventecare.nl/logo.png',
+  logo: 'https://www.laventecare.nl/og-image.png',
   description:
     'LaventeCare — opgericht door Jeffrey Lavente, van intensieve NAH-zorg naar IT-architectuur. Combineert AI prompt engineering met Zero-Trust security en IoT-expertise voor enterprise-grade MKB-oplossingen.',
   founder: {
@@ -48,6 +48,7 @@ const jsonLd = {
     streetAddress: 'Spiegelstraat 6',
     postalCode: '8251 ZB',
     addressLocality: 'Dronten',
+    addressRegion: 'Flevoland',
     addressCountry: 'NL',
   },
   areaServed: 'NL',
@@ -57,6 +58,17 @@ const jsonLd = {
     'IoT Development', 'ESP32 Firmware', 'Go Backend', 'Astro Framework',
     'React', 'Zero-Trust Security', 'Web Development', 'Cloud Architecture',
   ],
+  sameAs: [
+    'https://linkedin.com/in/jeffrey-lavente',
+    'https://github.com/Jeffreasy',
+    'https://www.instagram.com/jjalavente/',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'jeffrey@laventecare.nl',
+    contactType: 'customer service',
+    availableLanguage: 'Dutch',
+  },
 };
 
 const pillars = [
