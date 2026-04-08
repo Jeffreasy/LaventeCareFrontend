@@ -40,6 +40,14 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
         <stop offset="0%" stop-color="#0891B2" stop-opacity="0.35" />
         <stop offset="100%" stop-color="#059669" stop-opacity="0.35" />
       </linearGradient>
+      {/* Traveling light gradient */}
+      <linearGradient id={`${uid}-light`} x1="0%" y1="50%" x2="100%" y2="50%">
+        <stop offset="0%" stop-color="#67E8F9" stop-opacity="0" />
+        <stop offset="40%" stop-color="#67E8F9" stop-opacity="0.9" />
+        <stop offset="50%" stop-color="#FFFFFF" stop-opacity="1" />
+        <stop offset="60%" stop-color="#6EE7B7" stop-opacity="0.9" />
+        <stop offset="100%" stop-color="#6EE7B7" stop-opacity="0" />
+      </linearGradient>
     </defs>
 
     {/* Glow */}
@@ -61,6 +69,28 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
       stroke-width="10"
       stroke-linecap="round"
       stroke-linejoin="round"
+    />
+
+    {/* Traveling light — soft glow halo */}
+    <path
+      d="M 55 20 C 18 20, 18 80, 55 80 C 82 80, 90 50, 100 50 C 110 50, 118 20, 145 20 C 182 20, 182 80, 145 80 C 118 80, 110 50, 100 50 C 90 50, 82 20, 55 20 Z"
+      fill="none"
+      stroke="#67E8F9"
+      stroke-width="12"
+      stroke-linecap="round"
+      class="infinity-light-glow"
+      pathLength="1000"
+    />
+
+    {/* Traveling light — bright core */}
+    <path
+      d="M 55 20 C 18 20, 18 80, 55 80 C 82 80, 90 50, 100 50 C 110 50, 118 20, 145 20 C 182 20, 182 80, 145 80 C 118 80, 110 50, 100 50 C 90 50, 82 20, 55 20 Z"
+      fill="none"
+      stroke="white"
+      stroke-width="4"
+      stroke-linecap="round"
+      class="infinity-light-core"
+      pathLength="1000"
     />
 
     {/* Globe detail in left loop */}
@@ -92,10 +122,48 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
     text-decoration: none;
   }
 
+  /* Traveling light — shared dash setup */
+  .infinity-light-glow,
+  .infinity-light-core {
+    stroke-dasharray: 60 940;
+    stroke-dashoffset: 0;
+  }
+
+  .infinity-light-glow {
+    filter: blur(6px);
+    opacity: 0.6;
+  }
+
+  .infinity-light-core {
+    opacity: 0.9;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .logo-mark:hover svg {
       filter: drop-shadow(0 0 10px oklch(0.60 0.14 200 / 0.4));
       transition: filter 0.3s ease;
+    }
+
+    .infinity-light-glow,
+    .infinity-light-core {
+      animation: infinity-trace 4s linear infinite;
+    }
+  }
+
+  @keyframes infinity-trace {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: -1000;
+    }
+  }
+
+  /* Reduced motion: hide the light entirely */
+  @media (prefers-reduced-motion: reduce) {
+    .infinity-light-glow,
+    .infinity-light-core {
+      display: none;
     }
   }
 </style>
