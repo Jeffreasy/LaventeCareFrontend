@@ -1,13 +1,12 @@
 import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 import { useStore } from '@nanostores/react';
 import { consentStore, hasAnalyticsConsent } from '@/lib/stores/consentStore';
 import { useEffect, useState } from 'react';
 
 /**
  * Consent-Aware Analytics Provider
- * Only loads Vercel Analytics & Speed Insights when user has given consent
- * EU data residency enforced via custom endpoint
+ * Only loads Vercel Analytics when user has given consent
+ * Speed Insights is handled by native Astro component in Layout.astro
  */
 export function AnalyticsProvider() {
     const consent = useStore(consentStore);
@@ -28,14 +27,9 @@ export function AnalyticsProvider() {
             {/* Vercel Analytics with EU endpoint */}
             <Analytics
                 beforeSend={(event) => {
-                    // Additional privacy filtering if needed
-                    // Remove any PII from page URLs, etc.
                     return event;
                 }}
             />
-
-            {/* Speed Insights for Core Web Vitals */}
-            <SpeedInsights />
         </>
     );
 }

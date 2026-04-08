@@ -27,7 +27,7 @@ export default defineConfig({
                     manualChunks: {
                         'react-vendor': ['react', 'react-dom'],
                         'form-vendor': ['@conform-to/react', '@conform-to/zod', 'zod'],
-                        'analytics-vendor': ['@vercel/analytics', '@vercel/speed-insights', 'web-vitals'],
+                        'analytics-vendor': ['@vercel/analytics', 'web-vitals'],
                         'store-vendor': ['nanostores', '@nanostores/persistent'],
                     },
                 },

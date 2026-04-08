@@ -5,6 +5,7 @@ import SEO from '../components/blocks/SEO.astro';
 import { ClientRouter } from 'astro:transitions';
 import { CookieConsent } from '../components/islands/CookieConsent';
 import { AnalyticsProvider } from '../components/islands/AnalyticsProvider';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import { GlobalLoader } from '../components/islands/GlobalLoader';
 import { NotificationToast } from '../components/islands/NotificationToast';
 import '../styles/global.css';
@@ -184,8 +185,11 @@ const breadcrumbSchema = {
     <!-- GDPR Cookie Consent Banner -->
     <CookieConsent client:load />
 
-    <!-- Vercel Analytics & Speed Insights (Consent-Gated) -->
+    <!-- Vercel Analytics (Consent-Gated) -->
     <AnalyticsProvider client:load />
+
+    <!-- Vercel Speed Insights (Core Web Vitals — no PII, no cookies) -->
+    <SpeedInsights />
 
     <!-- Performance Monitoring (Dev Only) -->
     {import.meta.env.DEV && (
