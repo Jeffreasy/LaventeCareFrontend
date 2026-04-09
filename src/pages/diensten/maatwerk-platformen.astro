@@ -1,30 +1,36 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
-import Icon from '../../components/ui/Icon.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
 
 const features = [
   {
+    icon: 'clipboard-list',
     title: 'Registratie & Ticketing',
     desc: 'Deelnemers melden zich eenvoudig aan, terwijl het systeem automatisch alles verwerkt — van bevestiging tot wachtlijst. Geen handmatig werk.',
   },
   {
+    icon: 'heart',
     title: 'Veilige donaties',
     desc: 'Donaties worden veilig verwerkt en overzichtelijk geregistreerd, zodat u vertrouwen uitstraalt naar uw doelgroep.',
   },
   {
+    icon: 'bar-chart-2',
     title: 'Direct inzicht',
     desc: 'U ziet realtime hoeveel deelnemers en donaties binnenkomen, zodat u direct kunt bijsturen.',
   },
   {
+    icon: 'mail',
     title: 'Automatische communicatie',
     desc: 'Deelnemers en donateurs worden automatisch op de hoogte gehouden — bevestigingen, updates en herinneringen, zonder extra werk.',
   },
   {
+    icon: 'layout-dashboard',
     title: 'Alles in één beheerpaneel',
     desc: 'Gebruikers, inschrijvingen, donaties en communicatie — alles beheerd vanuit één overzichtelijk scherm.',
   },
   {
+    icon: 'git-merge',
     title: 'Van aanmelding tot opvolging',
     desc: 'Het volledige traject geautomatiseerd: van inschrijving tot bevestiging, opvolging en evaluatie.',
   },
@@ -88,13 +94,18 @@ const serviceSchema = {
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
         {
-          features.map((f) => (
+          features.map((f, i) => (
             <div
               data-animate="fade-up"
-              class="clinical-glass p-5 rounded-(--radius-card) border border-white/8"
+              class={`delay-${(i % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}
             >
-              <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
-              <p class="text-white/60 text-xs font-ui">{f.desc}</p>
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <Icon name={f.icon as IconName} size={18} class="text-active" />
+                </div>
+                <h3 class="text-sm font-bold text-white font-display pt-1.5">{f.title}</h3>
+              </div>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{f.desc}</p>
             </div>
           ))
         }
@@ -105,9 +116,7 @@ const serviceSchema = {
         <p class="text-white/50 text-sm font-ui mb-4 text-center">Referentieprojecten</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <a
-            href="https://www.dekoninklijkeloop.nl/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/portfolio/de-koninklijke-loop"
             data-animate="fade-up"
             class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
           >
@@ -120,14 +129,11 @@ const serviceSchema = {
               Evenementenplatform met registratie, ticketing en live data.
             </p>
             <p class="text-active text-xs font-bold font-ui">
-              100+ deelnemers • volledig geautomatiseerde registratie en communicatie — 0 handmatig
-              werk voor de organisatie
+              100+ deelnemers • 0 handmatig werk voor de organisatie
             </p>
           </a>
           <a
-            href="https://www.whiskyforcharity.com/"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/portfolio/whisky-for-charity"
             data-animate="fade-up"
             class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
           >
@@ -136,8 +142,11 @@ const serviceSchema = {
             >
               Whisky for Charity
             </h3>
-            <p class="text-white/60 text-sm font-ui">
+            <p class="text-white/60 text-sm font-ui mb-2">
               Liefdadigheidsplatform met veilige donatiestromen.
+            </p>
+            <p class="text-active text-xs font-bold font-ui">
+              €10K+ opgehaald • 0 mislukte transacties
             </p>
           </a>
         </div>

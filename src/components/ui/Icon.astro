@@ -232,6 +232,40 @@ const icons = {
     ],
     circles: [{ cx: 12, cy: 12, r: 3 }],
   },
+
+  // --- Feature Card Icons ---
+  'arrow-up-right': {
+    paths: ['M7 7h10v10', 'M7 17 17 7'],
+  },
+  bell: {
+    paths: [
+      'M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9',
+      'M10.3 21a1.94 1.94 0 0 0 3.4 0',
+    ],
+  },
+  'bar-chart-2': {
+    paths: ['M18 20V10', 'M12 20V4', 'M6 20v-6'],
+  },
+  'layout-dashboard': {
+    paths: ['M10 3H3v7h7V3Z', 'M21 3h-7v4h7V3Z', 'M21 10h-7v11h7V10Z', 'M10 14H3v7h7v-7Z'],
+  },
+  'git-merge': {
+    paths: ['M15 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z', 'M6 6v12', 'M6 12c4 0 6-3 6-6'],
+    circles: [{ cx: 6, cy: 6, r: 3 }],
+  },
+  'battery-charging': {
+    paths: ['M15 7h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2', 'M22 11v2', 'M6 7H2v10h5', 'M11 7l-3 5h4l-3 5'],
+  },
+  smartphone: {
+    paths: ['M12 18h.01'],
+    rects: [{ x: 5, y: 2, width: 14, height: 20, rx: 2 }],
+  },
+  wifi: {
+    paths: ['M12 20h.01', 'M2 8.82a15 15 0 0 1 20 0', 'M5 12.859a10 10 0 0 1 14 0', 'M8.5 16.429a5 5 0 0 1 7 0'],
+  },
+  database: {
+    paths: ['M12 8c5.523 0 10-1.79 10-4S17.523 0 12 0 2 1.79 2 4s4.477 4 10 4Z', 'M2 4v16c0 2.21 4.477 4 10 4s10-1.79 10-4V4', 'M2 12c0 2.21 4.477 4 10 4s10-1.79 10-4'],
+  },
 } as const;
 
 const { name, size = 24, class: className } = Astro.props;

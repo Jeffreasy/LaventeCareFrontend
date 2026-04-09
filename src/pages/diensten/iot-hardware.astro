@@ -1,30 +1,36 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
-import Icon from '../../components/ui/Icon.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
 
 const features = [
   {
+    icon: 'battery-charging',
     title: 'Maandenlang zonder onderhoud',
     desc: 'Sensoren werken maandenlang zonder onderhoud, waardoor u geen tijd verliest aan handmatige controles of batterijwissels.',
   },
   {
+    icon: 'wifi',
     title: 'Direct inzetbaar',
     desc: 'Geen bekabeling nodig — snel te installeren en direct operationeel, zonder ingrijpende aanpassingen aan uw locatie.',
   },
   {
+    icon: 'refresh-cw',
     title: 'Updates op afstand',
     desc: 'Software-updates worden op afstand doorgevoerd. Geen monteur nodig, geen downtime voor uw apparaten.',
   },
   {
+    icon: 'smartphone',
     title: 'Altijd en overal inzicht',
     desc: 'Altijd en overal realtime inzicht in uw systemen — op smartphone, tablet of desktop.',
   },
   {
+    icon: 'bell',
     title: 'Ingrijpen vóór schade ontstaat',
     desc: 'Bij afwijkingen ontvangt u direct een melding, zodat u kunt ingrijpen voordat schade of stilstand ontstaat.',
   },
   {
+    icon: 'database',
     title: 'Veilig opgeslagen, altijd inzichtelijk',
     desc: 'Alle sensordata wordt veilig opgeslagen en realtime verwerkt, zodat u continu inzicht heeft in prestaties en trends.',
   },
@@ -108,13 +114,18 @@ const serviceSchema = {
       <!-- Features Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
         {
-          features.map((f) => (
+          features.map((f, i) => (
             <div
               data-animate="fade-up"
-              class="clinical-glass p-5 rounded-(--radius-card) border border-white/8"
+              class={`delay-${(i % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}
             >
-              <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
-              <p class="text-white/60 text-xs font-ui">{f.desc}</p>
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <Icon name={f.icon as IconName} size={18} class="text-active" />
+                </div>
+                <h3 class="text-sm font-bold text-white font-display pt-1.5">{f.title}</h3>
+              </div>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{f.desc}</p>
             </div>
           ))
         }

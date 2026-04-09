@@ -1,30 +1,36 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
-import Icon from '../../components/ui/Icon.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
 
 const features = [
   {
+    icon: 'arrow-up-right',
     title: 'Bezoekers worden aanvragen',
     desc: 'Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, waardoor ze sneller contact opnemen en minder afhaken.',
   },
   {
+    icon: 'bell',
     title: 'Geen aanvraag meer missen',
     desc: 'Direct inzicht in nieuwe aanvragen en wat u vandaag moet opvolgen — geen gemiste kansen meer.',
   },
   {
+    icon: 'lock',
     title: 'Veilig samenwerken met klanten',
     desc: 'Klanten blijven betrokken en goed geïnformeerd via een beveiligd portaal, wat zorgt voor minder vragen, minder misverstanden en meer vertrouwen.',
   },
   {
+    icon: 'search',
     title: 'Gevonden worden in Google',
     desc: 'Branche-specifieke zoektermen en technische optimalisatie zodat klanten u vinden vóórdat ze uw concurrent vinden.',
   },
   {
+    icon: 'trending-up',
     title: 'Meer aanvragen, zelfde bezoekers',
     desc: 'Uw website wordt continu verbeterd op basis van bezoekersgedrag, zodat meer mensen daadwerkelijk een aanvraag doen — zonder extra advertentiekosten.',
   },
   {
+    icon: 'zap',
     title: 'Directe opvolging',
     desc: 'Elke aanvraag wordt automatisch bevestigd en direct bij u gemeld, zodat u snel kunt reageren en geen leads verliest.',
   },
@@ -103,13 +109,18 @@ const serviceSchema = {
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
         {
-          features.map((f) => (
+          features.map((f, i) => (
             <div
               data-animate="fade-up"
-              class="clinical-glass p-5 rounded-(--radius-card) border border-white/8"
+              class={`delay-${(i % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}
             >
-              <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
-              <p class="text-white/60 text-xs font-ui">{f.desc}</p>
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <Icon name={f.icon as IconName} size={18} class="text-active" />
+                </div>
+                <h3 class="text-sm font-bold text-white font-display pt-1.5">{f.title}</h3>
+              </div>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{f.desc}</p>
             </div>
           ))
         }
