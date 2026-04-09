@@ -112,8 +112,10 @@ const caseStudies = [
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
-        {caseStudies.map((study) => (
-          <CaseStudyCard {...study} />
+        {caseStudies.map((study, index) => (
+          <div data-animate="fade-up" class={`delay-${(index % 3) * 100}`}>
+            <CaseStudyCard {...study} />
+          </div>
         ))}
       </div>
     </div>

@@ -58,8 +58,10 @@ const pillars = [
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
-        {pillars.map((pillar) => (
-          <PillarCard {...pillar} />
+        {pillars.map((pillar, index) => (
+          <div data-animate="fade-up" class={`delay-${index * 100}`}>
+            <PillarCard {...pillar} />
+          </div>
         ))}
       </div>
 
@@ -71,17 +73,17 @@ const pillars = [
         />
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
+          <div data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
             <Icon name="factory" size={24} class="text-active block mb-3 mx-auto" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">Industrie & Installaties</h3>
             <p class="text-white/50 text-xs font-ui">Waar stilstand direct geld kost. Realtime monitoring en preventief onderhoud.</p>
           </div>
-          <div class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
+          <div data-animate="fade-up" class="delay-100 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
             <Icon name="building" size={24} class="text-active block mb-3 mx-auto" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">MKB (Bouw, Groen, Automotive)</h3>
             <p class="text-white/50 text-xs font-ui">Meer aanvragen, betere vindbaarheid en veilige klantportalen.</p>
           </div>
-          <div class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
+          <div data-animate="fade-up" class="delay-200 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
             <Icon name="heart" size={24} class="text-active block mb-3 mx-auto" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">Non-Profits & Events</h3>
             <p class="text-white/50 text-xs font-ui">Minder chaos, meer overzicht. Geautomatiseerde registratie en donaties.</p>

@@ -117,8 +117,8 @@ const serviceSchema = {
       />
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
-        {watUKrijgt.map((item) => (
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group">
+        {watUKrijgt.map((item, index) => (
+          <div data-animate="scale-up" class={`delay-${(index % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}>
             <div class="flex items-start gap-3 mb-3">
               <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
                 <Icon name={item.icon as IconName} size={18} class="text-active" />
@@ -138,8 +138,8 @@ const serviceSchema = {
       />
 
       <div class="space-y-4 max-w-4xl mx-auto mb-16">
-        {laws.map((law) => (
-          <div class="clinical-glass p-5 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors group">
+        {laws.map((law, index) => (
+          <div data-animate="fade-up" class={`delay-${index * 100} clinical-glass p-5 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors group`}>
             <div class="flex items-start gap-4 md:gap-6">
               <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
                 <span class="text-active text-sm md:text-base font-bold font-display">{law.num}</span>

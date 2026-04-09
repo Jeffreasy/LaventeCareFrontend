@@ -55,7 +55,7 @@ const serviceSchema = {
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
         {features.map((f) => (
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
+          <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
             <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
             <p class="text-white/60 text-xs font-ui">{f.desc}</p>
           </div>
@@ -63,7 +63,7 @@ const serviceSchema = {
       </div>
 
       <!-- Doelgroep -->
-      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16">
+      <div data-animate="fade-up" class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16">
         <h2 class="text-xl font-bold text-white mb-4 font-display">Herkenbaar?</h2>
         <p class="text-white/70 font-ui mb-4">Lokale dienstverleners en aannemers die vastlopen in hun huidige situatie:</p>
         <ul class="space-y-3 text-sm font-ui text-white/60">
@@ -79,12 +79,12 @@ const serviceSchema = {
       <div class="max-w-3xl mx-auto">
         <p class="text-white/50 text-sm font-ui mb-4 text-center">Referentieprojecten</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="https://www.cfbouw.nl/" target="_blank" rel="noopener noreferrer" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
+          <a href="https://www.cfbouw.nl/" target="_blank" rel="noopener noreferrer" data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
             <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">C&F Bouw</h3>
             <p class="text-white/60 text-sm font-ui mb-2">Lead-generation portaal voor de bouwsector.</p>
             <p class="text-active text-xs font-bold font-ui">+340% organisch verkeer • structureel meer aanvragen per maand uit de website</p>
           </a>
-          <a href="https://tuinhub.nl/" target="_blank" rel="noopener noreferrer" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
+          <a href="https://tuinhub.nl/" target="_blank" rel="noopener noreferrer" data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
             <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">TuinHub</h3>
             <p class="text-white/60 text-sm font-ui">Matchmaking-platform voor tuineigenaren en hoveniers.</p>
           </a>

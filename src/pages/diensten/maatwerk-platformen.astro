@@ -85,7 +85,7 @@ const serviceSchema = {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
         {
           features.map((f) => (
-            <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
+            <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
               <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
               <p class="text-white/60 text-xs font-ui">{f.desc}</p>
             </div>
@@ -101,7 +101,7 @@ const serviceSchema = {
             href="https://www.dekoninklijkeloop.nl/"
             target="_blank"
             rel="noopener noreferrer"
-            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+            data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
           >
             <h3
               class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors"
@@ -119,7 +119,7 @@ const serviceSchema = {
             href="https://www.whiskyforcharity.com/"
             target="_blank"
             rel="noopener noreferrer"
-            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+            data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
           >
             <h3
               class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors"
