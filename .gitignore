@@ -23,3 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 .vercel
+
+# backend documentation (internal only)
+src/pages/backendDocs/

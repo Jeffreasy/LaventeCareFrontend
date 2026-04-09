@@ -91,8 +91,8 @@ const serviceSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="Professionele Databescherming & Security | LaventeCare"
-  description="Professionele databescherming voor uw applicatie. Gescheiden klantdata, automatische bescherming tegen aanvallen en AVG-compliance. Beveiliging als fundament."
+  title="LaventeCare AuthSystem — Ingebouwde Databescherming | LaventeCare"
+  description="Het LaventeCare AuthSystem: data-isolatie, rolgebaseerde toegangscontrole en automatische dreigingsdetectie. Beveiliging als fundament, niet als afterthought."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -107,8 +107,9 @@ const serviceSchema = {
           Uw data <span class="text-active">beschermd</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Beveiliging is geen optionele module die er achteraf bij komt — het is het fundament van
-          elke applicatie die ik bouw. Uw klantdata is structureel gescheiden en versleuteld
+          Elk platform dat ik bouw draait op het <span class="text-white font-semibold">LaventeCare AuthSystem</span> —
+          een zelfgebouwde beveiligingskern met multi-tenant data-isolatie, rolgebaseerde toegangscontrole
+          en automatische dreigingsdetectie. Uw klantdata is structureel gescheiden en versleuteld
           opgeslagen, zodat onbevoegden er geen toegang toe hebben — zelfs niet bij fouten in het
           systeem.
         </p>
@@ -149,9 +150,9 @@ const serviceSchema = {
 
       <!-- De 5 Principes -->
       <SectionHeader
-        label="De 5 principes"
+        label="Eigen framework"
         heading='Anti-Gravity <span class="text-active">Beveiligingsprincipes</span>'
-        description="Vijf strikte principes die ingebakken zijn in elke regel code. Veiligheid als fundament, niet als afterthought."
+        description="Vijf strikte principes die de kern vormen van het LaventeCare AuthSystem. Niet overgenomen uit een handboek, maar ontwikkeld uit de praktijk van het bouwen van multi-tenant platformen."
       />
 
       <div class="space-y-4 max-w-4xl mx-auto mb-16">
@@ -281,11 +282,26 @@ const serviceSchema = {
       </div>
 
       <!-- Trust Trigger -->
-      <div class="max-w-4xl mx-auto mt-8 text-center">
-        <p class="text-white/50 text-sm font-ui">
-          Actief in productie voor meerdere klanten — dagelijks gebruikt door honderden gebruikers
-          en bewezen in real-world scenario's.
-        </p>
+      <div class="max-w-4xl mx-auto mt-8">
+        <div class="clinical-glass p-5 md:p-6 rounded-(--radius-feature) border border-active/15 bg-active/5">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+            <div>
+              <span class="text-active text-xl font-black font-display block mb-1">6+</span>
+              <p class="text-white/60 text-xs font-ui">Tenants op één platform</p>
+            </div>
+            <div>
+              <span class="text-active text-xl font-black font-display block mb-1">24/7</span>
+              <p class="text-white/60 text-xs font-ui">Automatische dreigingsdetectie</p>
+            </div>
+            <div>
+              <span class="text-active text-xl font-black font-display block mb-1">100%</span>
+              <p class="text-white/60 text-xs font-ui">Acties traceerbaar via audit logs</p>
+            </div>
+          </div>
+          <p class="text-white/40 text-xs font-ui text-center mt-4">
+            Actief in productie — dagelijks gebruikt door honderden gebruikers en bewezen in real-world scenario's.
+          </p>
+        </div>
       </div>
     </div>
   </section>
