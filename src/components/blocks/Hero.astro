@@ -64,25 +64,33 @@ const headingSize = {
 
   <!-- Floating Shapes (Pure CSS) -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <!-- Large floating circle -->
+    <!-- Large floating circle (Teal) -->
     <div
-      class="absolute top-20 right-10 w-96 h-96 rounded-full bg-active/10 blur-3xl animate-float-slow will-change-transform"
+      class="absolute top-20 right-10 md:right-1/4 w-120 h-120 rounded-full bg-active/15 blur-3xl animate-float-slow will-change-transform mix-blend-screen"
     >
     </div>
 
-    <!-- Medium floating blob -->
+    <!-- Medium floating blob (Navy/Secondary) -->
     <div
-      class="absolute bottom-20 left-10 w-72 h-72 rounded-full bg-secondary/10 blur-2xl animate-float-medium will-change-transform"
+      class="absolute bottom-20 left-10 w-72 h-72 rounded-full bg-secondary/20 blur-3xl animate-float-medium will-change-transform mix-blend-screen"
+      style="animation-delay: 1s;"
+    >
+    </div>
+
+    <!-- The 'Roze/Coral' Signature Warm Gradient -->
+    <div
+      class="absolute top-1/3 right-10 w-100 h-100 rounded-full blur-[100px] animate-float-fast will-change-transform opacity-60 mix-blend-screen"
+      style="background: radial-gradient(circle, oklch(0.65 0.22 15 / 0.25), transparent 70%); animation-delay: 2.5s;"
     >
     </div>
 
     <!-- Small accent shapes -->
     <div
-      class="absolute top-1/3 left-1/4 w-32 h-32 rounded-full bg-white/5 blur-xl animate-float-fast will-change-transform"
+      class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-white/10 blur-2xl animate-float-fast will-change-transform"
     >
     </div>
     <div
-      class="absolute bottom-1/3 right-1/3 w-40 h-40 rounded-full bg-white/5 blur-xl animate-float-slow will-change-transform"
+      class="absolute bottom-1/3 right-1/3 w-40 h-40 rounded-full bg-active/10 blur-2xl animate-float-slow will-change-transform"
       style="animation-delay: 2s;"
     >
     </div>

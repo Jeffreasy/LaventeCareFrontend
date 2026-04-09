@@ -9,12 +9,12 @@ import PillarCard from '../components/blocks/PillarCard.astro';
 import LighthouseGauge from '../components/ui/LighthouseGauge.astro';
 
 const heroData = {
-  headline: 'Van Chip tot Cloud',
-  subtitle: 'AI Prompt Engineering, Web & IoT Solutions',
+  headline: 'Van idee tot werkend systeem',
+  subtitle: 'Geen losse tools, geen complexiteit — alles in één systeem',
   description:
-    'Van de zorg naar technologie: ik combineer <span class="text-active font-bold">AI prompt engineering</span> met full-stack development en bouw digitale ecosystemen die <span class="text-active font-bold">structuur</span>, <span class="text-active font-bold">veiligheid</span> en snelheid als fundament hebben. Geen standaard templates — maar op maat gemaakte <span class="text-active font-bold">"Forten"</span> voor uw bedrijf.',
+    'Ik bouw systemen die bedrijven <span class="text-active font-bold">efficiënter</span> maken, <span class="text-active font-bold">fouten voorkomen</span> en <span class="text-active font-bold">groei versnellen</span>. Van AI-automatisering tot IoT-monitoring en maatwerkplatformen — alles wat nodig is om uw processen te automatiseren, risico\'s te verminderen en meer resultaat te halen.',
   ctaPrimary: {
-    label: 'Gratis Intake Gesprek',
+    label: 'Plan een intake',
     url: '/contact',
   },
   ctaSecondary: {
@@ -22,9 +22,9 @@ const heroData = {
     url: '/portfolio',
   },
   stats: [
-    { value: 'Direct laden', label: 'Geoptimaliseerd voor snelheid' },
-    { value: '6+', label: 'Live Projecten' },
-    { value: 'Zero-Trust', label: 'Bank-Grade Beveiliging' },
+    { value: 'Direct laden', label: 'Uw site laadt razendsnel' },
+    { value: '6+', label: 'Live in productie' },
+    { value: 'Maximaal veilig', label: 'Uw data structureel beschermd' },
   ],
   alignment: 'center' as const,
   size: 'large' as const,
@@ -38,7 +38,7 @@ const jsonLd = {
   logo: 'https://www.laventecare.nl/og-image.png',
   image: 'https://www.laventecare.nl/og-image.png',
   description:
-    'LaventeCare — opgericht door Jeffrey Lavente, van intensieve NAH-zorg naar IT-architectuur. Combineert AI prompt engineering met Zero-Trust security en IoT-expertise voor enterprise-grade MKB-oplossingen.',
+    'LaventeCare — AI-automatisering, resultaatgerichte maatwerkplatformen, IoT-monitoring en professionele databescherming. Eén partner voor efficiëntere bedrijfsprocessen zonder complexiteit.',
   founder: {
     '@type': 'Person',
     name: 'Jeffrey Lavente',
@@ -69,9 +69,10 @@ const jsonLd = {
     },
   ],
   knowsAbout: [
-    'AI Prompt Engineering', 'LLM Integration', 'Custom GPT Development',
-    'IoT Development', 'ESP32 Firmware', 'Go Backend', 'Astro Framework',
-    'React', 'Zero-Trust Security', 'Web Development', 'Cloud Architecture',
+    'AI-automatisering', 'AI Prompt Engineering', 'Bedrijfsprocessen automatiseren',
+    'Slimme monitoring', 'IoT-oplossingen', 'Storingen voorkomen',
+    'Databescherming', 'AVG-compliance', 'Security fundament',
+    'Maatwerk platformen', 'Lead Generation', 'Digitale efficiency',
   ],
   sameAs: [
     'https://linkedin.com/in/jeffrey-lavente',
@@ -88,31 +89,39 @@ const jsonLd = {
 
 const pillars = [
   {
-    title: 'IoT & Hardware',
-    description: 'End-to-end telemetrie met ESP32/C++ firmware, deep-sleep, BLE-integratie en live cloud dashboards. Van de fysieke sensor tot het dashboard.',
+    title: 'AI & Automatisering',
+    description: 'AI die repetitief werk overneemt en uw data benut voor betere en snellere beslissingen — betrouwbaar, schaalbaar en meetbaar in uw dagelijkse processen.',
+    icon: 'brain-circuit',
+    tags: ['AI-automatisering', 'Digitale medewerkers', 'Bedrijfsdata'],
+    href: '/diensten/ai-prompt-engineering',
+    featured: true,
+  },
+  {
+    title: 'Slimme Monitoring & Sensoren',
+    description: 'Realtime monitoring die storingen vroegtijdig detecteert en schade of kostbare stilstand voorkomt. Van sensor tot dashboard, op afstand en zonder onderhoud.',
     icon: 'radio',
-    tags: ['C++', 'ESP32', 'BLE', 'Convex'],
+    tags: ['Realtime monitoring', 'Automatische alarmering', 'Op afstand'],
     href: '/diensten/iot-hardware',
   },
   {
     title: 'Maatwerk Platformen',
-    description: 'Complexe, data-intensieve platformen voor evenementen en non-profits. Registratie, ticketing, donaties en real-time data.',
+    description: 'Registratie, ticketing en donaties — volledig geautomatiseerd en ontworpen om foutloos te draaien. Uw volledige evenement of actie beheerd vanuit één centraal systeem.',
     icon: 'building-2',
-    tags: ['Astro', 'React 19', 'Convex', 'Go'],
+    tags: ['Registratie', 'Donaties', 'Dashboards', 'Schaalbaar'],
     href: '/diensten/maatwerk-platformen',
   },
   {
     title: 'Lead Generation',
-    description: 'Conversiegerichte portalen voor het MKB. Multi-step offertetrajecten, lead-management dashboards en SEO-optimalisatie.',
+    description: 'Meer aanvragen uit uw website, zonder extra marketingkosten. Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, zodat ze sneller converteren.',
     icon: 'target',
-    tags: ['Next.js', 'Supabase', 'SEO', 'Vercel'],
+    tags: ['Offertetrajecten', 'Lead-management', 'SEO'],
     href: '/diensten/lead-generation',
   },
   {
-    title: 'Security & Auth',
-    description: 'De Go-gebaseerde kern van alle applicaties. Bank-Grade authenticatie, Zero-Trust API\'s, Row Level Security en immutable audit logs.',
+    title: 'Beveiliging & Authenticatie',
+    description: 'Uw klantdata is structureel beschermd en gescheiden, zodat risico\'s worden geminimaliseerd en uw data veilig blijft — ook bij fouten of aanvallen.',
     icon: 'shield-check',
-    tags: ['Go', 'PostgreSQL', 'Redis', 'JWT'],
+    tags: ['Data-isolatie', 'Authenticatie', 'AVG-compliance'],
     href: '/diensten/security',
     featured: true,
   },
@@ -122,8 +131,8 @@ const pillars = [
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
-  title="LaventeCare — AI Prompt Engineering, Web & IoT Solutions"
-  description="LaventeCare digitaliseert complexe bedrijfsprocessen. Van IoT-firmware tot cloud-architectuur. Veilig, snel en schaalbaar. Dronten, Nederland."
+  title="LaventeCare — Systeemontwikkeling: AI, IoT & Platformen"
+  description="Systemen die bedrijven efficiënter maken, fouten voorkomen en groei versnellen. AI-automatisering, IoT-monitoring, maatwerkplatformen en professionele databescherming."
 >
   <Hero {...heroData} />
 
@@ -133,9 +142,9 @@ const pillars = [
 
     <div class="container mx-auto px-4 relative">
       <SectionHeader
-        label="Kernactiviteiten"
-        heading='Wat ik <span class="text-active">bouw</span>'
-        description="Vier gespecialiseerde pijlers, één complete oplossing. Van de chip in uw sensor tot het dashboard op uw scherm."
+        label="Wat ik bouw"
+        heading='Vijf pijlers, één <span class="text-active">complete oplossing</span>'
+        description="Vijf pijlers die samen zorgen voor minder handmatig werk, meer controle en betere resultaten."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -152,7 +161,7 @@ const pillars = [
       <SectionHeader
         label="Onderscheidend vermogen"
         heading='Waarom <span class="text-active">LaventeCare</span>?'
-        description="De combinatie van hardware-engineering en cloud-architectuur onder één dak is zeldzaam. Precies dát maakt het verschil."
+        description="Eén partner voor alles — van idee tot werkend systeem, zonder afhankelijkheid van meerdere partijen."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -161,9 +170,9 @@ const pillars = [
           <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
             <Icon name="link" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Eén aanspreekpunt</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Eén partner voor alles</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Van het idee tot het werkende product — alles via één partner. Geen schakels, geen miscommunicatie, geen vertraging.
+            Van het idee tot het werkende product — alles via één partner. Geen afhankelijkheid van meerdere partijen, geen miscommunicatie, geen vertraging.
           </p>
         </div>
 
@@ -172,9 +181,9 @@ const pillars = [
           <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
             <Icon name="zap" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Bankbeveiliging ingebakken</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Beveiliging als fundament</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Uw klantdata is structureel beschermd. Niet achteraf als optie, maar als fundament van elke applicatie die ik bouw.
+            Uw klantdata is structureel gescheiden van andere bedrijven. Niet achteraf als optie, maar ingebouwd in elke applicatie die ik bouw.
           </p>
         </div>
 
@@ -185,7 +194,7 @@ const pillars = [
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">Websites die verkopen</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Uw site laadt in een fractie van een seconde. Elke seconde sneller = 7% meer conversie. Mijn projecten scoren consistent 95–100 op Google Lighthouse.
+            Niet alleen mooi, maar sites die daadwerkelijk aanvragen opleveren — meetbaar en aantoonbaar. Elke seconde sneller = 7% meer conversie (bron: Google/Deloitte).
           </p>
         </div>
       </div>
@@ -255,8 +264,8 @@ const pillars = [
     <div class="container mx-auto px-4">
       <SectionHeader
         label="Referenties"
-        heading='Gebouwd door <span class="text-active">LaventeCare</span>'
-        description="Recente projecten uit mijn ecosysteem. Van event-platformen tot IoT-producten."
+        heading='Bewezen in <span class="text-active">productie</span>'
+        description="Geen demo's, maar echte systemen die dagelijks gebruikt worden en aantoonbaar resultaat opleveren."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -267,7 +276,7 @@ const pillars = [
             <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Event</span>
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Real-time registratieplatform voor liefdadigheidsevenement. 500+ deelnemers, live dashboard en geautomatiseerde e-mailbevestigingen.
+            Real-time registratieplatform voor liefdadigheidsevenement. 100+ deelnemers, live dashboard en geautomatiseerde e-mailbevestigingen.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
@@ -293,7 +302,7 @@ const pillars = [
             <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">IoT</span>
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            IoT-koelmonitoring met ESP32 sensoren, BLE-communicatie en real-time cloud dashboards. Temperatuur- en luchtvochtigheidsmetingen 24/7.
+            24/7 koelmonitoring met automatische alarmering bij afwijkingen. Sensordata direct zichtbaar op uw scherm, waar u ook bent.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">C++</span>
@@ -321,7 +330,7 @@ const pillars = [
             <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Lead-Gen</span>
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Lead-generatie portaal voor bouwbedrijf. Multi-step offerteformulier, projectgalerij en geautomatiseerde klantcommunicatie.
+            Stapsgewijs offertetraject, projectgalerij en automatische klantcommunicatie. +340% organisch verkeer na lancering.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Next.js</span>
@@ -348,7 +357,7 @@ const pillars = [
             <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Platform</span>
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Volledig werkplaats-managementsysteem met Kanban-bord, CRM, voertuigbeheer, RDW-integratie en facturatie.
+            Compleet werkplaatsbeheer: planning, klantenbeheer, voertuigregistratie met RDW-koppeling en automatische facturatie.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
@@ -378,7 +387,10 @@ const pillars = [
           Jeffrey Lavente
         </h2>
         <p class="text-white/70 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-ui">
-          AI prompt engineer en full-stack developer. Met een achtergrond in de zorg, 13 jaar calisthenics-discipline en een passie voor technologie bouw ik AI-gedreven oplossingen die écht werken — niet duur en ingewikkeld, maar precies goed.
+          AI prompt engineer en full-stack developer met een achtergrond in de zorg. Ik bouw systemen die niet alleen technisch sterk zijn, maar ook praktisch werken in de echte wereld.
+        </p>
+        <p class="text-white/40 text-sm font-ui mb-6">
+          Plan een intake en ontdek waar u direct tijd, kosten of risico kunt besparen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/over" class="btn-secondary">

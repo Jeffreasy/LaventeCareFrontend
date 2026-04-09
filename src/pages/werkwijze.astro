@@ -8,7 +8,7 @@ const processSteps = [
   {
     phase: '1',
     title: 'Kennismaking & Intake',
-    description: 'Vrijblijvend gesprek (30 min) om scope, verwachtingen en haalbaarheid vast te stellen. Go/no-go op basis van technische complexiteit en budget.',
+    description: 'Vrijblijvend gesprek (30 min) om uw situatie, doelen en technische mogelijkheden helder te krijgen. Inclusief eerste inschatting van haalbaarheid en investering.',
     price: 'Gratis',
     icon: 'coffee',
   },
@@ -22,14 +22,14 @@ const processSteps = [
   {
     phase: '3',
     title: 'Ontwikkeling & Oplevering',
-    description: 'Agile ontwikkeling in sprints van 2 weken. Tussentijdse demo\'s en acceptatietests. Facturatie op milestones.',
+    description: 'Agile ontwikkeling in sprints van 2 weken. Tussentijdse demo\'s en acceptatietests. Volledige transparantie: u ziet precies wat er gebouwd wordt en waar uw budget naartoe gaat — per sprint inzichtelijk.',
     price: '€95/uur',
     icon: 'zap',
   },
   {
     phase: '4',
     title: 'SLA & Doorontwikkeling',
-    description: 'Na oplevering start het SLA-traject. Doorontwikkeling en feature requests als retainer of op uurbasis.',
+    description: 'Uw systeem blijft veilig, up-to-date en beschikbaar. Doorontwikkeling en nieuwe features op basis van uw wensen — flexibel, schaalbaar en toekomstbestendig.',
     price: 'vanaf €75/mnd',
     icon: 'refresh-cw',
   },
@@ -42,7 +42,7 @@ const howToSchema = {
   description: 'Van gratis intake tot SLA-ondersteuning. Een gestructureerd vierfasen-model voor B2B IT-projecten.',
   step: processSteps.map((s) => ({
     '@type': 'HowToStep',
-    name: `Fase ${s.phase}: ${s.title}`,
+    name: `Stap ${s.phase}: ${s.title}`,
     text: s.description,
   })),
   totalTime: 'P12W',
@@ -57,7 +57,7 @@ const howToSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
 <Layout
-  title="Werkwijze: Van Intake tot Oplevering — LaventeCare"
+  title="Werkwijze — Beheerst Proces, Geen Complexiteit | LaventeCare"
   description="Hoe werkt een project met LaventeCare? Van gratis intake tot SLA-ondersteuning. Transparant, gestructureerd en zonder verrassingen."
 >
   <section class="section-padding pt-32 md:pt-40">
@@ -65,7 +65,7 @@ const howToSchema = {
       <SectionHeader
         label="Werkwijze"
         heading='Van idee tot <span class="text-active">productie</span>'
-        description="Complexe B2B-projecten vereisen een gestructureerd proces. Mijn vierfasen-model waarborgt dat elke investering zich terugbetaalt."
+        description="Geen chaos of verrassingen, maar een gestructureerd proces dat zorgt voor controle, duidelijkheid en een betrouwbaar eindresultaat."
       />
 
       <!-- Process Timeline -->
@@ -77,8 +77,8 @@ const howToSchema = {
       <div class="max-w-3xl mx-auto mb-16">
         <SectionHeader
           label="Facturatie"
-          heading='Gefaseerde <span class="text-active">facturatie</span>'
-          description="Gezonde cashflow voor beide partijen. Elke fase beschermt uw investering."
+          heading='Gefaseerde <span class="text-active">facturatie</span> — volledige controle over uw investering'
+          description="U betaalt alleen na zichtbare voortgang. Elke fase beschermt uw investering."
         />
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -134,8 +134,8 @@ const howToSchema = {
               <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> Doorverwijzing
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/40">
-              <li>Budget onder €3.000 → low-code alternatieven</li>
-              <li>Alleen prijsinformatie zonder context</li>
+              <li>Budget onder €3.000 → vaak beter geschikt voor low-code oplossingen</li>
+              <li>Alleen prijsinformatie zonder context → moeilijk om een goede inschatting te maken</li>
               <li>Gratis proof-of-concept → betaalde discovery</li>
               <li>Template-oplossing (WordPress/Wix)</li>
             </ul>
@@ -149,9 +149,10 @@ const howToSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
       <a href="/contact" class="btn-primary text-lg px-10">
-        Start met een intake
+        Plan een intake
         <Icon name="arrow-right" size={20} />
       </a>
+      <p class="text-white/40 text-sm font-ui mt-3">Plan een intake en krijg direct inzicht in haalbaarheid, aanpak en kosten voor uw situatie.</p>
     </div>
   </section>
 </Layout>

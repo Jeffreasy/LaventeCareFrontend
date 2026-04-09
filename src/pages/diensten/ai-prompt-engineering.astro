@@ -5,41 +5,41 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const features = [
-  { title: 'Custom AI Agents', desc: 'Autonome digitale medewerkers die taken uitvoeren, data analyseren en beslissingen nemen op basis van uw bedrijfslogica.' },
-  { title: 'LLM-integratie', desc: 'Naadloze koppeling van GPT-4, Claude of open-source modellen aan uw bestaande software en workflows.' },
-  { title: 'Prompt Design & Optimalisatie', desc: 'Strategisch ontworpen prompts die consistente, betrouwbare output leveren — geen willekeurige AI-antwoorden.' },
-  { title: 'RAG-systemen', desc: 'Retrieval Augmented Generation: AI die antwoorden baseert op úw bedrijfsdata, documenten en kennisbank.' },
-  { title: 'AI-workflow Automatisering', desc: 'Repetitieve processen automatiseren met intelligente AI-chains die meerdere stappen autonoom doorlopen.' },
-  { title: 'AI-gedreven Dashboards', desc: 'Real-time inzichten en voorspellingen gevisualiseerd in op maat gemaakte interfaces.' },
+  { title: 'Digitale medewerkers', desc: 'Digitale medewerkers die repetitieve taken overnemen en zelfstandig werken volgens uw bedrijfsregels — 24/7, zonder pauze en zonder extra personeelskosten.' },
+  { title: 'Geïntegreerd in uw software', desc: 'Uw bestaande software wordt slimmer door koppeling met AI-modellen. Geen losstaand experiment, maar onderdeel van uw workflow.' },
+  { title: 'Betrouwbare resultaten', desc: 'AI die consistente en bruikbare resultaten levert, zodat u erop kunt vertrouwen in uw dagelijkse processen — zonder verrassingen.' },
+  { title: 'AI op uw eigen data', desc: 'AI die werkt op uw eigen documenten en systemen, zodat antwoorden relevant en betrouwbaar zijn — niet gebaseerd op het internet.' },
+  { title: 'Minder handmatig werk', desc: 'Repetitieve taken zoals rapportages, classificaties en data-invoer worden automatisch afgehandeld, zodat uw team zich richt op wat telt.' },
+  { title: 'Direct inzicht', desc: 'Realtime inzichten en voorspellingen in dashboards, zodat u sneller beslissingen kunt nemen.' },
 ];
 
 const useCases = [
-  { title: 'Klantenservice automatisering', desc: 'AI-agent die veelgestelde vragen beantwoordt, tickets categoriseert en escaleert wanneer nodig.' },
-  { title: 'Content & documentatie', desc: 'Geautomatiseerde rapportages, vertaling en content-generatie met menselijke review-flow.' },
-  { title: 'Data-analyse & inzichten', desc: 'Natuurlijke-taal queries op uw database: "Wat was onze omzet vorige maand per regio?"' },
-  { title: 'Code-assistentie & review', desc: 'Custom AI-tools die codekwaliteit bewaken, bugs detecteren en refactoring suggesties doen.' },
+  { title: 'Klantenservice automatisering', desc: 'AI die veelgestelde vragen automatisch afhandelt, waardoor uw team minder tijd kwijt is aan support en sneller kan schalen.' },
+  { title: 'Content & documentatie', desc: 'Automatische rapportages, vertalingen en content-generatie — uren werk teruggebracht tot minuten.' },
+  { title: 'Data-analyse & inzichten', desc: 'Stel vragen aan uw data in normale taal: "Wat was onze omzet vorige maand per regio?" — en krijg direct antwoord.' },
+  { title: 'Code-assistentie & review', desc: 'AI die codekwaliteit bewaakt, bugs detecteert en verbeteringen voorstelt — snellere ontwikkeling met minder fouten.' },
 ];
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'AI Prompt Engineering',
-  description: 'Professionele AI prompt engineering diensten: custom AI-agents, LLM-integratie, RAG-systemen en workflow-automatisering.',
+  name: 'AI & Automatisering',
+  description: 'AI die repetitief werk overneemt en uw data benut voor betere beslissingen — betrouwbaar, schaalbaar en meetbaar in uw dagelijkse processen.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
     url: 'https://www.laventecare.nl',
   },
   areaServed: 'NL',
-  serviceType: 'AI Prompt Engineering & LLM Integration',
-  serviceOutput: 'Custom AI-agents, LLM-integraties, RAG-systemen en geautomatiseerde workflows',
+  serviceType: 'AI Automation & Integration Services',
+  serviceOutput: 'Digitale medewerkers, AI-workflows en data-infrastructuur',
 };
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="AI Prompt Engineering — LaventeCare"
-  description="Professionele AI prompt engineering diensten: custom AI-agents, LLM-integratie, RAG-systemen en workflow-automatisering. Van concept tot productie. Dronten, Nederland."
+  title="AI & Automatisering — Sneller en Beter Werken | LaventeCare"
+  description="Laat AI werk uit handen nemen. Digitale medewerkers, slimme automatisering en AI geïntegreerd in uw bedrijfsprocessen — betrouwbaar en meetbaar."
 >
   <!-- Hero -->
   <section class="section-padding pt-32 md:pt-40">
@@ -49,11 +49,14 @@ const serviceSchema = {
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
           Intelligentie die <span class="text-active">werkt</span>
         </h1>
-        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Een AI prompt engineer ontwerpt, optimaliseert en implementeert de instructies waarmee AI-modellen zoals GPT-4 en Claude betrouwbare, consistente resultaten leveren. Het verschil tussen een chatbot die "iets probeert" en een AI-systeem dat daadwerkelijk waarde toevoegt? <span class="text-white font-semibold">Professionele prompt engineering.</span>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Veel bedrijven experimenteren met AI, maar krijgen onbetrouwbare of inconsistente resultaten. Ik bouw AI-systemen die wél betrouwbaar werken en daadwerkelijk tijd en kosten besparen.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          Laat AI werk uit handen nemen — betrouwbaar, schaalbaar en meetbaar.
         </p>
         <div class="flex flex-wrap gap-2">
-          {['GPT-4', 'Claude', 'LangChain', 'RAG', 'Custom Agents', 'Python', 'Vector DB'].map((t) => (
+          {['AI-automatisering', 'Digitale medewerkers', 'Bedrijfsdata', 'Integraties', 'Dashboards'].map((t) => (
             <TechStackBadge tech={t} />
           ))}
         </div>
@@ -61,16 +64,13 @@ const serviceSchema = {
 
       <!-- Wat is een AI Prompt Engineer -->
       <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto mb-16">
-        <h2 class="text-xl md:text-2xl font-bold text-white mb-6 font-display">Wat is een AI Prompt Engineer?</h2>
+        <h2 class="text-xl md:text-2xl font-bold text-white mb-6 font-display">Waarom professionele AI?</h2>
         <div class="space-y-4 text-white/70 font-ui text-sm leading-relaxed">
           <p>
-            Een <strong class="text-white">AI prompt engineer</strong> is een specialist die de brug slaat tussen menselijke intentie en kunstmatige intelligentie. Waar traditionele software werkt met exacte code-instructies, werken Large Language Models (LLMs) met <strong class="text-white">natuurlijke taal</strong> — en de kwaliteit van die instructies bepaalt het verschil tussen bruikbare output en ruis.
+            AI werkt alleen goed als het goed wordt aangestuurd. Ik ontwerp AI-systemen die <strong class="text-white">betrouwbaar, consistent en geïntegreerd</strong> werken binnen uw processen — niet als experiment, maar als onderdeel van uw bedrijfsvoering.
           </p>
           <p>
-            Professionele prompt engineering gaat verder dan "een vraag stellen aan ChatGPT". Het omvat <strong class="text-white">system prompts</strong>, <strong class="text-white">chain-of-thought reasoning</strong>, <strong class="text-white">few-shot learning</strong>, output-structurering en het bouwen van complete AI-pipelines die betrouwbaar en reproduceerbaar werken in productieomgevingen.
-          </p>
-          <p>
-            Bij LaventeCare combineer ik prompt engineering met full-stack development. Dat betekent dat de AI-oplossingen die ik bouw niet in isolatie leven — ze worden <strong class="text-white">geïntegreerd in bestaande systemen</strong>, gekoppeld aan databases, beveiligd met Zero-Trust architectuur en voorzien van professionele interfaces.
+            Het verschil met "zelf ChatGPT gebruiken"? Professionele AI-systemen leveren <strong class="text-white">reproduceerbare resultaten</strong>, werken op uw eigen data, zijn gekoppeld aan uw software en hebben ingebouwde kwaliteitscontrole.
           </p>
         </div>
       </div>
@@ -96,23 +96,23 @@ const serviceSchema = {
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div class="text-center">
             <span class="text-active text-2xl font-black font-display block mb-2">01</span>
-            <h3 class="text-sm font-bold text-white mb-1 font-display">Discovery</h3>
-            <p class="text-white/60 text-xs font-ui">Welke processen zijn geschikt voor AI-automatisering?</p>
+            <h3 class="text-sm font-bold text-white mb-1 font-display">Waar bespaart AI tijd?</h3>
+            <p class="text-white/60 text-xs font-ui">Welke processen kosten nu het meeste tijd en zijn geschikt voor automatisering?</p>
           </div>
           <div class="text-center">
             <span class="text-active text-2xl font-black font-display block mb-2">02</span>
-            <h3 class="text-sm font-bold text-white mb-1 font-display">Prompt Design</h3>
-            <p class="text-white/60 text-xs font-ui">Strategisch ontwerp van system prompts, guardrails en output-structuren.</p>
+            <h3 class="text-sm font-bold text-white mb-1 font-display">Betrouwbaar maken</h3>
+            <p class="text-white/60 text-xs font-ui">AI-systeem ontwerpen dat voorspelbare, consistente resultaten levert.</p>
           </div>
           <div class="text-center">
             <span class="text-active text-2xl font-black font-display block mb-2">03</span>
-            <h3 class="text-sm font-bold text-white mb-1 font-display">Integratie</h3>
-            <p class="text-white/60 text-xs font-ui">Koppeling aan uw systemen: API's, databases, dashboards.</p>
+            <h3 class="text-sm font-bold text-white mb-1 font-display">Integreren</h3>
+            <p class="text-white/60 text-xs font-ui">Koppeling aan uw systemen, databases en dagelijkse workflows.</p>
           </div>
           <div class="text-center">
             <span class="text-active text-2xl font-black font-display block mb-2">04</span>
-            <h3 class="text-sm font-bold text-white mb-1 font-display">Optimalisatie</h3>
-            <p class="text-white/60 text-xs font-ui">Continue verbetering op basis van output-kwaliteit en kosten.</p>
+            <h3 class="text-sm font-bold text-white mb-1 font-display">Continu verbeteren</h3>
+            <p class="text-white/60 text-xs font-ui">Optimalisatie op basis van output-kwaliteit, kosten en gebruikersfeedback.</p>
           </div>
         </div>
       </div>
@@ -134,13 +134,13 @@ const serviceSchema = {
 
       <!-- Doelgroep -->
       <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16">
-        <h2 class="text-xl font-bold text-white mb-4 font-display">Voor wie?</h2>
-        <p class="text-white/70 font-ui mb-4">Organisaties die AI willen inzetten als strategisch voordeel:</p>
-        <ul class="space-y-2 text-sm font-ui text-white/60">
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> MKB dat repetitieve processen wil automatiseren</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Softwarebedrijven die AI-features willen toevoegen</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Organisaties met grote hoeveelheden ongestructureerde data</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Bedrijven die custom ChatGPT-achtige tools willen voor intern gebruik</li>
+        <h2 class="text-xl font-bold text-white mb-4 font-display">Herkenbaar?</h2>
+        <p class="text-white/70 font-ui mb-4">Organisaties die merken dat AI meer kan, maar het zelf niet betrouwbaar krijgen:</p>
+        <ul class="space-y-3 text-sm font-ui text-white/60">
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U besteedt uren aan taken die AI in minuten kan doen</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uw team experimenteert met ChatGPT maar krijgt inconsistente resultaten</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U wilt AI inzetten, maar weet niet waar te beginnen</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U heeft veel data, maar haalt er te weinig waarde uit</li>
         </ul>
       </div>
 
@@ -148,8 +148,8 @@ const serviceSchema = {
       <div class="max-w-3xl mx-auto text-center">
         <p class="text-white/50 text-sm font-ui mb-4">Interne case study</p>
         <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 inline-block">
-          <h3 class="text-lg font-bold text-white font-display mb-1">LaventeCare Codebase</h3>
-          <p class="text-white/60 text-sm font-ui">Alle LaventeCare-projecten worden gebouwd met AI-gedreven development workflows — van code-generatie tot geautomatiseerde audits en prompt-gestuurde security reviews.</p>
+          <h3 class="text-lg font-bold text-white font-display mb-1">LaventeCare Projecten</h3>
+          <p class="text-white/60 text-sm font-ui">AI wordt dagelijks gebruikt binnen mijn eigen projecten — voor codekwaliteit, automatisering en analyse — waardoor ontwikkeling sneller verloopt, fouten worden verminderd en kwaliteit consistent blijft.</p>
         </div>
       </div>
     </div>
@@ -159,9 +159,10 @@ const serviceSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
       <a href="/contact?type=ai" class="btn-primary">
-        Bespreek uw AI-project
+        Plan een gesprek
         <Icon name="arrow-right" size={16} />
       </a>
+      <p class="text-white/40 text-sm font-ui mt-3">Plan een gesprek en ontdek hoeveel tijd u kunt besparen.</p>
     </div>
   </section>
 </Layout>

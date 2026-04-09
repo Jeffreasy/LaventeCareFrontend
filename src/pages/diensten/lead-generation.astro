@@ -4,34 +4,34 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const features = [
-  { title: 'Multi-step Offertes', desc: 'Gestructureerde offertetrajecten die conversie maximaliseren.' },
-  { title: 'Lead Management', desc: 'Geavanceerde dashboards voor lead-opvolging en analyse.' },
-  { title: 'Veilige Klantomgeving', desc: 'Beveiligde portalen voor klantcommunicatie en projectstatus.' },
-  { title: 'SEO-optimalisatie', desc: 'Branche-specifieke zoektermen en technische SEO.' },
-  { title: 'Conversie-optimalisatie', desc: 'Data-gedreven aanpassingen voor hogere conversie.' },
-  { title: 'Automatische E-mails', desc: 'Lead-notificaties en follow-up workflows.' },
+  { title: 'Bezoekers worden aanvragen', desc: 'Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, waardoor ze sneller contact opnemen en minder afhaken.' },
+  { title: 'Geen aanvraag meer missen', desc: 'Direct inzicht in nieuwe aanvragen en wat u vandaag moet opvolgen — geen gemiste kansen meer.' },
+  { title: 'Veilig samenwerken met klanten', desc: 'Klanten blijven betrokken en goed geïnformeerd via een beveiligd portaal, wat zorgt voor minder vragen, minder misverstanden en meer vertrouwen.' },
+  { title: 'Gevonden worden in Google', desc: 'Branche-specifieke zoektermen en technische optimalisatie zodat klanten u vinden vóórdat ze uw concurrent vinden.' },
+  { title: 'Meer aanvragen, zelfde bezoekers', desc: 'Uw website wordt continu verbeterd op basis van bezoekersgedrag, zodat meer mensen daadwerkelijk een aanvraag doen — zonder extra advertentiekosten.' },
+  { title: 'Directe opvolging', desc: 'Elke aanvraag wordt automatisch bevestigd en direct bij u gemeld, zodat u snel kunt reageren en geen leads verliest.' },
 ];
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Lead Generation & Matchmaking',
-  description: 'Conversiegerichte portalen voor het MKB. Multi-step offertetrajecten, lead-management en SEO-optimalisatie.',
+  name: 'Lead Generation & Automatisering',
+  description: 'Meer aanvragen uit uw website zonder extra marketingkosten. Stapsgewijze offertetrajecten en automatisch bezoekers omzetten naar klanten.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
     url: 'https://www.laventecare.nl',
   },
   areaServed: 'NL',
-  serviceType: 'Lead Generation Platform Development',
-  serviceOutput: 'Conversiegerichte portalen met offertetrajecten, lead-management dashboards en SEO-optimalisatie',
+  serviceType: 'Lead Generation Portals & SEO',
+  serviceOutput: 'Conversiegerichte offertemodules, portaal voor directe opvolging en stijging organisch verkeer.',
 };
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="Lead Generation & Matchmaking — LaventeCare"
-  description="Conversiegerichte portalen voor het MKB. Multi-step offertetrajecten, lead-management en SEO-optimalisatie. Next.js, Supabase en Vercel."
+  title="Lead Generation & Klantportalen — Meer Aanvragen | LaventeCare"
+  description="Meer aanvragen uit uw website, zonder extra marketingkosten. Stapsgewijze offertetrajecten en SEO-optimalisatie voor het MKB."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -40,11 +40,14 @@ const serviceSchema = {
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
           Bezoekers worden <span class="text-active">klanten</span>
         </h1>
-        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Conversiegerichte portalen waar vraag en aanbod samenkomen. Veilige klantomgevingen, multi-step offertetrajecten en geavanceerde lead-management dashboards om de bedrijfsvoering van het MKB te stroomlijnen.
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Veel websites krijgen wel bezoekers, maar leveren te weinig aanvragen op. Uw website wordt een systeem dat bezoekers omzet in concrete aanvragen — automatisch en meetbaar.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          Meer aanvragen uit uw website, zonder extra marketingkosten.
         </p>
         <div class="flex flex-wrap gap-2">
-          {['Next.js', 'Supabase', 'Vercel', 'SEO', 'Analytics'].map((t) => (
+          {['Offertetrajecten', 'Lead-management', 'SEO', 'Analytics', 'Klantportaal'].map((t) => (
             <TechStackBadge tech={t} />
           ))}
         </div>
@@ -61,13 +64,15 @@ const serviceSchema = {
 
       <!-- Doelgroep -->
       <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16">
-        <h2 class="text-xl font-bold text-white mb-4 font-display">Doelgroep</h2>
-        <p class="text-white/70 font-ui mb-4">Lokale dienstverleners en aannemers die vastlopen in standaardsoftware:</p>
-        <ul class="space-y-2 text-sm font-ui text-white/60">
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Bouw & aannemerij</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Groenvoorziening & hoveniers</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automotive & garages</li>
+        <h2 class="text-xl font-bold text-white mb-4 font-display">Herkenbaar?</h2>
+        <p class="text-white/70 font-ui mb-4">Lokale dienstverleners en aannemers die vastlopen in hun huidige situatie:</p>
+        <ul class="space-y-3 text-sm font-ui text-white/60">
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uw website krijgt bezoekers, maar te weinig aanvragen</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U mist offertes omdat leads niet worden opgevolgd</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uw concurrent staat hoger in Google</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U betaalt veel aan advertenties maar weet niet wat het oplevert</li>
         </ul>
+        <p class="text-white/50 text-xs font-ui mt-4">Ik werk voor bouw & aannemerij, groenvoorziening, hoveniers en automotive.</p>
       </div>
 
       <!-- Referenties -->
@@ -76,7 +81,8 @@ const serviceSchema = {
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <a href="https://www.cfbouw.nl/" target="_blank" rel="noopener noreferrer" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
             <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">C&F Bouw</h3>
-            <p class="text-white/60 text-sm font-ui">Lead-generation portaal voor de bouwsector.</p>
+            <p class="text-white/60 text-sm font-ui mb-2">Lead-generation portaal voor de bouwsector.</p>
+            <p class="text-active text-xs font-bold font-ui">+340% organisch verkeer • structureel meer aanvragen per maand uit de website</p>
           </a>
           <a href="https://tuinhub.nl/" target="_blank" rel="noopener noreferrer" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
             <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">TuinHub</h3>
@@ -90,9 +96,10 @@ const serviceSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
       <a href="/contact?type=leadgen" class="btn-primary">
-        Meer leads genereren
+        Plan een gesprek
         <Icon name="arrow-right" size={16} />
       </a>
+      <p class="text-white/40 text-sm font-ui mt-3">Meer aanvragen uit uw website? Laten we samen kijken wat mogelijk is.</p>
     </div>
   </section>
 </Layout>

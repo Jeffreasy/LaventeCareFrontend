@@ -4,72 +4,131 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const features = [
-  { title: 'Registratie & Ticketing', desc: 'Complexe registratiestromen met meerdere deelnemerstypes.' },
-  { title: 'Donatiestromen', desc: 'Veilige financiële transacties en verantwoording.' },
-  { title: 'Real-time Data', desc: 'Live dashboards voor organisatorische besluitvorming.' },
-  { title: 'E-mail Automatisering', desc: 'Geautomatiseerde bevestigingen, updates en notificaties.' },
-  { title: 'Admin Dashboard', desc: 'Centraal beheer voor gebruikers, data en content.' },
-  { title: 'Orderverwerking', desc: 'Van bestelling tot levering, volledig geautomatiseerd.' },
+  {
+    title: 'Registratie & Ticketing',
+    desc: 'Deelnemers melden zich eenvoudig aan, terwijl het systeem automatisch alles verwerkt — van bevestiging tot wachtlijst. Geen handmatig werk.',
+  },
+  {
+    title: 'Veilige donaties',
+    desc: 'Donaties worden veilig verwerkt en overzichtelijk geregistreerd, zodat u vertrouwen uitstraalt naar uw doelgroep.',
+  },
+  {
+    title: 'Direct inzicht',
+    desc: 'U ziet realtime hoeveel deelnemers en donaties binnenkomen, zodat u direct kunt bijsturen.',
+  },
+  {
+    title: 'Automatische communicatie',
+    desc: 'Deelnemers en donateurs worden automatisch op de hoogte gehouden — bevestigingen, updates en herinneringen, zonder extra werk.',
+  },
+  {
+    title: 'Alles in één beheerpaneel',
+    desc: 'Gebruikers, inschrijvingen, donaties en communicatie — alles beheerd vanuit één overzichtelijk scherm.',
+  },
+  {
+    title: 'Van aanmelding tot opvolging',
+    desc: 'Het volledige traject geautomatiseerd: van inschrijving tot bevestiging, opvolging en evaluatie.',
+  },
 ];
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Maatwerk Platformen & Events',
-  description: 'Complexe, data-intensieve platformen voor evenementen en non-profits. Registratie, ticketing, donaties en real-time data.',
+  description:
+    'Geautomatiseerde registratie, donaties, acties en communicatie. Uw volledige evenement of actie beheerd vanuit één centraal, foutloos systeem.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
     url: 'https://www.laventecare.nl',
   },
   areaServed: 'NL',
-  serviceType: 'Custom Web Platform Development',
-  serviceOutput: 'Maatwerk webplatformen met registratie, ticketing, donaties en real-time dashboards',
+  serviceType: 'Custom Platform & Event Software Development',
+  serviceOutput:
+    'Registratiesystemen, live dashboards en API-integraties op maat',
 };
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="Maatwerk Platformen & Events — LaventeCare"
-  description="Complexe, data-intensieve platformen voor evenementen en non-profits. Registratie, ticketing, donaties en real-time data. Astro, React en Go."
+  title="Maatwerk Platformen & Grote Evenementen | LaventeCare"
+  description="Uw evenement of actie volledig beheerd vanuit één systeem. Registratie, donaties, communicatie en live inzicht — automatisch en schaalbaar."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"><Icon name="building-2" size={16} class="text-active" /> Maatwerk Platformen</span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+        <span
+          class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"
+          ><Icon name="building-2" size={16} class="text-active" /> Maatwerk Platformen</span
+        >
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight"
+        >
           Platformen die <span class="text-active">presteren</span>
         </h1>
-        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Complexe, data-intensieve platformen voor goede doelen en evenementen. Inclusief orderverwerking, donatiestromen en geautomatiseerde e-mailservices. Gebouwd met de nieuwste technologie.
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Veel organisaties werken met losse tools en handmatige processen, waardoor inschrijvingen,
+          donaties en communicatie onoverzichtelijk worden. Ik bouw platformen die alles
+          samenbrengen in één systeem — automatisch, schaalbaar en betrouwbaar.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          Uw volledige evenement of actie beheerd vanuit één platform.
         </p>
         <div class="flex flex-wrap gap-2">
-          {['Astro', 'React 19', 'Convex', 'Go Auth', 'Vercel', 'HTML Email'].map((t) => (
-            <TechStackBadge tech={t} />
-          ))}
+          {
+            ['Alles in één systeem:', 'Registratie', 'Donaties', 'E-mail', 'Dashboards', 'Beheer'].map(
+              (t) => <TechStackBadge tech={t} />
+            )
+          }
         </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
-        {features.map((f) => (
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
-            <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
-            <p class="text-white/60 text-xs font-ui">{f.desc}</p>
-          </div>
-        ))}
+        {
+          features.map((f) => (
+            <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
+              <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
+              <p class="text-white/60 text-xs font-ui">{f.desc}</p>
+            </div>
+          ))
+        }
       </div>
 
       <!-- Referenties -->
       <div class="max-w-3xl mx-auto">
         <p class="text-white/50 text-sm font-ui mb-4 text-center">Referentieprojecten</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="https://www.dekoninklijkeloop.nl/" target="_blank" rel="noopener noreferrer" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
-            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">De Koninklijke Loop</h3>
-            <p class="text-white/60 text-sm font-ui">Evenementenplatform met registratie, ticketing en real-time data.</p>
+          <a
+            href="https://www.dekoninklijkeloop.nl/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+          >
+            <h3
+              class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors"
+            >
+              De Koninklijke Loop
+            </h3>
+            <p class="text-white/60 text-sm font-ui mb-2">
+              Evenementenplatform met registratie, ticketing en live data.
+            </p>
+            <p class="text-active text-xs font-bold font-ui">
+              100+ deelnemers • volledig geautomatiseerde registratie en communicatie zonder handmatig werk
+            </p>
           </a>
-          <a href="https://www.whiskyforcharity.com/" target="_blank" rel="noopener noreferrer" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
-            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">Whisky for Charity</h3>
-            <p class="text-white/60 text-sm font-ui">Liefdadigheidsplatform met veilige donatiestromen.</p>
+          <a
+            href="https://www.whiskyforcharity.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+          >
+            <h3
+              class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors"
+            >
+              Whisky for Charity
+            </h3>
+            <p class="text-white/60 text-sm font-ui">
+              Liefdadigheidsplatform met veilige donatiestromen.
+            </p>
           </a>
         </div>
       </div>
@@ -79,9 +138,12 @@ const serviceSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
       <a href="/contact?type=platform" class="btn-primary">
-        Bespreek uw platform
+        Plan een gesprek
         <Icon name="arrow-right" size={16} />
       </a>
+        <p class="text-white/40 text-sm font-ui mt-3">
+          Plan een gesprek en ontdek hoe u tijd bespaart en overzicht terugkrijgt.
+        </p>
     </div>
   </section>
 </Layout>

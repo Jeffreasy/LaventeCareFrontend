@@ -5,34 +5,34 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const features = [
-  { title: 'Deep-sleep firmware', desc: 'Maanden batterijduur door intelligent energiebeheer.' },
-  { title: 'BLE-integratie', desc: 'Bluetooth Low Energy voor korte-afstandscommunicatie.' },
-  { title: 'Over-the-Air Updates', desc: 'Firmware op afstand bijwerken zonder fysieke toegang.' },
-  { title: 'Real-time dashboards', desc: 'Live data via Convex met directe visualisatie.' },
-  { title: 'Kritieke alarmering', desc: 'Automatische notificaties bij drempelwaarden.' },
-  { title: 'Cloud-synchronisatie', desc: 'Sensordata real-time verwerkt en opgeslagen.' },
+  { title: 'Maandenlang zonder onderhoud', desc: 'Sensoren werken maandenlang zonder onderhoud, waardoor u geen tijd verliest aan handmatige controles of batterijwissels.' },
+  { title: 'Direct inzetbaar', desc: 'Geen bekabeling nodig — snel te installeren en direct operationeel, zonder ingrijpende aanpassingen aan uw locatie.' },
+  { title: 'Updates op afstand', desc: 'Software-updates worden op afstand doorgevoerd. Geen monteur nodig, geen downtime voor uw apparaten.' },
+  { title: 'Altijd en overal inzicht', desc: 'Altijd en overal realtime inzicht in uw systemen — op smartphone, tablet of desktop.' },
+  { title: 'Ingrijpen vóór schade ontstaat', desc: 'Bij afwijkingen ontvangt u direct een melding, zodat u kunt ingrijpen voordat schade of stilstand ontstaat.' },
+  { title: 'Veilig opgeslagen, altijd inzichtelijk', desc: 'Alle sensordata wordt veilig opgeslagen en realtime verwerkt, zodat u continu inzicht heeft in prestaties en trends.' },
 ];
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'IoT & Hardware Monitoring',
-  description: 'End-to-end IoT-oplossingen: ESP32/C++ firmware, deep-sleep, BLE, sensortelemetrie en live cloud dashboards.',
+  name: 'Slimme Monitoring & Sensoren',
+  description: 'Realtime monitoring die storingen vroegtijdig detecteert en kostbare stilstand voorkomt. Van fysieke sensor tot cloud dashboard.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
     url: 'https://www.laventecare.nl',
   },
   areaServed: 'NL',
-  serviceType: 'IoT Development & Hardware Monitoring',
-  serviceOutput: 'ESP32 firmware, sensornetwerken, cloud dashboards en real-time monitoring systemen',
+  serviceType: 'IoT Development & Monitoring Solutions',
+  serviceOutput: 'Sensorschermen, automatische beslisbomen en remote hardware management',
 };
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="IoT & Hardware Monitoring — LaventeCare"
-  description="End-to-end IoT-oplossingen: ESP32/C++ firmware, deep-sleep, BLE, sensortelemetrie en live cloud dashboards. Smart Industry monitoring."
+  title="Slimme Monitoring & Sensoren — Risico's Voorkomen | LaventeCare"
+  description="Voorkom storingen en schade met realtime monitoring. Sensoren die maandenlang meegaan, automatische alarmering en live dashboards."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -41,11 +41,14 @@ const serviceSchema = {
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
           Van sensor tot <span class="text-active">dashboard</span>
         </h1>
-        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Ontwikkeling van end-to-end telemetrie-oplossingen voor de industrie en koeltechniek. ESP32/C++ firmware met deep-sleep en BLE-integratie, gekoppeld aan live dashboards. Data wordt real-time verwerkt voor directe visualisatie en kritieke alarmering.
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Storingen worden vaak pas ontdekt als het al mis is — met schade en kosten tot gevolg. Ik bouw systemen die problemen vroegtijdig signaleren, zodat u kunt ingrijpen voordat het te laat is.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          Minder downtime, minder schade, meer controle.
         </p>
         <div class="flex flex-wrap gap-2">
-          {['C++', 'ESP32', 'BLE', 'Convex', 'React Dashboard', 'Deep-sleep'].map((t) => (
+          {['Realtime monitoring', 'Automatische alarmering', 'Live dashboards', 'Op afstand', 'Schaalbaar'].map((t) => (
             <TechStackBadge tech={t} />
           ))}
         </div>
@@ -63,12 +66,12 @@ const serviceSchema = {
 
       <!-- Doelgroep -->
       <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16">
-        <h2 class="text-xl font-bold text-white mb-4 font-display">Doelgroep</h2>
-        <p class="text-white/70 font-ui mb-4">Producenten en installateurs van hardware die de transitie willen maken naar 'Smart' apparatuur:</p>
-        <ul class="space-y-2 text-sm font-ui text-white/60">
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Industrie & klimaatbeheersing</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Koeltechniek & installatietechniek</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Remote monitoring & preventief onderhoud</li>
+        <h2 class="text-xl font-bold text-white mb-4 font-display">Herkenbaar?</h2>
+        <p class="text-white/70 font-ui mb-4">Bedrijven waar storingen direct kosten of schade veroorzaken:</p>
+        <ul class="space-y-3 text-sm font-ui text-white/60">
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Koelinstallaties waar temperatuurafwijkingen tot productverlies leiden</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Productieomgevingen waar stilstand direct geld kost</li>
+          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Technische installaties die nu handmatig geïnspecteerd worden</li>
         </ul>
       </div>
 
@@ -77,7 +80,7 @@ const serviceSchema = {
         <p class="text-white/50 text-sm font-ui mb-4">Referentieproject</p>
         <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 inline-block">
           <h3 class="text-lg font-bold text-white font-display mb-1">SmartCoolCare</h3>
-          <p class="text-white/60 text-sm font-ui">Industriële koelmonitoring met ESP32-sensors, deep-sleep firmware en live cloud dashboards.</p>
+          <p class="text-white/60 text-sm font-ui mb-2">24/7 temperatuurbewaking met automatische alarmering — voorkomt schade, minimaliseert stilstand en geeft continu inzicht.</p>
         </div>
       </div>
     </div>
@@ -87,9 +90,10 @@ const serviceSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
       <a href="/contact?type=iot" class="btn-primary">
-        Bespreek uw IoT-project
+        Plan een gesprek
         <Icon name="arrow-right" size={16} />
       </a>
+      <p class="text-white/40 text-sm font-ui mt-3">Voorkom schade en stilstand — plan een gesprek en ontdek de mogelijkheden.</p>
     </div>
   </section>
 </Layout>

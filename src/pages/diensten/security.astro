@@ -2,91 +2,146 @@
 import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
-import Icon from '../../components/ui/Icon.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
 
 const laws = [
   {
     num: '01',
-    title: 'Alle invoer is verdacht',
-    subtitle: 'Input is Toxic',
-    desc: 'Nooit blindelings vertrouwen. Alles wordt getypeerd, gevalideerd en gesanitized via strict type-checking. SQL Injection-risico is geëlimineerd door typed query generation (sqlc) en het verbod op string concatenatie.',
+    title: 'Alle invoer wordt gecontroleerd',
+    subtitle: 'Geen blindelings vertrouwen',
+    desc: 'Alles wat binnenkomt — formulieren, API-verzoeken, uploads — wordt automatisch gecontroleerd en gefilterd. Kwaadaardige invoer wordt geblokkeerd voordat het schade kan doen aan uw systeem of data.',
   },
   {
     num: '02',
-    title: 'Geen informatie lekken',
-    subtitle: 'Silence is Golden',
-    desc: 'Nooit interne state of stack traces lekken naar de client. Monitoring via interne logs en Sentry, generieke HTTP responses naar buiten.',
+    title: 'Geen informatie weggeven',
+    subtitle: 'Aanvallers leren niets',
+    desc: 'Bezoekers krijgen nooit technische foutmeldingen te zien die hackers kunnen misbruiken. Fouten worden intern bijgehouden en opgelost, zonder dat buitenstaanders inzicht krijgen in de werking van uw systeem.',
   },
   {
     num: '03',
-    title: 'Database als kluis',
-    subtitle: 'The Database is a Fortress',
-    desc: 'Row Level Security op alle kritieke tabellen. De database zélf handhaaft wie welke data mag zien. Cross-tenant datalekken worden architectureel voorkomen op databaseniveau.',
+    title: 'Uw data in een kluis',
+    subtitle: 'Gescheiden op databaseniveau',
+    desc: 'Uw data wordt op databaseniveau gescheiden van andere klanten. Zelfs als er een fout in de code zit, kan data van andere bedrijven niet worden ingezien. De database zélf handhaaft wie welke gegevens mag zien.',
   },
   {
     num: '04',
-    title: 'Bescherming tegen conflicten',
-    subtitle: 'Race Conditions are Fatal',
-    desc: 'Handlers zijn stateless. Gedeelde resources beschermd via mutexen of channels. Race conditions worden actief gemitigeerd, ook onder zware belasting.',
+    title: 'Stabiel onder druk',
+    subtitle: 'Geen fouten bij hoge belasting',
+    desc: 'Ontworpen om fouten zoals data-corruptie of dubbele boekingen te voorkomen, ook onder hoge belasting — duizenden bezoekers tegelijk.',
   },
   {
     num: '05',
     title: 'Minimale afhankelijkheden',
-    subtitle: 'Dependency Paranoia',
-    desc: 'Voorkeur voor standard library en bewezen packages. Geen bloatware. Geautomatiseerde vulnerability scanning en regelmatige audits.',
+    subtitle: 'Minder kwetsbaar, meer controle',
+    desc: 'Alleen bewezen en gecontroleerde software wordt gebruikt. Minder afhankelijkheden betekent minder kwetsbaarheden — en elke externe component wordt regelmatig gecontroleerd op bekende problemen.',
   },
 ];
+
+const watUKrijgt = [
+  {
+    icon: 'shield-check',
+    title: 'Gescheiden klantdata',
+    desc: 'Uw bedrijfsgegevens zijn technisch gescheiden van andere klanten. Bij een fout kan niemand bij andermans data.',
+  },
+  {
+    icon: 'lock',
+    title: 'Versleutelde opslag',
+    desc: 'Gevoelige gegevens worden versleuteld opgeslagen. Bij een hack zijn deze data niet bruikbaar voor kwaadwillenden.',
+  },
+  {
+    icon: 'clipboard-list',
+    title: 'Elke actie traceerbaar',
+    desc: 'Alle acties worden vastgelegd en kunnen niet worden aangepast. Misbruik of fouten zijn altijd achteraf terug te vinden.',
+  },
+  {
+    icon: 'zap',
+    title: 'Automatische bescherming',
+    desc: 'Verdachte bezoekers en bots worden automatisch geblokkeerd voordat ze schade kunnen doen. Zonder dat u er iets voor hoeft te doen.',
+  },
+  {
+    icon: 'shield-check',
+    title: 'AVG-compliant',
+    desc: 'Uw systeem is gebouwd volgens Privacy by Design. U voldoet aan de AVG-eisen voor databescherming en verwerkersovereenkomsten.',
+  },
+  {
+    icon: 'refresh-cw',
+    title: 'Automatische opschoning',
+    desc: 'Verlopen sessies en tokens worden automatisch opgeruimd. Geen zwerfdata, geen vergeten toegangsrechten.',
+  },
+];
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Security & Auth — LaventeCare Core',
-  description: 'De 5 Anti-Gravity Beveiligingswetten. Dual-Token architectuur, Zero-Trust APIs, Row Level Security. Bank-Grade beveiliging.',
+  name: 'Beveiliging & Authenticatie',
+  description: 'Uw klantdata structureel beschermd en gescheiden. Beveiliging als fundament ingebouwd, zodat AVG-compliance gegarandeerd is, ook bij fouten of aanvallen.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
     url: 'https://www.laventecare.nl',
   },
   areaServed: 'NL',
-  serviceType: 'Application Security & Authentication Engineering',
-  serviceOutput: 'Zero-Trust security backends met Dual-Token auth, RLS, rate limiting en immutable audit logs',
+  serviceType: 'App Security & Authentication Architecture',
+  serviceOutput: 'Volledige authenticatiesystemen, role-based access control en data-isolatie structuren',
 };
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="Security & Auth — LaventeCare Core"
-  description="De 5 Anti-Gravity Beveiligingswetten. Dual-Token architectuur, Zero-Trust API's, Row Level Security. Bank-Grade beveiliging voor elke applicatie."
+  title="Professionele Databescherming & Security | LaventeCare"
+  description="Professionele databescherming voor uw applicatie. Gescheiden klantdata, automatische bescherming tegen aanvallen en AVG-compliance. Beveiliging als fundament."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
         <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"><Icon name="shield-check" size={16} class="text-active" /> LaventeCare Core</span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
-          Anti-Gravity <span class="text-active">Security</span>
+          Uw data <span class="text-active">beschermd</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          De Go-gebaseerde back-end technologie die fungeert als het hart van alle applicaties. Bank-Grade authenticatie met Dual-Token architectuur, Zero-Latency RBAC en Database Fortress — ontworpen om cross-tenant datalekken architectureel te voorkomen.
+          Beveiliging is geen optionele module die er achteraf bij komt — het is het fundament van elke applicatie die ik bouw. Uw klantdata is structureel gescheiden en versleuteld opgeslagen, zodat onbevoegden er geen toegang toe hebben — zelfs niet bij fouten in het systeem.
         </p>
         <div class="flex flex-wrap gap-2">
-          {['Go', 'PostgreSQL', 'Redis', 'JWT', 'RBAC', 'RLS', 'Sentry'].map((t) => (
+          {['Go', 'PostgreSQL', 'Redis', 'Versleuteling', 'AVG-Compliant', 'Audit Logs'].map((t) => (
             <TechStackBadge tech={t} />
           ))}
         </div>
       </div>
 
-      <!-- The 5 Laws -->
+      <!-- Wat U Krijgt -->
       <SectionHeader
-        label="De 5 Wetten"
+        label="Het resultaat"
+        heading='Wat u <span class="text-active">concreet krijgt</span>'
+        description="Niet hoe het werkt, maar wat het voor uw bedrijf betekent."
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+        {watUKrijgt.map((item) => (
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group">
+            <div class="flex items-start gap-3 mb-3">
+              <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                <Icon name={item.icon as IconName} size={18} class="text-active" />
+              </div>
+              <h3 class="text-sm font-bold text-white font-display pt-1.5">{item.title}</h3>
+            </div>
+            <p class="text-white/60 text-xs font-ui leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- De 5 Principes -->
+      <SectionHeader
+        label="De 5 principes"
         heading='Anti-Gravity <span class="text-active">Beveiligingsprincipes</span>'
-        description="Veiligheid als fundament, niet als optionele module. Deze vijf principes zijn ingebakken in elke regel code."
+        description="Vijf strikte principes die ingebakken zijn in elke regel code. Veiligheid als fundament, niet als afterthought."
       />
 
       <div class="space-y-4 max-w-4xl mx-auto mb-16">
         {laws.map((law) => (
           <div class="clinical-glass p-5 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors group">
             <div class="flex items-start gap-4 md:gap-6">
-              <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-active/10 flex items-center justify-center flex-shrink-0 group-hover:bg-active/20 transition-colors">
+              <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
                 <span class="text-active text-sm md:text-base font-bold font-display">{law.num}</span>
               </div>
               <div>
@@ -99,26 +154,58 @@ const serviceSchema = {
         ))}
       </div>
 
-      <!-- Architecture Highlights -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-active/20 bg-active/5">
-          <h3 class="text-lg font-bold text-white mb-4 font-display">Architecturale Beveiliging</h3>
+      <!-- AVG & Compliance -->
+      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5 max-w-4xl mx-auto mb-16">
+        <div class="flex items-center gap-3 mb-6">
+          <Icon name="shield-check" size={24} class="text-active" />
+          <h2 class="text-xl md:text-2xl font-bold text-white font-display">AVG & Privacy Compliance</h2>
+        </div>
+        <p class="text-white/70 font-ui text-sm leading-relaxed mb-6">
+          Alle applicaties worden gebouwd volgens het principe van <strong class="text-white">Privacy by Design</strong>. Dit betekent dat databescherming niet achteraf wordt toegevoegd, maar van begin af aan is meeontworpen.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <ul class="space-y-3 text-sm font-ui text-white/70">
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Multi-tenant isolation via Row Level Security</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Dataminimalisatie — alleen opslaan wat nodig is</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Versleutelde opslag van gevoelige gegevens</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automatische opschoning van verlopen data</li>
+          </ul>
+          <ul class="space-y-3 text-sm font-ui text-white/70">
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Verwerkersovereenkomst beschikbaar</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Onwijzigbare audit logs voor forensische integriteit</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Geteste procedure voor datalekken</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Architecturale Details (voor de geïnteresseerde lezer) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
+          <h3 class="text-lg font-bold text-white mb-4 font-display">Onder de motorkap</h3>
+          <p class="text-white/50 text-xs font-ui mb-4">Voor ontwikkelaars en technisch geïnteresseerden:</p>
+          <ul class="space-y-3 text-sm font-ui text-white/70">
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Row Level Security op alle kritieke tabellen</li>
             <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Dual-Token authenticatie (access + refresh)</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Zero-Trust API design: geen open endpoints</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Rate limiting (25 req/s, burst 50)</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Zero-Trust API design: elk verzoek wordt geverifieerd</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Rate limiting tegen brute-force aanvallen</li>
           </ul>
         </div>
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
-          <h3 class="text-lg font-bold text-white mb-4 font-display">Operationele Beveiliging</h3>
+          <h3 class="text-lg font-bold text-white mb-4 font-display">Dagelijkse bescherming</h3>
+          <p class="text-white/50 text-xs font-ui mb-4">Wat continu op de achtergrond draait:</p>
           <ul class="space-y-3 text-sm font-ui text-white/70">
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> MFA-first voor alle admin-interfaces</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automated token purging (The Janitor)</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Content Security Policy enforcement</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> CORS-whitelisting per tenant</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Twee-factor authenticatie voor beheerders</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automatische opschoning van verlopen sessies</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Content Security Policy tegen code-injectie</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Per-klant toegangscontrole op API-niveau</li>
           </ul>
         </div>
+      </div>
+
+      <!-- Trust Trigger -->
+      <div class="max-w-4xl mx-auto mt-8 text-center">
+        <p class="text-white/50 text-sm font-ui">
+          Actief in productie voor meerdere klanten — dagelijks gebruikt door honderden gebruikers en bewezen in real-world scenario's.
+        </p>
       </div>
     </div>
   </section>
