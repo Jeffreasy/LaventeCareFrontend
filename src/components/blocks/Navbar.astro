@@ -14,7 +14,7 @@ interface Props {
   siteName?: string;
 }
 
-const { logo, menu, siteName = 'LaventeCare' } = Astro.props;
+const { menu } = Astro.props;
 import Logo from '../ui/Logo.astro';
 const currentPath = Astro.url.pathname;
 

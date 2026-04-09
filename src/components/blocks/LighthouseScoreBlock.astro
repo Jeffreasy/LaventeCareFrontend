@@ -28,8 +28,6 @@ const {
 } = Astro.props;
 
 const gaugeSize = variant === 'compact' ? 'sm' : 'md';
-
-const averageScore = Math.round(scores.reduce((sum, s) => sum + s.score, 0) / scores.length);
 ---
 
 {variant === 'full' ? (
