@@ -9,7 +9,7 @@ const laws = [
     num: '01',
     title: 'Alle invoer is verdacht',
     subtitle: 'Input is Toxic',
-    desc: 'Nooit blindelings vertrouwen. Alles wordt getypeerd, gevalideerd en gesanitized via strict type-checking. SQL Injection is onmogelijk gemaakt via gecompileerde queries.',
+    desc: 'Nooit blindelings vertrouwen. Alles wordt getypeerd, gevalideerd en gesanitized via strict type-checking. SQL Injection-risico is geëlimineerd door typed query generation (sqlc) en het verbod op string concatenatie.',
   },
   {
     num: '02',
@@ -21,13 +21,13 @@ const laws = [
     num: '03',
     title: 'Database als kluis',
     subtitle: 'The Database is a Fortress',
-    desc: 'Row Level Security op alle kritieke tabellen. De database zélf handhaaft wie welke data mag zien. Cross-tenant datalekken zijn wiskundig onmogelijk.',
+    desc: 'Row Level Security op alle kritieke tabellen. De database zélf handhaaft wie welke data mag zien. Cross-tenant datalekken worden architectureel voorkomen op databaseniveau.',
   },
   {
     num: '04',
     title: 'Bescherming tegen conflicten',
     subtitle: 'Race Conditions are Fatal',
-    desc: 'Handlers zijn stateless. Gedeelde resources beschermd via mutexen of channels. Geen race conditions mogelijk, zelfs onder zware belasting.',
+    desc: 'Handlers zijn stateless. Gedeelde resources beschermd via mutexen of channels. Race conditions worden actief gemitigeerd, ook onder zware belasting.',
   },
   {
     num: '05',
@@ -66,7 +66,7 @@ const serviceSchema = {
           Anti-Gravity <span class="text-active">Security</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          De Go-gebaseerde back-end technologie die fungeert als het hart van alle applicaties. Bank-Grade authenticatie met Dual-Token architectuur, Zero-Latency RBAC en Database Fortress om cross-tenant datalekken onmogelijk te maken.
+          De Go-gebaseerde back-end technologie die fungeert als het hart van alle applicaties. Bank-Grade authenticatie met Dual-Token architectuur, Zero-Latency RBAC en Database Fortress — ontworpen om cross-tenant datalekken architectureel te voorkomen.
         </p>
         <div class="flex flex-wrap gap-2">
           {['Go', 'PostgreSQL', 'Redis', 'JWT', 'RBAC', 'RLS', 'Sentry'].map((t) => (
