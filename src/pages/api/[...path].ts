@@ -26,6 +26,7 @@ export const ALL: APIRoute = async ({ request, params, url }) => {
     const csrf = request.headers.get('x-csrf-token');
     console.log(`[Universal Proxy] In Cookies: ${c ? 'Present' : 'Missing'} (${c?.length} chars)`);
     console.log(`[Universal Proxy] In CSRF Header: ${csrf ? 'Present' : 'Missing'} (${csrf})`);
+    console.log(`[Universal Proxy] In Tenant Header: ${request.headers.get('x-tenant-id')}`);
   }
 
   // Clone Headers (Filter Host to avoid SNI issues)

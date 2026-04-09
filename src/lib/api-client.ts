@@ -9,7 +9,7 @@
 
 // Use relative path to hit local Astro proxy (BFF Pattern)
 const API_BASE = '';
-const TENANT_ID = import.meta.env.PUBLIC_TENANT_ID;
+const TENANT_ID = import.meta.env.PUBLIC_TENANT_ID || 'e3253710-d965-42d2-bdf8-4cf3762381c2';
 
 // Helper to extract CSRF token from cookies
 const getCsrfToken = (): string | null => {
