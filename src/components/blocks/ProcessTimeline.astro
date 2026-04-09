@@ -20,41 +20,39 @@ const { steps, class: className } = Astro.props;
 <div class:list={['relative', className]}>
   <!-- Mobile: Vertical Timeline -->
   <div class="flex flex-col gap-6 md:gap-0 md:grid md:grid-cols-4">
-    {steps.map((step, i) => (
-      <div class="relative flex md:flex-col items-start md:items-center gap-4 md:gap-0 md:px-4">
-        {/* Connector line (mobile: vertical, desktop: horizontal) */}
-        {i < steps.length - 1 && (
-          <>
-            {/* Mobile connector */}
-            <div class="absolute left-5 top-12 w-0.5 h-[calc(100%+0.5rem)] bg-gradient-to-b from-active/40 to-active/10 md:hidden" />
-            {/* Desktop connector */}
-            <div class="hidden md:block absolute top-5 left-[calc(50%+1.5rem)] w-[calc(100%-3rem)] h-0.5 bg-gradient-to-r from-active/40 to-active/10" />
-          </>
-        )}
-
-        {/* Step Number Circle */}
-        <div class="relative z-10 w-10 h-10 rounded-full bg-active/15 border-2 border-active/40 flex items-center justify-center flex-shrink-0">
-          <span class="text-active font-bold text-sm font-display">{step.phase}</span>
-        </div>
-
-        {/* Content */}
-        <div class="flex-1 md:text-center md:mt-4">
-          <div class="flex md:justify-center mb-1" aria-hidden="true">
-            <Icon name={step.icon} size={20} class="text-active" />
-          </div>
-          <h3 class="text-base md:text-lg font-bold text-white mb-2 font-display">
-            {step.title}
-          </h3>
-          <p class="text-white/60 text-sm leading-relaxed font-ui mb-2">
-            {step.description}
-          </p>
-          {step.price && (
-            <span class="text-active text-sm font-bold font-display">
-              {step.price}
-            </span>
+    {
+      steps.map((step, i) => (
+        <div class="relative flex md:flex-col items-start md:items-center gap-4 md:gap-0 md:px-4">
+          {/* Connector line (mobile: vertical, desktop: horizontal) */}
+          {i < steps.length - 1 && (
+            <>
+              {/* Mobile connector */}
+              <div class="absolute left-5 top-12 w-0.5 h-[calc(100%+0.5rem)] bg-gradient-to-b from-active/40 to-active/10 md:hidden" />
+              {/* Desktop connector */}
+              <div class="hidden md:block absolute top-5 left-[calc(50%+1.5rem)] w-[calc(100%-3rem)] h-0.5 bg-gradient-to-r from-active/40 to-active/10" />
+            </>
           )}
+
+          {/* Step Number Circle */}
+          <div class="relative z-10 w-10 h-10 rounded-full bg-active/15 border-2 border-active/40 flex items-center justify-center flex-shrink-0">
+            <span class="text-active font-bold text-sm font-display">{step.phase}</span>
+          </div>
+
+          {/* Content */}
+          <div class="flex-1 md:text-center md:mt-4">
+            <div class="flex md:justify-center mb-1" aria-hidden="true">
+              <Icon name={step.icon} size={20} class="text-active" />
+            </div>
+            <h3 class="text-base md:text-lg font-bold text-white mb-2 font-display">
+              {step.title}
+            </h3>
+            <p class="text-white/60 text-sm leading-relaxed font-ui mb-2">{step.description}</p>
+            {step.price && (
+              <span class="text-active text-sm font-bold font-display">{step.price}</span>
+            )}
+          </div>
         </div>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </div>

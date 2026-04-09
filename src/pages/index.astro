@@ -69,10 +69,18 @@ const jsonLd = {
     },
   ],
   knowsAbout: [
-    'AI-automatisering', 'AI Prompt Engineering', 'Bedrijfsprocessen automatiseren',
-    'Slimme monitoring', 'IoT-oplossingen', 'Storingen voorkomen',
-    'Databescherming', 'AVG-compliance', 'Security fundament',
-    'Maatwerk platformen', 'Lead Generation', 'Digitale efficiency',
+    'AI-automatisering',
+    'AI Prompt Engineering',
+    'Bedrijfsprocessen automatiseren',
+    'Slimme monitoring',
+    'IoT-oplossingen',
+    'Storingen voorkomen',
+    'Databescherming',
+    'AVG-compliance',
+    'Security fundament',
+    'Maatwerk platformen',
+    'Lead Generation',
+    'Digitale efficiency',
   ],
   sameAs: [
     'https://linkedin.com/in/jeffrey-lavente',
@@ -90,7 +98,8 @@ const jsonLd = {
 const pillars = [
   {
     title: 'AI & Automatisering',
-    description: 'AI die repetitief werk overneemt en uw data benut voor betere en snellere beslissingen — betrouwbaar, schaalbaar en meetbaar in uw dagelijkse processen.',
+    description:
+      'AI die repetitief werk overneemt en uw data benut voor betere en snellere beslissingen — betrouwbaar, schaalbaar en meetbaar in uw dagelijkse processen.',
     icon: 'brain-circuit',
     tags: ['AI-automatisering', 'Digitale medewerkers', 'Bedrijfsdata'],
     href: '/diensten/ai-prompt-engineering',
@@ -98,28 +107,32 @@ const pillars = [
   },
   {
     title: 'Slimme Monitoring & Sensoren',
-    description: 'Realtime monitoring die storingen vroegtijdig detecteert en schade of kostbare stilstand voorkomt. Van sensor tot dashboard, op afstand en zonder onderhoud.',
+    description:
+      'Realtime monitoring die storingen vroegtijdig detecteert en schade of kostbare stilstand voorkomt. Van sensor tot dashboard, op afstand en zonder onderhoud.',
     icon: 'radio',
     tags: ['Realtime monitoring', 'Automatische alarmering', 'Op afstand'],
     href: '/diensten/iot-hardware',
   },
   {
     title: 'Maatwerk Platformen',
-    description: 'Registratie, ticketing en donaties — volledig geautomatiseerd en ontworpen om foutloos te draaien. Uw volledige evenement of actie beheerd vanuit één centraal systeem.',
+    description:
+      'Registratie, ticketing en donaties — volledig geautomatiseerd en ontworpen om foutloos te draaien. Uw volledige evenement of actie beheerd vanuit één centraal systeem.',
     icon: 'building-2',
     tags: ['Registratie', 'Donaties', 'Dashboards', 'Schaalbaar'],
     href: '/diensten/maatwerk-platformen',
   },
   {
     title: 'Lead Generation',
-    description: 'Meer aanvragen uit uw website, zonder extra marketingkosten. Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, zodat ze sneller converteren.',
+    description:
+      'Meer aanvragen uit uw website, zonder extra marketingkosten. Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, zodat ze sneller converteren.',
     icon: 'target',
     tags: ['Offertetrajecten', 'Lead-management', 'SEO'],
     href: '/diensten/lead-generation',
   },
   {
     title: 'Beveiliging & Authenticatie',
-    description: 'Uw klantdata is structureel beschermd en gescheiden, zodat risico\'s worden geminimaliseerd en uw data veilig blijft — ook bij fouten of aanvallen.',
+    description:
+      "Uw klantdata is structureel beschermd en gescheiden, zodat risico's worden geminimaliseerd en uw data veilig blijft — ook bij fouten of aanvallen.",
     icon: 'shield-check',
     tags: ['Data-isolatie', 'Authenticatie', 'AVG-compliance'],
     href: '/diensten/security',
@@ -138,7 +151,10 @@ const pillars = [
 
   <!-- Kernactiviteiten -->
   <section class="section-padding relative overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-active/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-active/5 rounded-full blur-3xl pointer-events-none"
+    >
+    </div>
 
     <div class="container mx-auto px-4 relative">
       <SectionHeader
@@ -148,9 +164,7 @@ const pillars = [
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {pillars.map((pillar) => (
-          <PillarCard {...pillar} />
-        ))}
+        {pillars.map((pillar) => <PillarCard {...pillar} />)}
       </div>
     </div>
   </section>
@@ -166,35 +180,53 @@ const pillars = [
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
         <!-- USP 1 -->
-        <div data-animate="fade-up" class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors">
-          <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+        <div
+          data-animate="fade-up"
+          class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform"
+          >
             <Icon name="link" size={24} class="text-active" />
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">Eén partner voor alles</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Van het idee tot het werkende product — alles via één partner. Geen afhankelijkheid van meerdere partijen, geen miscommunicatie, geen vertraging.
+            Van het idee tot het werkende product — alles via één partner. Geen afhankelijkheid van
+            meerdere partijen, geen miscommunicatie, geen vertraging.
           </p>
         </div>
 
         <!-- USP 2 -->
-        <div data-animate="fade-up" class="delay-100 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors">
-          <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+        <div
+          data-animate="fade-up"
+          class="delay-100 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform"
+          >
             <Icon name="zap" size={24} class="text-active" />
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">Beveiliging als fundament</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Uw klantdata is structureel gescheiden van andere bedrijven. Niet achteraf als optie, maar ingebouwd in elke applicatie die ik bouw.
+            Uw klantdata is structureel gescheiden van andere bedrijven. Niet achteraf als optie,
+            maar ingebouwd in elke applicatie die ik bouw.
           </p>
         </div>
 
         <!-- USP 3 -->
-        <div data-animate="fade-up" class="delay-200 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors">
-          <div class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+        <div
+          data-animate="fade-up"
+          class="delay-200 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform"
+          >
             <Icon name="gauge" size={24} class="text-active" />
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">Websites die verkopen</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Niet alleen mooi, maar sites die daadwerkelijk aanvragen opleveren — meetbaar en aantoonbaar. Elke seconde sneller = 7% meer conversie (bron: Google/Deloitte).
+            Niet alleen mooi, maar sites die daadwerkelijk aanvragen opleveren — meetbaar en
+            aantoonbaar. Elke seconde sneller = 7% meer conversie (bron: Google/Deloitte).
           </p>
         </div>
       </div>
@@ -204,7 +236,10 @@ const pillars = [
   <!-- Stats Bar -->
   <section class="py-8 md:py-12">
     <div class="container mx-auto px-4">
-      <div data-animate="scale-up" class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto">
+      <div
+        data-animate="scale-up"
+        class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto"
+      >
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           <StatCard value="<1.5s" label="Gemiddelde Laadtijd" />
           <StatCard value="99/100" label="Google PageSpeed" />
@@ -218,20 +253,38 @@ const pillars = [
   <!-- Social Proof: Verifieerbare Lighthouse Scores -->
   <section class="py-8 md:py-12">
     <div class="container mx-auto px-4">
-      <div data-animate="fade-up" class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto">
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto"
+      >
         <div class="text-center mb-6">
-          <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-2 block">Verifieerbaar bewijs</span>
-          <h2 class="text-xl md:text-2xl font-bold text-white font-display">Google Lighthouse Scores</h2>
-          <p class="text-white/50 text-sm font-ui mt-2">Onafhankelijk gemeten door Google — niet door mij. Verifieer het zelf.</p>
+          <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-2 block"
+            >Verifieerbaar bewijs</span
+          >
+          <h2 class="text-xl md:text-2xl font-bold text-white font-display">
+            Google Lighthouse Scores
+          </h2>
+          <p class="text-white/50 text-sm font-ui mt-2">
+            Onafhankelijk gemeten door Google — niet door mij. Verifieer het zelf.
+          </p>
         </div>
 
         <div class="flex flex-col md:flex-row items-center gap-8">
           <!-- Project highlight -->
           <div class="flex-1 text-center md:text-left">
-            <p class="text-white/40 text-xs font-ui uppercase tracking-wider mb-1">Uitgelicht project</p>
+            <p class="text-white/40 text-xs font-ui uppercase tracking-wider mb-1">
+              Uitgelicht project
+            </p>
             <h3 class="text-lg font-bold text-white font-display mb-1">C&F Bouw</h3>
-            <p class="text-white/60 text-sm font-ui mb-3">Lead-generation portaal • +340% organisch verkeer</p>
-            <a href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fwww.cfbouw.nl%2F" target="_blank" rel="noopener noreferrer" class="text-active text-sm font-bold hover:underline flex items-center gap-1 justify-center md:justify-start">
+            <p class="text-white/60 text-sm font-ui mb-3">
+              Lead-generation portaal • +340% organisch verkeer
+            </p>
+            <a
+              href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fwww.cfbouw.nl%2F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-active text-sm font-bold hover:underline flex items-center gap-1 justify-center md:justify-start"
+            >
               Verifieer op PageSpeed Insights
               <Icon name="external-link" size={12} />
             </a>
@@ -251,7 +304,10 @@ const pillars = [
         </div>
 
         <div class="text-center mt-6">
-          <a href="/portfolio" class="text-white/40 text-sm font-ui hover:text-active transition-colors">
+          <a
+            href="/portfolio"
+            class="text-white/40 text-sm font-ui hover:text-active transition-colors"
+          >
             Bekijk alle projectscores →
           </a>
         </div>
@@ -270,13 +326,26 @@ const pillars = [
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         <!-- Project 1: De Koninklijke Loop -->
-        <a href="https://dekoninklijkeloop.nl" target="_blank" rel="noopener noreferrer" class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer">
+        <a
+          href="https://dekoninklijkeloop.nl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer"
+        >
           <div class="flex items-start justify-between mb-4">
-            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">De Koninklijke Loop</h3>
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Event</span>
+            <h3
+              class="text-xl font-bold text-white font-display group-hover:text-active transition-colors"
+            >
+              De Koninklijke Loop
+            </h3>
+            <span
+              class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20"
+              >Event</span
+            >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Real-time registratieplatform voor liefdadigheidsevenement. 100+ deelnemers, live dashboard en geautomatiseerde e-mailbevestigingen.
+            Real-time registratieplatform voor liefdadigheidsevenement. 100+ deelnemers, live
+            dashboard en geautomatiseerde e-mailbevestigingen.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
@@ -284,25 +353,44 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
           </div>
           <!-- Lighthouse Scores -->
-          <div class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5">
+          <div
+            class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5"
+          >
             <LighthouseGauge score={93} label="Perf" size="sm" />
             <LighthouseGauge score={95} label="A11y" size="sm" />
             <LighthouseGauge score={92} label="BP" size="sm" />
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             Bekijk project
-            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
+            <Icon
+              name="arrow-right"
+              size={16}
+              class="group-hover:translate-x-1 transition-transform"
+            />
           </span>
         </a>
 
         <!-- Project 2: SmartCoolCare -->
-        <a href="https://www.smartcoolcare.nl" target="_blank" rel="noopener noreferrer" class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer">
+        <a
+          href="https://www.smartcoolcare.nl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer"
+        >
           <div class="flex items-start justify-between mb-4">
-            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">SmartCoolCare</h3>
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">IoT</span>
+            <h3
+              class="text-xl font-bold text-white font-display group-hover:text-active transition-colors"
+            >
+              SmartCoolCare
+            </h3>
+            <span
+              class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20"
+              >IoT</span
+            >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            24/7 koelmonitoring met automatische alarmering bij afwijkingen. Sensordata direct zichtbaar op uw scherm, waar u ook bent.
+            24/7 koelmonitoring met automatische alarmering bij afwijkingen. Sensordata direct
+            zichtbaar op uw scherm, waar u ook bent.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">C++</span>
@@ -311,7 +399,9 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
           </div>
           <!-- Lighthouse Scores -->
-          <div class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5">
+          <div
+            class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5"
+          >
             <LighthouseGauge score={99} label="Perf" size="sm" />
             <LighthouseGauge score={90} label="A11y" size="sm" />
             <LighthouseGauge score={96} label="BP" size="sm" />
@@ -319,18 +409,35 @@ const pillars = [
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             Bekijk project
-            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
+            <Icon
+              name="arrow-right"
+              size={16}
+              class="group-hover:translate-x-1 transition-transform"
+            />
           </span>
         </a>
 
         <!-- Project 3: C&F Bouw -->
-        <a href="https://cfbouw.nl" target="_blank" rel="noopener noreferrer" class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer">
+        <a
+          href="https://cfbouw.nl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer"
+        >
           <div class="flex items-start justify-between mb-4">
-            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">C&F Bouw</h3>
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Lead-Gen</span>
+            <h3
+              class="text-xl font-bold text-white font-display group-hover:text-active transition-colors"
+            >
+              C&F Bouw
+            </h3>
+            <span
+              class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20"
+              >Lead-Gen</span
+            >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Stapsgewijs offertetraject, projectgalerij en automatische klantcommunicatie. +340% organisch verkeer na lancering.
+            Stapsgewijs offertetraject, projectgalerij en automatische klantcommunicatie. +340%
+            organisch verkeer na lancering.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Next.js</span>
@@ -338,7 +445,9 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
           </div>
           <!-- Lighthouse Scores -->
-          <div class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5">
+          <div
+            class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5"
+          >
             <LighthouseGauge score={99} label="Perf" size="sm" />
             <LighthouseGauge score={97} label="A11y" size="sm" />
             <LighthouseGauge score={100} label="BP" size="sm" />
@@ -346,7 +455,11 @@ const pillars = [
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             Bekijk project
-            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
+            <Icon
+              name="arrow-right"
+              size={16}
+              class="group-hover:translate-x-1 transition-transform"
+            />
           </span>
         </a>
 
@@ -354,10 +467,14 @@ const pillars = [
         <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
           <div class="flex items-start justify-between mb-4">
             <h3 class="text-xl font-bold text-white font-display">Dustin Auto Garage</h3>
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Platform</span>
+            <span
+              class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20"
+              >Platform</span
+            >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Compleet werkplaatsbeheer: planning, klantenbeheer, voertuigregistratie met RDW-koppeling en automatische facturatie.
+            Compleet werkplaatsbeheer: planning, klantenbeheer, voertuigregistratie met
+            RDW-koppeling en automatische facturatie.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
@@ -381,21 +498,25 @@ const pillars = [
   <!-- Personal Touch / CTA -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
-      <div class="clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto text-center">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block">De mens achter de code</span>
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
-          Jeffrey Lavente
-        </h2>
-        <p class="text-white/70 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-ui">
-          AI prompt engineer en full-stack developer met een achtergrond in de zorg. Ik bouw systemen die niet alleen technisch sterk zijn, maar ook praktisch werken in de echte wereld.
+      <div
+        class="clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto text-center"
+      >
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+          >De mens achter de code</span
+        >
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 font-display">Jeffrey Lavente</h2>
+        <p
+          class="text-white/70 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-ui"
+        >
+          AI prompt engineer en full-stack developer met een achtergrond in de zorg. Ik bouw
+          systemen die niet alleen technisch sterk zijn, maar ook praktisch werken in de echte
+          wereld.
         </p>
         <p class="text-white/40 text-sm font-ui mb-6">
           Plan een intake en ontdek waar u direct tijd, kosten of risico kunt besparen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/over" class="btn-secondary">
-            Lees mijn verhaal
-          </a>
+          <a href="/over" class="btn-secondary"> Lees mijn verhaal </a>
           <a href="/contact" class="btn-primary">
             Plan een intake
             <Icon name="arrow-right" size={16} />

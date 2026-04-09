@@ -7,7 +7,8 @@ import Icon from '../../components/ui/Icon.astro';
 const pillars = [
   {
     title: 'AI & Prompt Engineering',
-    description: 'AI die repetitief werk overneemt en uw data benut voor betere en snellere beslissingen — betrouwbaar, schaalbaar en meetbaar in uw dagelijkse processen.',
+    description:
+      'AI die repetitief werk overneemt en uw data benut voor betere en snellere beslissingen — betrouwbaar, schaalbaar en meetbaar in uw dagelijkse processen.',
     icon: 'brain-circuit',
     tags: ['AI-automatisering', 'Digitale medewerkers', 'Bedrijfsdata'],
     href: '/diensten/ai-prompt-engineering',
@@ -15,28 +16,32 @@ const pillars = [
   },
   {
     title: 'Slimme Monitoring & Sensoren',
-    description: 'Realtime monitoring die storingen vroegtijdig detecteert en schade of kostbare stilstand voorkomt. Van sensor tot dashboard, op afstand en zonder onderhoud.',
+    description:
+      'Realtime monitoring die storingen vroegtijdig detecteert en schade of kostbare stilstand voorkomt. Van sensor tot dashboard, op afstand en zonder onderhoud.',
     icon: 'radio',
     tags: ['Realtime monitoring', 'Automatische alarmering', 'Op afstand'],
     href: '/diensten/iot-hardware',
   },
   {
     title: 'Maatwerk Platformen & Events',
-    description: 'Registratie, ticketing en donaties — volledig geautomatiseerd en ontworpen om foutloos te draaien. Uw volledige evenement of actie beheerd vanuit één centraal systeem.',
+    description:
+      'Registratie, ticketing en donaties — volledig geautomatiseerd en ontworpen om foutloos te draaien. Uw volledige evenement of actie beheerd vanuit één centraal systeem.',
     icon: 'building-2',
     tags: ['Registratie', 'Donaties', 'Dashboards', 'Schaalbaar'],
     href: '/diensten/maatwerk-platformen',
   },
   {
     title: 'Lead Generation & Matchmaking',
-    description: 'Meer aanvragen uit uw website, zonder extra marketingkosten. Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, zodat ze sneller converteren.',
+    description:
+      'Meer aanvragen uit uw website, zonder extra marketingkosten. Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, zodat ze sneller converteren.',
     icon: 'target',
     tags: ['Offertetrajecten', 'Lead-management', 'SEO'],
     href: '/diensten/lead-generation',
   },
   {
     title: 'Beveiliging & Authenticatie',
-    description: 'Uw klantdata is structureel beschermd en gescheiden, zodat risico\'s worden geminimaliseerd en uw data veilig blijft — ook bij fouten of aanvallen.',
+    description:
+      "Uw klantdata is structureel beschermd en gescheiden, zodat risico's worden geminimaliseerd en uw data veilig blijft — ook bij fouten of aanvallen.",
     icon: 'shield-check',
     tags: ['Data-isolatie', 'Authenticatie', 'AVG-compliance'],
     href: '/diensten/security',
@@ -58,11 +63,13 @@ const pillars = [
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
-        {pillars.map((pillar, index) => (
-          <div data-animate="fade-up" class={`delay-${index * 100}`}>
-            <PillarCard {...pillar} />
-          </div>
-        ))}
+        {
+          pillars.map((pillar, index) => (
+            <div data-animate="fade-up" class={`delay-${index * 100}`}>
+              <PillarCard {...pillar} />
+            </div>
+          ))
+        }
       </div>
 
       <!-- Doelgroepen -->
@@ -73,20 +80,37 @@ const pillars = [
         />
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
+          <div
+            data-animate="fade-up"
+            class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center"
+          >
             <Icon name="factory" size={24} class="text-active block mb-3 mx-auto" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">Industrie & Installaties</h3>
-            <p class="text-white/50 text-xs font-ui">Waar stilstand direct geld kost. Realtime monitoring en preventief onderhoud.</p>
+            <p class="text-white/50 text-xs font-ui">
+              Waar stilstand direct geld kost. Realtime monitoring en preventief onderhoud.
+            </p>
           </div>
-          <div data-animate="fade-up" class="delay-100 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
+          <div
+            data-animate="fade-up"
+            class="delay-100 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center"
+          >
             <Icon name="building" size={24} class="text-active block mb-3 mx-auto" />
-            <h3 class="text-sm font-bold text-white mb-2 font-display">MKB (Bouw, Groen, Automotive)</h3>
-            <p class="text-white/50 text-xs font-ui">Meer aanvragen, betere vindbaarheid en veilige klantportalen.</p>
+            <h3 class="text-sm font-bold text-white mb-2 font-display">
+              MKB (Bouw, Groen, Automotive)
+            </h3>
+            <p class="text-white/50 text-xs font-ui">
+              Meer aanvragen, betere vindbaarheid en veilige klantportalen.
+            </p>
           </div>
-          <div data-animate="fade-up" class="delay-200 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center">
+          <div
+            data-animate="fade-up"
+            class="delay-200 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center"
+          >
             <Icon name="heart" size={24} class="text-active block mb-3 mx-auto" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">Non-Profits & Events</h3>
-            <p class="text-white/50 text-xs font-ui">Minder chaos, meer overzicht. Geautomatiseerde registratie en donaties.</p>
+            <p class="text-white/50 text-xs font-ui">
+              Minder chaos, meer overzicht. Geautomatiseerde registratie en donaties.
+            </p>
           </div>
         </div>
       </div>
@@ -96,7 +120,9 @@ const pillars = [
   <!-- CTA -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
-      <div class="clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto text-center">
+      <div
+        class="clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto text-center"
+      >
         <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
           Klaar om te starten?
         </h2>

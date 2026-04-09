@@ -9,8 +9,6 @@
 import type { SMTPConfig, MailConfigResponse, EmailStats } from '../types';
 import { apiClient } from '../api-client';
 
-
-
 /**
  * Get current SMTP configuration
  * Returns sanitized config (password is never returned)

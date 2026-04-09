@@ -160,18 +160,12 @@ const headingSize = {
             )}
           >
             {ctaPrimary && (
-              <a
-                href={ctaPrimary.url}
-                class="btn-hero-primary"
-              >
+              <a href={ctaPrimary.url} class="btn-hero-primary">
                 {ctaPrimary.label}
               </a>
             )}
             {ctaSecondary && (
-              <a
-                href={ctaSecondary.url}
-                class="btn-hero-secondary"
-              >
+              <a href={ctaSecondary.url} class="btn-hero-secondary">
                 {ctaSecondary.label}
               </a>
             )}
@@ -193,7 +187,9 @@ const headingSize = {
                 <div class="text-xl sm:text-3xl md:text-5xl font-bold text-active mb-1 md:mb-2 font-display leading-tight">
                   {stat.value}
                 </div>
-                <div class="text-[11px] sm:text-xs md:text-sm text-white/60 leading-snug">{stat.label}</div>
+                <div class="text-[11px] sm:text-xs md:text-sm text-white/60 leading-snug">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>

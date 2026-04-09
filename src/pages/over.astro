@@ -9,47 +9,70 @@ const expertiseDomains = [
     icon: 'brain-circuit',
     title: 'AI & Prompt Engineering',
     techs: ['GPT-4', 'Claude', 'LangChain', 'Custom Agents'],
-    description: 'AI die daadwerkelijk waarde toevoegt aan uw bedrijf. Digitale medewerkers die taken automatiseren, data analyseren en beslissingen ondersteunen — geïntegreerd in uw bestaande werkprocessen.',
+    description:
+      'AI die daadwerkelijk waarde toevoegt aan uw bedrijf. Digitale medewerkers die taken automatiseren, data analyseren en beslissingen ondersteunen — geïntegreerd in uw bestaande werkprocessen.',
   },
   {
     icon: 'radio',
     title: 'Slimme Monitoring & Sensoren',
     techs: ['C++', 'ESP32', 'BLE', 'OTA Updates'],
-    description: 'Uw apparaten worden slim: maandenlang op batterij, software-updates op afstand, en real-time inzicht via uw scherm. Van de sensor tot het dashboard.',
+    description:
+      'Uw apparaten worden slim: maandenlang op batterij, software-updates op afstand, en real-time inzicht via uw scherm. Van de sensor tot het dashboard.',
   },
   {
     icon: 'cog',
     title: 'Beveiliging & Databescherming',
     techs: ['Go', 'PostgreSQL', 'Redis', 'Zero-Trust'],
-    description: 'Uw klantdata structureel gescheiden en beschermd. Elke actie traceerbaar, automatische opschoning van verlopen data en AVG-compliant gebouwd.',
+    description:
+      'Uw klantdata structureel gescheiden en beschermd. Elke actie traceerbaar, automatische opschoning van verlopen data en AVG-compliant gebouwd.',
   },
   {
     icon: 'monitor',
     title: 'Websites & Platformen',
     techs: ['Astro', 'Next.js', 'React 19', 'Convex'],
-    description: 'Razensnelle websites die hoog scoren bij Google en meer bezoekers omzetten in klanten. Real-time dashboards en op maat gemaakte interfaces.',
+    description:
+      'Razensnelle websites die hoog scoren bij Google en meer bezoekers omzetten in klanten. Real-time dashboards en op maat gemaakte interfaces.',
   },
   {
     icon: 'cloud',
     title: 'Hosting & Beheer',
     techs: ['Vercel', 'Render', 'CI/CD', 'Sentry'],
-    description: 'Uw applicatie draait op snelle servers wereldwijd. Automatische updates, continue monitoring en SSL-certificaten — alles beheerd en up-to-date.',
+    description:
+      'Uw applicatie draait op snelle servers wereldwijd. Automatische updates, continue monitoring en SSL-certificaten — alles beheerd en up-to-date.',
   },
 ];
 
 const kernwaarden = [
-  { icon: 'lock', title: 'Veiligheid als standaard', desc: 'Niet als optionele module, maar als fundament.' },
-  { icon: 'link', title: 'End-to-end verantwoordelijkheid', desc: 'Van sensor tot dashboard, alles onder één dak.' },
-  { icon: 'trending-up', title: 'Schaalbare architectuur', desc: 'Oplossingen die meegroeien met de klant.' },
-  { icon: 'handshake', title: 'Transparantie', desc: 'Langdurige partnerschappen boven snelle projecten.' },
+  {
+    icon: 'lock',
+    title: 'Veiligheid als standaard',
+    desc: 'Niet als optionele module, maar als fundament.',
+  },
+  {
+    icon: 'link',
+    title: 'End-to-end verantwoordelijkheid',
+    desc: 'Van sensor tot dashboard, alles onder één dak.',
+  },
+  {
+    icon: 'trending-up',
+    title: 'Schaalbare architectuur',
+    desc: 'Oplossingen die meegroeien met de klant.',
+  },
+  {
+    icon: 'handshake',
+    title: 'Transparantie',
+    desc: 'Langdurige partnerschappen boven snelle projecten.',
+  },
 ];
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Jeffrey Lavente',
   jobTitle: 'AI Prompt Engineer & Full-Stack Developer',
-  description: 'Van intensieve 1-op-1 begeleiding in de NAH-zorg naar IT-architectuur. Combineert psychologisch inzicht met AI-gedreven development en Zero-Trust security.',
-  image: 'https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-512,h-512,fo-face,f-auto,q-85',
+  description:
+    'Van intensieve 1-op-1 begeleiding in de NAH-zorg naar IT-architectuur. Combineert psychologisch inzicht met AI-gedreven development en Zero-Trust security.',
+  image:
+    'https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-512,h-512,fo-face,f-auto,q-85',
   url: 'https://www.laventecare.nl/over',
   worksFor: {
     '@type': 'Organization',
@@ -57,11 +80,22 @@ const personSchema = {
     url: 'https://www.laventecare.nl',
   },
   knowsAbout: [
-    'AI Prompt Engineering', 'LLM Integration', 'Go', 'PostgreSQL',
-    'React', 'Next.js', 'Astro', 'C++', 'ESP32', 'IoT',
-    'Zero-Trust Security', 'Cloud Architecture',
-    'NAH Begeleiding', 'Psychologische Analyse',
-    'Calisthenics', 'Discipline & Mental Resilience',
+    'AI Prompt Engineering',
+    'LLM Integration',
+    'Go',
+    'PostgreSQL',
+    'React',
+    'Next.js',
+    'Astro',
+    'C++',
+    'ESP32',
+    'IoT',
+    'Zero-Trust Security',
+    'Cloud Architecture',
+    'NAH Begeleiding',
+    'Psychologische Analyse',
+    'Calisthenics',
+    'Discipline & Mental Resilience',
   ],
   sameAs: [
     'https://linkedin.com/in/jeffrey-lavente',
@@ -134,12 +168,20 @@ const personSchema = {
           </div>
 
           <div class="text-center md:text-left">
-            <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Over de oprichter</span>
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight">
+            <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block"
+              >Over de oprichter</span
+            >
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight"
+            >
               Jeffrey Lavente
             </h1>
             <p class="text-lg md:text-xl text-white/70 leading-relaxed font-ui">
-              Van intensieve 1-op-1 begeleiding in de NAH-zorg naar IT-architectuur. Ik combineer <span class="text-white font-semibold">psychologisch inzicht</span> met AI-gedreven development en bouw digitale systemen die — net als in de zorg — <span class="text-active font-semibold">structuur, veiligheid en menselijkheid</span> als fundament hebben.
+              Van intensieve 1-op-1 begeleiding in de NAH-zorg naar IT-architectuur. Ik combineer <span
+                class="text-white font-semibold">psychologisch inzicht</span
+              > met AI-gedreven development en bouw digitale systemen die — net als in de zorg — <span
+                class="text-active font-semibold">structuur, veiligheid en menselijkheid</span
+              > als fundament hebben.
             </p>
           </div>
         </div>
@@ -155,12 +197,21 @@ const personSchema = {
           label="Het verhaal"
           heading='Van menselijke zorg naar <span class="text-active">digitale systemen</span>'
         />
-        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5">
+        <div
+          class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5"
+        >
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            Jarenlang werkte ik als intensief 1-op-1 begeleider van individuen met complexe (niet-aangeboren) hersenletsels. In die wereld leerde ik een fundamentele les: <span class="text-white font-semibold">waar chaos heerst, is rust, structuur en grenzeloze toewijding essentieel</span>.
+            Jarenlang werkte ik als intensief 1-op-1 begeleider van individuen met complexe
+            (niet-aangeboren) hersenletsels. In die wereld leerde ik een fundamentele les: <span
+              class="text-white font-semibold"
+              >waar chaos heerst, is rust, structuur en grenzeloze toewijding essentieel</span
+            >.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            Vandaag pas ik diezelfde psychologische blik toe op software-architectuur. Het internet is onvoorspelbaar; daarom bouw ik <span class="text-active font-semibold">"Forten"</span> in plaats van gewone websites. Mijn missie is niet het typen van regels code, maar het ontwerpen van digitale ecosystemen die robuust, veilig en beheersbaar zijn.
+            Vandaag pas ik diezelfde psychologische blik toe op software-architectuur. Het internet
+            is onvoorspelbaar; daarom bouw ik <span class="text-active font-semibold">"Forten"</span
+            > in plaats van gewone websites. Mijn missie is niet het typen van regels code, maar het ontwerpen
+            van digitale ecosystemen die robuust, veilig en beheersbaar zijn.
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
@@ -194,31 +245,47 @@ const personSchema = {
         />
         <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8">
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            Ik geloof in radicale eerlijkheid: ik ben geen codeklopper die al twintig jaar op een kantoor zit. We leven in een nieuw tijdperk. Ik fungeer als de <span class="text-white font-semibold">IT-Architect</span> en gebruik geavanceerde AI-modellen als mijn uitvoerende bouwteam.
+            Ik geloof in radicale eerlijkheid: ik ben geen codeklopper die al twintig jaar op een
+            kantoor zit. We leven in een nieuw tijdperk. Ik fungeer als de <span
+              class="text-white font-semibold">IT-Architect</span
+            > en gebruik geavanceerde AI-modellen als mijn uitvoerende bouwteam.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            AI bouwt razendsnel, maar heeft de neiging om "happy paths" te kiezen. Hier ligt mijn absolute kracht: ik bepaal de blauwdruk, hanteer <span class="text-active font-semibold">Spartaanse veiligheidsregels</span> (zoals Zero-Trust en Row Level Security) en stuur de AI bij waar nodig. Door fouten didactisch te analyseren en de architectuur constant te versterken, lever ik in mijn eentje sneller enterprise-concepten dan een traditioneel bureau.
+            AI bouwt razendsnel, maar heeft de neiging om "happy paths" te kiezen. Hier ligt mijn
+            absolute kracht: ik bepaal de blauwdruk, hanteer <span class="text-active font-semibold"
+              >Spartaanse veiligheidsregels</span
+            > (zoals Zero-Trust en Row Level Security) en stuur de AI bij waar nodig. Door fouten didactisch
+            te analyseren en de architectuur constant te versterken, lever ik in mijn eentje sneller enterprise-concepten
+            dan een traditioneel bureau.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 mt-6 p-4 rounded-lg bg-active/5 border border-active/15">
+          <div
+            class="flex flex-col sm:flex-row gap-4 mt-6 p-4 rounded-lg bg-active/5 border border-active/15"
+          >
             <div data-animate="fade-up" class="flex-1 flex items-start gap-3">
               <Icon name="cog" size={18} class="text-active shrink-0 mt-0.5" />
               <div>
                 <p class="text-white text-xs font-bold font-display">AI = Uitvoerder</p>
-                <p class="text-white/60 text-[11px] font-ui">Razendsnel bouwen, itereren en testen</p>
+                <p class="text-white/60 text-[11px] font-ui">
+                  Razendsnel bouwen, itereren en testen
+                </p>
               </div>
             </div>
             <div data-animate="fade-up" class="delay-100 flex-1 flex items-start gap-3">
               <Icon name="brain-circuit" size={18} class="text-active shrink-0 mt-0.5" />
               <div>
                 <p class="text-white text-xs font-bold font-display">Ik = Architect</p>
-                <p class="text-white/60 text-[11px] font-ui">Blauwdruk, veiligheid en kwaliteitscontrole</p>
+                <p class="text-white/60 text-[11px] font-ui">
+                  Blauwdruk, veiligheid en kwaliteitscontrole
+                </p>
               </div>
             </div>
             <div data-animate="fade-up" class="delay-200 flex-1 flex items-start gap-3">
               <Icon name="lock" size={18} class="text-active shrink-0 mt-0.5" />
               <div>
                 <p class="text-white text-xs font-bold font-display">Database Fortress</p>
-                <p class="text-white/60 text-[11px] font-ui">De AI in toom, de data strikt beschermd</p>
+                <p class="text-white/60 text-[11px] font-ui">
+                  De AI in toom, de data strikt beschermd
+                </p>
               </div>
             </div>
           </div>
@@ -235,12 +302,21 @@ const personSchema = {
           label="De discipline"
           heading='De kracht van de <span class="text-active">fundamenten</span>'
         />
-        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5">
+        <div
+          class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5"
+        >
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            Technologie vereist dezelfde toewijding als topsport. Naast mijn werk als IT-architect train ik al <span class="text-white font-semibold">13 jaar op elite-niveau in calisthenics</span>. Deze discipline — het jarenlang perfectioneren van de absolute fundamenten zonder afhankelijk te zijn van externe hulpmiddelen — vormt de kern van hoe ik leef én hoe ik software bouw.
+            Technologie vereist dezelfde toewijding als topsport. Naast mijn werk als IT-architect
+            train ik al <span class="text-white font-semibold"
+              >13 jaar op elite-niveau in calisthenics</span
+            >. Deze discipline — het jarenlang perfectioneren van de absolute fundamenten zonder
+            afhankelijk te zijn van externe hulpmiddelen — vormt de kern van hoe ik leef én hoe ik
+            software bouw.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            <span class="text-active font-semibold">Geen shortcuts, geen overbodige ballast</span>, maar ijzersterke systemen die gebouwd zijn op een onwrikbare basis. Die extreme consistentie en focus neem ik mee in elk digitaal ecosysteem dat ik oplever.
+            <span class="text-active font-semibold">Geen shortcuts, geen overbodige ballast</span>,
+            maar ijzersterke systemen die gebouwd zijn op een onwrikbare basis. Die extreme
+            consistentie en focus neem ik mee in elk digitaal ecosysteem dat ik oplever.
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
@@ -259,14 +335,20 @@ const personSchema = {
               <p class="text-white/50 text-[11px] font-ui">Discipline op elk vlak</p>
             </div>
           </div>
-          <div class="mt-6 pt-5 border-t border-white/8 flex items-center justify-center sm:justify-start gap-2">
+          <div
+            class="mt-6 pt-5 border-t border-white/8 flex items-center justify-center sm:justify-start gap-2"
+          >
             <a
               href="https://www.instagram.com/jjalavente/"
               target="_blank"
               rel="noopener noreferrer"
               class="inline-flex items-center gap-2 text-sm text-white/50 hover:text-active transition-colors font-ui"
             >
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
+                ><path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
+                ></path></svg
+              >
               Bekijk mijn training op Instagram
               <Icon name="external-link" size={12} class="opacity-50" />
             </a>
@@ -280,10 +362,20 @@ const personSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
-        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 relative">
+        <div
+          class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 relative"
+        >
           <div class="absolute top-4 left-6 text-4xl text-active/30 font-display">"</div>
-          <blockquote class="text-base md:text-lg text-white/80 leading-relaxed font-ui pl-4 md:pl-8 border-l-2 border-active/40">
-            Ik geloof niet in perfectie, ik geloof in <span class="text-white font-semibold">extreme leergierigheid, transparantie en keiharde veiligheid</span>. Ik beloof je niet de infrastructuur van een internationale bank, maar ik bied je wel de paranoïde veiligheidsprincipes ervan, toegepast op maatwerk MKB-, IoT- en webprojecten. Leren door te bouwen, zonder compromissen op de veiligheid van <span class="text-active font-semibold">jouw data</span>.
+          <blockquote
+            class="text-base md:text-lg text-white/80 leading-relaxed font-ui pl-4 md:pl-8 border-l-2 border-active/40"
+          >
+            Ik geloof niet in perfectie, ik geloof in <span class="text-white font-semibold"
+              >extreme leergierigheid, transparantie en keiharde veiligheid</span
+            >. Ik beloof je niet de infrastructuur van een internationale bank, maar ik bied je wel
+            de paranoïde veiligheidsprincipes ervan, toegepast op maatwerk MKB-, IoT- en
+            webprojecten. Leren door te bouwen, zonder compromissen op de veiligheid van <span
+              class="text-active font-semibold">jouw data</span
+            >.
           </blockquote>
         </div>
       </div>
@@ -302,11 +394,15 @@ const personSchema = {
           <ul class="space-y-4">
             <li>
               <p class="text-white font-semibold text-sm">MBO Niveau 4</p>
-              <p class="text-white/60 text-sm font-ui">Persoonlijk Begeleider Specifieke Doelgroepen (2017–2018)</p>
+              <p class="text-white/60 text-sm font-ui">
+                Persoonlijk Begeleider Specifieke Doelgroepen (2017–2018)
+              </p>
             </li>
             <li>
               <p class="text-white font-semibold text-sm">MBO Niveau 3</p>
-              <p class="text-white/60 text-sm font-ui">Medewerker Maatschappelijke Zorg (2015–2017)</p>
+              <p class="text-white/60 text-sm font-ui">
+                Medewerker Maatschappelijke Zorg (2015–2017)
+              </p>
             </li>
             <li>
               <p class="text-white font-semibold text-sm">Autodidact Software Engineering</p>
@@ -326,14 +422,20 @@ const personSchema = {
                 <p class="text-white font-semibold text-sm">Oprichter & Lead Developer</p>
                 <span class="text-active text-xs font-bold">2023 – heden</span>
               </div>
-              <p class="text-white/60 text-sm font-ui">LaventeCare — End-to-end development van complexe digitale ecosystemen.</p>
+              <p class="text-white/60 text-sm font-ui">
+                LaventeCare — End-to-end development van complexe digitale ecosystemen.
+              </p>
             </li>
             <li>
               <div class="flex items-baseline justify-between">
                 <p class="text-white font-semibold text-sm">1-op-1 Begeleider NAH++</p>
                 <span class="text-active text-xs font-bold">2018 – heden</span>
               </div>
-              <p class="text-white/60 text-sm font-ui">'s Heeren Loo — Intensieve individuele begeleiding van cliënten met NAH++. Analytisch blijven in chaos, 1-op-1 verantwoordelijkheid nemen, grenzen stellen en veilige structuren bouwen.</p>
+              <p class="text-white/60 text-sm font-ui">
+                's Heeren Loo — Intensieve individuele begeleiding van cliënten met NAH++.
+                Analytisch blijven in chaos, 1-op-1 verantwoordelijkheid nemen, grenzen stellen en
+                veilige structuren bouwen.
+              </p>
             </li>
           </ul>
         </div>
@@ -351,20 +453,22 @@ const personSchema = {
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-        {expertiseDomains.map((domain) => (
-          <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors">
-            <div class="flex items-center gap-3 mb-4">
-              <Icon name={domain.icon as IconName} size={24} class="text-active" />
-              <h3 class="text-lg font-bold text-white font-display">{domain.title}</h3>
+        {
+          expertiseDomains.map((domain) => (
+            <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <Icon name={domain.icon as IconName} size={24} class="text-active" />
+                <h3 class="text-lg font-bold text-white font-display">{domain.title}</h3>
+              </div>
+              <p class="text-white/60 text-sm leading-relaxed mb-4 font-ui">{domain.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {domain.techs.map((tech) => (
+                  <TechStackBadge tech={tech} variant="subtle" />
+                ))}
+              </div>
             </div>
-            <p class="text-white/60 text-sm leading-relaxed mb-4 font-ui">{domain.description}</p>
-            <div class="flex flex-wrap gap-2">
-              {domain.techs.map((tech) => (
-                <TechStackBadge tech={tech} variant="subtle" />
-              ))}
-            </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>
@@ -378,13 +482,15 @@ const personSchema = {
       />
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-        {kernwaarden.map((waarde) => (
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
-            <Icon name={waarde.icon as IconName} size={24} class="text-active block mb-3" />
-            <h3 class="text-sm font-bold text-white mb-2 font-display">{waarde.title}</h3>
-            <p class="text-white/50 text-xs font-ui">{waarde.desc}</p>
-          </div>
-        ))}
+        {
+          kernwaarden.map((waarde) => (
+            <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
+              <Icon name={waarde.icon as IconName} size={24} class="text-active block mb-3" />
+              <h3 class="text-sm font-bold text-white mb-2 font-display">{waarde.title}</h3>
+              <p class="text-white/50 text-xs font-ui">{waarde.desc}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -392,7 +498,9 @@ const personSchema = {
   <!-- Bedrijfsgegevens -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
-      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 max-w-3xl mx-auto">
+      <div
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 max-w-3xl mx-auto"
+      >
         <h2 class="text-xl font-bold text-white mb-6 font-display text-center">Bedrijfsgegevens</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-ui">
           <div class="flex justify-between sm:flex-col gap-1">
@@ -443,7 +551,9 @@ const personSchema = {
       0 0 0 2px color-mix(in oklch, var(--color-active) 30%, transparent),
       0 0 30px -5px color-mix(in oklch, var(--color-active) 15%, transparent),
       0 8px 24px -8px rgba(0, 0, 0, 0.4);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.4s ease;
   }
 
   .profile-photo-container:hover {

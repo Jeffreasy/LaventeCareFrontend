@@ -8,28 +8,32 @@ const processSteps = [
   {
     phase: '1',
     title: 'Kennismaking & Intake',
-    description: 'Vrijblijvend gesprek (30 min) om uw situatie, doelen en technische mogelijkheden helder te krijgen. Inclusief eerste inschatting van haalbaarheid en investering.',
+    description:
+      'Vrijblijvend gesprek (30 min) om uw situatie, doelen en technische mogelijkheden helder te krijgen. Inclusief eerste inschatting van haalbaarheid en investering.',
     price: 'Gratis',
     icon: 'coffee',
   },
   {
     phase: '2',
     title: 'Technische Discovery',
-    description: 'Diepte-analyse van technische vereisten, architectuurontwerp en een gedetailleerd Blueprint-document. U ontvangt een bruikbaar document — ongeacht of het project doorgaat.',
+    description:
+      'Diepte-analyse van technische vereisten, architectuurontwerp en een gedetailleerd Blueprint-document. U ontvangt een bruikbaar document — ongeacht of het project doorgaat.',
     price: '€750 – €2.500',
     icon: 'search',
   },
   {
     phase: '3',
     title: 'Ontwikkeling & Oplevering',
-    description: 'Agile ontwikkeling in sprints van 2 weken. Tussentijdse demo\'s en acceptatietests. Volledige transparantie: u ziet precies wat er gebouwd wordt en waar uw budget naartoe gaat — per sprint inzichtelijk.',
+    description:
+      "Agile ontwikkeling in sprints van 2 weken. Tussentijdse demo's en acceptatietests. Volledige transparantie: u ziet precies wat er gebouwd wordt en waar uw budget naartoe gaat — per sprint inzichtelijk.",
     price: '€95/uur',
     icon: 'zap',
   },
   {
     phase: '4',
     title: 'SLA & Doorontwikkeling',
-    description: 'Uw systeem blijft veilig, up-to-date en beschikbaar. Doorontwikkeling en nieuwe features op basis van uw wensen — flexibel, schaalbaar en toekomstbestendig.',
+    description:
+      'Uw systeem blijft veilig, up-to-date en beschikbaar. Doorontwikkeling en nieuwe features op basis van uw wensen — flexibel, schaalbaar en toekomstbestendig.',
     price: 'vanaf €75/mnd',
     icon: 'refresh-cw',
   },
@@ -39,7 +43,8 @@ const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: 'Hoe werkt een project met LaventeCare?',
-  description: 'Van gratis intake tot SLA-ondersteuning. Een gestructureerd vierfasen-model voor B2B IT-projecten.',
+  description:
+    'Van gratis intake tot SLA-ondersteuning. Een gestructureerd vierfasen-model voor B2B IT-projecten.',
   step: processSteps.map((s) => ({
     '@type': 'HowToStep',
     name: `Stap ${s.phase}: ${s.title}`,
@@ -82,17 +87,23 @@ const howToSchema = {
         />
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5"
+          >
             <div class="text-3xl font-black text-active font-display mb-1">40%</div>
             <p class="text-white/70 text-xs font-ui">Na goedkeuring Blueprint</p>
             <p class="text-white/40 text-[10px] font-ui mt-1">Dekking initiële kosten</p>
           </div>
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5"
+          >
             <div class="text-3xl font-black text-active font-display mb-1">40%</div>
             <p class="text-white/70 text-xs font-ui">Bij bèta-oplevering</p>
             <p class="text-white/40 text-[10px] font-ui mt-1">Tussentijdse acceptatie</p>
           </div>
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5"
+          >
             <div class="text-3xl font-black text-active font-display mb-1">20%</div>
             <p class="text-white/70 text-xs font-ui">Na livegang & acceptatie</p>
             <p class="text-white/40 text-[10px] font-ui mt-1">Waarborg voor klant</p>
@@ -101,12 +112,25 @@ const howToSchema = {
       </div>
 
       <!-- Betalingsvoorwaarden -->
-      <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 max-w-3xl mx-auto mb-16">
+      <div
+        class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 max-w-3xl mx-auto mb-16"
+      >
         <h3 class="text-lg font-bold text-white mb-4 font-display">Betalingsvoorwaarden</h3>
         <ul class="space-y-3 text-sm font-ui text-white/70">
-          <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Betalingstermijn: <strong class="text-white">14 dagen</strong> na factuurdatum</li>
-          <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Discovery-fases worden <strong class="text-white">vooraf</strong> gefactureerd</li>
-          <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> SLA-abonnementen: <strong class="text-white">maandelijks vooraf</strong> via automatisch incasso</li>
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Betalingstermijn: <strong
+              class="text-white">14 dagen</strong
+            > na factuurdatum
+          </li>
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Discovery-fases worden
+            <strong class="text-white">vooraf</strong> gefactureerd
+          </li>
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> SLA-abonnementen: <strong
+              class="text-white">maandelijks vooraf</strong
+            > via automatisch incasso
+          </li>
         </ul>
       </div>
 
@@ -118,7 +142,10 @@ const howToSchema = {
         />
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-feature) border border-cta/20 bg-cta/5">
+          <div
+            data-animate="fade-up"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-cta/20 bg-cta/5"
+          >
             <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
               <Icon name="check" size={16} class="text-cta shrink-0" /> Ideale match
             </h3>
@@ -129,13 +156,18 @@ const howToSchema = {
               <li>Langetermijn samenwerking</li>
             </ul>
           </div>
-          <div data-animate="fade-up" class="delay-100 clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
+          <div
+            data-animate="fade-up"
+            class="delay-100 clinical-glass p-6 rounded-(--radius-feature) border border-white/8"
+          >
             <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
               <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> Doorverwijzing
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/40">
               <li>Budget onder €3.000 → vaak beter geschikt voor low-code oplossingen</li>
-              <li>Alleen prijsinformatie zonder context → moeilijk om een goede inschatting te maken</li>
+              <li>
+                Alleen prijsinformatie zonder context → moeilijk om een goede inschatting te maken
+              </li>
               <li>Gratis proof-of-concept → betaalde discovery</li>
               <li>Template-oplossing (WordPress/Wix)</li>
             </ul>
@@ -152,7 +184,9 @@ const howToSchema = {
         Plan een intake
         <Icon name="arrow-right" size={20} />
       </a>
-      <p class="text-white/40 text-sm font-ui mt-3">Plan een intake en krijg direct inzicht in haalbaarheid, aanpak en kosten voor uw situatie.</p>
+      <p class="text-white/40 text-sm font-ui mt-3">
+        Plan een intake en krijg direct inzicht in haalbaarheid, aanpak en kosten voor uw situatie.
+      </p>
     </div>
   </section>
 </Layout>

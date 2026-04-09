@@ -12,10 +12,30 @@ const results = [
 ];
 
 const phases = [
-  { num: '01', title: 'Discovery & Architectuur', status: 'done' as const, desc: 'Multi-tenant schema, RBAC-model en RDW-integratie ontworpen.' },
-  { num: '02', title: 'Core Development', status: 'done' as const, desc: 'Kanban-bord, CRM, voertuigbeheer en facturatie gebouwd.' },
-  { num: '03', title: 'Productie & Onboarding', status: 'done' as const, desc: 'Live deployment, gebruikerstraining en data-migratie.' },
-  { num: '04', title: 'Onderhoud & Doorontwikkeling', status: 'active' as const, desc: 'Dagelijks gebruik, feedback-loops en iteratieve verbeteringen.' },
+  {
+    num: '01',
+    title: 'Discovery & Architectuur',
+    status: 'done' as const,
+    desc: 'Multi-tenant schema, RBAC-model en RDW-integratie ontworpen.',
+  },
+  {
+    num: '02',
+    title: 'Core Development',
+    status: 'done' as const,
+    desc: 'Kanban-bord, CRM, voertuigbeheer en facturatie gebouwd.',
+  },
+  {
+    num: '03',
+    title: 'Productie & Onboarding',
+    status: 'done' as const,
+    desc: 'Live deployment, gebruikerstraining en data-migratie.',
+  },
+  {
+    num: '04',
+    title: 'Onderhoud & Doorontwikkeling',
+    status: 'active' as const,
+    desc: 'Dagelijks gebruik, feedback-loops en iteratieve verbeteringen.',
+  },
 ];
 
 const challenges = [
@@ -25,7 +45,7 @@ const challenges = [
   },
   {
     title: 'Real-time werkplaatsbeheer',
-    desc: 'Monteurs moeten live zien welke auto\'s in de werkplaats staan, welke onderhoudsbeurten lopen en wat de status is — zonder pagina te verversen.',
+    desc: "Monteurs moeten live zien welke auto's in de werkplaats staan, welke onderhoudsbeurten lopen en wat de status is — zonder pagina te verversen.",
   },
   {
     title: 'RDW-integratie voor voertuigdata',
@@ -45,70 +65,114 @@ const challenges = [
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"><Icon name="clipboard-list" size={16} class="text-active" /> Case Study</span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+        <span
+          class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"
+          ><Icon name="clipboard-list" size={16} class="text-active" /> Case Study</span
+        >
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight"
+        >
           Dustin Auto <span class="text-active">Garage</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Een volledig werkplaats-managementsysteem met Kanban-bord, CRM, voertuigbeheer, RDW-integratie en facturatie. Gebouwd voor multi-tenant schaalbaarheid.
+          Een volledig werkplaats-managementsysteem met Kanban-bord, CRM, voertuigbeheer,
+          RDW-integratie en facturatie. Gebouwd voor multi-tenant schaalbaarheid.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
-          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Werkplaatsbeheer</span>
-          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-2">
+          <span
+            class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20"
+            >Werkplaatsbeheer</span
+          >
+          <span
+            class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center gap-2"
+          >
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              ></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             In Productie
           </span>
         </div>
         <div class="flex flex-wrap gap-2">
-          {['Astro', 'React 19', 'Convex', 'Go Auth', 'RDW API'].map((t) => (
-            <TechStackBadge tech={t} />
-          ))}
+          {
+            ['Astro', 'React 19', 'Convex', 'Go Auth', 'RDW API'].map((t) => (
+              <TechStackBadge tech={t} />
+            ))
+          }
         </div>
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
-        {results.map((r) => (
-          <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
-            <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">{r.value}</div>
-            <p class="text-white/50 text-xs font-ui">{r.label}</p>
-          </div>
-        ))}
+        {
+          results.map((r) => (
+            <div
+              data-animate="fade-up"
+              class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center"
+            >
+              <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">
+                {r.value}
+              </div>
+              <p class="text-white/50 text-xs font-ui">{r.label}</p>
+            </div>
+          ))
+        }
       </div>
 
       <div class="max-w-4xl mx-auto mb-16">
-        <SectionHeader label="De uitdaging" heading='Garage-chaos naar <span class="text-active">digitaal systeem</span>' />
+        <SectionHeader
+          label="De uitdaging"
+          heading='Garage-chaos naar <span class="text-active">digitaal systeem</span>'
+        />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {challenges.map((c) => (
-            <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
-              <h3 class="text-sm font-bold text-white mb-2 font-display">{c.title}</h3>
-              <p class="text-white/60 text-xs font-ui leading-relaxed">{c.desc}</p>
-            </div>
-          ))}
+          {
+            challenges.map((c) => (
+              <div
+                data-animate="fade-up"
+                class="clinical-glass p-5 rounded-(--radius-card) border border-white/8"
+              >
+                <h3 class="text-sm font-bold text-white mb-2 font-display">{c.title}</h3>
+                <p class="text-white/60 text-xs font-ui leading-relaxed">{c.desc}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
 
       <div class="max-w-4xl mx-auto mb-16">
-        <SectionHeader label="De oplossing" heading='Alles-in-één <span class="text-active">garagebeheer</span>' />
-        <div data-animate="fade-up" class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 space-y-6">
+        <SectionHeader
+          label="De oplossing"
+          heading='Alles-in-één <span class="text-active">garagebeheer</span>'
+        />
+        <div
+          data-animate="fade-up"
+          class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 space-y-6"
+        >
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">Kanban Werkplaatsbord</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Real-time Kanban-bord via Convex waar werkorders van "Ingepland" naar "In behandeling" naar "Gereed" bewegen. Monteurs slepen kaarten, managers zien de status live. Drag-and-drop met optimistic updates.
+              Real-time Kanban-bord via Convex waar werkorders van "Ingepland" naar "In behandeling"
+              naar "Gereed" bewegen. Monteurs slepen kaarten, managers zien de status live.
+              Drag-and-drop met optimistic updates.
             </p>
           </div>
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">RDW Kenteken Lookup</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Bij het invoeren van een kenteken haalt het systeem automatisch voertuigdata op uit de RDW Open Data API: merk, model, bouwjaar, brandstoftype en APK-vervaldag. Inclusief AI-gestuurde kentekenherkenning via camera (xAI Grok Vision).
+              Bij het invoeren van een kenteken haalt het systeem automatisch voertuigdata op uit de
+              RDW Open Data API: merk, model, bouwjaar, brandstoftype en APK-vervaldag. Inclusief
+              AI-gestuurde kentekenherkenning via camera (xAI Grok Vision).
             </p>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Split-Role Security Model</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">
+              Split-Role Security Model
+            </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Vier rollen (eigenaar, manager, monteur, receptionist) met hiërarchische RBAC. Elke API-call wordt server-side gevalideerd op rolniveau. Cross-tenant isolatie is ontworpen om te voorkomen dat data van andere garages ingezien kan worden.
+              Vier rollen (eigenaar, manager, monteur, receptionist) met hiërarchische RBAC. Elke
+              API-call wordt server-side gevalideerd op rolniveau. Cross-tenant isolatie is
+              ontworpen om te voorkomen dat data van andere garages ingezien kan worden.
             </p>
           </div>
         </div>
@@ -120,54 +184,72 @@ const challenges = [
   <section class="section-padding">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
-        <SectionHeader label="Ontwikkeltraject" heading='Van concept tot <span class="text-active">dagelijks gebruik</span>' />
+        <SectionHeader
+          label="Ontwikkeltraject"
+          heading='Van concept tot <span class="text-active">dagelijks gebruik</span>'
+        />
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16">
-          {phases.map((phase) => (
-            <div class:list={[
-              'clinical-glass p-5 rounded-(--radius-card) border relative',
-              phase.status === 'active'
-                ? 'border-active/40 bg-active/5'
-                : 'border-white/8',
-            ]}>
-              {phase.status === 'active' && (
-                <div class="absolute -top-2 -right-2">
-                  <span class="relative flex h-4 w-4">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-active opacity-50"></span>
-                    <span class="relative inline-flex rounded-full h-4 w-4 bg-active"></span>
-                  </span>
-                </div>
-              )}
-              <span class:list={[
-                'text-2xl font-black font-display block mb-2',
-                phase.status === 'active' ? 'text-active' : 'text-white/20',
-              ]}>{phase.num}</span>
-              <h3 class="text-sm font-bold text-white mb-1 font-display">{phase.title}</h3>
-              <p class="text-white/50 text-xs font-ui leading-relaxed">{phase.desc}</p>
-              <div class="mt-3">
-                {phase.status === 'done' ? (
-                  <span class="text-emerald-400 text-xs font-bold flex items-center gap-1">
-                    <Icon name="check" size={12} /> Afgerond
-                  </span>
-                ) : (
-                  <span class="text-active text-xs font-bold flex items-center gap-1">
-                    <span class="relative flex h-1.5 w-1.5 mr-0.5">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-active opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-active"></span>
+          {
+            phases.map((phase) => (
+              <div
+                class:list={[
+                  'clinical-glass p-5 rounded-(--radius-card) border relative',
+                  phase.status === 'active' ? 'border-active/40 bg-active/5' : 'border-white/8',
+                ]}
+              >
+                {phase.status === 'active' && (
+                  <div class="absolute -top-2 -right-2">
+                    <span class="relative flex h-4 w-4">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-active opacity-50" />
+                      <span class="relative inline-flex rounded-full h-4 w-4 bg-active" />
                     </span>
-                    Actieve fase
-                  </span>
+                  </div>
                 )}
+                <span
+                  class:list={[
+                    'text-2xl font-black font-display block mb-2',
+                    phase.status === 'active' ? 'text-active' : 'text-white/20',
+                  ]}
+                >
+                  {phase.num}
+                </span>
+                <h3 class="text-sm font-bold text-white mb-1 font-display">{phase.title}</h3>
+                <p class="text-white/50 text-xs font-ui leading-relaxed">{phase.desc}</p>
+                <div class="mt-3">
+                  {phase.status === 'done' ? (
+                    <span class="text-emerald-400 text-xs font-bold flex items-center gap-1">
+                      <Icon name="check" size={12} /> Afgerond
+                    </span>
+                  ) : (
+                    <span class="text-active text-xs font-bold flex items-center gap-1">
+                      <span class="relative flex h-1.5 w-1.5 mr-0.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-active opacity-75" />
+                        <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-active" />
+                      </span>
+                      Actieve fase
+                    </span>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
 
         <!-- Ongoing Partnership -->
-        <div data-animate="fade-up" class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 relative">
+        <div
+          data-animate="fade-up"
+          class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 relative"
+        >
           <div class="absolute top-4 left-6 text-4xl text-active/30 font-display">"</div>
-          <blockquote class="text-base md:text-lg text-white/80 leading-relaxed font-ui pl-4 md:pl-8 border-l-2 border-active/40 mb-6">
-            Dit project demonstreert het ideale LaventeCare-traject: van eerste architectuurschets tot dagelijks gebruik in de werkplaats. De eigenaar gebruikt het systeem actief, ik onderhoud het platform en pas aan waar nodig. <span class="text-active font-semibold">Geen eenmalige oplevering, maar een doorlopend partnerschap.</span>
+          <blockquote
+            class="text-base md:text-lg text-white/80 leading-relaxed font-ui pl-4 md:pl-8 border-l-2 border-active/40 mb-6"
+          >
+            Dit project demonstreert het ideale LaventeCare-traject: van eerste architectuurschets
+            tot dagelijks gebruik in de werkplaats. De eigenaar gebruikt het systeem actief, ik
+            onderhoud het platform en pas aan waar nodig. <span class="text-active font-semibold"
+              >Geen eenmalige oplevering, maar een doorlopend partnerschap.</span
+            >
           </blockquote>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="text-center">

@@ -23,7 +23,11 @@ const textSizeMap = {
 const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
-<a href="/" class:list={['logo-mark inline-flex items-center gap-2.5 no-underline', className]} aria-label="LaventeCare — Home">
+<a
+  href="/"
+  class:list={['logo-mark inline-flex items-center gap-2.5 no-underline', className]}
+  aria-label="LaventeCare — Home"
+>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 200 100"
@@ -33,18 +37,18 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
   >
     <defs>
       <linearGradient id={`${uid}-g`} x1="0%" y1="50%" x2="100%" y2="50%">
-        <stop offset="0%" stop-color="#0891B2" />
-        <stop offset="100%" stop-color="#059669" />
+        <stop offset="0%" stop-color="#0891B2"></stop>
+        <stop offset="100%" stop-color="#059669"></stop>
       </linearGradient>
       <linearGradient id={`${uid}-gl`} x1="0%" y1="50%" x2="100%" y2="50%">
-        <stop offset="0%" stop-color="#0891B2" stop-opacity="0.35" />
-        <stop offset="100%" stop-color="#059669" stop-opacity="0.35" />
+        <stop offset="0%" stop-color="#0891B2" stop-opacity="0.35"></stop>
+        <stop offset="100%" stop-color="#059669" stop-opacity="0.35"></stop>
       </linearGradient>
       {/* Bright gradient for the traveling light — matches brand colors */}
       <linearGradient id={`${uid}-bright`} x1="0%" y1="50%" x2="100%" y2="50%">
-        <stop offset="0%" stop-color="#67E8F9" />
-        <stop offset="50%" stop-color="#A5F3FC" />
-        <stop offset="100%" stop-color="#6EE7B7" />
+        <stop offset="0%" stop-color="#67E8F9"></stop>
+        <stop offset="50%" stop-color="#A5F3FC"></stop>
+        <stop offset="100%" stop-color="#6EE7B7"></stop>
       </linearGradient>
     </defs>
 
@@ -56,8 +60,7 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
       stroke-width="16"
       stroke-linecap="round"
       stroke-linejoin="round"
-      class="logo-glow"
-    />
+      class="logo-glow"></path>
 
     {/* Main infinity */}
     <path
@@ -66,8 +69,7 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
       stroke={`url(#${uid}-g)`}
       stroke-width="10"
       stroke-linecap="round"
-      stroke-linejoin="round"
-    />
+      stroke-linejoin="round"></path>
 
     {/* Layer 1 — Deep ambient glow (widest, most blurred, longest trail) */}
     <path
@@ -77,8 +79,7 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
       stroke-width="20"
       stroke-linecap="round"
       class="infinity-trail infinity-trail--deep"
-      pathLength="1000"
-    />
+      pathLength="1000"></path>
 
     {/* Layer 2 — Mid glow (medium width, medium blur, shorter trail) */}
     <path
@@ -88,8 +89,7 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
       stroke-width="10"
       stroke-linecap="round"
       class="infinity-trail infinity-trail--mid"
-      pathLength="1000"
-    />
+      pathLength="1000"></path>
 
     {/* Layer 3 — Hot core (sharp white, short head) */}
     <path
@@ -99,27 +99,41 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
       stroke-width="3"
       stroke-linecap="round"
       class="infinity-trail infinity-trail--core"
-      pathLength="1000"
-    />
+      pathLength="1000"></path>
 
     {/* Globe detail in left loop */}
     <g opacity="0.6">
-      <circle cx="55" cy="50" r="12" fill="none" stroke="#0891B2" stroke-width="1.5" />
-      <ellipse cx="55" cy="50" rx="5" ry="12" fill="none" stroke="#0891B2" stroke-width="1.2" />
-      <line x1="43" y1="50" x2="67" y2="50" stroke="#0891B2" stroke-width="1.2" />
+      <circle cx="55" cy="50" r="12" fill="none" stroke="#0891B2" stroke-width="1.5"></circle>
+      <ellipse cx="55" cy="50" rx="5" ry="12" fill="none" stroke="#0891B2" stroke-width="1.2"
+      ></ellipse>
+      <line x1="43" y1="50" x2="67" y2="50" stroke="#0891B2" stroke-width="1.2"></line>
     </g>
 
     {/* Code cross in right loop */}
     <g opacity="0.75">
-      <path d="M 138 50 L 152 50 M 145 43 L 145 57" stroke="#059669" stroke-width="3.5" stroke-linecap="round" />
+      <path
+        d="M 138 50 L 152 50 M 145 43 L 145 57"
+        stroke="#059669"
+        stroke-width="3.5"
+        stroke-linecap="round"></path>
     </g>
   </svg>
 
-  {showText && (
-    <span class:list={[textSizeMap[size], 'logo-wordmark font-display whitespace-nowrap leading-none']}>
-      <span class="logo-wordmark__lavente">Lavente</span><span class="logo-wordmark__care">Care</span>
-    </span>
-  )}
+  {
+    showText && (
+      <span
+        class:list={[
+          textSizeMap[size],
+          'logo-wordmark font-display whitespace-nowrap leading-none',
+        ]}
+      >
+        <>
+          <span class="logo-wordmark__lavente">Lavente</span>
+          <span class="logo-wordmark__care">Care</span>
+        </>
+      </span>
+    )
+  }
 </a>
 
 <style>
@@ -155,7 +169,7 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
 
   @media (prefers-reduced-motion: no-preference) {
     .logo-mark:hover svg {
-      filter: drop-shadow(0 0 10px oklch(0.60 0.14 200 / 0.4));
+      filter: drop-shadow(0 0 10px oklch(0.6 0.14 200 / 0.4));
       transition: filter 0.3s ease;
     }
 
@@ -173,8 +187,12 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
   }
 
   @keyframes infinity-trace {
-    from { stroke-dashoffset: 0; }
-    to   { stroke-dashoffset: -1000; }
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: -1000;
+    }
   }
 
   /* Reduced motion: hide all light layers */
@@ -195,7 +213,7 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
 
   /* "Lavente" — clean white with subtle cool tint */
   .logo-wordmark__lavente {
-    background: linear-gradient(135deg, #FFFFFF 0%, #E0F2FE 60%, #CFFAFE 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #e0f2fe 60%, #cffafe 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -203,7 +221,7 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
 
   /* "Care" — brand gradient */
   .logo-wordmark__care {
-    background: linear-gradient(135deg, #22D3EE 0%, #0891B2 40%, #059669 100%);
+    background: linear-gradient(135deg, #22d3ee 0%, #0891b2 40%, #059669 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -219,7 +237,7 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
       transparent 0%,
       transparent 35%,
       oklch(0.95 0.01 200 / 0.25) 45%,
-      oklch(1.00 0 0 / 0.4) 50%,
+      oklch(1 0 0 / 0.4) 50%,
       oklch(0.95 0.01 200 / 0.25) 55%,
       transparent 65%,
       transparent 100%
@@ -235,7 +253,11 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
   }
 
   @keyframes wordmark-shimmer {
-    from { transform: translateX(-100%); }
-    to   { transform: translateX(100%); }
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
   }
 </style>

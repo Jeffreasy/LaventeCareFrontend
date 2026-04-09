@@ -45,8 +45,7 @@ const colors = getScoreColor(score);
         r={radius}
         fill="none"
         stroke="rgba(255,255,255,0.06)"
-        stroke-width={config.strokeWidth}
-      />
+        stroke-width={config.strokeWidth}></circle>
       {/* Score arc */}
       <circle
         cx={center}
@@ -60,17 +59,23 @@ const colors = getScoreColor(score);
         stroke-dashoffset={circumference}
         class="lighthouse-gauge__arc"
         style={`--gauge-offset: ${offset}; --gauge-circumference: ${circumference}; --gauge-glow: ${colors.glow};`}
-        transform={`rotate(-90 ${center} ${center})`}
-      />
+        transform={`rotate(-90 ${center} ${center})`}></circle>
     </svg>
     {/* Score number overlay */}
     <div class="absolute inset-0 flex items-center justify-center">
-      <span class:list={[config.fontSize, 'font-black font-display text-white lighthouse-gauge__score']}>
+      <span
+        class:list={[config.fontSize, 'font-black font-display text-white lighthouse-gauge__score']}
+      >
         {score}
       </span>
     </div>
   </div>
-  <span class:list={[config.labelSize, 'text-white/50 font-ui font-medium tracking-wide uppercase text-center leading-tight']}>
+  <span
+    class:list={[
+      config.labelSize,
+      'text-white/50 font-ui font-medium tracking-wide uppercase text-center leading-tight',
+    ]}
+  >
     {label}
   </span>
 </div>

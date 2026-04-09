@@ -34,24 +34,24 @@ const siteUrl = Astro.site?.href || 'https://www.laventecare.nl';
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
 
 const breadcrumbLabels: Record<string, string> = {
-  'over': 'Over',
-  'diensten': 'Diensten',
-  'portfolio': 'Portfolio',
-  'werkwijze': 'Werkwijze',
-  'pricing': 'Prijzen',
-  'prijzen': 'Prijzen',
-  'contact': 'Contact',
+  over: 'Over',
+  diensten: 'Diensten',
+  portfolio: 'Portfolio',
+  werkwijze: 'Werkwijze',
+  pricing: 'Prijzen',
+  prijzen: 'Prijzen',
+  contact: 'Contact',
   'ai-prompt-engineering': 'AI & Prompt Engineering',
   'iot-hardware': 'IoT & Hardware',
   'maatwerk-platformen': 'Maatwerk Platformen',
   'lead-generation': 'Lead Generation',
-  'security': 'Security & Auth',
+  security: 'Security & Auth',
   'cf-bouw': 'C&F Bouw',
   'de-koninklijke-loop': 'De Koninklijke Loop',
   'dustin-auto-garage': 'Dustin Auto Garage',
-  'jeffdash': 'JeffDash',
-  'smartcoolcare': 'SmartCoolCare',
-  'tuinhub': 'TuinHub',
+  jeffdash: 'JeffDash',
+  smartcoolcare: 'SmartCoolCare',
+  tuinhub: 'TuinHub',
   'whisky-for-charity': 'Whisky for Charity',
 };
 
@@ -59,7 +59,9 @@ const breadcrumbItems = [
   { name: 'Home', url: siteUrl },
   ...pathSegments.map((segment, index) => {
     const url = new URL('/' + pathSegments.slice(0, index + 1).join('/'), siteUrl).href;
-    const name = breadcrumbLabels[segment] || segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
+    const name =
+      breadcrumbLabels[segment] ||
+      segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
     return { name, url };
   }),
 ];
@@ -194,17 +196,20 @@ const breadcrumbSchema = {
     <!-- Native Scroll Animations (Zero Dependencies, <1KB) -->
     <script is:inline>
       document.addEventListener('astro:page-load', () => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px"
-        });
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px',
+          }
+        );
 
         document.querySelectorAll('[data-animate]').forEach((el) => {
           observer.observe(el);

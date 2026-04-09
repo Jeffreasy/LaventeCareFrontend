@@ -4,18 +4,37 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const features = [
-  { title: 'Bezoekers worden aanvragen', desc: 'Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, waardoor ze sneller contact opnemen en minder afhaken.' },
-  { title: 'Geen aanvraag meer missen', desc: 'Direct inzicht in nieuwe aanvragen en wat u vandaag moet opvolgen — geen gemiste kansen meer.' },
-  { title: 'Veilig samenwerken met klanten', desc: 'Klanten blijven betrokken en goed geïnformeerd via een beveiligd portaal, wat zorgt voor minder vragen, minder misverstanden en meer vertrouwen.' },
-  { title: 'Gevonden worden in Google', desc: 'Branche-specifieke zoektermen en technische optimalisatie zodat klanten u vinden vóórdat ze uw concurrent vinden.' },
-  { title: 'Meer aanvragen, zelfde bezoekers', desc: 'Uw website wordt continu verbeterd op basis van bezoekersgedrag, zodat meer mensen daadwerkelijk een aanvraag doen — zonder extra advertentiekosten.' },
-  { title: 'Directe opvolging', desc: 'Elke aanvraag wordt automatisch bevestigd en direct bij u gemeld, zodat u snel kunt reageren en geen leads verliest.' },
+  {
+    title: 'Bezoekers worden aanvragen',
+    desc: 'Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, waardoor ze sneller contact opnemen en minder afhaken.',
+  },
+  {
+    title: 'Geen aanvraag meer missen',
+    desc: 'Direct inzicht in nieuwe aanvragen en wat u vandaag moet opvolgen — geen gemiste kansen meer.',
+  },
+  {
+    title: 'Veilig samenwerken met klanten',
+    desc: 'Klanten blijven betrokken en goed geïnformeerd via een beveiligd portaal, wat zorgt voor minder vragen, minder misverstanden en meer vertrouwen.',
+  },
+  {
+    title: 'Gevonden worden in Google',
+    desc: 'Branche-specifieke zoektermen en technische optimalisatie zodat klanten u vinden vóórdat ze uw concurrent vinden.',
+  },
+  {
+    title: 'Meer aanvragen, zelfde bezoekers',
+    desc: 'Uw website wordt continu verbeterd op basis van bezoekersgedrag, zodat meer mensen daadwerkelijk een aanvraag doen — zonder extra advertentiekosten.',
+  },
+  {
+    title: 'Directe opvolging',
+    desc: 'Elke aanvraag wordt automatisch bevestigd en direct bij u gemeld, zodat u snel kunt reageren en geen leads verliest.',
+  },
 ];
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Lead Generation & Automatisering',
-  description: 'Meer aanvragen uit uw website zonder extra marketingkosten. Stapsgewijze offertetrajecten en automatisch bezoekers omzetten naar klanten.',
+  description:
+    'Meer aanvragen uit uw website zonder extra marketingkosten. Stapsgewijze offertetrajecten en automatisch bezoekers omzetten naar klanten.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
@@ -23,7 +42,8 @@ const serviceSchema = {
   },
   areaServed: 'NL',
   serviceType: 'Lead Generation Portals & SEO',
-  serviceOutput: 'Conversiegerichte offertemodules, portaal voor directe opvolging en stijging organisch verkeer.',
+  serviceOutput:
+    'Conversiegerichte offertemodules, portaal voor directe opvolging en stijging organisch verkeer.',
 };
 ---
 
@@ -36,57 +56,115 @@ const serviceSchema = {
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"><Icon name="target" size={16} class="text-active" /> Lead Generation</span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+        <span
+          class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"
+          ><Icon name="target" size={16} class="text-active" /> Lead Generation</span
+        >
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight"
+        >
           Bezoekers worden <span class="text-active">klanten</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
-          Veel websites krijgen wel bezoekers, maar leveren te weinig aanvragen op. Uw website wordt een systeem dat bezoekers omzet in concrete aanvragen — automatisch en meetbaar.
+          Veel websites krijgen wel bezoekers, maar leveren te weinig aanvragen op. Uw website wordt
+          een systeem dat bezoekers omzet in concrete aanvragen — automatisch en meetbaar.
         </p>
         <p class="text-base text-active/80 font-ui font-bold mb-6">
           Meer aanvragen uit uw website, zonder extra marketingkosten.
         </p>
         <div class="flex flex-wrap gap-2">
-          {['Offertetrajecten', 'Lead-management', 'SEO', 'Analytics', 'Klantportaal'].map((t) => (
-            <TechStackBadge tech={t} />
-          ))}
+          {
+            ['Offertetrajecten', 'Lead-management', 'SEO', 'Analytics', 'Klantportaal'].map((t) => (
+              <TechStackBadge tech={t} />
+            ))
+          }
         </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
-        {features.map((f) => (
-          <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
-            <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
-            <p class="text-white/60 text-xs font-ui">{f.desc}</p>
-          </div>
-        ))}
+        {
+          features.map((f) => (
+            <div
+              data-animate="fade-up"
+              class="clinical-glass p-5 rounded-(--radius-card) border border-white/8"
+            >
+              <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
+              <p class="text-white/60 text-xs font-ui">{f.desc}</p>
+            </div>
+          ))
+        }
       </div>
 
       <!-- Doelgroep -->
-      <div data-animate="fade-up" class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16">
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16"
+      >
         <h2 class="text-xl font-bold text-white mb-4 font-display">Herkenbaar?</h2>
-        <p class="text-white/70 font-ui mb-4">Lokale dienstverleners en aannemers die vastlopen in hun huidige situatie:</p>
+        <p class="text-white/70 font-ui mb-4">
+          Lokale dienstverleners en aannemers die vastlopen in hun huidige situatie:
+        </p>
         <ul class="space-y-3 text-sm font-ui text-white/60">
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uw website krijgt bezoekers, maar te weinig aanvragen</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U mist offertes omdat leads niet worden opgevolgd</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uw concurrent staat hoger in Google</li>
-          <li class="flex items-start gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U betaalt veel aan advertenties maar weet niet wat het oplevert</li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uw website krijgt bezoekers,
+            maar te weinig aanvragen
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U mist offertes omdat
+            leads niet worden opgevolgd
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uw concurrent staat hoger
+            in Google
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U betaalt veel aan advertenties
+            maar weet niet wat het oplevert
+          </li>
         </ul>
-        <p class="text-white/50 text-xs font-ui mt-4">Ik werk voor bouw & aannemerij, groenvoorziening, hoveniers en automotive.</p>
+        <p class="text-white/50 text-xs font-ui mt-4">
+          Ik werk voor bouw & aannemerij, groenvoorziening, hoveniers en automotive.
+        </p>
       </div>
 
       <!-- Referenties -->
       <div class="max-w-3xl mx-auto">
         <p class="text-white/50 text-sm font-ui mb-4 text-center">Referentieprojecten</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="https://www.cfbouw.nl/" target="_blank" rel="noopener noreferrer" data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
-            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">C&F Bouw</h3>
-            <p class="text-white/60 text-sm font-ui mb-2">Lead-generation portaal voor de bouwsector.</p>
-            <p class="text-active text-xs font-bold font-ui">+340% organisch verkeer • structureel meer aanvragen per maand uit de website</p>
+          <a
+            href="https://www.cfbouw.nl/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-animate="fade-up"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+          >
+            <h3
+              class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors"
+            >
+              C&F Bouw
+            </h3>
+            <p class="text-white/60 text-sm font-ui mb-2">
+              Lead-generation portaal voor de bouwsector.
+            </p>
+            <p class="text-active text-xs font-bold font-ui">
+              +340% organisch verkeer • structureel meer aanvragen per maand uit de website
+            </p>
           </a>
-          <a href="https://tuinhub.nl/" target="_blank" rel="noopener noreferrer" data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group">
-            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">TuinHub</h3>
-            <p class="text-white/60 text-sm font-ui">Matchmaking-platform voor tuineigenaren en hoveniers.</p>
+          <a
+            href="https://tuinhub.nl/"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-animate="fade-up"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+          >
+            <h3
+              class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors"
+            >
+              TuinHub
+            </h3>
+            <p class="text-white/60 text-sm font-ui">
+              Matchmaking-platform voor tuineigenaren en hoveniers.
+            </p>
           </a>
         </div>
       </div>
@@ -99,7 +177,9 @@ const serviceSchema = {
         Plan een gesprek
         <Icon name="arrow-right" size={16} />
       </a>
-      <p class="text-white/40 text-sm font-ui mt-3">Meer aanvragen uit uw website? Laten we samen kijken wat mogelijk is.</p>
+      <p class="text-white/40 text-sm font-ui mt-3">
+        Meer aanvragen uit uw website? Laten we samen kijken wat mogelijk is.
+      </p>
     </div>
   </section>
 </Layout>

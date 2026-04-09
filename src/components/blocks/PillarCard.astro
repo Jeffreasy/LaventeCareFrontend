@@ -11,26 +11,36 @@ interface Props {
   class?: string;
 }
 
-const { title, description, icon, tags = [], href, featured = false, class: className } = Astro.props;
+const {
+  title,
+  description,
+  icon,
+  tags = [],
+  href,
+  featured = false,
+  class: className,
+} = Astro.props;
 ---
 
 <a
   href={href}
   class:list={[
     'group block clinical-glass p-6 md:p-8 rounded-(--radius-feature) border hover:-translate-y-1 transition-all duration-(--transition-base) pillar-accent',
-    featured
-      ? 'border-active/30 bg-active/5'
-      : 'border-white/8 hover:border-active/30',
+    featured ? 'border-active/30 bg-active/5' : 'border-white/8 hover:border-active/30',
     className,
   ]}
 >
   <!-- Icon -->
-  <div class="w-12 h-12 rounded-xl bg-active/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-active/20 transition-all duration-300">
+  <div
+    class="w-12 h-12 rounded-xl bg-active/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-active/20 transition-all duration-300"
+  >
     <Icon name={icon} size={24} class="text-active" />
   </div>
 
   <!-- Content -->
-  <h3 class="text-xl md:text-2xl font-bold text-white mb-3 font-display group-hover:text-active transition-colors">
+  <h3
+    class="text-xl md:text-2xl font-bold text-white mb-3 font-display group-hover:text-active transition-colors"
+  >
     {title}
   </h3>
   <p class="text-white/70 mb-5 leading-relaxed font-ui text-sm md:text-base">
@@ -38,13 +48,15 @@ const { title, description, icon, tags = [], href, featured = false, class: clas
   </p>
 
   <!-- Tags -->
-  {tags.length > 0 && (
-    <div class="flex flex-wrap gap-2 mb-5">
-      {tags.map((tag) => (
-        <span class="tech-badge-subtle text-[11px]">{tag}</span>
-      ))}
-    </div>
-  )}
+  {
+    tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-5">
+        {tags.map((tag) => (
+          <span class="tech-badge-subtle text-[11px]">{tag}</span>
+        ))}
+      </div>
+    )
+  }
 
   <!-- Arrow -->
   <div class="flex items-center text-active text-sm font-bold pt-4 border-t border-white/5">

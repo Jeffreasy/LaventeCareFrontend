@@ -24,7 +24,10 @@ export const settings = {
       label: 'Diensten',
       link: { cached_url: 'diensten' },
       items: [
-        { label: 'AI & Prompt Engineering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
+        {
+          label: 'AI & Prompt Engineering',
+          link: { cached_url: 'diensten/ai-prompt-engineering' },
+        },
         { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
         { label: 'Maatwerk Platformen', link: { cached_url: 'diensten/maatwerk-platformen' } },
         { label: 'Lead Generation', link: { cached_url: 'diensten/lead-generation' } },
@@ -49,7 +52,10 @@ export const settings = {
     {
       title: 'Diensten',
       links: [
-        { label: 'AI & Prompt Engineering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
+        {
+          label: 'AI & Prompt Engineering',
+          link: { cached_url: 'diensten/ai-prompt-engineering' },
+        },
         { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
         { label: 'Maatwerk Platformen', link: { cached_url: 'diensten/maatwerk-platformen' } },
         { label: 'Lead Generation', link: { cached_url: 'diensten/lead-generation' } },

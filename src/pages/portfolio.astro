@@ -4,12 +4,12 @@ import SectionHeader from '../components/ui/SectionHeader.astro';
 import CaseStudyCard from '../components/blocks/CaseStudyCard.astro';
 import Icon from '../components/ui/Icon.astro';
 
-
 const caseStudies = [
   {
     name: 'De Koninklijke Loop',
     category: 'Evenementen',
-    description: 'Evenementenplatform dat registratie, ticketing en donaties automatiseert — waardoor 100+ deelnemers verwerkt werden zonder handmatig werk.',
+    description:
+      'Evenementenplatform dat registratie, ticketing en donaties automatiseert — waardoor 100+ deelnemers verwerkt werden zonder handmatig werk.',
     techStack: ['Astro', 'React 19', 'Convex', 'Go Auth', 'Vercel'],
     liveUrl: 'https://www.dekoninklijkeloop.nl/',
     caseStudyUrl: '/portfolio/de-koninklijke-loop',
@@ -22,7 +22,8 @@ const caseStudies = [
   {
     name: 'JeffDash',
     category: 'QR Platform',
-    description: 'Dynamisch QR-code platform dat realtime inzicht geeft in scangedrag, waardoor marketingcampagnes direct meetbaar en optimaliseerbaar worden.',
+    description:
+      'Dynamisch QR-code platform dat realtime inzicht geeft in scangedrag, waardoor marketingcampagnes direct meetbaar en optimaliseerbaar worden.',
     techStack: ['Next.js', 'Convex', 'React 19', 'Go Auth'],
     liveUrl: 'https://www.jeffdash.com/',
     caseStudyUrl: '/portfolio/jeffdash',
@@ -36,7 +37,8 @@ const caseStudies = [
   {
     name: 'C&F Bouw',
     category: 'Lead Generation',
-    description: 'Lead-generation platform dat zorgt voor +340% organisch verkeer en structureel meer aanvragen voor de bouwsector.',
+    description:
+      'Lead-generation platform dat zorgt voor +340% organisch verkeer en structureel meer aanvragen voor de bouwsector.',
     techStack: ['Next.js', 'Supabase', 'Vercel'],
     liveUrl: 'https://www.cfbouw.nl/',
     caseStudyUrl: '/portfolio/cf-bouw',
@@ -50,7 +52,8 @@ const caseStudies = [
   {
     name: 'Whisky for Charity',
     category: 'Charity',
-    description: 'Liefdadigheidsplatform dat veilige donatiestromen en veilingen faciliteert, zodat donateurs volledig inzicht hebben in donaties en bestedingen.',
+    description:
+      'Liefdadigheidsplatform dat veilige donatiestromen en veilingen faciliteert, zodat donateurs volledig inzicht hebben in donaties en bestedingen.',
     techStack: ['Astro', 'Convex', 'HTML Email'],
     liveUrl: 'https://www.whiskyforcharity.com/',
     caseStudyUrl: '/portfolio/whisky-for-charity',
@@ -64,7 +67,8 @@ const caseStudies = [
   {
     name: 'TuinHub',
     category: 'Matchmaking',
-    description: 'Platform dat tuineigenaren en hoveniers verbindt en direct leads genereert voor aangesloten bedrijven.',
+    description:
+      'Platform dat tuineigenaren en hoveniers verbindt en direct leads genereert voor aangesloten bedrijven.',
     techStack: ['Next.js', 'Supabase', 'Vercel', 'SEO'],
     liveUrl: 'https://tuinhub.nl/',
     caseStudyUrl: '/portfolio/tuinhub',
@@ -78,7 +82,8 @@ const caseStudies = [
   {
     name: 'SmartCoolCare',
     category: 'IoT & Hardware',
-    description: 'Realtime koelmonitoring die temperatuur-afwijkingen direct detecteert en (product)schade of systeemstilstand voorkomt.',
+    description:
+      'Realtime koelmonitoring die temperatuur-afwijkingen direct detecteert en (product)schade of systeemstilstand voorkomt.',
     techStack: ['C++/ESP32', 'BLE', 'Convex', 'React'],
     liveUrl: 'https://www.smartcoolcare.nl/',
     caseStudyUrl: '/portfolio/smartcoolcare',
@@ -92,7 +97,8 @@ const caseStudies = [
   {
     name: 'Dustin Auto Garage',
     category: 'Werkplaatsbeheer',
-    description: 'Werkplaats-managementsysteem dat voertuigregistraties, RDW-koppelingen en facturatie stroomlijnt — zodat de monteur kan focussen op werk, terwijl het systeem de administratie en planning automatiseert.',
+    description:
+      'Werkplaats-managementsysteem dat voertuigregistraties, RDW-koppelingen en facturatie stroomlijnt — zodat de monteur kan focussen op werk, terwijl het systeem de administratie en planning automatiseert.',
     techStack: ['Astro', 'React 19', 'Convex', 'Go Auth'],
     caseStudyUrl: '/portfolio/dustin-auto-garage',
   },
@@ -112,21 +118,23 @@ const caseStudies = [
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
-        {caseStudies.map((study, index) => (
-          <div data-animate="fade-up" class={`delay-${(index % 3) * 100}`}>
-            <CaseStudyCard {...study} />
-          </div>
-        ))}
+        {
+          caseStudies.map((study, index) => (
+            <div data-animate="fade-up" class={`delay-${(index % 3) * 100}`}>
+              <CaseStudyCard {...study} />
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-
-
   <!-- CTA -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
-      <div class="clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto text-center">
+      <div
+        class="clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto text-center"
+      >
         <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
           Klaar voor het volgende project?
         </h2>

@@ -161,18 +161,10 @@ function isActive(item: MenuItem): boolean {
                 role="menu"
               >
                 <div class="nav-dropdown__panel">
-                  <a
-                    href="/admin"
-                    class="nav-dropdown__item"
-                    role="menuitem"
-                  >
+                  <a href="/admin" class="nav-dropdown__item" role="menuitem">
                     Dashboard
                   </a>
-                  <a
-                    href="/admin/settings"
-                    class="nav-dropdown__item"
-                    role="menuitem"
-                  >
+                  <a href="/admin/settings" class="nav-dropdown__item" role="menuitem">
                     Settings
                   </a>
                 </div>
@@ -184,16 +176,11 @@ function isActive(item: MenuItem): boolean {
 
       {/* Desktop CTA + Auth */}
       <div class="hidden md:flex items-center gap-3">
-        <a href="/contact" class="nav-cta-contact">
-          Contact
-        </a>
+        <a href="/contact" class="nav-cta-contact"> Contact </a>
         {
           Astro.locals.isLoggedIn ? (
             <form action="/api/auth/logout" method="POST">
-              <button
-                type="submit"
-                class="nav-cta-auth nav-cta-auth--logout"
-              >
+              <button type="submit" class="nav-cta-auth nav-cta-auth--logout">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     stroke-linecap="round"
@@ -206,10 +193,7 @@ function isActive(item: MenuItem): boolean {
               </button>
             </form>
           ) : (
-            <a
-              href="/login"
-              class="nav-cta-auth"
-            >
+            <a href="/login" class="nav-cta-auth">
               <svg
                 class="w-4 h-4 text-active"
                 fill="none"
@@ -259,11 +243,7 @@ function isActive(item: MenuItem): boolean {
         </summary>
 
         {/* Mobile Menu Panel */}
-        <div
-          id="mobile-menu-content"
-          class="mobile-panel"
-          role="menu"
-        >
+        <div id="mobile-menu-content" class="mobile-panel" role="menu">
           <div class="px-5 py-6 space-y-1">
             {
               menu.map((item, i) => {
@@ -272,9 +252,7 @@ function isActive(item: MenuItem): boolean {
                 if (item.items && item.items.length > 0) {
                   return (
                     <div class="mobile-nav-group" style={`--stagger: ${i}`}>
-                      <span class="mobile-nav-label">
-                        {item.label}
-                      </span>
+                      <span class="mobile-nav-label">{item.label}</span>
                       <div class="space-y-0.5 mt-1">
                         {item.items.map((subItem, j) => {
                           const subHref = `/${subItem.link.cached_url}`;
@@ -313,18 +291,10 @@ function isActive(item: MenuItem): boolean {
               Astro.locals.isAdmin && (
                 <div class="pt-4 mt-4 border-t border-white/5">
                   <span class="mobile-nav-label">Admin</span>
-                  <a
-                    href="/admin"
-                    class="mobile-nav-subitem"
-                    style="--stagger: 8"
-                  >
+                  <a href="/admin" class="mobile-nav-subitem" style="--stagger: 8">
                     Dashboard
                   </a>
-                  <a
-                    href="/admin/settings"
-                    class="mobile-nav-subitem"
-                    style="--stagger: 9"
-                  >
+                  <a href="/admin/settings" class="mobile-nav-subitem" style="--stagger: 9">
                     Settings
                   </a>
                 </div>
@@ -333,27 +303,16 @@ function isActive(item: MenuItem): boolean {
 
             {/* Mobile CTA */}
             <div class="pt-6 mt-4 border-t border-white/8 space-y-3" style="--stagger: 10">
-              <a
-                href="/contact"
-                class="mobile-cta mobile-cta--primary"
-              >
-                Contact
-              </a>
+              <a href="/contact" class="mobile-cta mobile-cta--primary"> Contact </a>
               {
                 Astro.locals.isLoggedIn ? (
                   <form action="/api/auth/logout" method="POST">
-                    <button
-                      type="submit"
-                      class="mobile-cta mobile-cta--logout"
-                    >
+                    <button type="submit" class="mobile-cta mobile-cta--logout">
                       Logout
                     </button>
                   </form>
                 ) : (
-                  <a
-                    href="/login"
-                    class="mobile-cta mobile-cta--secondary"
-                  >
+                  <a href="/login" class="mobile-cta mobile-cta--secondary">
                     Login
                   </a>
                 )
@@ -398,7 +357,9 @@ function isActive(item: MenuItem): boolean {
     font-weight: 500;
     letter-spacing: 0.01em;
     color: rgba(255, 255, 255, 0.6);
-    transition: color 0.2s ease, background-color 0.2s ease;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
     text-decoration: none;
   }
 
@@ -493,7 +454,9 @@ function isActive(item: MenuItem): boolean {
     font-family: var(--font-ui);
     color: rgba(255, 255, 255, 0.6);
     border-radius: 0.5rem;
-    transition: color 0.15s ease, background 0.15s ease;
+    transition:
+      color 0.15s ease,
+      background 0.15s ease;
     text-decoration: none;
   }
 
@@ -555,9 +518,9 @@ function isActive(item: MenuItem): boolean {
   }
 
   .nav-cta-auth--logout:hover {
-    background: oklch(0.60 0.22 25 / 0.1);
-    border-color: oklch(0.60 0.22 25 / 0.2);
-    color: oklch(0.70 0.18 25);
+    background: oklch(0.6 0.22 25 / 0.1);
+    border-color: oklch(0.6 0.22 25 / 0.2);
+    color: oklch(0.7 0.18 25);
   }
 
   /* ── Hamburger Animation ───────────────────────────── */
@@ -567,7 +530,9 @@ function isActive(item: MenuItem): boolean {
   }
 
   details summary svg path {
-    transition: transform 0.3s ease, opacity 0.2s ease;
+    transition:
+      transform 0.3s ease,
+      opacity 0.2s ease;
     transform-origin: center;
   }
 
@@ -615,7 +580,9 @@ function isActive(item: MenuItem): boolean {
     color: rgba(255, 255, 255, 0.65);
     text-decoration: none;
     border-radius: 0.625rem;
-    transition: color 0.15s ease, background 0.15s ease;
+    transition:
+      color 0.15s ease,
+      background 0.15s ease;
     position: relative;
   }
 
@@ -665,7 +632,9 @@ function isActive(item: MenuItem): boolean {
     color: rgba(255, 255, 255, 0.55);
     text-decoration: none;
     border-radius: 0.5rem;
-    transition: color 0.15s ease, background 0.15s ease;
+    transition:
+      color 0.15s ease,
+      background 0.15s ease;
     position: relative;
   }
 
@@ -726,9 +695,9 @@ function isActive(item: MenuItem): boolean {
   }
 
   .mobile-cta--logout {
-    background: oklch(0.60 0.22 25 / 0.08);
-    color: oklch(0.70 0.18 25);
-    border: 1px solid oklch(0.60 0.22 25 / 0.15);
+    background: oklch(0.6 0.22 25 / 0.08);
+    color: oklch(0.7 0.18 25);
+    border: 1px solid oklch(0.6 0.22 25 / 0.15);
   }
 
   /* ── Staggered Entrance Animation ──────────────────── */
@@ -774,7 +743,7 @@ function isActive(item: MenuItem): boolean {
   nav button:focus-visible,
   nav a:focus-visible,
   nav summary:focus-visible {
-    outline: 2px solid oklch(0.60 0.14 200);
+    outline: 2px solid oklch(0.6 0.14 200);
     outline-offset: 2px;
     border-radius: 0.5rem;
   }
