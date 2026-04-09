@@ -14,7 +14,7 @@ const lighthouseScores = [
 
 const results = [
   { value: '€10K+', label: 'Opgehaald voor goede doelen' },
-  { value: '100%', label: 'Succesvolle transacties' },
+  { value: '0', label: 'Mislukte transacties' },
   { value: '< 2s', label: 'Gemiddelde laadtijd' },
   { value: 'Dual', label: 'E-mail dispatch' },
 ];
@@ -22,11 +22,11 @@ const results = [
 const challenges = [
   {
     title: 'Veilige donatiestromen',
-    desc: 'Financiële transacties voor liefdadigheid vereisen absolute betrouwbaarheid. Elke euro moet traceerbaar en verantwoord zijn.',
+    desc: 'Financiële transacties voor liefdadigheid vereisen maximale betrouwbaarheid. Elke euro moet traceerbaar en verantwoord zijn.',
   },
   {
     title: 'Complexe orderverwerking',
-    desc: 'Bestellingen van whisky-veilingen, donaties en merchandise moeten feilloos verwerkt worden met automatische bevestigingen.',
+    desc: 'Bestellingen van whisky-veilingen, donaties en merchandise moeten betrouwbaar verwerkt worden met automatische bevestigingen.',
   },
   {
     title: 'Geautomatiseerde communicatie',
@@ -34,7 +34,7 @@ const challenges = [
   },
   {
     title: 'Event-dag betrouwbaarheid',
-    desc: 'Tijdens het event mag het platform niet falen. Nul downtime is geen wens maar een vereiste bij live liefdadigheidsacties.',
+    desc: 'Tijdens het event mag het platform niet falen. Maximale uptime is cruciaal bij live liefdadigheidsacties.',
   },
 ];
 ---
@@ -117,7 +117,7 @@ const challenges = [
         <LighthouseScoreBlock
           projectName="Whisky for Charity"
           scores={lighthouseScores}
-          context="Als één van mijn eerste projecten scoort Whisky for Charity een perfecte 100 op SEO en sterke cijfers op Accessibility en Best Practices. De Performance-score (71) weerspiegelt de legacy-architectuur — een bewuste keuze om niet te refactoren zolang het platform stabiel draait."
+          context="Als één van mijn eerste projecten scoort Whisky for Charity een 100 op SEO en sterke cijfers op Accessibility en Best Practices. De Performance-score (71) weerspiegelt de legacy-architectuur — een bewuste keuze om niet te refactoren zolang het platform stabiel draait."
           liveUrl="https://www.whiskyforcharity.com/"
         />
       </div>
