@@ -378,19 +378,24 @@ h1, h2, h3, h4, h5, h6 {
    Layout Utilities — Mobile-first
    ============================================ */
 
-.section-padding {
-  padding-block: var(--spacing-section-sm);
-}
-
-@media (min-width: 768px) {
+@layer base {
   .section-padding {
-    padding-block: var(--spacing-section-md);
+    padding-bottom: var(--spacing-section-sm);
+    padding-top: var(--spacing-section-sm);
   }
-}
 
-@media (min-width: 1024px) {
-  .section-padding {
-    padding-block: var(--spacing-section-lg);
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-bottom: var(--spacing-section-md);
+      padding-top: var(--spacing-section-md);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-bottom: var(--spacing-section-lg);
+      padding-top: var(--spacing-section-lg);
+    }
   }
 }
 
