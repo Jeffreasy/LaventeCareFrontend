@@ -125,11 +125,11 @@ const breadcrumbSchema = {
     <!-- Astro Client Router (View Transitions) -->
     <ClientRouter />
 
-    <!-- GTM Head Script - Consent-Gated -->
+    <!-- GTM Head Script - Consent-Gated (deferred to idle) -->
     {
       settings.gtm_id && (
         <script
-          set:html={`(function checkConsent(){try{var d=localStorage.getItem("consent_state");if(!d){setTimeout(checkConsent,500);return}var c=JSON.parse(d);if(c.marketing){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f)})(window,document,"script","dataLayer","${settings.gtm_id}")}}catch(e){}})();`}
+          set:html={`(function(){function loadGTM(){try{var d=localStorage.getItem("consent_state");if(!d)return;var c=JSON.parse(d);if(c.marketing){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f)})(window,document,"script","dataLayer","${settings.gtm_id}")}}catch(e){}}if(typeof requestIdleCallback==="function"){requestIdleCallback(loadGTM)}else{setTimeout(loadGTM,1)}})();`}
         />
       )
     }
@@ -181,14 +181,14 @@ const breadcrumbSchema = {
     />
 
     <!-- Global UI Islands -->
-    <GlobalLoader client:visible />
+    <GlobalLoader client:idle />
     <NotificationToast client:idle />
 
     <!-- GDPR Cookie Consent Banner -->
-    <CookieConsent client:load />
+    <CookieConsent client:idle />
 
     <!-- Vercel Analytics (Consent-Gated) -->
-    <AnalyticsProvider client:load />
+    <AnalyticsProvider client:idle />
 
     <!-- Vercel Speed Insights (Core Web Vitals — no PII, no cookies) -->
     <SpeedInsights />

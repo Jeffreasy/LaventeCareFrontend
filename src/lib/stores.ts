@@ -9,9 +9,6 @@ import { atom, map } from 'nanostores';
 // UI State
 // ============================================
 
-// Mobile menu open/close state
-export const mobileMenuOpen = atom<boolean>(false);
-
 // Global loading indicator
 export const isLoading = atom<boolean>(false);
 

@@ -105,6 +105,7 @@ body {
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
+  contain: layout style;
 }
 
 .ambient-mesh__orb {
@@ -159,6 +160,18 @@ body {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33%      { transform: translate(-10vw, -12vh) scale(1.08); }
   66%      { transform: translate(-18vw, 5vh) scale(0.92); }
+}
+
+/* Disable ambient mesh animations on low-power mobile devices */
+@media (max-width: 768px) {
+  .ambient-mesh__orb { opacity: 0.6; }
+  .ambient-mesh__orb--3 { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-mesh__orb {
+    animation: none !important;
+  }
 }
 
 ::selection {
