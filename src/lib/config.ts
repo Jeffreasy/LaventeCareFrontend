@@ -78,6 +78,7 @@ export const settings = {
         { label: 'LinkedIn', link: { cached_url: 'https://linkedin.com/in/jeffrey-lavente' } },
         { label: 'GitHub', link: { cached_url: 'https://github.com/Jeffreasy' } },
         { label: 'Instagram', link: { cached_url: 'https://www.instagram.com/jjalavente/' } },
+        { label: 'Algemene Voorwaarden', link: { cached_url: 'voorwaarden' } },
         { label: 'Admin Login', link: { cached_url: 'login' } },
       ],
     },
