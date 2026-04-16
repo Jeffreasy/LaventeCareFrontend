@@ -9,7 +9,13 @@ interface FAQCategory {
   items: FAQItem[];
 }
 
-const faqs: FAQCategory[] = [
+interface Props {
+  locale?: 'nl' | 'en';
+}
+
+const { locale = 'nl' } = Astro.props;
+
+const faqsNL: FAQCategory[] = [
   {
     title: 'Over LaventeCare',
     items: [
@@ -102,6 +108,101 @@ const faqs: FAQCategory[] = [
   },
 ];
 
+const faqsEN: FAQCategory[] = [
+  {
+    title: 'About LaventeCare',
+    items: [
+      {
+        question: 'What exactly does LaventeCare do?',
+        answer:
+          'LaventeCare is the company of Jeffrey Lavente, based in Dronten, Netherlands. I design and build complete platforms: from systems with built-in data protection to IoT monitoring and AI automation. Every platform runs on the LaventeCare AuthSystem — a self-built security core with data isolation, role-based access control and automatic threat detection.',
+      },
+      {
+        question: 'Who is LaventeCare for?',
+        answer:
+          'I work exclusively B2B and focus on three groups: (1) Industry and installation technology that wants to read hardware and sensors remotely, (2) SMEs looking for custom portals for relationship management and client files, and (3) Organisations and foundations requiring reliable registration, ticketing and donation platforms.',
+      },
+      {
+        question: 'How does LaventeCare differ from a web agency?',
+        answer:
+          'A traditional agency often builds an "online business card" or uses standard software (like WordPress). I build complete platforms with a custom security layer. You get one engineer for your entire digital infrastructure: data isolation, integrated AI, real-time monitoring and portals that seamlessly connect to your processes.',
+      },
+    ],
+  },
+  {
+    title: 'Services & Expertise',
+    items: [
+      {
+        question: 'What does the AI Automation service actually involve?',
+        answer:
+          'It goes far beyond "just asking ChatGPT something". I work as an IT engineer with AI models as my executing build team. The AI builds at lightning speed; I design the blueprint, apply strict security rules and monitor quality. The result: structural, flawless systems that execute tasks autonomously — from complex document processing to automated reporting.',
+      },
+      {
+        question: 'Why do your applications and portals perform so fast?',
+        answer:
+          'Instead of loading heavy packages full of useless code with dozens of plugins, we build streamlined applications. We use technology that only loads what the visitor actually sees and uses. This results in instantly loading screens. For businesses this is crucial: 1 extra second of loading time costs you an average of 7% in conversions.',
+      },
+      {
+        question: 'Can existing equipment or sensors (IoT) be connected?',
+        answer:
+          'Yes, this is the bridge between the physical and digital world. I develop and connect measurement equipment (e.g. temperature, location, or power consumption) that sends data directly in real time to a secure cloud dashboard. You get insight anywhere, anytime via your phone or PC, including immediate alerts on critical deviations.',
+      },
+    ],
+  },
+  {
+    title: 'Security & Privacy',
+    items: [
+      {
+        question: 'How do you guarantee data security?',
+        answer:
+          'Security is my foundation, not an optional plugin added later. This is based on a "Zero-Trust" principle: we strictly validate and isolate all input data. Client records are fully digitally separated from each other, and we minimise dependency on unstable third parties. This structurally reduces the risk of major data breaches at the source.',
+      },
+      {
+        question: 'How do you protect a portal with multiple users/clients?',
+        answer:
+          'Each tenant, client or location gets their own isolated vault within the database ("Tenant Isolation"). Advanced access controls in the background continuously verify the identity of the user. Even if unexpected erroneous behaviour occurs, the system automatically refuses access to others\' data. Every action on the platform is traceable.',
+      },
+      {
+        question: 'Are the custom platforms GDPR compliant?',
+        answer:
+          'Designed according to Privacy by Design and GDPR principles. I collect only data that is strictly necessary (data minimisation), sensitive information is stored encrypted and retention periods are digitally enforced. Final compliance depends on the specific configuration, usage and additional agreements — such as a data processing agreement, which is available.',
+      },
+    ],
+  },
+  {
+    title: 'Process & Approach',
+    items: [
+      {
+        question: 'How does starting a project work?',
+        answer:
+          'We always start with a no-obligation Intake (30 min) to align challenges and budget. Is there a match? Then step one follows: The Technical Discovery. Here I precisely define what we will build, what risks exist, and what the exact investment will be. You receive a "Blueprint" document that you own. Only then does real development begin.',
+      },
+      {
+        question: 'How does my application keep running after go-live?',
+        answer:
+          'Your software stays reliably running via an SLA-managed plan (Service Level Agreement). Instead of passive traditional "hosting", I offer proactive management. Depending on the chosen SLA package, we handle security updates, 24/7 uptime monitoring, patches and available hours for structural further development of the system.',
+      },
+    ],
+  },
+  {
+    title: 'Costs & Investment',
+    items: [
+      {
+        question: 'What structures your investment rate?',
+        answer:
+          'Clarity upfront. No open ends or black-box invoices. The start-up phase (Discovery) usually has a fixed, one-time rate. Development is done at an expertise rate in defined phases with milestone invoicing ("pay only on results"). For continuous stability and hosting after delivery, there is transparent monthly management from €75 per month.',
+      },
+      {
+        question: 'Am I financially committed if I only start a Discovery?',
+        answer:
+          'No, absolutely not. The Discovery and Blueprint design phase is a standalone product. If this research does not produce the desired picture or price tag, the collaboration stops there. The Blueprint document, including all analyses and system requirements, is then yours. You can then take it directly to another party if you wish.',
+      },
+    ],
+  },
+];
+
+const faqs = locale === 'en' ? faqsEN : faqsNL;
+
 // Generate JSON-LD for FAQPage
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -117,6 +218,15 @@ const faqSchema = {
     }))
   ),
 };
+
+const ui = {
+  label: locale === 'en' ? 'Support & Info' : 'Support & Info',
+  heading: locale === 'en' ? 'Frequently Asked <span class="text-transparent bg-clip-text bg-linear-to-r from-active to-white/50">Questions</span>' : 'Veelgestelde <span class="text-transparent bg-clip-text bg-linear-to-r from-active to-white/50">Vragen</span>',
+  subtext: locale === 'en'
+    ? 'Everything about my approach, technology, security and costs. Question not listed?'
+    : 'Alles over mijn werkwijze, technologie, beveiliging en kosten. Staat uw vraag er niet bij?',
+  contactText: locale === 'en' ? 'Get in touch' : 'Neem contact op',
+};
 ---
 
 <section id="faq" class="py-16 md:py-24 relative overflow-hidden">
@@ -128,19 +238,16 @@ const faqSchema = {
       <span
         class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block animate-in fade-in slide-in-from-bottom-2 duration-700"
       >
-        Support & Info
+        {ui.label}
       </span>
       <h2
         class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight leading-[1.1]"
-      >
-        Veelgestelde <span
-          class="text-transparent bg-clip-text bg-linear-to-r from-active to-white/50">Vragen</span
-        >
-      </h2>
+        set:html={ui.heading}
+      />
       <p class="text-white/60 max-w-2xl mx-auto text-lg leading-relaxed font-ui">
-        Alles over mijn werkwijze, technologie, beveiliging en kosten. Staat uw vraag er niet bij? <a
+        {ui.subtext} <a
           href="/contact"
-          class="text-active hover:underline">Neem contact op</a
+          class="text-active hover:underline">{ui.contactText}</a
         >.
       </p>
     </div>
