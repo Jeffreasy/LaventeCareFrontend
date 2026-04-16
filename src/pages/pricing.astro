@@ -1,4 +1,104 @@
 ---
-// 301 Redirect: /pricing → /prijzen (Nederlandse URL voor SEO)
-return Astro.redirect('/prijzen', 301);
+/**
+ * /pricing — English pricing page (served on www.laventecare.com)
+ *
+ * The old NL redirect (→ /prijzen) is no longer needed here because:
+ * - .nl domain: prijzen.astro handles Dutch pricing
+ * - .com domain: this file serves English pricing
+ *
+ * Middleware ensures locale detection per domain.
+ */
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/ui/Icon.astro';
 ---
+
+<Layout
+  title="Pricing & Packages — Transparent Rates | LaventeCare"
+  description="Clear pricing with no hidden costs. Hourly rate €95, fixed packages available. Contact us for a custom quote tailored to your situation."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Transparent</span>
+        <h1 class="text-4xl md:text-5xl font-black text-white mb-4 font-display tracking-tight">
+          Pricing & Packages
+        </h1>
+        <p class="text-white/60 max-w-xl mx-auto font-ui">
+          No hidden costs or surprise invoices. Clear agreements, milestone-based billing.
+        </p>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
+        <!-- Starter -->
+        <div data-animate="fade-up" class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 flex flex-col">
+          <div class="mb-6">
+            <h2 class="text-lg font-bold text-white font-display mb-1">Landing Page</h2>
+            <p class="text-white/50 text-sm font-ui">Lead-generating website for SMEs</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-3xl font-black text-white font-display">€2,500</span>
+            <span class="text-white/40 text-sm font-ui ml-1">one-off</span>
+          </div>
+          <ul class="space-y-2 text-sm font-ui text-white/70 flex-1 mb-6">
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> High-performance landing page</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Contact form + quote flow</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> SEO-optimised</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> 99/100 PageSpeed target</li>
+          </ul>
+          <a href="/contact" class="btn-secondary text-center">Get a quote</a>
+        </div>
+
+        <!-- Platform -->
+        <div data-animate="fade-up" class="delay-100 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-active/30 bg-active/5 flex flex-col relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active text-background">Most popular</span>
+          </div>
+          <div class="mb-6">
+            <h2 class="text-lg font-bold text-white font-display mb-1">Custom Platform</h2>
+            <p class="text-white/50 text-sm font-ui">Complete system with auth & dashboard</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-3xl font-black text-white font-display">€95</span>
+            <span class="text-white/40 text-sm font-ui ml-1">/hour</span>
+          </div>
+          <ul class="space-y-2 text-sm font-ui text-white/70 flex-1 mb-6">
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Custom architecture & design</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Built-in security (Zero-Trust)</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Real-time dashboards</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Milestone-based billing</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Technical Blueprint document</li>
+          </ul>
+          <a href="/contact" class="btn-primary text-center">
+            Schedule intake
+            <Icon name="arrow-right" size={14} />
+          </a>
+        </div>
+
+        <!-- SLA -->
+        <div data-animate="fade-up" class="delay-200 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 flex flex-col">
+          <div class="mb-6">
+            <h2 class="text-lg font-bold text-white font-display mb-1">SLA & Maintenance</h2>
+            <p class="text-white/50 text-sm font-ui">For existing systems</p>
+          </div>
+          <div class="mb-6">
+            <span class="text-3xl font-black text-white font-display">€75</span>
+            <span class="text-white/40 text-sm font-ui ml-1">/month</span>
+          </div>
+          <ul class="space-y-2 text-sm font-ui text-white/70 flex-1 mb-6">
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Security updates</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uptime monitoring</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Priority support</li>
+            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Further development on request</li>
+          </ul>
+          <a href="/contact" class="btn-secondary text-center">Get in touch</a>
+        </div>
+      </div>
+
+      <p class="text-center text-white/30 text-sm font-ui max-w-xl mx-auto">
+        All rates exclusive of VAT. Custom projects start with a paid Technical Discovery (€750–€2,500).
+        <a href="/how-we-work" class="text-active hover:underline ml-1">See how we work →</a>
+      </p>
+    </div>
+  </section>
+</Layout>

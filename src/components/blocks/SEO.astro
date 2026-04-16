@@ -1,22 +1,37 @@
 ---
 import type { SEOProps } from '../../lib/types';
+import type { Locale } from '../../lib/i18n';
 
 interface Props extends Partial<SEOProps> {
   noindex?: boolean;
+  locale?: Locale;
+  alternatePath?: string | null;
 }
 
 const {
   title = 'LaventeCare — AI Prompt Engineering, Web & IoT Solutions',
-  description = 'LaventeCare van Jeffrey Lavente: AI-automatisering, razensnelle websites, slimme sensoroplossingen en professionele databescherming. Eén aanspreekpunt voor uw complete digitale infrastructuur. Dronten, Nederland.',
+  description = 'LaventeCare combines AI prompt engineering with full-stack development and IoT expertise. Custom AI solutions and high-performance web applications.',
   image,
   noindex = false,
+  locale = 'nl',
+  alternatePath = null,
 } = Astro.props;
 
-const siteUrl = Astro.site?.href || 'https://www.laventecare.nl';
-const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const isEN = locale === 'en';
+const ogLocale = isEN ? 'en_US' : 'nl_NL';
+
+const ownDomain = isEN ? 'https://www.laventecare.com' : 'https://www.laventecare.nl';
+const altDomain = isEN ? 'https://www.laventecare.nl' : 'https://www.laventecare.com';
+
+const canonicalURL = new URL(Astro.url.pathname, ownDomain);
 const ogImageUrl = image?.filename
-  ? new URL(image.filename, siteUrl).href
-  : new URL('/og-image.png', siteUrl).href;
+  ? new URL(image.filename, ownDomain).href
+  : new URL('/og-image.png', ownDomain).href;
+
+// hreflang alternate URL (if a mapping exists)
+const alternateURL = alternatePath ? new URL(alternatePath, altDomain).href : null;
+const selfHreflang = isEN ? 'en' : 'nl';
+const altHreflang = isEN ? 'nl' : 'en';
 ---
 
 <!-- Primary Meta Tags -->
@@ -31,11 +46,19 @@ const ogImageUrl = image?.filename
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- hreflang: self -->
+<link rel="alternate" hreflang={selfHreflang} href={canonicalURL.href} />
+<!-- hreflang: alternate language (if mapping exists) -->
+{alternateURL && <link rel="alternate" hreflang={altHreflang} href={alternateURL} />}
+<!-- hreflang: x-default always points to NL (primary market) -->
+<link rel="alternate" hreflang="x-default" href="https://www.laventecare.nl" />
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:site_name" content="LaventeCare" />
-<meta property="og:locale" content="nl_NL" />
+<meta property="og:locale" content={ogLocale} />
+{alternateURL && <meta property="og:locale:alternate" content={isEN ? 'nl_NL' : 'en_US'} />}
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImageUrl} />

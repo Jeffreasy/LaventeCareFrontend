@@ -19,5 +19,6 @@ declare namespace App {
     isAdmin: boolean;
     accessToken?: string;
     csrfToken?: string;
+    locale: import('./lib/i18n').Locale;
   }
 }

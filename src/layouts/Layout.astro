@@ -9,6 +9,8 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 import { GlobalLoader } from '../components/islands/GlobalLoader';
 import { NotificationToast } from '../components/islands/NotificationToast';
 import '../styles/global.css';
+import { getSettings } from '../lib/config';
+import { getAlternatePath, getTranslations } from '../lib/i18n';
 
 interface Props {
   title?: string;
@@ -26,35 +28,16 @@ interface Props {
 
 const { title, description, noindex, seoOverride } = Astro.props;
 
-// Static site settings
-import { settings } from '../lib/config';
+// Locale-aware settings
+const locale = Astro.locals.locale;
+const settings = getSettings(locale);
+const tr = getTranslations(locale);
 
 // Generate BreadcrumbList from URL path
-const siteUrl = Astro.site?.href || 'https://www.laventecare.nl';
+const siteUrl = tr.site.domain;
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
 
-const breadcrumbLabels: Record<string, string> = {
-  over: 'Over',
-  diensten: 'Diensten',
-  portfolio: 'Portfolio',
-  werkwijze: 'Werkwijze',
-  pricing: 'Prijzen',
-  prijzen: 'Prijzen',
-  contact: 'Contact',
-  voorwaarden: 'Algemene Voorwaarden',
-  'ai-prompt-engineering': 'AI & Prompt Engineering',
-  'iot-hardware': 'IoT & Hardware',
-  'maatwerk-platformen': 'Maatwerk Platformen',
-  'lead-generation': 'Lead Generation',
-  security: 'Security & Auth',
-  'cf-bouw': 'C&F Bouw',
-  'de-koninklijke-loop': 'De Koninklijke Loop',
-  'dustin-auto-garage': 'Dustin Auto Garage',
-  jeffdash: 'JeffDash',
-  smartcoolcare: 'SmartCoolCare',
-  tuinhub: 'TuinHub',
-  'whisky-for-charity': 'Whisky for Charity',
-};
+const breadcrumbLabels: Record<string, string> = tr.breadcrumbs as Record<string, string>;
 
 const breadcrumbItems = [
   { name: 'Home', url: siteUrl },
@@ -80,7 +63,7 @@ const breadcrumbSchema = {
 ---
 
 <!doctype html>
-<html lang="nl">
+<html lang={tr.site.htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -113,6 +96,8 @@ const breadcrumbSchema = {
       description={seoOverride?.description || description || settings.meta_description}
       image={seoOverride?.image || settings.og_image?.[0]}
       noindex={noindex}
+      locale={locale}
+      alternatePath={getAlternatePath(Astro.url.pathname, locale)}
     />
 
     <!-- CSRF Token (only render if available) -->

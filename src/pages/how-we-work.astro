@@ -1,0 +1,177 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import ProcessTimeline from '../components/blocks/ProcessTimeline.astro';
+import Icon from '../components/ui/Icon.astro';
+
+const processSteps = [
+  {
+    phase: '1',
+    title: 'Introduction & Intake',
+    description:
+      'A no-obligation conversation (30 min) to clarify your situation, goals and technical possibilities. Including a first assessment of feasibility and investment.',
+    price: 'Free',
+    icon: 'coffee',
+  },
+  {
+    phase: '2',
+    title: 'Technical Discovery',
+    description:
+      'In-depth analysis of technical requirements, architecture design and a detailed Blueprint document. You receive a usable document — regardless of whether the project proceeds.',
+    price: '€750 – €2,500',
+    icon: 'search',
+  },
+  {
+    phase: '3',
+    title: 'Development & Delivery',
+    description:
+      "Agile development in 2-week sprints. Interim demos and acceptance tests. Full transparency: you see exactly what is being built and where your budget goes — visible per sprint.",
+    price: '€95/hour',
+    icon: 'zap',
+  },
+  {
+    phase: '4',
+    title: 'SLA & Further Development',
+    description:
+      'Your system remains secure, up-to-date and available. Further development and new features based on your requirements — flexible, scalable and future-proof.',
+    price: 'from €75/month',
+    icon: 'refresh-cw',
+  },
+] as const;
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How does a project with LaventeCare work?',
+  description:
+    'From free intake to SLA support. A structured four-phase model for B2B IT projects.',
+  step: processSteps.map((s) => ({
+    '@type': 'HowToStep',
+    name: `Step ${s.phase}: ${s.title}`,
+    text: s.description,
+  })),
+  totalTime: 'P12W',
+  estimatedCost: {
+    '@type': 'MonetaryAmount',
+    currency: 'EUR',
+    value: '95',
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+
+<Layout
+  title="How We Work — Controlled Process, No Complexity | LaventeCare"
+  description="How does a project with LaventeCare work? From free intake to SLA support. Transparent, structured and without surprises."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Process"
+        heading='From idea to <span class="text-active">production</span>'
+        description="No chaos or surprises, but a structured process that ensures control, clarity and a reliable end result."
+      />
+
+      <!-- Process Timeline -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <ProcessTimeline steps={[...processSteps]} />
+      </div>
+
+      <!-- Billing Flow -->
+      <div class="max-w-3xl mx-auto mb-16">
+        <SectionHeader
+          label="Billing"
+          heading='Phased <span class="text-active">billing</span> — full control over your investment'
+          description="Billing based on milestones and realised progress. In case of early termination, the terms from the quote and general terms and conditions apply."
+        />
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+            <div class="text-3xl font-black text-active font-display mb-1">40%</div>
+            <p class="text-white/70 text-xs font-ui">After Blueprint approval</p>
+            <p class="text-white/40 text-[10px] font-ui mt-1">Covers initial costs</p>
+          </div>
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+            <div class="text-3xl font-black text-active font-display mb-1">40%</div>
+            <p class="text-white/70 text-xs font-ui">At beta delivery</p>
+            <p class="text-white/40 text-[10px] font-ui mt-1">Interim acceptance</p>
+          </div>
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+            <div class="text-3xl font-black text-active font-display mb-1">20%</div>
+            <p class="text-white/70 text-xs font-ui">After go-live & acceptance</p>
+            <p class="text-white/40 text-[10px] font-ui mt-1">Client guarantee</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Terms -->
+      <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 max-w-3xl mx-auto mb-16">
+        <h3 class="text-lg font-bold text-white mb-4 font-display">Payment Terms</h3>
+        <ul class="space-y-3 text-sm font-ui text-white/70">
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Payment term: <strong class="text-white">14 days</strong> after invoice date
+          </li>
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Discovery phases are invoiced <strong class="text-white">in advance</strong>
+          </li>
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> SLA subscriptions: <strong class="text-white">monthly in advance</strong> via direct debit — rates are indexed annually (CBS)
+          </li>
+          <li class="flex gap-3">
+            <Icon name="external-link" size={14} class="text-active shrink-0 mt-0.5" />
+            <span>Full payment and cancellation terms:
+              <a href="/terms" class="text-active hover:underline">Terms & Conditions</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- When we are / aren't a fit -->
+      <div class="max-w-3xl mx-auto">
+        <SectionHeader
+          label="Transparency"
+          heading='Honest about <span class="text-active">expectations</span>'
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-feature) border border-cta/20 bg-cta/5">
+            <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
+              <Icon name="check" size={16} class="text-cta shrink-0" /> Ideal match
+            </h3>
+            <ul class="space-y-2 text-sm font-ui text-white/60">
+              <li>Budget from €3,000 for custom work</li>
+              <li>Clear problem statement</li>
+              <li>Willingness to have a technical conversation</li>
+              <li>Long-term collaboration</li>
+            </ul>
+          </div>
+          <div data-animate="fade-up" class="delay-100 clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
+            <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
+              <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> We'll refer you elsewhere
+            </h3>
+            <ul class="space-y-2 text-sm font-ui text-white/40">
+              <li>Budget under €3,000 → often better suited for low-code solutions</li>
+              <li>Price request only without context → hard to make a good estimate</li>
+              <li>Free proof-of-concept → paid discovery</li>
+              <li>Template solution (WordPress/Wix)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact" class="btn-primary text-lg px-10">
+        Schedule an intake
+        <Icon name="arrow-right" size={20} />
+      </a>
+      <p class="text-white/40 text-sm font-ui mt-3">
+        Schedule an intake and get immediate insight into feasibility, approach and costs for your situation.
+      </p>
+    </div>
+  </section>
+</Layout>

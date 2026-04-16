@@ -1,0 +1,426 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/blocks/Hero.astro';
+import Icon from '../components/ui/Icon.astro';
+import FAQSection from '../components/blocks/FAQSection.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import StatCard from '../components/ui/StatCard.astro';
+import PillarCard from '../components/blocks/PillarCard.astro';
+import LighthouseGauge from '../components/ui/LighthouseGauge.astro';
+
+const heroData = {
+  headline: 'Systems that take work off your hands',
+  subtitle: 'Designed, built and maintained by one engineer',
+  description:
+    'From automation to custom platforms — built on a <span class="text-active font-bold">solid backend</span> with focus on security, reliability and scalability. No loose tools or templates — but <span class="text-active font-bold">complete systems</span> that structurally improve your business processes.',
+  ctaPrimary: {
+    label: 'Schedule an intake',
+    url: '/contact',
+  },
+  ctaSecondary: {
+    label: 'View proven work',
+    url: '/portfolio',
+  },
+  stats: [
+    { value: '99/100', label: 'Google PageSpeed (verifiable)' },
+    { value: '6+', label: 'Platforms in production' },
+    { value: 'Zero-Trust', label: 'Strict separation of data and access' },
+  ],
+  alignment: 'center' as const,
+  size: 'large' as const,
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'LaventeCare',
+  url: 'https://www.laventecare.com',
+  logo: 'https://www.laventecare.com/og-image.png',
+  image: 'https://www.laventecare.com/og-image.png',
+  description:
+    'LaventeCare — Systems that take work off your hands: custom platforms with built-in security, AI automation and IoT monitoring. One engineer, from design to production.',
+  founder: {
+    '@type': 'Person',
+    name: 'Jeffrey Lavente',
+    jobTitle: 'Systems Engineer & Founder',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Spiegelstraat 6',
+    postalCode: '8251 ZB',
+    addressLocality: 'Dronten',
+    addressRegion: 'Flevoland',
+    addressCountry: 'NL',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 52.5286,
+    longitude: 5.7178,
+  },
+  telephone: '+31-6-39034085',
+  areaServed: ['NL', 'BE', 'DE', 'International'],
+  priceRange: '€€',
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '17:00',
+    },
+  ],
+  knowsAbout: [
+    'AI Automation',
+    'AI Prompt Engineering',
+    'Business Process Automation',
+    'Smart Monitoring',
+    'IoT Solutions',
+    'Data Protection',
+    'GDPR Compliance',
+    'Security Foundation',
+    'Custom Platforms',
+    'Lead Generation',
+    'Digital Efficiency',
+  ],
+  sameAs: [
+    'https://linkedin.com/in/jeffrey-lavente',
+    'https://github.com/Jeffreasy',
+    'https://www.instagram.com/jjalavente/',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'jeffrey@laventecare.nl',
+    contactType: 'customer service',
+    availableLanguage: ['Dutch', 'English'],
+  },
+};
+
+const pillars = [
+  {
+    title: 'AI & Automation',
+    description:
+      'AI that takes over repetitive work and uses your data for better and faster decisions — reliable, scalable and measurable in your daily processes.',
+    icon: 'brain-circuit',
+    tags: ['AI Automation', 'Digital Employees', 'Business Data'],
+    href: '/services/ai-prompt-engineering',
+    featured: true,
+  },
+  {
+    title: 'Smart Monitoring & Sensors',
+    description:
+      'Real-time monitoring that detects failures early and prevents damage or costly downtime. From sensor to dashboard, remotely and without maintenance.',
+    icon: 'radio',
+    tags: ['Real-time monitoring', 'Automatic alerting', 'Remote'],
+    href: '/services/iot-hardware',
+  },
+  {
+    title: 'Custom Platforms',
+    description:
+      'Registration, ticketing and donations — fully automated and designed to run flawlessly. Your complete event or campaign managed from one central system.',
+    icon: 'building-2',
+    tags: ['Registration', 'Donations', 'Dashboards', 'Scalable'],
+    href: '/services/custom-platforms',
+  },
+  {
+    title: 'Lead Generation',
+    description:
+      'More enquiries from your website, without extra marketing costs. Visitors are automatically directed toward a quote or enquiry, so they convert faster.',
+    icon: 'target',
+    tags: ['Quote Flows', 'Lead Management', 'SEO'],
+    href: '/services/lead-generation',
+  },
+  {
+    title: 'Security & Authentication',
+    description:
+      'Your customer data is structurally protected and separated, minimising risks and keeping your data safe — even in the event of errors or attacks.',
+    icon: 'shield-check',
+    tags: ['Data Isolation', 'Authentication', 'GDPR Compliance'],
+    href: '/services/security',
+    featured: true,
+  },
+] as const;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+<Layout
+  title="LaventeCare — Custom Platforms with Built-in Security | Netherlands"
+  description="Systems that take work off your hands: custom platforms, AI automation and IoT monitoring — with built-in security and 99/100 PageSpeed. Designed and built by one engineer."
+>
+  <Hero {...heroData} />
+
+  <!-- Core Services -->
+  <section class="section-padding relative overflow-hidden">
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-active/5 rounded-full blur-3xl pointer-events-none"
+    >
+    </div>
+
+    <div class="container mx-auto px-4 relative">
+      <SectionHeader
+        label="Platform Services"
+        heading='Five pillars, one <span class="text-active">complete ecosystem</span>'
+        description="Not separate projects, but an integrated system: each pillar strengthens the other. From AI automation to data protection — everything runs on the same robust core."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {pillars.map((pillar) => <PillarCard {...pillar} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- USPs -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Differentiators"
+        heading='Why <span class="text-active">LaventeCare</span>?'
+        description="Not a web agency — but one engineer who builds and maintains complete systems. From design to production, with built-in security."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <!-- USP 1 -->
+        <div
+          data-animate="fade-up"
+          class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform"
+          >
+            <Icon name="link" size={24} class="text-active" />
+          </div>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">One point of contact, full ownership</h3>
+          <p class="text-white/60 text-sm leading-relaxed font-ui">
+            From design to go-live — everything through one person who knows the system. No rotating developers, no miscommunication, no knowledge loss.
+          </p>
+        </div>
+
+        <!-- USP 2 -->
+        <div
+          data-animate="fade-up"
+          class="delay-100 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform"
+          >
+            <Icon name="zap" size={24} class="text-active" />
+          </div>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Own security platform</h3>
+          <p class="text-white/60 text-sm leading-relaxed font-ui">
+            Every system runs on the LaventeCare AuthSystem — a self-built platform with multi-tenant data isolation, role-based access control and automatic threat detection.
+          </p>
+        </div>
+
+        <!-- USP 3 -->
+        <div
+          data-animate="fade-up"
+          class="delay-200 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 text-center group hover:border-active/20 transition-colors"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-active/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform"
+          >
+            <Icon name="gauge" size={24} class="text-active" />
+          </div>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Measurably faster, demonstrably better</h3>
+          <p class="text-white/60 text-sm leading-relaxed font-ui">
+            99/100 Google PageSpeed is not marketing — it's verifiable via PageSpeed Insights. Every second faster = 7% more conversion (source: Google/Deloitte).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+      <div
+        data-animate="scale-up"
+        class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto"
+      >
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <StatCard value="<1.5s" label="Average Load Time" />
+          <StatCard value="99/100" label="Google PageSpeed" />
+          <StatCard value="6+" label="Platforms in Production" />
+          <StatCard value="€95" label="Hourly Rate" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="py-8 md:py-12">
+    <div class="container mx-auto px-4">
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto"
+      >
+        <div class="text-center mb-6">
+          <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-2 block"
+            >Verifiable proof</span
+          >
+          <h2 class="text-xl md:text-2xl font-bold text-white font-display">
+            Google Lighthouse Scores
+          </h2>
+          <p class="text-white/50 text-sm font-ui mt-2">
+            Independently measured by Google — not by me. Verify it yourself.
+          </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="flex-1 text-center md:text-left">
+            <p class="text-white/40 text-xs font-ui uppercase tracking-wider mb-1">
+              Featured project
+            </p>
+            <h3 class="text-lg font-bold text-white font-display mb-1">C&F Bouw</h3>
+            <p class="text-white/60 text-sm font-ui mb-3">
+              Lead-generation portal • +340% organic traffic
+            </p>
+            <a
+              href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fwww.cfbouw.nl%2F"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-active text-sm font-bold hover:underline flex items-center gap-1 justify-center md:justify-start"
+            >
+              Verify on PageSpeed Insights
+              <Icon name="external-link" size={12} />
+            </a>
+          </div>
+
+          <div class="grid grid-cols-4 gap-3 md:gap-6 place-items-center">
+            <LighthouseGauge score={99} label="Perf" size="sm" class="md:hidden" />
+            <LighthouseGauge score={97} label="A11y" size="sm" class="md:hidden" />
+            <LighthouseGauge score={100} label="BP" size="sm" class="md:hidden" />
+            <LighthouseGauge score={100} label="SEO" size="sm" class="md:hidden" />
+            <LighthouseGauge score={99} label="Perf" size="md" class="hidden md:flex" />
+            <LighthouseGauge score={97} label="A11y" size="md" class="hidden md:flex" />
+            <LighthouseGauge score={100} label="BP" size="md" class="hidden md:flex" />
+            <LighthouseGauge score={100} label="SEO" size="md" class="hidden md:flex" />
+          </div>
+        </div>
+
+        <div class="text-center mt-6">
+          <a
+            href="/portfolio"
+            class="text-white/40 text-sm font-ui hover:text-active transition-colors"
+          >
+            View all project scores →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Preview -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="References"
+        heading='Proven in <span class="text-active">production</span>'
+        description="No demos — real systems used daily that deliver demonstrable results."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <a
+          href="https://dekoninklijkeloop.nl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer"
+        >
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">
+              De Koninklijke Loop
+            </h3>
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Event</span>
+          </div>
+          <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
+            Real-time registration platform for a charity event. 100+ participants processed, 0 manual work for the organisation.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
+          </div>
+          <div class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5">
+            <LighthouseGauge score={93} label="Perf" size="sm" />
+            <LighthouseGauge score={95} label="A11y" size="sm" />
+            <LighthouseGauge score={92} label="BP" size="sm" />
+          </div>
+          <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
+            View project
+            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
+          </span>
+        </a>
+
+        <a
+          href="https://www.smartcoolcare.nl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer"
+        >
+          <div class="flex items-start justify-between mb-4">
+            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">SmartCoolCare</h3>
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">IoT</span>
+          </div>
+          <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
+            24/7 cooling monitoring with automatic alerts on deviations. Sensor data directly visible on your screen, wherever you are.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">C++</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">ESP32</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">BLE</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
+          </div>
+          <div class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5">
+            <LighthouseGauge score={99} label="Perf" size="sm" />
+            <LighthouseGauge score={90} label="A11y" size="sm" />
+            <LighthouseGauge score={96} label="BP" size="sm" />
+            <LighthouseGauge score={100} label="SEO" size="sm" />
+          </div>
+          <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
+            View project
+            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
+          </span>
+        </a>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/portfolio" class="btn-secondary">
+          View all projects
+          <Icon name="arrow-right" size={16} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div
+        class="clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto text-center"
+      >
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+          >The person behind the system</span
+        >
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 font-display">Jeffrey Lavente</h2>
+        <p
+          class="text-white/70 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-ui"
+        >
+          Systems engineer with a background in intensive neurological rehabilitation care. I build
+          systems that are not only technically solid, but also provide structure and safety
+          in the real world.
+        </p>
+        <p class="text-white/40 text-sm font-ui mb-6">
+          Schedule an intake and discover where you can immediately save time, costs or risk.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/about" class="btn-secondary"> Read my story </a>
+          <a href="/contact" class="btn-primary">
+            Schedule an intake
+            <Icon name="arrow-right" size={16} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FAQSection />
+</Layout>

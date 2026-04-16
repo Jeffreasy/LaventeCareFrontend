@@ -45,10 +45,16 @@ export default defineConfig({
         sitemap({
             filter: (page) =>
                 !page.includes('/admin') &&
-                !page.includes('/docs') &&
                 !page.includes('/api/') &&
                 !page.includes('/login') &&
-                !page.includes('/pricing'),
+                !page.includes('/en-index'),  // exclude draft EN homepage file
+            i18n: {
+                defaultLocale: 'nl',
+                locales: {
+                    nl: 'nl-NL',
+                    en: 'en-US',
+                },
+            },
         }),
     ],
 });

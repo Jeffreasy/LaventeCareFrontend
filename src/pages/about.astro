@@ -1,0 +1,364 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+import TechStackBadge from '../components/ui/TechStackBadge.astro';
+import Icon, { type IconName } from '../components/ui/Icon.astro';
+
+const expertiseDomains = [
+  {
+    icon: 'brain-circuit',
+    title: 'AI & Prompt Engineering',
+    techs: ['GPT-4', 'Claude', 'LangChain', 'Custom Agents'],
+    description:
+      'AI that genuinely adds value to your business. Digital employees that automate tasks, analyse data and support decisions — integrated into your existing workflows.',
+  },
+  {
+    icon: 'radio',
+    title: 'Smart Monitoring & Sensors',
+    techs: ['C++', 'ESP32', 'BLE', 'OTA Updates'],
+    description:
+      'Your devices become smart: months on battery, remote software updates, and real-time insight on your screen. From sensor to dashboard.',
+  },
+  {
+    icon: 'cog',
+    title: 'Security & Data Protection',
+    techs: ['Go', 'PostgreSQL', 'Redis', 'Zero-Trust'],
+    description:
+      'Your customer data is structurally separated and protected. Every action traceable, automatic cleanup of expired data — built according to GDPR principles (Privacy by Design).',
+  },
+  {
+    icon: 'monitor',
+    title: 'Websites & Platforms',
+    techs: ['Astro', 'Next.js', 'React 19', 'Convex'],
+    description:
+      'Blazing-fast websites that rank high on Google and convert more visitors into customers. Real-time dashboards and custom-built interfaces.',
+  },
+  {
+    icon: 'cloud',
+    title: 'Hosting & Management',
+    techs: ['Vercel', 'Render', 'CI/CD', 'Sentry'],
+    description:
+      'Your application runs on fast servers worldwide. Automatic updates, continuous monitoring and SSL certificates — all managed and up-to-date.',
+  },
+];
+
+const coreValues = [
+  {
+    icon: 'lock',
+    title: 'Security as standard',
+    desc: 'Not as an optional module, but as a foundation.',
+  },
+  {
+    icon: 'link',
+    title: 'End-to-end responsibility',
+    desc: 'From sensor to dashboard, everything under one roof.',
+  },
+  {
+    icon: 'trending-up',
+    title: 'Scalable architecture',
+    desc: 'Solutions that grow with the client.',
+  },
+  {
+    icon: 'handshake',
+    title: 'Transparency',
+    desc: 'Long-term partnerships over quick projects.',
+  },
+];
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Jeffrey Lavente',
+  jobTitle: 'Systems Engineer & Founder LaventeCare',
+  description:
+    'From intensive 1-on-1 care in neurological rehabilitation to IT engineering. Builds complete platforms with built-in security, AI-driven development and Zero-Trust security.',
+  image:
+    'https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-512,h-512,fo-face,f-auto,q-85',
+  url: 'https://www.laventecare.com/about',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.com',
+  },
+  knowsAbout: [
+    'AI Prompt Engineering',
+    'LLM Integration',
+    'Go',
+    'PostgreSQL',
+    'React',
+    'Next.js',
+    'Astro',
+    'C++',
+    'ESP32',
+    'IoT',
+    'Zero-Trust Security',
+    'Cloud Architecture',
+  ],
+  sameAs: [
+    'https://linkedin.com/in/jeffrey-lavente',
+    'https://github.com/Jeffreasy',
+    'https://www.instagram.com/jjalavente/',
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Dronten',
+    addressRegion: 'Flevoland',
+    addressCountry: 'NL',
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+<Layout
+  title="About Jeffrey Lavente — Systems Engineer & Founder LaventeCare"
+  description="From intensive neurological care to building serious production systems. Jeffrey Lavente combines psychological insight with solid backend engineering and AI-driven development."
+>
+  <!-- Hero -->
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+          <!-- Profile Photo -->
+          <div class="profile-photo-wrapper shrink-0">
+            <div class="profile-photo-container">
+              <picture>
+                <source
+                  media="(max-width: 639px)"
+                  srcset="
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-160,h-160,fo-face,f-auto,q-80,e-sharpen 1x,
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-320,h-320,fo-face,f-auto,q-75,e-sharpen 2x
+                  "
+                />
+                <source
+                  media="(min-width: 1024px)"
+                  srcset="
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-220,h-280,fo-face,f-auto,q-85,e-sharpen 1x,
+                    https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-440,h-560,fo-face,f-auto,q-80,e-sharpen 2x
+                  "
+                />
+                <img
+                  src="https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-220,h-280,fo-face,f-auto,q-85,e-sharpen"
+                  alt="Jeffrey Lavente — founder LaventeCare"
+                  width="220"
+                  height="280"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                  class="profile-photo-img"
+                />
+              </picture>
+              <div class="profile-photo-overlay" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="text-center md:text-left">
+            <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block"
+              >About the founder</span
+            >
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight">
+              Jeffrey Lavente
+            </h1>
+            <p class="text-lg md:text-xl text-white/70 leading-relaxed font-ui">
+              From intensive 1-on-1 care in neurological rehabilitation to building serious
+              production systems. I combine <span class="text-white font-semibold"
+                >psychological insight</span
+              > with multi-tenant architecture and AI-driven development — digital systems that, just
+              like in care, have <span class="text-active font-semibold"
+                >structure, security and humanity</span
+              > as their foundation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- From Care to Tech -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeader
+          label="The story"
+          heading='From human care to <span class="text-active">digital systems</span>'
+        />
+        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5">
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            For years I worked as an intensive 1-on-1 care professional for individuals with complex
+            acquired brain injuries. In that world I learned a fundamental lesson: <span
+              class="text-white font-semibold"
+              >where chaos reigns, calm, structure and boundless dedication are essential</span
+            >.
+          </p>
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            Today I apply that same psychological lens to software architecture. The internet is unpredictable;
+            that's why I build <span class="text-active font-semibold">"Fortresses"</span> instead of
+            ordinary websites. My mission is not typing lines of code, but designing digital ecosystems
+            that are robust, secure and manageable.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
+              <Icon name="brain-circuit" size={20} class="text-active mx-auto mb-2" />
+              <p class="text-white text-xs font-bold font-display">Analytical in chaos</p>
+              <p class="text-white/50 text-[11px] font-ui">Clear thinking when everything is complex</p>
+            </div>
+            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
+              <Icon name="lock" size={20} class="text-active mx-auto mb-2" />
+              <p class="text-white text-xs font-bold font-display">Setting boundaries</p>
+              <p class="text-white/50 text-[11px] font-ui">Security is a form of care</p>
+            </div>
+            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
+              <Icon name="handshake" size={20} class="text-active mx-auto mb-2" />
+              <p class="text-white text-xs font-bold font-display">1-on-1 accountability</p>
+              <p class="text-white/50 text-[11px] font-ui">Not a link in the chain, but the owner</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 relative">
+          <div class="absolute top-4 left-6 text-4xl text-active/30 font-display">"</div>
+          <blockquote
+            class="text-base md:text-lg text-white/80 leading-relaxed font-ui pl-4 md:pl-8 border-l-2 border-active/40"
+          >
+            I don't believe in perfection, I believe in <span class="text-white font-semibold"
+              >extreme curiosity, transparency and rock-solid security</span
+            >. Built according to the same security principles as critical systems: data isolation,
+            Zero-Trust, immutable audit trails. Whether it's an SME portal, an IoT dashboard or an
+            events platform: <span class="text-active font-semibold"
+              >your data gets the same level of protection</span
+            >.
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Expertise -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Technical expertise"
+        heading='Exceptionally broad <span class="text-active">spectrum</span>'
+        description="From smart sensors to multi-tenant data protection and high-performance platforms — everything under one roof. That's rare, and exactly what makes the difference."
+      />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {
+          expertiseDomains.map((domain) => (
+            <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <Icon name={domain.icon as IconName} size={24} class="text-active" />
+                <h3 class="text-lg font-bold text-white font-display">{domain.title}</h3>
+              </div>
+              <p class="text-white/60 text-sm leading-relaxed mb-4 font-ui">{domain.description}</p>
+              <div class="flex flex-wrap gap-2">
+                {domain.techs.map((tech) => (
+                  <TechStackBadge tech={tech} variant="subtle" />
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Core values"
+        heading='What I <span class="text-active">stand for</span>'
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        {
+          coreValues.map((value) => (
+            <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
+              <Icon name={value.icon as IconName} size={24} class="text-active block mb-3" />
+              <h3 class="text-sm font-bold text-white mb-2 font-display">{value.title}</h3>
+              <p class="text-white/50 text-xs font-ui">{value.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Details -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 max-w-3xl mx-auto">
+        <h2 class="text-xl font-bold text-white mb-6 font-display text-center">Company Details</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-ui">
+          <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">Legal form</span>
+            <span class="text-white font-medium">Sole trader (ZZP/freelance)</span>
+          </div>
+          <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">Chamber of Commerce</span>
+            <span class="text-white font-medium">88162710</span>
+          </div>
+          <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">Founded</span>
+            <span class="text-white font-medium">17 October 2022</span>
+          </div>
+          <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">Location</span>
+            <span class="text-white font-medium">Dronten, Netherlands</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact" class="btn-primary text-lg px-10">
+        Get in touch
+        <Icon name="arrow-right" size={20} />
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .profile-photo-wrapper { position: relative; }
+  .profile-photo-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 2px color-mix(in oklch, var(--color-active) 30%, transparent),
+      0 0 30px -5px color-mix(in oklch, var(--color-active) 15%, transparent),
+      0 8px 24px -8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+  }
+  .profile-photo-container:hover {
+    transform: scale(1.03);
+    box-shadow:
+      0 0 0 2px color-mix(in oklch, var(--color-active) 50%, transparent),
+      0 0 40px -5px color-mix(in oklch, var(--color-active) 25%, transparent),
+      0 16px 40px -8px rgba(0, 0, 0, 0.5);
+  }
+  .profile-photo-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .profile-photo-overlay { position: absolute; inset: 0; border-radius: 1rem; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); pointer-events: none; }
+  @media (min-width: 640px) {
+    .profile-photo-container { width: 200px; height: 240px; border-radius: 1.25rem; }
+    .profile-photo-overlay { border-radius: 1.25rem; }
+  }
+  @media (min-width: 1024px) {
+    .profile-photo-container { width: 220px; height: 280px; border-radius: 1.5rem; }
+    .profile-photo-overlay { border-radius: 1.5rem; }
+  }
+</style>
