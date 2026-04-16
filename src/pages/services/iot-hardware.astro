@@ -1,0 +1,210 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
+
+const features = [
+  {
+    icon: 'battery-charging',
+    title: 'Months without maintenance',
+    desc: 'Sensors operate for months without maintenance, so you lose no time on manual checks or battery replacements.',
+  },
+  {
+    icon: 'wifi',
+    title: 'Ready to deploy immediately',
+    desc: 'No cabling needed — quick to install and immediately operational, without major changes to your location.',
+  },
+  {
+    icon: 'refresh-cw',
+    title: 'Remote updates',
+    desc: 'Software updates are pushed remotely. No technician needed, no downtime for your devices.',
+  },
+  {
+    icon: 'smartphone',
+    title: 'Insight anywhere, anytime',
+    desc: 'Real-time insight into your systems at all times — on smartphone, tablet or desktop.',
+  },
+  {
+    icon: 'bell',
+    title: 'Intervene before damage occurs',
+    desc: 'On deviations you receive an immediate alert, so you can intervene before damage or downtime occurs.',
+  },
+  {
+    icon: 'database',
+    title: 'Securely stored, always visible',
+    desc: 'All sensor data is securely stored and processed in real time, giving you continuous insight into performance and trends.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Smart Monitoring & Sensors',
+  description:
+    'Real-time monitoring that detects issues early and prevents costly downtime. From physical sensor to cloud dashboard.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.com',
+  },
+  areaServed: ['NL', 'BE', 'DE', 'International'],
+  serviceType: 'IoT Development & Monitoring Solutions',
+  serviceOutput: 'Sensor dashboards, automatic decision trees and remote hardware management',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+<Layout
+  title="Smart Monitoring & Sensors — Prevent Failures | LaventeCare"
+  description="Prevent failures and damage with real-time monitoring. Sensors that last months, automatic alerting and live dashboards."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
+          <Icon name="radio" size={16} class="text-active" /> IoT & Hardware
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+          From sensor to <span class="text-active">dashboard</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Failures are often only discovered when it's already too late — resulting in damage and
+          costs. I build systems that detect problems early, so you can intervene before it's too
+          late.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          Less downtime, less damage, more control.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {
+            [
+              'Real-time monitoring',
+              'Automatic alerting',
+              'Live dashboards',
+              'Remote',
+              'Scalable',
+            ].map((t) => <TechStackBadge tech={t} />)
+          }
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">24/7</div>
+          <p class="text-white/50 text-xs font-ui">Remote monitoring</p>
+        </div>
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">&lt; 1W</div>
+          <p class="text-white/50 text-xs font-ui">Power consumption (deep-sleep)</p>
+        </div>
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">99</div>
+          <p class="text-white/50 text-xs font-ui">Lighthouse Performance</p>
+        </div>
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">OTA</div>
+          <p class="text-white/50 text-xs font-ui">Firmware updates remotely</p>
+        </div>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+        {
+          features.map((f, i) => (
+            <div
+              data-animate="fade-up"
+              class={`delay-${(i % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}
+            >
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <Icon name={f.icon as IconName} size={18} class="text-active" />
+                </div>
+                <h3 class="text-sm font-bold text-white font-display pt-1.5">{f.title}</h3>
+              </div>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{f.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Target audience -->
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16"
+      >
+        <h2 class="text-xl font-bold text-white mb-4 font-display">Sound familiar?</h2>
+        <p class="text-white/70 font-ui mb-4">Businesses where failures directly cause costs or damage:</p>
+        <ul class="space-y-3 text-sm font-ui text-white/60">
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Cooling installations where
+            temperature deviations lead to product loss
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Production environments where
+            downtime directly costs money
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Technical installations that
+            are currently inspected manually
+          </li>
+        </ul>
+      </div>
+
+      <!-- How it works -->
+      <div data-animate="fade-up" class="max-w-3xl mx-auto mb-16">
+        <h2 class="text-xl font-bold text-white mb-6 font-display text-center">From sensor to action</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
+            <div class="text-2xl font-black text-active/40 font-display mb-2">01</div>
+            <p class="text-sm font-bold text-white font-display mb-1">Sensor measures</p>
+            <p class="text-white/50 text-xs font-ui">ESP32 reads data, returns to deep-sleep</p>
+          </div>
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
+            <div class="text-2xl font-black text-active/40 font-display mb-2">02</div>
+            <p class="text-sm font-bold text-white font-display mb-1">Cloud processes</p>
+            <p class="text-white/50 text-xs font-ui">Data stored, analysed, compared against thresholds</p>
+          </div>
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
+            <div class="text-2xl font-black text-active/40 font-display mb-2">03</div>
+            <p class="text-sm font-bold text-white font-display mb-1">You receive action</p>
+            <p class="text-white/50 text-xs font-ui">Live dashboard + automatic alert on deviations</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study -->
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-white/50 text-sm font-ui mb-4">Reference project</p>
+        <a
+          href="/portfolio/smartcoolcare"
+          data-animate="fade-up"
+          class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors inline-block group"
+        >
+          <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">SmartCoolCare</h3>
+          <p class="text-white/60 text-sm font-ui mb-2">
+            24/7 temperature monitoring with automatic alerting — prevents damage, minimises
+            downtime and provides continuous insight.
+          </p>
+          <p class="text-active text-xs font-bold font-ui">
+            99 Performance • 24/7 monitoring • OTA firmware updates
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact?type=iot" class="btn-primary">
+        Schedule a conversation
+        <Icon name="arrow-right" size={16} />
+      </a>
+      <p class="text-white/40 text-sm font-ui mt-3">
+        Prevent damage and downtime — schedule a conversation and discover the possibilities.
+      </p>
+    </div>
+  </section>
+</Layout>

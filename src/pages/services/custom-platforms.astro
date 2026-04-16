@@ -1,0 +1,155 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
+
+const features = [
+  {
+    icon: 'clipboard-list',
+    title: 'Registration & Ticketing',
+    desc: 'Participants register easily, while the system automatically processes everything — from confirmation to waiting list. No manual work.',
+  },
+  {
+    icon: 'heart',
+    title: 'Secure donations',
+    desc: 'Donations are processed securely and recorded clearly, so you project trustworthiness to your audience.',
+  },
+  {
+    icon: 'bar-chart-2',
+    title: 'Immediate insight',
+    desc: 'You see in real time how many participants and donations are coming in, so you can adjust immediately.',
+  },
+  {
+    icon: 'mail',
+    title: 'Automatic communication',
+    desc: 'Participants and donors are kept informed automatically — confirmations, updates and reminders, without extra effort.',
+  },
+  {
+    icon: 'layout-dashboard',
+    title: 'Everything in one control panel',
+    desc: 'Users, registrations, donations and communication — all managed from one clear screen.',
+  },
+  {
+    icon: 'git-merge',
+    title: 'From registration to follow-up',
+    desc: 'The entire journey automated: from sign-up to confirmation, follow-up and evaluation.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Custom Platforms & Events',
+  description:
+    'Automated registration, donations, campaigns and communication. Your complete event or campaign managed from one central, flawless system.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.com',
+  },
+  areaServed: ['NL', 'BE', 'DE', 'International'],
+  serviceType: 'Custom Platform & Event Software Development',
+  serviceOutput: 'Registration systems, live dashboards and custom API integrations',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+<Layout
+  title="Custom Platforms & Large Events | LaventeCare"
+  description="Your event or campaign fully managed from one system. Registration, donations, communication and live insight — automated and scalable."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
+          <Icon name="building-2" size={16} class="text-active" /> Custom Platforms
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+          Platforms that <span class="text-active">perform</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Many organisations work with disconnected tools and manual processes, making registrations,
+          donations and communication chaotic. I build platforms that bring everything together in
+          one system — automatic, scalable and reliable.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          Your complete event or campaign managed from one platform.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {
+            ['All in one system:', 'Registration', 'Donations', 'Email', 'Dashboards', 'Management'].map(
+              (t) => <TechStackBadge tech={t} />
+            )
+          }
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+        {
+          features.map((f, i) => (
+            <div
+              data-animate="fade-up"
+              class={`delay-${(i % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}
+            >
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <Icon name={f.icon as IconName} size={18} class="text-active" />
+                </div>
+                <h3 class="text-sm font-bold text-white font-display pt-1.5">{f.title}</h3>
+              </div>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{f.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- References -->
+      <div class="max-w-3xl mx-auto">
+        <p class="text-white/50 text-sm font-ui mb-4 text-center">Reference projects</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a
+            href="/portfolio/de-koninklijke-loop"
+            data-animate="fade-up"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+          >
+            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">
+              De Koninklijke Loop
+            </h3>
+            <p class="text-white/60 text-sm font-ui mb-2">
+              Events platform with registration, ticketing and live data.
+            </p>
+            <p class="text-active text-xs font-bold font-ui">
+              100+ participants • 0 manual work for the organisation
+            </p>
+          </a>
+          <a
+            href="/portfolio/whisky-for-charity"
+            data-animate="fade-up"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+          >
+            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">
+              Whisky for Charity
+            </h3>
+            <p class="text-white/60 text-sm font-ui mb-2">
+              Charity platform with secure donation flows.
+            </p>
+            <p class="text-active text-xs font-bold font-ui">€10K+ raised • 0 failed transactions</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact?type=platform" class="btn-primary">
+        Schedule a conversation
+        <Icon name="arrow-right" size={16} />
+      </a>
+      <p class="text-white/40 text-sm font-ui mt-3">
+        Schedule a conversation and discover how to save time and regain overview.
+      </p>
+    </div>
+  </section>
+</Layout>

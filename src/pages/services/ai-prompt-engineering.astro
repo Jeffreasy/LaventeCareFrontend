@@ -1,0 +1,249 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon from '../../components/ui/Icon.astro';
+
+const features = [
+  {
+    title: 'Digital employees',
+    desc: 'Digital employees that take over repetitive tasks and work autonomously according to your business rules — 24/7, without breaks and without extra staffing costs.',
+  },
+  {
+    title: 'Integrated in your software',
+    desc: 'Your existing software becomes smarter through integration with AI models. Not a standalone experiment, but part of your workflow.',
+  },
+  {
+    title: 'Reliable results',
+    desc: 'AI that delivers consistent and usable results, so you can rely on it in your daily processes — without surprises.',
+  },
+  {
+    title: 'AI on your own data',
+    desc: 'AI that works on your own documents and systems, so answers are relevant and reliable — not based on the internet.',
+  },
+  {
+    title: 'Less manual work',
+    desc: 'Repetitive tasks such as reports, classifications and data entry are handled automatically, so your team focuses on what matters.',
+  },
+  {
+    title: 'Immediate insight',
+    desc: 'Real-time insights and predictions in dashboards, so you can make decisions faster.',
+  },
+];
+
+const useCases = [
+  {
+    title: 'Customer service automation',
+    desc: 'AI that handles frequently asked questions automatically, freeing your team from support tasks and allowing faster scaling.',
+  },
+  {
+    title: 'Content & documentation',
+    desc: 'Automatic reports, translations and content generation — hours of work reduced to minutes.',
+  },
+  {
+    title: 'Data analysis & insights',
+    desc: 'Ask questions about your data in plain language: "What was our revenue last month by region?" — and get an immediate answer.',
+  },
+  {
+    title: 'Code assistance & review',
+    desc: 'AI that monitors code quality, detects bugs and suggests improvements — faster development with fewer errors.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'AI & Automation',
+  description:
+    'AI that takes over repetitive work and uses your data for better decisions — reliable, scalable and measurable in your daily processes.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.com',
+  },
+  areaServed: ['NL', 'BE', 'DE', 'International'],
+  serviceType: 'AI Automation & Integration Services',
+  serviceOutput: 'Digital employees, AI workflows and data infrastructure',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+<Layout
+  title="AI & Automation — Systems Driven by AI | LaventeCare"
+  description="AI as your build team, you as the client. Reliable AI systems that work integrated within your business processes — not experiments, but production-ready automation."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
+          <Icon name="brain-circuit" size={16} class="text-active" /> AI & Prompt Engineering
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+          Intelligence that <span class="text-active">works</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Many businesses experiment with AI, but get unreliable or inconsistent results. I build AI
+          systems that actually work reliably and genuinely save time and costs.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          AI as your build team, you as the client — reliable, scalable and measurable.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {
+            ['AI Automation', 'Digital Employees', 'Business Data', 'Integrations', 'Dashboards'].map(
+              (t) => <TechStackBadge tech={t} />
+            )
+          }
+        </div>
+      </div>
+
+      <!-- Why professional AI -->
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto mb-16"
+      >
+        <h2 class="text-xl md:text-2xl font-bold text-white mb-6 font-display">
+          Why professional AI?
+        </h2>
+        <div class="space-y-4 text-white/70 font-ui text-sm leading-relaxed">
+          <p>
+            AI only works well when it is properly directed. I design AI systems that work <strong
+              class="text-white">reliably, consistently and integrated</strong
+            > within your processes — not as an experiment, but as part of your operations.
+          </p>
+          <p>
+            The difference with "using ChatGPT yourself"? I work as an <strong class="text-white"
+              >IT engineer with AI models as the executing build team</strong
+            >. AI builds blazingly fast; I design the blueprint, apply strict security rules and
+            monitor quality. Systems deliver <strong class="text-white">reproducible results</strong
+            >, work on your own data, are connected to your software and have built-in quality
+            control.
+          </p>
+        </div>
+      </div>
+
+      <!-- Features Grid -->
+      <SectionHeader
+        label="What I build"
+        heading='From prompt to <span class="text-active">production</span>'
+        description="AI solutions that go beyond a chat window."
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+        {
+          features.map((f) => (
+            <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
+              <h3 class="text-sm font-bold text-white mb-2 font-display">{f.title}</h3>
+              <p class="text-white/60 text-xs font-ui">{f.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- How it works -->
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto mb-16"
+      >
+        <h2 class="text-xl font-bold text-white mb-6 font-display">How does it work?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <span class="text-active text-2xl font-black font-display block mb-2">01</span>
+            <h3 class="text-sm font-bold text-white mb-1 font-display">Where does AI save time?</h3>
+            <p class="text-white/60 text-xs font-ui">Which processes cost the most time and are suitable for automation?</p>
+          </div>
+          <div class="text-center">
+            <span class="text-active text-2xl font-black font-display block mb-2">02</span>
+            <h3 class="text-sm font-bold text-white mb-1 font-display">Making it reliable</h3>
+            <p class="text-white/60 text-xs font-ui">Designing an AI system that delivers predictable, consistent results.</p>
+          </div>
+          <div class="text-center">
+            <span class="text-active text-2xl font-black font-display block mb-2">03</span>
+            <h3 class="text-sm font-bold text-white mb-1 font-display">Integrating</h3>
+            <p class="text-white/60 text-xs font-ui">Connecting to your systems, databases and daily workflows.</p>
+          </div>
+          <div class="text-center">
+            <span class="text-active text-2xl font-black font-display block mb-2">04</span>
+            <h3 class="text-sm font-bold text-white mb-1 font-display">Continuous improvement</h3>
+            <p class="text-white/60 text-xs font-ui">Optimisation based on output quality, costs and user feedback.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases -->
+      <SectionHeader
+        label="Applications"
+        heading='AI in <span class="text-active">practice</span>'
+        description="Concrete examples of how companies use AI prompt engineering."
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto mb-16">
+        {
+          useCases.map((uc) => (
+            <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-white/8">
+              <h3 class="text-sm font-bold text-white mb-2 font-display">{uc.title}</h3>
+              <p class="text-white/60 text-xs font-ui">{uc.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Target audience -->
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16"
+      >
+        <h2 class="text-xl font-bold text-white mb-4 font-display">Sound familiar?</h2>
+        <p class="text-white/70 font-ui mb-4">
+          Organisations that sense AI can do more, but can't get it to work reliably themselves:
+        </p>
+        <ul class="space-y-3 text-sm font-ui text-white/60">
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> You spend hours on tasks
+            that AI can do in minutes
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Your team experiments with
+            ChatGPT but gets inconsistent results
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> You want to use AI, but
+            don't know where to start
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> You have a lot of data, but
+            extract too little value from it
+          </li>
+        </ul>
+      </div>
+
+      <!-- Case reference -->
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-white/50 text-sm font-ui mb-4">Internal case study</p>
+        <div
+          data-animate="fade-up"
+          class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 inline-block"
+        >
+          <h3 class="text-lg font-bold text-white font-display mb-1">LaventeCare Platform Architecture</h3>
+          <p class="text-white/60 text-sm font-ui">
+            Every LaventeCare platform is built with AI as the executing build team. This model
+            enables solid production systems — built-in security, real-time monitoring and automated
+            workflows — at the pace and cost of one engineer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact?type=ai" class="btn-primary">
+        Schedule a conversation
+        <Icon name="arrow-right" size={16} />
+      </a>
+      <p class="text-white/40 text-sm font-ui mt-3">
+        Schedule a conversation and discover how much time you can save.
+      </p>
+    </div>
+  </section>
+</Layout>

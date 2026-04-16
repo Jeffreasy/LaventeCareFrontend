@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
+
+const features = [
+  {
+    icon: 'arrow-up-right',
+    title: 'Visitors become enquiries',
+    desc: 'Visitors are automatically directed toward a quote or enquiry, so they make contact faster and drop off less.',
+  },
+  {
+    icon: 'bell',
+    title: 'Never miss an enquiry',
+    desc: 'Immediate insight into new enquiries and what to follow up today — no more missed opportunities.',
+  },
+  {
+    icon: 'lock',
+    title: 'Secure collaboration with clients',
+    desc: 'Clients stay engaged and well-informed via a secure portal, resulting in fewer questions, fewer misunderstandings and more trust.',
+  },
+  {
+    icon: 'search',
+    title: 'Found on Google',
+    desc: 'Industry-specific search terms and technical optimisation so clients find you before they find your competitor.',
+  },
+  {
+    icon: 'trending-up',
+    title: 'More enquiries, same visitors',
+    desc: 'Your website is continuously improved based on visitor behaviour, so more people actually submit an enquiry — without extra advertising costs.',
+  },
+  {
+    icon: 'zap',
+    title: 'Immediate follow-up',
+    desc: 'Every enquiry is automatically confirmed and immediately notified to you, so you can respond quickly and lose no leads.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Lead Generation & Automation',
+  description:
+    'More enquiries from your website without extra marketing costs. Step-by-step quote flows and automatic conversion of visitors into clients.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.com',
+  },
+  areaServed: ['NL', 'BE', 'DE', 'International'],
+  serviceType: 'Lead Generation Portals & SEO',
+  serviceOutput: 'Conversion-focused quote modules, portal for direct follow-up and organic traffic growth.',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+<Layout
+  title="Lead Generation & Client Portals — More Enquiries | LaventeCare"
+  description="More enquiries from your website, without extra marketing costs. Step-by-step quote flows and SEO optimisation for SMEs."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
+          <Icon name="target" size={16} class="text-active" /> Lead Generation
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+          Visitors become <span class="text-active">clients</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Many websites attract visitors, but generate too few enquiries. Your website becomes a
+          system that converts visitors into concrete enquiries — automatically and measurably.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          More enquiries from your website, without extra marketing costs.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {
+            ['Quote Flows', 'Lead Management', 'SEO', 'Analytics', 'Client Portal'].map((t) => (
+              <TechStackBadge tech={t} />
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">+340%</div>
+          <p class="text-white/50 text-xs font-ui">More organic traffic (C&F Bouw)</p>
+        </div>
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">100</div>
+          <p class="text-white/50 text-xs font-ui">SEO Score (Lighthouse)</p>
+        </div>
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">2 regions</div>
+          <p class="text-white/50 text-xs font-ui">Active (TuinHub)</p>
+        </div>
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Direct</div>
+          <p class="text-white/50 text-xs font-ui">Lead notifications</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+        {
+          features.map((f, i) => (
+            <div
+              data-animate="fade-up"
+              class={`delay-${(i % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}
+            >
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <Icon name={f.icon as IconName} size={18} class="text-active" />
+                </div>
+                <h3 class="text-sm font-bold text-white font-display pt-1.5">{f.title}</h3>
+              </div>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{f.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Target audience -->
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16"
+      >
+        <h2 class="text-xl font-bold text-white mb-4 font-display">Sound familiar?</h2>
+        <p class="text-white/70 font-ui mb-4">
+          Local service providers and contractors stuck in their current situation:
+        </p>
+        <ul class="space-y-3 text-sm font-ui text-white/60">
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Your website gets visitors,
+            but too few enquiries
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> You miss quotes because
+            leads aren't followed up
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Your competitor ranks higher
+            on Google
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> You spend a lot on ads
+            but don't know what they generate
+          </li>
+        </ul>
+        <p class="text-white/50 text-xs font-ui mt-4">
+          I work for construction & contracting, landscaping, gardening and automotive.
+        </p>
+      </div>
+
+      <!-- References -->
+      <div class="max-w-3xl mx-auto">
+        <p class="text-white/50 text-sm font-ui mb-4 text-center">Reference projects</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a
+            href="/portfolio/cf-bouw"
+            data-animate="fade-up"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+          >
+            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">
+              C&F Bouw
+            </h3>
+            <p class="text-white/60 text-sm font-ui mb-2">
+              Lead-generation portal for the construction sector.
+            </p>
+            <p class="text-active text-xs font-bold font-ui">
+              +340% organic traffic • structurally more enquiries per month
+            </p>
+          </a>
+          <a
+            href="/portfolio/tuinhub"
+            data-animate="fade-up"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
+          >
+            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">
+              TuinHub
+            </h3>
+            <p class="text-white/60 text-sm font-ui mb-2">
+              Matchmaking platform for garden owners and landscapers.
+            </p>
+            <p class="text-active text-xs font-bold font-ui">
+              97 avg Lighthouse • 100 SEO • leads directly to landscapers
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact?type=leadgen" class="btn-primary">
+        Schedule a conversation
+        <Icon name="arrow-right" size={16} />
+      </a>
+      <p class="text-white/40 text-sm font-ui mt-3">
+        More enquiries from your website? Let's look at what's possible together.
+      </p>
+    </div>
+  </section>
+</Layout>

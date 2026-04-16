@@ -1,0 +1,275 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
+
+const laws = [
+  {
+    num: '01',
+    title: 'All input is validated',
+    subtitle: 'No blind trust',
+    desc: 'Everything that comes in — forms, API requests, uploads — is automatically checked and filtered. Malicious input is blocked before it can damage your system or data.',
+  },
+  {
+    num: '02',
+    title: 'Give nothing away',
+    subtitle: 'Attackers learn nothing',
+    desc: "Visitors never see technical error messages that hackers can exploit. Errors are tracked and resolved internally, without outsiders gaining insight into how your system works.",
+  },
+  {
+    num: '03',
+    title: 'Your data in a vault',
+    subtitle: 'Separated at database level',
+    desc: 'Your data is separated from other clients at database level. Even if there is a bug in the code, data from other companies cannot be viewed. The database itself enforces who may see which data.',
+  },
+  {
+    num: '04',
+    title: 'Stable under pressure',
+    subtitle: 'No errors under high load',
+    desc: 'Designed to prevent errors such as data corruption or double bookings, even under high load — thousands of concurrent visitors.',
+  },
+  {
+    num: '05',
+    title: 'Minimal dependencies',
+    subtitle: 'Less vulnerable, more control',
+    desc: 'Only proven and audited software is used. Fewer dependencies means fewer vulnerabilities — and every external component is regularly checked for known issues.',
+  },
+];
+
+const whatYouGet = [
+  {
+    icon: 'shield-check',
+    title: 'Separated client data',
+    desc: 'Your business data is technically separated from other clients. In case of an error, nobody can access anyone else\'s data.',
+  },
+  {
+    icon: 'lock',
+    title: 'Encrypted storage',
+    desc: 'Sensitive data is stored encrypted. In the event of a breach, this data is unusable to attackers.',
+  },
+  {
+    icon: 'clipboard-list',
+    title: 'Every action traceable',
+    desc: 'All actions are logged and cannot be altered. Abuse or errors can always be traced retrospectively.',
+  },
+  {
+    icon: 'zap',
+    title: 'Automatic protection',
+    desc: 'Suspicious visitors and bots are automatically blocked before they can cause damage. Without you having to do anything.',
+  },
+  {
+    icon: 'shield-check',
+    title: 'Privacy by Design',
+    desc: 'Built according to GDPR principles: data minimisation, encrypted storage and a data processing agreement available. Concrete compliance depends on contractual arrangements and your configuration.',
+  },
+  {
+    icon: 'refresh-cw',
+    title: 'Automatic cleanup',
+    desc: 'Expired sessions and tokens are automatically removed. No stray data, no forgotten access rights.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Security & Authentication',
+  description:
+    'Your client data structurally protected and separated. Security built in as a foundation according to Privacy by Design and GDPR principles — so the technical basis for compliance is structurally anchored.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.com',
+  },
+  areaServed: ['NL', 'BE', 'DE', 'International'],
+  serviceType: 'App Security & Authentication Architecture',
+  serviceOutput: 'Complete authentication systems, role-based access control and data isolation structures',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+<Layout
+  title="LaventeCare AuthSystem — Built-in Data Protection | LaventeCare"
+  description="The LaventeCare AuthSystem: data isolation, role-based access control and automatic threat detection. Security as a foundation, not an afterthought."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
+          <Icon name="shield-check" size={16} class="text-active" /> LaventeCare Core
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+          Your data <span class="text-active">protected</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
+          Every platform I build runs on the <span class="text-white font-semibold">LaventeCare AuthSystem</span> —
+          a self-built security core with multi-tenant data isolation, role-based access control and
+          automatic threat detection. Your client data is structurally separated and encrypted, so
+          unauthorised parties have no access — even in the event of system errors.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {
+            ['Go', 'PostgreSQL', 'Redis', 'Encryption', 'GDPR-Compliant', 'Audit Logs'].map(
+              (t) => <TechStackBadge tech={t} />
+            )
+          }
+        </div>
+      </div>
+
+      <!-- What You Get -->
+      <SectionHeader
+        label="The result"
+        heading='What you <span class="text-active">concretely receive</span>'
+        description="Not how it works, but what it means for your business."
+      />
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+        {
+          whatYouGet.map((item, index) => (
+            <div
+              data-animate="scale-up"
+              class={`delay-${(index % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}
+            >
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <Icon name={item.icon as IconName} size={18} class="text-active" />
+                </div>
+                <h3 class="text-sm font-bold text-white font-display pt-1.5">{item.title}</h3>
+              </div>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{item.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- The 5 Principles -->
+      <SectionHeader
+        label="Own framework"
+        heading='Anti-Gravity <span class="text-active">Security Principles</span>'
+        description="Five strict principles that form the core of the LaventeCare AuthSystem. Not taken from a handbook, but developed from the practice of building multi-tenant platforms."
+      />
+
+      <div class="space-y-4 max-w-4xl mx-auto mb-16">
+        {
+          laws.map((law, index) => (
+            <div
+              data-animate="fade-up"
+              class={`delay-${index * 100} clinical-glass p-5 md:p-8 rounded-(--radius-feature) border border-white/8 hover:border-active/20 transition-colors group`}
+            >
+              <div class="flex items-start gap-4 md:gap-6">
+                <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <span class="text-active text-sm md:text-base font-bold font-display">{law.num}</span>
+                </div>
+                <div>
+                  <h3 class="text-base md:text-lg font-bold text-white mb-1 font-display">{law.title}</h3>
+                  <p class="text-active text-xs font-bold uppercase tracking-wider mb-2 font-display">{law.subtitle}</p>
+                  <p class="text-white/60 text-sm leading-relaxed font-ui">{law.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- GDPR & Compliance -->
+      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5 max-w-4xl mx-auto mb-16">
+        <div class="flex items-center gap-3 mb-6">
+          <Icon name="shield-check" size={24} class="text-active" />
+          <h2 class="text-xl md:text-2xl font-bold text-white font-display">GDPR & Privacy by Design</h2>
+        </div>
+        <p class="text-white/70 font-ui text-sm leading-relaxed mb-6">
+          All applications are built according to the principle of <strong class="text-white">Privacy by Design</strong>.
+          Data protection is designed in from the start — not added as an afterthought. Concrete GDPR
+          compliance depends on contractual arrangements, your configuration and usage; a <strong class="text-white">data processing agreement</strong> is available.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <ul class="space-y-3 text-sm font-ui text-white/70">
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Data minimisation —
+              only store what is necessary
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Encrypted storage
+              of sensitive data
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automatic cleanup
+              of expired data
+            </li>
+          </ul>
+          <ul class="space-y-3 text-sm font-ui text-white/70">
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Data processing agreement
+              available
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Immutable audit logs
+              for forensic integrity
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Tested procedure for
+              data breaches
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Technical Details -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
+          <h3 class="text-lg font-bold text-white mb-4 font-display">Under the hood</h3>
+          <p class="text-white/50 text-xs font-ui mb-4">For developers and technically interested parties:</p>
+          <ul class="space-y-3 text-sm font-ui text-white/70">
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Row Level Security on all critical tables</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Dual-Token authentication (access + refresh)</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Zero-Trust API design: every request is verified</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Rate limiting against brute-force attacks</li>
+          </ul>
+        </div>
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
+          <h3 class="text-lg font-bold text-white mb-4 font-display">Daily protection</h3>
+          <p class="text-white/50 text-xs font-ui mb-4">What runs continuously in the background:</p>
+          <ul class="space-y-3 text-sm font-ui text-white/70">
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Two-factor authentication for administrators</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automatic cleanup of expired sessions</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Content Security Policy against code injection</li>
+            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Per-client access control at API level</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Trust stats -->
+      <div class="max-w-4xl mx-auto mt-8">
+        <div class="clinical-glass p-5 md:p-6 rounded-(--radius-feature) border border-active/15 bg-active/5">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+            <div>
+              <span class="text-active text-xl font-black font-display block mb-1">6+</span>
+              <p class="text-white/60 text-xs font-ui">Tenants on one platform</p>
+            </div>
+            <div>
+              <span class="text-active text-xl font-black font-display block mb-1">24/7</span>
+              <p class="text-white/60 text-xs font-ui">Automatic threat detection</p>
+            </div>
+            <div>
+              <span class="text-active text-xl font-black font-display block mb-1">100%</span>
+              <p class="text-white/60 text-xs font-ui">Actions traceable via audit logs</p>
+            </div>
+          </div>
+          <p class="text-white/40 text-xs font-ui text-center mt-4">
+            Active in production — used daily by hundreds of users and proven in real-world scenarios.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact?type=security" class="btn-primary">
+        Secure your application
+        <Icon name="arrow-right" size={16} />
+      </a>
+    </div>
+  </section>
+</Layout>
