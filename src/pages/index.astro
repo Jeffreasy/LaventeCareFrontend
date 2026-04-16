@@ -8,6 +8,11 @@ import StatCard from '../components/ui/StatCard.astro';
 import PillarCard from '../components/blocks/PillarCard.astro';
 import LighthouseGauge from '../components/ui/LighthouseGauge.astro';
 
+// Dual-domain: serve EN homepage on .com without changing the URL
+if (Astro.locals.locale === 'en') {
+  return Astro.rewrite('/en-index');
+}
+
 const heroData = {
   headline: 'Systemen die werk uit handen nemen',
   subtitle: 'Ontworpen, gebouwd en onderhouden door één engineer',
