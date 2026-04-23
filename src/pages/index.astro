@@ -6,7 +6,7 @@ import FAQSection from '../components/blocks/FAQSection.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import StatCard from '../components/ui/StatCard.astro';
 import PillarCard from '../components/blocks/PillarCard.astro';
-import LighthouseGauge from '../components/ui/LighthouseGauge.astro';
+import { AntiGravityShield } from '../components/islands/AntiGravityShield';
 
 // Dual-domain: serve EN homepage on .com without changing the URL
 if (Astro.locals.locale === 'en') {
@@ -252,65 +252,33 @@ const pillars = [
     </div>
   </section>
 
-  <!-- Social Proof: Verifieerbare Lighthouse Scores -->
+  <!-- Secure by Design: Live Security -->
   <section class="py-8 md:py-12">
     <div class="container mx-auto px-4">
       <div
         data-animate="fade-up"
-        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-4xl mx-auto"
+        class="max-w-3xl mx-auto"
       >
-        <div class="text-center mb-6">
+        <div class="text-center mb-8">
           <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-2 block"
-            >Verifieerbaar bewijs</span
+            >Secure by Design</span
           >
           <h2 class="text-xl md:text-2xl font-bold text-white font-display">
-            Google Lighthouse Scores
+            Actieve Systeembeveiliging
           </h2>
           <p class="text-white/50 text-sm font-ui mt-2">
-            Onafhankelijk gemeten door Google — niet door mij. Verifieer het zelf.
+            Geen loze beloftes over veiligheid. Zie hier de live telemetrie van de LaventeCare AntiGravity Gate die 24/7 kwaadwillend verkeer weert.
           </p>
         </div>
 
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <!-- Project highlight -->
-          <div class="flex-1 text-center md:text-left">
-            <p class="text-white/40 text-xs font-ui uppercase tracking-wider mb-1">
-              Uitgelicht project
-            </p>
-            <h3 class="text-lg font-bold text-white font-display mb-1">C&F Bouw</h3>
-            <p class="text-white/60 text-sm font-ui mb-3">
-              Lead-generation portaal • +340% organisch verkeer binnen 6 maanden
-            </p>
-            <a
-              href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fwww.cfbouw.nl%2F"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-active text-sm font-bold hover:underline flex items-center gap-1 justify-center md:justify-start"
-            >
-              Verifieer op PageSpeed Insights
-              <Icon name="external-link" size={12} />
-            </a>
-          </div>
-
-          <!-- Gauges -->
-          <div class="grid grid-cols-4 gap-3 md:gap-6 place-items-center">
-            <LighthouseGauge score={99} label="Perf" size="sm" class="md:hidden" />
-            <LighthouseGauge score={97} label="A11y" size="sm" class="md:hidden" />
-            <LighthouseGauge score={100} label="BP" size="sm" class="md:hidden" />
-            <LighthouseGauge score={100} label="SEO" size="sm" class="md:hidden" />
-            <LighthouseGauge score={99} label="Perf" size="md" class="hidden md:flex" />
-            <LighthouseGauge score={97} label="A11y" size="md" class="hidden md:flex" />
-            <LighthouseGauge score={100} label="BP" size="md" class="hidden md:flex" />
-            <LighthouseGauge score={100} label="SEO" size="md" class="hidden md:flex" />
-          </div>
-        </div>
+        <AntiGravityShield client:load />
 
         <div class="text-center mt-6">
           <a
-            href="/portfolio"
+            href="/diensten/security"
             class="text-white/40 text-sm font-ui hover:text-active transition-colors"
           >
-            Bekijk alle projectscores →
+            Lees meer over de Zero-Trust Architectuur →
           </a>
         </div>
       </div>
@@ -354,13 +322,17 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
           </div>
-          <!-- Lighthouse Scores -->
           <div
-            class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5"
+            class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
           >
-            <LighthouseGauge score={93} label="Perf" size="sm" />
-            <LighthouseGauge score={95} label="A11y" size="sm" />
-            <LighthouseGauge score={92} label="BP" size="sm" />
+            <div class="flex items-center gap-1.5">
+              <Icon name="check" size={14} class="text-active" />
+              <span class="text-white/70 text-xs font-ui">100+ aanmeldingen</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <Icon name="check" size={14} class="text-active" />
+              <span class="text-white/70 text-xs font-ui">0 handmatig beheer</span>
+            </div>
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             Bekijk project
@@ -400,14 +372,17 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">BLE</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
           </div>
-          <!-- Lighthouse Scores -->
           <div
-            class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5"
+            class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
           >
-            <LighthouseGauge score={99} label="Perf" size="sm" />
-            <LighthouseGauge score={90} label="A11y" size="sm" />
-            <LighthouseGauge score={96} label="BP" size="sm" />
-            <LighthouseGauge score={100} label="SEO" size="sm" />
+            <div class="flex items-center gap-1.5">
+              <Icon name="check" size={14} class="text-active" />
+              <span class="text-white/70 text-xs font-ui">Sub-100ms IoT Ingest</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <Icon name="check" size={14} class="text-active" />
+              <span class="text-white/70 text-xs font-ui">100% Uptime</span>
+            </div>
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             Bekijk project
@@ -446,14 +421,17 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
           </div>
-          <!-- Lighthouse Scores -->
           <div
-            class="flex items-center justify-around gap-2 py-3 mb-4 border-t border-b border-white/5"
+            class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
           >
-            <LighthouseGauge score={99} label="Perf" size="sm" />
-            <LighthouseGauge score={97} label="A11y" size="sm" />
-            <LighthouseGauge score={100} label="BP" size="sm" />
-            <LighthouseGauge score={100} label="SEO" size="sm" />
+            <div class="flex items-center gap-1.5">
+              <Icon name="check" size={14} class="text-active" />
+              <span class="text-white/70 text-xs font-ui">+340% Traffic</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <Icon name="check" size={14} class="text-active" />
+              <span class="text-white/70 text-xs font-ui">PageSpeed A+</span>
+            </div>
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             Bekijk project
