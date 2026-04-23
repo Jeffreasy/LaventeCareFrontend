@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon, { type IconName } from '../../components/ui/Icon.astro';
+import { AntiGravityShield } from '../../components/islands/AntiGravityShield';
+import { LiveTelemetryPulse } from '../../components/islands/LiveTelemetryPulse';
 
 const laws = [
   {
@@ -154,6 +156,11 @@ const serviceSchema = {
         heading='Anti-Gravity <span class="text-active">Beveiligingsprincipes</span>'
         description="Vijf strikte principes die de kern vormen van het LaventeCare AuthSystem. Niet overgenomen uit een handboek, maar ontwikkeld uit de praktijk van het bouwen van multi-tenant platformen."
       />
+
+      <div class="max-w-4xl mx-auto mb-16 space-y-6">
+        <AntiGravityShield client:load />
+        <LiveTelemetryPulse client:load />
+      </div>
 
       <div class="space-y-4 max-w-4xl mx-auto mb-16">
         {

@@ -30,3 +30,17 @@ export interface GateStatsResponse {
 export async function getPublicGateStats(): Promise<GateStatsResponse> {
   return apiClient.get<GateStatsResponse>('/api/v1/public/security/gate-stats');
 }
+
+export interface TelemetryPulseResponse {
+  status: string;
+  data: {
+    active_connections: number;
+    events_last_5min: number;
+    total_events_today: number;
+    status: string;
+  };
+}
+
+export async function getPublicTelemetryPulse(): Promise<TelemetryPulseResponse> {
+  return apiClient.get<TelemetryPulseResponse>('/api/v1/public/telemetry/pulse');
+}
