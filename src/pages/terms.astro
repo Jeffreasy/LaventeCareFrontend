@@ -4,6 +4,8 @@
  * Equivalent of /voorwaarden for the Dutch domain.
  */
 import Layout from '../layouts/Layout.astro';
+import Icon from '../components/ui/Icon.astro';
+
 ---
 
 <Layout
@@ -15,9 +17,20 @@ import Layout from '../layouts/Layout.astro';
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto">
         <h1 class="text-4xl font-black text-white font-display mb-2">Terms & Conditions</h1>
-        <p class="text-white/40 text-sm font-ui mb-10">
+        <p class="text-white/40 text-sm font-ui mb-6">
           LaventeCare — Jeffrey Lavente | CoC 88162710 | Last updated: April 2026
         </p>
+
+        <div class="bg-active/10 border border-active/20 rounded-lg p-4 mb-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <p class="text-white font-bold text-sm">Original Legal Document</p>
+            <p class="text-white/60 text-xs">The legally binding terms are in Dutch. The English text below is provided for your convenience.</p>
+          </div>
+          <a href="/LCVoorwaarden2026april.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary text-sm whitespace-nowrap px-4 py-2 flex items-center gap-2">
+            <Icon name="external-link" size={14} />
+            View Dutch PDF
+          </a>
+        </div>
 
         <div class="prose prose-invert prose-sm max-w-none font-ui space-y-8 text-white/70">
           <section>
