@@ -38,6 +38,7 @@ export interface TelemetryPulseResponse {
     events_last_5min: number;
     total_events_today: number;
     status: string;
+    worker_mesh: Record<string, string>;
   };
 }
 
