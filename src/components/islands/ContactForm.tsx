@@ -23,9 +23,11 @@ const initialData: FormData = {
 
 interface Props {
     onSuccess?: (data: FormData) => void;
+    initialType?: string | null;
 }
 
 const PROJECT_TYPES = [
+    'IT Advies & Consultancy',
     'AI & Automatisering',
     'Maatwerk Platform / App',
     'IoT & Monitoring',
@@ -39,9 +41,19 @@ const BUDGET_OPTIONS = [
     '€10.000+'
 ];
 
-export function ContactForm({ onSuccess }: Props) {
+export function ContactForm({ onSuccess, initialType }: Props) {
     const [step, setStep] = useState(1);
-    const [data, setData] = useState<FormData>(initialData);
+    
+    // Map URL param to full project type name
+    let defaultType = '';
+    if (initialType === 'advies') defaultType = 'IT Advies & Consultancy';
+    else if (initialType === 'discovery') defaultType = 'Maatwerk Platform / App';
+    else if (initialType) {
+        const match = PROJECT_TYPES.find(t => t.toLowerCase().includes(initialType.toLowerCase()));
+        if (match) defaultType = match;
+    }
+
+    const [data, setData] = useState<FormData>({ ...initialData, projectType: defaultType });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 

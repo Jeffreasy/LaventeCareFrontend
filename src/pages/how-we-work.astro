@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import ProcessTimeline from '../components/blocks/ProcessTimeline.astro';
@@ -6,12 +6,20 @@ import Icon from '../components/ui/Icon.astro';
 
 const processSteps = [
   {
+    phase: '0',
+    title: 'Phase 0: IT Consultancy (Optional)',
+    description:
+      'A low-barrier session to brainstorm, perform a second-opinion or map out technical feasibility. No obligations to build.',
+    price: '€95 / hr',
+    icon: 'coffee',
+  },
+  {
     phase: '1',
     title: 'Introduction & Discovery Intake',
     description:
       'A no-obligation conversation (30 min) to clarify your situation, goals and technical possibilities. Including a first assessment of feasibility and investment.',
     price: 'Free',
-    icon: 'coffee',
+    icon: 'message-circle',
   },
   {
     phase: '2',
@@ -128,7 +136,8 @@ const howToSchema = {
         <div class="mt-4 p-3 rounded-(--radius-card) bg-white/3 border border-white/8 flex items-start gap-3">
           <Icon name="alert-triangle" size={13} class="text-active shrink-0 mt-0.5" />
           <p class="text-white/40 text-xs font-ui leading-relaxed">
-            <span class="text-white/70 font-bold">Cancellation (realisation phase):</span> hours worked + 30% of remaining amount. Cancellation of discovery: fixed Discovery fee only. See <a href="/terms" class="text-active hover:underline">Terms & Conditions</a>.
+            <span class="text-white/70 font-bold">Cancellation (Consultancy/Phase 0):</span> Free up to 24h before the session. After that, 100% is billed.
+            <span class="text-white/70 font-bold ml-1">Realisation phase:</span> hours worked + 30% of remaining amount. Discovery: fixed fee only. See <a href="/terms" class="text-active hover:underline">Terms & Conditions</a>.
           </p>
         </div>
       </div>

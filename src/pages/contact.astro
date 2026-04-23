@@ -5,6 +5,7 @@ import { ContactForm } from '../components/islands/ContactForm';
 import Icon from '../components/ui/Icon.astro';
 
 const pageTitle = 'Contact & Gratis Intake — LaventeCare';
+const initialType = Astro.url.searchParams.get('type');
 const pageDescription =
   'Neem contact op voor een gratis intake gesprek van 30 minuten. Bespreek uw project, scope en technische haalbaarheid. Reactie binnen 24 uur.';
 
@@ -52,7 +53,7 @@ const contactSchema = {
       </div>
 
       <Card padding="lg" class="max-w-2xl mx-auto">
-        <ContactForm client:load />
+        <ContactForm client:load initialType={initialType} />
       </Card>
     </div>
   </section>

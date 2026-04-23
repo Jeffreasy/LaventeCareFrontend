@@ -6,6 +6,14 @@ import Icon from '../components/ui/Icon.astro';
 
 const processSteps = [
   {
+    phase: '0',
+    title: 'IT Advies (Optioneel)',
+    description:
+      'Heeft u nog geen concrete bouwvraag? Huur ons in als onafhankelijk sparringpartner of voor een second opinion, zonder bouwverplichting.',
+    price: '€95/uur',
+    icon: 'lightbulb',
+  },
+  {
     phase: '1',
     title: 'Kennismaking & Intake',
     description:
@@ -18,7 +26,7 @@ const processSteps = [
     title: 'Discovery & Blueprint',
     description:
       'Diepte-analyse van technische vereisten en data-stromen. U ontvangt een Blueprint-document (Single Source of Truth). Doorlooptijd: 1-2 weken. Blueprint is uw eigendom na betaling.',
-    price: 'Ã¢â€šÂ¬500 \u2013 Ã¢â€šÂ¬1.500',
+    price: '€500 \u2013 €1.500',
     icon: 'search',
   },
   {
@@ -34,7 +42,7 @@ const processSteps = [
     title: 'SLA & Doorontwikkeling',
     description:
       'Uw systeem blijft veilig, up-to-date en beschikbaar via Observatory AI monitoring. Doorontwikkeling op basis van uw wensen via gestructureerde kwartaalsprints.',
-    price: 'vanaf Ã¢â€šÂ¬75/mnd',
+    price: 'vanaf €75/mnd',
     icon: 'refresh-cw',
   },
 ] as const;
@@ -85,7 +93,7 @@ const howToSchema = {
         <SectionHeader
           label="Facturatie"
           heading='Gefaseerde <span class="text-active">facturatie</span> Ã¢â‚¬â€ volledige controle over uw investering'
-          description="Facturatie op basis van mijlpalen en gerealiseerde voortgang. Bij tussentijdse beÃƒÂ«indiging gelden de afspraken uit de offerte en algemene voorwaarden."
+          description="Facturatie op basis van mijlpalen en gerealiseerde voortgang. Bij tussentijdse beëindiging gelden de afspraken uit de offerte en algemene voorwaarden."
         />
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -94,13 +102,13 @@ const howToSchema = {
           >
             <div class="text-3xl font-black text-active font-display mb-1">40%</div>
             <p class="text-white/70 text-xs font-ui">Na goedkeuring Blueprint</p>
-            <p class="text-white/40 text-[10px] font-ui mt-1">Dekking initiÃƒÂ«le kosten</p>
+            <p class="text-white/40 text-[10px] font-ui mt-1">Dekking initiële kosten</p>
           </div>
           <div
             class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5"
           >
             <div class="text-3xl font-black text-active font-display mb-1">40%</div>
-            <p class="text-white/70 text-xs font-ui">Bij bÃƒÂ¨ta-oplevering</p>
+            <p class="text-white/70 text-xs font-ui">Bij bèta-oplevering</p>
             <p class="text-white/40 text-[10px] font-ui mt-1">Tussentijdse acceptatie</p>
           </div>
           <div
@@ -182,18 +190,17 @@ const howToSchema = {
                 <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Maandelijks</span>
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Maandelijks vooraf via automatisch incasso. Tarieven worden jaarlijks geÃƒÂ¯ndexeerd (CBS).
+                Maandelijks vooraf via automatisch incasso. Tarieven worden jaarlijks geïndexeerd (CBS).
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Annulering -->
         <div class="clinical-glass p-4 rounded-(--radius-card) border border-white/8 mt-4">
           <div class="flex items-start gap-3">
             <Icon name="alert-triangle" size={14} class="text-active flex-shrink-0 mt-0.5" />
             <p class="text-white/40 text-xs font-ui leading-relaxed">
-              <span class="text-white/70 font-bold">Annulering realisatiefase:</span> reeds verrichte uren + 30% van het resterende bedrag. Annulering discovery: uitsluitend de vaste Discovery-fee. Zie <a href="/voorwaarden" class="text-active hover:underline">AV Artikel 10</a>.
+              <span class="text-white/70 font-bold">Annulering advies/realisatiefase:</span> Voor IT Advies: tot 24u vooraf kosteloos verzet. Voor realisatie: reeds verrichte uren + 30% van het resterende bedrag. Zie <a href="/voorwaarden" class="text-active hover:underline">AV Artikel 10</a>.
             </p>
           </div>
         </div>
@@ -204,7 +211,7 @@ const howToSchema = {
           <p class="text-white/40 text-xs font-ui">
             Volledige betalings- en annuleringsafspraken:
             <a href="/voorwaarden" class="text-active hover:text-active/80 transition-colors ml-1 underline underline-offset-2">
-              Algemene Voorwaarden Ã¢â€ â€™
+              Algemene Voorwaarden →
             </a>
           </p>
         </div>
@@ -227,7 +234,7 @@ const howToSchema = {
               <Icon name="check" size={16} class="text-cta shrink-0" /> Ideale match
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/60">
-              <li>Budget vanaf Ã¢â€šÂ¬3.000 voor maatwerk</li>
+              <li>Budget vanaf €3.000 voor maatwerk</li>
               <li>Duidelijke probleemstelling</li>
               <li>Bereidheid tot technisch gesprek</li>
               <li>Langetermijn samenwerking</li>
@@ -241,11 +248,11 @@ const howToSchema = {
               <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> Doorverwijzing
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/40">
-              <li>Budget onder Ã¢â€šÂ¬3.000 Ã¢â€ â€™ vaak beter geschikt voor low-code oplossingen</li>
+              <li>Budget onder €3.000 → vaak beter geschikt voor low-code oplossingen</li>
               <li>
-                Alleen prijsinformatie zonder context Ã¢â€ â€™ moeilijk om een goede inschatting te maken
+                Alleen prijsinformatie zonder context → moeilijk om een goede inschatting te maken
               </li>
-              <li>Gratis proof-of-concept Ã¢â€ â€™ betaalde discovery</li>
+              <li>Gratis proof-of-concept → betaalde discovery</li>
               <li>Template-oplossing (WordPress/Wix)</li>
             </ul>
           </div>
@@ -267,3 +274,4 @@ const howToSchema = {
     </div>
   </section>
 </Layout>
+
