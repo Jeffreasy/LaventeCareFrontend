@@ -5,7 +5,7 @@ export const prerender = false;
 
 const isDev = import.meta.env.DEV;
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, clientAddress }) => {
   const API_URL = import.meta.env.PUBLIC_API_URL;
   const TENANT_ID = import.meta.env.PUBLIC_TENANT_ID;
 
@@ -25,11 +25,17 @@ export const POST: APIRoute = async ({ request }) => {
 
     const requestBody = JSON.stringify(data);
 
+    // Get real client IP and User-Agent to prevent self-DoS on proxy
+    const ip = clientAddress || request.headers.get('x-forwarded-for') || '127.0.0.1';
+    const userAgent = request.headers.get('user-agent') || 'Unknown';
+
     const response = await fetch(`${API_URL}/api/v1/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'X-Tenant-ID': TENANT_ID,
+        'X-Forwarded-For': ip,
+        'User-Agent': userAgent,
       },
       body: requestBody,
     });

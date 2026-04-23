@@ -89,11 +89,14 @@ export const prerender = false;
   const form = document.getElementById('login-form') as HTMLFormElement;
   const loading = document.getElementById('loading');
   const errorMsg = document.getElementById('error-message');
+  let isSubmitting = false;
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!loading || !errorMsg) return;
+    if (!loading || !errorMsg || isSubmitting) return;
 
+    isSubmitting = true;
+    
     // Reset UI
     loading.classList.remove('hidden');
     loading.classList.add('flex');
@@ -104,17 +107,12 @@ export const prerender = false;
     const data = Object.fromEntries(formData);
 
     try {
-      // Simulate network delay for UX (Anti-Gravity "Silence is Golden" doesn't mean instant feedback ;) )
-      // Just kidding, actual request:
-      // Use local proxy to avoid CORS issues with custom headers
       const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // No need to send X-Public-Key here, the proxy handles it
         },
         body: JSON.stringify(data),
-        // credentials: 'include', // Not strictly needed for same-origin proxy, but good practice if we want to forward browser cookies
       });
 
       if (response.ok) {
@@ -122,19 +120,22 @@ export const prerender = false;
         window.location.replace('/admin');
       } else {
         // Handle Error
-        const result = await response.json().catch(() => ({}));
+        await response.json().catch(() => ({}));
         loading.classList.add('hidden');
         loading.classList.remove('flex');
 
-        errorMsg.textContent = result.message || 'Authentication failed. Invalid credentials.';
+        // Generic error message to prevent username enumeration (CWE-200)
+        errorMsg.textContent = 'Inloggen mislukt. Controleer uw e-mailadres en wachtwoord.';
         errorMsg.classList.remove('hidden');
+        isSubmitting = false;
       }
     } catch (error) {
       if (import.meta.env.DEV) console.error('Login error:', error);
       loading.classList.add('hidden');
       loading.classList.remove('flex');
-      errorMsg.textContent = 'Network error. Please try again later.';
+      errorMsg.textContent = 'Netwerkfout. Probeer het later opnieuw.';
       errorMsg.classList.remove('hidden');
+      isSubmitting = false;
     }
   });
 </script>
