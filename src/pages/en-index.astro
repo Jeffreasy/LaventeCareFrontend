@@ -9,10 +9,10 @@ import PillarCard from '../components/blocks/PillarCard.astro';
 import LighthouseGauge from '../components/ui/LighthouseGauge.astro';
 
 const heroData = {
-  headline: 'Systems that take work off your hands',
+  headline: 'High-End Systems & Architecture Partner',
   subtitle: 'Designed, built and maintained by one engineer',
   description:
-    'From automation to custom platforms — built on a <span class="text-active font-bold">solid backend</span> with focus on security, reliability and scalability. No loose tools or templates — but <span class="text-active font-bold">complete systems</span> that structurally improve your business processes.',
+    'From secured data streams to complex custom platforms — built on a <span class="text-active font-bold">Zero-Trust backend</span> with focus on reliability and scalability. No loose tools, but <span class="text-active font-bold">closed systems</span> that automate processes without losing control.',
   ctaPrimary: {
     label: 'Schedule an intake',
     url: '/contact',
@@ -38,7 +38,7 @@ const jsonLd = {
   logo: 'https://www.laventecare.com/og-image.png',
   image: 'https://www.laventecare.com/og-image.png',
   description:
-    'LaventeCare — Systems that take work off your hands: custom platforms with built-in security, AI automation and IoT monitoring. One engineer, from design to production.',
+    'LaventeCare — High-End Systems & Architecture Partner: custom B2B platforms with Zero-Trust security, controlled AI automation and IoT monitoring.',
   founder: {
     '@type': 'Person',
     name: 'Jeffrey Lavente',
@@ -69,17 +69,18 @@ const jsonLd = {
     },
   ],
   knowsAbout: [
-    'AI Automation',
-    'AI Prompt Engineering',
-    'Business Process Automation',
-    'Smart Monitoring',
-    'IoT Solutions',
-    'Data Protection',
+    'Enterprise Architecture',
+    'Zero-Trust Security',
+    'Worker Automation',
+    'B2B Custom Platforms',
+    'IoT Telemetry',
+    'PostgreSQL RLS',
+    'Data Isolation',
     'GDPR Compliance',
-    'Security Foundation',
-    'Custom Platforms',
-    'Lead Generation',
-    'Digital Efficiency',
+    'API Integrations',
+    'Systems Engineering',
+    'Discovery & Blueprinting',
+    'Digital Transformation',
   ],
   sameAs: [
     'https://linkedin.com/in/jeffrey-lavente',
@@ -143,8 +144,8 @@ const pillars = [
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
-  title="LaventeCare — Custom Platforms with Built-in Security | Netherlands"
-  description="Systems that take work off your hands: custom platforms, AI automation and IoT monitoring — with built-in security and 99/100 PageSpeed. Designed and built by one engineer."
+  title="LaventeCare — High-End Systems & Architecture Partner | Netherlands"
+  description="B2B custom platforms with Zero-Trust security, Worker Automation and SLA-managed infrastructure. Designed and built by one engineer."
 >
   <Hero {...heroData} />
 
@@ -204,9 +205,9 @@ const pillars = [
           >
             <Icon name="zap" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Own security platform</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Zero-Trust Architecture</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Every system runs on the LaventeCare AuthSystem — a self-built platform with multi-tenant data isolation, role-based access control and automatic threat detection.
+            Every system is built Privacy by Design with multi-tenant data isolation (PostgreSQL RLS), strict role-based access management and automatic threat detection.
           </p>
         </div>
 
@@ -237,10 +238,10 @@ const pillars = [
         class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto"
       >
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value="<1.5s" label="Average Load Time" />
+          <StatCard value="Zero-Trust" label="Security Foundation" />
           <StatCard value="99/100" label="Google PageSpeed" />
-          <StatCard value="6+" label="Platforms in Production" />
-          <StatCard value="€95" label="Hourly Rate" />
+          <StatCard value="40/40/20" label="Milestone Billing" />
+          <StatCard value="1" label="Single Source of Truth" />
         </div>
       </div>
     </div>
@@ -272,7 +273,7 @@ const pillars = [
             </p>
             <h3 class="text-lg font-bold text-white font-display mb-1">C&F Bouw</h3>
             <p class="text-white/60 text-sm font-ui mb-3">
-              Lead-generation portal • +340% organic traffic
+              Lead-generation portal &bull; +340% organic traffic within 6 months
             </p>
             <a
               href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fwww.cfbouw.nl%2F"

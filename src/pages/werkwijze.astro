@@ -1,4 +1,4 @@
----
+﻿---
 import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import ProcessTimeline from '../components/blocks/ProcessTimeline.astro';
@@ -15,26 +15,26 @@ const processSteps = [
   },
   {
     phase: '2',
-    title: 'Technische Discovery',
+    title: 'Discovery & Blueprint',
     description:
-      'Diepte-analyse van technische vereisten, architectuurontwerp en een gedetailleerd Blueprint-document. U ontvangt een bruikbaar document — ongeacht of het project doorgaat.',
-    price: '€750 – €2.500',
+      'Diepte-analyse van technische vereisten en data-stromen. U ontvangt een Blueprint-document (Single Source of Truth). Doorlooptijd: 1-2 weken. Blueprint is uw eigendom na betaling.',
+    price: 'Ã¢â€šÂ¬500 \u2013 Ã¢â€šÂ¬1.500',
     icon: 'search',
   },
   {
     phase: '3',
     title: 'Ontwikkeling & Oplevering',
     description:
-      "Agile ontwikkeling in sprints van 2 weken. Tussentijdse demo's en acceptatietests. Volledige transparantie: u ziet precies wat er gebouwd wordt en waar uw budget naartoe gaat — per sprint inzichtelijk.",
-    price: '€95/uur',
+      "Gefaseerde bouw conform het Blueprint. Strikte scope-bewaking via het Change Request proces. Doorlooptijd: 2Ã¢â‚¬â€œ6 weken. Facturatie in mijlpalen (40/40/20).",
+    price: 'Vaste Mijlpalen',
     icon: 'zap',
   },
   {
     phase: '4',
     title: 'SLA & Doorontwikkeling',
     description:
-      'Uw systeem blijft veilig, up-to-date en beschikbaar. Doorontwikkeling en nieuwe features op basis van uw wensen — flexibel, schaalbaar en toekomstbestendig.',
-    price: 'vanaf €75/mnd',
+      'Uw systeem blijft veilig, up-to-date en beschikbaar via Observatory AI monitoring. Doorontwikkeling op basis van uw wensen via gestructureerde kwartaalsprints.',
+    price: 'vanaf Ã¢â€šÂ¬75/mnd',
     icon: 'refresh-cw',
   },
 ] as const;
@@ -54,7 +54,9 @@ const howToSchema = {
   estimatedCost: {
     '@type': 'MonetaryAmount',
     currency: 'EUR',
-    value: '95',
+    value: '500',
+    minValue: '500',
+    maxValue: '1500',
   },
 };
 ---
@@ -62,8 +64,8 @@ const howToSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
 <Layout
-  title="Werkwijze — Beheerst Proces, Geen Complexiteit | LaventeCare"
-  description="Hoe werkt een project met LaventeCare? Van gratis intake tot SLA-ondersteuning. Transparant, gestructureerd en zonder verrassingen."
+  title="Werkwijze Ã¢â‚¬â€ Gecontroleerd Proces & Blueprinting | LaventeCare"
+  description="Hoe werkt een project met LaventeCare? Van Discovery Blueprint tot SLA-ondersteuning. Transparant, gestructureerd en beschermd tegen scope creep."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -82,8 +84,8 @@ const howToSchema = {
       <div class="max-w-3xl mx-auto mb-16">
         <SectionHeader
           label="Facturatie"
-          heading='Gefaseerde <span class="text-active">facturatie</span> — volledige controle over uw investering'
-          description="Facturatie op basis van mijlpalen en gerealiseerde voortgang. Bij tussentijdse beëindiging gelden de afspraken uit de offerte en algemene voorwaarden."
+          heading='Gefaseerde <span class="text-active">facturatie</span> Ã¢â‚¬â€ volledige controle over uw investering'
+          description="Facturatie op basis van mijlpalen en gerealiseerde voortgang. Bij tussentijdse beÃƒÂ«indiging gelden de afspraken uit de offerte en algemene voorwaarden."
         />
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -92,13 +94,13 @@ const howToSchema = {
           >
             <div class="text-3xl font-black text-active font-display mb-1">40%</div>
             <p class="text-white/70 text-xs font-ui">Na goedkeuring Blueprint</p>
-            <p class="text-white/40 text-[10px] font-ui mt-1">Dekking initiële kosten</p>
+            <p class="text-white/40 text-[10px] font-ui mt-1">Dekking initiÃƒÂ«le kosten</p>
           </div>
           <div
             class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5"
           >
             <div class="text-3xl font-black text-active font-display mb-1">40%</div>
-            <p class="text-white/70 text-xs font-ui">Bij bèta-oplevering</p>
+            <p class="text-white/70 text-xs font-ui">Bij bÃƒÂ¨ta-oplevering</p>
             <p class="text-white/40 text-[10px] font-ui mt-1">Tussentijdse acceptatie</p>
           </div>
           <div
@@ -112,33 +114,102 @@ const howToSchema = {
       </div>
 
       <!-- Betalingsvoorwaarden -->
-      <div
-        class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 max-w-3xl mx-auto mb-16"
-      >
-        <h3 class="text-lg font-bold text-white mb-4 font-display">Betalingsvoorwaarden</h3>
-        <ul class="space-y-3 text-sm font-ui text-white/70">
-          <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Betalingstermijn: <strong
-              class="text-white">14 dagen</strong
-            > na factuurdatum
-          </li>
-          <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Discovery-fases worden
-            <strong class="text-white">vooraf</strong> gefactureerd
-          </li>
-          <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> SLA-abonnementen: <strong
-              class="text-white">maandelijks vooraf</strong
-            > via automatisch incasso — tarieven worden jaarlijks geïndexeerd (CBS)
-          </li>
-          <li class="flex gap-3">
-            <Icon name="external-link" size={14} class="text-active shrink-0 mt-0.5" />
-            <span>Volledige betalings- en annuleringsafspraken:
-              <a href="/voorwaarden" class="text-active hover:underline">Algemene Voorwaarden</a>
-            </span>
-          </li>
-        </ul>
+      <div class="max-w-3xl mx-auto mb-16">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-8 h-8 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0">
+            <Icon name="clipboard-list" size={16} class="text-active" />
+          </div>
+          <h3 class="text-lg font-bold text-white font-display">Betalingsvoorwaarden</h3>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- 30 dagen (AV Art. 9) -->
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
+            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Icon name="clock" size={16} class="text-active" />
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-white font-bold text-sm font-display">Betalingstermijn</span>
+                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">30 dagen</span>
+              </div>
+              <p class="text-white/55 text-xs font-ui leading-relaxed">
+                Na factuurdatum conform AV Artikel 9. Niet-tijdige betaling resulteert in <span class="text-white/80">opschorting van diensten</span> na schriftelijke ingebrekestelling.
+              </p>
+            </div>
+          </div>
+
+          <!-- Discovery vooraf -->
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
+            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Icon name="search" size={16} class="text-active" />
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-white font-bold text-sm font-display">Discovery-fases</span>
+                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Vooraf</span>
+              </div>
+              <p class="text-white/55 text-xs font-ui leading-relaxed">
+                Worden gefactureerd vÃƒÂ³ÃƒÂ³r aanvang van de werkzaamheden. Geen start zonder betaalde factuur.
+              </p>
+            </div>
+          </div>
+
+          <!-- Change Request -->
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
+            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Icon name="git-merge" size={16} class="text-active" />
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-white font-bold text-sm font-display">Meerwerk</span>
+                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Change Request</span>
+              </div>
+              <p class="text-white/55 text-xs font-ui leading-relaxed">
+                Buiten-scope werk vereist altijd een <span class="text-white/80">goedgekeurd Change Request</span> voordat het wordt uitgevoerd.
+              </p>
+            </div>
+          </div>
+
+          <!-- SLA incasso -->
+          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
+            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Icon name="refresh-cw" size={16} class="text-active" />
+            </div>
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-white font-bold text-sm font-display">SLA-abonnementen</span>
+                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Maandelijks</span>
+              </div>
+              <p class="text-white/55 text-xs font-ui leading-relaxed">
+                Maandelijks vooraf via automatisch incasso. Tarieven worden jaarlijks geÃƒÂ¯ndexeerd (CBS).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Annulering -->
+        <div class="clinical-glass p-4 rounded-(--radius-card) border border-white/8 mt-4">
+          <div class="flex items-start gap-3">
+            <Icon name="alert-triangle" size={14} class="text-active flex-shrink-0 mt-0.5" />
+            <p class="text-white/40 text-xs font-ui leading-relaxed">
+              <span class="text-white/70 font-bold">Annulering realisatiefase:</span> reeds verrichte uren + 30% van het resterende bedrag. Annulering discovery: uitsluitend de vaste Discovery-fee. Zie <a href="/voorwaarden" class="text-active hover:underline">AV Artikel 10</a>.
+            </p>
+          </div>
+        </div>
+
+        <!-- AV Link -->
+        <div class="mt-4 flex items-center gap-2 px-1">
+          <Icon name="external-link" size={13} class="text-active flex-shrink-0" />
+          <p class="text-white/40 text-xs font-ui">
+            Volledige betalings- en annuleringsafspraken:
+            <a href="/voorwaarden" class="text-active hover:text-active/80 transition-colors ml-1 underline underline-offset-2">
+              Algemene Voorwaarden Ã¢â€ â€™
+            </a>
+          </p>
+        </div>
       </div>
+
 
       <!-- Wanneer wel/niet -->
       <div class="max-w-3xl mx-auto">
@@ -156,7 +227,7 @@ const howToSchema = {
               <Icon name="check" size={16} class="text-cta shrink-0" /> Ideale match
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/60">
-              <li>Budget vanaf €3.000 voor maatwerk</li>
+              <li>Budget vanaf Ã¢â€šÂ¬3.000 voor maatwerk</li>
               <li>Duidelijke probleemstelling</li>
               <li>Bereidheid tot technisch gesprek</li>
               <li>Langetermijn samenwerking</li>
@@ -170,11 +241,11 @@ const howToSchema = {
               <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> Doorverwijzing
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/40">
-              <li>Budget onder €3.000 → vaak beter geschikt voor low-code oplossingen</li>
+              <li>Budget onder Ã¢â€šÂ¬3.000 Ã¢â€ â€™ vaak beter geschikt voor low-code oplossingen</li>
               <li>
-                Alleen prijsinformatie zonder context → moeilijk om een goede inschatting te maken
+                Alleen prijsinformatie zonder context Ã¢â€ â€™ moeilijk om een goede inschatting te maken
               </li>
-              <li>Gratis proof-of-concept → betaalde discovery</li>
+              <li>Gratis proof-of-concept Ã¢â€ â€™ betaalde discovery</li>
               <li>Template-oplossing (WordPress/Wix)</li>
             </ul>
           </div>
@@ -186,12 +257,12 @@ const howToSchema = {
   <!-- CTA -->
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
-      <a href="/contact" class="btn-primary text-lg px-10">
-        Plan een intake
+      <a href="/contact?type=discovery" class="btn-primary text-lg px-10">
+        Plan een Discovery
         <Icon name="arrow-right" size={20} />
       </a>
       <p class="text-white/40 text-sm font-ui mt-3">
-        Plan een intake en krijg direct inzicht in haalbaarheid, aanpak en kosten voor uw situatie.
+        Plan een Discovery en krijg direct inzicht in haalbaarheid, aanpak en kosten voor uw situatie.
       </p>
     </div>
   </section>

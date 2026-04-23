@@ -10,95 +10,319 @@
  */
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/ui/Icon.astro';
+import SectionHeader from '../components/ui/SectionHeader.astro';
+
+const pricingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'LaventeCare',
+  url: 'https://www.laventecare.com/pricing',
+  priceRange: '€€€',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'LaventeCare Services & SLA',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Step 1: Technical Discovery & Blueprint',
+        price: '500',
+        priceCurrency: 'EUR',
+        description:
+          'In-depth analysis of technical requirements, architecture design and a deliverable Blueprint document — the Single Source of Truth for the entire project.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Step 2: Realisation (Fixed-Price Milestones)',
+        price: 'Fixed project price',
+        priceCurrency: 'EUR',
+        description: 'Fixed price based on the Blueprint. Billing in 40/40/20 milestones.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'SLA Essential',
+        price: '75',
+        priceCurrency: 'EUR',
+        unitText: 'per month',
+        description: 'Updates, support and uptime monitoring.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'SLA Professional',
+        price: '150',
+        priceCurrency: 'EUR',
+        unitText: 'per month',
+        description: 'Monitoring, performance and reporting.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'SLA Enterprise',
+        price: '300',
+        priceCurrency: 'EUR',
+        unitText: 'per month',
+        description: 'Realtime monitoring, Observatory AI and priority support.',
+      },
+    ],
+  },
+};
 ---
 
+<script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
+
 <Layout
-  title="Pricing & Packages — Transparent Rates | LaventeCare"
-  description="Clear pricing with no hidden costs. Hourly rate €95, fixed packages available. Contact us for a custom quote tailored to your situation."
+  title="Pricing & Investment — Transparent, Fixed-Price Projects | LaventeCare"
+  description="Transparent investments for B2B custom platforms. Fixed milestone pricing (40/40/20) based on a technical Blueprint. No unexpected additional costs."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Transparent</span>
-        <h1 class="text-4xl md:text-5xl font-black text-white mb-4 font-display tracking-tight">
-          Pricing & Packages
-        </h1>
-        <p class="text-white/60 max-w-xl mx-auto font-ui">
-          No hidden costs or surprise invoices. Clear agreements, milestone-based billing.
+      <SectionHeader
+        label="Investment"
+        heading='Transparent <span class="text-active">Pricing</span>'
+        description="No surprises — clear pricing, clear phases, full control over your investment. Every phase can be taken separately, keeping you in control of costs and risk."
+      />
+
+      <!-- Project Pricing -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <!-- Discovery -->
+          <div
+            data-animate="scale-up"
+            class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 flex flex-col"
+          >
+            <span class="text-active text-xs font-bold uppercase tracking-wider mb-3 font-display"
+              >Step 1</span
+            >
+            <h2 class="text-xl font-bold text-white mb-2 font-display">Discovery & Blueprint</h2>
+            <p class="text-white/50 text-sm mb-5 font-ui">In-depth analysis & architecture design</p>
+            <div class="text-3xl font-black text-white mb-1 font-display">
+              €500 <span class="text-lg text-white/40 font-normal">– €1,500</span>
+            </div>
+            <p class="text-white/40 text-xs mb-6 font-ui">One-off, fixed fee — excl. VAT</p>
+            <div class="h-px bg-white/8 my-4"></div>
+            <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Technical requirements
+                analysis
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Custom architecture design
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Detailed Blueprint document
+                (Single Source of Truth)
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> You always retain a usable
+                Blueprint
+              </li>
+            </ul>
+            <a
+              href="/contact?type=discovery"
+              class="text-center py-3 rounded-lg border border-white/15 text-white hover:bg-white/5 transition-colors font-bold font-ui min-h-12 flex items-center justify-center"
+            >
+              Start Discovery
+            </a>
+          </div>
+
+          <!-- Realisation (Featured) -->
+          <div
+            data-animate="scale-up"
+            class="delay-100 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border-2 border-active relative flex flex-col shadow-xl shadow-active/10 md:scale-105 z-10"
+          >
+            <div
+              class="absolute top-0 right-0 bg-active text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg tracking-wider font-display"
+            >
+              PROJECT WORK
+            </div>
+            <span class="text-active text-xs font-bold uppercase tracking-wider mb-3 font-display"
+              >Step 2</span
+            >
+            <h2 class="text-xl font-bold text-white mb-2 font-display">Realisation</h2>
+            <p class="text-white/50 text-sm mb-5 font-ui">Fixed-price based on the Blueprint</p>
+            <div class="text-3xl font-black text-white mb-1 font-display">
+              Fixed <span class="text-lg text-white/40 font-normal">Project Price</span>
+            </div>
+            <p class="text-white/40 text-xs mb-6 font-ui">
+              Milestone billing (40/40/20) — <a href="/terms" class="text-active hover:underline">suspension right</a> applies on non-payment.
+            </p>
+            <div class="h-px bg-white/8 my-4"></div>
+            <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Strict scope based on the Blueprint
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Interim demos &
+                acceptance testing
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> No additional charges or surprises
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Professional Zero-Trust security
+                included
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Out-of-scope work always via Change Requests (€95/hr)
+              </li>
+              <li class="flex gap-2 text-white/40">
+                <span class="text-active"><Icon name="external-link" size={14} /></span>
+                <span>Generic modules & AuthSystem remain LaventeCare IP; client receives
+                usage rights — see <a href="/terms" class="text-active hover:underline">terms</a></span>
+              </li>
+            </ul>
+            <a
+              href="/contact?type=project"
+              class="text-center py-3 rounded-lg bg-active text-white font-bold hover:bg-active/90 transition-colors font-ui shadow-lg shadow-active/25 min-h-12 flex items-center justify-center"
+            >
+              Start a project
+            </a>
+          </div>
+
+          <!-- IoT -->
+          <div
+            data-animate="scale-up"
+            class="delay-200 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 flex flex-col"
+          >
+            <span class="text-active text-xs font-bold uppercase tracking-wider mb-3 font-display"
+              >Per Device</span
+            >
+            <h2 class="text-xl font-bold text-white mb-2 font-display">IoT Integration</h2>
+            <p class="text-white/50 text-sm mb-5 font-ui">Scalable per device</p>
+            <div class="text-3xl font-black text-white mb-1 font-display">
+              From €2<span class="text-lg text-white/40 font-normal">/device per month</span>
+            </div>
+            <p class="text-white/40 text-xs mb-6 font-ui">Scales as your system grows</p>
+            <div class="h-px bg-white/8 my-4"></div>
+            <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Secure sensor data ingest
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Real-time data storage
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Managed cloud infrastructure
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Secure device verification
+              </li>
+            </ul>
+            <a
+              href="/contact?type=iot"
+              class="text-center py-3 rounded-lg border border-white/15 text-white hover:bg-white/5 transition-colors font-bold font-ui min-h-12 flex items-center justify-center"
+            >
+              Connect hardware
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLA Tiers -->
+      <div class="max-w-5xl mx-auto mb-16">
+        <SectionHeader
+          label="After delivery"
+          heading='Tiered <span class="text-active">SLA Model</span>'
+          description="Your system stays secure, up-to-date and available — even after delivery. Choose the level that suits your business."
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Basic -->
+          <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
+            <h3 class="text-lg font-bold text-white mb-1 font-display">Essential</h3>
+            <div class="text-2xl font-black text-white font-display mb-1">
+              €75<span class="text-sm text-white/40 font-normal">/month</span>
+            </div>
+            <p class="text-white/40 text-xs mb-4 font-ui">Hosting & uptime monitoring · annual indexation</p>
+            <ul class="space-y-2 text-xs font-ui text-white/60">
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Managed hosting
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Security updates
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> SSL & domain management
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Email delivery
+              </li>
+            </ul>
+          </div>
+
+          <!-- Pro -->
+          <div class="clinical-glass p-6 rounded-(--radius-feature) border border-active/30 bg-active/5">
+            <span class="text-active text-[10px] font-bold uppercase tracking-wider font-display"
+              >Recommended</span
+            >
+            <h3 class="text-lg font-bold text-white mb-1 font-display">Professional</h3>
+            <div class="text-2xl font-black text-white font-display mb-1">
+              €150<span class="text-sm text-white/40 font-normal">/month</span>
+            </div>
+            <p class="text-white/40 text-xs mb-4 font-ui">Monitoring, performance & reporting</p>
+            <ul class="space-y-2 text-xs font-ui text-white/60">
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Everything in Basic
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Proactive dependency updates
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> 4 hours support per month
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Performance monitoring
+              </li>
+            </ul>
+          </div>
+
+          <!-- Enterprise -->
+          <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
+            <h3 class="text-lg font-bold text-white mb-1 font-display">Enterprise</h3>
+            <div class="text-2xl font-black text-white font-display mb-1">
+              €300+<span class="text-sm text-white/40 font-normal">/month</span>
+            </div>
+            <p class="text-white/40 text-xs mb-4 font-ui">24/7 monitoring, priority & Observatory AI</p>
+            <ul class="space-y-2 text-xs font-ui text-white/60">
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Everything in Professional
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Observatory AI realtime monitoring
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> 99.99% uptime guarantee (SLA)
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> 24/7 P1 availability &mdash; 1h response time
+              </li>
+              <li class="flex gap-2">
+                <span class="text-active"><Icon name="check" size={14} /></span> Weekly proactive maintenance
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Legal Footer -->
+      <div class="text-center mt-8">
+        <p class="text-white/35 text-xs font-ui">
+          All our services are subject to the
+          <a href="/terms" class="text-active hover:text-active/80 transition-colors underline underline-offset-2">Terms & Conditions</a>
+          of LaventeCare — including agreements on delivery, acceptance,
+          ownership and liability.
         </p>
       </div>
 
-      <!-- Pricing Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
-        <!-- Starter -->
-        <div data-animate="fade-up" class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 flex flex-col">
-          <div class="mb-6">
-            <h2 class="text-lg font-bold text-white font-display mb-1">Landing Page</h2>
-            <p class="text-white/50 text-sm font-ui">Lead-generating website for SMEs</p>
-          </div>
-          <div class="mb-6">
-            <span class="text-3xl font-black text-white font-display">€2,500</span>
-            <span class="text-white/40 text-sm font-ui ml-1">one-off</span>
-          </div>
-          <ul class="space-y-2 text-sm font-ui text-white/70 flex-1 mb-6">
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> High-performance landing page</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Contact form + quote flow</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> SEO-optimised</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> 99/100 PageSpeed target</li>
-          </ul>
-          <a href="/contact" class="btn-secondary text-center">Get a quote</a>
-        </div>
-
-        <!-- Platform -->
-        <div data-animate="fade-up" class="delay-100 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-active/30 bg-active/5 flex flex-col relative">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active text-background">Most popular</span>
-          </div>
-          <div class="mb-6">
-            <h2 class="text-lg font-bold text-white font-display mb-1">Custom Platform</h2>
-            <p class="text-white/50 text-sm font-ui">Complete system with auth & dashboard</p>
-          </div>
-          <div class="mb-6">
-            <span class="text-3xl font-black text-white font-display">€95</span>
-            <span class="text-white/40 text-sm font-ui ml-1">/hour</span>
-          </div>
-          <ul class="space-y-2 text-sm font-ui text-white/70 flex-1 mb-6">
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Custom architecture & design</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Built-in security (Zero-Trust)</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Real-time dashboards</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Milestone-based billing</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Technical Blueprint document</li>
-          </ul>
-          <a href="/contact" class="btn-primary text-center">
-            Schedule intake
-            <Icon name="arrow-right" size={14} />
-          </a>
-        </div>
-
-        <!-- SLA -->
-        <div data-animate="fade-up" class="delay-200 clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 flex flex-col">
-          <div class="mb-6">
-            <h2 class="text-lg font-bold text-white font-display mb-1">SLA & Maintenance</h2>
-            <p class="text-white/50 text-sm font-ui">For existing systems</p>
-          </div>
-          <div class="mb-6">
-            <span class="text-3xl font-black text-white font-display">€75</span>
-            <span class="text-white/40 text-sm font-ui ml-1">/month</span>
-          </div>
-          <ul class="space-y-2 text-sm font-ui text-white/70 flex-1 mb-6">
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Security updates</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uptime monitoring</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Priority support</li>
-            <li class="flex gap-2"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Further development on request</li>
-          </ul>
-          <a href="/contact" class="btn-secondary text-center">Get in touch</a>
-        </div>
+      <!-- CTA -->
+      <div class="text-center mt-8">
+        <a href="/contact" class="btn-primary">
+          Schedule a Discovery
+          <Icon name="arrow-right" size={16} />
+        </a>
+        <p class="text-white/40 text-sm font-ui mt-3">
+          Schedule a Discovery and receive a concrete estimate for your project.
+        </p>
       </div>
-
-      <p class="text-center text-white/30 text-sm font-ui max-w-xl mx-auto">
-        All rates exclusive of VAT. Custom projects start with a paid Technical Discovery (€750–€2,500).
-        <a href="/how-we-work" class="text-active hover:underline ml-1">See how we work →</a>
-      </p>
     </div>
   </section>
 </Layout>
+

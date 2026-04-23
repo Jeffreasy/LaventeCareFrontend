@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # backend documentation (internal only)
 src/pages/backendDocs/
+
+# bedrijfsdocumentatie (vertrouwelijk — niet publiek)
+DocumentatieBedrijf/

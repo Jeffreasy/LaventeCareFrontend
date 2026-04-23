@@ -8,7 +8,7 @@ const pricingSchema = {
   '@type': 'ProfessionalService',
   name: 'LaventeCare',
   url: 'https://www.laventecare.nl/prijzen',
-  priceRange: '€75 - €500/maand',
+  priceRange: '€75 - €300+/maand',
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'LaventeCare Diensten & SLA',
@@ -16,22 +16,21 @@ const pricingSchema = {
       {
         '@type': 'Offer',
         name: 'Stap 1: Discovery & Blueprint',
-        price: '750',
+        price: '500',
         priceCurrency: 'EUR',
         description:
           'Diepte-analyse van technische vereisten, architectuurontwerp en een bruikbaar blueprint document.',
       },
       {
         '@type': 'Offer',
-        name: 'Stap 2: Ontwikkeling (uurtarief)',
-        price: '95',
+        name: 'Stap 2: Realisatie (Fixed-Price Mijlpalen)',
+        price: 'Vaste projectprijs',
         priceCurrency: 'EUR',
-        unitText: 'per uur',
-        description: 'Agile development in sprints. Volledige transparantie per sprint.',
+        description: 'Vaste prijs op basis van de Blueprint. Facturatie in 40/40/20 mijlpalen.',
       },
       {
         '@type': 'Offer',
-        name: 'SLA Basic',
+        name: 'SLA Essential',
         price: '75',
         priceCurrency: 'EUR',
         unitText: 'per maand',
@@ -40,7 +39,7 @@ const pricingSchema = {
       {
         '@type': 'Offer',
         name: 'SLA Professional',
-        price: '250',
+        price: '150',
         priceCurrency: 'EUR',
         unitText: 'per maand',
         description: 'Proactieve patching, 4 uur support per maand, performance monitoring.',
@@ -48,7 +47,7 @@ const pricingSchema = {
       {
         '@type': 'Offer',
         name: 'SLA Enterprise',
-        price: '500',
+        price: '300',
         priceCurrency: 'EUR',
         unitText: 'per maand',
         description: '24/7 monitoring, max 4u reactietijd, dedicated back-up developer.',
@@ -62,7 +61,7 @@ const pricingSchema = {
 
 <Layout
   title="Prijzen & Tarieven — Transparant en Zonder Verrassingen | LaventeCare"
-  description="Geen verrassingen achteraf. Transparante prijzen voor maatwerkplatformen met ingebouwde beveiliging. Uurtarief €95, Discovery vanaf €750, SLA vanaf €75/maand."
+  description="Transparante investeringen voor B2B maatwerkplatformen. Vaste mijlpaalprijzen (40/40/20) gebaseerd op een technische Blueprint. Geen onverwachte nacalculaties."
 >
   <section class="section-padding pt-32 md:pt-40 relative flex items-center overflow-hidden">
     <!-- Floating Background Mesh (Shared style from Hero) -->
@@ -112,7 +111,7 @@ const pricingSchema = {
             <h3 class="text-xl font-bold text-white mb-2 font-display">Discovery & Blueprint</h3>
             <p class="text-white/50 text-sm mb-5 font-ui">Diepte-analyse en architectuurontwerp</p>
             <div class="text-3xl font-black text-white mb-1 font-display">
-              €750 <span class="text-lg text-white/40 font-normal">– €2.500</span>
+              €500 <span class="text-lg text-white/40 font-normal">– €1.500</span>
             </div>
             <p class="text-white/40 text-xs mb-6 font-ui">Eenmalig, vaste fee</p>
             <div class="h-px bg-white/8 my-4"></div>
@@ -154,35 +153,32 @@ const pricingSchema = {
             <span class="text-active text-xs font-bold uppercase tracking-wider mb-3 font-display"
               >Stap 2</span
             >
-            <h3 class="text-xl font-bold text-white mb-2 font-display">Ontwikkeling</h3>
-            <p class="text-white/50 text-sm mb-5 font-ui">Agile development in sprints</p>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">Realisatie</h3>
+            <p class="text-white/50 text-sm mb-5 font-ui">Fixed-price o.b.v. de Blueprint</p>
             <div class="text-3xl font-black text-white mb-1 font-display">
-              €95<span class="text-lg text-white/40 font-normal">/uur</span>
+              Vaste <span class="text-lg text-white/40 font-normal">Projectprijs</span>
             </div>
             <p class="text-white/40 text-xs mb-6 font-ui">
-              Milestone facturatie (40/40/20) — bij tussentijdse beëindiging gelden de afspraken
-              uit de offerte en <a href="/voorwaarden" class="text-active hover:underline">algemene voorwaarden</a>
+              Milestone facturatie (40/40/20) — <a href="/voorwaarden" class="text-active hover:underline">opschortingsrecht</a> van toepassing bij niet-betaling.
             </p>
             <div class="h-px bg-white/8 my-4"></div>
             <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Sprints van 2 weken
+                <span class="text-active"><Icon name="check" size={14} /></span> Strikte scope op basis van de Blueprint
               </li>
               <li class="flex gap-2">
                 <span class="text-active"><Icon name="check" size={14} /></span> Tussentijdse demo's &
                 acceptatie
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Full-stack: frontend
-                + backend + IoT
+                <span class="text-active"><Icon name="check" size={14} /></span> Geen nacalculatie of verrassingen
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Professionele beveiliging
+                <span class="text-active"><Icon name="check" size={14} /></span> Professionele Zero-Trust beveiliging
                 inbegrepen
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Transparantie per sprint:
-                u ziet precies waar uw budget naartoe gaat
+                <span class="text-active"><Icon name="check" size={14} /></span> Meerwerk (buiten scope) gaat altijd via Change Requests (€95/uur)
               </li>
               <li class="flex gap-2 text-white/40">
                 <span class="text-active"><Icon name="external-link" size={14} /></span>
@@ -248,7 +244,7 @@ const pricingSchema = {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Basic -->
           <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
-            <h3 class="text-lg font-bold text-white mb-1 font-display">Basic</h3>
+            <h3 class="text-lg font-bold text-white mb-1 font-display">Essential</h3>
             <div class="text-2xl font-black text-white font-display mb-1">
               €75<span class="text-sm text-white/40 font-normal">/maand</span>
             </div>
@@ -278,9 +274,9 @@ const pricingSchema = {
             >
             <h3 class="text-lg font-bold text-white mb-1 font-display">Professional</h3>
             <div class="text-2xl font-black text-white font-display mb-1">
-              €250<span class="text-sm text-white/40 font-normal">/maand</span>
+              €150<span class="text-sm text-white/40 font-normal">/maand</span>
             </div>
-            <p class="text-white/40 text-xs mb-4 font-ui">Proactieve patching + 4u support</p>
+            <p class="text-white/40 text-xs mb-4 font-ui">Monitoring, performance & rapportage</p>
             <ul class="space-y-2 text-xs font-ui text-white/60">
               <li class="flex gap-2">
                 <span class="text-active"><Icon name="check" size={14} /></span> Alles uit Basic
@@ -302,25 +298,24 @@ const pricingSchema = {
           <div class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
             <h3 class="text-lg font-bold text-white mb-1 font-display">Enterprise</h3>
             <div class="text-2xl font-black text-white font-display mb-1">
-              €500<span class="text-sm text-white/40 font-normal">/maand</span>
+              €300+<span class="text-sm text-white/40 font-normal">/maand</span>
             </div>
-            <p class="text-white/40 text-xs mb-4 font-ui">24/7 monitoring, priority response</p>
+            <p class="text-white/40 text-xs mb-4 font-ui">24/7 monitoring, prioriteit & Observatory AI</p>
             <ul class="space-y-2 text-xs font-ui text-white/60">
               <li class="flex gap-2">
                 <span class="text-active"><Icon name="check" size={14} /></span> Alles uit Professional
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> 24/7 geautomatiseerde
-                monitoring
+                <span class="text-active"><Icon name="check" size={14} /></span> Observatory AI realtime monitoring
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Max 4u reactietijd (kantoortijden)
+                <span class="text-active"><Icon name="check" size={14} /></span> 99.99% uptime garantie (SLA)
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Dedicated back-up developer
+                <span class="text-active"><Icon name="check" size={14} /></span> 24/7 bereikbaarheid P1 incidenten — 1u reactietijd
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Software escrow beschikbaar
+                <span class="text-active"><Icon name="check" size={14} /></span> Wekelijks pro-actief onderhoud
               </li>
             </ul>
           </div>
@@ -345,11 +340,8 @@ const pricingSchema = {
             >.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-6">
-            Voor een vast en eerlijk uurtarief haal je geen "template-bouwer" in huis, maar een
-            volwaardige <span class="text-white font-semibold">systems engineer</span>. Iemand die
-            complete platformen bouwt met ingebouwde beveiliging, real-time monitoring
-            en de complexe datastromen van IoT-devices. Geen verborgen kosten, geen anonieme helpdesk, maar directe
-            lijnen en meetbare resultaten.
+            Via de Discovery First methode haalt u geen "template-bouwer" in huis, maar een
+            volwaardige <span class="text-white font-semibold">systems engineer</span>. We werken met vaste projectprijzen gebaseerd op een gedetailleerde Blueprint. Geen verborgen uurtje-factuurtje, geen anonieme helpdesk, maar directe lijnen, strikte scope-bewaking en keiharde garanties.
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="flex items-start gap-3 p-3 rounded-lg bg-white/3 border border-white/5">
