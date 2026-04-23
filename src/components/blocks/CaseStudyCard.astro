@@ -1,11 +1,6 @@
 ---
 import TechStackBadge from '../ui/TechStackBadge.astro';
-import LighthouseGauge from '../ui/LighthouseGauge.astro';
-
-interface ScoreEntry {
-  category: string;
-  score: number;
-}
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   name: string;
@@ -14,7 +9,7 @@ interface Props {
   techStack?: string[];
   liveUrl?: string;
   caseStudyUrl?: string;
-  lighthouseScores?: ScoreEntry[];
+  metrics?: string[];
   class?: string;
 }
 
@@ -25,7 +20,7 @@ const {
   techStack = [],
   liveUrl,
   caseStudyUrl,
-  lighthouseScores,
+  metrics = [],
   class: className,
 } = Astro.props;
 ---
@@ -70,12 +65,15 @@ const {
       )
     }
 
-    <!-- Lighthouse Scores (compact) -->
+    <!-- Business Metrics -->
     {
-      lighthouseScores && lighthouseScores.length > 0 && (
-        <div class="flex items-center justify-around gap-2 py-4 mb-4 border-t border-b border-white/5">
-          {lighthouseScores.map((s) => (
-            <LighthouseGauge score={s.score} label={s.category} size="sm" />
+      metrics.length > 0 && (
+        <div class="flex flex-wrap items-center gap-4 py-3 mb-4 border-t border-b border-white/5">
+          {metrics.map((m) => (
+            <div class="flex items-center gap-1.5">
+              <Icon name="check" size={14} class="text-active shrink-0" />
+              <span class="text-white/70 text-xs font-ui">{m}</span>
+            </div>
           ))}
         </div>
       )

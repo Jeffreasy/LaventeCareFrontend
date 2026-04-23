@@ -3,20 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
-import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
 
 const results = [
   { value: '24/7', label: 'Remote monitoring' },
   { value: '< 1W', label: 'Stroomverbruik (deep-sleep)' },
   { value: 'Real-time', label: 'Cloud dashboards' },
   { value: 'OTA', label: 'Firmware updates' },
-];
-
-const lighthouseScores = [
-  { category: 'Performance', score: 99 },
-  { category: 'Accessibility', score: 90 },
-  { category: 'Best Practices', score: 96 },
-  { category: 'SEO', score: 100 },
 ];
 
 const challenges = [
@@ -164,20 +156,6 @@ const challenges = [
             </p>
           </div>
         </div>
-      </div>
-
-      <!-- Lighthouse Audit -->
-      <div class="max-w-4xl mx-auto mb-16">
-        <SectionHeader
-          label="Bewezen prestaties"
-          heading='Verifieerbare <span class="text-active">Lighthouse</span> data'
-        />
-        <LighthouseScoreBlock
-          projectName="SmartCoolCare"
-          scores={lighthouseScores}
-          context="Ondanks de continue datastroom van ESP32 sensoren en complexe datavisualisatie behoud ik een 99% performance score dankzij een geoptimaliseerde eiland-architectuur. Een uitzonderlijke prestatie voor een IoT-platform."
-          liveUrl="https://www.smartcoolcare.nl/"
-        />
       </div>
     </div>
   </section>

@@ -3,19 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
-import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
 
 const results = [
   { value: '100+', label: 'Real-time registraties verwerkt' },
   { value: '0', label: 'Handmatig werk voor organisatie' },
   { value: '93 avg', label: 'Lighthouse Score' },
   { value: '0', label: 'Downtime tijdens event' },
-];
-
-const lighthouseScores = [
-  { category: 'Performance', score: 93 },
-  { category: 'Accessibility', score: 95 },
-  { category: 'Best Practices', score: 92 },
 ];
 
 const challenges = [
@@ -162,20 +155,6 @@ const challenges = [
             </p>
           </div>
         </div>
-      </div>
-
-      <!-- Lighthouse Audit -->
-      <div class="max-w-4xl mx-auto mb-16">
-        <SectionHeader
-          label="Bewezen prestaties"
-          heading='Verifieerbare <span class="text-active">Lighthouse</span> data'
-        />
-        <LighthouseScoreBlock
-          projectName="De Koninklijke Loop"
-          scores={lighthouseScores}
-          context="Voor een evenementenwebsite met dynamische registratieformulieren, real-time deelnemerstellers en externe integraties zijn dit uitstekende scores. Alles boven de 90 is donkergroen en resulteert in een uitstekende Core Web Vitals beoordeling."
-          liveUrl="https://www.dekoninklijkeloop.nl/"
-        />
       </div>
     </div>
   </section>
