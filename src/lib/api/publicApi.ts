@@ -4,6 +4,14 @@ export interface ContactPayload {
   name: string;
   email: string;
   message: string;
+  telefoon?: string;
+  dienst?: string;
+  budget?: string;
+  timing?: string;
+  bedrijf?: string;
+  goal?: string;
+  source?: string;
+  pageUrl?: string;
 }
 
 export async function submitContactForm(payload: ContactPayload): Promise<{ status: string }> {

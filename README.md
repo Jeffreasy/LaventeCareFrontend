@@ -18,6 +18,14 @@ npm run dev
 
 De applicatie draait op `http://localhost:4321`
 
+## LaventeCare Intake Bridge
+
+Het contactformulier post gestructureerde intakevelden naar `/api/v1/public/contact`: projecttype,
+bedrijf, budget, tijdlijn, doel, optioneel telefoonnummer, bron en huidige pagina-URL. De Go-backend
+kan die aanvraag vervolgens doorzetten naar Jeffrey's private Homeapp cockpit als lead en
+opvolgactie wanneer `HOMEAPP_LAVENTECARE_INTAKE_URL` en
+`HOMEAPP_LAVENTECARE_INTAKE_SECRET` daar geconfigureerd zijn.
+
 ## 📁 Enterprise Architecture
 
 ### Component-Driven Design

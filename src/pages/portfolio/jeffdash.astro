@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
@@ -9,6 +10,13 @@ const results = [
   { value: 'Real-time', label: 'Scan analytics' },
   { value: 'HQ Export', label: 'SVG & PNG downloads' },
   { value: 'Branded', label: 'Custom styling' },
+];
+
+const lighthouseScores = [
+  { label: 'Performance', value: 99 },
+  { label: 'Accessibility', value: 100 },
+  { label: 'Best Practices', value: 100 },
+  { label: 'SEO', value: 100 },
 ];
 
 const challenges = [

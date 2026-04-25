@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
@@ -9,6 +10,13 @@ const results = [
   { value: '0', label: 'Mislukte transacties' },
   { value: '< 2s', label: 'Gemiddelde laadtijd' },
   { value: 'Dual', label: 'E-mail dispatch' },
+];
+
+const lighthouseScores = [
+  { label: 'Performance', value: 71 },
+  { label: 'Accessibility', value: 100 },
+  { label: 'Best Practices', value: 96 },
+  { label: 'SEO', value: 100 },
 ];
 
 const challenges = [

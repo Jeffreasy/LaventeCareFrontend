@@ -9,6 +9,7 @@ interface FormData {
     timeline: string;
     name: string;
     email: string;
+    phone: string;
 }
 
 const initialData: FormData = {
@@ -19,6 +20,7 @@ const initialData: FormData = {
     timeline: '',
     name: '',
     email: '',
+    phone: '',
 };
 
 interface Props {
@@ -80,8 +82,7 @@ export function ContactForm({ onSuccess, initialType }: Props) {
         setData((prev) => ({ ...prev, ...fields }));
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleSubmit = async () => {
         if (!canGoToNext()) return;
         
         setIsSubmitting(true);
@@ -104,6 +105,14 @@ ${data.goal}
                 name: data.name,
                 email: data.email,
                 message: `[${formattedSubject}]\n\n${formattedMessage}`,
+                dienst: data.projectType,
+                bedrijf: data.companyName,
+                telefoon: data.phone || undefined,
+                budget: data.budget,
+                timing: data.timeline,
+                goal: data.goal,
+                source: 'laventecare.nl',
+                pageUrl: typeof window !== 'undefined' ? window.location.href : undefined,
             });
 
             setSubmitStatus('success');
@@ -259,6 +268,17 @@ ${data.goal}
                                 onChange={(e) => updateData({ email: e.target.value })}
                                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-active transition-all duration-200 font-ui"
                                 placeholder="je@email.com"
+                            />
+                        </div>
+
+                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '300ms' }}>
+                            <label className="block text-sm font-bold text-white mb-2 font-display">Telefoonnummer</label>
+                            <input
+                                type="tel"
+                                value={data.phone}
+                                onChange={(e) => updateData({ phone: e.target.value })}
+                                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-active transition-all duration-200 font-ui"
+                                placeholder="Optioneel"
                             />
                         </div>
 
