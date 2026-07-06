@@ -20,15 +20,15 @@ const phases = [
   },
   {
     num: '02',
-    title: 'Core Development',
+    title: 'Bouwen',
     status: 'done' as const,
-    desc: 'Kanban-bord, CRM, voertuigbeheer en facturatie gebouwd.',
+    desc: 'Werkplaatsbord, klantbeheer, voertuigbeheer en facturatie gebouwd.',
   },
   {
     num: '03',
-    title: 'Productie & Onboarding',
+    title: 'Livegang & inwerken',
     status: 'done' as const,
-    desc: 'Live deployment, gebruikerstraining en data-migratie.',
+    desc: 'Systeem live gezet, gebruikers ingewerkt en oude gegevens overgezet.',
   },
   {
     num: '04',
@@ -60,7 +60,7 @@ const challenges = [
 
 <Layout
   title="Case Study: Dustin Auto Garage — LaventeCare"
-  description="Hoe LaventeCare een volledig werkplaats-managementsysteem bouwde met Kanban-bord, CRM, RDW-koppeling en gegevens die per garage strikt gescheiden blijven."
+  description="Hoe LaventeCare een compleet werkplaatssysteem bouwde met werkplaatsbord, klantbeheer, RDW-koppeling en gegevens die per garage strikt gescheiden blijven."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -75,8 +75,8 @@ const challenges = [
           Dustin Auto <span class="text-active">Garage</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Een volledig werkplaats-managementsysteem met Kanban-bord, CRM, voertuigbeheer,
-          RDW-integratie en facturatie. Gebouwd om mee te groeien, met de gegevens van elke garage
+          Een compleet werkplaatssysteem met werkplaatsbord, klantbeheer, voertuigbeheer,
+          RDW-koppeling en facturatie. Gebouwd om mee te groeien, met de gegevens van elke garage
           strikt gescheiden.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
@@ -93,7 +93,7 @@ const challenges = [
               ></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            In Productie
+            Live in gebruik
           </span>
         </div>
         <div class="flex flex-wrap gap-2">
@@ -151,19 +151,19 @@ const challenges = [
           class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 space-y-6"
         >
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Kanban Werkplaatsbord</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Digitaal werkplaatsbord</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Real-time Kanban-bord via Convex waar werkorders van "Ingepland" naar "In behandeling"
-              naar "Gereed" bewegen. Monteurs slepen kaarten, managers zien de status live.
-              Drag-and-drop met optimistic updates.
+              Een live bord waar werkorders van "Ingepland" naar "In behandeling" naar "Gereed"
+              schuiven. Monteurs slepen kaarten, managers zien de status meteen. Onder de motorkap:
+              een Kanban-bord op Convex, dat direct bijwerkt.
             </p>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">RDW Kenteken Lookup</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Kenteken automatisch opgehaald</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Bij het invoeren van een kenteken haalt het systeem automatisch voertuigdata op uit de
-              RDW Open Data API: merk, model, bouwjaar, brandstoftype en APK-vervaldag. Inclusief
-              AI-gestuurde kentekenherkenning via camera (xAI Grok Vision).
+              Vul een kenteken in en het systeem haalt de voertuiggegevens automatisch op bij de RDW:
+              merk, model, bouwjaar, brandstof en APK-datum. U kunt het kenteken ook met de camera
+              laten herkennen. Onder de motorkap: de open data van de RDW en xAI Grok Vision.
             </p>
           </div>
           <div>
@@ -257,7 +257,7 @@ const challenges = [
             <div class="text-center">
               <Icon name="shield-check" size={20} class="text-active mx-auto mb-2" />
               <p class="text-sm font-bold text-white font-display">Actief Onderhoud</p>
-              <p class="text-white/50 text-xs font-ui">Security patches & updates</p>
+              <p class="text-white/50 text-xs font-ui">Beveiligingsupdates & verbeteringen</p>
             </div>
             <div class="text-center">
               <Icon name="trending-up" size={20} class="text-active mx-auto mb-2" />
