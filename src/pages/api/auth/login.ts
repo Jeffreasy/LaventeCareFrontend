@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { applySanitizedCookies } from '../../../lib/cookie-utils';
+import { applyCookiesToAstro } from '../../../lib/cookie-utils';
 
 export const prerender = false;
 
@@ -34,7 +34,7 @@ function checkRateLimit(ip: string): boolean {
   return true;
 }
 
-export const POST: APIRoute = async ({ request, clientAddress, url }) => {
+export const POST: APIRoute = async ({ request, clientAddress, url, cookies }) => {
   const API_URL = import.meta.env.PUBLIC_API_URL;
   const TENANT_ID = import.meta.env.PUBLIC_TENANT_ID;
 
@@ -111,7 +111,7 @@ export const POST: APIRoute = async ({ request, clientAddress, url }) => {
     const headers = new Headers({ 'Content-Type': 'application/json' });
 
     // Use shared cookie sanitization
-    applySanitizedCookies(response, headers, isDev);
+    applyCookiesToAstro(response, cookies, isDev);
 
     return new Response(JSON.stringify(responseData), {
       status: response.status,

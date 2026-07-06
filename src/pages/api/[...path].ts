@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { applySanitizedCookies } from '../../lib/cookie-utils';
+import { applyCookiesToAstro } from '../../lib/cookie-utils';
 
 export const prerender = false;
 
@@ -8,7 +8,7 @@ export const prerender = false;
 // Forwards cookies and requests to the remote backend.
 // Sanitizes response cookies (Set-Cookie) for localhost/HTTP compatibility.
 
-export const ALL: APIRoute = async ({ request, params, url }) => {
+export const ALL: APIRoute = async ({ request, params, url, cookies }) => {
   const API_URL = import.meta.env.PUBLIC_API_URL;
   const path = params.path; // e.g., "v1/admin/mail-config"
 
@@ -57,7 +57,8 @@ export const ALL: APIRoute = async ({ request, params, url }) => {
     const resHeaders = new Headers(backendResponse.headers);
 
     // Use shared cookie sanitization
-    applySanitizedCookies(backendResponse, resHeaders, import.meta.env.DEV);
+    applyCookiesToAstro(backendResponse, cookies, import.meta.env.DEV);
+    resHeaders.delete('set-cookie');
 
     // Fix: content-encoding mismatch (ERR_CONTENT_DECODING_FAILED)
     resHeaders.delete('content-encoding');

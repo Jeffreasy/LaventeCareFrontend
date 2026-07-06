@@ -8,9 +8,11 @@
  * .laventecare.nl → 'nl' | .laventecare.com → 'en'
  */
 
+import type { APIContext } from 'astro';
 import { defineMiddleware } from 'astro:middleware';
 import { jwtVerify, createRemoteJWKSet } from 'jose';
 import { localeFromHost } from './lib/i18n';
+import { applyCookiesToAstro } from './lib/cookie-utils';
 
 // Lazy-init JWKS client (cached by jose internally)
 let jwks: ReturnType<typeof createRemoteJWKSet> | null = null;
@@ -37,6 +39,59 @@ async function decodeRole(accessToken: string): Promise<string | null> {
   }
 }
 
+interface RefreshResult {
+  accessToken: string;
+  role: string | null;
+}
+
+/** Silent Session Rehydration (Server-Side Refresh) using Astro's cookie manager */
+async function serverSideRefresh(context: APIContext, refreshToken: string): Promise<RefreshResult | null> {
+  const apiUrl = import.meta.env.PUBLIC_API_URL;
+  const tenantId = import.meta.env.PUBLIC_TENANT_ID;
+
+  if (!apiUrl || !tenantId) {
+    console.error('[Middleware] Silent Refresh: Missing PUBLIC_API_URL or PUBLIC_TENANT_ID');
+    return null;
+  }
+
+  try {
+    const targetUrl = `${apiUrl}/api/v1/auth/refresh`;
+    const response = await fetch(targetUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Tenant-ID': tenantId,
+        'Cookie': `refresh_token=${refreshToken}`,
+      },
+    });
+
+    if (!response.ok) {
+      if (import.meta.env.DEV) {
+        console.warn(`[Middleware] Silent Refresh failed with status: ${response.status}`);
+      }
+      return null;
+    }
+
+    // Apply the Set-Cookie headers from the backend to Astro's cookie manager
+    applyCookiesToAstro(response, context.cookies, import.meta.env.DEV);
+
+    // Get the new access token set in the cookie manager
+    const newAccessToken = context.cookies.get('access_token')?.value;
+    if (!newAccessToken) {
+      if (import.meta.env.DEV) {
+        console.warn('[Middleware] Silent Refresh succeeded but no access_token found in response cookies');
+      }
+      return null;
+    }
+
+    const role = await decodeRole(newAccessToken);
+    return { accessToken: newAccessToken, role };
+  } catch (error) {
+    console.error('[Middleware] Silent Refresh exception:', error);
+    return null;
+  }
+}
+
 export const onRequest = defineMiddleware(async (context, next) => {
   // --- i18n: Locale resolution from Host header ---
   const host = context.request.headers.get('host') || '';
@@ -54,17 +109,47 @@ export const onRequest = defineMiddleware(async (context, next) => {
     );
   }
 
-  // Set auth state in locals for pages to use
+  // Set initial auth state in locals for pages to use
   context.locals.isLoggedIn = !!refreshToken;
   context.locals.accessToken = accessToken;
   context.locals.csrfToken = csrfToken;
 
-  // Decode JWT and extract role for RBAC
+  let activeAccessToken = accessToken;
   let role: string | null = null;
-  if (accessToken) {
-    role = await decodeRole(accessToken);
+
+  if (activeAccessToken) {
+    role = await decodeRole(activeAccessToken);
     if (import.meta.env.DEV) {
       console.log(`[Middleware] JWT role: ${role || 'decode failed (fail secure)'}`);
+    }
+  }
+
+  // --- Silent Session Rehydration (Server-Side Refresh) ---
+  // If the access token is missing or invalid, but we have a refresh token,
+  // attempt to refresh the session on the server side.
+  if ((!activeAccessToken || !role) && refreshToken) {
+    if (import.meta.env.DEV) {
+      console.log(`[Middleware] Access token missing or invalid, but refresh token present. Attempting silent refresh...`);
+    }
+    const refreshed = await serverSideRefresh(context, refreshToken);
+    if (refreshed) {
+      activeAccessToken = refreshed.accessToken;
+      role = refreshed.role;
+      context.locals.isLoggedIn = true;
+      context.locals.accessToken = activeAccessToken;
+      if (import.meta.env.DEV) {
+        console.log(`[Middleware] Silent refresh successful. New role: ${role}`);
+      }
+    } else {
+      if (import.meta.env.DEV) {
+        console.log(`[Middleware] Silent refresh failed. Clearing cookies.`);
+      }
+      context.cookies.delete('access_token', { path: '/' });
+      context.cookies.delete('refresh_token', { path: '/api/v1/auth' });
+      context.cookies.delete('refresh_token', { path: '/api/auth' });
+      context.locals.isLoggedIn = false;
+      context.locals.accessToken = undefined;
+      role = null;
     }
   }
 
@@ -81,7 +166,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
     if (!isNLAdmin) {
       return new Response('Not Found', { status: 404 });
     }
-    if (!refreshToken || !accessToken || role !== 'admin') {
+    if (!refreshToken || !activeAccessToken || role !== 'admin') {
       return context.redirect('/login');
     }
   }

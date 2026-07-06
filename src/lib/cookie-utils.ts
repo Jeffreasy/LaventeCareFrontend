@@ -1,8 +1,10 @@
+import type { AstroCookies } from 'astro';
+
 /**
  * Shared Cookie Sanitization Utilities
  *
  * Used by auth proxy routes to rebuild backend Set-Cookie headers
- * for localhost/HTTP compatibility (strips Secure, Partitioned, Domain).
+ * for Astro and localhost/HTTP compatibility.
  */
 
 /**
@@ -22,10 +24,7 @@ export function extractSetCookies(response: Response): string[] {
 
 /**
  * Rebuild a raw Set-Cookie string for same-origin proxy usage.
- * - Strips `Secure`, `Partitioned`, and `Domain` attributes
- * - Preserves `Max-Age` if present
- * - Makes `csrf_token` accessible to JS (no HttpOnly)
- * - Sets `SameSite=Lax` for CSRF protection
+ * @deprecated Use applyCookiesToAstro instead to prevent Vercel/Node cookie merging issues.
  */
 export function rebuildCookie(rawCookie: string): string {
   const parts = rawCookie.split(';');
@@ -43,6 +42,7 @@ export function rebuildCookie(rawCookie: string): string {
 /**
  * Process all Set-Cookie headers from a backend response and
  * append sanitized versions to a response Headers object.
+ * @deprecated Use applyCookiesToAstro instead to prevent Vercel/Node cookie merging issues.
  */
 export function applySanitizedCookies(
   backendResponse: Response,
@@ -62,5 +62,63 @@ export function applySanitizedCookies(
       console.log(`[Cookie] Rebuilt: ${nameValue.substring(0, 20)}...`);
     }
     targetHeaders.append('set-cookie', rebuilt);
+  });
+}
+
+/**
+ * Process all Set-Cookie headers from a backend response and apply them to Astro's cookie manager.
+ * This guarantees proper serialization of multiple Set-Cookie headers on serverless platforms (Vercel).
+ * Also preserves cookie paths from the backend to ensure correct cookie clearing and shadowing prevention.
+ */
+export function applyCookiesToAstro(
+  backendResponse: Response,
+  astroCookies: AstroCookies,
+  isDev: boolean
+): void {
+  const cookies = extractSetCookies(backendResponse);
+
+  cookies.forEach((cookieStr) => {
+    const parts = cookieStr.split(';').map((p) => p.trim());
+    if (parts.length === 0 || !parts[0]) return;
+
+    const nameValue = parts[0];
+    const equalIndex = nameValue.indexOf('=');
+    if (equalIndex === -1) return;
+
+    const name = nameValue.substring(0, equalIndex);
+    const value = nameValue.substring(equalIndex + 1);
+
+    // Extract attributes
+    const pathMatch = cookieStr.match(/Path=([^;]+)/i);
+    const path = pathMatch ? pathMatch[1].trim() : '/';
+
+    const maxAgeMatch = cookieStr.match(/Max-Age=([^;]+)/i);
+    const maxAge = maxAgeMatch ? parseInt(maxAgeMatch[1], 10) : undefined;
+
+    // Check for deletion/clear actions
+    const isDelete = maxAge !== undefined && maxAge <= 0;
+
+    if (isDelete) {
+      astroCookies.delete(name, { path });
+      if (isDev) {
+        console.log(`[Cookie Proxy] Deleted cookie: ${name} on path: ${path}`);
+      }
+      return;
+    }
+
+    const isCsrf = name === 'csrf_token';
+    const httpOnly = !isCsrf; // CSRF token needs to be readable by JS
+
+    astroCookies.set(name, value, {
+      path,
+      httpOnly,
+      sameSite: 'lax', // Use 'lax' for same-origin proxy compatibility
+      secure: !isDev,  // Disable secure on localhost HTTP
+      maxAge,
+    });
+
+    if (isDev) {
+      console.log(`[Cookie Proxy] Set cookie: ${name} = ${value.substring(0, 15)}... (path=${path}, maxAge=${maxAge})`);
+    }
   });
 }
