@@ -1,22 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const results = [
-  { value: '€10K+', label: 'Opgehaald voor goede doelen' },
-  { value: '0', label: 'Mislukte transacties' },
-  { value: '< 2s', label: 'Gemiddelde laadtijd' },
-  { value: 'Dual', label: 'E-mail dispatch' },
-];
-
-const lighthouseScores = [
-  { label: 'Performance', value: 71 },
-  { label: 'Accessibility', value: 100 },
-  { label: 'Best Practices', value: 96 },
-  { label: 'SEO', value: 100 },
+  { value: 'Veilig', label: 'Donaties & bestellingen' },
+  { value: 'Automatisch', label: 'Bevestiging per e-mail' },
+  { value: 'Netjes', label: 'E-mails in elk programma' },
+  { value: 'Snel', label: 'Laadt vlot, ook op mobiel' },
 ];
 
 const challenges = [
@@ -33,15 +25,15 @@ const challenges = [
     desc: 'Deelnemers, donateurs en organisatoren moeten op het juiste moment de juiste informatie ontvangen, volledig geautomatiseerd.',
   },
   {
-    title: 'Event-dag betrouwbaarheid',
-    desc: 'Tijdens het event mag het platform niet falen. Maximale uptime is cruciaal bij live liefdadigheidsacties.',
+    title: 'Betrouwbaar op de dag zelf',
+    desc: 'Tijdens het evenement mag het platform niet uitvallen. Bij live liefdadigheidsacties is het cruciaal dat alles zonder stilstand blijft draaien.',
   },
 ];
 ---
 
 <Layout
   title="Case Study: Whisky for Charity — LaventeCare"
-  description="Hoe LaventeCare een liefdadigheidsplatform bouwde met veilige donatiestromen, orderverwerking en geautomatiseerde communicatie. Astro + Convex."
+  description="Hoe LaventeCare een liefdadigheidsplatform bouwde met veilige donatiestromen, orderverwerking en geautomatiseerde communicatie. Astro + HTML Email."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -76,7 +68,7 @@ const challenges = [
           </a>
         </div>
         <div class="flex flex-wrap gap-2">
-          {['Astro', 'Convex', 'HTML Email', 'Vercel'].map((t) => <TechStackBadge tech={t} />)}
+          {['Astro', 'HTML Email', 'Vercel'].map((t) => <TechStackBadge tech={t} />)}
         </div>
       </div>
 
@@ -127,43 +119,32 @@ const challenges = [
         >
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              Convex Real-time Backend
+              Betrouwbare Orderverwerking
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Alle transacties, bestellingen en donaties worden verwerkt via Convex met server-side
-              validatie. Real-time synchronisatie zorgt ervoor dat het organisatieteam live meekijkt
-              met binnenkomende orders.
+              Alle bestellingen en donaties worden op de server gecontroleerd, zodat het
+              organisatieteam elke binnenkomende bestelling betrouwbaar en traceerbaar kan opvolgen.
             </p>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">HTML Email Templates</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Nette e-mails in elk programma</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Pixel-perfect e-mailbevestigingen die correct renderen in alle e-mailclients — van
-              Gmail tot Outlook. Dual-dispatch: de klant ontvangt een orderbevestiging, het team
-              ontvangt een admin-notificatie.
+              E-mailbevestigingen die er in elk e-mailprogramma goed uitzien — van Gmail tot Outlook.
+              Bij elke bestelling gaan er automatisch twee e-mails uit: de klant krijgt een
+              bevestiging, het team krijgt een melding.
             </p>
           </div>
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              Astro Islands voor Performance
+              Laadt snel, ook op mobiel
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Statische contentpagina's met interactieve React Islands voor het bestel- en
-              donatieproces. Minimale JavaScript payload resulteert in razendsnelle laadtijden,
-              zelfs op mobiel.
+              De meeste pagina's zijn kant-en-klaar; alleen het bestel- en donatieproces is
+              interactief. Daardoor laadt de pagina razendsnel, ook op een telefoon. Onder de
+              motorkap: Astro Islands.
             </p>
           </div>
         </div>
-      </div>
-
-      <!-- Lighthouse Scores -->
-      <div class="max-w-4xl mx-auto mb-16">
-        <LighthouseScoreBlock
-          projectName="Whisky for Charity"
-          scores={lighthouseScores}
-          context="Als één van mijn eerste projecten scoort Whisky for Charity een 100 op SEO en sterke cijfers op Accessibility en Best Practices. De Performance-score (71) weerspiegelt de legacy-architectuur — een bewuste keuze om niet te refactoren zolang het platform stabiel draait."
-          liveUrl="https://www.whiskyforcharity.com/"
-        />
       </div>
     </div>
   </section>

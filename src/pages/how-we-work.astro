@@ -23,9 +23,9 @@ const processSteps = [
   },
   {
     phase: '2',
-    title: 'Technical Discovery & Blueprint',
+    title: 'Discovery & Blueprint (technical build plan)',
     description:
-      'In-depth analysis of technical requirements, architecture design and a deliverable Blueprint document — the Single Source of Truth for the entire project. You receive a usable Blueprint regardless of whether the project proceeds.',
+      'We work out exactly what you need and design the system. You receive one central document with all the agreements and the design (Blueprint). You keep a usable build plan regardless of whether the project proceeds.',
     price: '€500 – €1,500',
     icon: 'search',
   },
@@ -33,15 +33,15 @@ const processSteps = [
     phase: '3',
     title: 'Realisation — Fixed-Price Milestones',
     description:
-      'Development based on the Blueprint at a fixed project price. Timeline: 2–6 weeks. Billing 40/40/20 at milestone intervals. Out-of-scope work via formal Change Request only.',
+      'Development based on the build plan (Blueprint) at a fixed project price. Timeline: 2–6 weeks. Billing 40/40/20 in phases. Work beyond the agreement via a separate change (Change Request) only.',
     price: 'Fixed-Price (Blueprint)',
     icon: 'zap',
   },
   {
     phase: '4',
-    title: 'SLA & Further Development',
+    title: 'Maintenance & Further Development (SLA)',
     description:
-      'Your system remains secure, up-to-date and available via Observatory AI monitoring. Structured quarterly sprints for further development based on your requirements.',
+      'Your system stays secure, up-to-date and available thanks to live monitoring (Observatory AI). Further improvements based on your requirements, in fixed quarterly blocks. You arrange this with a maintenance contract with fixed terms (SLA).',
     price: 'from €75/month',
     icon: 'refresh-cw',
   },
@@ -52,7 +52,7 @@ const howToSchema = {
   '@type': 'HowTo',
   name: 'How does a project with LaventeCare work?',
   description:
-    'From free Discovery Intake to SLA support. A structured four-phase model for B2B IT projects, based on a Blueprint as Single Source of Truth.',
+    'From a free intake to maintenance with fixed terms (SLA). A structured four-phase model for B2B IT projects, based on a Blueprint: one central document with all agreements and the design.',
   step: processSteps.map((s) => ({
     '@type': 'HowToStep',
     name: `Step ${s.phase}: ${s.title}`,
@@ -71,7 +71,7 @@ const howToSchema = {
 
 <Layout
   title="How We Work — Blueprint-First, No Surprises | LaventeCare"
-  description="How does a project with LaventeCare work? Discovery, Blueprint, Fixed-Price Milestones, SLA. Transparent, structured and without scope creep."
+  description="How does a project with LaventeCare work? Discovery, Blueprint, fixed-price milestones and maintenance with fixed terms (SLA). Transparent, structured and no surprises beyond the agreement."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -118,13 +118,13 @@ const howToSchema = {
         <h3 class="text-lg font-bold text-white mb-4 font-display">Payment Terms</h3>
         <ul class="space-y-3 text-sm font-ui text-white/70">
           <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Payment term: <strong class="text-white">30 days</strong> after invoice date (AV Article 9)
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Payment term: <strong class="text-white">30 days</strong> after invoice date (Article 9 of our terms and conditions)
           </li>
           <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Discovery phases are invoiced <strong class="text-white">in advance</strong>
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Discovery (research) phases are invoiced <strong class="text-white">in advance</strong>
           </li>
           <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> SLA subscriptions: <strong class="text-white">monthly in advance</strong> via direct debit — rates are indexed annually (CBS)
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Maintenance (SLA): <strong class="text-white">monthly in advance</strong> via direct debit — the price rises yearly with inflation (CBS)
           </li>
           <li class="flex gap-3">
             <Icon name="external-link" size={14} class="text-active shrink-0 mt-0.5" />
@@ -137,7 +137,7 @@ const howToSchema = {
           <Icon name="alert-triangle" size={13} class="text-active shrink-0 mt-0.5" />
           <p class="text-white/40 text-xs font-ui leading-relaxed">
             <span class="text-white/70 font-bold">Cancellation (Consultancy/Phase 0):</span> Free up to 24h before the session. After that, 100% is billed.
-            <span class="text-white/70 font-bold ml-1">Realisation phase:</span> hours worked + 30% of remaining amount. Discovery: fixed fee only. See <a href="/terms" class="text-active hover:underline">Terms & Conditions</a>.
+            <span class="text-white/70 font-bold ml-1">Realisation phase:</span> hours already worked + 30% of the remaining amount. Discovery: fixed fee only. See <a href="/terms" class="text-active hover:underline">Terms & Conditions</a>.
           </p>
         </div>
       </div>
@@ -155,10 +155,11 @@ const howToSchema = {
               <Icon name="check" size={16} class="text-cta shrink-0" /> Ideal match
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/60">
-              <li>Budget from €3,000 for custom work</li>
-              <li>Clear problem statement</li>
-              <li>Willingness to have a technical conversation</li>
-              <li>Long-term collaboration</li>
+              <li>There is a concrete business process that affects time, errors, revenue or customer experience</li>
+              <li>You have ownership: you can decide, prioritise and give feedback</li>
+              <li>Willingness to properly work through the research and build plan (Discovery and Blueprint) before building starts</li>
+              <li>The question is about a system or work process, not standalone styling</li>
+              <li>There is room for maintenance, documentation and further development</li>
             </ul>
           </div>
           <div data-animate="fade-up" class="delay-100 clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
@@ -166,10 +167,10 @@ const howToSchema = {
               <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> We'll refer you elsewhere
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/40">
-              <li>Budget under €3,000 → often better suited for low-code solutions</li>
-              <li>Price request only without context → hard to make a good estimate</li>
-              <li>Free proof-of-concept → paid discovery</li>
-              <li>Template solution (WordPress/Wix)</li>
+              <li>Only a fast, cheap website without an underlying process question</li>
+              <li>No owner, budget direction or decision moment within the organisation</li>
+              <li>A wish to start building without doing analysis first</li>
+              <li>Continuously support-intensive without a suitable maintenance contract (SLA)</li>
             </ul>
           </div>
         </div>
@@ -181,11 +182,11 @@ const howToSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
       <a href="/contact?type=discovery" class="btn-primary text-lg px-10">
-        Schedule a Discovery
+        Book a free intro call
         <Icon name="arrow-right" size={20} />
       </a>
       <p class="text-white/40 text-sm font-ui mt-3">
-        Schedule a Discovery and get immediate insight into feasibility, approach and costs for your situation.
+        Book a free intro call and get immediate insight into feasibility, approach and costs for your situation.
       </p>
     </div>
   </section>

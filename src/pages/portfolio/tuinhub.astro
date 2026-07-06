@@ -1,22 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const results = [
   { value: "2 regio's", label: 'Actief in Nederland' },
-  { value: 'Direct', label: 'Leads bij hoveniers' },
-  { value: '97 avg', label: 'Lighthouse Score' },
-  { value: 'Multi-step', label: 'Offertetrajecten' },
-];
-
-const lighthouseScores = [
-  { label: 'Performance', value: 97 },
-  { label: 'Accessibility', value: 100 },
-  { label: 'Best Practices', value: 96 },
-  { label: 'SEO', value: 100 },
+  { value: 'Direct', label: 'Aanvragen bij hoveniers' },
+  { value: 'Lokale SEO', label: 'Per regio & dienst' },
+  { value: 'In stappen', label: 'Offerte aanvragen' },
 ];
 
 const challenges = [
@@ -30,18 +22,18 @@ const challenges = [
   },
   {
     title: 'Kwaliteitsfiltering',
-    desc: 'Niet elke aanvraag is waardevol. Leads moeten gefilterd worden op budget, projectomvang en locatie voordat ze bij hoveniers terechtkomen.',
+    desc: 'Niet elke aanvraag is waardevol. Aanvragen worden eerst gefilterd op budget, projectomvang en locatie voordat ze bij hoveniers terechtkomen.',
   },
   {
-    title: 'Conversie-optimalisatie',
-    desc: 'Bezoekers afhaken in formulieren is de grootste bottleneck. Elke stap moet de drempel verlagen en vertrouwen opbouwen.',
+    title: 'Meer bezoekers die aanvragen',
+    desc: 'Bezoekers die halverwege een formulier afhaken zijn het grootste knelpunt. Elke stap moet de drempel verlagen en vertrouwen opbouwen.',
   },
 ];
 ---
 
 <Layout
   title="Case Study: TuinHub — LaventeCare"
-  description="Hoe LaventeCare een matchmaking-platform bouwde voor tuineigenaren en hoveniers. Multi-step offertes, lokale SEO en realtime lead-management."
+  description="Hoe LaventeCare een platform bouwde dat tuineigenaren en hoveniers koppelt. Offertes in stappen, lokale SEO en aanvragen die direct binnenkomen."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -56,8 +48,8 @@ const challenges = [
           Tuin<span class="text-active">Hub</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Een matchmaking-platform voor de groensector waar tuineigenaren en hoveniers samenkomen.
-          Multi-step offertetrajecten, realtime lead-management en branche-specifieke SEO.
+          Een platform voor de groensector dat tuineigenaren en hoveniers koppelt. Offertes in
+          stappen, aanvragen die direct binnenkomen en branche-specifieke SEO.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
           <span
@@ -76,7 +68,7 @@ const challenges = [
         </div>
         <div class="flex flex-wrap gap-2">
           {
-            ['Next.js', 'Supabase', 'Go Auth', 'Vercel', 'SEO'].map((t) => (
+            ['Astro', 'Convex', 'Go Auth', 'Vercel', 'SEO'].map((t) => (
               <TechStackBadge tech={t} />
             ))
           }
@@ -122,7 +114,7 @@ const challenges = [
       <div class="max-w-4xl mx-auto mb-16">
         <SectionHeader
           label="De oplossing"
-          heading='Data-driven <span class="text-active">matchmaking</span>'
+          heading='De juiste klant bij de <span class="text-active">juiste hovenier</span>'
         />
         <div
           data-animate="fade-up"
@@ -130,12 +122,12 @@ const challenges = [
         >
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              Multi-step Offerteformulieren
+              Offerte aanvragen in stappen
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Gestructureerde, meerstaps formulieren die de tuineigenaar begeleiden van
-              tuintype-selectie tot budgetindicatie. Elke stap is geoptimaliseerd voor minimale
-              afhakers en maximale leadkwaliteit.
+              Overzichtelijke formulieren die de tuineigenaar stap voor stap begeleiden, van type
+              tuin tot budget. Elke stap is zo opgezet dat zo weinig mogelijk mensen afhaken en de
+              aanvragen zo bruikbaar mogelijk zijn.
             </p>
           </div>
           <div>
@@ -148,25 +140,15 @@ const challenges = [
           </div>
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              Realtime Lead Dashboard
+              Aanvragen direct in beeld
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Hoveniers ontvangen leads direct via e-mail én een beveiligd dashboard. Inclusief
-              lead-scoring, opvolgstatus en conversie-analytics om de ROI van hun investering te
-              meten.
+              Hoveniers ontvangen aanvragen direct via e-mail én een beveiligd dashboard. Inclusief
+              een score per aanvraag, de opvolgstatus en cijfers waarmee ze zien wat het hun
+              oplevert.
             </p>
           </div>
         </div>
-      </div>
-
-      <!-- Lighthouse Scores -->
-      <div class="max-w-4xl mx-auto mb-16">
-        <LighthouseScoreBlock
-          projectName="TuinHub"
-          scores={lighthouseScores}
-          context="Dankzij Next.js static generation en branche-specifieke SEO-landingspagina's behaal ik uitstekende scores over alle categorieën. Een 100 op SEO bevestigt de effectiviteit van de lokale zoekstrategie."
-          liveUrl="https://tuinhub.nl/"
-        />
       </div>
     </div>
   </section>

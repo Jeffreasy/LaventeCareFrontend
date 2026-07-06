@@ -1,0 +1,170 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
+
+const features = [
+  {
+    icon: 'message-circle',
+    title: 'Onafhankelijk sparringpartner',
+    desc: 'Een nuchtere klankbord voor uw digitale keuzes. Geen verkooppraatje, maar eerlijk advies over wat wel en niet verstandig is voor uw situatie.',
+  },
+  {
+    icon: 'search',
+    title: 'Second opinion',
+    desc: 'Een offerte, architectuur of leverancier laten toetsen voordat u tekent. Weten of een voorstel klopt, realistisch is en past bij wat u nodig heeft.',
+  },
+  {
+    icon: 'handshake',
+    title: 'Zonder bouwverplichting',
+    desc: 'Advies staat los van realisatie. U betaalt voor helder advies, niet voor een verplichte vervolgopdracht — u beslist zelf wat u met de uitkomst doet.',
+  },
+  {
+    icon: 'lightbulb',
+    title: 'Van vraag naar richting',
+    desc: 'Samen uw vraag scherpstellen: waar zit het probleem, wat is de slimste aanpak en welke stappen zijn zinvol — nog voordat er een bouwplan of code is.',
+  },
+  {
+    icon: 'shield-check',
+    title: 'Risico\'s vooraf in beeld',
+    desc: 'Beveiliging, afhankelijkheden, onderhoud en of het systeem met u kan meegroeien tegen het licht houden, zodat u niet voor verrassingen komt te staan.',
+  },
+  {
+    icon: 'trending-up',
+    title: 'Keuzes die meegroeien',
+    desc: 'Advies dat verder kijkt dan vandaag: technologie- en architectuurkeuzes die uw bedrijfsprocessen op de lange termijn ondersteunen.',
+  },
+];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'IT Advies & Consultancy',
+  description:
+    'Onafhankelijk sparringpartner en second opinion, zonder bouwverplichting. Nuchter advies over software, architectuur en digitale keuzes.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.nl',
+  },
+  areaServed: 'NL',
+  serviceType: 'IT Consultancy & Advisory Services',
+  serviceOutput: 'Onafhankelijk advies, second opinions en technische richting',
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+<Layout
+  title="IT Advies & Consultancy — Onafhankelijk Sparringpartner | LaventeCare"
+  description="Onafhankelijk sparringpartner en second opinion, zonder bouwverplichting. Nuchter advies over software, architectuur en digitale keuzes — het eerste gesprek is gratis."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span
+          class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"
+          ><Icon name="handshake" size={16} class="text-active" /> IT Advies & Consultancy</span
+        >
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight"
+        >
+          Eerst helder <span class="text-active">advies</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Niet elke vraag begint bij bouwen. Soms heeft u vooral behoefte aan een onafhankelijke blik
+          op uw digitale keuzes: een sparringpartner die meedenkt, een offerte toetst of een tweede
+          mening geeft — zonder dat daar een bouwopdracht aan vastzit.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          Onafhankelijk advies, second opinion en richting — zonder bouwverplichting.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {
+            [
+              'Onafhankelijk advies',
+              'Second opinion',
+              'Sparringpartner',
+              'Architectuur',
+              'Zonder bouwverplichting',
+            ].map((t) => <TechStackBadge tech={t} />)
+          }
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+        {
+          features.map((f, i) => (
+            <div
+              data-animate="fade-up"
+              class={`delay-${(i % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}
+            >
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <Icon name={f.icon as IconName} size={18} class="text-active" />
+                </div>
+                <h3 class="text-sm font-bold text-white font-display pt-1.5">{f.title}</h3>
+              </div>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{f.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Tarief -->
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5 max-w-3xl mx-auto mb-16 text-center"
+      >
+        <span class="text-active text-3xl md:text-4xl font-black font-display block mb-2">€95/u</span>
+        <p class="text-white/70 font-ui text-sm mb-2">
+          Transparant uurtarief voor advies en consultancy (excl. BTW).
+        </p>
+        <p class="text-white/50 font-ui text-xs">
+          Het eerste kennismakingsgesprek is gratis en vrijblijvend. Eventuele wijzigingsverzoeken
+          (change requests) op een lopend project worden eveneens tegen €95/u afgerekend.
+        </p>
+      </div>
+
+      <!-- Doelgroep -->
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16"
+      >
+        <h2 class="text-xl font-bold text-white mb-4 font-display">Herkenbaar?</h2>
+        <p class="text-white/70 font-ui mb-4">
+          Situaties waarin onafhankelijk advies u verder helpt:
+        </p>
+        <ul class="space-y-3 text-sm font-ui text-white/60">
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U heeft een offerte of
+            voorstel ontvangen en wilt weten of het klopt
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U twijfelt tussen
+            technologieën of leveranciers en zoekt een neutrale blik
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U wilt een bestaand
+            systeem laten beoordelen op beveiliging, onderhoud en of het kan meegroeien
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U wilt uw digitale
+            vraag eerst scherpstellen voordat er iets gebouwd wordt
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact?type=consultancy" class="btn-primary">
+        Plan een gesprek
+        <Icon name="arrow-right" size={16} />
+      </a>
+      <p class="text-white/40 text-sm font-ui mt-3">
+        Het eerste gesprek is gratis — ontdek vrijblijvend hoe wij u kunnen helpen.
+      </p>
+    </div>
+  </section>
+</Layout>

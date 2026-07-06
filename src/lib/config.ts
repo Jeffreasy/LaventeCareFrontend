@@ -42,9 +42,9 @@ const LOGO_URL =
 
 const settingsNL: SiteSettings = {
   site_name: 'LaventeCare',
-  meta_title: 'LaventeCare — AI Prompt Engineering, Web & IoT Solutions',
+  meta_title: 'Software en systemen voor het mkb — van idee tot werkend systeem',
   meta_description:
-    'LaventeCare combineert AI prompt engineering met full-stack development en IoT-expertise. Custom AI-oplossingen, snelle webapplicaties en embedded systems. Dronten, Nederland.',
+    'LaventeCare bouwt systemen die bedrijven efficiënter maken, fouten voorkomen en groei versnellen: AI, IoT, maatwerkplatformen, lead generation en security-first systemen.',
   favicon: [{ filename: '/favicon.svg' }],
   logo: [{ filename: LOGO_URL, alt: 'LaventeCare' }],
   main_menu: [
@@ -54,11 +54,12 @@ const settingsNL: SiteSettings = {
       label: 'Diensten',
       link: { cached_url: 'diensten' },
       items: [
-        { label: 'AI & Prompt Engineering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
+        { label: 'IT Advies & Consultancy', link: { cached_url: 'diensten/consultancy' } },
+        { label: 'AI & Automatisering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
         { label: 'Maatwerk Platformen', link: { cached_url: 'diensten/maatwerk-platformen' } },
-        { label: 'Lead Generation', link: { cached_url: 'diensten/lead-generation' } },
-        { label: 'Security & Auth', link: { cached_url: 'diensten/security' } },
+        { label: 'Klanten werven', link: { cached_url: 'diensten/lead-generation' } },
+        { label: 'Beveiliging & Toegang', link: { cached_url: 'diensten/security' } },
         { label: 'Alle Diensten', link: { cached_url: 'diensten' } },
       ],
     },
@@ -70,11 +71,12 @@ const settingsNL: SiteSettings = {
     {
       title: 'Diensten',
       links: [
-        { label: 'AI & Prompt Engineering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
+        { label: 'IT Advies & Consultancy', link: { cached_url: 'diensten/consultancy' } },
+        { label: 'AI & Automatisering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
         { label: 'Maatwerk Platformen', link: { cached_url: 'diensten/maatwerk-platformen' } },
-        { label: 'Lead Generation', link: { cached_url: 'diensten/lead-generation' } },
-        { label: 'Security & Auth', link: { cached_url: 'diensten/security' } },
+        { label: 'Klanten werven', link: { cached_url: 'diensten/lead-generation' } },
+        { label: 'Beveiliging & Toegang', link: { cached_url: 'diensten/security' } },
         { label: 'Prijzen', link: { cached_url: 'prijzen' } },
       ],
     },
@@ -88,7 +90,7 @@ const settingsNL: SiteSettings = {
       ],
     },
     {
-      title: 'Resources',
+      title: 'Meer',
       links: [
         { label: 'LinkedIn', link: { cached_url: 'https://linkedin.com/in/jeffrey-lavente' } },
         { label: 'GitHub', link: { cached_url: 'https://github.com/Jeffreasy' } },
@@ -107,15 +109,15 @@ const settingsNL: SiteSettings = {
   gtm_id: null,
   cookie_consent_code: null,
   og_image: [
-    { filename: LOGO_URL, alt: 'LaventeCare — AI Prompt Engineering, Web & IoT Solutions' },
+    { filename: LOGO_URL, alt: 'LaventeCare — B2B systeempartner voor mkb. Van idee tot werkend systeem.' },
   ],
 };
 
 const settingsEN: SiteSettings = {
   site_name: 'LaventeCare',
-  meta_title: 'LaventeCare — AI Prompt Engineering, Web & IoT Solutions',
+  meta_title: 'Software and systems for SMEs — from idea to working system',
   meta_description:
-    'LaventeCare combines AI prompt engineering with full-stack development and IoT expertise. Custom AI solutions, high-performance web applications and embedded systems. Netherlands.',
+    'LaventeCare builds systems that make businesses more efficient, prevent errors and accelerate growth: AI, IoT, custom platforms, lead generation and security-first systems.',
   favicon: [{ filename: '/favicon.svg' }],
   logo: [{ filename: LOGO_URL, alt: 'LaventeCare' }],
   main_menu: [
@@ -125,11 +127,12 @@ const settingsEN: SiteSettings = {
       label: 'Services',
       link: { cached_url: 'services' },
       items: [
-        { label: 'AI & Prompt Engineering', link: { cached_url: 'services/ai-prompt-engineering' } },
+        { label: 'IT Advice & Consultancy', link: { cached_url: 'services/consultancy' } },
+        { label: 'AI & Automation', link: { cached_url: 'services/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'services/iot-hardware' } },
         { label: 'Custom Platforms', link: { cached_url: 'services/custom-platforms' } },
-        { label: 'Lead Generation', link: { cached_url: 'services/lead-generation' } },
-        { label: 'Security & Auth', link: { cached_url: 'services/security' } },
+        { label: 'Win customers', link: { cached_url: 'services/lead-generation' } },
+        { label: 'Security & Access', link: { cached_url: 'services/security' } },
         { label: 'All Services', link: { cached_url: 'services' } },
       ],
     },
@@ -141,11 +144,12 @@ const settingsEN: SiteSettings = {
     {
       title: 'Services',
       links: [
-        { label: 'AI & Prompt Engineering', link: { cached_url: 'services/ai-prompt-engineering' } },
+        { label: 'IT Advice & Consultancy', link: { cached_url: 'services/consultancy' } },
+        { label: 'AI & Automation', link: { cached_url: 'services/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'services/iot-hardware' } },
         { label: 'Custom Platforms', link: { cached_url: 'services/custom-platforms' } },
-        { label: 'Lead Generation', link: { cached_url: 'services/lead-generation' } },
-        { label: 'Security & Auth', link: { cached_url: 'services/security' } },
+        { label: 'Win customers', link: { cached_url: 'services/lead-generation' } },
+        { label: 'Security & Access', link: { cached_url: 'services/security' } },
         { label: 'Pricing', link: { cached_url: 'pricing' } },
       ],
     },
@@ -159,7 +163,7 @@ const settingsEN: SiteSettings = {
       ],
     },
     {
-      title: 'Resources',
+      title: 'More',
       links: [
         { label: 'LinkedIn', link: { cached_url: 'https://linkedin.com/in/jeffrey-lavente' } },
         { label: 'GitHub', link: { cached_url: 'https://github.com/Jeffreasy' } },
@@ -178,7 +182,7 @@ const settingsEN: SiteSettings = {
   gtm_id: null,
   cookie_consent_code: null,
   og_image: [
-    { filename: LOGO_URL, alt: 'LaventeCare — AI Prompt Engineering, Web & IoT Solutions' },
+    { filename: LOGO_URL, alt: 'LaventeCare — B2B systems partner for SMEs. From idea to working system.' },
   ],
 };
 

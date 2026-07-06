@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../layouts/Layout.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import ProcessTimeline from '../components/blocks/ProcessTimeline.astro';
@@ -23,9 +23,9 @@ const processSteps = [
   },
   {
     phase: '2',
-    title: 'Discovery & Blueprint',
+    title: 'Onderzoek & Blueprint (technisch bouwplan)',
     description:
-      'Diepte-analyse van technische vereisten en data-stromen. U ontvangt een Blueprint-document (Single Source of Truth). Doorlooptijd: 1-2 weken. Blueprint is uw eigendom na betaling.',
+      'We onderzoeken precies wat u nodig heeft en hoe de gegevens moeten stromen. U krijgt één centraal document met alle afspraken en het ontwerp (Blueprint). Doorlooptijd: 1-2 weken. Het bouwplan is na betaling uw eigendom.',
     price: '€500 \u2013 €1.500',
     icon: 'search',
   },
@@ -33,15 +33,15 @@ const processSteps = [
     phase: '3',
     title: 'Ontwikkeling & Oplevering',
     description:
-      "Gefaseerde bouw conform het Blueprint. Strikte scope-bewaking via het Change Request proces. Doorlooptijd: 2Ã¢â‚¬â€œ6 weken. Facturatie in mijlpalen (40/40/20).",
+      'Stap voor stap bouwen volgens het bouwplan (Blueprint). We blijven strak binnen de afspraak; extra werk gaat via een aparte wijziging (Change Request). Doorlooptijd: 2–6 weken. Facturatie in fases (40/40/20).',
     price: 'Vaste Mijlpalen',
     icon: 'zap',
   },
   {
     phase: '4',
-    title: 'SLA & Doorontwikkeling',
+    title: 'Onderhoud & doorontwikkeling (SLA)',
     description:
-      'Uw systeem blijft veilig, up-to-date en beschikbaar via Observatory AI monitoring. Doorontwikkeling op basis van uw wensen via gestructureerde kwartaalsprints.',
+      'Uw systeem blijft veilig, up-to-date en beschikbaar dankzij live bewaking (Observatory AI). Verder verbeteren op basis van uw wensen, in vaste blokken per kwartaal. Dit regelt u met een onderhoudscontract met vaste afspraken (SLA).',
     price: 'vanaf €75/mnd',
     icon: 'refresh-cw',
   },
@@ -52,7 +52,7 @@ const howToSchema = {
   '@type': 'HowTo',
   name: 'Hoe werkt een project met LaventeCare?',
   description:
-    'Van gratis intake tot SLA-ondersteuning. Een gestructureerd vierfasen-model voor B2B IT-projecten.',
+    'Van gratis intake tot onderhoud met vaste afspraken (SLA). Een gestructureerd model in vier fases voor B2B IT-projecten.',
   step: processSteps.map((s) => ({
     '@type': 'HowToStep',
     name: `Stap ${s.phase}: ${s.title}`,
@@ -72,8 +72,8 @@ const howToSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
 <Layout
-  title="Werkwijze Ã¢â‚¬â€ Gecontroleerd Proces & Blueprinting | LaventeCare"
-  description="Hoe werkt een project met LaventeCare? Van Discovery Blueprint tot SLA-ondersteuning. Transparant, gestructureerd en beschermd tegen scope creep."
+  title="Werkwijze — Gecontroleerd Proces & Blueprinting | LaventeCare"
+  description="Hoe werkt een project met LaventeCare? Van onderzoek en bouwplan (Discovery Blueprint) tot onderhoud met vaste afspraken (SLA). Transparant, gestructureerd en zonder verrassingen buiten de afspraak."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -92,7 +92,7 @@ const howToSchema = {
       <div class="max-w-3xl mx-auto mb-16">
         <SectionHeader
           label="Facturatie"
-          heading='Gefaseerde <span class="text-active">facturatie</span> Ã¢â‚¬â€ volledige controle over uw investering'
+          heading='Gefaseerde <span class="text-active">facturatie</span> — volledige controle over uw investering'
           description="Facturatie op basis van mijlpalen en gerealiseerde voortgang. Bij tussentijdse beëindiging gelden de afspraken uit de offerte en algemene voorwaarden."
         />
 
@@ -131,7 +131,7 @@ const howToSchema = {
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <!-- 30 dagen (AV Art. 9) -->
+          <!-- 30 dagen (algemene voorwaarden art. 9) -->
           <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
             <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
               <Icon name="clock" size={16} class="text-active" />
@@ -142,7 +142,7 @@ const howToSchema = {
                 <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">30 dagen</span>
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Na factuurdatum conform AV Artikel 9. Niet-tijdige betaling resulteert in <span class="text-white/80">opschorting van diensten</span> na schriftelijke ingebrekestelling.
+                Na factuurdatum, volgens artikel 9 van de algemene voorwaarden. Betaalt u niet op tijd, dan sturen we eerst een schriftelijke herinnering (ingebrekestelling); blijft betaling uit, dan mogen we <span class="text-white/80">het werk tijdelijk stilleggen</span>.
               </p>
             </div>
           </div>
@@ -154,11 +154,11 @@ const howToSchema = {
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
-                <span class="text-white font-bold text-sm font-display">Discovery-fases</span>
+                <span class="text-white font-bold text-sm font-display">Onderzoek (Discovery)</span>
                 <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Vooraf</span>
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Worden gefactureerd vÃƒÂ³ÃƒÂ³r aanvang van de werkzaamheden. Geen start zonder betaalde factuur.
+                Wordt gefactureerd voordat we beginnen. Geen start zonder betaalde factuur.
               </p>
             </div>
           </div>
@@ -174,7 +174,7 @@ const howToSchema = {
                 <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Change Request</span>
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Buiten-scope werk vereist altijd een <span class="text-white/80">goedgekeurd Change Request</span> voordat het wordt uitgevoerd.
+                Werk buiten de afspraak vereist altijd een <span class="text-white/80">goedgekeurde wijziging (Change Request)</span> voordat we het uitvoeren.
               </p>
             </div>
           </div>
@@ -186,11 +186,11 @@ const howToSchema = {
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
-                <span class="text-white font-bold text-sm font-display">SLA-abonnementen</span>
+                <span class="text-white font-bold text-sm font-display">Onderhoud (SLA)</span>
                 <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Maandelijks</span>
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Maandelijks vooraf via automatisch incasso. Tarieven worden jaarlijks geïndexeerd (CBS).
+                Maandelijks vooraf via automatische incasso. De prijs stijgt jaarlijks mee met de inflatie (CBS).
               </p>
             </div>
           </div>
@@ -200,7 +200,7 @@ const howToSchema = {
           <div class="flex items-start gap-3">
             <Icon name="alert-triangle" size={14} class="text-active flex-shrink-0 mt-0.5" />
             <p class="text-white/40 text-xs font-ui leading-relaxed">
-              <span class="text-white/70 font-bold">Annulering advies/realisatiefase:</span> Voor IT Advies: tot 24u vooraf kosteloos verzet. Voor realisatie: reeds verrichte uren + 30% van het resterende bedrag. Zie <a href="/voorwaarden" class="text-active hover:underline">AV Artikel 10</a>.
+              <span class="text-white/70 font-bold">Annulering advies/bouwfase:</span> Voor IT Advies: tot 24u vooraf kosteloos verzetten. Voor de bouwfase: de al gewerkte uren + 30% van het resterende bedrag. Zie <a href="/voorwaarden" class="text-active hover:underline">artikel 10 van de algemene voorwaarden</a>.
             </p>
           </div>
         </div>
@@ -234,10 +234,11 @@ const howToSchema = {
               <Icon name="check" size={16} class="text-cta shrink-0" /> Ideale match
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/60">
-              <li>Budget vanaf €3.000 voor maatwerk</li>
-              <li>Duidelijke probleemstelling</li>
-              <li>Bereidheid tot technisch gesprek</li>
-              <li>Langetermijn samenwerking</li>
+              <li>Er is een concreet bedrijfsproces dat tijd, fouten, omzet of klantbeleving raakt</li>
+              <li>U heeft eigenaarschap: u kunt beslissen, prioriteren en feedback geven</li>
+              <li>Bereidheid om eerst het onderzoek en het bouwplan (Discovery en Blueprint) serieus te doorlopen vóór er gebouwd wordt</li>
+              <li>De vraag gaat over een systeem of werkproces, niet over losse opmaak</li>
+              <li>Er is ruimte voor onderhoud, documentatie en doorontwikkeling</li>
             </ul>
           </div>
           <div
@@ -248,12 +249,10 @@ const howToSchema = {
               <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> Doorverwijzing
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/40">
-              <li>Budget onder €3.000 → vaak beter geschikt voor low-code oplossingen</li>
-              <li>
-                Alleen prijsinformatie zonder context → moeilijk om een goede inschatting te maken
-              </li>
-              <li>Gratis proof-of-concept → betaalde discovery</li>
-              <li>Template-oplossing (WordPress/Wix)</li>
+              <li>Alleen een snelle, goedkope website zonder onderliggende procesvraag</li>
+              <li>Geen eigenaar, budgetrichting of beslismoment binnen de organisatie</li>
+              <li>De wens om te bouwen zonder eerst analyse te doen</li>
+              <li>Doorlopend veel support nodig zonder passend onderhoudscontract (SLA)</li>
             </ul>
           </div>
         </div>
@@ -265,11 +264,11 @@ const howToSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
       <a href="/contact?type=discovery" class="btn-primary text-lg px-10">
-        Plan een Discovery
+        Plan een gratis adviesgesprek
         <Icon name="arrow-right" size={20} />
       </a>
       <p class="text-white/40 text-sm font-ui mt-3">
-        Plan een Discovery en krijg direct inzicht in haalbaarheid, aanpak en kosten voor uw situatie.
+        Plan een gratis adviesgesprek en krijg direct inzicht in haalbaarheid, aanpak en kosten voor uw situatie.
       </p>
     </div>
   </section>

@@ -3,11 +3,11 @@
 
 /* ============================================
    LaventeCare Design System — 2026
-   "AI Prompt Engineering, Web & IoT Solutions"
+   "B2B systeempartner voor mkb — Van idee tot werkend systeem"
 
    Color Palette from Brand Guide:
-   - Navy (Primary): #0C4A6E → oklch(0.35 0.08 230)
-   - Teal (Accent):  #0891B2 → oklch(0.60 0.14 200)
+   - Green (Primary): #0D7C5F → oklch(0.53 0.10 166)
+   - Navy (Secondary): #0C4A6E → oklch(0.35 0.08 230)
    - Emerald (CTA):  #059669 → oklch(0.58 0.16 160)
 
    Typography: Satoshi (display) + Geist (body)
@@ -18,13 +18,13 @@
   /* OKLCH Color System — LaventeCare Brand */
   --color-background: oklch(0.13 0.03 230);
   --color-panel: oklch(0.18 0.04 230);
-  --color-active: oklch(0.60 0.14 200);
+  --color-active: oklch(0.53 0.10 166);
   --color-text-primary: oklch(0.97 0.01 230);
-  --color-primary-hover: oklch(0.55 0.16 200);
+  --color-primary-hover: oklch(0.47 0.11 166);
   --color-secondary: oklch(0.50 0.12 230);
-  --color-border: oklch(0.60 0.14 200 / 0.2);
-  --color-input: oklch(0.60 0.14 200 / 0.15);
-  --color-ring: oklch(0.60 0.14 200);
+  --color-border: oklch(0.53 0.10 166 / 0.2);
+  --color-input: oklch(0.53 0.10 166 / 0.15);
+  --color-ring: oklch(0.53 0.10 166);
   --color-success: oklch(0.58 0.16 160);
   --color-warning: oklch(0.75 0.15 90);
   --color-error: oklch(0.60 0.22 25);
@@ -34,12 +34,12 @@
   --color-cta-hover: oklch(0.52 0.18 160);
 
   /* Extended Color Tokens */
-  --color-active-gradient-from: oklch(0.60 0.14 200);
-  --color-active-gradient-to: oklch(0.50 0.12 200);
+  --color-active-gradient-from: oklch(0.53 0.10 166);
+  --color-active-gradient-to: oklch(0.45 0.09 168);
   --color-cta-gradient-from: oklch(0.58 0.16 160);
   --color-cta-gradient-to: oklch(0.50 0.14 170);
-  --color-icon-bg: oklch(0.60 0.14 200 / 0.15);
-  --color-icon-bg-hover: oklch(0.60 0.14 200 / 0.25);
+  --color-icon-bg: oklch(0.53 0.10 166 / 0.15);
+  --color-icon-bg-hover: oklch(0.53 0.10 166 / 0.25);
   --color-navy: oklch(0.35 0.08 230);
   --color-navy-light: oklch(0.25 0.05 230);
 

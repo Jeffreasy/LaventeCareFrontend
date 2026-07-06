@@ -9,12 +9,12 @@ const caseStudies = [
     name: 'De Koninklijke Loop',
     category: 'Evenementen',
     description:
-      'Evenementenplatform dat registratie, ticketing en donaties automatiseert — waardoor 100+ deelnemers verwerkt werden zonder handmatig werk.',
+      'Evenementenplatform dat registratie, ticketing en donaties automatiseert — deelnemers worden verwerkt zonder handmatig werk.',
     techStack: ['Astro', 'React 19', 'Convex', 'Go Auth', 'Vercel'],
     liveUrl: 'https://www.dekoninklijkeloop.nl/',
     caseStudyUrl: '/portfolio/de-koninklijke-loop',
     metrics: [
-      '100+ Aanmeldingen verwerkt',
+      'Real-time registratie',
       '0 Handmatig beheer',
       'Geautomatiseerde ticketflow',
     ],
@@ -24,35 +24,35 @@ const caseStudies = [
     category: 'QR Platform',
     description:
       'Dynamisch QR-code platform dat realtime inzicht geeft in scangedrag, waardoor marketingcampagnes direct meetbaar en optimaliseerbaar worden.',
-    techStack: ['Next.js', 'Convex', 'React 19', 'Go Auth'],
+    techStack: ['Next.js', 'Convex', 'React 19', 'Clerk'],
     liveUrl: 'https://www.jeffdash.com/',
     caseStudyUrl: '/portfolio/jeffdash',
     metrics: [
-      'Realtime Analytics',
-      'Sub-50ms Redirection',
-      'Multi-tenant geïsoleerd',
+      'Dynamische QR-codes',
+      'Real-time inzicht in scans',
+      'Gegevens strikt gescheiden',
     ],
   },
   {
     name: 'C&F Bouw',
-    category: 'Lead Generation',
+    category: 'Klanten werven',
     description:
-      'Lead-generation platform dat zorgt voor +340% organisch verkeer binnen 6 maanden en structureel meer aanvragen voor de bouwsector.',
-    techStack: ['Next.js', 'Supabase', 'Vercel'],
+      'Website die is omgebouwd tot een systeem dat structureel meer aanvragen binnenhaalt in de bouwsector.',
+    techStack: ['Astro', 'Convex', 'Go Auth'],
     liveUrl: 'https://www.cfbouw.nl/',
     caseStudyUrl: '/portfolio/cf-bouw',
     metrics: [
-      '+340% Organisch verkeer',
+      'Offertes in stappen',
       'Volledig geautomatiseerde offertes',
-      'A+ Performance',
+      'Branche-specifieke SEO',
     ],
   },
   {
     name: 'Whisky for Charity',
     category: 'Charity',
     description:
-      'Liefdadigheidsplatform dat veilige donatiestromen en veilingen faciliteert, zodat donateurs volledig inzicht hebben in donaties en bestedingen.',
-    techStack: ['Astro', 'Convex', 'HTML Email'],
+      'Liefdadigheidsplatform dat veilige donaties en veilingen verwerkt, zodat donateurs volledig inzicht hebben in donaties en bestedingen.',
+    techStack: ['Astro', 'HTML Email', 'Vercel'],
     liveUrl: 'https://www.whiskyforcharity.com/',
     caseStudyUrl: '/portfolio/whisky-for-charity',
     metrics: [
@@ -64,27 +64,27 @@ const caseStudies = [
     name: 'TuinHub',
     category: 'Matchmaking',
     description:
-      'Platform dat tuineigenaren en hoveniers verbindt en direct leads genereert voor aangesloten bedrijven.',
-    techStack: ['Next.js', 'Supabase', 'Vercel', 'SEO'],
+      'Platform dat tuineigenaren en hoveniers verbindt en direct aanvragen oplevert voor aangesloten bedrijven.',
+    techStack: ['Astro', 'Convex', 'Go Auth', 'SEO'],
     liveUrl: 'https://tuinhub.nl/',
     caseStudyUrl: '/portfolio/tuinhub',
     metrics: [
-      'Directe lead-distributie',
-      'Automated Matchmaking',
+      'Aanvragen direct doorgestuurd',
+      'Automatisch koppelen',
     ],
   },
   {
     name: 'SmartCoolCare',
     category: 'IoT & Hardware',
     description:
-      'Realtime koelmonitoring die temperatuur-afwijkingen direct detecteert en (product)schade of systeemstilstand voorkomt.',
+      'Live koelbewaking die temperatuur-afwijkingen direct opmerkt en zo (product)schade of stilstand voorkomt.',
     techStack: ['C++/ESP32', 'BLE', 'Convex', 'React'],
     liveUrl: 'https://www.smartcoolcare.nl/',
     caseStudyUrl: '/portfolio/smartcoolcare',
     metrics: [
-      'Sub-100ms IoT Ingest',
-      '100% Uptime',
-      '24/7 Automatische SMS Alerts',
+      'Zuinig, werkt maandenlang',
+      'Live overzicht in de cloud',
+      'Updates op afstand',
     ],
   },
   {
@@ -105,14 +105,14 @@ const caseStudies = [
 
 <Layout
   title="Portfolio & Case Studies - LaventeCare"
-  description="Bekijk hoe wij bedrijven helpen met IoT, automatisering en schaalbare platformen."
+  description="Bekijk hoe wij bedrijven helpen met IoT, automatisering en software die met u meegroeit."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4 relative z-10">
       <SectionHeader
-        label="Bewezen in productie"
-        heading='Elk project is <span class="text-active">live in productie</span>'
-        description="Bewezen systemen die dagelijks gebruikt worden — gebouwd om tijd te besparen, fouten te voorkomen en resultaat te leveren."
+        label="Live in gebruik"
+        heading='Elk project draait <span class="text-active">live in de praktijk</span>'
+        description="Systemen die elke dag echt gebruikt worden — gebouwd om tijd te besparen, fouten te voorkomen en resultaat te leveren."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
@@ -137,10 +137,10 @@ const caseStudies = [
           Klaar voor het volgende project?
         </h2>
         <p class="text-white/70 mb-6 max-w-xl mx-auto font-ui">
-          Plan een intake en ontdek hoe we dit ook voor uw bedrijf kunnen realiseren.
+          Plan een gratis adviesgesprek en ontdek hoe we dit ook voor uw bedrijf kunnen realiseren.
         </p>
         <a href="/contact" class="btn-primary">
-          Plan een intake
+          Plan een gratis adviesgesprek
           <Icon name="arrow-right" size={16} />
         </a>
       </div>

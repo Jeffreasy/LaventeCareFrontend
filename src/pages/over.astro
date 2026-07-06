@@ -7,38 +7,38 @@ import Icon, { type IconName } from '../components/ui/Icon.astro';
 const expertiseDomains = [
   {
     icon: 'brain-circuit',
-    title: 'AI & Prompt Engineering',
-    techs: ['GPT-4', 'Claude', 'LangChain', 'Custom Agents'],
+    title: 'AI & Automatisering',
+    techs: ['LLM-integratie', 'Custom Agents', 'Mens beslist mee'],
     description:
-      'AI die daadwerkelijk waarde toevoegt aan uw bedrijf. Digitale medewerkers die taken automatiseren, data analyseren en beslissingen ondersteunen — geïntegreerd in uw bestaande werkprocessen.',
+      'AI die terugkerend werk overneemt en gegevens benut voor snellere beslissingen. Betrouwbaar, meetbaar en met een mens die meebeslist — geïntegreerd in uw bestaande werkprocessen.',
   },
   {
     icon: 'radio',
-    title: 'Slimme Monitoring & Sensoren',
+    title: 'Slimme bewaking & sensoren',
     techs: ['C++', 'ESP32', 'BLE', 'OTA Updates'],
     description:
-      'Uw apparaten worden slim: maandenlang op batterij, software-updates op afstand, en real-time inzicht via uw scherm. Van de sensor tot het dashboard.',
+      'Van sensor tot dashboard: problemen vroeg signaleren en minder stilstand. Live inzicht via uw scherm, software-updates op afstand.',
   },
   {
     icon: 'cog',
-    title: 'Beveiliging & Databescherming',
-    techs: ['Go', 'PostgreSQL', 'Redis', 'Zero-Trust'],
+    title: 'Beveiliging & Toegang',
+    techs: ['PostgreSQL RLS', 'RBAC', 'Audit Trails'],
     description:
-      'Uw klantdata structureel gescheiden en beschermd. Elke actie traceerbaar, automatische opschoning van verlopen data — gebouwd volgens AVG-principes (Privacy by Design).',
+      'De gegevens van elke klant staan strikt gescheiden, iedereen ziet alleen wat hij mag, en elke actie wordt vastgelegd. Veiligheid vanaf de basis, gebouwd volgens de AVG (Privacy by Design). Onder de motorkap: gescheiden klantdata (PostgreSQL RLS), toegang per rol (RBAC) en volledige logging.',
   },
   {
     icon: 'monitor',
-    title: 'Websites & Platformen',
-    techs: ['Astro', 'Next.js', 'React 19', 'Convex'],
+    title: 'Maatwerk Platformen',
+    techs: ['Astro', 'React 19', 'Convex', 'Go Auth'],
     description:
-      'Razensnelle websites die hoog scoren bij Google en meer bezoekers omzetten in klanten. Real-time dashboards en op maat gemaakte interfaces.',
+      'Losse tools en handwerk vervangen door één systeem dat met u meegroeit, met alles op één plek. Razendsnelle schermen die hoog scoren bij Google en bezoekers helpen om een aanvraag te doen.',
   },
   {
     icon: 'cloud',
     title: 'Hosting & Beheer',
     techs: ['Vercel', 'Render', 'CI/CD', 'Sentry'],
     description:
-      'Uw applicatie draait op snelle servers wereldwijd. Automatische updates, continue monitoring en SSL-certificaten — alles beheerd en up-to-date.',
+      'Uw applicatie draait op snelle servers wereldwijd. Automatische updates, doorlopende bewaking en SSL-certificaten — doorlopend onderhoud met vaste afspraken mogelijk (SLA).',
   },
 ];
 
@@ -55,8 +55,8 @@ const kernwaarden = [
   },
   {
     icon: 'trending-up',
-    title: 'Schaalbare architectuur',
-    desc: 'Oplossingen die meegroeien met de klant.',
+    title: 'Groeit met u mee',
+    desc: 'Systemen die meegroeien met de klant.',
   },
   {
     icon: 'handshake',
@@ -68,9 +68,9 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Jeffrey Lavente',
-  jobTitle: 'Systems Engineer & Oprichter LaventeCare',
+  jobTitle: 'Oprichter LaventeCare — B2B systeempartner voor het mkb',
   description:
-    'Van intensieve 1-op-1 begeleiding in de NAH-zorg naar IT-engineering. Bouwt complete platformen met ingebouwde beveiliging, AI-gedreven development en Zero-Trust security.',
+    'Oprichter van LaventeCare, een B2B systeempartner voor mkb-organisaties. Zet uw manier van werken om in software die het werk uit handen neemt: AI, IoT, maatwerkplatformen, klanten werven en beveiliging vanaf de basis.',
   image:
     'https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-512,h-512,fo-face,f-auto,q-85',
   url: 'https://www.laventecare.nl/over',
@@ -80,22 +80,18 @@ const personSchema = {
     url: 'https://www.laventecare.nl',
   },
   knowsAbout: [
-    'AI Prompt Engineering',
+    'AI & Automatisering',
     'LLM Integration',
     'Go',
     'PostgreSQL',
     'React',
-    'Next.js',
     'Astro',
     'C++',
     'ESP32',
     'IoT',
-    'Zero-Trust Security',
+    'Security-first Architecture',
     'Cloud Architecture',
-    'NAH Begeleiding',
-    'Psychologische Analyse',
-    'Calisthenics',
-    'Discipline & Mental Resilience',
+    'Maatwerksoftware',
   ],
   sameAs: [
     'https://linkedin.com/in/jeffrey-lavente',
@@ -114,8 +110,8 @@ const personSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
 <Layout
-  title="Over Jeffrey Lavente — Systems Engineer & Oprichter LaventeCare"
-  description="Van intensieve NAH-zorg naar het bouwen van serieuze productiesystemen. Jeffrey Lavente combineert psychologisch inzicht met solide backend-engineering en AI-gedreven development."
+  title="Over LaventeCare — B2B systeempartner voor het mkb"
+  description="LaventeCare is een vaste B2B systeempartner die uw manier van werken omzet in software die het werk uit handen neemt: AI, automatisering, maatwerksoftware, bewaking en beveiliging vanaf de basis. Van idee tot werkend systeem."
 >
   <!-- Hero -->
   <section class="section-padding pt-32 md:pt-40">
@@ -169,19 +165,20 @@ const personSchema = {
 
           <div class="text-center md:text-left">
             <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block"
-              >Over de oprichter</span
+              >Over LaventeCare</span
             >
             <h1
               class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight"
             >
-              Jeffrey Lavente
+              Van idee tot werkend systeem
             </h1>
             <p class="text-lg md:text-xl text-white/70 leading-relaxed font-ui">
-              Van intensieve 1-op-1 begeleiding in de NAH-zorg naar het bouwen van serieuze productiesystemen. Ik combineer <span
-                class="text-white font-semibold">psychologisch inzicht</span
-              > met multi-tenant architectuur en AI-gedreven development — digitale systemen die, net als in de zorg, <span
-                class="text-active font-semibold">structuur, veiligheid en menselijkheid</span
-              > als fundament hebben.
+              LaventeCare is een <span class="text-white font-semibold"
+                >B2B systeempartner voor mkb-organisaties</span
+              > die digitale groei, automatisering en maatwerksoftware goed en betrouwbaar willen regelen.
+              Geen losse websitebouwer of eenmalige freelancer, maar een <span
+                class="text-active font-semibold">vaste partner</span
+              > die uw manier van werken omzet in software die het werk uit handen neemt.
             </p>
           </div>
         </div>
@@ -189,45 +186,45 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- Van Zorg naar Tech -->
+  <!-- Wat wij doen -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <SectionHeader
-          label="Het verhaal"
-          heading='Van menselijke zorg naar <span class="text-active">digitale systemen</span>'
+          label="De partner"
+          heading='Een vaste partner, geen <span class="text-active">losse leverancier</span>'
         />
         <div
           class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5"
         >
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            Jarenlang werkte ik als intensief 1-op-1 begeleider van individuen met complexe
-            (niet-aangeboren) hersenletsels. In die wereld leerde ik een fundamentele les: <span
-              class="text-white font-semibold"
-              >waar chaos heerst, is rust, structuur en grenzeloze toewijding essentieel</span
-            >.
+            LaventeCare bouwt systemen die bedrijven efficiënter maken, fouten voorkomen en groei
+            versnellen: <span class="text-white font-semibold"
+              >AI, IoT, maatwerkplatformen, klanten werven en systemen met beveiliging vanaf de basis</span
+            >. We richten ons op het mkb, dienstverleners en operationele teams met terugkerende
+            processen.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            Vandaag pas ik diezelfde psychologische blik toe op software-architectuur. Het internet
-            is onvoorspelbaar; daarom bouw ik <span class="text-active font-semibold">"Forten"</span
-            > in plaats van gewone websites. Mijn missie is niet het typen van regels code, maar het ontwerpen
-            van digitale ecosystemen die robuust, veilig en beheersbaar zijn.
+            Onze kernbelofte: van losse tools en handmatig werk naar één <span
+              class="text-active font-semibold">digitaal systeem dat met u meegroeit</span
+            >. Kennismaking, analyse, bouwplan (Blueprint), bouw, beheer en doorontwikkeling — geen los project
+            dat na oplevering stilvalt, maar een systeem dat blijft werken en meegroeit.
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
               <Icon name="brain-circuit" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-white text-xs font-bold font-display">Analytisch in chaos</p>
-              <p class="text-white/50 text-[11px] font-ui">Helder denken als alles complex is</p>
+              <p class="text-white text-xs font-bold font-display">Proces eerst</p>
+              <p class="text-white/50 text-[11px] font-ui">Systemen, geen losse styling</p>
             </div>
             <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
               <Icon name="lock" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-white text-xs font-bold font-display">Grenzen stellen</p>
-              <p class="text-white/50 text-[11px] font-ui">Beveiligen is zorgverlening</p>
+              <p class="text-white text-xs font-bold font-display">Veiligheid vanaf de basis</p>
+              <p class="text-white/50 text-[11px] font-ui">Beveiliging als fundament</p>
             </div>
             <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
               <Icon name="handshake" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-white text-xs font-bold font-display">1-op-1 verantwoordelijk</p>
-              <p class="text-white/50 text-[11px] font-ui">Geen schakel, maar eigenaar</p>
+              <p class="text-white text-xs font-bold font-display">Vaste partner</p>
+              <p class="text-white/50 text-[11px] font-ui">Beheer en doorontwikkeling</p>
             </div>
           </div>
         </div>
@@ -235,26 +232,30 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- Bouwen in het AI-tijdperk -->
+  <!-- Transparantie: solo-founder + AI als bouwteam -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <SectionHeader
-          label="De werkwijze"
-          heading='Bouwen in het <span class="text-active">AI-tijdperk</span>'
+          label="Radicale transparantie"
+          heading='Wie er achter <span class="text-active">LaventeCare</span> staat'
         />
         <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8">
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            Ik geloof in radicale eerlijkheid: ik ben geen codeklopper die al twintig jaar op een
-            kantoor zit. We leven in een nieuw tijdperk. Ik fungeer als de <span
-              class="text-white font-semibold">IT-Engineer</span
-            > en gebruik geavanceerde AI-modellen als mijn uitvoerende bouwteam.
+            Ik geloof in radicale eerlijkheid over hoe LaventeCare werkt. LaventeCare is opgezet en
+            wordt geleid door <span class="text-white font-semibold">Jeffrey Lavente</span> als
+            oprichter en engineer. Ik fungeer als de architect die de blauwdruk bepaalt, en gebruik
+            geavanceerde AI-modellen als mijn <span class="text-active font-semibold"
+              >uitvoerende bouwteam</span
+            >.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            AI bouwt razendsnel, maar heeft de neiging om "happy paths" te kiezen. Hier ligt mijn
-            absolute kracht: ik bepaal de blauwdruk, hanteer <span class="text-active font-semibold"
-              >Spartaanse veiligheidsregels</span
-            > (zoals Zero-Trust en Row Level Security) en stuur de AI bij waar nodig. Het resultaat: in mijn eentje lever ik platformen op met ingebouwde beveiliging, data-isolatie en real-time monitoring — het niveau dat traditioneel een volledig team vereist.
+            AI bouwt razendsnel, maar kiest graag de makkelijkste route en slaat de uitzonderingen
+            over. Hier ligt de kracht van deze werkwijze: ik bepaal de architectuur, hanteer strikte
+            veiligheidsregels (zoals strikt gescheiden gegevens en het vastleggen van elke actie) en
+            stuur bij waar nodig. Zo levert LaventeCare systemen op met ingebouwde beveiliging,
+            gescheiden gegevens en live bewaking — de discipline van een team, geleverd door één
+            verantwoordelijke partner.
           </p>
           <div
             class="flex flex-col sm:flex-row gap-4 mt-6 p-4 rounded-lg bg-active/5 border border-active/15"
@@ -264,14 +265,14 @@ const personSchema = {
               <div>
                 <p class="text-white text-xs font-bold font-display">AI = Uitvoerder</p>
                 <p class="text-white/60 text-[11px] font-ui">
-                  Razendsnel bouwen, itereren en testen
+                  Razendsnel bouwen, verbeteren en testen
                 </p>
               </div>
             </div>
             <div data-animate="fade-up" class="delay-100 flex-1 flex items-start gap-3">
               <Icon name="brain-circuit" size={18} class="text-active shrink-0 mt-0.5" />
               <div>
-                <p class="text-white text-xs font-bold font-display">Ik = Engineer</p>
+                <p class="text-white text-xs font-bold font-display">Jeffrey = Architect</p>
                 <p class="text-white/60 text-[11px] font-ui">
                   Blauwdruk, veiligheid en kwaliteitscontrole
                 </p>
@@ -280,7 +281,7 @@ const personSchema = {
             <div data-animate="fade-up" class="delay-200 flex-1 flex items-start gap-3">
               <Icon name="lock" size={18} class="text-active shrink-0 mt-0.5" />
               <div>
-                <p class="text-white text-xs font-bold font-display">Database Fortress</p>
+                <p class="text-white text-xs font-bold font-display">Database als fort</p>
                 <p class="text-white/60 text-[11px] font-ui">
                   De AI in toom, de data strikt beschermd
                 </p>
@@ -292,65 +293,30 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- De kracht van de fundamenten -->
+  <!-- Achtergrond in de zorg -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <SectionHeader
-          label="De discipline"
-          heading='De kracht van de <span class="text-active">fundamenten</span>'
+          label="De achtergrond"
+          heading='Structuur en veiligheid, geleerd in de <span class="text-active">zorg</span>'
         />
         <div
           class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5"
         >
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            Technologie vereist dezelfde toewijding als topsport. Naast mijn werk als IT-engineer
-            train ik al <span class="text-white font-semibold"
-              >13 jaar op elite-niveau in calisthenics</span
-            >. Deze discipline — het jarenlang perfectioneren van de absolute fundamenten zonder
-            afhankelijk te zijn van externe hulpmiddelen — vormt de kern van hoe ik leef én hoe ik
-            software bouw.
+            Voordat ik LaventeCare startte, werkte ik jarenlang als intensief 1-op-1 begeleider van
+            individuen met complexe (niet-aangeboren) hersenletsels. In die wereld leerde ik een
+            fundamentele les: <span class="text-white font-semibold"
+              >waar chaos heerst, zijn rust, structuur en grenzeloze toewijding essentieel</span
+            >.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            <span class="text-active font-semibold">Geen shortcuts, geen overbodige ballast</span>,
-            maar ijzersterke systemen die gebouwd zijn op een onwrikbare basis. Die extreme
-            consistentie en focus neem ik mee in elk digitaal ecosysteem dat ik oplever.
+            Diezelfde blik pas ik toe op software-architectuur. Ik bouw geen losse websites, maar
+            <span class="text-active font-semibold">systemen met structuur en grenzen</span> —
+            stabiel, veilig en beheersbaar. Analytisch blijven in complexiteit, grenzen stellen en
+            1-op-1 verantwoordelijkheid nemen: dat neem ik mee in elk systeem dat ik oplever.
           </p>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
-              <Icon name="trending-up" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-white text-xs font-bold font-display">13 jaar consistent</p>
-              <p class="text-white/50 text-[11px] font-ui">Discipline is geen woord, maar bewijs</p>
-            </div>
-            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
-              <Icon name="cog" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-white text-xs font-bold font-display">Fundamenten eerst</p>
-              <p class="text-white/50 text-[11px] font-ui">Geen hulpmiddelen, pure basis</p>
-            </div>
-            <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
-              <Icon name="shield-check" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-white text-xs font-bold font-display">Brein, systeem, lichaam</p>
-              <p class="text-white/50 text-[11px] font-ui">Discipline op elk vlak</p>
-            </div>
-          </div>
-          <div
-            class="mt-6 pt-5 border-t border-white/8 flex items-center justify-center sm:justify-start gap-2"
-          >
-            <a
-              href="https://www.instagram.com/jjalavente/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 text-sm text-white/50 hover:text-active transition-colors font-ui"
-            >
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
-                ><path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
-                ></path></svg
-              >
-              Bekijk mijn training op Instagram
-              <Icon name="external-link" size={12} class="opacity-50" />
-            </a>
-          </div>
         </div>
       </div>
     </div>
@@ -369,11 +335,9 @@ const personSchema = {
           >
             Ik geloof niet in perfectie, ik geloof in <span class="text-white font-semibold"
               >extreme leergierigheid, transparantie en keiharde veiligheid</span
-            >. Gebouwd volgens dezelfde beveiligingsprincipes als kritische systemen:
-            data-isolatie, Zero-Trust, onwijzigbare audit trails.
-            Of het nu een MKB-portaal, een IoT-dashboard of een evenementenplatform is: <span
-              class="text-active font-semibold"
-            >uw data krijgt hetzelfde beschermingsniveau</span
+            >. Silence is Golden, the Database is a Fortress. Of het nu een mkb-portaal, een
+            IoT-dashboard of een maatwerkplatform is: <span class="text-active font-semibold"
+              >uw data krijgt hetzelfde beschermingsniveau</span
             >.
           </blockquote>
         </div>
@@ -421,10 +385,11 @@ const personSchema = {
             <li>
               <div class="flex items-baseline justify-between">
                 <p class="text-white font-semibold text-sm">Oprichter & Systems Engineer</p>
-                <span class="text-active text-xs font-bold">2023 – heden</span>
+                <span class="text-active text-xs font-bold">2026 – heden</span>
               </div>
               <p class="text-white/60 text-sm font-ui">
-                LaventeCare — Ontwerp en bouw van maatwerkplatformen met ingebouwde beveiliging, AI-automatisering en IoT-monitoring.
+                LaventeCare — Vaste systeempartner voor het mkb: ontwerp en bouw van
+                maatwerkplatformen met ingebouwde beveiliging, AI-automatisering en live bewaking (IoT).
               </p>
             </li>
             <li>
@@ -449,8 +414,8 @@ const personSchema = {
     <div class="container mx-auto px-4">
       <SectionHeader
         label="Technische expertise"
-        heading='Uitzonderlijk breed <span class="text-active">spectrum</span>'
-        description="Van slimme sensoren tot multi-tenant databescherming en high-performance platformen — alles onder één dak. Dat is zeldzaam, en precies dát maakt het verschil."
+        heading='Uitzonderlijk breed <span class="text-active">vakgebied</span>'
+        description="Van slimme sensoren tot strikt gescheiden klantgegevens en supersnelle platformen — alles onder één dak. Dat is zeldzaam, en precies dát maakt het verschil."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -506,15 +471,19 @@ const personSchema = {
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-ui">
           <div class="flex justify-between sm:flex-col gap-1">
             <span class="text-white/50">Rechtsvorm</span>
-            <span class="text-white font-medium">Eenmanszaak (ZZP)</span>
+            <span class="text-white font-medium">Eenmanszaak</span>
           </div>
           <div class="flex justify-between sm:flex-col gap-1">
             <span class="text-white/50">KVK-nummer</span>
             <span class="text-white font-medium">88162710</span>
           </div>
           <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">BTW-nummer</span>
+            <span class="text-white font-medium">NL004553268B57</span>
+          </div>
+          <div class="flex justify-between sm:flex-col gap-1">
             <span class="text-white/50">Opgericht</span>
-            <span class="text-white font-medium">17 oktober 2022</span>
+            <span class="text-white font-medium">2026</span>
           </div>
           <div class="flex justify-between sm:flex-col gap-1">
             <span class="text-white/50">Vestiging</span>

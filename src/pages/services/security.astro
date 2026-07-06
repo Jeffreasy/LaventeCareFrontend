@@ -7,31 +7,31 @@ import Icon, { type IconName } from '../../components/ui/Icon.astro';
 const laws = [
   {
     num: '01',
-    title: 'All input is validated',
+    title: 'Everything coming in is suspicious',
     subtitle: 'No blind trust',
     desc: 'Everything that comes in — forms, API requests, uploads — is automatically checked and filtered. Malicious input is blocked before it can damage your system or data.',
   },
   {
     num: '02',
-    title: 'Give nothing away',
+    title: 'Attackers learn nothing from error messages',
     subtitle: 'Attackers learn nothing',
     desc: "Visitors never see technical error messages that hackers can exploit. Errors are tracked and resolved internally, without outsiders gaining insight into how your system works.",
   },
   {
     num: '03',
-    title: 'Your data in a vault',
+    title: 'The database guards itself',
     subtitle: 'Separated at database level',
     desc: 'Your data is separated from other clients at database level. Even if there is a bug in the code, data from other companies cannot be viewed. The database itself enforces who may see which data.',
   },
   {
     num: '04',
-    title: 'Stable under pressure',
+    title: 'Reliable, even under heavy load',
     subtitle: 'No errors under high load',
     desc: 'Designed to prevent errors such as data corruption or double bookings, even under high load — thousands of concurrent visitors.',
   },
   {
     num: '05',
-    title: 'Minimal dependencies',
+    title: 'Only proven, vetted components',
     subtitle: 'Less vulnerable, more control',
     desc: 'Only proven and audited software is used. Fewer dependencies means fewer vulnerabilities — and every external component is regularly checked for known issues.',
   },
@@ -75,7 +75,7 @@ const serviceSchema = {
   '@type': 'Service',
   name: 'Security & Authentication',
   description:
-    'Your client data structurally protected and separated. Security built in as a foundation according to Privacy by Design and GDPR principles — so the technical basis for compliance is structurally anchored.',
+    "Your clients' data kept strictly separate and protected: each client's data is technically separated, everyone sees only what they are allowed to, and every action is recorded (PostgreSQL RLS, role-based access, audit trails). Security built in from the start, following Privacy by Design and GDPR principles.",
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
@@ -90,27 +90,26 @@ const serviceSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="LaventeCare AuthSystem — Built-in Data Protection | LaventeCare"
-  description="The LaventeCare AuthSystem: data isolation, role-based access control and automatic threat detection. Security as a foundation, not an afterthought."
+  title="Security & Access — Built-in Data Protection | LaventeCare"
+  description="Security built in from the start: each client's data kept separate, everyone sees only what they are allowed to, and every action is recorded. Security as a foundation, not an afterthought."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
         <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
-          <Icon name="shield-check" size={16} class="text-active" /> LaventeCare Core
+          <Icon name="shield-check" size={16} class="text-active" /> Security & Authentication
         </span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
           Your data <span class="text-active">protected</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Every platform I build runs on the <span class="text-white font-semibold">LaventeCare AuthSystem</span> —
-          a self-built security core with multi-tenant data isolation, role-based access control and
-          automatic threat detection. Your client data is structurally separated and encrypted, so
-          unauthorised parties have no access — even in the event of system errors.
+          Security is built in from the very first line of code. Your clients' data is technically
+          separated, everyone sees only what they are allowed to, and every action is recorded — so
+          unauthorised parties have no access, even if something goes wrong.
         </p>
         <div class="flex flex-wrap gap-2">
           {
-            ['Go', 'PostgreSQL', 'Redis', 'Encryption', 'GDPR-Compliant', 'Audit Logs'].map(
+            ['Separated client data', 'Access per role', 'Everything traceable', 'Encryption', 'GDPR-Compliant', 'Redis'].map(
               (t) => <TechStackBadge tech={t} />
             )
           }
@@ -145,9 +144,9 @@ const serviceSchema = {
 
       <!-- The 5 Principles -->
       <SectionHeader
-        label="Own framework"
-        heading='Anti-Gravity <span class="text-active">Security Principles</span>'
-        description="Five strict principles that form the core of the LaventeCare AuthSystem. Not taken from a handbook, but developed from the practice of building multi-tenant platforms."
+        label="Security principles"
+        heading='Five <span class="text-active">security principles</span>'
+        description="Five strict principles that form the core of every platform: attackers learn nothing from error messages, and the database guards itself. Not taken from a handbook, but developed from the practice of building platforms that keep each client's data separate."
       />
 
       <div class="space-y-4 max-w-4xl mx-auto mb-16">
@@ -204,8 +203,8 @@ const serviceSchema = {
               available
             </li>
             <li class="flex gap-3">
-              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Immutable audit logs
-              for forensic integrity
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Every action recorded
+              in a log that cannot be altered afterwards
             </li>
             <li class="flex gap-3">
               <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Tested procedure for
@@ -245,19 +244,19 @@ const serviceSchema = {
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div>
               <span class="text-active text-xl font-black font-display block mb-1">6+</span>
-              <p class="text-white/60 text-xs font-ui">Tenants on one platform</p>
+              <p class="text-white/60 text-xs font-ui">Live projects</p>
             </div>
             <div>
-              <span class="text-active text-xl font-black font-display block mb-1">24/7</span>
-              <p class="text-white/60 text-xs font-ui">Automatic threat detection</p>
+              <span class="text-active text-xl font-black font-display block mb-1">RLS</span>
+              <p class="text-white/60 text-xs font-ui">Each client's data kept separate</p>
             </div>
             <div>
-              <span class="text-active text-xl font-black font-display block mb-1">100%</span>
-              <p class="text-white/60 text-xs font-ui">Actions traceable via audit logs</p>
+              <span class="text-active text-xl font-black font-display block mb-1">Audit</span>
+              <p class="text-white/60 text-xs font-ui">Every action traceable</p>
             </div>
           </div>
           <p class="text-white/40 text-xs font-ui text-center mt-4">
-            Active in production — used daily by hundreds of users and proven in real-world scenarios.
+            Built into every LaventeCare platform as a foundation — not added as an afterthought.
           </p>
         </div>
       </div>
@@ -267,7 +266,7 @@ const serviceSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
       <a href="/contact?type=security" class="btn-primary">
-        Secure your application
+        Book a free intro call
         <Icon name="arrow-right" size={16} />
       </a>
     </div>

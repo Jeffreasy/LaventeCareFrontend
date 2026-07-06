@@ -5,10 +5,10 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const results = [
-  { value: '+340%', label: 'Meer organisch verkeer' },
-  { value: '< 1.5s', label: 'LCP (Largest Contentful Paint)' },
-  { value: '99 avg', label: 'Lighthouse Score' },
-  { value: '24/7', label: 'Lead-notificaties' },
+  { value: 'In stappen', label: 'Offerte aanvragen' },
+  { value: 'Direct', label: 'Melding bij nieuwe aanvraag' },
+  { value: 'Lokale SEO', label: 'Branche-specifiek' },
+  { value: 'Supersnel', label: 'Laadt vlot, ook op mobiel' },
 ];
 
 const challenges = [
@@ -18,7 +18,7 @@ const challenges = [
   },
   {
     title: 'Handmatig offerteproces',
-    desc: 'Offerteaanvragen kwamen via e-mail en telefoon, zonder structuur. Leads gingen verloren en opvolging was inconsistent.',
+    desc: 'Offerteaanvragen kwamen via e-mail en telefoon, zonder structuur. Aanvragen gingen verloren en opvolging was wisselvallig.',
   },
   {
     title: 'Geen klantportaal',
@@ -26,14 +26,14 @@ const challenges = [
   },
   {
     title: 'Verouderde website',
-    desc: 'De bestaande website was een statisch WordPress-template zonder conversieoptimalisatie, trage laadtijden en geen mobiele optimalisatie.',
+    desc: 'De bestaande website was een statisch WordPress-template dat bezoekers niet omzette in aanvragen, traag laadde en niet goed werkte op mobiel.',
   },
 ];
 ---
 
 <Layout
   title="Case Study: C&F Bouw — LaventeCare"
-  description="Hoe LaventeCare een lead-generation portaal bouwde voor de bouwsector. Multi-step offertetrajecten, SEO-optimalisatie en 340% meer organisch verkeer."
+  description="Hoe LaventeCare een portaal bouwde dat klanten werft voor de bouwsector. Offertes in stappen, SEO-optimalisatie en direct een melding bij elke aanvraag."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -49,14 +49,14 @@ const challenges = [
           C&F <span class="text-active">Bouw</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Een professioneel lead-generation portaal voor de bouwsector. Van een verouderde
-          WordPress-site naar een high-performance platform met gestructureerde offertetrajecten,
-          SEO-optimalisatie en realtime lead-notificaties.
+          Een portaal dat klanten werft voor de bouwsector. Van een verouderde WordPress-site naar
+          een supersnel platform met offertes in stappen, SEO-optimalisatie en direct een melding
+          bij elke aanvraag.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
           <span
             class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20"
-            >Lead Generation</span
+            >Klanten werven</span
           >
           <a
             href="https://www.cfbouw.nl/"
@@ -70,7 +70,7 @@ const challenges = [
         </div>
         <div class="flex flex-wrap gap-2">
           {
-            ['Next.js', 'Supabase', 'Vercel', 'SEO', 'Analytics', 'Resend'].map((t) => (
+            ['Astro', 'Convex', 'Go Auth', 'SEO', 'Analytics', 'Resend'].map((t) => (
               <TechStackBadge tech={t} />
             ))
           }
@@ -98,7 +98,7 @@ const challenges = [
       <div class="max-w-4xl mx-auto mb-16">
         <SectionHeader
           label="De uitdaging"
-          heading='Van WordPress naar <span class="text-active">leadmachine</span>'
+          heading='Van WordPress naar <span class="text-active">aanvragenmachine</span>'
         />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           {
@@ -119,7 +119,7 @@ const challenges = [
       <div class="max-w-4xl mx-auto mb-16">
         <SectionHeader
           label="De oplossing"
-          heading='Conversie door <span class="text-active">technologie</span>'
+          heading='Van bezoeker naar <span class="text-active">aanvraag</span>'
         />
         <div
           data-animate="fade-up"
@@ -127,12 +127,12 @@ const challenges = [
         >
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              Multi-step Offertetrajecten
+              Offerte aanvragen in stappen
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Gestructureerde, meerstaps formulieren die de bezoeker begeleiden van
-              projecttype-selectie tot contactgegevens. Elke stap verlaagt de drempel en verhoogt de
-              kwaliteit van binnenkomende leads.
+              Overzichtelijke formulieren die de bezoeker stap voor stap begeleiden, van type
+              project tot contactgegevens. Elke stap verlaagt de drempel en zorgt voor betere
+              aanvragen.
             </p>
           </div>
           <div>
@@ -140,17 +140,17 @@ const challenges = [
             <p class="text-white/60 text-sm font-ui leading-relaxed">
               Technische SEO-optimalisatie gericht op lokale zoektermen in de bouwsector.
               Gestructureerde data (LocalBusiness schema), geoptimaliseerde meta-tags en snelle
-              laadtijden resulteren in een verdrievoudiging van organisch verkeer.
+              laadtijden vergroten de organische vindbaarheid in de bouwsector.
             </p>
           </div>
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              Realtime Lead-notificaties
+              Direct een melding bij elke aanvraag
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Dual-mail dispatch bij elke lead: de klant ontvangt een professionele bevestiging, het
-              C&F Bouw team ontvangt direct een gedetailleerde notificatie met alle projectdetails.
-              Maximale zichtbaarheid op elke aanvraag.
+              Bij elke aanvraag gaan er automatisch twee e-mails uit: de klant krijgt een nette
+              bevestiging, het team van C&F Bouw krijgt direct een melding met alle projectdetails.
+              Zo blijft geen enkele aanvraag liggen.
             </p>
           </div>
         </div>
@@ -182,7 +182,7 @@ const challenges = [
   <!-- CTA -->
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
-      <p class="text-white/50 text-sm font-ui mb-4">Meer leads voor uw bedrijf?</p>
+      <p class="text-white/50 text-sm font-ui mb-4">Meer aanvragen voor uw bedrijf?</p>
       <a href="/contact?type=leadgen" class="btn-primary">
         Bespreek uw project
         <Icon name="arrow-right" size={16} />

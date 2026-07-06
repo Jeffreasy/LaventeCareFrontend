@@ -1,0 +1,192 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
+
+const features = [
+  {
+    icon: 'handshake',
+    title: 'Independent sparring partner',
+    desc: 'A second opinion you can spar with about architecture, tooling and technical choices — without any obligation to have LaventeCare build it.',
+  },
+  {
+    icon: 'search',
+    title: 'Second opinion on plans',
+    desc: 'Have an existing plan, quote or architecture reviewed before you commit. Sober advice on what holds up and what does not.',
+  },
+  {
+    icon: 'server',
+    title: 'Architecture & tooling',
+    desc: 'Advice on the structure of your systems, the technology behind them and the choices that determine whether it scales or gets stuck.',
+  },
+  {
+    icon: 'shield-check',
+    title: 'Risk & security review',
+    desc: 'A critical look at data isolation, dependencies and the risks in your current setup — before they become expensive.',
+  },
+  {
+    icon: 'lightbulb',
+    title: 'From question to direction',
+    desc: 'You leave with a clear direction and concrete next steps, whether or not a build phase follows.',
+  },
+  {
+    icon: 'refresh-cw',
+    title: 'Change requests',
+    desc: 'Room for adjustments and additional advice on running projects, billed transparently at €95/hr.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'IT Advice & Consultancy',
+  description:
+    'An independent sparring partner and second opinion, without any obligation to build. Sober advice on architecture, tooling and technical choices.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.com',
+  },
+  areaServed: ['NL', 'BE', 'DE', 'International'],
+  serviceType: 'IT Consultancy & Advisory',
+  serviceOutput: 'Independent advice, second opinions and architecture direction',
+  offers: {
+    '@type': 'Offer',
+    price: '95',
+    priceCurrency: 'EUR',
+    description: 'Hourly rate; first conversation free.',
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
+<Layout
+  title="IT Advice & Consultancy — Independent Sparring Partner | LaventeCare"
+  description="An independent sparring partner and second opinion, without any obligation to build. Sober advice on architecture, tooling and choices — €95/hr, first conversation free."
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto mb-16">
+        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
+          <Icon name="handshake" size={16} class="text-active" /> IT Advice & Consultancy
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+          Advice that <span class="text-active">holds up</span>
+        </h1>
+        <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
+          Sometimes you do not need a build — you need someone who thinks along critically. LaventeCare
+          is an independent sparring partner and second opinion for your digital plans, without any
+          obligation to build.
+        </p>
+        <p class="text-base text-active/80 font-ui font-bold mb-6">
+          Sober advice on architecture, tooling and choices — €95/hr, first conversation free.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {
+            ['Second opinion', 'Architecture', 'Tooling', 'Risk review', 'No build obligation'].map(
+              (t) => <TechStackBadge tech={t} />
+            )
+          }
+        </div>
+      </div>
+
+      <!-- What you get -->
+      <SectionHeader
+        label="What you get"
+        heading='A sober <span class="text-active">second opinion</span>'
+        description="Independent advice, without a sales agenda behind it."
+      />
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
+        {
+          features.map((f, i) => (
+            <div
+              data-animate="fade-up"
+              class={`delay-${(i % 3) * 100} clinical-glass p-5 rounded-(--radius-card) border border-white/8 hover:border-active/20 transition-colors group`}
+            >
+              <div class="flex items-start gap-3 mb-3">
+                <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
+                  <Icon name={f.icon as IconName} size={18} class="text-active" />
+                </div>
+                <h3 class="text-sm font-bold text-white font-display pt-1.5">{f.title}</h3>
+              </div>
+              <p class="text-white/60 text-xs font-ui leading-relaxed">{f.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Pricing note -->
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16"
+      >
+        <div class="flex items-center gap-3 mb-6">
+          <Icon name="briefcase" size={24} class="text-active" />
+          <h2 class="text-xl md:text-2xl font-bold text-white font-display">How it works</h2>
+        </div>
+        <ul class="space-y-3 text-sm font-ui text-white/70">
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> The first conversation
+            is free and without obligation
+          </li>
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Consultancy is billed
+            at €95/hr (excl. VAT)
+          </li>
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> No obligation to build —
+            you decide what happens with the advice
+          </li>
+          <li class="flex gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Change requests on
+            running projects are also billed at €95/hr
+          </li>
+        </ul>
+      </div>
+
+      <!-- Target audience -->
+      <div
+        data-animate="fade-up"
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto mb-16"
+      >
+        <h2 class="text-xl font-bold text-white mb-4 font-display">Sound familiar?</h2>
+        <p class="text-white/70 font-ui mb-4">
+          SMEs, service providers and operational teams facing a technical decision:
+        </p>
+        <ul class="space-y-3 text-sm font-ui text-white/60">
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> You have a quote or plan
+            and want an independent second opinion
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> You are unsure whether
+            your architecture or tooling will scale
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> You want to understand
+            the risks before you invest in a build
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> You need direction, not
+            immediately a full project
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4 text-center">
+      <a href="/contact?type=consultancy" class="btn-primary">
+        Book a free intro call
+        <Icon name="arrow-right" size={16} />
+      </a>
+      <p class="text-white/40 text-sm font-ui mt-3">
+        The first conversation is free — discover where independent advice helps you further.
+      </p>
+    </div>
+  </section>
+</Layout>

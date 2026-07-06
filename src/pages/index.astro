@@ -14,22 +14,22 @@ if (Astro.locals.locale === 'en') {
 }
 
 const heroData = {
-  headline: 'High-End Systeem- & Architectuurpartner',
-  subtitle: 'Ontworpen, gebouwd en onderhouden door één engineer',
+  headline: 'B2B systeempartner voor mkb-organisaties',
+  subtitle: 'Van idee tot werkend systeem',
   description:
-    'Van beveiligde datastromen tot complexe maatwerkplatformen — gebouwd op een <span class="text-active font-bold">Zero-Trust backend</span> met focus op betrouwbaarheid en schaalbaarheid. Geen losse tools, maar <span class="text-active font-bold">gesloten systemen</span> die processen automatiseren zonder controle te verliezen.',
+    'Voor mkb-organisaties die digitale groei, automatisering en maatwerksoftware <span class="text-active font-bold">serieus willen aanpakken</span>. Geen losse websitebouwer of eenmalige freelancer, maar een <span class="text-active font-bold">vaste partner</span> die uw manier van werken omzet in software die het werk uit handen neemt.',
   ctaPrimary: {
-    label: 'Plan een Discovery',
+    label: 'Plan een gratis adviesgesprek',
     url: '/contact',
   },
   ctaSecondary: {
-    label: 'Bekijk architectuur',
+    label: 'Bekijk portfolio',
     url: '/portfolio',
   },
   stats: [
-    { value: '99/100', label: 'Google PageSpeed (verifieerbaar)' },
-    { value: '6+', label: 'Platformen in productie' },
-    { value: 'Zero-Trust', label: 'Strikte scheiding van data en toegang' },
+    { value: 'tot 99/100', label: 'Google Lighthouse' },
+    { value: '6+', label: 'Live projecten' },
+    { value: '<1,5s', label: 'Gemiddelde laadtijd' },
   ],
   alignment: 'center' as const,
   size: 'large' as const,
@@ -43,7 +43,7 @@ const jsonLd = {
   logo: 'https://www.laventecare.nl/og-image.png',
   image: 'https://www.laventecare.nl/og-image.png',
   description:
-    'LaventeCare — High-End Systeem- en Architectuurpartner: maatwerk B2B platformen met Zero-Trust beveiliging, gecontroleerde AI-automatisering en IoT-monitoring.',
+    'LaventeCare bouwt systemen die bedrijven efficiënter maken, fouten voorkomen en groei versnellen: AI, IoT, maatwerkplatformen, lead generation en security-first systemen.',
   founder: {
     '@type': 'Person',
     name: 'Jeffrey Lavente',
@@ -74,9 +74,9 @@ const jsonLd = {
     },
   ],
   knowsAbout: [
-    'Enterprise Architectuur',
-    'Zero-Trust Beveiliging',
-    'Worker Automation',
+    'IT Advies & Consultancy',
+    'Security-first systemen',
+    'AI & Automatisering',
     'B2B Maatwerk Platformen',
     'IoT Telemetrie',
     'PostgreSQL RLS',
@@ -102,44 +102,52 @@ const jsonLd = {
 
 const pillars = [
   {
-    title: 'Worker Automation & AI',
+    title: 'IT Advies & Consultancy',
     description:
-      'Een gecontroleerde worker-laag die repetitief werk overneemt. Geen black-box AI, maar ingebed in uw data met behoud van strikte toegangscontrole en human-in-the-loop.',
+      'Een onafhankelijk sparringpartner en second opinion, zonder bouwverplichting. Nuchter advies over uw digitale koers, architectuur en volgende stap.',
+    icon: 'message-circle',
+    tags: ['Sparringpartner', 'Second opinion', 'Roadmap'],
+    href: '/diensten/consultancy',
+  },
+  {
+    title: 'AI & Automatisering',
+    description:
+      'AI die repetitief werk overneemt en uw data benut voor snellere beslissingen. Betrouwbaar, meetbaar en met een mens die meekijkt en beslist in uw dagelijkse processen.',
     icon: 'brain-circuit',
-    tags: ['Automatisering', 'Rapportages', 'Dataverwerking'],
+    tags: ['Automatisering', 'Dataverwerking', 'Mens beslist mee'],
     href: '/diensten/ai-prompt-engineering',
     featured: true,
   },
   {
-    title: 'IoT Telemetry & Observability',
+    title: 'Slimme Monitoring & Sensoren',
     description:
-      'Realtime sensordata gekoppeld aan robuuste cloud-dashboards. Detecteer afwijkingen en voorkom uitval met zero-maintenance hardware en secure-ingest API’s.',
+      'Van sensor tot dashboard: problemen vroeg signaleren en minder downtime. Realtime inzicht in uw processen, op afstand en zonder handmatig beheer.',
     icon: 'radio',
     tags: ['Sensordata', 'Alarmering', 'Dashboards'],
     href: '/diensten/iot-hardware',
   },
   {
-    title: 'Enterprise Maatwerk Platformen',
+    title: 'Maatwerk Platformen',
     description:
-      'Geproduceerd via een strikt Discovery & Blueprint proces. Eén Single Source of Truth voor al uw datastromen, gebouwd voor schaalbaarheid en stabiliteit.',
+      'Losse tools en handwerk vervangen door één systeem dat met u meegroeit: één centrale plek waar al uw gegevens kloppen en actueel zijn, gebouwd voor stabiliteit en groei.',
     icon: 'building-2',
-    tags: ['B2B Portalen', 'Integraties', 'SaaS Architectuur'],
+    tags: ['B2B Portalen', 'Integraties', 'Alles op één plek'],
     href: '/diensten/maatwerk-platformen',
   },
   {
-    title: 'Digitale Infrastructuur',
+    title: 'Lead Generation',
     description:
-      'Wij bouwen geen "websites", maar converterende systemen. Uw digitale voordeur geoptimaliseerd voor snelheid, lead-generatie en perfecte Core Web Vitals.',
+      'Uw website wordt een systeem dat bezoekers omzet in aanvragen. Bezoekers worden gericht naar een offerte of aanvraag, zodat ze sneller klant worden.',
     icon: 'target',
-    tags: ['Lead-management', 'Conversie', 'SEO'],
+    tags: ['Aanvragen beheren', 'Klant worden', 'SEO'],
     href: '/diensten/lead-generation',
   },
   {
-    title: 'Zero-Trust Security & Data',
+    title: 'Beveiliging & Authenticatie',
     description:
-      "Strikte tenant-isolatie via PostgreSQL RLS. Uw data is cryptografisch gescheiden en AVG-compliant (Privacy by Design). Veiligheid als fundament, niet als afterthought.",
+      "Uw gegevens zijn per klant strikt gescheiden en beschermd, ook bij fouten of aanvallen. Onder de motorkap: PostgreSQL RLS, toegang per rol (RBAC) en volledige logging.",
     icon: 'shield-check',
-    tags: ['Tenant-isolatie', 'RBAC', 'AVG Art. 28'],
+    tags: ['Gescheiden klantdata', 'Toegang per rol', 'Alles vastgelegd'],
     href: '/diensten/security',
     featured: true,
   },
@@ -149,8 +157,8 @@ const pillars = [
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
-  title="LaventeCare — High-End Systeem- & Architectuurpartner | Dronten"
-  description="B2B Maatwerkplatformen met Zero-Trust beveiliging, Worker Automation en SLA-managed infrastructuur. Ontworpen en gebouwd door één engineer."
+  title="LaventeCare — B2B systeempartner voor mkb | Dronten"
+  description="B2B systeempartner voor mkb-organisaties die digitale groei, automatisering en maatwerksoftware professioneel willen neerzetten. Van idee tot werkend systeem."
 >
   <Hero {...heroData} />
 
@@ -163,9 +171,9 @@ const pillars = [
 
     <div class="container mx-auto px-4 relative">
       <SectionHeader
-        label="Platformdiensten"
-        heading='Vijf pijlers, één <span class="text-active">compleet ecosysteem</span>'
-        description="Geen losse projecten, maar een geïntegreerd systeem: elke pijler versterkt de andere. Van AI-automatisering tot databescherming — alles draait op dezelfde robuuste kern."
+        label="Diensten"
+        heading='Zes diensten, één <span class="text-active">werkend systeem</span>'
+        description="Geen losse projecten, maar een geïntegreerd systeem: elke dienst versterkt de andere. Van advies en AI-automatisering tot maatwerkplatformen en beveiliging — samen van idee tot werkend systeem."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -180,7 +188,7 @@ const pillars = [
       <SectionHeader
         label="Onderscheidend vermogen"
         heading='Waarom <span class="text-active">LaventeCare</span>?'
-        description="Geen webbureau, geen agency — maar één engineer die complete systemen bouwt en onderhoudt. Van ontwerp tot productie, met ingebouwde beveiliging."
+        description="Een vaste partner die uw manier van werken omzet in software die het werk uit handen neemt: van intake en Blueprint (het bouwplan) tot realisatie, beheer en doorontwikkeling — met ingebouwde beveiliging."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -196,7 +204,7 @@ const pillars = [
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">Eén aanspreekpunt, volledig eigenaarschap</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Van ontwerp tot livegang — alles via één persoon die het systeem kent. Geen wisselende developers, geen miscommunicatie, geen kennisverloop.
+            Van intake tot livegang — één vast aanspreekpunt dat uw processen en systeem door en door kent. Geen wisselende developers, geen miscommunicatie, geen kennisverloop.
           </p>
         </div>
 
@@ -210,9 +218,9 @@ const pillars = [
           >
             <Icon name="zap" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Zero-Trust Architectuur</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Security-first architectuur</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Elk systeem is Privacy by Design opgebouwd met multi-tenant data-isolatie (PostgreSQL RLS), strikt rolgebaseerd beheer en automatische dreigingsdetectie.
+            Uw gegevens zijn per klant strikt gescheiden en elke actie wordt vastgelegd. Onder de motorkap: Privacy by Design met PostgreSQL RLS, toegang per rol (RBAC) en volledige logging.
           </p>
         </div>
 
@@ -228,7 +236,7 @@ const pillars = [
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">Meetbaar sneller, aantoonbaar beter</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            99/100 Google PageSpeed is geen marketing — het is verifieerbaar via PageSpeed Insights. Elke seconde sneller = 7% meer conversie (bron: Google/Deloitte).
+            Systemen die scoren tot 99/100 op Google Lighthouse en gemiddeld onder 1,5s laden. Snelheid en stabiliteit als fundament, niet als afterthought.
           </p>
         </div>
       </div>
@@ -243,10 +251,10 @@ const pillars = [
         class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto"
       >
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value="Zero-Trust" label="Security Fundament" />
-          <StatCard value="99/100" label="Google PageSpeed" />
-          <StatCard value="40/40/20" label="Milestone Facturatie" />
-          <StatCard value="1" label="Single Source of Truth" />
+          <StatCard value="6+" label="Live projecten" />
+          <StatCard value="tot 99/100" label="Google Lighthouse" />
+          <StatCard value="<1,5s" label="Gemiddelde laadtijd" />
+          <StatCard value="SLA" label="Doorlopend onderhoud mogelijk" />
         </div>
       </div>
     </div>
@@ -267,7 +275,7 @@ const pillars = [
             Actieve Systeembeveiliging
           </h2>
           <p class="text-white/50 text-sm font-ui mt-2">
-            Geen loze beloftes over veiligheid. Zie hier de live telemetrie van de LaventeCare AntiGravity Gate die 24/7 kwaadwillend verkeer weert.
+            Geen loze beloftes over veiligheid. Zie hier live overzicht van de beveiligingslaag die kwaadwillend verkeer signaleert en weert.
           </p>
         </div>
 
@@ -278,7 +286,7 @@ const pillars = [
             href="/diensten/security"
             class="text-white/40 text-sm font-ui hover:text-active transition-colors"
           >
-            Lees meer over de Zero-Trust Architectuur →
+            Lees meer over onze security-first aanpak →
           </a>
         </div>
       </div>
@@ -314,20 +322,21 @@ const pillars = [
             >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Real-time registratieplatform voor liefdadigheidsevenement. 100+ deelnemers verwerkt,
-            0 handmatig werk voor de organisatie.
+            Real-time registratieplatform voor een liefdadigheidsevenement. Aanmeldingen worden
+            direct verwerkt, zonder handmatig beheer voor de organisatie.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">React 19</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
-            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go Auth</span>
           </div>
           <div
             class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
           >
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">100+ aanmeldingen</span>
+              <span class="text-white/70 text-xs font-ui">Real-time registratie</span>
             </div>
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
@@ -363,7 +372,7 @@ const pillars = [
             >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            24/7 koelmonitoring met automatische alarmering bij afwijkingen. Sensordata direct
+            Koelmonitoring met automatische alarmering bij afwijkingen. Sensordata direct
             zichtbaar op uw scherm, waar u ook bent.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
@@ -371,17 +380,18 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">ESP32</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">BLE</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">React</span>
           </div>
           <div
             class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
           >
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">Sub-100ms IoT Ingest</span>
+              <span class="text-white/70 text-xs font-ui">Realtime sensordata</span>
             </div>
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">100% Uptime</span>
+              <span class="text-white/70 text-xs font-ui">Automatische alarmering</span>
             </div>
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
@@ -413,24 +423,24 @@ const pillars = [
             >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Stapsgewijs offertetraject, projectgalerij en automatische klantcommunicatie. +340%
-            organisch verkeer binnen 6 maanden na lancering.
+            Stapsgewijs offertetraject, projectgalerij en automatische klantcommunicatie in
+            één systeem, gebouwd voor snelheid en vindbaarheid.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
-            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Next.js</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
-            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go Auth</span>
           </div>
           <div
             class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
           >
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">+340% Traffic</span>
+              <span class="text-white/70 text-xs font-ui">Offertetraject geautomatiseerd</span>
             </div>
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">PageSpeed A+</span>
+              <span class="text-white/70 text-xs font-ui">SEO-geoptimaliseerd</span>
             </div>
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
@@ -458,9 +468,10 @@ const pillars = [
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
-            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">React 19</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">React 18.3.1</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
-            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go Auth</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">RDW-proxy</span>
           </div>
           <span class="text-emerald-400 text-sm font-bold flex items-center gap-2 font-ui">
             <span class="relative flex h-2 w-2">
@@ -499,12 +510,12 @@ const pillars = [
           bieden in de echte wereld.
         </p>
         <p class="text-white/40 text-sm font-ui mb-6">
-          Plan een Discovery en ontdek waar u direct tijd, kosten of risico kunt besparen.
+          Plan een gratis adviesgesprek en ontdek waar u direct tijd, kosten of risico kunt besparen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/over" class="btn-secondary"> Lees mijn verhaal </a>
           <a href="/contact?type=discovery" class="btn-primary">
-            Plan een Discovery
+            Plan een gratis adviesgesprek
             <Icon name="arrow-right" size={16} />
           </a>
         </div>

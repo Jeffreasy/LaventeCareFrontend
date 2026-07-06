@@ -11,9 +11,9 @@ export const en = {
     domain: 'https://www.laventecare.com',
     locale: 'en_US',
     htmlLang: 'en',
-    metaTitle: 'LaventeCare — AI Prompt Engineering, Web & IoT Solutions',
+    metaTitle: 'Software and systems for SMEs — from idea to working system',
     metaDescription:
-      'LaventeCare combines AI prompt engineering with full-stack development and IoT expertise. Custom AI solutions, high-performance web applications and embedded systems. Netherlands.',
+      'LaventeCare builds software and systems that make businesses more efficient, prevent errors and accelerate growth: AI, IoT, custom platforms, winning customers and security from the ground up.',
     copyright: '© 2026 LaventeCare — Jeffrey Lavente | CoC 88162710 | Dronten, Netherlands',
     skipLink: 'Skip to content',
   },
@@ -33,18 +33,19 @@ export const en = {
 
   // --- Services submenu ---
   services: {
-    ai: 'AI & Prompt Engineering',
+    consultancy: 'IT Advice & Consultancy',
+    ai: 'AI & Automation',
     iot: 'IoT & Hardware',
     platforms: 'Custom Platforms',
-    leads: 'Lead Generation',
-    security: 'Security & Auth',
+    leads: 'Win customers',
+    security: 'Security & Access',
   },
 
   // --- Footer ---
   footer: {
     services: 'Services',
     company: 'Company',
-    resources: 'Resources',
+    resources: 'More',
     aboutJeffrey: 'About Jeffrey',
     termsLabel: 'Terms & Conditions',
   },
@@ -58,11 +59,12 @@ export const en = {
     pricing: 'Pricing',
     contact: 'Contact',
     terms: 'Terms & Conditions',
-    'ai-prompt-engineering': 'AI & Prompt Engineering',
+    consultancy: 'IT Advice & Consultancy',
+    'ai-prompt-engineering': 'AI & Automation',
     'iot-hardware': 'IoT & Hardware',
     'custom-platforms': 'Custom Platforms',
-    'lead-generation': 'Lead Generation',
-    security: 'Security & Auth',
+    'lead-generation': 'Win customers',
+    security: 'Security & Access',
     'cf-bouw': 'C&F Bouw',
     'de-koninklijke-loop': 'De Koninklijke Loop',
     'dustin-auto-garage': 'Dustin Auto Garage',

@@ -17,7 +17,7 @@ const features = [
   {
     icon: 'refresh-cw',
     title: 'Updates op afstand',
-    desc: 'Software-updates worden op afstand doorgevoerd. Geen monteur nodig, geen downtime voor uw apparaten.',
+    desc: 'Software-updates worden op afstand doorgevoerd. Geen monteur nodig, geen stilstand voor uw apparaten.',
   },
   {
     icon: 'smartphone',
@@ -76,7 +76,7 @@ const serviceSchema = {
           laat is.
         </p>
         <p class="text-base text-active/80 font-ui font-bold mb-6">
-          Minder downtime, minder schade, meer controle.
+          Minder stilstand, minder schade, meer controle.
         </p>
         <div class="flex flex-wrap gap-2">
           {
@@ -85,7 +85,7 @@ const serviceSchema = {
               'Automatische alarmering',
               'Live dashboards',
               'Op afstand',
-              'Schaalbaar',
+              'Groeit met u mee',
             ].map((t) => <TechStackBadge tech={t} />)
           }
         </div>
@@ -95,19 +95,19 @@ const serviceSchema = {
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
         <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
           <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">24/7</div>
-          <p class="text-white/50 text-xs font-ui">Remote monitoring</p>
+          <p class="text-white/50 text-xs font-ui">Bewaking op afstand</p>
         </div>
         <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
-          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">&lt; 1W</div>
-          <p class="text-white/50 text-xs font-ui">Stroomverbruik (deep-sleep)</p>
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Maanden</div>
+          <p class="text-white/50 text-xs font-ui">Zuinig — werkt maandenlang op één batterij</p>
         </div>
         <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
-          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">99</div>
-          <p class="text-white/50 text-xs font-ui">Lighthouse Performance</p>
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Draadloos</div>
+          <p class="text-white/50 text-xs font-ui">Geen kabels nodig</p>
         </div>
         <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
-          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">OTA</div>
-          <p class="text-white/50 text-xs font-ui">Firmware updates op afstand</p>
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Op afstand</div>
+          <p class="text-white/50 text-xs font-ui">Updates op afstand, geen monteur nodig</p>
         </div>
       </div>
 
@@ -163,7 +163,7 @@ const serviceSchema = {
           <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
             <div class="text-2xl font-black text-active/40 font-display mb-2">01</div>
             <p class="text-sm font-bold text-white font-display mb-1">Sensor meet</p>
-            <p class="text-white/50 text-xs font-ui">ESP32 leest data, gaat terug in deep-sleep</p>
+            <p class="text-white/50 text-xs font-ui">De sensor meet de waarde en gaat daarna in slaapstand om stroom te sparen.</p>
           </div>
           <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
             <div class="text-2xl font-black text-active/40 font-display mb-2">02</div>
@@ -188,11 +188,11 @@ const serviceSchema = {
         >
           <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">SmartCoolCare</h3>
           <p class="text-white/60 text-sm font-ui mb-2">
-            24/7 temperatuurbewaking met automatische alarmering — voorkomt schade, minimaliseert
+            Temperatuurbewaking met automatische signalering — voorkomt schade, minimaliseert
             stilstand en geeft continu inzicht.
           </p>
           <p class="text-active text-xs font-bold font-ui">
-            99 Performance • 24/7 monitoring • OTA firmware updates
+            ESP32 + BLE • realtime monitoring • OTA firmware updates
           </p>
         </a>
       </div>

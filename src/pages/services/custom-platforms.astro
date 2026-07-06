@@ -5,59 +5,59 @@ import Icon, { type IconName } from '../../components/ui/Icon.astro';
 
 const features = [
   {
-    icon: 'clipboard-list',
-    title: 'Registration & Ticketing',
-    desc: 'Participants register easily, while the system automatically processes everything — from confirmation to waiting list. No manual work.',
+    icon: 'layout-dashboard',
+    title: 'Everything in one place',
+    desc: 'Users, data, workflows and communication — all managed from one clear system, instead of scattered across disconnected tools.',
   },
   {
-    icon: 'heart',
-    title: 'Secure donations',
-    desc: 'Donations are processed securely and recorded clearly, so you project trustworthiness to your audience.',
+    icon: 'clipboard-list',
+    title: 'Processes automated',
+    desc: 'Recurring steps are handled automatically — from intake to confirmation, follow-up and reporting. No manual work.',
   },
   {
     icon: 'bar-chart-2',
     title: 'Immediate insight',
-    desc: 'You see in real time how many participants and donations are coming in, so you can adjust immediately.',
+    desc: 'You see in real time what is happening in your process, so you can adjust and decide faster.',
   },
   {
     icon: 'mail',
     title: 'Automatic communication',
-    desc: 'Participants and donors are kept informed automatically — confirmations, updates and reminders, without extra effort.',
+    desc: 'Users and stakeholders are kept informed automatically — confirmations, updates and reminders, without extra effort.',
   },
   {
-    icon: 'layout-dashboard',
-    title: 'Everything in one control panel',
-    desc: 'Users, registrations, donations and communication — all managed from one clear screen.',
+    icon: 'trending-up',
+    title: 'Grows with you',
+    desc: 'The system grows with you: more users, more data and more workflows, without rebuilding from scratch.',
   },
   {
     icon: 'git-merge',
-    title: 'From registration to follow-up',
-    desc: 'The entire journey automated: from sign-up to confirmation, follow-up and evaluation.',
+    title: 'Connected to your tools',
+    desc: 'Custom API integrations link the platform to the software you already use, so everything stays in sync.',
   },
 ];
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Custom Platforms & Events',
+  name: 'Custom Platforms',
   description:
-    'Automated registration, donations, campaigns and communication. Your complete event or campaign managed from one central, flawless system.',
+    'Replace disconnected tools and manual work with one system that grows with you — everything in one place for your processes, users and data.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
     url: 'https://www.laventecare.com',
   },
   areaServed: ['NL', 'BE', 'DE', 'International'],
-  serviceType: 'Custom Platform & Event Software Development',
-  serviceOutput: 'Registration systems, live dashboards and custom API integrations',
+  serviceType: 'Custom Platform Software Development',
+  serviceOutput: 'Custom platforms, live dashboards and custom API integrations',
 };
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="Custom Platforms & Large Events | LaventeCare"
-  description="Your event or campaign fully managed from one system. Registration, donations, communication and live insight — automated and scalable."
+  title="Custom Platforms — One System That Grows With You | LaventeCare"
+  description="Replace disconnected tools and manual work with one system that grows with you. Everything in one place for your processes, users and data — automated and reliable."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -66,19 +66,19 @@ const serviceSchema = {
           <Icon name="building-2" size={16} class="text-active" /> Custom Platforms
         </span>
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
-          Platforms that <span class="text-active">perform</span>
+          Everything in <span class="text-active">one place</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
-          Many organisations work with disconnected tools and manual processes, making registrations,
-          donations and communication chaotic. I build platforms that bring everything together in
-          one system — automatic, scalable and reliable.
+          Many organisations work with disconnected tools and manual processes, making their data
+          and workflows fragmented and error-prone. LaventeCare builds platforms that bring
+          everything together in one system — automatic, reliable and growing with you.
         </p>
         <p class="text-base text-active/80 font-ui font-bold mb-6">
-          Your complete event or campaign managed from one platform.
+          One system that grows with you — everything in one place for your processes.
         </p>
         <div class="flex flex-wrap gap-2">
           {
-            ['All in one system:', 'Registration', 'Donations', 'Email', 'Dashboards', 'Management'].map(
+            ['One system:', 'Everything in one place', 'Workflows', 'Integrations', 'Dashboards', 'Management'].map(
               (t) => <TechStackBadge tech={t} />
             )
           }
@@ -117,10 +117,10 @@ const serviceSchema = {
               De Koninklijke Loop
             </h3>
             <p class="text-white/60 text-sm font-ui mb-2">
-              Events platform with registration, ticketing and live data.
+              Platform with real-time registration and live data.
             </p>
             <p class="text-active text-xs font-bold font-ui">
-              100+ participants • 0 manual work for the organisation
+              Real-time registration • 0 manual administration for the organisation
             </p>
           </a>
           <a
@@ -134,7 +134,7 @@ const serviceSchema = {
             <p class="text-white/60 text-sm font-ui mb-2">
               Charity platform with secure donation flows.
             </p>
-            <p class="text-active text-xs font-bold font-ui">€10K+ raised • 0 failed transactions</p>
+            <p class="text-active text-xs font-bold font-ui">Astro • HTML email • secure donation flow</p>
           </a>
         </div>
       </div>
@@ -144,11 +144,11 @@ const serviceSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4 text-center">
       <a href="/contact?type=platform" class="btn-primary">
-        Schedule a conversation
+        Book a free intro call
         <Icon name="arrow-right" size={16} />
       </a>
       <p class="text-white/40 text-sm font-ui mt-3">
-        Schedule a conversation and discover how to save time and regain overview.
+        Book a free intro call and discover how to save time and regain overview.
       </p>
     </div>
   </section>

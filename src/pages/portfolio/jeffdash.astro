@@ -1,6 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import LighthouseScoreBlock from '../../components/blocks/LighthouseScoreBlock.astro';
 import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
@@ -10,13 +9,6 @@ const results = [
   { value: 'Real-time', label: 'Scan analytics' },
   { value: 'HQ Export', label: 'SVG & PNG downloads' },
   { value: 'Branded', label: 'Custom styling' },
-];
-
-const lighthouseScores = [
-  { label: 'Performance', value: 99 },
-  { label: 'Accessibility', value: 100 },
-  { label: 'Best Practices', value: 100 },
-  { label: 'SEO', value: 100 },
 ];
 
 const challenges = [
@@ -80,7 +72,7 @@ const challenges = [
           </a>
         </div>
         <div class="flex flex-wrap gap-2">
-          {['Next.js', 'Convex', 'React 19', 'Go Auth'].map((t) => <TechStackBadge tech={t} />)}
+          {['Next.js', 'Convex', 'React 19', 'Clerk'].map((t) => <TechStackBadge tech={t} />)}
         </div>
       </div>
 
@@ -123,7 +115,7 @@ const challenges = [
       <div class="max-w-4xl mx-auto mb-16">
         <SectionHeader
           label="De oplossing"
-          heading='Dynamisch QR <span class="text-active">ecosysteem</span>'
+          heading='Eén systeem voor <span class="text-active">je QR-codes</span>'
         />
         <div
           data-animate="fade-up"
@@ -143,8 +135,8 @@ const challenges = [
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
               Elke scan wordt geregistreerd via Convex met tijdstip, apparaattype en herkomst.
-              Gebruikers zien live dashboards met scan-trends, geografische spreiding en
-              campagne-performance.
+              Gebruikers zien live dashboards met scan-trends, waar de scans vandaan komen en hoe
+              goed elke campagne loopt.
             </p>
           </div>
           <div>
@@ -156,16 +148,6 @@ const challenges = [
             </p>
           </div>
         </div>
-      </div>
-
-      <!-- Lighthouse Scores -->
-      <div class="max-w-4xl mx-auto mb-16">
-        <LighthouseScoreBlock
-          projectName="JeffDash"
-          scores={lighthouseScores}
-          context="Met een geoptimaliseerde Next.js build en minimale client-side JavaScript behaal ik een 99 op Performance. De combinatie van server-side rendering en edge-caching resulteert in razendsnelle laadtijden."
-          liveUrl="https://www.jeffdash.com/"
-        />
       </div>
     </div>
   </section>

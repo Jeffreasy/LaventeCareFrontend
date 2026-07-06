@@ -6,9 +6,17 @@ import Icon from '../../components/ui/Icon.astro';
 
 const pillars = [
   {
-    title: 'AI & Prompt Engineering',
+    title: 'IT Advies & Consultancy',
     description:
-      'AI die repetitief werk overneemt en uw data benut voor betere en snellere beslissingen — betrouwbaar, schaalbaar en meetbaar in uw dagelijkse processen.',
+      'Onafhankelijk sparringpartner en second opinion, zonder bouwverplichting. Nuchter advies over software, architectuur en digitale keuzes — het eerste gesprek is gratis.',
+    icon: 'handshake',
+    tags: ['Onafhankelijk advies', 'Second opinion', 'Sparringpartner'],
+    href: '/diensten/consultancy',
+  },
+  {
+    title: 'AI & Automatisering',
+    description:
+      'AI die repetitief werk overneemt en uw data benut voor snellere beslissingen — betrouwbaar, meetbaar en waarbij een mens meebeslist op de belangrijke momenten.',
     icon: 'brain-circuit',
     tags: ['AI-automatisering', 'Digitale medewerkers', 'Bedrijfsdata'],
     href: '/diensten/ai-prompt-engineering',
@@ -17,33 +25,33 @@ const pillars = [
   {
     title: 'Slimme Monitoring & Sensoren',
     description:
-      'Realtime monitoring die storingen vroegtijdig detecteert en schade of kostbare stilstand voorkomt. Van sensor tot dashboard, op afstand en zonder onderhoud.',
+      'Van sensor tot dashboard: problemen vroegtijdig signaleren en kostbare stilstand voorkomen. Realtime monitoring, op afstand en zonder onderhoud.',
     icon: 'radio',
     tags: ['Realtime monitoring', 'Automatische alarmering', 'Op afstand'],
     href: '/diensten/iot-hardware',
   },
   {
-    title: 'Maatwerk Platformen & Events',
+    title: 'Maatwerk Platformen',
     description:
-      'Registratie, ticketing en donaties — volledig geautomatiseerd en ontworpen om foutloos te draaien. Uw volledige evenement of actie beheerd vanuit één centraal systeem.',
+      'Losse tools en handwerk vervangen door één systeem dat met u meegroeit — alle gegevens op één plek, altijd actueel, waar registratie, data en communicatie samenkomen.',
     icon: 'building-2',
-    tags: ['Registratie', 'Donaties', 'Dashboards', 'Schaalbaar'],
+    tags: ['Alles op één plek', 'Workflows', 'Dashboards', 'Groeit met u mee'],
     href: '/diensten/maatwerk-platformen',
   },
   {
-    title: 'Lead Generation & Matchmaking',
+    title: 'Klanten werven',
     description:
-      'Meer aanvragen uit uw website, zonder extra marketingkosten. Bezoekers worden automatisch gestuurd richting een offerte of aanvraag, zodat ze sneller converteren.',
+      'Uw website wordt een systeem dat bezoekers omzet in concrete aanvragen. Automatisch, meetbaar en zonder extra marketingkosten.',
     icon: 'target',
-    tags: ['Offertetrajecten', 'Lead-management', 'SEO'],
+    tags: ['Offertetrajecten', 'Aanvragen opvolgen', 'SEO'],
     href: '/diensten/lead-generation',
   },
   {
     title: 'Beveiliging & Authenticatie',
     description:
-      "Uw klantdata is structureel beschermd en gescheiden, zodat risico's worden geminimaliseerd en uw data veilig blijft — ook bij fouten of aanvallen.",
+      "Uw klantdata is structureel beschermd en gescheiden op databaseniveau, zodat risico's worden geminimaliseerd en data veilig blijft — ook bij fouten of aanvallen.",
     icon: 'shield-check',
-    tags: ['Data-isolatie', 'Authenticatie', 'AVG-compliance'],
+    tags: ['Gescheiden klantdata', 'Toegang per rol', 'Alles traceerbaar'],
     href: '/diensten/security',
     featured: true,
   },
@@ -51,15 +59,15 @@ const pillars = [
 ---
 
 <Layout
-  title="Diensten — Maatwerkplatformen, AI, IoT & Security | LaventeCare"
-  description="Van AI-automatisering tot ingebouwde beveiliging — complete systemen die schalen, beveiligen en automatiseren. Vijf geïntegreerde diensten, één engineer."
+  title="Diensten — Consultancy, AI, IoT, Platformen & Security | LaventeCare"
+  description="Van advies tot werkend systeem: consultancy, AI-automatisering, bewaking, maatwerkplatformen, klanten werven en beveiliging. Een vaste partner die software en systemen bouwt voor het mkb."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <SectionHeader
-        label="Platformdiensten"
-        heading='Vijf pijlers, één <span class="text-active">compleet ecosysteem</span>'
-        description="Geen losse projecten, maar een geïntegreerd systeem: elke pijler versterkt de andere. Van AI-automatisering tot databescherming — alles draait op dezelfde robuuste kern."
+        label="Diensten"
+        heading='Van idee tot <span class="text-active">werkend systeem</span>'
+        description="Geen losse projecten, maar een vaste partner die uw manier van werken omzet in software die het werk uit handen neemt. Zes diensten die op elkaar aansluiten — van eerste advies tot beheer en doorontwikkeling."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
@@ -76,7 +84,7 @@ const pillars = [
       <div class="max-w-4xl mx-auto">
         <SectionHeader
           label="Doelgroepen"
-          heading='Bedrijven waar stilstand, fouten of inefficiëntie direct <span class="text-active">geld kosten</span>'
+          heading='Voor mkb-organisaties waar terugkerende processen tijd, fouten of omzet <span class="text-active">raken</span>'
         />
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -84,32 +92,33 @@ const pillars = [
             data-animate="fade-up"
             class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center"
           >
-            <Icon name="factory" size={24} class="text-active block mb-3 mx-auto" />
-            <h3 class="text-sm font-bold text-white mb-2 font-display">Industrie & Installaties</h3>
+            <Icon name="building" size={24} class="text-active block mb-3 mx-auto" />
+            <h3 class="text-sm font-bold text-white mb-2 font-display">MKB-organisaties</h3>
             <p class="text-white/50 text-xs font-ui">
-              Waar stilstand direct geld kost. Realtime monitoring en preventief onderhoud.
+              Bedrijven die digitale groei, automatisering en maatwerksoftware goed en betrouwbaar
+              geregeld willen hebben.
             </p>
           </div>
           <div
             data-animate="fade-up"
             class="delay-100 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center"
           >
-            <Icon name="building" size={24} class="text-active block mb-3 mx-auto" />
-            <h3 class="text-sm font-bold text-white mb-2 font-display">
-              MKB (Bouw, Groen, Automotive)
-            </h3>
+            <Icon name="handshake" size={24} class="text-active block mb-3 mx-auto" />
+            <h3 class="text-sm font-bold text-white mb-2 font-display">Dienstverleners</h3>
             <p class="text-white/50 text-xs font-ui">
-              Meer aanvragen, betere vindbaarheid en veilige klantportalen.
+              Meer aanvragen, betere vindbaarheid en veilige klantportalen — zonder extra
+              marketingkosten.
             </p>
           </div>
           <div
             data-animate="fade-up"
             class="delay-200 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center"
           >
-            <Icon name="heart" size={24} class="text-active block mb-3 mx-auto" />
-            <h3 class="text-sm font-bold text-white mb-2 font-display">Non-Profits & Events</h3>
+            <Icon name="refresh-cw" size={24} class="text-active block mb-3 mx-auto" />
+            <h3 class="text-sm font-bold text-white mb-2 font-display">Operationele teams</h3>
             <p class="text-white/50 text-xs font-ui">
-              Minder chaos, meer overzicht. Geautomatiseerde registratie en donaties.
+              Teams met terugkerende processen die van handmatig werk naar één systeem willen dat
+              met hen meegroeit.
             </p>
           </div>
         </div>

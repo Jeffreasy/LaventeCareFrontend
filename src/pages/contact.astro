@@ -7,7 +7,7 @@ import Icon from '../components/ui/Icon.astro';
 const pageTitle = 'Contact & Gratis Intake — LaventeCare';
 const initialType = Astro.url.searchParams.get('type');
 const pageDescription =
-  'Neem contact op voor een gratis intake gesprek van 30 minuten. Bespreek uw project, scope en technische haalbaarheid. Reactie binnen 24 uur.';
+  'Neem contact op voor een gratis intake gesprek van 30 minuten. Bespreek wat u wilt bouwen, of het technisch kan en wat het ongeveer kost. Reactie binnen 24 uur.';
 
 const contactSchema = {
   '@context': 'https://schema.org',
@@ -19,10 +19,12 @@ const contactSchema = {
     '@type': 'Organization',
     name: 'LaventeCare',
     email: 'jeffrey@laventecare.nl',
+    telephone: '+31639034085',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
       email: 'jeffrey@laventecare.nl',
+      telephone: '+31639034085',
       availableLanguage: ['Dutch', 'English'],
       areaServed: 'NL',
     },
@@ -48,7 +50,7 @@ const contactSchema = {
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui">
           Begin met een <span class="text-white font-semibold">gratis intake gesprek</span> van 30 minuten.
-          Ik bespreek met u de scope, technische haalbaarheid en budgetindicatie.
+          Ik bespreek met u wat u wilt bouwen, of het technisch kan, en wat het ongeveer kost.
         </p>
       </div>
 
@@ -68,7 +70,7 @@ const contactSchema = {
         Andere manieren om <span class="text-active">contact</span> op te nemen
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
         <Card hover padding="md" class="text-center">
           <Icon name="mail" size={24} class="text-active block mb-3 mx-auto" />
           <h3 class="font-semibold text-white mb-2 text-sm font-display">Email</h3>
@@ -76,6 +78,16 @@ const contactSchema = {
             href="mailto:jeffrey@laventecare.nl"
             class="text-active hover:text-primary-hover transition-colors text-sm font-medium font-ui"
             >jeffrey@laventecare.nl</a
+          >
+        </Card>
+
+        <Card hover padding="md" class="text-center">
+          <Icon name="phone" size={24} class="text-active block mb-3 mx-auto" />
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">Telefoon</h3>
+          <a
+            href="tel:+31639034085"
+            class="text-active hover:text-primary-hover transition-colors text-sm font-medium font-ui"
+            >+31 6 39 03 40 85</a
           >
         </Card>
 
@@ -122,7 +134,7 @@ const contactSchema = {
             <p class="text-white/60 text-xs font-ui">Vrijblijvend intake gesprek</p>
           </div>
           <div>
-            <span class="text-active text-2xl font-black font-display block mb-1">Go/No-Go</span>
+            <span class="text-active text-2xl font-black font-display block mb-1">Ja of nee</span>
             <p class="text-white/60 text-xs font-ui">Eerlijk advies over haalbaarheid</p>
           </div>
           <div>

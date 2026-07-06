@@ -5,18 +5,18 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const results = [
-  { value: 'Multi-tenant', label: 'Architectuur' },
-  { value: 'Real-time', label: 'Data synchronisatie' },
-  { value: 'RDW', label: 'Kenteken API integratie' },
-  { value: 'RBAC', label: 'Rolgebaseerde toegang' },
+  { value: 'Gescheiden', label: 'Gegevens per garage' },
+  { value: 'Real-time', label: 'Alles direct bijgewerkt' },
+  { value: 'RDW', label: 'Kenteken automatisch opgehaald' },
+  { value: 'Per rol', label: 'Iedereen ziet alleen wat hij mag' },
 ];
 
 const phases = [
   {
     num: '01',
-    title: 'Discovery & Architectuur',
+    title: 'Onderzoek & ontwerp (Discovery)',
     status: 'done' as const,
-    desc: 'Multi-tenant schema, RBAC-model en RDW-integratie ontworpen.',
+    desc: 'Gescheiden gegevens per garage, rechten per rol en RDW-koppeling ontworpen.',
   },
   {
     num: '02',
@@ -34,14 +34,14 @@ const phases = [
     num: '04',
     title: 'Onderhoud & Doorontwikkeling',
     status: 'active' as const,
-    desc: 'Dagelijks gebruik, feedback-loops en iteratieve verbeteringen.',
+    desc: 'Dagelijks gebruik, feedback verwerken en stap voor stap verbeteren.',
   },
 ];
 
 const challenges = [
   {
-    title: 'Multi-tenant isolatie',
-    desc: 'Meerdere garages op één platform, maar data moet strikt geïsoleerd blijven tussen tenants. Elke garage ziet uitsluitend zijn eigen klanten en voertuigen.',
+    title: 'Gegevens strikt gescheiden',
+    desc: 'Meerdere garages op één platform, maar hun gegevens moeten strikt gescheiden blijven. Elke garage ziet uitsluitend zijn eigen klanten en voertuigen.',
   },
   {
     title: 'Real-time werkplaatsbeheer',
@@ -53,14 +53,14 @@ const challenges = [
   },
   {
     title: 'Complexe rolhiërarchie',
-    desc: 'Eigenaar, manager, monteur en receptionist hebben elk andere rechten. Het systeem moet IDOR-attacks voorkomen op elk niveau.',
+    desc: 'Eigenaar, manager, monteur en receptionist hebben elk andere rechten. Het systeem moet op elk niveau voorkomen dat iemand gegevens ziet waar hij geen recht op heeft.',
   },
 ];
 ---
 
 <Layout
   title="Case Study: Dustin Auto Garage — LaventeCare"
-  description="Hoe LaventeCare een volledig werkplaats-managementsysteem bouwde met Kanban-bord, CRM, RDW-integratie en multi-tenant architectuur."
+  description="Hoe LaventeCare een volledig werkplaats-managementsysteem bouwde met Kanban-bord, CRM, RDW-koppeling en gegevens die per garage strikt gescheiden blijven."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -76,7 +76,8 @@ const challenges = [
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
           Een volledig werkplaats-managementsysteem met Kanban-bord, CRM, voertuigbeheer,
-          RDW-integratie en facturatie. Gebouwd voor multi-tenant schaalbaarheid.
+          RDW-integratie en facturatie. Gebouwd om mee te groeien, met de gegevens van elke garage
+          strikt gescheiden.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
           <span
@@ -97,7 +98,7 @@ const challenges = [
         </div>
         <div class="flex flex-wrap gap-2">
           {
-            ['Astro', 'React 19', 'Convex', 'Go Auth', 'RDW API'].map((t) => (
+            ['Astro', 'React 18.3.1', 'Convex', 'Go Auth', 'RDW-proxy', 'Grok Vision OCR'].map((t) => (
               <TechStackBadge tech={t} />
             ))
           }
@@ -167,12 +168,13 @@ const challenges = [
           </div>
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              Split-Role Security Model
+              Iedereen ziet alleen wat hij mag zien
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Vier rollen (eigenaar, manager, monteur, receptionist) met hiërarchische RBAC. Elke
-              API-call wordt server-side gevalideerd op rolniveau. Cross-tenant isolatie is
-              ontworpen om te voorkomen dat data van andere garages ingezien kan worden.
+              Elke medewerker (eigenaar, manager, monteur, receptionist) heeft eigen rechten. Het
+              systeem controleert bij elke actie of iemand het wel mag doen. En garages kunnen nooit
+              bij elkaars gegevens. Onder de motorkap: rolgebaseerde toegang (RBAC) met validatie op
+              de server.
             </p>
           </div>
         </div>
@@ -245,10 +247,10 @@ const challenges = [
           <blockquote
             class="text-base md:text-lg text-white/80 leading-relaxed font-ui pl-4 md:pl-8 border-l-2 border-active/40 mb-6"
           >
-            Dit project demonstreert het ideale LaventeCare-traject: van eerste architectuurschets
-            tot dagelijks gebruik in de werkplaats. De eigenaar gebruikt het systeem actief, ik
-            onderhoud het platform en pas aan waar nodig. <span class="text-active font-semibold"
-              >Geen eenmalige oplevering, maar een doorlopend partnerschap.</span
+            Dit project laat het ideale LaventeCare-traject zien: van eerste ontwerp tot dagelijks
+            gebruik in de werkplaats. De eigenaar gebruikt het systeem actief, ik onderhoud het
+            platform en pas aan waar nodig. <span class="text-active font-semibold"
+              >Geen eenmalige oplevering, maar een vaste, langdurige samenwerking.</span
             >
           </blockquote>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -259,13 +261,13 @@ const challenges = [
             </div>
             <div class="text-center">
               <Icon name="trending-up" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-sm font-bold text-white font-display">Iteratieve Groei</p>
-              <p class="text-white/50 text-xs font-ui">Features op basis van gebruik</p>
+              <p class="text-sm font-bold text-white font-display">Groei stap voor stap</p>
+              <p class="text-white/50 text-xs font-ui">Nieuwe functies op basis van gebruik</p>
             </div>
             <div class="text-center">
               <Icon name="gauge" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-sm font-bold text-white font-display">Monitoring</p>
-              <p class="text-white/50 text-xs font-ui">Sentry & performance tracking</p>
+              <p class="text-sm font-bold text-white font-display">Live bewaking</p>
+              <p class="text-white/50 text-xs font-ui">Foutmeldingen & snelheid in de gaten</p>
             </div>
           </div>
         </div>

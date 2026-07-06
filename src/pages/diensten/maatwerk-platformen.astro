@@ -6,57 +6,57 @@ import Icon, { type IconName } from '../../components/ui/Icon.astro';
 const features = [
   {
     icon: 'clipboard-list',
-    title: 'Registratie & Ticketing',
-    desc: 'Deelnemers melden zich eenvoudig aan, terwijl het systeem automatisch alles verwerkt — van bevestiging tot wachtlijst. Geen handmatig werk.',
+    title: 'Registratie & aanmeldingen',
+    desc: 'Gebruikers en klanten melden zich eenvoudig aan, terwijl het systeem automatisch alles verwerkt — van bevestiging tot opvolging. Geen handmatig werk.',
   },
   {
-    icon: 'heart',
-    title: 'Veilige donaties',
-    desc: 'Donaties worden veilig verwerkt en overzichtelijk geregistreerd, zodat u vertrouwen uitstraalt naar uw doelgroep.',
+    icon: 'database',
+    title: 'Alles op één plek',
+    desc: 'Losse tools, spreadsheets en handwerk vervangen door één centraal systeem, zodat iedereen met dezelfde actuele gegevens werkt.',
   },
   {
     icon: 'bar-chart-2',
     title: 'Direct inzicht',
-    desc: 'U ziet realtime hoeveel deelnemers en donaties binnenkomen, zodat u direct kunt bijsturen.',
+    desc: 'U ziet realtime wat er binnenkomt en wat er speelt, zodat u direct kunt bijsturen op basis van actuele data.',
   },
   {
     icon: 'mail',
     title: 'Automatische communicatie',
-    desc: 'Deelnemers en donateurs worden automatisch op de hoogte gehouden — bevestigingen, updates en herinneringen, zonder extra werk.',
+    desc: 'Klanten en gebruikers worden automatisch op de hoogte gehouden — bevestigingen, updates en herinneringen, zonder extra werk.',
   },
   {
     icon: 'layout-dashboard',
     title: 'Alles in één beheerpaneel',
-    desc: 'Gebruikers, inschrijvingen, donaties en communicatie — alles beheerd vanuit één overzichtelijk scherm.',
+    desc: 'Gebruikers, aanvragen, data en communicatie — alles beheerd vanuit één overzichtelijk scherm.',
   },
   {
     icon: 'git-merge',
-    title: 'Van aanmelding tot opvolging',
-    desc: 'Het volledige traject geautomatiseerd: van inschrijving tot bevestiging, opvolging en evaluatie.',
+    title: 'Van aanvraag tot opvolging',
+    desc: 'Het volledige proces geautomatiseerd: van eerste actie tot bevestiging, opvolging en evaluatie.',
   },
 ];
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Maatwerk Platformen & Events',
+  name: 'Maatwerk Platformen',
   description:
-    'Geautomatiseerde registratie, donaties, acties en communicatie. Uw volledige evenement of actie beheerd vanuit één centraal, foutloos systeem.',
+    'Losse tools en handwerk vervangen door één systeem dat met u meegroeit: alle gegevens op één plek, altijd actueel, waar registratie, data en communicatie samenkomen.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
     url: 'https://www.laventecare.nl',
   },
   areaServed: 'NL',
-  serviceType: 'Custom Platform & Event Software Development',
-  serviceOutput: 'Registratiesystemen, live dashboards en API-integraties op maat',
+  serviceType: 'Custom Platform Software Development',
+  serviceOutput: 'Maatwerkplatformen, live dashboards en API-integraties op maat',
 };
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="Maatwerk Platformen & Grote Evenementen | LaventeCare"
-  description="Uw evenement of actie volledig beheerd vanuit één systeem. Registratie, donaties, communicatie en live inzicht — automatisch en schaalbaar."
+  title="Maatwerk Platformen — Alles op één plek | LaventeCare"
+  description="Losse tools en handwerk vervangen door één systeem dat met u meegroeit: alle gegevens op één plek, altijd actueel, waar registratie, data en communicatie samenkomen. Automatisch geregeld."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -68,22 +68,22 @@ const serviceSchema = {
         <h1
           class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight"
         >
-          Platformen die <span class="text-active">presteren</span>
+          Alles op één plek, <span class="text-active">automatisch geregeld</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
-          Veel organisaties werken met losse tools en handmatige processen, waardoor inschrijvingen,
-          donaties en communicatie onoverzichtelijk worden. Ik bouw platformen die alles
-          samenbrengen in één systeem — automatisch, schaalbaar en betrouwbaar.
+          Veel organisaties werken met losse tools en handmatige processen, waardoor gegevens,
+          aanvragen en communicatie onoverzichtelijk worden. Wij bouwen platformen die alles
+          samenbrengen in één systeem — automatisch, betrouwbaar en dat met u meegroeit.
         </p>
         <p class="text-base text-active/80 font-ui font-bold mb-6">
-          Uw volledige evenement of actie beheerd vanuit één platform.
+          Losse tools en handwerk vervangen door één systeem dat met u meegroeit.
         </p>
         <div class="flex flex-wrap gap-2">
           {
             [
-              'Alles in één systeem:',
+              'Eén centraal systeem',
               'Registratie',
-              'Donaties',
+              'Workflows',
               'E-mail',
               'Dashboards',
               'Beheer',
@@ -129,7 +129,7 @@ const serviceSchema = {
               Evenementenplatform met registratie, ticketing en live data.
             </p>
             <p class="text-active text-xs font-bold font-ui">
-              100+ deelnemers • 0 handmatig werk voor de organisatie
+              Real-time registratie • 0 handmatig beheer voor de organisatie
             </p>
           </a>
           <a
@@ -146,7 +146,7 @@ const serviceSchema = {
               Liefdadigheidsplatform met veilige donatiestromen.
             </p>
             <p class="text-active text-xs font-bold font-ui">
-              €10K+ opgehaald • 0 mislukte transacties
+              Veilige donatieverwerking • overzichtelijke registratie
             </p>
           </a>
         </div>

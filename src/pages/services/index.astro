@@ -6,9 +6,17 @@ import Icon from '../../components/ui/Icon.astro';
 
 const pillars = [
   {
-    title: 'AI & Prompt Engineering',
+    title: 'IT Advice & Consultancy',
     description:
-      'AI that takes over repetitive work and uses your data for better and faster decisions — reliable, scalable and measurable in your daily processes.',
+      'An independent sparring partner and second opinion, without any obligation to build. Sober advice on architecture, tooling and choices — €95/hr, first conversation free.',
+    icon: 'handshake',
+    tags: ['Second opinion', 'Architecture', 'No build obligation'],
+    href: '/services/consultancy',
+  },
+  {
+    title: 'AI & Automation',
+    description:
+      'AI that takes over repetitive work and uses your data for better and faster decisions — reliable, measurable and with a person deciding at the important moments, integrated into your daily processes.',
     icon: 'brain-circuit',
     tags: ['AI Automation', 'Digital Employees', 'Business Data'],
     href: '/services/ai-prompt-engineering',
@@ -23,17 +31,17 @@ const pillars = [
     href: '/services/iot-hardware',
   },
   {
-    title: 'Custom Platforms & Events',
+    title: 'Custom Platforms',
     description:
-      'Registration, ticketing and donations — fully automated and designed to run flawlessly. Your complete event or campaign managed from one central system.',
+      'Replace disconnected tools and manual work with one system that grows with you — everything in one place for your processes, users and data.',
     icon: 'building-2',
-    tags: ['Registration', 'Donations', 'Dashboards', 'Scalable'],
+    tags: ['Everything in one place', 'Dashboards', 'Grows with you'],
     href: '/services/custom-platforms',
   },
   {
-    title: 'Lead Generation & Matchmaking',
+    title: 'Lead Generation',
     description:
-      'More enquiries from your website, without extra marketing costs. Visitors are automatically directed toward a quote or enquiry, so they convert faster.',
+      'Turn your website into a system that converts visitors into concrete enquiries — automatically and measurably, without extra marketing costs.',
     icon: 'target',
     tags: ['Quote Flows', 'Lead Management', 'SEO'],
     href: '/services/lead-generation',
@@ -41,9 +49,9 @@ const pillars = [
   {
     title: 'Security & Authentication',
     description:
-      "Your customer data is structurally protected and separated, minimising risks and keeping your data safe — even in the event of errors or attacks.",
+      "Your clients' data is kept strictly separate and protected: everyone sees only what they are allowed to, and every action is recorded. Security built in from the start (PostgreSQL RLS, role-based access, audit trails) — even if something goes wrong.",
     icon: 'shield-check',
-    tags: ['Data Isolation', 'Authentication', 'GDPR Compliance'],
+    tags: ['Separated client data', 'Access per role', 'GDPR Compliance'],
     href: '/services/security',
     featured: true,
   },
@@ -51,15 +59,15 @@ const pillars = [
 ---
 
 <Layout
-  title="Services — Custom Platforms, AI, IoT & Security | LaventeCare"
-  description="From AI automation to built-in security — complete systems that scale, secure and automate. Five integrated services, one engineer."
+  title="Services — Consultancy, AI, IoT, Platforms & Security | LaventeCare"
+  description="From independent IT advice to AI automation and built-in security — a long-term partner that turns the way you work into software that does the work for you. Six integrated services."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <SectionHeader
-        label="Platform Services"
-        heading='Five pillars, one <span class="text-active">complete ecosystem</span>'
-        description="Not separate projects, but an integrated system: each pillar strengthens the other. From AI automation to data protection — everything runs on the same robust core."
+        label="Services"
+        heading='Six services, one <span class="text-active">partner that builds it</span>'
+        description="Not separate projects, but a long-term partner that turns the way you work into software that does the work for you. From independent advice to AI automation and data protection — from idea to working system."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
@@ -84,32 +92,33 @@ const pillars = [
             data-animate="fade-up"
             class="clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center"
           >
-            <Icon name="factory" size={24} class="text-active block mb-3 mx-auto" />
-            <h3 class="text-sm font-bold text-white mb-2 font-display">Industry & Installations</h3>
+            <Icon name="building" size={24} class="text-active block mb-3 mx-auto" />
+            <h3 class="text-sm font-bold text-white mb-2 font-display">SMEs</h3>
             <p class="text-white/50 text-xs font-ui">
-              Where downtime directly costs money. Real-time monitoring and preventive maintenance.
+              Growing businesses that want to get digital growth, automation and custom software
+              done right.
             </p>
           </div>
           <div
             data-animate="fade-up"
             class="delay-100 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center"
           >
-            <Icon name="building" size={24} class="text-active block mb-3 mx-auto" />
-            <h3 class="text-sm font-bold text-white mb-2 font-display">
-              SME (Construction, Green, Automotive)
-            </h3>
+            <Icon name="handshake" size={24} class="text-active block mb-3 mx-auto" />
+            <h3 class="text-sm font-bold text-white mb-2 font-display">Service providers</h3>
             <p class="text-white/50 text-xs font-ui">
-              More enquiries, better visibility and secure client portals.
+              More enquiries, better visibility and secure client portals — a website that works as
+              a system.
             </p>
           </div>
           <div
             data-animate="fade-up"
             class="delay-200 clinical-glass p-6 rounded-(--radius-card) border border-white/8 text-center"
           >
-            <Icon name="heart" size={24} class="text-active block mb-3 mx-auto" />
-            <h3 class="text-sm font-bold text-white mb-2 font-display">Non-Profits & Events</h3>
+            <Icon name="cog" size={24} class="text-active block mb-3 mx-auto" />
+            <h3 class="text-sm font-bold text-white mb-2 font-display">Operational teams</h3>
             <p class="text-white/50 text-xs font-ui">
-              Less chaos, more overview. Automated registration and donations.
+              Teams with recurring processes that want to move from manual work to a scalable
+              digital system.
             </p>
           </div>
         </div>
@@ -127,12 +136,12 @@ const pillars = [
           Ready to get started?
         </h2>
         <p class="text-white/70 mb-6 max-w-xl mx-auto font-ui">
-          Schedule an intake and discover where you can immediately save time, costs or risk.
+          Book a free intro call and discover where you can immediately save time, costs or risk.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/how-we-work" class="btn-secondary">View how we work</a>
           <a href="/contact" class="btn-primary">
-            Schedule an intake
+            Book a free intro call
             <Icon name="arrow-right" size={16} />
           </a>
         </div>

@@ -5,10 +5,10 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const results = [
-  { value: '100+', label: 'Real-time registraties verwerkt' },
+  { value: 'Real-time', label: 'Registratie & live tellers' },
   { value: '0', label: 'Handmatig werk voor organisatie' },
-  { value: '93 avg', label: 'Lighthouse Score' },
-  { value: '0', label: 'Downtime tijdens event' },
+  { value: 'Veilig', label: 'Betalingen apart afgehandeld' },
+  { value: 'Snel', label: 'Laadt vlot, ook op mobiel' },
 ];
 
 const challenges = [
@@ -25,8 +25,8 @@ const challenges = [
     desc: 'Donaties en deelnamegelden moesten betrouwbaar en traceerbaar verwerkt worden, met automatische bevestigingsmails.',
   },
   {
-    title: 'Schaalbaarheid onder piekbelasting',
-    desc: 'Inschrijfpieken rond promotieacties vereisten een architectuur die niet bezwijkt onder 100+ gelijktijdige registraties.',
+    title: 'Blijft werken bij grote drukte',
+    desc: 'Rond promotieacties schrijven veel mensen zich tegelijk in. Het systeem moet dat aankunnen zonder vast te lopen.',
   },
 ];
 ---
@@ -50,7 +50,7 @@ const challenges = [
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
           Een compleet evenementenplatform voor een liefdadigheidswandeltocht. Van registratie en
-          ticketing tot donaties en real-time data — 100+ deelnemers verwerkt zonder één handmatige actie.
+          ticketing tot donaties en real-time data — deelnemers worden verwerkt zonder één handmatige actie.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
           <span
@@ -125,33 +125,35 @@ const challenges = [
           class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 space-y-6"
         >
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Dual Backend Pattern</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Snelle schermen, veilige betalingen</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              De applicatie combineert twee backends: Convex voor de real-time reactieve database
-              (registraties, live counters) en een Go-gebaseerde backend voor alle security-kritieke
-              operaties (authenticatie, e-mailverificatie, CSRF-bescherming). Dit scheidt snelle
-              UI-updates van zware transacties.
+              De schermen die live moeten bijwerken (registraties, tellers) draaien op een supersnel
+              systeem. Alles wat met inloggen en geld te maken heeft, loopt apart over een extra
+              beveiligd systeem. Zo blijft het scherm snel én blijven betalingen veilig. Onder de
+              motorkap: Convex voor de live database en een aparte Go-backend voor inloggen,
+              e-mailverificatie en beveiliging (CSRF).
             </p>
           </div>
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              Islands Architecture (Astro)
+              Laadt snel, ook op mobiel
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Statische HTML voor 95% van de pagina. Alleen de registratieformulieren en het
-              admin-dashboard worden als React Islands hydriert. Resultaat: consistent 90+
-              Lighthouse scores over alle categorieën met minimale JavaScript payload.
+              Alleen de formulieren en het beheerscherm zijn interactief; de rest van de pagina is
+              kant-en-klaar. Daardoor laadt de pagina razendsnel, ook op een telefoon met een matige
+              verbinding. Onder de motorkap: Astro Islands, waarbij alleen de nodige onderdelen
+              worden geactiveerd.
             </p>
           </div>
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              Geautomatiseerde E-mailpipeline
+              Automatische e-mails
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Dual-dispatch e-mails bij elke registratie: de deelnemer ontvangt een bevestiging met
-              alle details, het organisatieteam ontvangt een admin-notificatie met samenvattende
-              data. Alles via server-side HTML Email Templates voor pixel-perfect rendering in alle
-              e-mailclients.
+              Bij elke registratie gaan er automatisch twee e-mails uit: de deelnemer krijgt een
+              bevestiging met alle details, het organisatieteam krijgt een melding met een
+              samenvatting. De e-mails zien er altijd goed uit, in elk e-mailprogramma (van Gmail
+              tot Outlook).
             </p>
           </div>
         </div>

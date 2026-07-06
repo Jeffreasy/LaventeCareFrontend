@@ -11,9 +11,9 @@ export const nl = {
     domain: 'https://www.laventecare.nl',
     locale: 'nl_NL',
     htmlLang: 'nl',
-    metaTitle: 'LaventeCare — AI Prompt Engineering, Web & IoT Solutions',
+    metaTitle: 'Software en systemen voor het mkb — van idee tot werkend systeem',
     metaDescription:
-      'LaventeCare combineert AI prompt engineering met full-stack development en IoT-expertise. Custom AI-oplossingen, snelle webapplicaties en embedded systems. Dronten, Nederland.',
+      'LaventeCare bouwt software en systemen die bedrijven efficiënter maken, fouten voorkomen en groei versnellen: AI, IoT, maatwerkplatformen, klanten werven en beveiliging vanaf de basis.',
     copyright: '© 2026 LaventeCare — Jeffrey Lavente | KVK 88162710 | Dronten',
     skipLink: 'Naar inhoud',
   },
@@ -33,18 +33,19 @@ export const nl = {
 
   // --- Services submenu ---
   services: {
-    ai: 'AI & Prompt Engineering',
+    consultancy: 'IT Advies & Consultancy',
+    ai: 'AI & Automatisering',
     iot: 'IoT & Hardware',
     platforms: 'Maatwerk Platformen',
-    leads: 'Lead Generation',
-    security: 'Security & Auth',
+    leads: 'Klanten werven',
+    security: 'Beveiliging & Toegang',
   },
 
   // --- Footer ---
   footer: {
     services: 'Diensten',
     company: 'Bedrijf',
-    resources: 'Resources',
+    resources: 'Meer',
     aboutJeffrey: 'Over Jeffrey',
     termsLabel: 'Algemene Voorwaarden',
   },
@@ -59,11 +60,12 @@ export const nl = {
     prijzen: 'Prijzen',
     contact: 'Contact',
     voorwaarden: 'Algemene Voorwaarden',
-    'ai-prompt-engineering': 'AI & Prompt Engineering',
+    consultancy: 'IT Advies & Consultancy',
+    'ai-prompt-engineering': 'AI & Automatisering',
     'iot-hardware': 'IoT & Hardware',
     'maatwerk-platformen': 'Maatwerk Platformen',
-    'lead-generation': 'Lead Generation',
-    security: 'Security & Auth',
+    'lead-generation': 'Klanten werven',
+    security: 'Beveiliging & Toegang',
     'cf-bouw': 'C&F Bouw',
     'de-koninklijke-loop': 'De Koninklijke Loop',
     'dustin-auto-garage': 'Dustin Auto Garage',

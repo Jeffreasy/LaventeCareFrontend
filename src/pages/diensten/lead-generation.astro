@@ -22,7 +22,7 @@ const features = [
   {
     icon: 'search',
     title: 'Gevonden worden in Google',
-    desc: 'Branche-specifieke zoektermen en technische optimalisatie zodat klanten u vinden vóórdat ze uw concurrent vinden.',
+    desc: 'Relevante zoektermen en technische optimalisatie zodat klanten u vinden vóórdat ze uw concurrent vinden.',
   },
   {
     icon: 'trending-up',
@@ -32,15 +32,15 @@ const features = [
   {
     icon: 'zap',
     title: 'Directe opvolging',
-    desc: 'Elke aanvraag wordt automatisch bevestigd en direct bij u gemeld, zodat u snel kunt reageren en geen leads verliest.',
+    desc: 'Elke aanvraag wordt automatisch bevestigd en direct bij u gemeld, zodat u snel kunt reageren en geen aanvragen verliest.',
   },
 ];
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Lead Generation & Automatisering',
+  name: 'Lead Generation',
   description:
-    'Meer aanvragen uit uw website zonder extra marketingkosten. Stapsgewijze offertetrajecten en automatisch bezoekers omzetten naar klanten.',
+    'Uw website wordt een systeem dat bezoekers omzet in concrete aanvragen. Stapsgewijze offertetrajecten en automatische opvolging, zonder extra marketingkosten.',
   provider: {
     '@type': 'ProfessionalService',
     name: 'LaventeCare',
@@ -49,22 +49,22 @@ const serviceSchema = {
   areaServed: 'NL',
   serviceType: 'Lead Generation Portals & SEO',
   serviceOutput:
-    'Conversiegerichte offertemodules, portaal voor directe opvolging en stijging organisch verkeer.',
+    'Offertemodules gericht op meer aanvragen, portaal voor directe opvolging en betere vindbaarheid in Google.',
 };
 ---
 
 <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
-  title="Lead Generation & Klantportalen — Meer Aanvragen | LaventeCare"
-  description="Meer aanvragen uit uw website, zonder extra marketingkosten. Stapsgewijze offertetrajecten en SEO-optimalisatie voor het MKB."
+  title="Klanten werven — Meer Aanvragen uit uw Website | LaventeCare"
+  description="Uw website wordt een systeem dat bezoekers omzet in concrete aanvragen. Stapsgewijze offertetrajecten en SEO-optimalisatie voor het mkb — zonder extra marketingkosten."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
         <span
           class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"
-          ><Icon name="target" size={16} class="text-active" /> Lead Generation</span
+          ><Icon name="target" size={16} class="text-active" /> Klanten werven</span
         >
         <h1
           class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight"
@@ -80,7 +80,7 @@ const serviceSchema = {
         </p>
         <div class="flex flex-wrap gap-2">
           {
-            ['Offertetrajecten', 'Lead-management', 'SEO', 'Analytics', 'Klantportaal'].map((t) => (
+            ['Offertetrajecten', 'Aanvragen opvolgen', 'SEO', 'Analytics', 'Klantportaal'].map((t) => (
               <TechStackBadge tech={t} />
             ))
           }
@@ -90,20 +90,20 @@ const serviceSchema = {
       <!-- Resultaten -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
         <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
-          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">+340%</div>
-          <p class="text-white/50 text-xs font-ui">Meer organisch verkeer in 6 maanden (C&F Bouw)</p>
-        </div>
-        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
-          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">100</div>
-          <p class="text-white/50 text-xs font-ui">SEO Score (Lighthouse)</p>
-        </div>
-        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
-          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">2 regio's</div>
-          <p class="text-white/50 text-xs font-ui">Actief (TuinHub)</p>
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">SEO</div>
+          <p class="text-white/50 text-xs font-ui">Technische optimalisatie voor vindbaarheid</p>
         </div>
         <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
           <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Direct</div>
-          <p class="text-white/50 text-xs font-ui">Lead-notificaties</p>
+          <p class="text-white/50 text-xs font-ui">Melding bij elke nieuwe aanvraag</p>
+        </div>
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Portaal</div>
+          <p class="text-white/50 text-xs font-ui">Beveiligd klantportaal voor opvolging</p>
+        </div>
+        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Offerte</div>
+          <p class="text-white/50 text-xs font-ui">Stapsgewijze offertetrajecten</p>
         </div>
       </div>
 
@@ -133,7 +133,7 @@ const serviceSchema = {
       >
         <h2 class="text-xl font-bold text-white mb-4 font-display">Herkenbaar?</h2>
         <p class="text-white/70 font-ui mb-4">
-          Lokale dienstverleners en aannemers die vastlopen in hun huidige situatie:
+          Mkb-organisaties en dienstverleners die vastlopen in hun huidige situatie:
         </p>
         <ul class="space-y-3 text-sm font-ui text-white/60">
           <li class="flex items-start gap-3">
@@ -142,7 +142,7 @@ const serviceSchema = {
           </li>
           <li class="flex items-start gap-3">
             <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U mist offertes omdat
-            leads niet worden opgevolgd
+            aanvragen niet worden opgevolgd
           </li>
           <li class="flex items-start gap-3">
             <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Uw concurrent staat hoger
@@ -154,7 +154,8 @@ const serviceSchema = {
           </li>
         </ul>
         <p class="text-white/50 text-xs font-ui mt-4">
-          Ik werk voor bouw & aannemerij, groenvoorziening, hoveniers en automotive.
+          Geschikt voor uiteenlopende mkb-organisaties en dienstverleners met een concrete aanvraag-
+          of offertevraag.
         </p>
       </div>
 
@@ -173,10 +174,10 @@ const serviceSchema = {
               C&F Bouw
             </h3>
             <p class="text-white/60 text-sm font-ui mb-2">
-              Lead-generation portaal voor de bouwsector.
+              Portaal om aanvragen te werven voor de bouwsector.
             </p>
             <p class="text-active text-xs font-bold font-ui">
-              +340% organisch verkeer binnen 6 maanden &bull; structureel meer aanvragen per maand
+              SEO-geoptimaliseerd &bull; aanvragen direct opgevolgd
             </p>
           </a>
           <a
@@ -190,10 +191,10 @@ const serviceSchema = {
               TuinHub
             </h3>
             <p class="text-white/60 text-sm font-ui mb-2">
-              Matchmaking-platform voor tuineigenaren en hoveniers.
+              Platform dat tuineigenaren koppelt aan de juiste hovenier.
             </p>
             <p class="text-active text-xs font-bold font-ui">
-              97 avg Lighthouse • 100 SEO • leads direct bij hoveniers
+              Slim koppelen • aanvragen direct bij de juiste dienstverlener
             </p>
           </a>
         </div>

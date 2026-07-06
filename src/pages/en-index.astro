@@ -9,22 +9,22 @@ import PillarCard from '../components/blocks/PillarCard.astro';
 import { AntiGravityShield } from '../components/islands/AntiGravityShield';
 
 const heroData = {
-  headline: 'High-End Systems & Architecture Partner',
-  subtitle: 'Designed, built and maintained by one engineer',
+  headline: 'B2B systems partner for SMEs',
+  subtitle: 'From idea to working system',
   description:
-    'From secured data streams to complex custom platforms — built on a <span class="text-active font-bold">Zero-Trust backend</span> with focus on reliability and scalability. No loose tools, but <span class="text-active font-bold">closed systems</span> that automate processes without losing control.',
+    'For SMEs that want to get digital growth, automation and custom software <span class="text-active font-bold">done right</span>. Not a one-off website builder or freelancer, but a <span class="text-active font-bold">long-term partner</span> that turns the way you work into software that does the work for you.',
   ctaPrimary: {
-    label: 'Schedule an intake',
+    label: 'Book a free intro call',
     url: '/contact',
   },
   ctaSecondary: {
-    label: 'View proven work',
+    label: 'View portfolio',
     url: '/portfolio',
   },
   stats: [
-    { value: '99/100', label: 'Google PageSpeed (verifiable)' },
-    { value: '6+', label: 'Platforms in production' },
-    { value: 'Zero-Trust', label: 'Strict separation of data and access' },
+    { value: 'up to 99/100', label: 'Google Lighthouse' },
+    { value: '6+', label: 'Live projects' },
+    { value: '<1.5s', label: 'Average load time' },
   ],
   alignment: 'center' as const,
   size: 'large' as const,
@@ -38,7 +38,7 @@ const jsonLd = {
   logo: 'https://www.laventecare.com/og-image.png',
   image: 'https://www.laventecare.com/og-image.png',
   description:
-    'LaventeCare — High-End Systems & Architecture Partner: custom B2B platforms with Zero-Trust security, controlled AI automation and IoT monitoring.',
+    'LaventeCare builds systems that make businesses more efficient, prevent errors and accelerate growth: AI, IoT, custom platforms, lead generation and security-first systems.',
   founder: {
     '@type': 'Person',
     name: 'Jeffrey Lavente',
@@ -69,9 +69,9 @@ const jsonLd = {
     },
   ],
   knowsAbout: [
-    'Enterprise Architecture',
-    'Zero-Trust Security',
-    'Worker Automation',
+    'IT Consultancy',
+    'Security-first Systems',
+    'AI & Automation',
     'B2B Custom Platforms',
     'IoT Telemetry',
     'PostgreSQL RLS',
@@ -97,44 +97,52 @@ const jsonLd = {
 
 const pillars = [
   {
+    title: 'IT Consultancy',
+    description:
+      'An independent sparring partner and second opinion, without any obligation to build. Straightforward advice on your digital direction, architecture and next step.',
+    icon: 'message-circle',
+    tags: ['Sparring partner', 'Second opinion', 'Roadmap'],
+    href: '/services/consultancy',
+  },
+  {
     title: 'AI & Automation',
     description:
-      'AI that takes over repetitive work and uses your data for better and faster decisions — reliable, scalable and measurable in your daily processes.',
+      'AI that takes over repetitive work and uses your data for faster decisions. Reliable, measurable and with a human who reviews and decides in your daily processes.',
     icon: 'brain-circuit',
-    tags: ['AI Automation', 'Digital Employees', 'Business Data'],
+    tags: ['Automation', 'Data processing', 'A human decides'],
     href: '/services/ai-prompt-engineering',
     featured: true,
   },
   {
     title: 'Smart Monitoring & Sensors',
     description:
-      'Real-time monitoring that detects failures early and prevents damage or costly downtime. From sensor to dashboard, remotely and without maintenance.',
+      'From sensor to dashboard: detect problems early and reduce downtime. Real-time insight into your processes, remotely and without manual management.',
     icon: 'radio',
-    tags: ['Real-time monitoring', 'Automatic alerting', 'Remote'],
+    tags: ['Sensor data', 'Alerting', 'Dashboards'],
     href: '/services/iot-hardware',
   },
   {
     title: 'Custom Platforms',
     description:
-      'Registration, ticketing and donations — fully automated and designed to run flawlessly. Your complete event or campaign managed from one central system.',
+      'Replace separate tools and manual work with one system that grows with you: one central place where all your data is correct and up to date, built for stability and growth.',
     icon: 'building-2',
-    tags: ['Registration', 'Donations', 'Dashboards', 'Scalable'],
+    tags: ['B2B Portals', 'Integrations', 'Everything in one place'],
     href: '/services/custom-platforms',
   },
   {
     title: 'Lead Generation',
     description:
-      'More enquiries from your website, without extra marketing costs. Visitors are automatically directed toward a quote or enquiry, so they convert faster.',
+      'Your website becomes a system that turns visitors into enquiries. Visitors are directed toward a quote or enquiry, so they become customers faster.',
     icon: 'target',
-    tags: ['Quote Flows', 'Lead Management', 'SEO'],
+    tags: ['Manage enquiries', 'Become a customer', 'SEO'],
     href: '/services/lead-generation',
   },
   {
     title: 'Security & Authentication',
     description:
-      'Your customer data is structurally protected and separated, minimising risks and keeping your data safe — even in the event of errors or attacks.',
+      "Your data is strictly separated per client and protected, even in the event of errors or attacks. Under the hood: PostgreSQL RLS, role-based access (RBAC) and full logging.",
     icon: 'shield-check',
-    tags: ['Data Isolation', 'Authentication', 'GDPR Compliance'],
+    tags: ['Separated client data', 'Access per role', 'Everything logged'],
     href: '/services/security',
     featured: true,
   },
@@ -144,8 +152,8 @@ const pillars = [
 <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
-  title="LaventeCare — High-End Systems & Architecture Partner | Netherlands"
-  description="B2B custom platforms with Zero-Trust security, Worker Automation and SLA-managed infrastructure. Designed and built by one engineer."
+  title="LaventeCare — B2B systems partner for SMEs | Netherlands"
+  description="B2B systems partner for SMEs that want to establish digital growth, automation and custom software professionally. From idea to working system."
 >
   <Hero {...heroData} />
 
@@ -158,9 +166,9 @@ const pillars = [
 
     <div class="container mx-auto px-4 relative">
       <SectionHeader
-        label="Platform Services"
-        heading='Five pillars, one <span class="text-active">complete ecosystem</span>'
-        description="Not separate projects, but an integrated system: each pillar strengthens the other. From AI automation to data protection — everything runs on the same robust core."
+        label="Services"
+        heading='Six services, one <span class="text-active">working system</span>'
+        description="Not separate projects, but an integrated system: each service strengthens the other. From advice and AI automation to custom platforms and security — together from idea to working system."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -175,7 +183,7 @@ const pillars = [
       <SectionHeader
         label="Differentiators"
         heading='Why <span class="text-active">LaventeCare</span>?'
-        description="Not a web agency — but one engineer who builds and maintains complete systems. From design to production, with built-in security."
+        description="A long-term partner that turns the way you work into software that does the work for you: from intake and Blueprint (the build plan) to build, maintenance and further development — with built-in security."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -191,7 +199,7 @@ const pillars = [
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">One point of contact, full ownership</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            From design to go-live — everything through one person who knows the system. No rotating developers, no miscommunication, no knowledge loss.
+            From intake to go-live — one fixed point of contact who knows your processes and system inside out. No rotating developers, no miscommunication, no knowledge loss.
           </p>
         </div>
 
@@ -205,9 +213,9 @@ const pillars = [
           >
             <Icon name="zap" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Zero-Trust Architecture</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Security-first architecture</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Every system is built Privacy by Design with multi-tenant data isolation (PostgreSQL RLS), strict role-based access management and automatic threat detection.
+            Your data is strictly separated per client and every action is logged. Under the hood: Privacy by Design with PostgreSQL RLS, role-based access (RBAC) and full logging.
           </p>
         </div>
 
@@ -223,7 +231,7 @@ const pillars = [
           </div>
           <h3 class="text-lg font-bold text-white mb-3 font-display">Measurably faster, demonstrably better</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            99/100 Google PageSpeed is not marketing — it's verifiable via PageSpeed Insights. Every second faster = 7% more conversion (source: Google/Deloitte).
+            Systems that score up to 99/100 on Google Lighthouse and load in under 1.5s on average. Speed and stability as a foundation, not an afterthought.
           </p>
         </div>
       </div>
@@ -238,10 +246,10 @@ const pillars = [
         class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto"
       >
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value="Zero-Trust" label="Security Foundation" />
-          <StatCard value="99/100" label="Google PageSpeed" />
-          <StatCard value="40/40/20" label="Milestone Billing" />
-          <StatCard value="1" label="Single Source of Truth" />
+          <StatCard value="6+" label="Live projects" />
+          <StatCard value="up to 99/100" label="Google Lighthouse" />
+          <StatCard value="<1.5s" label="Average load time" />
+          <StatCard value="SLA" label="Managed maintenance available" />
         </div>
       </div>
     </div>
@@ -262,7 +270,7 @@ const pillars = [
             Active System Security
           </h2>
           <p class="text-white/50 text-sm font-ui mt-2">
-            No empty promises about security. See the live telemetry of the LaventeCare AntiGravity Gate analyzing and blocking malicious traffic 24/7.
+            No empty promises about security. See a live overview of the security layer that detects and blocks malicious traffic.
           </p>
         </div>
 
@@ -273,7 +281,7 @@ const pillars = [
             href="/services/security"
             class="text-white/40 text-sm font-ui hover:text-active transition-colors"
           >
-            Read more about the Zero-Trust Architecture →
+            Read more about our security-first approach →
           </a>
         </div>
       </div>
@@ -303,17 +311,18 @@ const pillars = [
             <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Event</span>
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Real-time registration platform for a charity event. 100+ participants processed, 0 manual work for the organisation.
+            Real-time registration platform for a charity event. Registrations are processed instantly, with no manual management for the organisation.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">React 19</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
-            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go Auth</span>
           </div>
           <div class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5">
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">100+ registrations</span>
+              <span class="text-white/70 text-xs font-ui">Real-time registration</span>
             </div>
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
@@ -337,22 +346,23 @@ const pillars = [
             <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">IoT</span>
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            24/7 cooling monitoring with automatic alerts on deviations. Sensor data directly visible on your screen, wherever you are.
+            Cooling monitoring with automatic alerts on deviations. Sensor data directly visible on your screen, wherever you are.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">C++</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">ESP32</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">BLE</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
+            <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">React</span>
           </div>
           <div class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5">
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">Sub-100ms IoT Ingest</span>
+              <span class="text-white/70 text-xs font-ui">Real-time sensor data</span>
             </div>
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">100% Uptime</span>
+              <span class="text-white/70 text-xs font-ui">Automatic alerting</span>
             </div>
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
@@ -389,12 +399,12 @@ const pillars = [
           in the real world.
         </p>
         <p class="text-white/40 text-sm font-ui mb-6">
-          Schedule an intake and discover where you can immediately save time, costs or risk.
+          Book a free intro call and discover where you can immediately save time, costs or risk.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/about" class="btn-secondary"> Read my story </a>
           <a href="/contact" class="btn-primary">
-            Schedule an intake
+            Book a free intro call
             <Icon name="arrow-right" size={16} />
           </a>
         </div>

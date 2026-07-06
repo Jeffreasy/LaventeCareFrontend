@@ -5,10 +5,10 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const results = [
-  { value: '24/7', label: 'Remote monitoring' },
-  { value: '< 1W', label: 'Stroomverbruik (deep-sleep)' },
-  { value: 'Real-time', label: 'Cloud dashboards' },
-  { value: 'OTA', label: 'Firmware updates' },
+  { value: '24/7', label: 'Bewaking op afstand' },
+  { value: '< 1W', label: 'Zuinig, werkt maandenlang' },
+  { value: 'Real-time', label: 'Live overzicht in de cloud' },
+  { value: 'Op afstand', label: 'Updates zonder ter plaatse te gaan' },
 ];
 
 const challenges = [
@@ -18,22 +18,22 @@ const challenges = [
   },
   {
     title: 'Betrouwbare datacommunicatie',
-    desc: 'Industriële omgevingen met metalen behuizingen en elektromagnetische interferentie vereisen robuuste draadloze protocollen.',
+    desc: 'Industriële omgevingen met metalen behuizingen en storing op de lijn vragen om een stabiele draadloze verbinding.',
   },
   {
     title: 'Kritieke alarmering',
     desc: 'Temperatuuroverschrijdingen bij koelinstallaties moeten binnen seconden gedetecteerd en gemeld worden om schade te voorkomen.',
   },
   {
-    title: 'Firmware-updates op afstand',
-    desc: 'Fysieke toegang tot geïnstalleerde sensoren is kostbaar. Over-the-air updates zijn essentieel voor onderhoud en bugfixes.',
+    title: 'Updates op afstand',
+    desc: 'Ter plaatse bij elke sensor langsgaan is duur. Updates op afstand zijn essentieel voor onderhoud en het oplossen van fouten.',
   },
 ];
 ---
 
 <Layout
   title="Case Study: SmartCoolCare — LaventeCare"
-  description="Hoe LaventeCare een industrieel IoT-monitoringsysteem bouwde met ESP32-sensors, deep-sleep firmware en live cloud dashboards. Van chip tot cloud."
+  description="Hoe LaventeCare een industrieel IoT-bewakingssysteem bouwde met zuinige sensoren die maandenlang werken en hun metingen live naar de cloud sturen. Van chip tot cloud."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -49,9 +49,9 @@ const challenges = [
           Smart<span class="text-active">Cool</span>Care
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Industriële koelmonitoring met ESP32-sensors, deep-sleep firmware en live cloud
-          dashboards. Het ultieme "van chip tot cloud" project dat de volledige breedte van
-          LaventeCare's expertise demonstreert.
+          Live koelbewaking met zuinige sensoren die maandenlang op een batterij werken en hun
+          metingen naar een live dashboard sturen. Hét "van chip tot cloud"-project dat laat zien
+          hoe breed LaventeCare gaat: van de hardware tot het scherm.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
           <span
@@ -127,32 +127,34 @@ const challenges = [
         >
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              ESP32 Deep-Sleep Firmware (C++)
+              Zuinig: werkt maandenlang op een batterij
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Custom C++ firmware met intelligent energiebeheer. De sensor waakt op, leest
-              temperatuur- en vochtigheidsdata, verzendt via BLE of WiFi, en gaat terug in
-              deep-sleep. Resultaat: maanden batterijduur in het veld zonder onderhoud.
+              De sensor wordt kort wakker, meet de temperatuur en luchtvochtigheid, stuurt de meting
+              draadloos door en gaat daarna weer in slaapstand om stroom te sparen. Zo werkt hij
+              maandenlang zonder onderhoud. Onder de motorkap: eigen C++-software op een ESP32 met
+              slimme slaapstand (deep-sleep).
             </p>
           </div>
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              BLE Gateway & Cloud Sync
+              Van sensor naar de cloud
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Bluetooth Low Energy voor energiezuinige korte-afstandscommunicatie naar een lokale
-              gateway. De gateway aggregeert sensordata en synchroniseert naar Convex voor
-              persistente opslag en real-time queries.
+              De sensor stuurt zijn metingen draadloos en zuinig naar een klein kastje in de buurt
+              (de gateway). Dat kastje verzamelt alle metingen en stuurt ze door naar de cloud, waar
+              ze veilig worden bewaard en direct opvraagbaar zijn. Onder de motorkap: Bluetooth Low
+              Energy (BLE) en Convex.
             </p>
           </div>
           <div>
             <h3 class="text-base font-bold text-white mb-2 font-display">
-              React Dashboard met Convex
+              Alles in één overzichtelijk dashboard
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Live temperatuur- en alarmvisualisatie via een React dashboard met Convex reactieve
-              queries. Drempelwaardeconfiguratie, historische grafieken en automatische notificaties
-              bij kritieke overschrijdingen.
+              Live temperaturen en waarschuwingen in één helder scherm. U stelt zelf de grenswaarden
+              in, ziet grafieken uit het verleden en krijgt automatisch een melding zodra iets buiten
+              de veilige zone valt. Onder de motorkap: een React-dashboard met Convex.
             </p>
           </div>
         </div>

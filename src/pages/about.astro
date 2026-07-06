@@ -7,38 +7,38 @@ import Icon, { type IconName } from '../components/ui/Icon.astro';
 const expertiseDomains = [
   {
     icon: 'brain-circuit',
-    title: 'AI & Prompt Engineering',
-    techs: ['GPT-4', 'Claude', 'LangChain', 'Custom Agents'],
+    title: 'AI & Automation',
+    techs: ['LLM Integration', 'Custom Agents', 'A human decides'],
     description:
-      'AI that genuinely adds value to your business. Digital employees that automate tasks, analyse data and support decisions — integrated into your existing workflows.',
+      'AI that takes over repetitive work and uses your data for faster decisions. Reliable, measurable and with a person who decides along the way — built into your existing workflows.',
   },
   {
     icon: 'radio',
     title: 'Smart Monitoring & Sensors',
     techs: ['C++', 'ESP32', 'BLE', 'OTA Updates'],
     description:
-      'Your devices become smart: months on battery, remote software updates, and real-time insight on your screen. From sensor to dashboard.',
+      'From sensor to dashboard: spot problems early and reduce downtime. Live insight on your screen, remote software updates.',
   },
   {
     icon: 'cog',
-    title: 'Security & Data Protection',
-    techs: ['Go', 'PostgreSQL', 'Redis', 'Zero-Trust'],
+    title: 'Security & Access',
+    techs: ['PostgreSQL RLS', 'RBAC', 'Audit Trails'],
     description:
-      'Your customer data is structurally separated and protected. Every action traceable, automatic cleanup of expired data — built according to GDPR principles (Privacy by Design).',
+      "Every client's data stays strictly separated, everyone only sees what they're allowed to, and every action is logged. Security from the ground up, built according to GDPR (Privacy by Design). Under the hood: separated client data (PostgreSQL RLS), access per role (RBAC) and full logging.",
   },
   {
     icon: 'monitor',
-    title: 'Websites & Platforms',
-    techs: ['Astro', 'Next.js', 'React 19', 'Convex'],
+    title: 'Custom Platforms',
+    techs: ['Astro', 'React 19', 'Convex', 'Go Auth'],
     description:
-      'Blazing-fast websites that rank high on Google and convert more visitors into customers. Real-time dashboards and custom-built interfaces.',
+      'Replace loose tools and manual work with one system that grows with you, with everything in one place. Blazing-fast screens that rank high on Google and help visitors get in touch.',
   },
   {
     icon: 'cloud',
     title: 'Hosting & Management',
     techs: ['Vercel', 'Render', 'CI/CD', 'Sentry'],
     description:
-      'Your application runs on fast servers worldwide. Automatic updates, continuous monitoring and SSL certificates — all managed and up-to-date.',
+      'Your application runs on fast servers worldwide. Automatic updates, continuous monitoring and SSL certificates — ongoing maintenance with fixed terms available (SLA).',
   },
 ];
 
@@ -55,8 +55,8 @@ const coreValues = [
   },
   {
     icon: 'trending-up',
-    title: 'Scalable architecture',
-    desc: 'Solutions that grow with the client.',
+    title: 'Grows with you',
+    desc: 'Systems that grow with the client.',
   },
   {
     icon: 'handshake',
@@ -69,9 +69,9 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Jeffrey Lavente',
-  jobTitle: 'Systems Engineer & Founder LaventeCare',
+  jobTitle: 'Founder LaventeCare — B2B systems partner for SMEs',
   description:
-    'From intensive 1-on-1 care in neurological rehabilitation to IT engineering. Builds complete platforms with built-in security, AI-driven development and Zero-Trust security.',
+    'Founder of LaventeCare, a B2B systems partner for SME organisations. Turns the way you work into software that does the work for you: AI, IoT, custom platforms, winning customers and security from the ground up.',
   image:
     'https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-512,h-512,fo-face,f-auto,q-85',
   url: 'https://www.laventecare.com/about',
@@ -81,18 +81,18 @@ const personSchema = {
     url: 'https://www.laventecare.com',
   },
   knowsAbout: [
-    'AI Prompt Engineering',
+    'AI & Automation',
     'LLM Integration',
     'Go',
     'PostgreSQL',
     'React',
-    'Next.js',
     'Astro',
     'C++',
     'ESP32',
     'IoT',
-    'Zero-Trust Security',
+    'Security-first Architecture',
     'Cloud Architecture',
+    'Custom Software',
   ],
   sameAs: [
     'https://linkedin.com/in/jeffrey-lavente',
@@ -111,8 +111,8 @@ const personSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
 <Layout
-  title="About Jeffrey Lavente — Systems Engineer & Founder LaventeCare"
-  description="From intensive neurological care to building serious production systems. Jeffrey Lavente combines psychological insight with solid backend engineering and AI-driven development."
+  title="About LaventeCare — B2B systems partner for SMEs"
+  description="LaventeCare is a long-term B2B systems partner that turns the way you work into software that does the work for you: AI, automation, custom software, monitoring and security from the ground up. From idea to working system."
 >
   <!-- Hero -->
   <section class="section-padding pt-32 md:pt-40">
@@ -154,19 +154,18 @@ const personSchema = {
 
           <div class="text-center md:text-left">
             <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block"
-              >About the founder</span
+              >About LaventeCare</span
             >
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight">
-              Jeffrey Lavente
+              From idea to working system
             </h1>
             <p class="text-lg md:text-xl text-white/70 leading-relaxed font-ui">
-              From intensive 1-on-1 care in neurological rehabilitation to building serious
-              production systems. I combine <span class="text-white font-semibold"
-                >psychological insight</span
-              > with multi-tenant architecture and AI-driven development — digital systems that, just
-              like in care, have <span class="text-active font-semibold"
-                >structure, security and humanity</span
-              > as their foundation.
+              LaventeCare is a <span class="text-white font-semibold"
+                >B2B systems partner for SME organisations</span
+              > that want to get digital growth, automation and custom software done right.
+              Not a one-off website builder or freelancer, but a <span
+                class="text-active font-semibold">long-term partner</span
+              > that turns the way you work into software that does the work for you.
             </p>
           </div>
         </div>
@@ -174,45 +173,129 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- From Care to Tech -->
+  <!-- What we do -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <SectionHeader
-          label="The story"
-          heading='From human care to <span class="text-active">digital systems</span>'
+          label="The partner"
+          heading='A long-term partner, not a <span class="text-active">loose supplier</span>'
         />
         <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5">
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            For years I worked as an intensive 1-on-1 care professional for individuals with complex
-            acquired brain injuries. In that world I learned a fundamental lesson: <span
-              class="text-white font-semibold"
-              >where chaos reigns, calm, structure and boundless dedication are essential</span
-            >.
+            LaventeCare builds systems that make businesses more efficient, prevent errors and
+            accelerate growth: <span class="text-white font-semibold"
+              >AI, IoT, custom platforms, winning customers and systems with security from the ground up</span
+            >. We focus on SMEs, service providers and operational teams with recurring processes.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            Today I apply that same psychological lens to software architecture. The internet is unpredictable;
-            that's why I build <span class="text-active font-semibold">"Fortresses"</span> instead of
-            ordinary websites. My mission is not typing lines of code, but designing digital ecosystems
-            that are robust, secure and manageable.
+            Our core promise: from loose tools and manual work to one <span
+              class="text-active font-semibold">digital system that grows with you</span
+            >. Intro call, analysis, blueprint (the full build plan), build, maintenance and further development — not a loose
+            project that stalls after delivery, but a system that keeps working and grows with you.
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
               <Icon name="brain-circuit" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-white text-xs font-bold font-display">Analytical in chaos</p>
-              <p class="text-white/50 text-[11px] font-ui">Clear thinking when everything is complex</p>
+              <p class="text-white text-xs font-bold font-display">Process first</p>
+              <p class="text-white/50 text-[11px] font-ui">Systems, not loose styling</p>
             </div>
             <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
               <Icon name="lock" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-white text-xs font-bold font-display">Setting boundaries</p>
-              <p class="text-white/50 text-[11px] font-ui">Security is a form of care</p>
+              <p class="text-white text-xs font-bold font-display">Security from the ground up</p>
+              <p class="text-white/50 text-[11px] font-ui">Security as a foundation</p>
             </div>
             <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
               <Icon name="handshake" size={20} class="text-active mx-auto mb-2" />
-              <p class="text-white text-xs font-bold font-display">1-on-1 accountability</p>
-              <p class="text-white/50 text-[11px] font-ui">Not a link in the chain, but the owner</p>
+              <p class="text-white text-xs font-bold font-display">Long-term partner</p>
+              <p class="text-white/50 text-[11px] font-ui">Maintenance and development</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparency: solo-founder + AI as build team -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeader
+          label="Radical transparency"
+          heading='Who stands behind <span class="text-active">LaventeCare</span>'
+        />
+        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8">
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            I believe in radical honesty about how LaventeCare works. LaventeCare was set up and is
+            led by <span class="text-white font-semibold">Jeffrey Lavente</span> as founder and
+            engineer. I act as the architect who defines the blueprint, and use advanced AI models as
+            my <span class="text-active font-semibold">executing build team</span>.
+          </p>
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            AI builds at lightning speed, but tends to take the easiest route and skip the exceptions.
+            This is where the strength of this approach lies: I define the architecture, enforce strict
+            security rules (such as strictly separated data and logging every action) and steer where
+            needed. This is how LaventeCare delivers systems with built-in security, separated data and
+            live monitoring — the discipline of a team, delivered by one accountable partner.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row gap-4 mt-6 p-4 rounded-lg bg-active/5 border border-active/15"
+          >
+            <div data-animate="fade-up" class="flex-1 flex items-start gap-3">
+              <Icon name="cog" size={18} class="text-active shrink-0 mt-0.5" />
+              <div>
+                <p class="text-white text-xs font-bold font-display">AI = Executor</p>
+                <p class="text-white/60 text-[11px] font-ui">
+                  Build, improve and test at speed
+                </p>
+              </div>
+            </div>
+            <div data-animate="fade-up" class="delay-100 flex-1 flex items-start gap-3">
+              <Icon name="brain-circuit" size={18} class="text-active shrink-0 mt-0.5" />
+              <div>
+                <p class="text-white text-xs font-bold font-display">Jeffrey = Architect</p>
+                <p class="text-white/60 text-[11px] font-ui">
+                  Blueprint, security and quality control
+                </p>
+              </div>
+            </div>
+            <div data-animate="fade-up" class="delay-200 flex-1 flex items-start gap-3">
+              <Icon name="lock" size={18} class="text-active shrink-0 mt-0.5" />
+              <div>
+                <p class="text-white text-xs font-bold font-display">Database as fortress</p>
+                <p class="text-white/60 text-[11px] font-ui">
+                  The AI in check, the data strictly protected
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Background in care -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <SectionHeader
+          label="The background"
+          heading='Structure and security, learned in <span class="text-active">care</span>'
+        />
+        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5">
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            Before starting LaventeCare, I worked for years as an intensive 1-on-1 care professional
+            for individuals with complex acquired brain injuries. In that world I learned a
+            fundamental lesson: <span class="text-white font-semibold"
+              >where chaos reigns, calm, structure and boundless dedication are essential</span
+            >.
+          </p>
+          <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
+            I apply that same lens to software architecture. I don't build loose websites, but
+            <span class="text-active font-semibold">systems with structure and boundaries</span> —
+            stable, secure and manageable. Staying analytical in complexity, setting boundaries and
+            taking 1-on-1 accountability: that's what I bring to every system I deliver.
+          </p>
         </div>
       </div>
     </div>
@@ -229,12 +312,75 @@ const personSchema = {
           >
             I don't believe in perfection, I believe in <span class="text-white font-semibold"
               >extreme curiosity, transparency and rock-solid security</span
-            >. Built according to the same security principles as critical systems: data isolation,
-            Zero-Trust, immutable audit trails. Whether it's an SME portal, an IoT dashboard or an
-            events platform: <span class="text-active font-semibold"
+            >. Silence is Golden, the Database is a Fortress. Whether it's an SME portal, an IoT
+            dashboard or a custom platform: <span class="text-active font-semibold"
               >your data gets the same level of protection</span
             >.
           </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Background: Education & Experience -->
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Education -->
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
+          <h2 class="text-xl font-bold text-white mb-5 font-display flex items-center gap-3">
+            <Icon name="graduation-cap" size={20} class="text-active" /> Education
+          </h2>
+          <ul class="space-y-4">
+            <li>
+              <p class="text-white font-semibold text-sm">MBO Level 4</p>
+              <p class="text-white/60 text-sm font-ui">
+                Personal Support Worker for Specific Target Groups (2017–2018)
+              </p>
+            </li>
+            <li>
+              <p class="text-white font-semibold text-sm">MBO Level 3</p>
+              <p class="text-white/60 text-sm font-ui">
+                Social Care Worker (2015–2017)
+              </p>
+            </li>
+            <li>
+              <p class="text-white font-semibold text-sm">Self-Taught Systems Engineer</p>
+              <p class="text-white/60 text-sm font-ui">
+                Go, PostgreSQL, Security Architecture, IoT, Cloud Infrastructure
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Experience -->
+        <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
+          <h2 class="text-xl font-bold text-white mb-5 font-display flex items-center gap-3">
+            <Icon name="briefcase" size={20} class="text-active" /> Experience
+          </h2>
+          <ul class="space-y-4">
+            <li>
+              <div class="flex items-baseline justify-between">
+                <p class="text-white font-semibold text-sm">Founder & Systems Engineer</p>
+                <span class="text-active text-xs font-bold">2026 – present</span>
+              </div>
+              <p class="text-white/60 text-sm font-ui">
+                LaventeCare — Long-term systems partner for SMEs: design and build of custom
+                platforms with built-in security, AI automation and live monitoring (IoT).
+              </p>
+            </li>
+            <li>
+              <div class="flex items-baseline justify-between">
+                <p class="text-white font-semibold text-sm">1-on-1 Support Worker NAH++</p>
+                <span class="text-active text-xs font-bold">2018 – present</span>
+              </div>
+              <p class="text-white/60 text-sm font-ui">
+                's Heeren Loo — Intensive individual support of clients with acquired brain injuries.
+                Staying analytical in chaos, taking 1-on-1 accountability, setting boundaries and
+                building safe structures.
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -245,8 +391,8 @@ const personSchema = {
     <div class="container mx-auto px-4">
       <SectionHeader
         label="Technical expertise"
-        heading='Exceptionally broad <span class="text-active">spectrum</span>'
-        description="From smart sensors to multi-tenant data protection and high-performance platforms — everything under one roof. That's rare, and exactly what makes the difference."
+        heading='Exceptionally broad <span class="text-active">field</span>'
+        description="From smart sensors to strictly separated client data and blazing-fast platforms — everything under one roof. That's rare, and exactly what makes the difference."
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -300,15 +446,19 @@ const personSchema = {
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-ui">
           <div class="flex justify-between sm:flex-col gap-1">
             <span class="text-white/50">Legal form</span>
-            <span class="text-white font-medium">Sole trader (ZZP/freelance)</span>
+            <span class="text-white font-medium">Sole trader</span>
           </div>
           <div class="flex justify-between sm:flex-col gap-1">
             <span class="text-white/50">Chamber of Commerce</span>
             <span class="text-white font-medium">88162710</span>
           </div>
           <div class="flex justify-between sm:flex-col gap-1">
+            <span class="text-white/50">VAT number</span>
+            <span class="text-white font-medium">NL004553268B57</span>
+          </div>
+          <div class="flex justify-between sm:flex-col gap-1">
             <span class="text-white/50">Founded</span>
-            <span class="text-white font-medium">17 October 2022</span>
+            <span class="text-white font-medium">2026</span>
           </div>
           <div class="flex justify-between sm:flex-col gap-1">
             <span class="text-white/50">Location</span>
