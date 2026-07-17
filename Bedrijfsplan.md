@@ -1,3 +1,5 @@
+> **Concept/historical business plan.** Numerical performance, uptime, conversion and market claims in this document are not approved for public use without retained primary evidence. Current public positioning and release gates live in `docs/READINESS_STATUS_2026-07-17.md`.
+
 Bedrijfsplan
 
 AI Prompt Engineering, Web & IoT Solutions

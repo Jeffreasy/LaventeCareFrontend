@@ -14,7 +14,7 @@ export const nl = {
     metaTitle: 'Software en systemen voor het mkb — van idee tot werkend systeem',
     metaDescription:
       'LaventeCare bouwt software en systemen die bedrijven efficiënter maken, fouten voorkomen en groei versnellen: AI, IoT, maatwerkplatformen, klanten werven en beveiliging vanaf de basis.',
-    copyright: '© 2026 LaventeCare — Jeffrey Lavente | KVK 88162710 | Dronten',
+    copyright: `© ${new Date().getFullYear()} LaventeCare — Jeffrey Lavente | KVK 88162710 | Dronten`,
     skipLink: 'Naar inhoud',
   },
 
@@ -80,7 +80,7 @@ export const nl = {
     home: {
       title: 'LaventeCare — Maatwerkplatformen met Ingebouwde Beveiliging | Dronten',
       description:
-        'Systemen die werk uit handen nemen: maatwerkplatformen, AI-automatisering en IoT-monitoring — met eigen beveiligingslaag en 99/100 PageSpeed.',
+        'Systemen die werk uit handen nemen: maatwerkplatformen, AI-automatisering en IoT-monitoring — met beveiliging en onderhoud vanaf het ontwerp.',
     },
     about: {
       title: 'Over Jeffrey Lavente — Systems Engineer | LaventeCare',
@@ -103,9 +103,9 @@ export const nl = {
         'Neem contact op met Jeffrey Lavente. Plan een vrijblijvende intake en ontdek waar uw bedrijf direct van kan profiteren.',
     },
     portfolio: {
-      title: "Portfolio — Bewezen Werk in Productie | LaventeCare",
+      title: 'Portfolio — Bewezen Werk in Productie | LaventeCare',
       description:
-        "Bekijk realworld projecten: De Koninklijke Loop, SmartCoolCare, C&F Bouw, Dustin Auto Garage en meer. Verifieerbare Lighthouse scores.",
+        'Bekijk bestaande projecten: De Koninklijke Loop, SmartCoolCare, C&F Bouw, Dustin Auto Garage en meer, met hun toegepaste technieken en aanpak.',
     },
     terms: {
       title: 'Algemene Voorwaarden | LaventeCare',

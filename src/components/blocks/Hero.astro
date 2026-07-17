@@ -46,7 +46,7 @@ const sizeClasses = {
 const headingSize = {
   small: 'text-4xl md:text-5xl',
   medium: 'text-5xl md:text-6xl',
-  large: 'text-6xl md:text-7xl lg:text-8xl',
+  large: 'text-4xl sm:text-5xl md:text-7xl lg:text-8xl',
 };
 ---
 
@@ -66,7 +66,7 @@ const headingSize = {
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <!-- Large floating circle (Teal) -->
     <div
-      class="absolute top-20 right-10 md:right-1/4 w-120 h-120 rounded-full bg-active/15 blur-3xl animate-float-slow will-change-transform mix-blend-screen"
+      class="absolute top-20 right-0 md:right-1/4 w-80 h-80 sm:w-120 sm:h-120 rounded-full bg-active/15 blur-3xl animate-float-slow will-change-transform mix-blend-screen"
     >
     </div>
 
@@ -79,7 +79,7 @@ const headingSize = {
 
     <!-- The 'Roze/Coral' Signature Warm Gradient -->
     <div
-      class="absolute top-1/3 right-10 w-100 h-100 rounded-full blur-[100px] animate-float-fast will-change-transform opacity-60 mix-blend-screen"
+      class="absolute top-1/3 right-0 w-72 h-72 sm:w-100 sm:h-100 rounded-full blur-[100px] animate-float-fast will-change-transform opacity-60 mix-blend-screen"
       style="background: radial-gradient(circle, oklch(0.65 0.22 15 / 0.25), transparent 70%); animation-delay: 2.5s;"
     >
     </div>
@@ -107,7 +107,12 @@ const headingSize = {
 
   <!-- Content -->
   <div class="container relative z-10 mx-auto px-4 md:px-6">
-    <div class={cn('flex flex-col gap-8 max-w-5xl', alignment === 'center' ? 'mx-auto' : '')}>
+    <div
+      class={cn(
+        'flex min-w-0 max-w-full flex-col gap-8 max-w-5xl',
+        alignment === 'center' ? 'mx-auto' : ''
+      )}
+    >
       <!-- Trust Badge -->
       {
         subtitle && (
@@ -123,7 +128,7 @@ const headingSize = {
       <h1
         class={cn(
           headingSize[size],
-          'font-display font-black leading-none tracking-tight',
+          'font-display font-black leading-none tracking-tight break-words [overflow-wrap:anywhere]',
           alignment === 'left' && 'text-left',
           alignment === 'center' && 'text-center',
           alignment === 'right' && 'text-right'

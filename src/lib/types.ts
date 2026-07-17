@@ -43,7 +43,8 @@ export interface SMTPConfig {
   host: string;
   port: number;
   user: string;
-  password: string; // Plaintext in memory only, SHA-256 hashed before API transmission
+  password: string; // Plaintext in memory only; encrypted by the backend at rest
+  admin_email?: string;
   from: string;
   tls_mode: 'starttls' | 'tls';
 }
@@ -60,6 +61,7 @@ export interface MailConfigResponse {
     user: string;
     from: string;
     tls_mode: string;
+    admin_email?: string;
   };
 }
 

@@ -105,11 +105,14 @@ const settingsNL: SiteSettings = {
     { platform: 'GitHub', url: 'https://github.com/Jeffreasy' },
     { platform: 'Instagram', url: 'https://www.instagram.com/jjalavente/' },
   ],
-  copyright_text: '© 2026 LaventeCare — Jeffrey Lavente | KVK 88162710 | Dronten',
+  copyright_text: `© ${new Date().getFullYear()} LaventeCare — Jeffrey Lavente | KVK 88162710 | Dronten`,
   gtm_id: null,
   cookie_consent_code: null,
   og_image: [
-    { filename: LOGO_URL, alt: 'LaventeCare — B2B systeempartner voor mkb. Van idee tot werkend systeem.' },
+    {
+      filename: LOGO_URL,
+      alt: 'LaventeCare — B2B systeempartner voor mkb. Van idee tot werkend systeem.',
+    },
   ],
 };
 
@@ -178,11 +181,14 @@ const settingsEN: SiteSettings = {
     { platform: 'GitHub', url: 'https://github.com/Jeffreasy' },
     { platform: 'Instagram', url: 'https://www.instagram.com/jjalavente/' },
   ],
-  copyright_text: '© 2026 LaventeCare — Jeffrey Lavente | CoC 88162710 | Dronten, Netherlands',
+  copyright_text: `© ${new Date().getFullYear()} LaventeCare — Jeffrey Lavente | CoC 88162710 | Dronten, Netherlands`,
   gtm_id: null,
   cookie_consent_code: null,
   og_image: [
-    { filename: LOGO_URL, alt: 'LaventeCare — B2B systems partner for SMEs. From idea to working system.' },
+    {
+      filename: LOGO_URL,
+      alt: 'LaventeCare — B2B systems partner for SMEs. From idea to working system.',
+    },
   ],
 };
 

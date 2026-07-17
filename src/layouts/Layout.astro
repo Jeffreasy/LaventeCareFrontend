@@ -8,6 +8,7 @@ import { AnalyticsProvider } from '../components/islands/AnalyticsProvider';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import { GlobalLoader } from '../components/islands/GlobalLoader';
 import { NotificationToast } from '../components/islands/NotificationToast';
+import '@fontsource-variable/geist';
 import '../styles/global.css';
 import { getSettings } from '../lib/config';
 import { getAlternatePath, getTranslations } from '../lib/i18n';
@@ -76,20 +77,6 @@ const breadcrumbSchema = {
     <meta name="theme-color" content="#0D7C5F" />
     <meta name="google-site-verification" content="InPi-pFXOpFmi6hKGp7_u2VnGrYyL9RUewuw-ApcCeI" />
 
-    <!-- Google Fonts: Geist & Satoshi (Fontshare) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap"
-      rel="stylesheet"
-    />
-
     <!-- SEO Meta Tags - Props are compatible at runtime -->
     <SEO
       title={seoOverride?.title || title || settings.meta_title}
@@ -106,7 +93,7 @@ const breadcrumbSchema = {
     <!-- Organization Schema moved to page-level (index.astro) to avoid duplication -->
 
     <!-- BreadcrumbList Schema (SEO Rich Results) -->
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
     <!-- Astro Client Router (View Transitions) -->
     <ClientRouter />
@@ -115,6 +102,7 @@ const breadcrumbSchema = {
     {
       settings.gtm_id && (
         <script
+          is:inline
           set:html={`(function(){function loadGTM(){try{var d=localStorage.getItem("consent_state");if(!d)return;var c=JSON.parse(d);if(c.marketing){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f)})(window,document,"script","dataLayer","${settings.gtm_id}")}}catch(e){}}if(typeof requestIdleCallback==="function"){requestIdleCallback(loadGTM)}else{setTimeout(loadGTM,1)}})();`}
         />
       )
@@ -126,7 +114,7 @@ const breadcrumbSchema = {
       href="#main-content"
       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-active focus:text-background focus:rounded-lg focus:font-semibold focus:shadow-lg"
     >
-      Skip to content
+      {tr.site.skipLink}
     </a>
 
     <!-- Ambient Mesh Background Animation -->
@@ -163,7 +151,7 @@ const breadcrumbSchema = {
     <Footer
       columns={settings.footer_columns || []}
       socialLinks={settings.social_links || []}
-      copyright={settings.copyright_text || '© 2026 LaventeCare'}
+      copyright={settings.copyright_text || `© ${new Date().getFullYear()} LaventeCare`}
     />
 
     <!-- Global UI Islands -->

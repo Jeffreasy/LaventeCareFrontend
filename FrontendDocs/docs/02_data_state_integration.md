@@ -1,3 +1,7 @@
+> **Partly superseded (2026-07-17).** Concurrent refresh now uses one shared
+> promise; the old callback queue described below no longer exists. See `docs/INDEX.md`.
+
+
 # 02. Data, State & Integration
 
 ## 1. Universal Proxy for Backend Integration (BFF)

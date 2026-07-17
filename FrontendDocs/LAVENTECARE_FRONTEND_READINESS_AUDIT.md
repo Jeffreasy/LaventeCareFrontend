@@ -1,3 +1,5 @@
+> **Historical point-in-time audit (2026-07-06).** Most repository-fixable findings have since been addressed. See `docs/READINESS_STATUS_2026-07-17.md` for the current reconciliation and external release gates.
+
 # LaventeCare — Frontend Readiness Audit (2026-07-06)
 
 > Diepe audit: is de canonieke bedrijfsdata compleet/consistent en **bruikbaar om de marketingsite mee te herbouwen**? Bron van waarheid = `JeffriesHomeapp/lib/laventecare/*`. Live pagina's = `LaventeCareFrontend/src/pages/*`. Portfolio geverifieerd tegen de echte project-repos onder `Desktop/Projecten/*`.

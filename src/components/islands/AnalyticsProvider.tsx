@@ -9,27 +9,27 @@ import { useEffect, useState } from 'react';
  * Speed Insights is handled by native Astro component in Layout.astro
  */
 export function AnalyticsProvider() {
-    const consent = useStore(consentStore);
-    const [canLoad, setCanLoad] = useState(false);
+  const consent = useStore(consentStore);
+  const [canLoad, setCanLoad] = useState(false);
 
-    useEffect(() => {
-        // Check consent validity
-        setCanLoad(hasAnalyticsConsent());
-    }, [consent.analytics, consent.timestamp]);
+  useEffect(() => {
+    // Check consent validity
+    setCanLoad(hasAnalyticsConsent());
+  }, [consent.analytics, consent.timestamp]);
 
-    // Don't load anything if no consent
-    if (!canLoad) {
-        return null;
-    }
+  // Don't load anything if no consent
+  if (!canLoad) {
+    return null;
+  }
 
-    return (
-        <>
-            {/* Vercel Analytics with EU endpoint */}
-            <Analytics
-                beforeSend={(event) => {
-                    return event;
-                }}
-            />
-        </>
-    );
+  return (
+    <>
+      {/* Vercel Analytics with EU endpoint */}
+      <Analytics
+        beforeSend={(event) => {
+          return event;
+        }}
+      />
+    </>
+  );
 }

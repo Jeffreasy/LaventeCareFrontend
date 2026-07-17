@@ -1,45 +1,18 @@
 {
-    "regions": [
-        "fra1"
-    ],
-    "redirects": [
-        { "source": "/services", "destination": "/diensten", "permanent": true },
-        { "source": "/services/landing-pages", "destination": "/diensten/lead-generation", "permanent": true },
-        { "source": "/services/webshops", "destination": "/diensten/maatwerk-platformen", "permanent": true },
-        { "source": "/services/custom-apps", "destination": "/diensten/maatwerk-platformen", "permanent": true },
-        { "source": "/platform", "destination": "/over", "permanent": true },
-        { "source": "/security", "destination": "/diensten/security", "permanent": true },
-        { "source": "/docs", "destination": "/", "permanent": true }
-    ],
-    "headers": [
+  "regions": ["fra1"],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
         {
-            "source": "/(.*)",
-            "headers": [
-                {
-                    "key": "X-Content-Type-Options",
-                    "value": "nosniff"
-                },
-                {
-                    "key": "X-Frame-Options",
-                    "value": "SAMEORIGIN"
-                },
-                {
-                    "key": "X-XSS-Protection",
-                    "value": "1; mode=block"
-                },
-                {
-                    "key": "Referrer-Policy",
-                    "value": "strict-origin-when-cross-origin"
-                },
-                {
-                    "key": "Permissions-Policy",
-                    "value": "camera=(), microphone=(), geolocation=()"
-                },
-                {
-                    "key": "Content-Security-Policy",
-                    "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com https://api.fontshare.com https://cdn.fontshare.com; connect-src 'self' https://laventecareauthsystems.onrender.com https://tangible-hyena-200.convex.cloud https://tangible-hyena-200.convex.site https://vitals.vercel-insights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
-                }
-            ]
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://vercel.live; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://vitals.vercel-insights.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
         }
-    ]
+      ]
+    }
+  ]
 }

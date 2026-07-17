@@ -69,7 +69,7 @@ const howToSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
 <Layout
   title="Werkwijze — Duidelijk proces met een vast bouwplan | LaventeCare"
@@ -124,7 +124,9 @@ const howToSchema = {
       <!-- Betalingsvoorwaarden -->
       <div class="max-w-3xl mx-auto mb-16">
         <div class="flex items-center gap-3 mb-6">
-          <div class="w-8 h-8 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0">
+          <div
+            class="w-8 h-8 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0"
+          >
             <Icon name="clipboard-list" size={16} class="text-active" />
           </div>
           <h3 class="text-lg font-bold text-white font-display">Betalingsvoorwaarden</h3>
@@ -132,30 +134,48 @@ const howToSchema = {
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <!-- 30 dagen (algemene voorwaarden art. 9) -->
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
-            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors"
+          >
+            <div
+              class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
               <Icon name="clock" size={16} class="text-active" />
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-white font-bold text-sm font-display">Betalingstermijn</span>
-                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">30 dagen</span>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display"
+                  >30 dagen</span
+                >
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Na factuurdatum, volgens artikel 9 van de algemene voorwaarden. Betaalt u niet op tijd, dan sturen we eerst een schriftelijke herinnering (ingebrekestelling); blijft betaling uit, dan mogen we <span class="text-white/80">het werk tijdelijk stilleggen</span>.
+                Na factuurdatum, volgens artikel 9 van de algemene voorwaarden. Betaalt u niet op
+                tijd, dan sturen we eerst een schriftelijke herinnering (ingebrekestelling); blijft
+                betaling uit, dan mogen we <span class="text-white/80"
+                  >het werk tijdelijk stilleggen</span
+                >.
               </p>
             </div>
           </div>
 
           <!-- Discovery vooraf -->
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
-            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors"
+          >
+            <div
+              class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
               <Icon name="search" size={16} class="text-active" />
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-white font-bold text-sm font-display">Onderzoek (Discovery)</span>
-                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Vooraf</span>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display"
+                  >Vooraf</span
+                >
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
                 Wordt gefactureerd voordat we beginnen. Geen start zonder betaalde factuur.
@@ -164,33 +184,50 @@ const howToSchema = {
           </div>
 
           <!-- Change Request -->
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
-            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors"
+          >
+            <div
+              class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
               <Icon name="git-merge" size={16} class="text-active" />
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-white font-bold text-sm font-display">Meerwerk</span>
-                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Change Request</span>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display"
+                  >Change Request</span
+                >
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Werk buiten de afspraak vereist altijd een <span class="text-white/80">goedgekeurde wijziging (Change Request)</span> voordat we het uitvoeren.
+                Werk buiten de afspraak vereist altijd een <span class="text-white/80"
+                  >goedgekeurde wijziging (Change Request)</span
+                > voordat we het uitvoeren.
               </p>
             </div>
           </div>
 
           <!-- SLA incasso -->
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
-            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors"
+          >
+            <div
+              class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
               <Icon name="refresh-cw" size={16} class="text-active" />
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-white font-bold text-sm font-display">Onderhoud (SLA)</span>
-                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Maandelijks</span>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display"
+                  >Maandelijks</span
+                >
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Maandelijks vooraf via automatische incasso. De prijs stijgt jaarlijks mee met de inflatie (CBS).
+                Maandelijks vooraf via automatische incasso. De prijs stijgt jaarlijks mee met de
+                inflatie (CBS).
               </p>
             </div>
           </div>
@@ -200,7 +237,11 @@ const howToSchema = {
           <div class="flex items-start gap-3">
             <Icon name="alert-triangle" size={14} class="text-active flex-shrink-0 mt-0.5" />
             <p class="text-white/40 text-xs font-ui leading-relaxed">
-              <span class="text-white/70 font-bold">Annulering advies/bouwfase:</span> Voor IT Advies: tot 24u vooraf kosteloos verzetten. Voor de bouwfase: de al gewerkte uren + 30% van het resterende bedrag. Zie <a href="/voorwaarden" class="text-active hover:underline">artikel 10 van de algemene voorwaarden</a>.
+              <span class="text-white/70 font-bold">Annulering advies/bouwfase:</span> Voor IT Advies:
+              tot 24u vooraf kosteloos verzetten. Voor de bouwfase: de al gewerkte uren + 30% van het
+              resterende bedrag. Zie <a href="/voorwaarden" class="text-active hover:underline"
+                >artikel 10 van de algemene voorwaarden</a
+              >.
             </p>
           </div>
         </div>
@@ -210,13 +251,15 @@ const howToSchema = {
           <Icon name="external-link" size={13} class="text-active flex-shrink-0" />
           <p class="text-white/40 text-xs font-ui">
             Volledige betalings- en annuleringsafspraken:
-            <a href="/voorwaarden" class="text-active hover:text-active/80 transition-colors ml-1 underline underline-offset-2">
+            <a
+              href="/voorwaarden"
+              class="text-active hover:text-active/80 transition-colors ml-1 underline underline-offset-2"
+            >
               Algemene Voorwaarden →
             </a>
           </p>
         </div>
       </div>
-
 
       <!-- Wanneer wel/niet -->
       <div class="max-w-3xl mx-auto">
@@ -234,9 +277,14 @@ const howToSchema = {
               <Icon name="check" size={16} class="text-cta shrink-0" /> Ideale match
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/60">
-              <li>Er is een concreet bedrijfsproces dat tijd, fouten, omzet of klantbeleving raakt</li>
+              <li>
+                Er is een concreet bedrijfsproces dat tijd, fouten, omzet of klantbeleving raakt
+              </li>
               <li>U heeft eigenaarschap: u kunt beslissen, prioriteren en feedback geven</li>
-              <li>Bereidheid om eerst het onderzoek en het bouwplan (Discovery en Blueprint) serieus te doorlopen vóór er gebouwd wordt</li>
+              <li>
+                Bereidheid om eerst het onderzoek en het bouwplan (Discovery en Blueprint) serieus
+                te doorlopen vóór er gebouwd wordt
+              </li>
               <li>De vraag gaat over een systeem of werkproces, niet over losse opmaak</li>
               <li>Er is ruimte voor onderhoud, documentatie en doorontwikkeling</li>
             </ul>
@@ -268,9 +316,9 @@ const howToSchema = {
         <Icon name="arrow-right" size={20} />
       </a>
       <p class="text-white/40 text-sm font-ui mt-3">
-        Plan een gratis adviesgesprek en krijg direct inzicht in haalbaarheid, aanpak en kosten voor uw situatie.
+        Plan een gratis adviesgesprek en krijg direct inzicht in haalbaarheid, aanpak en kosten voor
+        uw situatie.
       </p>
     </div>
   </section>
 </Layout>
-

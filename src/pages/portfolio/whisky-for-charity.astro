@@ -5,7 +5,7 @@ import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
 const results = [
-  { value: 'Veilig', label: 'Donaties & bestellingen' },
+  { value: 'Duidelijk', label: 'Bestel- en donatieflow' },
   { value: 'Automatisch', label: 'Bevestiging per e-mail' },
   { value: 'Netjes', label: 'E-mails in elk programma' },
   { value: 'Snel', label: 'Laadt vlot, ook op mobiel' },
@@ -13,8 +13,8 @@ const results = [
 
 const challenges = [
   {
-    title: 'Veilige donatiestromen',
-    desc: 'Betalingen voor een goed doel moeten altijd kloppen. Elke euro moet te volgen en te verantwoorden zijn.',
+    title: 'Duidelijke donatiestromen',
+    desc: 'Een goed doel vraagt om een heldere route van keuze naar aanvraag, met informatie die voor bezoeker en organisatie begrijpelijk blijft.',
   },
   {
     title: 'Complexe orderverwerking',
@@ -33,7 +33,7 @@ const challenges = [
 
 <Layout
   title="Case Study: Whisky for Charity — LaventeCare"
-  description="Hoe LaventeCare een liefdadigheidsplatform bouwde met veilige donatiestromen, orderverwerking en geautomatiseerde communicatie. Astro + HTML Email."
+  description="Hoe LaventeCare een liefdadigheidswebsite bouwde met een bestel- en donatieflow en geautomatiseerde e-mailbevestigingen. Astro + HTML Email."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
@@ -49,8 +49,8 @@ const challenges = [
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
           Een liefdadigheidsplatform op het snijvlak van kunst, whisky en goede doelen. Veilige
-          donatiestromen, veilingverwerking en volledig geautomatiseerde communicatie. Eén van mijn
-          eerste projecten — het fundament waarop de LaventeCare stack is gebouwd.
+          bestel- en donatieflow en geautomatiseerde e-mailbevestigingen. Eén van mijn eerste
+          projecten — het fundament waarop de LaventeCare stack is gebouwd.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
           <span
@@ -111,7 +111,7 @@ const challenges = [
       <div class="max-w-4xl mx-auto mb-16">
         <SectionHeader
           label="De oplossing"
-          heading='Veilig, snel en <span class="text-active">geautomatiseerd</span>'
+          heading='Duidelijk, snel en <span class="text-active">geautomatiseerd</span>'
         />
         <div
           data-animate="fade-up"
@@ -122,15 +122,17 @@ const challenges = [
               Betrouwbare Orderverwerking
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Alle bestellingen en donaties worden op de server gecontroleerd. Zo kan het
-              organisatieteam elke binnenkomende bestelling betrouwbaar opvolgen en terugvinden.
+              Het bestel- en donatieproces leidt bezoekers stap voor stap door hun keuze. Zo krijgt
+              het organisatieteam complete gegevens die het gericht kan opvolgen.
             </p>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Nette e-mails in elk programma</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">
+              Nette e-mails in elk programma
+            </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              E-mailbevestigingen die er in elk e-mailprogramma goed uitzien — van Gmail tot Outlook.
-              Bij elke bestelling gaan er automatisch twee e-mails uit: de klant krijgt een
+              E-mailbevestigingen die er in elk e-mailprogramma goed uitzien — van Gmail tot
+              Outlook. Bij elke bestelling gaan er automatisch twee e-mails uit: de klant krijgt een
               bevestiging, het team krijgt een melding.
             </p>
           </div>

@@ -1,256 +1,85 @@
-# LaventeCare - Enterprise Astro Application
+# LaventeCare Frontend
 
-Een professioneel, enterprise-ready Astro project met moderne glassmorphism design, volledige type-safety en geautomatiseerde testing.
+Publieke LaventeCare-site voor `laventecare.nl` (Nederlands) en `laventecare.com` (Engels). De applicatie draait server-side op Astro, gebruikt React alleen voor interactieve islands en benadert LaventeCareAuthSystems uitsluitend via dezelfde-origin `/api`-routes.
 
-## 🚀 Quick Start
+## Vereisten
 
-### 1. Install Dependencies
+- Node.js 22.12 of hoger
+- npm met een lockfile-compatibele versie
+- Een bereikbare LaventeCareAuthSystems-instance
 
-```bash
-npm install
-```
-
-### 2. Start Development Server
+## Lokaal starten
 
 ```bash
+npm ci
 npm run dev
 ```
 
-De applicatie draait op `http://localhost:4321`
+De ontwikkelserver luistert standaard op `http://localhost:4321`.
 
-## LaventeCare Intake Bridge
+Maak een niet-getrackte `.env` op basis van `.env.example`:
 
-Het contactformulier post gestructureerde intakevelden naar `/api/v1/public/contact`: projecttype,
-bedrijf, budget, tijdlijn, doel, optioneel telefoonnummer, bron en huidige pagina-URL. De Go-backend
-kan die aanvraag vervolgens doorzetten naar Jeffrey's private Homeapp cockpit als lead en
-opvolgactie wanneer `HOMEAPP_LAVENTECARE_INTAKE_URL` en
-`HOMEAPP_LAVENTECARE_INTAKE_SECRET` daar geconfigureerd zijn.
-
-## 📁 Enterprise Architecture
-
-### Component-Driven Design
-
-- **UI Components** (`src/components/ui/`): Herbruikbare primitive components (Button, Card, etc.)
-- **Blocks** (`src/components/blocks/`): Samengestelde secties (Hero, Navbar, Footer)
-- **Islands** (`src/components/islands/`): Interactieve React components
-### Type Safety
-
-- **Build-time**: TypeScript interfaces voor compile-time garanties
-- **Component Props**: Strikt getypeerde props met TypeScript
-- **Utilities**: Type-safe helpers en utilities
-
-### Project Structure
-
-```
-src/
-├── components/
-│   ├── ui/             # Primitive UI componenten (Button, Card, Input)
-│   ├── blocks/         # Page sections & Layout (Hero, Navbar, Footer)
-│   └── islands/        # Interactive React componenten (Forms, Toggles)
-├── layouts/
-│   └── Layout.astro    # Base layout met SEO en metadata
-├── lib/
-│   ├── utils.ts        # cn() utility (Tailwind class merging)
-│   ├── convex.ts       # Convex backend initialization
-│   └── image.ts        # Image optimization helpers
-├── pages/              # Astro routing
-├── styles/
-│   └── global.css      # Global styles met design tokens
-└── types/              # TypeScript type definitions
+```dotenv
+PUBLIC_API_URL=https://auth.example.com
+PUBLIC_TENANT_ID=00000000-0000-4000-8000-000000000000
+PUBLIC_JWT_ISSUER=https://auth.example.com
+PUBLIC_JWT_AUDIENCE=laventecare-frontend
 ```
 
-## 🎨 Component Development
+`PUBLIC_API_URL` en `PUBLIC_JWT_ISSUER` moeten in productie een HTTPS-origin zonder credentials, query, fragment of basepath zijn. Plain HTTP is alleen toegestaan voor een loopback-adres in development. `PUBLIC_TENANT_ID` moet een geldige UUID zijn; er bestaat geen impliciete fallback-tenant.
 
-### Creating a New Component
-
-1. **Create UI Component** (`src/components/ui/Button.astro`)
-
-```astro
----
-import { cn } from '../../lib/utils';
-
-interface Props {
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
-  class?: string;
-}
-
-const { variant = 'primary', size = 'md', class: className } = Astro.props;
----
-
-<button class={cn(
-  'inline-flex items-center justify-center rounded-lg transition-colors',
-  variant === 'primary' && 'bg-primary text-white hover:bg-primary/90',
-  variant === 'secondary' && 'bg-secondary text-white hover:bg-secondary/90',
-  variant === 'outline' && 'border-2 border-primary text-primary bg-transparent',
-  size === 'sm' && 'px-3 py-1.5 text-xs',
-  size === 'md' && 'px-5 py-2.5 text-sm',
-  size === 'lg' && 'px-8 py-4 text-lg',
-  className
-)}>
-  <slot />
-</button>
-```
-
-2. **Use in Pages** (`src/pages/index.astro`)
-
-```astro
----
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/sections/Hero.astro';
----
-
-<Layout title="Home">
-  <Hero
-    headline="LaventeCare"
-    subtitle="Enterprise Astro Application"
-    description="Modern, type-safe web development"
-    ctaPrimary={{ label: 'Get Started', url: '/start' }}
-  />
-</Layout>
-```
-
-## 🧪 NPM Scripts
-
-### Development
+## Commando's
 
 ```bash
-npm run dev          # Start dev server
-npm run build        # Production build
-npm run preview      # Preview production build
+npm run format:check
+npm run lint
+npm run type-check
+npm run test
+npm run build
 ```
 
-### Code Quality
+CI voert daarnaast een actuele-tree secretscan en `npm audit --omit=dev --audit-level=high` uit.
 
-```bash
-npm run lint         # ESLint check
-npm run format       # Format with Prettier
-npm run format:check # Check formatting
-npm run type-check   # TypeScript/Astro check
+## Architectuur
+
+- Astro 7.1 met `@astrojs/vercel` 11 en server-output.
+- React 19 voor het contactformulier, login/MFA en beheerinterfaces.
+- Tailwind CSS 4 via de Vite-plugin.
+- Hostgebaseerde locale: `.nl` is Nederlands, `.com` is Engels.
+- Same-origin BFF onder `/api`; browsercode praat niet rechtstreeks met de auth-origin.
+- RS256-JWT-verificatie in middleware met expliciete issuer, audience, scope, tenant en beheerdersrol.
+- Eén HttpOnly refreshcookie op `Path=/api`; vernieuwing is single-flight.
+- Tijdelijke auth-storingen (netwerk, 429, 5xx) bewaren de sessie. Alleen expliciete 400/401/403-responses maken de sessie ongeldig.
+- Publieke contactrequests gebruiken een idempotente `requestId` en komen via AuthSystems bij de private intakebridge terecht.
+
+Zie [docs/INDEX.md](docs/INDEX.md) voor de documentstatus en [docs/READINESS_STATUS_2026-07-17.md](docs/READINESS_STATUS_2026-07-17.md) voor de actuele auditreconciliatie.
+
+## Belangrijke mappen
+
+```text
+src/components/   Astro-blokken, UI-primitives en React-islands
+src/layouts/      sitebrede layout, SEO en locale-integratie
+src/lib/          API-client, runtimeconfig, i18n en securityhelpers
+src/pages/        pagina's en same-origin API-routes
+tests/            Playwright functionele en regressietests
+FrontendDocs/     historische en aanvullende ontwerpdocumentatie
+docs/             canonieke documentindex en actuele status
 ```
 
-### Testing
+## Contactflow
 
-```bash
-npm run test         # Run Playwright E2E tests
-npm run test:ui      # Interactive Playwright UI
-```
+Het formulier verstuurt naam, e-mail, projecttype, bedrijf, budget, tijdlijn, doel, optioneel telefoonnummer, bron, pagina-URL en een stabiele `requestId` naar `/api/v1/public/contact`. Een retry zonder inhoudelijke wijziging hergebruikt dezelfde sleutel; na een wijziging wordt een nieuwe sleutel gemaakt. Publieke 401-responses starten nooit een sessierefresh.
 
-## 🎨 Styling met Tailwind CSS
+AuthSystems valideert origin en tenant, reserveert de idempotentiesleutel duurzaam, zet e-mails in de outbox en forwardt LaventeCare-originverkeer naar de Homeapp-intake. Zie de AuthSystems-documentatie voor de bridge-secret en migraties.
 
-### Design System
+## Deploy
 
-Het project gebruikt een custom design system gedefinieerd in [`tailwind.config.mjs`](./tailwind.config.mjs):
+De beoogde runtime is Vercel. Voor productie zijn minimaal vereist:
 
-- **Colors**: Semantic color tokens (primary, secondary, background, foreground)
-- **Typography**: Custom font families en sizes
-- **Glassmorphism**: Modern transparent card designs met backdrop blur
-- **Responsive**: Mobile-first responsive utilities
+1. Node 22.12+ en de vier `PUBLIC_*` variabelen hierboven.
+2. DNS/hostrouting voor `.nl` en `.com`.
+3. AuthSystems-migraties en toegestane origins voor beide domeinen.
+4. Een unieke intake-secret van minimaal 32 tekens aan beide serverzijden.
+5. Werkende SMTP-configuratie per tenant.
 
-### `cn()` Utility
-
-Combineer en los Tailwind class conflicten op met de `cn()` utility:
-
-```typescript
-import { cn } from './lib/utils';
-
-const className = cn(
-  'bg-gray-50',
-  isActive && 'bg-primary',
-  props.class
-);
-```
-
-### Global Styles
-
-Zie [`src/styles/global.css`](./src/styles/global.css) voor:
-- CSS custom properties
-- Design tokens
-- Global utility classes
-- Glassmorphism effects
-
-## 🖼️ Image Optimization
-
-Gebruik de image optimization helpers:
-
-```typescript
-import { optimizeImage } from './lib/image';
-
-const optimized = optimizeImage(imageUrl, {
-  width: 800,
-  format: 'webp',
-  quality: 80,
-});
-```
-
-## 🔄 CI/CD Pipeline
-
-GitHub Actions workflow ([`.github/workflows/ci.yml`](./.github/workflows/ci.yml)):
-
-1. **Code Quality**: Prettier, ESLint, TypeScript
-2. **E2E Tests**: Playwright op alle browsers
-3. **Build**: Productie build verificatie
-
-## 🧩 Key Features
-
-✅ **Modern Architecture** - Component-driven design  
-✅ **Type Safety** - Full TypeScript support  
-✅ **Testing** - Playwright E2E tests  
-✅ **CI/CD** - GitHub Actions pipeline  
-✅ **Code Quality** - ESLint + Prettier  
-✅ **Design System** - Tailwind CSS met custom tokens  
-✅ **Glassmorphism** - Modern transparent UI design  
-✅ **Responsive** - Mobile-first approach
-
-## 📚 Documentation
-
-- [**Styling Rules**](./StylingRules.md) - Complete styling guide
-- [Astro Docs](https://docs.astro.build)
-- [Tailwind CSS Docs](https://tailwindcss.com)
-
-## 🚢 Deployment
-
-### Vercel (Recommended)
-
-1. Push naar GitHub
-2. Connect met Vercel
-3. Deploy (automatisch detecteert Astro build)
-
-### Netlify
-
-1. Push naar GitHub  
-2. Connect met Netlify
-3. Build command: `npm run build`
-4. Publish directory: `dist`
-
-## 🎯 Next Steps
-
-1. Voeg custom components toe aan je pages
-2. Implementeer routing voor additional pages
-3. Voeg analytics toe (GA4, Plausible)
-4. Setup webhooks voor automated deployments
-5. Implementeer multilingual support (i18n)
-
-## 💡 Best Practices
-
-- Gebruik de `cn()` utility voor conditional styling
-- Optimaliseer images voor betere performance
-- Houd components klein en herbruikbaar
-- Schrijf E2E tests voor kritieke user flows
-- Run linting en formatting voor commits
-- Gebruik semantic HTML voor accessibility
-
-## 🏗️ Tech Stack
-
-- **Framework**: Astro 5.x
-- **Styling**: Tailwind CSS 3.x
-- **UI Components**: Custom components met glassmorphism design
-- **Icons**: Lucide React
-- **Testing**: Playwright
-- **Type Safety**: TypeScript
-- **Code Quality**: ESLint + Prettier
-
----
-
-**Built with Enterprise Standards** 🚀  
-Type-safe • Tested • Scalable • Modern
+Secrets, productiecredentials en private sleutels horen uitsluitend in de deployment-secretstore. Publiceer pas na de checks in de readinessstatus en een echte end-to-end test op de productie-infrastructuur.

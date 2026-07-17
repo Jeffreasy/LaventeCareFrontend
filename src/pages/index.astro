@@ -6,7 +6,6 @@ import FAQSection from '../components/blocks/FAQSection.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import StatCard from '../components/ui/StatCard.astro';
 import PillarCard from '../components/blocks/PillarCard.astro';
-import { AntiGravityShield } from '../components/islands/AntiGravityShield';
 
 // Dual-domain: serve EN homepage on .com without changing the URL
 if (Astro.locals.locale === 'en') {
@@ -27,9 +26,9 @@ const heroData = {
     url: '/portfolio',
   },
   stats: [
-    { value: 'tot 99/100', label: 'Google Lighthouse' },
     { value: '6+', label: 'Live projecten' },
-    { value: '<1,5s', label: 'Gemiddelde laadtijd' },
+    { value: '6', label: 'Samenhangende diensten' },
+    { value: '1', label: 'Vast aanspreekpunt' },
   ],
   alignment: 'center' as const,
   size: 'large' as const,
@@ -64,7 +63,7 @@ const jsonLd = {
   },
   telephone: '+31-6-39034085',
   areaServed: 'NL',
-  priceRange: '€€€',
+  priceRange: '€75 - €300+/maand',
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -145,7 +144,7 @@ const pillars = [
   {
     title: 'Beveiliging & Authenticatie',
     description:
-      "Uw gegevens zijn per klant strikt gescheiden en beschermd, ook bij fouten of aanvallen. Onder de motorkap: PostgreSQL RLS, toegang per rol (RBAC) en volledige logging.",
+      'Uw gegevens zijn per klant strikt gescheiden en beschermd, ook bij fouten of aanvallen. Onder de motorkap: PostgreSQL RLS, toegang per rol (RBAC) en volledige logging.',
     icon: 'shield-check',
     tags: ['Gescheiden klantdata', 'Toegang per rol', 'Alles vastgelegd'],
     href: '/diensten/security',
@@ -154,7 +153,7 @@ const pillars = [
 ] as const;
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
   title="LaventeCare — B2B systeempartner voor mkb | Dronten"
@@ -202,9 +201,12 @@ const pillars = [
           >
             <Icon name="link" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Eén aanspreekpunt, volledig eigenaarschap</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">
+            Eén aanspreekpunt, volledig eigenaarschap
+          </h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Van intake tot livegang — één vast aanspreekpunt dat uw processen en systeem door en door kent. Geen wisselende developers, geen miscommunicatie, geen kennisverloop.
+            Van intake tot livegang — één vast aanspreekpunt dat uw processen en systeem door en
+            door kent. Geen wisselende developers, geen miscommunicatie, geen kennisverloop.
           </p>
         </div>
 
@@ -218,9 +220,13 @@ const pillars = [
           >
             <Icon name="zap" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Security-first architectuur</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">
+            Security-first architectuur
+          </h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Uw gegevens zijn per klant strikt gescheiden en elke actie wordt vastgelegd. Onder de motorkap: Privacy by Design met PostgreSQL RLS, toegang per rol (RBAC) en volledige logging.
+            Uw gegevens zijn per klant strikt gescheiden en elke actie wordt vastgelegd. Onder de
+            motorkap: Privacy by Design met PostgreSQL RLS, toegang per rol (RBAC) en volledige
+            logging.
           </p>
         </div>
 
@@ -234,9 +240,10 @@ const pillars = [
           >
             <Icon name="gauge" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Meetbaar sneller, aantoonbaar beter</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">Snel en stabiel by design</h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Systemen die scoren tot 99/100 op Google Lighthouse en gemiddeld onder 1,5s laden. Snelheid en stabiliteit als fundament, niet als afterthought.
+            Server-rendered pagina's en doelgerichte interactieve onderdelen houden de interface
+            licht. Snelheid en stabiliteit zijn ontwerpprincipes die per oplevering worden getoetst.
           </p>
         </div>
       </div>
@@ -252,42 +259,9 @@ const pillars = [
       >
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           <StatCard value="6+" label="Live projecten" />
-          <StatCard value="tot 99/100" label="Google Lighthouse" />
-          <StatCard value="<1,5s" label="Gemiddelde laadtijd" />
+          <StatCard value="6" label="Samenhangende diensten" />
+          <StatCard value="1" label="Vast aanspreekpunt" />
           <StatCard value="SLA" label="Doorlopend onderhoud mogelijk" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Secure by Design: Live Security -->
-  <section class="py-8 md:py-12">
-    <div class="container mx-auto px-4">
-      <div
-        data-animate="fade-up"
-        class="max-w-3xl mx-auto"
-      >
-        <div class="text-center mb-8">
-          <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-2 block"
-            >Secure by Design</span
-          >
-          <h2 class="text-xl md:text-2xl font-bold text-white font-display">
-            Actieve Systeembeveiliging
-          </h2>
-          <p class="text-white/50 text-sm font-ui mt-2">
-            Geen loze beloftes over veiligheid. Zie hier live overzicht van de beveiligingslaag die kwaadwillend verkeer signaleert en weert.
-          </p>
-        </div>
-
-        <AntiGravityShield client:load />
-
-        <div class="text-center mt-6">
-          <a
-            href="/diensten/security"
-            class="text-white/40 text-sm font-ui hover:text-active transition-colors"
-          >
-            Lees meer over onze security-first aanpak →
-          </a>
         </div>
       </div>
     </div>
@@ -331,16 +305,14 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go Auth</span>
           </div>
-          <div
-            class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
-          >
+          <div class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5">
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
               <span class="text-white/70 text-xs font-ui">Real-time registratie</span>
             </div>
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">0 handmatig beheer</span>
+              <span class="text-white/70 text-xs font-ui">Geautomatiseerde verwerking</span>
             </div>
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
@@ -372,8 +344,8 @@ const pillars = [
             >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Koelmonitoring met automatische alarmering bij afwijkingen. Sensordata direct
-            zichtbaar op uw scherm, waar u ook bent.
+            Koelmonitoring met automatische alarmering bij afwijkingen. Sensordata direct zichtbaar
+            op uw scherm, waar u ook bent.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">C++</span>
@@ -382,9 +354,7 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">React</span>
           </div>
-          <div
-            class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
-          >
+          <div class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5">
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
               <span class="text-white/70 text-xs font-ui">Realtime sensordata</span>
@@ -423,17 +393,15 @@ const pillars = [
             >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Stapsgewijs offertetraject, projectgalerij en automatische klantcommunicatie in
-            één systeem, gebouwd voor snelheid en vindbaarheid.
+            Stapsgewijs offertetraject, projectgalerij en automatische klantcommunicatie in één
+            systeem, gebouwd voor snelheid en vindbaarheid.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go Auth</span>
           </div>
-          <div
-            class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
-          >
+          <div class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5">
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
               <span class="text-white/70 text-xs font-ui">Offertetraject geautomatiseerd</span>
@@ -475,7 +443,9 @@ const pillars = [
           </div>
           <span class="text-emerald-400 text-sm font-bold flex items-center gap-2 font-ui">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              ></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             Live in gebruik
@@ -505,12 +475,12 @@ const pillars = [
         <p
           class="text-white/70 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-ui"
         >
-          Systems engineer met een achtergrond in intensieve NAH-zorg. Ik bouw
-          systemen die niet alleen technisch solide zijn, maar ook structuur en veiligheid
-          bieden in de echte wereld.
+          Systems engineer met een achtergrond in intensieve NAH-zorg. Ik bouw systemen die niet
+          alleen technisch solide zijn, maar ook structuur en veiligheid bieden in de echte wereld.
         </p>
         <p class="text-white/40 text-sm font-ui mb-6">
-          Plan een gratis adviesgesprek en ontdek waar u direct tijd, kosten of risico kunt besparen.
+          Plan een gratis adviesgesprek en ontdek waar u direct tijd, kosten of risico kunt
+          besparen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/over" class="btn-secondary"> Lees mijn verhaal </a>

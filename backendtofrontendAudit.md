@@ -1,3 +1,5 @@
+> **Historical audit (2026-01-31; revalidated 2026-07-17).** Findings below describe the old implementation. Use `docs/READINESS_STATUS_2026-07-17.md` for current truth. Do not follow old Convex, CSRF-meta or cookie recommendations without checking the code.
+
 LaventeCare Frontend: Authentication & Email Configuration Audit Report
 Datum: 31 Januari 2026
 Project: LaventeCare Frontend

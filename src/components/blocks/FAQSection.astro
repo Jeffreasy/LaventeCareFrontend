@@ -22,7 +22,7 @@ const faqsNL: FAQCategory[] = [
       {
         question: 'Wat doet LaventeCare precies?',
         answer:
-          "LaventeCare is het bedrijf van Jeffrey Lavente, gevestigd in Dronten. Ik ontwerp en bouw complete platformen: van systemen met ingebouwde databescherming tot IoT-monitoring en AI-automatisering. Elk platform draait op het LaventeCare AuthSystem — een zelfgebouwde beveiligingskern met data-isolatie, rolgebaseerde toegangscontrole en automatische dreigingsdetectie.",
+          'LaventeCare is het bedrijf van Jeffrey Lavente, gevestigd in Dronten. Ik ontwerp en bouw complete platformen: van systemen met ingebouwde databescherming tot IoT-monitoring en AI-automatisering. Elk platform draait op het LaventeCare AuthSystem — een zelfgebouwde beveiligingskern met data-isolatie, rolgebaseerde toegangscontrole en automatische dreigingsdetectie.',
       },
       {
         question: 'Voor wie is LaventeCare bedoeld?',
@@ -221,17 +221,21 @@ const faqSchema = {
 
 const ui = {
   label: locale === 'en' ? 'Support & Info' : 'Support & Info',
-  heading: locale === 'en' ? 'Frequently Asked <span class="text-transparent bg-clip-text bg-linear-to-r from-active to-white/50">Questions</span>' : 'Veelgestelde <span class="text-transparent bg-clip-text bg-linear-to-r from-active to-white/50">Vragen</span>',
-  subtext: locale === 'en'
-    ? 'Everything about my approach, technology, security and costs. Question not listed?'
-    : 'Alles over mijn werkwijze, technologie, beveiliging en kosten. Staat uw vraag er niet bij?',
+  heading:
+    locale === 'en'
+      ? 'Frequently Asked <span class="text-transparent bg-clip-text bg-linear-to-r from-active to-white/50">Questions</span>'
+      : 'Veelgestelde <span class="text-transparent bg-clip-text bg-linear-to-r from-active to-white/50">Vragen</span>',
+  subtext:
+    locale === 'en'
+      ? 'Everything about my approach, technology, security and costs. Question not listed?'
+      : 'Alles over mijn werkwijze, technologie, beveiliging en kosten. Staat uw vraag er niet bij?',
   contactText: locale === 'en' ? 'Get in touch' : 'Neem contact op',
 };
 ---
 
 <section id="faq" class="py-16 md:py-24 relative overflow-hidden">
   <!-- JSON-LD Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <div class="container mx-auto px-4 relative z-10">
     <div class="max-w-4xl mx-auto text-center mb-16">
@@ -245,10 +249,8 @@ const ui = {
         set:html={ui.heading}
       />
       <p class="text-white/60 max-w-2xl mx-auto text-lg leading-relaxed font-ui">
-        {ui.subtext} <a
-          href="/contact"
-          class="text-active hover:underline">{ui.contactText}</a
-        >.
+        {ui.subtext}
+        <a href="/contact" class="text-active hover:underline">{ui.contactText}</a>.
       </p>
     </div>
 

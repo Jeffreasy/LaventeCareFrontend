@@ -44,7 +44,7 @@
 }
 
 .cookie-banner__title {
-  font-family: 'Satoshi', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
   color: white;
@@ -52,7 +52,7 @@
 }
 
 .cookie-banner__description {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.875rem;
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.7);
@@ -71,7 +71,7 @@
   min-width: 120px;
   padding: 0.75rem 1.25rem;
   border-radius: 0.5rem;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
@@ -169,7 +169,7 @@
 }
 
 .cookie-modal__title {
-  font-family: 'Satoshi', sans-serif;
+  font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
   color: white;
@@ -212,7 +212,7 @@
   align-items: center;
   gap: 0.75rem;
   cursor: pointer;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-ui);
 }
 
 .preference-item--disabled .preference-item__label {
@@ -264,7 +264,7 @@
   flex: 1;
   padding: 0.875rem 1.5rem;
   border-radius: 0.5rem;
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;

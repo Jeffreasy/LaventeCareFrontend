@@ -10,16 +10,17 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "lint": "eslint src",
-    "format": "prettier --write \"src/**/*.{astro,ts,js}\"",
-    "format:check": "prettier --check \"src/**/*.{astro,ts,js}\"",
+    "format": "prettier --write \"src/**/*.{astro,ts,tsx,js}\" \"tests/**/*.ts\" \"astro.config.mjs\"",
+    "format:check": "prettier --check \"src/**/*.{astro,ts,tsx,js}\" \"tests/**/*.ts\" \"astro.config.mjs\"",
     "type-check": "astro check"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/sitemap": "^3.7.0",
-    "@astrojs/vercel": "^9.0.4",
+    "@astrojs/react": "6.0.1",
+    "@astrojs/sitemap": "3.7.3",
+    "@astrojs/vercel": "11.0.3",
     "@conform-to/react": "^1.15.1",
     "@conform-to/zod": "^1.15.1",
+    "@fontsource-variable/geist": "5.2.8",
     "@nanostores/persistent": "^1.2.0",
     "@nanostores/react": "^1.0.0",
     "@tailwindcss/typography": "^0.5.19",
@@ -28,12 +29,12 @@
     "@types/react-dom": "^19.2.3",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
-    "astro": "^5.16.6",
+    "astro": "7.1.0",
     "clsx": "^2.1.1",
     "jose": "^6.1.3",
     "nanostores": "^1.1.0",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
     "tailwindcss-animate": "^1.0.7",
@@ -53,5 +54,13 @@
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "overrides": {
+    "@vercel/routing-utils": {
+      "path-to-regexp": "6.3.0"
+    }
   }
 }
