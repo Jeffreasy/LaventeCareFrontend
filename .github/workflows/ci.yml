@@ -61,6 +61,11 @@ jobs:
   test:
     name: E2E Tests
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_API_URL: http://127.0.0.1:9
+      PUBLIC_TENANT_ID: 00000000-0000-4000-8000-000000000001
+      PUBLIC_JWT_ISSUER: http://127.0.0.1:9
+      PUBLIC_JWT_AUDIENCE: laventecare-frontend
 
     steps:
       - name: Checkout code
