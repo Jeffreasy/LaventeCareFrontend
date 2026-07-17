@@ -4,17 +4,74 @@ import Card from '../components/ui/Card.astro';
 import { ContactForm } from '../components/islands/ContactForm';
 import Icon from '../components/ui/Icon.astro';
 
-const pageTitle = 'Contact & Gratis Intake — LaventeCare';
+const locale = Astro.locals.locale;
+const isEN = locale === 'en';
+const formSource = isEN ? 'laventecare.com' : 'laventecare.nl';
 const initialType = Astro.url.searchParams.get('type');
-const pageDescription =
-  'Neem contact op voor een gratis intake gesprek van 30 minuten. Bespreek wat u wilt bouwen, of het technisch kan en wat het ongeveer kost. Reactie binnen 24 uur.';
+const copy = isEN
+  ? {
+      title: 'Contact & Free Intake — LaventeCare',
+      description:
+        'Get in touch for a free 30-minute intake. Discuss what you want to build, technical feasibility and a realistic next step.',
+      headingBefore: "Let's",
+      headingAccent: 'talk',
+      introBefore: 'Start with a',
+      introStrong: 'free 30-minute intake',
+      introAfter:
+        '. We discuss what you want to build, whether it is technically feasible and what the likely investment is.',
+      alternatives: 'Other ways to get in touch',
+      email: 'Email',
+      phone: 'Phone',
+      response: 'Response time',
+      responseValue: 'Within 24 hours on business days',
+      location: 'Location',
+      locationValue: 'Dronten, the Netherlands',
+      linkedIn: 'LinkedIn',
+      connect: 'Connect',
+      expect: 'What can you expect?',
+      intake: 'No-obligation intake',
+      advice: 'Clear feasibility advice',
+      workdays: 'Response on business days',
+      legalBefore: 'All assignments are subject to the LaventeCare',
+      legalLabel: 'Terms & Conditions',
+      legalAfter: '.',
+      legalHref: '/terms',
+    }
+  : {
+      title: 'Contact & Gratis Intake — LaventeCare',
+      description:
+        'Neem contact op voor een gratis intakegesprek van 30 minuten. Bespreek wat u wilt bouwen, de technische haalbaarheid en een realistische vervolgstap.',
+      headingBefore: 'Laten we',
+      headingAccent: 'praten',
+      introBefore: 'Begin met een',
+      introStrong: 'gratis intakegesprek van 30 minuten',
+      introAfter:
+        '. We bespreken wat u wilt bouwen, of het technisch haalbaar is en wat de waarschijnlijke investering is.',
+      alternatives: 'Andere manieren om contact op te nemen',
+      email: 'E-mail',
+      phone: 'Telefoon',
+      response: 'Reactietijd',
+      responseValue: 'Binnen 24 uur op werkdagen',
+      location: 'Locatie',
+      locationValue: 'Dronten, Nederland',
+      linkedIn: 'LinkedIn',
+      connect: 'Verbinden',
+      expect: 'Wat kunt u verwachten?',
+      intake: 'Vrijblijvend intakegesprek',
+      advice: 'Duidelijk advies over haalbaarheid',
+      workdays: 'Reactie op werkdagen',
+      legalBefore: 'Op alle opdrachten zijn de',
+      legalLabel: 'Algemene Voorwaarden',
+      legalAfter: ' van LaventeCare van toepassing.',
+      legalHref: '/voorwaarden',
+    };
 
 const contactSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Contact LaventeCare',
-  description: pageDescription,
-  url: 'https://www.laventecare.nl/contact',
+  name: isEN ? 'Contact LaventeCare' : 'Contact LaventeCare',
+  description: copy.description,
+  url: isEN ? 'https://www.laventecare.com/contact' : 'https://www.laventecare.nl/contact',
   mainEntity: {
     '@type': 'Organization',
     name: 'LaventeCare',
@@ -32,10 +89,9 @@ const contactSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
 
-<Layout title={pageTitle} description={pageDescription}>
-  <!-- Contact Hero Section -->
+<Layout title={copy.title} description={copy.description}>
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center mb-12">
@@ -46,34 +102,36 @@ const contactSchema = {
           class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight"
           transition:name="contact-title"
         >
-          Laten we <span class="text-active">praten</span>
+          {copy.headingBefore}
+          <span class="text-active">{copy.headingAccent}</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui">
-          Begin met een <span class="text-white font-semibold">gratis intake gesprek</span> van 30 minuten.
-          Ik bespreek met u wat u wilt bouwen, of het technisch kan, en wat het ongeveer kost.
+          {copy.introBefore}
+          <span class="text-white font-semibold">{copy.introStrong}</span>{copy.introAfter}
         </p>
       </div>
 
       <Card padding="lg" class="max-w-2xl mx-auto">
-        <ContactForm client:load initialType={initialType} />
+        <ContactForm client:load initialType={initialType} locale={locale} source={formSource} />
       </Card>
     </div>
   </section>
 
-  <!-- Contact Info Section -->
   <section class="section-padding" aria-labelledby="contact-info-heading">
     <div class="container mx-auto px-4">
       <h2
         id="contact-info-heading"
         class="text-2xl md:text-3xl font-bold text-center text-white mb-8 font-display"
       >
-        Andere manieren om <span class="text-active">contact</span> op te nemen
+        {copy.alternatives}
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto"
+      >
         <Card hover padding="md" class="text-center">
           <Icon name="mail" size={24} class="text-active block mb-3 mx-auto" />
-          <h3 class="font-semibold text-white mb-2 text-sm font-display">Email</h3>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">{copy.email}</h3>
           <a
             href="mailto:jeffrey@laventecare.nl"
             class="text-active hover:text-primary-hover transition-colors text-sm font-medium font-ui"
@@ -83,7 +141,7 @@ const contactSchema = {
 
         <Card hover padding="md" class="text-center">
           <Icon name="phone" size={24} class="text-active block mb-3 mx-auto" />
-          <h3 class="font-semibold text-white mb-2 text-sm font-display">Telefoon</h3>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">{copy.phone}</h3>
           <a
             href="tel:+31639034085"
             class="text-active hover:text-primary-hover transition-colors text-sm font-medium font-ui"
@@ -93,69 +151,65 @@ const contactSchema = {
 
         <Card hover padding="md" class="text-center">
           <Icon name="clock" size={24} class="text-active block mb-3 mx-auto" />
-          <h3 class="font-semibold text-white mb-2 text-sm font-display">Reactietijd</h3>
-          <p class="text-white/70 text-sm font-ui">Binnen 24 uur op werkdagen</p>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">{copy.response}</h3>
+          <p class="text-white/70 text-sm font-ui">{copy.responseValue}</p>
         </Card>
 
         <Card hover padding="md" class="text-center">
           <Icon name="map-pin" size={24} class="text-active block mb-3 mx-auto" />
-          <h3 class="font-semibold text-white mb-2 text-sm font-display">Locatie</h3>
-          <p class="text-white/70 text-sm font-ui">Dronten, Nederland</p>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">{copy.location}</h3>
+          <p class="text-white/70 text-sm font-ui">{copy.locationValue}</p>
         </Card>
 
         <Card hover padding="md" class="text-center">
           <Icon name="briefcase" size={24} class="text-active block mb-3 mx-auto" />
-          <h3 class="font-semibold text-white mb-2 text-sm font-display">LinkedIn</h3>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">{copy.linkedIn}</h3>
           <a
             href="https://linkedin.com/in/jeffrey-lavente"
             target="_blank"
             rel="noopener noreferrer"
             class="text-active hover:text-primary-hover transition-colors text-sm font-medium font-ui"
-            >Connecten</a
+            >{copy.connect}</a
           >
         </Card>
       </div>
     </div>
   </section>
 
-  <!-- Intake info -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
       <div
         data-animate="fade-up"
         class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto"
       >
-        <h3 class="text-lg font-bold text-white mb-4 font-display text-center">
-          Wat kunt u verwachten?
-        </h3>
+        <h2 class="text-lg font-bold text-white mb-4 font-display text-center">{copy.expect}</h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <div>
             <span class="text-active text-2xl font-black font-display block mb-1">30 min</span>
-            <p class="text-white/60 text-xs font-ui">Vrijblijvend intake gesprek</p>
+            <p class="text-white/60 text-xs font-ui">{copy.intake}</p>
           </div>
           <div>
-            <span class="text-active text-2xl font-black font-display block mb-1">Ja of nee</span>
-            <p class="text-white/60 text-xs font-ui">Eerlijk advies over haalbaarheid</p>
+            <span class="text-active text-2xl font-black font-display block mb-1">Ja / Yes</span>
+            <p class="text-white/60 text-xs font-ui">{copy.advice}</p>
           </div>
           <div>
-            <span class="text-active text-2xl font-black font-display block mb-1">24 uur</span>
-            <p class="text-white/60 text-xs font-ui">Reactie op werkdagen</p>
+            <span class="text-active text-2xl font-black font-display block mb-1">24h</span>
+            <p class="text-white/60 text-xs font-ui">{copy.workdays}</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Juridische verwijzing -->
   <section class="pb-8">
     <div class="container mx-auto px-4">
       <p class="text-center text-white/30 text-xs font-ui">
-        Op alle opdrachten zijn de
+        {copy.legalBefore}
         <a
-          href="/voorwaarden"
+          href={copy.legalHref}
           class="text-active/70 hover:text-active transition-colors underline underline-offset-2"
-          >Algemene Voorwaarden</a
-        > van LaventeCare van toepassing.
+          >{copy.legalLabel}</a
+        >{copy.legalAfter}
       </p>
     </div>
   </section>

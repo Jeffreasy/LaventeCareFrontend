@@ -29,3 +29,7 @@ src/pages/backendDocs/
 
 # bedrijfsdocumentatie (vertrouwelijk — niet publiek)
 DocumentatieBedrijf/
+
+# generated test artifacts
+playwright-report/
+test-results/

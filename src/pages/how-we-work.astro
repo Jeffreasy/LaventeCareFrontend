@@ -67,7 +67,7 @@ const howToSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
 <Layout
   title="How We Work — Blueprint-First, No Surprises | LaventeCare"
@@ -95,17 +95,23 @@ const howToSchema = {
         />
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5"
+          >
             <div class="text-3xl font-black text-active font-display mb-1">40%</div>
             <p class="text-white/70 text-xs font-ui">After Blueprint approval</p>
             <p class="text-white/40 text-[10px] font-ui mt-1">Covers initial costs</p>
           </div>
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5"
+          >
             <div class="text-3xl font-black text-active font-display mb-1">40%</div>
             <p class="text-white/70 text-xs font-ui">At beta delivery</p>
             <p class="text-white/40 text-[10px] font-ui mt-1">Interim acceptance</p>
           </div>
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center bg-active/5"
+          >
             <div class="text-3xl font-black text-active font-display mb-1">20%</div>
             <p class="text-white/70 text-xs font-ui">After go-live & acceptance</p>
             <p class="text-white/40 text-[10px] font-ui mt-1">Client guarantee</p>
@@ -114,30 +120,45 @@ const howToSchema = {
       </div>
 
       <!-- Payment Terms -->
-      <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 max-w-3xl mx-auto mb-16">
+      <div
+        class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8 max-w-3xl mx-auto mb-16"
+      >
         <h3 class="text-lg font-bold text-white mb-4 font-display">Payment Terms</h3>
         <ul class="space-y-3 text-sm font-ui text-white/70">
           <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Payment term: <strong class="text-white">30 days</strong> after invoice date (Article 9 of our terms and conditions)
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Payment term: <strong
+              class="text-white">30 days</strong
+            > after invoice date (Article 9 of our terms and conditions)
           </li>
           <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Discovery (research) phases are invoiced <strong class="text-white">in advance</strong>
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Discovery (research) phases
+            are invoiced <strong class="text-white">in advance</strong>
           </li>
           <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Maintenance (SLA): <strong class="text-white">monthly in advance</strong> via direct debit — the price rises yearly with inflation (CBS)
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Maintenance (SLA): <strong
+              class="text-white">monthly in advance</strong
+            > via direct debit — the price rises yearly with inflation (CBS)
           </li>
           <li class="flex gap-3">
             <Icon name="external-link" size={14} class="text-active shrink-0 mt-0.5" />
-            <span>Full payment and cancellation terms:
+            <span
+              >Full payment and cancellation terms:
               <a href="/terms" class="text-active hover:underline">Terms & Conditions</a>
             </span>
           </li>
         </ul>
-        <div class="mt-4 p-3 rounded-(--radius-card) bg-white/3 border border-white/8 flex items-start gap-3">
+        <div
+          class="mt-4 p-3 rounded-(--radius-card) bg-white/3 border border-white/8 flex items-start gap-3"
+        >
           <Icon name="alert-triangle" size={13} class="text-active shrink-0 mt-0.5" />
           <p class="text-white/40 text-xs font-ui leading-relaxed">
-            <span class="text-white/70 font-bold">Cancellation (Consultancy/Phase 0):</span> Free up to 24h before the session. After that, 100% is billed.
-            <span class="text-white/70 font-bold ml-1">Realisation phase:</span> hours already worked + 30% of the remaining amount. Discovery: fixed fee only. See <a href="/terms" class="text-active hover:underline">Terms & Conditions</a>.
+            <span class="text-white/70 font-bold">Cancellation (Consultancy/Phase 0):</span> Free up to
+            24h before the session. After that, 100% is billed.
+            <span class="text-white/70 font-bold ml-1">Realisation phase:</span> hours already worked
+            + 30% of the remaining amount. Discovery: fixed fee only. See <a
+              href="/terms"
+              class="text-active hover:underline">Terms & Conditions</a
+            >.
           </p>
         </div>
       </div>
@@ -150,19 +171,31 @@ const howToSchema = {
         />
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div data-animate="fade-up" class="clinical-glass p-6 rounded-(--radius-feature) border border-cta/20 bg-cta/5">
+          <div
+            data-animate="fade-up"
+            class="clinical-glass p-6 rounded-(--radius-feature) border border-cta/20 bg-cta/5"
+          >
             <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
               <Icon name="check" size={16} class="text-cta shrink-0" /> Ideal match
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/60">
-              <li>There is a concrete business process that affects time, errors, revenue or customer experience</li>
+              <li>
+                There is a concrete business process that affects time, errors, revenue or customer
+                experience
+              </li>
               <li>You have ownership: you can decide, prioritise and give feedback</li>
-              <li>Willingness to properly work through the research and build plan (Discovery and Blueprint) before building starts</li>
+              <li>
+                Willingness to properly work through the research and build plan (Discovery and
+                Blueprint) before building starts
+              </li>
               <li>The question is about a system or work process, not standalone styling</li>
               <li>There is room for maintenance, documentation and further development</li>
             </ul>
           </div>
-          <div data-animate="fade-up" class="delay-100 clinical-glass p-6 rounded-(--radius-feature) border border-white/8">
+          <div
+            data-animate="fade-up"
+            class="delay-100 clinical-glass p-6 rounded-(--radius-feature) border border-white/8"
+          >
             <h3 class="text-base font-bold text-white mb-4 font-display flex items-center gap-2">
               <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> We'll refer you elsewhere
             </h3>
@@ -186,7 +219,8 @@ const howToSchema = {
         <Icon name="arrow-right" size={20} />
       </a>
       <p class="text-white/40 text-sm font-ui mt-3">
-        Book a free intro call and get immediate insight into feasibility, approach and costs for your situation.
+        Book a free intro call and get immediate insight into feasibility, approach and costs for
+        your situation.
       </p>
     </div>
   </section>

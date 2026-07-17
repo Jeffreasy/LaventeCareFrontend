@@ -1,3 +1,7 @@
+> **Partly superseded (2026-07-17).** The current design uses one refresh cookie
+> at `Path=/api` and an auth-scoped `/api/auth/rehydrate` route. See `docs/INDEX.md`.
+
+
 # BFF Cookie & Sessie-integratie Richtlijn voor Backend Tenants
 
 Deze gids beschrijft de vereisten en best-practices voor frontend tenants (zoals *De Koninklijke Loop*, *C&F Bouw*, *TuinHub* en *LaventeCare*) die integreren met de **LaventeCare Auth Systems** backend. 

@@ -14,7 +14,7 @@ export const en = {
     metaTitle: 'Software and systems for SMEs — from idea to working system',
     metaDescription:
       'LaventeCare builds software and systems that make businesses more efficient, prevent errors and accelerate growth: AI, IoT, custom platforms, winning customers and security from the ground up.',
-    copyright: '© 2026 LaventeCare — Jeffrey Lavente | CoC 88162710 | Dronten, Netherlands',
+    copyright: `© ${new Date().getFullYear()} LaventeCare — Jeffrey Lavente | CoC 88162710 | Dronten, Netherlands`,
     skipLink: 'Skip to content',
   },
 
@@ -79,7 +79,7 @@ export const en = {
     home: {
       title: 'LaventeCare — Custom Systems Built for Your Business | Netherlands',
       description:
-        'Systems that take work off your hands: custom platforms, AI automation and IoT monitoring — with built-in security and 99/100 PageSpeed. Designed and built by one engineer.',
+        'Systems that take work off your hands: custom platforms, AI automation and IoT monitoring — with security and maintainability designed in from the start.',
     },
     about: {
       title: 'About Jeffrey Lavente — Systems Engineer | LaventeCare',
@@ -104,7 +104,7 @@ export const en = {
     portfolio: {
       title: 'Portfolio — Proven Work in Production | LaventeCare',
       description:
-        'View real-world projects: De Koninklijke Loop, SmartCoolCare, C&F Bouw, Dustin Auto Garage and more. Verifiable Lighthouse scores.',
+        'View existing projects including De Koninklijke Loop, SmartCoolCare, C&F Bouw and Dustin Auto Garage, with their applied technologies and approach.',
     },
     terms: {
       title: 'Terms & Conditions | LaventeCare',

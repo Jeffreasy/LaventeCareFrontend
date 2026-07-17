@@ -24,7 +24,7 @@ const legalSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(legalSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(legalSchema)} />
 
 <Layout title={pageTitle} description={pageDescription}>
   <!-- ── Hero ──────────────────────────────────────────── -->
@@ -41,7 +41,8 @@ const legalSchema = {
 
         <!-- Subtitle -->
         <p class="vc-hero__subtitle">
-          Versie <strong class="text-white">april 2026</strong> — LaventeCare (eenmanszaak) · KVK 88162710 · BTW NL004553268B57
+          Versie <strong class="text-white">april 2026</strong> — LaventeCare (eenmanszaak) · KVK 88162710
+          · BTW NL004553268B57
         </p>
 
         <!-- Action buttons -->
@@ -53,9 +54,18 @@ const legalSchema = {
             class="vc-btn vc-btn--primary"
             aria-label="Download de algemene voorwaarden als PDF"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
             </svg>
             <span>PDF Downloaden</span>
           </a>
@@ -68,9 +78,19 @@ const legalSchema = {
             class="vc-btn vc-btn--ghost"
             aria-label="Open de algemene voorwaarden in een nieuw tabblad"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              ></path>
             </svg>
             <span>In nieuw tabblad</span>
           </a>
@@ -120,9 +140,19 @@ const legalSchema = {
         <!-- Toolbar -->
         <div class="vc-viewer__toolbar" role="toolbar" aria-label="PDF acties">
           <div class="vc-viewer__toolbar-left">
-            <svg class="w-4 h-4 text-active flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            <svg
+              class="w-4 h-4 text-active flex-shrink-0"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path>
             </svg>
             <span class="vc-viewer__filename">{pdfLabel}</span>
           </div>
@@ -135,9 +165,18 @@ const legalSchema = {
               title="Downloaden"
               aria-label="Download PDF"
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
               </svg>
             </a>
             <a
@@ -148,9 +187,19 @@ const legalSchema = {
               title="In nieuw tabblad"
               aria-label="Open in nieuw tabblad"
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
               </svg>
             </a>
           </div>
@@ -163,8 +212,7 @@ const legalSchema = {
             src={pdfPath}
             class="vc-viewer__embed"
             title="LaventeCare Algemene Voorwaarden april 2026"
-            loading="lazy"
-          ></iframe>
+            loading="lazy"></iframe>
           <!-- No-JS / unsupported browser fallback -->
           <noscript>
             <div class="vc-viewer__fallback">
@@ -192,9 +240,7 @@ const legalSchema = {
         <p class="text-white/60 text-sm font-ui mb-6">
           Neem vrijblijvend contact op — ik beantwoord uw juridische vragen graag persoonlijk.
         </p>
-        <a href="/contact" class="vc-btn vc-btn--primary">
-          Contact opnemen
-        </a>
+        <a href="/contact" class="vc-btn vc-btn--primary"> Contact opnemen </a>
       </div>
     </div>
   </section>

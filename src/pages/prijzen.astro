@@ -19,7 +19,8 @@ const pricingSchema = {
         price: '95',
         priceCurrency: 'EUR',
         unitText: 'per uur',
-        description: 'Technisch sparringpartner en onafhankelijk advies zonder verplicht bouwtraject.',
+        description:
+          'Technisch sparringpartner en onafhankelijk advies zonder verplicht bouwtraject.',
       },
       {
         '@type': 'Offer',
@@ -58,14 +59,15 @@ const pricingSchema = {
         price: '300',
         priceCurrency: 'EUR',
         unitText: 'per maand',
-        description: 'Voorrang bij grote storingen (we doen ons uiterste best; geen harde garantie tenzij in het contract), plus een vaste back-up developer.',
+        description:
+          'Voorrang bij grote storingen (we doen ons uiterste best; geen harde garantie tenzij in het contract), plus een vaste back-up developer.',
       },
     ],
   },
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
 
 <Layout
   title="Prijzen & Tarieven — Transparant en Zonder Verrassingen | LaventeCare"
@@ -153,8 +155,12 @@ const pricingSchema = {
             <span class="text-active text-xs font-bold uppercase tracking-wider mb-3 font-display"
               >Stap 1</span
             >
-            <h3 class="text-xl font-bold text-white mb-2 font-display">Onderzoek & Blueprint (technisch bouwplan)</h3>
-            <p class="text-white/50 text-sm mb-5 font-ui">We onderzoeken uw vraag en ontwerpen het systeem</p>
+            <h3 class="text-xl font-bold text-white mb-2 font-display">
+              Onderzoek & Blueprint (technisch bouwplan)
+            </h3>
+            <p class="text-white/50 text-sm mb-5 font-ui">
+              We onderzoeken uw vraag en ontwerpen het systeem
+            </p>
             <div class="text-3xl font-black text-white mb-1 font-display">
               €500 <span class="text-lg text-white/40 font-normal">– €1.500</span>
             </div>
@@ -162,12 +168,12 @@ const pricingSchema = {
             <div class="h-px bg-white/8 my-4"></div>
             <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> We brengen precies in kaart
-                wat u nodig heeft
+                <span class="text-active"><Icon name="check" size={14} /></span> We brengen precies in
+                kaart wat u nodig heeft
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Ontwerp van het systeem op
-                maat
+                <span class="text-active"><Icon name="check" size={14} /></span> Ontwerp van het systeem
+                op maat
               </li>
               <li class="flex gap-2">
                 <span class="text-active"><Icon name="check" size={14} /></span> Uitgewerkt bouwplan (Blueprint-document)
@@ -199,36 +205,48 @@ const pricingSchema = {
               >Stap 2</span
             >
             <h3 class="text-xl font-bold text-white mb-2 font-display">Realisatie</h3>
-            <p class="text-white/50 text-sm mb-5 font-ui">Vaste prijs op basis van het bouwplan (Blueprint)</p>
+            <p class="text-white/50 text-sm mb-5 font-ui">
+              Vaste prijs op basis van het bouwplan (Blueprint)
+            </p>
             <div class="text-3xl font-black text-white mb-1 font-display">
               Vaste <span class="text-lg text-white/40 font-normal">Projectprijs</span>
             </div>
             <p class="text-white/40 text-xs mb-6 font-ui">
-              Facturatie in fases (40/40/20) — bij niet-betalen mogen we het werk tijdelijk stilleggen (<a href="/voorwaarden" class="text-active hover:underline">opschortingsrecht</a>).
+              Facturatie in fases (40/40/20) — bij niet-betalen mogen we het werk tijdelijk
+              stilleggen (<a href="/voorwaarden" class="text-active hover:underline"
+                >opschortingsrecht</a
+              >).
             </p>
             <div class="h-px bg-white/8 my-4"></div>
             <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Strak binnen de afspraak uit het bouwplan (Blueprint)
+                <span class="text-active"><Icon name="check" size={14} /></span> Strak binnen de afspraak
+                uit het bouwplan (Blueprint)
               </li>
               <li class="flex gap-2">
                 <span class="text-active"><Icon name="check" size={14} /></span> Tussentijdse demo's &
                 acceptatie
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Geen nacalculatie of verrassingen
+                <span class="text-active"><Icon name="check" size={14} /></span> Geen nacalculatie of
+                verrassingen
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Veiligheid vanaf de basis (Zero-Trust)
-                inbegrepen
+                <span class="text-active"><Icon name="check" size={14} /></span> Veiligheid vanaf de basis
+                (Zero-Trust) inbegrepen
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Extra werk buiten de afspraak gaat altijd via een aparte wijziging (Change Request, €95/uur)
+                <span class="text-active"><Icon name="check" size={14} /></span> Extra werk buiten de
+                afspraak gaat altijd via een aparte wijziging (Change Request, €95/uur)
               </li>
               <li class="flex gap-2 text-white/40">
                 <span class="text-active"><Icon name="external-link" size={14} /></span>
-                <span>Generieke modules &amp; AuthSystem blijven eigendom LaventeCare; klant ontvangt
-                gebruiksrecht — zie <a href="/voorwaarden" class="text-active hover:underline">voorwaarden</a></span>
+                <span
+                  >Generieke modules &amp; AuthSystem blijven eigendom LaventeCare; klant ontvangt
+                  gebruiksrecht — zie <a href="/voorwaarden" class="text-active hover:underline"
+                    >voorwaarden</a
+                  ></span
+                >
               </li>
             </ul>
             <a
@@ -256,7 +274,8 @@ const pricingSchema = {
             <div class="h-px bg-white/8 my-4"></div>
             <ul class="space-y-3 mb-6 flex-1 text-sm font-ui text-white/70">
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Veilig binnenhalen van sensorgegevens
+                <span class="text-active"><Icon name="check" size={14} /></span> Veilig binnenhalen van
+                sensorgegevens
               </li>
               <li class="flex gap-2">
                 <span class="text-active"><Icon name="check" size={14} /></span> Real-time data-opslag
@@ -293,7 +312,10 @@ const pricingSchema = {
             <div class="text-2xl font-black text-white font-display mb-1">
               €75<span class="text-sm text-white/40 font-normal">/maand</span>
             </div>
-            <p class="text-white/40 text-xs mb-4 font-ui">Hosting &amp; bewaking van beschikbaarheid · prijs stijgt jaarlijks mee met de inflatie (CBS)</p>
+            <p class="text-white/40 text-xs mb-4 font-ui">
+              Hosting &amp; bewaking van beschikbaarheid · prijs stijgt jaarlijks mee met de
+              inflatie (CBS)
+            </p>
             <ul class="space-y-2 text-xs font-ui text-white/60">
               <li class="flex gap-2">
                 <span class="text-active"><Icon name="check" size={14} /></span> Beheerde hosting
@@ -327,7 +349,8 @@ const pricingSchema = {
                 <span class="text-active"><Icon name="check" size={14} /></span> Alles uit Basic
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> We werken onderdelen van buitenaf op tijd bij
+                <span class="text-active"><Icon name="check" size={14} /></span> We werken onderdelen
+                van buitenaf op tijd bij
               </li>
               <li class="flex gap-2">
                 <span class="text-active"><Icon name="check" size={14} /></span> 4 uur support per maand
@@ -344,26 +367,35 @@ const pricingSchema = {
             <div class="text-2xl font-black text-white font-display mb-1">
               €300+<span class="text-sm text-white/40 font-normal">/maand</span>
             </div>
-            <p class="text-white/40 text-xs mb-4 font-ui">24/7 bewaking, voorrang & Observatory AI</p>
+            <p class="text-white/40 text-xs mb-4 font-ui">
+              24/7 bewaking, voorrang & Observatory AI
+            </p>
             <ul class="space-y-2 text-xs font-ui text-white/60">
               <li class="flex gap-2">
                 <span class="text-active"><Icon name="check" size={14} /></span> Alles uit Professional
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Live bewaking met Observatory AI
+                <span class="text-active"><Icon name="check" size={14} /></span> Live bewaking met Observatory
+                AI
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Voorrang bij P1-incidenten (volledige uitval)
+                <span class="text-active"><Icon name="check" size={14} /></span> Voorrang bij P1-incidenten
+                (volledige uitval)
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> 24/7 bereikbaarheid voor bedrijfskritieke incidenten
+                <span class="text-active"><Icon name="check" size={14} /></span> 24/7 bereikbaarheid voor
+                bedrijfskritieke incidenten
               </li>
               <li class="flex gap-2">
-                <span class="text-active"><Icon name="check" size={14} /></span> Wekelijks pro-actief onderhoud
+                <span class="text-active"><Icon name="check" size={14} /></span> Wekelijks pro-actief
+                onderhoud
               </li>
             </ul>
             <p class="text-white/35 text-[10px] mt-3 font-ui leading-relaxed">
-              Richtwaarden voor reactietijden (P1 volledige uitval · P2 zware verstoring met tijdelijke oplossing · P3/P4 beperkt of cosmetisch): we doen ons uiterste best om deze tijden te halen, maar het zijn richtlijnen — geen harde garantie, tenzij dat in het contract staat.
+              Richtwaarden voor reactietijden (P1 volledige uitval · P2 zware verstoring met
+              tijdelijke oplossing · P3/P4 beperkt of cosmetisch): we doen ons uiterste best om deze
+              tijden te halen, maar het zijn richtlijnen — geen harde garantie, tenzij dat in het
+              contract staat.
             </p>
           </div>
         </div>
@@ -387,15 +419,23 @@ const pricingSchema = {
             >.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-6">
-            Omdat we altijd eerst onderzoeken en ontwerpen (Discovery), haalt u geen "template-bouwer" in huis, maar
-            iemand die uw <span class="text-white font-semibold">systeem echt doordenkt en bouwt</span>. We werken met vaste projectprijzen op basis van een uitgewerkt bouwplan (Blueprint). Geen verborgen uurtje-factuurtje, geen anonieme helpdesk, maar directe lijnen, strak binnen de afspraak blijven en keiharde garanties.
+            Omdat we altijd eerst onderzoeken en ontwerpen (Discovery), haalt u geen
+            "template-bouwer" in huis, maar iemand die uw <span class="text-white font-semibold"
+              >systeem echt doordenkt en bouwt</span
+            >. We werken met vaste projectprijzen op basis van een uitgewerkt bouwplan (Blueprint).
+            Geen verborgen uurtje-factuurtje, geen anonieme helpdesk, maar directe lijnen, strak
+            binnen de afspraak blijven en keiharde garanties.
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="flex items-start gap-3 p-3 rounded-lg bg-white/3 border border-white/5">
               <Icon name="brain-circuit" size={18} class="text-active shrink-0 mt-0.5" />
               <div>
-                <p class="text-white text-xs font-bold font-display">Zelf ontworpen, niet in elkaar geklikt</p>
-                <p class="text-white/50 text-[11px] font-ui">AI helpt bij het bouwen; ik ontwerp en beveilig het systeem</p>
+                <p class="text-white text-xs font-bold font-display">
+                  Zelf ontworpen, niet in elkaar geklikt
+                </p>
+                <p class="text-white/50 text-[11px] font-ui">
+                  AI helpt bij het bouwen; ik ontwerp en beveilig het systeem
+                </p>
               </div>
             </div>
             <div class="flex items-start gap-3 p-3 rounded-lg bg-white/3 border border-white/5">
@@ -424,9 +464,13 @@ const pricingSchema = {
       <div class="text-center mt-8">
         <p class="text-white/35 text-xs font-ui">
           Op alle opdrachten zijn de
-          <a href="/voorwaarden" class="text-active hover:text-active/80 transition-colors underline underline-offset-2">Algemene Voorwaarden</a>
-          van LaventeCare van toepassing — inclusief afspraken over oplevering, acceptatie,
-          eigendomsrecht en aansprakelijkheid.
+          <a
+            href="/voorwaarden"
+            class="text-active hover:text-active/80 transition-colors underline underline-offset-2"
+            >Algemene Voorwaarden</a
+          >
+          van LaventeCare van toepassing — inclusief afspraken over oplevering, acceptatie, eigendomsrecht
+          en aansprakelijkheid.
         </p>
       </div>
 

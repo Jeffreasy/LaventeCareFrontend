@@ -23,49 +23,6 @@ export function extractSetCookies(response: Response): string[] {
 }
 
 /**
- * Rebuild a raw Set-Cookie string for same-origin proxy usage.
- * @deprecated Use applyCookiesToAstro instead to prevent Vercel/Node cookie merging issues.
- */
-export function rebuildCookie(rawCookie: string): string {
-  const parts = rawCookie.split(';');
-  const nameValue = parts[0];
-
-  const maxAgeMatch = rawCookie.match(/Max-Age=([^;]+)/i);
-  const maxAgeAttr = maxAgeMatch ? `; Max-Age=${maxAgeMatch[1]}` : '';
-
-  const isCsrf = nameValue.trim().startsWith('csrf_token=');
-  const httpOnlyAttr = isCsrf ? '' : '; HttpOnly';
-
-  return `${nameValue}; Path=/${httpOnlyAttr}; SameSite=Lax${maxAgeAttr}`;
-}
-
-/**
- * Process all Set-Cookie headers from a backend response and
- * append sanitized versions to a response Headers object.
- * @deprecated Use applyCookiesToAstro instead to prevent Vercel/Node cookie merging issues.
- */
-export function applySanitizedCookies(
-  backendResponse: Response,
-  targetHeaders: Headers,
-  isDev: boolean
-): void {
-  const cookies = extractSetCookies(backendResponse);
-
-  if (cookies.length === 0) return;
-
-  targetHeaders.delete('set-cookie');
-
-  cookies.forEach((cookie) => {
-    const rebuilt = rebuildCookie(cookie);
-    if (isDev) {
-      const nameValue = cookie.split(';')[0];
-      console.log(`[Cookie] Rebuilt: ${nameValue.substring(0, 20)}...`);
-    }
-    targetHeaders.append('set-cookie', rebuilt);
-  });
-}
-
-/**
  * Process all Set-Cookie headers from a backend response and apply them to Astro's cookie manager.
  * This guarantees proper serialization of multiple Set-Cookie headers on serverless platforms (Vercel).
  * Also preserves cookie paths from the backend to ensure correct cookie clearing and shadowing prevention.
@@ -113,12 +70,12 @@ export function applyCookiesToAstro(
       path,
       httpOnly,
       sameSite: 'lax', // Use 'lax' for same-origin proxy compatibility
-      secure: !isDev,  // Disable secure on localhost HTTP
+      secure: !isDev, // Disable secure on localhost HTTP
       maxAge,
     });
 
     if (isDev) {
-      console.log(`[Cookie Proxy] Set cookie: ${name} = ${value.substring(0, 15)}... (path=${path}, maxAge=${maxAge})`);
+      console.log(`[Cookie Proxy] Set cookie: ${name} (path=${path}, maxAge=${maxAge})`);
     }
   });
 }

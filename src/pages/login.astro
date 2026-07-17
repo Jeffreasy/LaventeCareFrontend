@@ -1,147 +1,296 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// Force server rendering for auth middleware
 export const prerender = false;
 ---
 
 <Layout
-  title="Login - LaventeCare"
-  description="Log veilig in op uw LaventeCare account. Toegang tot uw dashboard, admin panel en tenant-instellingen."
+  title="Inloggen - LaventeCare"
+  description="Log veilig in op uw LaventeCare-account."
   noindex={true}
 >
-  <div class="min-h-screen flex items-center justify-center -mt-24">
-    <!-- Negative margin to offset header -->
-    <div
+  <main class="min-h-screen flex items-center justify-center -mt-24 px-4">
+    <section
       class="clinical-glass p-8 rounded-(--radius-feature) border border-white/10 w-full max-w-md relative overflow-hidden"
+      aria-labelledby="login-heading"
     >
-      <!-- Loading Overlay -->
       <div
         id="loading"
         class="absolute inset-0 bg-black/80 backdrop-blur-sm z-20 hidden items-center justify-center flex-col"
+        aria-live="polite"
+        aria-busy="true"
       >
         <div
           class="w-10 h-10 border-4 border-active border-t-transparent rounded-full animate-spin mb-4"
+          aria-hidden="true"
         >
         </div>
-        <p class="text-active font-mono text-sm animate-pulse">Authenticating...</p>
+        <p class="text-active font-mono text-sm">Bezig met verifiëren…</p>
       </div>
 
       <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-white mb-2 font-display tracking-tight">
-          Welcome <span class="text-active">Back</span>
+        <h1
+          id="login-heading"
+          class="text-3xl font-bold text-white mb-2 font-display tracking-tight"
+        >
+          Welkom <span class="text-active">terug</span>
         </h1>
-        <p class="text-white/60 font-ui">
-          Enter your credentials to access the <span class="text-white">console</span>
+        <p id="login-description" class="text-white/60 font-ui">
+          Log in om uw beveiligde omgeving te openen.
         </p>
       </div>
 
-      <!-- Error Message -->
       <div
         id="error-message"
         class="hidden bg-red-500/10 border border-red-500/50 text-red-200 px-4 py-3 rounded-lg mb-6 text-sm font-ui"
+        role="alert"
       >
       </div>
 
-      <form class="space-y-6" id="login-form">
+      <form class="space-y-6" id="login-form" aria-describedby="login-description">
         <div>
-          <label for="email" class="block text-sm font-medium text-white/70 mb-2 font-ui"
-            >Email</label
-          >
+          <label for="email" class="block text-sm font-medium text-white/70 mb-2 font-ui">
+            E-mailadres
+          </label>
           <input
             type="email"
             id="email"
             name="email"
             required
+            autocomplete="username"
             class="w-full bg-panel/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-active transition-colors font-ui placeholder:text-white/30"
-            placeholder="name@company.com"
+            placeholder="naam@bedrijf.nl"
           />
         </div>
 
         <div>
-          <label for="password" class="block text-sm font-medium text-white/70 mb-2 font-ui"
-            >Password</label
-          >
+          <label for="password" class="block text-sm font-medium text-white/70 mb-2 font-ui">
+            Wachtwoord
+          </label>
           <input
             type="password"
             id="password"
             name="password"
             required
+            autocomplete="current-password"
             class="w-full bg-panel/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-active transition-colors font-ui placeholder:text-white/30"
             placeholder="••••••••"
           />
         </div>
 
-        <!-- Honeypot field (hidden from users, catches dumb bots) -->
-        <div class="hidden" aria-hidden="true" style="display: none;">
-          <label for="confirm_email">Please leave this field empty</label>
-          <input type="email" id="confirm_email" name="confirm_email" tabindex="-1" autocomplete="off" />
+        <div class="hidden" aria-hidden="true">
+          <label for="confirm_email">Laat dit veld leeg</label>
+          <input
+            type="email"
+            id="confirm_email"
+            name="confirm_email"
+            tabindex="-1"
+            autocomplete="off"
+          />
         </div>
 
         <button
           type="submit"
           class="w-full bg-active text-white font-bold py-3 rounded-lg hover:bg-active/90 transition-colors cursor-pointer font-ui shadow-lg shadow-active/20"
         >
-          Sign In
+          Inloggen
         </button>
       </form>
 
-      <!-- Forgot password: not yet implemented -->
-    </div>
-  </div>
+      <form class="space-y-6 hidden" id="mfa-form" aria-describedby="mfa-description">
+        <div class="text-center">
+          <h2 class="text-xl font-bold text-white font-display">Tweestapsverificatie</h2>
+          <p id="mfa-description" class="text-sm text-white/60 mt-2">
+            Vul de code uit uw authenticator-app in.
+          </p>
+        </div>
+
+        <div>
+          <label for="mfa-code" class="block text-sm font-medium text-white/70 mb-2 font-ui">
+            Verificatiecode
+          </label>
+          <input
+            id="mfa-code"
+            name="code"
+            type="text"
+            required
+            inputmode="numeric"
+            autocomplete="one-time-code"
+            maxlength="32"
+            class="w-full bg-panel/50 border border-white/10 rounded-lg px-4 py-3 text-white text-center tracking-[0.3em] focus:outline-none focus:border-active transition-colors font-ui"
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-active text-white font-bold py-3 rounded-lg hover:bg-active/90 transition-colors cursor-pointer font-ui"
+        >
+          Code controleren
+        </button>
+        <button
+          id="backup-toggle"
+          type="button"
+          class="w-full text-sm text-white/60 hover:text-white transition-colors"
+        >
+          Een back-upcode gebruiken
+        </button>
+        <button
+          id="back-to-login"
+          type="button"
+          class="w-full text-sm text-white/60 hover:text-white transition-colors"
+        >
+          Terug naar inloggen
+        </button>
+      </form>
+    </section>
+  </main>
 </Layout>
 
 <script>
-  const form = document.getElementById('login-form') as HTMLFormElement;
+  interface LoginResult {
+    mfa_required?: boolean;
+    pre_auth_token?: string;
+    user?: { id?: string };
+  }
+
+  const loginForm = document.getElementById('login-form') as HTMLFormElement | null;
+  const mfaForm = document.getElementById('mfa-form') as HTMLFormElement | null;
   const loading = document.getElementById('loading');
-  const errorMsg = document.getElementById('error-message');
+  const errorMessage = document.getElementById('error-message');
+  const mfaDescription = document.getElementById('mfa-description');
+  const mfaCode = document.getElementById('mfa-code') as HTMLInputElement | null;
+  const backupToggle = document.getElementById('backup-toggle');
+  const backToLogin = document.getElementById('back-to-login');
+
   let isSubmitting = false;
+  let preAuthToken = '';
+  let userId = '';
+  let useBackupCode = false;
 
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!loading || !errorMsg || isSubmitting) return;
+  function targetAfterLogin(): string {
+    const candidate = new URLSearchParams(window.location.search).get('returnTo');
+    return candidate && candidate.startsWith('/') && !candidate.startsWith('//')
+      ? candidate
+      : '/admin';
+  }
 
-    isSubmitting = true;
-    
-    // Reset UI
-    loading.classList.remove('hidden');
-    loading.classList.add('flex');
-    errorMsg.classList.add('hidden');
-    errorMsg.textContent = '';
+  function setLoading(active: boolean): void {
+    isSubmitting = active;
+    loading?.classList.toggle('hidden', !active);
+    loading?.classList.toggle('flex', active);
+  }
 
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
+  function showError(message: string): void {
+    if (!errorMessage) return;
+    errorMessage.textContent = message;
+    errorMessage.classList.remove('hidden');
+  }
+
+  function clearError(): void {
+    if (!errorMessage) return;
+    errorMessage.textContent = '';
+    errorMessage.classList.add('hidden');
+  }
+
+  function showMFA(result: LoginResult): void {
+    preAuthToken = result.pre_auth_token || '';
+    userId = result.user?.id || '';
+    loginForm?.classList.add('hidden');
+    mfaForm?.classList.remove('hidden');
+    mfaCode?.focus();
+  }
+
+  loginForm?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (isSubmitting) return;
+    setLoading(true);
+    clearError();
 
     try {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(loginForm))),
+      });
+      const result = (await response.json().catch(() => ({}))) as LoginResult;
+
+      if (!response.ok) {
+        showError('Inloggen mislukt. Controleer uw e-mailadres en wachtwoord.');
+        return;
+      }
+      if (result.mfa_required) {
+        if (!result.pre_auth_token || !result.user?.id) {
+          showError('De verificatiestap kon niet veilig worden gestart. Probeer opnieuw.');
+          return;
+        }
+        showMFA(result);
+        return;
+      }
+
+      window.location.replace(targetAfterLogin());
+    } catch {
+      showError('Netwerkfout. Probeer het later opnieuw.');
+    } finally {
+      setLoading(false);
+    }
+  });
+
+  mfaForm?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (isSubmitting || !mfaCode || !preAuthToken) return;
+    setLoading(true);
+    clearError();
+
+    try {
+      const endpoint = useBackupCode ? '/api/v1/auth/mfa/backup' : '/api/v1/auth/mfa/verify';
+      const response = await fetch(endpoint, {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + preAuthToken,
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ user_id: userId, code: mfaCode.value.trim() }),
       });
 
-      if (response.ok) {
-        // Success - force full page reload to update server-side navbar
-        window.location.replace('/admin');
-      } else {
-        // Handle Error
-        await response.json().catch(() => ({}));
-        loading.classList.add('hidden');
-        loading.classList.remove('flex');
-
-        // Generic error message to prevent username enumeration (CWE-200)
-        errorMsg.textContent = 'Inloggen mislukt. Controleer uw e-mailadres en wachtwoord.';
-        errorMsg.classList.remove('hidden');
-        isSubmitting = false;
+      if (!response.ok) {
+        showError('De verificatiecode is ongeldig of verlopen.');
+        mfaCode.select();
+        return;
       }
-    } catch (error) {
-      if (import.meta.env.DEV) console.error('Login error:', error);
-      loading.classList.add('hidden');
-      loading.classList.remove('flex');
-      errorMsg.textContent = 'Netwerkfout. Probeer het later opnieuw.';
-      errorMsg.classList.remove('hidden');
-      isSubmitting = false;
+      window.location.replace(targetAfterLogin());
+    } catch {
+      showError('Netwerkfout. Probeer het later opnieuw.');
+    } finally {
+      setLoading(false);
     }
+  });
+
+  backupToggle?.addEventListener('click', () => {
+    useBackupCode = !useBackupCode;
+    if (mfaDescription) {
+      mfaDescription.textContent = useBackupCode
+        ? 'Vul een ongebruikte back-upcode in.'
+        : 'Vul de code uit uw authenticator-app in.';
+    }
+    if (backupToggle) {
+      backupToggle.textContent = useBackupCode
+        ? 'Een authenticatorcode gebruiken'
+        : 'Een back-upcode gebruiken';
+    }
+    if (mfaCode) {
+      mfaCode.value = '';
+      mfaCode.inputMode = useBackupCode ? 'text' : 'numeric';
+      mfaCode.focus();
+    }
+  });
+
+  backToLogin?.addEventListener('click', () => {
+    preAuthToken = '';
+    userId = '';
+    useBackupCode = false;
+    if (mfaCode) mfaCode.value = '';
+    mfaForm?.classList.add('hidden');
+    loginForm?.classList.remove('hidden');
+    clearError();
   });
 </script>

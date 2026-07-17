@@ -4,7 +4,7 @@
 > **Doel:** één actuele beschrijving van wat LaventeCare *als bedrijf* is en doet, om de publieke site (`LaventeCareFrontend`) mee bij te werken.
 > **Opgesteld:** 2026-07-06 — afgeleid uit code, niet uit marketing.
 > **Vervolg:** zie `LAVENTECARE_FRONTEND_READINESS_AUDIT.md` voor de diepe audit (verdict AMBER, pagina-voor-pagina diff, portfolio-verificatie, open beslissingen).
-> ⚠️ **Let op:** AuthSystems-mailtemplates dragen een conflicterende identiteit ("Lavente Care V.O.F.", KvK 94908427). Canoniek is de eenmanszaak **LaventeCare, KvK 88162710** — te bevestigen door Jeffrey.
+> **Reconciliatie 2026-07-17:** de AuthSystems-mailtemplates zijn technisch uitgelijnd op **LaventeCare, KVK 88162710** en “Van idee tot werkend systeem”. De eigenaar moet de publieke juridische gegevens vóór productie nog formeel bevestigen.
 
 ---
 

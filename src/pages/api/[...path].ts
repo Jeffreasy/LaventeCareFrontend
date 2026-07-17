@@ -1,84 +1,118 @@
 import type { APIRoute } from 'astro';
 import { applyCookiesToAstro } from '../../lib/cookie-utils';
+import { buildProxyRequestHeaders, normalizeProxyPath } from '../../lib/request-security';
+import { requirePublicAPIURL, requirePublicTenantID } from '../../lib/runtime-config';
 
 export const prerender = false;
 
-// Universal Proxy for Backend Integration (BFF Pattern)
-// Handles all /api/* requests not caught by specific routes.
-// Forwards cookies and requests to the remote backend.
-// Sanitizes response cookies (Set-Cookie) for localhost/HTTP compatibility.
+const MAX_PROXY_BODY_BYTES = 1_048_576;
 
+class ProxyBodyTooLargeError extends Error {}
+
+async function readLimitedBody(request: Request): Promise<ArrayBuffer | undefined> {
+  const declaredLength = Number(request.headers.get('content-length'));
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_PROXY_BODY_BYTES) {
+    throw new ProxyBodyTooLargeError();
+  }
+  if (!request.body) return undefined;
+
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > MAX_PROXY_BODY_BYTES) {
+        await reader.cancel();
+        throw new ProxyBodyTooLargeError();
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+
+  if (total === 0) return undefined;
+  const body = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return body.buffer;
+}
+
+// Universal same-origin BFF for backend endpoints not handled by a specific route.
 export const ALL: APIRoute = async ({ request, params, url, cookies }) => {
-  const API_URL = import.meta.env.PUBLIC_API_URL;
-  const path = params.path; // e.g., "v1/admin/mail-config"
-
-  if (!path || !API_URL) {
-    return new Response(JSON.stringify({ error: 'Proxy Configuration Error' }), { status: 500 });
+  const path = params.path;
+  let apiUrl: string;
+  let tenantId: string;
+  try {
+    apiUrl = requirePublicAPIURL();
+    tenantId = requirePublicTenantID();
+  } catch {
+    return new Response(JSON.stringify({ error: 'Proxy is not configured' }), {
+      status: 503,
+      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
+    });
   }
 
-  // Construct Target URL
-  const targetUrl = `${API_URL}/api/${path}${url.search}`;
+  const normalizedPath = path ? normalizeProxyPath(path) : null;
+  if (!normalizedPath) {
+    return new Response(JSON.stringify({ error: 'Proxy path is invalid' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
 
-  // Debug Log (Development only)
+  const targetUrl = new URL(`/api/${normalizedPath}`, apiUrl);
+  targetUrl.search = url.search;
+  const requestHeaders = buildProxyRequestHeaders(request.headers, tenantId);
+
   if (import.meta.env.DEV) {
-    console.log(`[Universal Proxy] ${request.method} ${url.pathname} -> ${targetUrl}`);
-    const c = request.headers.get('cookie');
-    const csrf = request.headers.get('x-csrf-token');
-    console.log(`[Universal Proxy] In Cookies: ${c ? 'Present' : 'Missing'} (${c?.length} chars)`);
-    console.log(`[Universal Proxy] In CSRF Header: ${csrf ? 'Present' : 'Missing'} (${csrf})`);
-    console.log(`[Universal Proxy] In Tenant Header: ${request.headers.get('x-tenant-id')}`);
+    console.log(`[Universal Proxy] ${request.method} ${url.pathname} -> ${targetUrl.origin}`);
   }
-
-  // Clone Headers (Filter Host to avoid SNI issues)
-  const reqHeaders = new Headers(request.headers);
-  reqHeaders.delete('host');
-  reqHeaders.delete('connection');
-  reqHeaders.delete('content-length'); // Let fetch calculate it
 
   try {
     const fetchOptions: RequestInit = {
       method: request.method,
-      headers: reqHeaders,
-      redirect: 'manual', // Don't follow redirects, pass them to browser
+      headers: requestHeaders,
+      redirect: 'manual',
     };
 
-    // Forward Body (except for GET/HEAD)
     if (request.method !== 'GET' && request.method !== 'HEAD') {
-      const body = await request.arrayBuffer();
-      if (body.byteLength > 0) {
-        fetchOptions.body = body;
-      }
+      const body = await readLimitedBody(request);
+      if (body) fetchOptions.body = body;
     }
 
-    // Execute Proxy Request
     const backendResponse = await fetch(targetUrl, fetchOptions);
+    const responseHeaders = new Headers(backendResponse.headers);
 
-    // Process Response Attributes
-    const resHeaders = new Headers(backendResponse.headers);
-
-    // Use shared cookie sanitization
     applyCookiesToAstro(backendResponse, cookies, import.meta.env.DEV);
-    resHeaders.delete('set-cookie');
+    responseHeaders.delete('set-cookie');
+    responseHeaders.delete('content-encoding');
+    responseHeaders.delete('content-length');
+    responseHeaders.delete('transfer-encoding');
 
-    // Fix: content-encoding mismatch (ERR_CONTENT_DECODING_FAILED)
-    resHeaders.delete('content-encoding');
-    resHeaders.delete('content-length');
-    resHeaders.delete('transfer-encoding');
-
-    // Return Proxied Response
     return new Response(backendResponse.body, {
       status: backendResponse.status,
-      headers: resHeaders,
+      headers: responseHeaders,
     });
   } catch (error) {
-    if (import.meta.env.DEV) console.error('[Universal Proxy] Error:', error);
+    if (error instanceof ProxyBodyTooLargeError) {
+      return new Response(JSON.stringify({ error: 'Request body is too large' }), {
+        status: 413,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+    if (import.meta.env.DEV) console.error('[Universal Proxy] Request failed');
     return new Response(
-      JSON.stringify({
-        error: 'Service temporarily unavailable. Please try again later.',
-      }),
+      JSON.stringify({ error: 'Service temporarily unavailable. Please try again later.' }),
       {
         status: 502,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Retry-After': '30' },
       }
     );
   }

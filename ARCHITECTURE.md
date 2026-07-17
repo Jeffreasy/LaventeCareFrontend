@@ -1,60 +1,66 @@
 # Architecture Guide
 
-## System Overview
+Status: current. Last verified: 2026-07-17.
 
-LaventeCare is built as a high-performance, SEO-optimized web application using the **Astro 5** framework. It leverages the **Islands Architecture** to minimize client-side JavaScript, shipping purely static HTML for the majority of the UI and hydrating only the interactive components (React).
+## Runtime
 
-## Core Stack
+LaventeCareFrontend is an Astro 7.1 server-rendered application deployed through `@astrojs/vercel` 11. React 19 is limited to interactive islands; Tailwind CSS 4 is compiled through Vite. Node.js 22.12+ is required locally and in CI.
 
-| Layer | Technology | Rationale |
-|-------|------------|-----------|
-| **Frontend Framework** | Astro 5 | Best-in-class performance, SEO, and islands architecture. |
-| **Interactive UI** | React 19 | Rich ecosystem for extensive interactive components. |
-| **Backend / DB** | Convex | Typesafe, realtime backend-as-a-service. |
-| **State** | Nanostores | Lightweight, framework-agnostic state management sharing state between Astro & React. |
-| **Styling** | Tailwind CSS v4 | Utility-first, co-located styling with zero runtime overhead. |
+## Request flow
 
-## Application Layers
-
-### 1. Presentation Layer (Astro & React)
-
--   **Static Blocks** (`src/components/blocks/`): These are Server Components (`.astro`). They render on the server and send no JS to the client. Used for Headers, Footers, Hero sections, and Content.
--   **Interactive Islands** (`src/components/islands/`): These are Client Components (`.tsx`). They are hydrated on the client. Used for Search, Forms, Auth, and Toggles.
-
-**Hydration Strategy:**
-We use partial hydration. Only interactive islands load JavaScript.
--   `<Navbar client:load />` -> Immediate hydration for critical UI.
--   `<Footer />` -> No hydration (static).
-
-### 2. Data Layer (Convex)
-
-The application connects to a managed Convex backend.
--   **Client**: Initialized in `src/lib/convex.ts`.
--   **Access**:
-    -   *Realtime*: React components use `useQuery` hooks.
-    -   *Actions*: RPC calls via `convex.mutation` or `convex.action`.
-
-### 3. State Management (Nanostores)
-
-Global state (like User Session, Theme, Shopping Cart) is managed via **Nanostores**.
--   **Why?** Nanostores can be read/written from standard JS modules, Astro components (during build/SSR), and React components (during runtime) without context wrappers.
-
-## Design System
-
-The application implements a "Glassmorphism" aesthetic.
-
--   **Core visual traits**: Translucency, vivid background gradients, light borders.
--   **Implementation**:
-    -   Global CSS variables for primary/secondary colors.
-    -   Tailwind v4 for utility composition.
-    -   `cn()` utility for merging class names safely.
-
-## Directory Structure Strategy
-
+```text
+Browser
+  -> LaventeCareFrontend (same origin)
+     -> Astro pages / middleware
+     -> /api/auth/* dedicated BFF routes
+     -> /api/[...path] generic BFF
+        -> LaventeCareAuthSystems
+           -> PostgreSQL / Redis / mail outbox
+           -> optional idempotent Homeapp intake bridge
 ```
-src/
-├── components/
-│   ├── blocks/    # ❌ No State. Pure rendering.
-│   ├── islands/   # ✅ State. Event listeners. API calls.
-│   └── ui/        # 🧩 Atoms. Buttons, Inputs, Badges.
+
+The browser never selects the backend tenant. The BFF strips routing and hop-by-hop headers, overwrites `X-Tenant-ID` with the configured UUID and caps request bodies. `PUBLIC_API_URL` is a pure HTTP(S) origin; production requires HTTPS. Catch-all path segments reject traversal and URL-control characters.
+
+## Authentication
+
+- Access and pre-auth JWTs use RS256.
+- Middleware validates signature, issuer, audience, token scope, tenant claim and admin role.
+- Verification distinguishes invalid credentials from verifier/JWKS unavailability.
+- Invalid or expired access sessions may rehydrate once through `/api/auth/rehydrate`.
+- Network, 429 and 5xx refresh failures return 503 and preserve cookies and form state.
+- Only 400, 401 and 403 refresh responses clear auth cookies and redirect to login.
+- Refresh is single-flight in the browser API client.
+- Public endpoints use the explicit `public` auth policy and never trigger refresh.
+
+## Locale and routing
+
+Locale is derived from the exact host: `.nl` serves Dutch and `.com` English. Route mappings provide canonical and alternate URLs, including portfolio subpages. Admin access is restricted to the Dutch production host and loopback development hosts.
+
+## Contact intake
+
+The contact island is a three-step accessible form. Step changes move focus to a localized announcement. Field limits mirror the server contract. A request key remains stable for an unchanged retry and rotates after business data changes.
+
+AuthSystems binds the submitted tenant to the normalized Origin/Referer, ignores client-controlled `source` for bridge selection, canonicalizes the email address and persists idempotency before enqueuing mail. Only validated LaventeCare origins are forwarded to the private intake endpoint.
+
+## Security boundaries
+
+- Runtime configuration fails closed; no tenant, origin or backend fallback exists.
+- Origin comparisons use parsed exact origins, not string prefixes.
+- CSRF is forwarded from the same-origin cookie for session mutations.
+- The generic BFF removes host, connection, transfer, proxy authorization and forwarding headers.
+- Secret scans run against the current tree in CI with redacted output.
+- Credentials found in historical source still require external rotation; repository cleanup does not revoke them.
+
+## Verification
+
+Required before merge or deploy:
+
+```bash
+npm run format:check
+npm run lint
+npm run type-check
+npm run test
+npm run build
 ```
+
+See `docs/READINESS_STATUS_2026-07-17.md` for evidence and external deployment gates.

@@ -1,45 +1,31 @@
-# LaventeCare Frontend - AI Context & Guidelines
+# LaventeCare Frontend — AI context
 
-> **Context**: This is an Astro 5 + React + Convex application using Tailwind CSS v4.
+Current stack: Astro 7.1, React 19, Tailwind CSS 4, Node.js 22.12+, Vercel SSR and LaventeCareAuthSystems through a same-origin BFF.
 
-## Tech Stack
+## Non-negotiable boundaries
 
-- **Framework**: [Astro 5](https://astro.build) (SSR/Static Hybrid)
-- **UI Architecture**: Islands Architecture (React for interactivity)
-- **Backend**: [Convex](https://convex.dev) (Realtime Database & Functions)
-- **State Management**: [Nanostores](https://github.com/nanostores/nanostores) (Framework-agnostic state)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com) + "Glassmorphism" Design System
-- **Testing**: Playwright (E2E)
+- Read `docs/INDEX.md` before treating old Markdown reports as current truth.
+- Browser requests use relative `/api/...` URLs. Do not add a direct browser-to-auth path.
+- `PUBLIC_API_URL` is a pure origin. Never add a fallback tenant or fallback backend.
+- The configured tenant overwrites any client `X-Tenant-ID` header.
+- Use auth policy `public` for public endpoints so a 401 cannot trigger refresh.
+- Treat refresh 400/401/403 as invalid credentials; treat network/429/5xx as temporary availability failures and preserve the session.
+- Contact retries keep the same request ID until business fields change.
+- Do not reintroduce exact performance, uptime, traffic, revenue or conversion claims without an attached primary measurement source.
+- Public identity is LaventeCare, KVK 88162710, tagline “Van idee tot werkend systeem”. Do not use “Lavente Care V.O.F.”, KVK 94908427 or “Chip tot Cloud”.
 
-## Project Structure
+## Structure
 
-```
-src/
-├── components/
-│   ├── ui/             # Atoms: reusable, small components (Button, Card)
-│   ├── blocks/         # Molecules/Organisms: sections of a page (Hero, Navbar, Footer)
-│   └── islands/        # Interactive: Client-side React components (Forms, Complex Logic)
-├── layouts/            # Astro Layouts
-├── lib/
-│   ├── convex.ts       # Convex Client initialization
-│   ├── utils.ts        # Helper functions (cn, etc.)
-│   └── config.ts       # Global constants
-├── pages/              # File-based routing
-└── styles/
-    └── global.css      # Global styles & Tailwind v4 configuration
+```text
+src/components/ui       static primitives
+src/components/blocks   page sections
+src/components/islands  interactive React
+src/layouts             shared document layout
+src/lib                 API, runtime config, i18n, security
+src/pages               routes and BFF endpoints
+tests                   Playwright tests
 ```
 
-## Key Patterns
+## Required checks
 
-1.  **Islands Architecture**: Use `.astro` files for static content. Only use `.tsx` (React) when interactivity is required. Use `client:load` or `client:visible` directives in Astro.
-2.  **Styling**: Use Tailwind utility classes. For conflicts, use `cn()`.
-3.  **Data Fetching**:
-    *   **Static/Server**: Use Astro frontmatter (await/async).
-    *   **Client**: Use Convex React hooks (`useQuery`, `useMutation`) in islands.
-4.  **Glassmorphism**: The design relies heavily on transparency, backdrop-blur, and borders. Check `global.css` for implementation details.
-
-## Documentation References
-
-- `ARCHITECTURE.md`: High-level system design.
-- `README.md`: Quick start and overview.
-- `.agent/`: Custom agent behaviors and skills.
+Run formatting, ESLint, `astro check`, Playwright and the production build. For visual changes, start the dev server and verify desktop/mobile layout, console output, navigation and the real interaction path.

@@ -15,7 +15,7 @@ const laws = [
     num: '02',
     title: 'Attackers learn nothing from error messages',
     subtitle: 'Attackers learn nothing',
-    desc: "Visitors never see technical error messages that hackers can exploit. Errors are tracked and resolved internally, without outsiders gaining insight into how your system works.",
+    desc: 'Visitors never see technical error messages that hackers can exploit. Errors are tracked and resolved internally, without outsiders gaining insight into how your system works.',
   },
   {
     num: '03',
@@ -27,7 +27,7 @@ const laws = [
     num: '04',
     title: 'Reliable, even under heavy load',
     subtitle: 'No errors under high load',
-    desc: 'Designed to prevent errors such as data corruption or double bookings, even under high load — thousands of concurrent visitors.',
+    desc: 'Designed to prevent errors such as data corruption or double bookings, even when many users are active at the same time.',
   },
   {
     num: '05',
@@ -41,7 +41,7 @@ const whatYouGet = [
   {
     icon: 'shield-check',
     title: 'Separated client data',
-    desc: 'Your business data is technically separated from other clients. In case of an error, nobody can access anyone else\'s data.',
+    desc: "Your business data is technically separated from other clients. In case of an error, nobody can access anyone else's data.",
   },
   {
     icon: 'lock',
@@ -83,11 +83,12 @@ const serviceSchema = {
   },
   areaServed: ['NL', 'BE', 'DE', 'International'],
   serviceType: 'App Security & Authentication Architecture',
-  serviceOutput: 'Complete authentication systems, role-based access control and data isolation structures',
+  serviceOutput:
+    'Complete authentication systems, role-based access control and data isolation structures',
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="Security & Access — Built-in Data Protection | LaventeCare"
@@ -96,10 +97,14 @@ const serviceSchema = {
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
+        <span
+          class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"
+        >
           <Icon name="shield-check" size={16} class="text-active" /> Security & Authentication
         </span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight"
+        >
           Your data <span class="text-active">protected</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
@@ -109,9 +114,14 @@ const serviceSchema = {
         </p>
         <div class="flex flex-wrap gap-2">
           {
-            ['Separated client data', 'Access per role', 'Everything traceable', 'Encryption', 'GDPR-Compliant', 'Redis'].map(
-              (t) => <TechStackBadge tech={t} />
-            )
+            [
+              'Separated client data',
+              'Access per role',
+              'Everything traceable',
+              'Encryption',
+              'Privacy by Design',
+              'Redis',
+            ].map((t) => <TechStackBadge tech={t} />)
           }
         </div>
       </div>
@@ -158,11 +168,17 @@ const serviceSchema = {
             >
               <div class="flex items-start gap-4 md:gap-6">
                 <div class="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-active/10 flex items-center justify-center shrink-0 group-hover:bg-active/20 transition-colors">
-                  <span class="text-active text-sm md:text-base font-bold font-display">{law.num}</span>
+                  <span class="text-active text-sm md:text-base font-bold font-display">
+                    {law.num}
+                  </span>
                 </div>
                 <div>
-                  <h3 class="text-base md:text-lg font-bold text-white mb-1 font-display">{law.title}</h3>
-                  <p class="text-active text-xs font-bold uppercase tracking-wider mb-2 font-display">{law.subtitle}</p>
+                  <h3 class="text-base md:text-lg font-bold text-white mb-1 font-display">
+                    {law.title}
+                  </h3>
+                  <p class="text-active text-xs font-bold uppercase tracking-wider mb-2 font-display">
+                    {law.subtitle}
+                  </p>
                   <p class="text-white/60 text-sm leading-relaxed font-ui">{law.desc}</p>
                 </div>
               </div>
@@ -172,15 +188,22 @@ const serviceSchema = {
       </div>
 
       <!-- GDPR & Compliance -->
-      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5 max-w-4xl mx-auto mb-16">
+      <div
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5 max-w-4xl mx-auto mb-16"
+      >
         <div class="flex items-center gap-3 mb-6">
           <Icon name="shield-check" size={24} class="text-active" />
-          <h2 class="text-xl md:text-2xl font-bold text-white font-display">GDPR & Privacy by Design</h2>
+          <h2 class="text-xl md:text-2xl font-bold text-white font-display">
+            GDPR & Privacy by Design
+          </h2>
         </div>
         <p class="text-white/70 font-ui text-sm leading-relaxed mb-6">
-          All applications are built according to the principle of <strong class="text-white">Privacy by Design</strong>.
-          Data protection is designed in from the start — not added as an afterthought. Concrete GDPR
-          compliance depends on contractual arrangements, your configuration and usage; a <strong class="text-white">data processing agreement</strong> is available.
+          All applications are built according to the principle of <strong class="text-white"
+            >Privacy by Design</strong
+          >. Data protection is designed in from the start — not added as an afterthought. Concrete
+          GDPR compliance depends on contractual arrangements, your configuration and usage; a <strong
+            class="text-white">data processing agreement</strong
+          > is available.
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <ul class="space-y-3 text-sm font-ui text-white/70">
@@ -189,12 +212,12 @@ const serviceSchema = {
               only store what is necessary
             </li>
             <li class="flex gap-3">
-              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Encrypted storage
-              of sensitive data
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Encrypted storage of
+              sensitive data
             </li>
             <li class="flex gap-3">
-              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automatic cleanup
-              of expired data
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automatic cleanup of
+              expired data
             </li>
           </ul>
           <ul class="space-y-3 text-sm font-ui text-white/70">
@@ -218,29 +241,59 @@ const serviceSchema = {
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
           <h3 class="text-lg font-bold text-white mb-4 font-display">Under the hood</h3>
-          <p class="text-white/50 text-xs font-ui mb-4">For developers and technically interested parties:</p>
+          <p class="text-white/50 text-xs font-ui mb-4">
+            For developers and technically interested parties:
+          </p>
           <ul class="space-y-3 text-sm font-ui text-white/70">
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Row Level Security on all critical tables</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Dual-Token authentication (access + refresh)</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Zero-Trust API design: every request is verified</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Rate limiting against brute-force attacks</li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Row Level Security on
+              all critical tables
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Dual-Token authentication
+              (access + refresh)
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Zero-Trust API design:
+              every request is verified
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Rate limiting against
+              brute-force attacks
+            </li>
           </ul>
         </div>
         <div class="clinical-glass p-6 md:p-8 rounded-(--radius-feature) border border-white/8">
           <h3 class="text-lg font-bold text-white mb-4 font-display">Daily protection</h3>
-          <p class="text-white/50 text-xs font-ui mb-4">What runs continuously in the background:</p>
+          <p class="text-white/50 text-xs font-ui mb-4">
+            What runs continuously in the background:
+          </p>
           <ul class="space-y-3 text-sm font-ui text-white/70">
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Two-factor authentication for administrators</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automatic cleanup of expired sessions</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Content Security Policy against code injection</li>
-            <li class="flex gap-3"><Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Per-client access control at API level</li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Two-factor authentication
+              for administrators
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Automatic cleanup of
+              expired sessions
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Content Security Policy
+              against code injection
+            </li>
+            <li class="flex gap-3">
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Per-client access control
+              at API level
+            </li>
           </ul>
         </div>
       </div>
 
       <!-- Trust stats -->
       <div class="max-w-4xl mx-auto mt-8">
-        <div class="clinical-glass p-5 md:p-6 rounded-(--radius-feature) border border-active/15 bg-active/5">
+        <div
+          class="clinical-glass p-5 md:p-6 rounded-(--radius-feature) border border-active/15 bg-active/5"
+        >
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div>
               <span class="text-active text-xl font-black font-display block mb-1">6+</span>

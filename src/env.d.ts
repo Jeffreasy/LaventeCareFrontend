@@ -6,6 +6,8 @@ interface ImportMetaEnv {
   readonly SITE: string;
   readonly PUBLIC_API_URL: string;
   readonly PUBLIC_TENANT_ID: string;
+  readonly PUBLIC_JWT_ISSUER?: string;
+  readonly PUBLIC_JWT_AUDIENCE?: string;
 }
 
 interface ImportMeta {
