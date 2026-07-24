@@ -10,7 +10,7 @@
 
 ## 0. TL;DR — wat LaventeCare is
 
-LaventeCare is een **B2B systeempartner voor mkb-organisaties** (eenmanszaak van Jeffrey Lavente, Dronten). De propositie: bedrijven van *losse tools en handmatig werk* naar een *schaalbaar digitaal systeem* brengen via een vast traject — **intake → discovery → blueprint → realisatie → SLA-beheer → doorontwikkeling**. Geen losse websitebouwer of eenmalige freelancer, maar een **structurele partner die bedrijfsprocessen vertaalt naar werkende systemen**.
+LaventeCare is een **B2B systeempartner voor mkb-organisaties** (eenmanszaak van Jeffrey Lavente, Dronten). De propositie: bedrijven van een professionele online basis naar een digitaal systeem brengen dat werk uit handen neemt. Compacte websites gebruiken een vaste Fast Track; proces- en systeemvragen gebruiken **intake → discovery → blueprint → realisatie → SLA-beheer → doorontwikkeling**. LaventeCare is daarmee meer dan een standaard websitebouwer: één vaste partner die techniek laat meegroeien met het bedrijf.
 
 **Tagline:** *"Van idee tot werkend systeem."*
 
@@ -39,7 +39,7 @@ Bron: `JeffriesHomeapp/lib/laventecare/profile.ts`
 
 **Doelgroep:** mkb, dienstverleners en operationele teams met terugkerende processen, klantcontact, administratie, planning, reporting of digitale groei-vraagstukken.
 
-**Positie:** geen losse websitebouwer of eenmalige freelancer, maar een structurele partner die bedrijfsprocessen vertaalt naar werkende systemen.
+**Positie:** professionele websites als toegankelijk instapproduct, met een duidelijke groeiroute naar klantenwerving en maatwerksystemen. Geen pagebuilder-leverancier of eenmalige freelancer, maar een structurele partner.
 
 **Samenvatting:** "LaventeCare bouwt systemen die bedrijven efficiënter maken, fouten voorkomen en groei versnellen: AI, IoT, maatwerkplatformen, lead generation en security-first systemen."
 
@@ -65,6 +65,21 @@ Zes kern-dienstlijnen:
 | 5 | `leadgen` | **Lead Generation & Conversie** | Digitale groei, klantflows, conversiepunten, leadopvolging, website/SEO |
 | 6 | `security` | **Security-first & AVG** | Zero-Trust, data-isolatie, verwerkersovereenkomst, privacy by design |
 
+### 2.1 Productized instapaanbod: websites
+
+Websites vormen **geen zevende kern-dienstlijn**, maar een vaste instaproute vóór `leadgen` en `platforms`.
+
+| Pakket | Prijs excl. btw | Vaste grens |
+|---|---:|---|
+| Website Start | €750 | Complete responsive one-page website, klant levert inhoud aan |
+| Website Business | €1.000 | Maximaal drie pagina's, één veilig formulier en transactionele bevestiging |
+| Website Maatwerk | vanaf €1.500 | Unieke richting en afwijkende secties; vaste offerte na intake |
+| Website Care Start | €29/maand | Hosting, SSL, bewaking en technische updates; inhoudelijke wijzigingen apart |
+| Website Care Business | €49/maand | Website Care plus bewaking van formulier en transactionele e-mail |
+| Website Care Maatwerk | vanaf €75/maand | Maatwerkhosting, bewaking en technische continuïteit |
+
+Accounts, dashboards, betalingen, databases, uitgebreide offerteflows en procesautomatisering vallen buiten deze pakketten. Die vragen gebruiken het normale systeemtraject.
+
 ---
 
 ## 3. Prijsmodel
@@ -74,6 +89,12 @@ Bron: `lib/laventecare/pricing.ts`
 | Onderdeel | Prijs | Toelichting |
 |---|---|---|
 | IT advies & consultancy | **€95 / uur** | Losse analyse, advies, sparring, systeemkeuzes |
+| Website Start | **€750** | Vaste Fast Track, one-page, inhoud door klant aangeleverd |
+| Website Business | **€1.000** | Tot drie pagina's, veilig formulier en transactionele e-mails |
+| Website Maatwerk | **vanaf €1.500** | Afwijkende visuele of inhoudelijke richting |
+| Website Care Start | **€29 / maand** | Beheerde websitehosting, SSL, bewaking en technische updates |
+| Website Care Business | **€49 / maand** | Inclusief bewaking van formulier en transactionele e-mail |
+| Website Care Maatwerk | **vanaf €75 / maand** | Maatwerkhosting, bewaking en technische continuïteit |
 | Discovery traject | **€500 – €1.500** | Afhankelijk van complexiteit, aantal systemen, interviews |
 | Implementatie | **Maatwerk** | O.b.v. blueprint, scope, integraties, risico, planning |
 | SLA Essential | **€75 / maand** | Basis support & klein onderhoud |
@@ -88,6 +109,8 @@ Bron: `lib/laventecare/pricing.ts`
 ## 4. Werkwijze (6-fasen proces)
 
 Bron: `lib/laventecare/process.ts`
+
+**Vaste uitzondering — Website Fast Track:** gratis afstemming → inhoud compleet → bouw en controle → gebundelde feedback → livegang. Een betaald Discovery- en Blueprinttraject is alleen nodig wanneer de vraag buiten de vaste websiteafbakening valt.
 
 | Fase | Doel | Output |
 |---|---|---|
@@ -105,14 +128,15 @@ Bron: `lib/laventecare/process.ts`
 Bron: `lib/laventecare/fit.ts`
 
 **Wél een fit:**
+- Compacte bedrijfswebsite met complete inhoud en bereidheid om binnen een vast pakket te werken
 - Concreet bedrijfsproces dat tijd, fouten, omzet of klantbeleving raakt
 - Klant heeft eigenaarschap (iemand kan beslissen, prioriteren, feedback geven)
-- Bereidheid om discovery en blueprint serieus te doen vóór er gebouwd wordt
+- Bereidheid om discovery en blueprint serieus te doen wanneer de vraag verder gaat dan een vast websitepakket
 - Vraag om een systeem/workflow, niet alleen losse styling of eenmalige aanpassing
 - Ruimte voor onderhoud, documentatie en doorontwikkeling na oplevering
 
 **Geen fit:**
-- Alleen een snelle goedkope website zonder procesvraag
+- Een vaste websiteprijs verwachten terwijl inhoud, pagina's en functies open blijven staan
 - Geen duidelijke eigenaar, budgetrichting of beslismoment
 - Bouwen zonder analyse terwijl het probleem nog onduidelijk is
 - Structureel support-intensief zonder passende SLA
@@ -172,11 +196,17 @@ Gerangschikt naar impact. (✅ = al goed op de site.)
 
 ---
 
-## 10. Openstaande vragen voor Jeffrey (beslissingen die alleen jij kunt maken)
+## 10. Besluiten en openstaande vragen
 
-1. **Positionering:** blijft de publieke site "high-end systeem-/architectuurpartner" met enterprise-toon, of trekken we hem gelijk met de canonieke "**B2B systeempartner voor mkb — van idee tot werkend systeem**"? (Dit bepaalt de hele herschrijving.)
-2. **Doelgroep-signaal:** de site zegt "budget vanaf €3.000 / enterprise"; het profiel zegt mkb. Welk instapniveau wil je uitstralen?
-3. **NAH-zorg-verhaal:** blijft dit het merkverhaal op `/over`, of naar de achtergrond?
-4. **Consultancy als pijler:** losse IT-advies (€95/u, geen bouwverplichting) prominenter op de homepage?
-5. **Uurtarief-discrepantie:** €95/u (extern) vs €75/u (backend default) — welke is leidend?
-6. **Merkkleur:** groen (#0D7C5F) terugbrengen als primary, of teal (#0891B2) als het echte merk aanhouden?
+**Besloten op 24 juli 2026:**
+
+1. De publieke positionering blijft **B2B systeempartner voor mkb — van idee tot werkend systeem**.
+2. Professionele websites worden een scherp, productized instapaanbod vanaf €750. Dit vervangt de systeempositionering niet.
+3. Consultancy blijft een zelfstandige kern-dienstlijn voor €95 per uur.
+4. De intake toont aparte budgetstappen voor websites en maatwerksystemen.
+
+**Nog open:**
+
+1. **NAH-zorg-verhaal:** blijft dit het merkverhaal op `/over`, of naar de achtergrond?
+2. **Uurtarief-discrepantie:** €95/u (extern) vs €75/u (backend default) — welke is leidend?
+3. **Merkkleur:** groen (#0D7C5F) terugbrengen als primary, of teal (#0891B2) als het echte merk aanhouden?

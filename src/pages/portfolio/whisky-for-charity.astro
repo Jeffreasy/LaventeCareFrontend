@@ -4,6 +4,10 @@ import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
+if (Astro.locals.locale === 'en') {
+  return Astro.rewrite('/en-case-study?slug=whisky-for-charity');
+}
+
 const results = [
   { value: 'Veilig', label: 'Donaties & bestellingen' },
   { value: 'Automatisch', label: 'Bevestiging per e-mail' },
@@ -127,10 +131,12 @@ const challenges = [
             </p>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Nette e-mails in elk programma</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">
+              Nette e-mails in elk programma
+            </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              E-mailbevestigingen die er in elk e-mailprogramma goed uitzien — van Gmail tot Outlook.
-              Bij elke bestelling gaan er automatisch twee e-mails uit: de klant krijgt een
+              E-mailbevestigingen die er in elk e-mailprogramma goed uitzien — van Gmail tot
+              Outlook. Bij elke bestelling gaan er automatisch twee e-mails uit: de klant krijgt een
               bevestiging, het team krijgt een melding.
             </p>
           </div>

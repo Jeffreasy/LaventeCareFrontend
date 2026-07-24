@@ -1,0 +1,100 @@
+---
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  locale?: 'nl' | 'en';
+}
+
+const { locale = 'nl' } = Astro.props;
+const isEnglish = locale === 'en';
+
+const copy = isEnglish
+  ? {
+      label: 'One connected foundation',
+      heading: 'Start with a website. Grow into a <span class="text-active">working system</span>.',
+      description:
+        'LaventeCare combines the public website, secure data flows, automation and monitoring in one technical direction. You can start sharply scoped today, without blocking tomorrow’s next step.',
+      primary: 'View website packages',
+      primaryHref: '/services/websites',
+      secondary: 'See how I work',
+      secondaryHref: '/how-we-work',
+      alt: 'LaventeCare visual showing a website, connected technology, monitoring and business growth',
+      caption: 'Websites · automation · IoT · custom systems',
+    }
+  : {
+      label: 'Eén verbonden basis',
+      heading:
+        'Begin met een website. Groei door naar een <span class="text-active">werkend systeem</span>.',
+      description:
+        'LaventeCare brengt de publieke website, veilige gegevensstromen, automatisering en bewaking samen in één technische richting. U kunt vandaag scherp afgebakend starten, zonder de volgende stap van morgen te blokkeren.',
+      primary: 'Bekijk websitepakketten',
+      primaryHref: '/diensten/websites',
+      secondary: 'Bekijk mijn werkwijze',
+      secondaryHref: '/werkwijze',
+      alt: 'LaventeCare-visual met een website, verbonden technologie, monitoring en bedrijfsgroei',
+      caption: 'Websites · automatisering · IoT · maatwerksystemen',
+    };
+---
+
+<section class="section-padding pt-4 md:pt-10" aria-labelledby="brand-system-heading">
+  <div class="container mx-auto px-4">
+    <div
+      data-animate="fade-up"
+      class="clinical-glass relative mx-auto max-w-6xl overflow-hidden rounded-(--radius-hero) border border-active/20 bg-active/4"
+    >
+      <div
+        class="pointer-events-none absolute -left-24 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-active/12 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="relative grid items-center gap-0 lg:grid-cols-[0.78fr_1.22fr]">
+        <div class="p-7 md:p-10 lg:p-12">
+          <span
+            class="mb-4 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.18em] text-active"
+          >
+            <Icon name="link" size={15} />
+            {copy.label}
+          </span>
+          <h2
+            id="brand-system-heading"
+            class="font-display text-3xl font-black leading-tight tracking-tight text-white md:text-4xl"
+            set:html={copy.heading}
+          />
+          <p class="mt-5 font-ui text-sm leading-7 text-white/65 md:text-base">
+            {copy.description}
+          </p>
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+            <a href={copy.primaryHref} class="btn-primary">
+              {copy.primary}
+              <Icon name="arrow-right" size={16} />
+            </a>
+            <a href={copy.secondaryHref} class="btn-secondary">{copy.secondary}</a>
+          </div>
+        </div>
+
+        <figure class="relative border-t border-white/8 bg-[#03131f] p-3 lg:border-l lg:border-t-0">
+          <div
+            class="pointer-events-none absolute inset-0 bg-linear-to-r from-background/35 via-transparent to-active/5"
+            aria-hidden="true"
+          >
+          </div>
+          <img
+            src="/og-laventecare-2026.png"
+            width="1200"
+            height="630"
+            alt={copy.alt}
+            class="relative aspect-[1200/630] w-full rounded-xl object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption
+            class="relative px-2 pb-1 pt-3 text-right font-ui text-xs font-medium tracking-wide text-white/60"
+          >
+            {copy.caption}
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

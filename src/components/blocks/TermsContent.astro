@@ -1,0 +1,274 @@
+---
+interface Props {
+  locale?: 'nl' | 'en';
+}
+
+const { locale = 'nl' } = Astro.props;
+const isEnglish = locale === 'en';
+
+const copy = isEnglish
+  ? {
+      updated: 'Version 24 July 2026',
+      intro:
+        'These terms apply to quotations and assignments from LaventeCare. A quotation may contain additional or different project-specific agreements; where they conflict, the signed quotation takes precedence.',
+      download: 'Download Dutch PDF',
+      privacy: 'Privacy statement',
+      care: 'Website Care terms',
+      note: 'The Dutch version is the legally leading text. This English version is a faithful practical translation.',
+      sections: [
+        [
+          '1. Identity and definitions',
+          [
+            'LaventeCare is the sole proprietorship of Jeffrey Lavente, established in Dronten, Chamber of Commerce 88162710, VAT NL004553268B57.',
+            'Client means the natural or legal person acting in a professional capacity who commissions LaventeCare. Website means a public-facing website. Website Care means the optional website management service. System SLA means a separate maintenance agreement for applications, databases, dashboards or business-critical integrations.',
+          ],
+        ],
+        [
+          '2. Applicability and order',
+          [
+            'These terms apply to every quotation, assignment and follow-up assignment. Purchase terms of the client are rejected unless accepted in writing.',
+            'The order of precedence is: signed data processing agreement, signed quotation or statement of work, project-specific service agreement, these terms.',
+          ],
+        ],
+        [
+          '3. Quotations, scope and cooperation',
+          [
+            'Quotations are valid for the period stated in them. Prices exclude VAT unless expressly stated otherwise.',
+            'The agreed scope determines what is included. The client supplies accurate, final content, access and feedback on time. Delays or additional work caused by missing or changed input may affect planning and price after prior consultation.',
+          ],
+        ],
+        [
+          '4. Fixed website packages',
+          [
+            'Website Start costs €750 one-off, Website Business €1,000 one-off and Custom Website starts at €1,500 one-off. These are sharp starting prices for the explicitly listed scope; additions are quoted before work begins.',
+            'Domain registration, business mailboxes, paid licences, advertising budgets and third-party subscriptions are excluded unless the quotation says otherwise. Revision rounds and page limits follow the selected package.',
+          ],
+        ],
+        [
+          '5. Custom development and acceptance',
+          [
+            'Custom work is delivered in agreed milestones. The client tests a delivery within the review period stated in the quotation and reports reproducible material defects. Minor issues that do not prevent normal use do not postpone acceptance.',
+            'Work outside the agreed scope, changed requirements and third-party changes are additional work and require agreement on impact before implementation.',
+          ],
+        ],
+        [
+          '6. Prices, invoicing and payment',
+          [
+            'The payment schedule is stated in the quotation. Invoices are due within 30 days unless another term is agreed. Website Care is invoiced monthly in advance; automatic payment only applies when explicitly agreed.',
+            'LaventeCare may adjust recurring rates once per year in line with the Dutch consumer price index and gives at least 30 days’ notice. If payment remains overdue after notice, work or service may be suspended proportionately.',
+          ],
+        ],
+        [
+          '7. Intellectual property and transfer',
+          [
+            'After full payment, project-specific website code and agreed deliverables may be transferred to an account in the client’s name. Generic modules, methods, tooling and pre-existing components remain LaventeCare property; the client receives the licence needed to use the delivered result.',
+            'Third-party software remains subject to its own licence. Client data remains the client’s property. Broader source-code or exclusivity rights for custom platforms only apply when expressly agreed.',
+          ],
+        ],
+        [
+          '8. Website Care and system maintenance',
+          [
+            'Website Care is optional: €29/month for Start, €49/month for Business and from €75/month for Custom. It can be cancelled with one full calendar month’s notice. Normal use, fair-use boundaries and third-party costs are described on the Website Care page.',
+            'Website Care includes automated monitoring and a manual response target on business days; it is not a 24/7 guaranteed response SLA. Applications with accounts, databases or business-critical integrations require a separately agreed System SLA.',
+          ],
+        ],
+        [
+          '9. Personal data and security',
+          [
+            'Each party complies with applicable privacy law. Where LaventeCare processes personal data on behalf of the client, the parties conclude a data processing agreement when required.',
+            'LaventeCare applies proportionate technical and organisational safeguards but cannot guarantee absolute security. The privacy statement explains processing for this website and enquiries.',
+          ],
+        ],
+        [
+          '10. Confidentiality',
+          [
+            'Both parties keep confidential information secret and use it only for the assignment. This does not apply to information already public through no breach, independently obtained, or disclosed under a legal duty.',
+          ],
+        ],
+        [
+          '11. Availability, third parties and force majeure',
+          [
+            'Delivery and availability may depend on hosting, email, APIs, registrars and other suppliers. LaventeCare is not liable for failures outside its reasonable control but will take reasonable steps to limit impact within the agreed service.',
+            'During force majeure, affected obligations are suspended. If the situation lasts longer than 60 days, either party may terminate the affected part without compensation for future work.',
+          ],
+        ],
+        [
+          '12. Liability',
+          [
+            'LaventeCare is liable only for direct loss caused by an attributable failure after a reasonable opportunity to remedy it. Liability is limited to the amount paid for the affected assignment in the preceding six months, with a maximum of the amount covered by insurance.',
+            'Loss of profit, missed savings, business interruption, loss of data and other indirect loss are excluded, except where exclusion is prohibited by mandatory law or in case of intent or deliberate recklessness.',
+          ],
+        ],
+        [
+          '13. Duration and termination',
+          [
+            'Project assignments end after completion and payment. Ongoing services may be terminated according to the quotation or service page. Work already performed, committed third-party costs and a reasonable handover remain payable.',
+            'Either party may terminate for a material breach that is not remedied within a reasonable written cure period. Immediate termination remains possible where continuation cannot reasonably be required.',
+          ],
+        ],
+        [
+          '14. Changes, law and disputes',
+          [
+            'LaventeCare may update these terms for future assignments and recurring services with at least 30 days’ notice when the change is material. Existing fixed projects retain the version agreed at the start unless both parties agree otherwise.',
+            'Dutch law applies. Parties first try to resolve a dispute in good faith. If that fails, the competent court in the district where LaventeCare is established has jurisdiction, unless mandatory law requires otherwise.',
+          ],
+        ],
+      ],
+    }
+  : {
+      updated: 'Versie 24 juli 2026',
+      intro:
+        'Deze voorwaarden gelden voor offertes en opdrachten van LaventeCare. In een offerte kunnen aanvullende of afwijkende projectafspraken staan; bij strijdigheid gaat de ondertekende offerte voor.',
+      download: 'Download Nederlandse PDF',
+      privacy: 'Privacyverklaring',
+      care: 'Voorwaarden Website Care',
+      note: 'De Nederlandstalige versie is juridisch leidend.',
+      sections: [
+        [
+          '1. Identiteit en definities',
+          [
+            'LaventeCare is de eenmanszaak van Jeffrey Lavente, gevestigd in Dronten, KVK 88162710, BTW NL004553268B57.',
+            'Opdrachtgever is de natuurlijke persoon of rechtspersoon die beroeps- of bedrijfsmatig een opdracht geeft. Website is een publiek toegankelijke website. Website Care is de optionele beheerdienst voor websites. Systeem-SLA is een afzonderlijke onderhoudsovereenkomst voor applicaties, databases, dashboards of bedrijfskritieke koppelingen.',
+          ],
+        ],
+        [
+          '2. Toepasselijkheid en rangorde',
+          [
+            'Deze voorwaarden gelden voor iedere offerte, opdracht en vervolgopdracht. Inkoopvoorwaarden van opdrachtgever worden afgewezen, tenzij LaventeCare deze schriftelijk aanvaardt.',
+            'De rangorde is: getekende verwerkersovereenkomst, getekende offerte of opdrachtomschrijving, projectspecifieke serviceovereenkomst, deze voorwaarden.',
+          ],
+        ],
+        [
+          '3. Offerte, scope en medewerking',
+          [
+            'Een offerte is geldig gedurende de daarin genoemde termijn. Prijzen zijn exclusief btw, tenzij uitdrukkelijk anders vermeld.',
+            'De afgesproken scope bepaalt wat inbegrepen is. Opdrachtgever levert juiste, definitieve inhoud, toegangen en feedback tijdig aan. Vertraging of extra werk door ontbrekende of gewijzigde input kan na voorafgaand overleg gevolgen hebben voor planning en prijs.',
+          ],
+        ],
+        [
+          '4. Vaste websitepakketten',
+          [
+            'Website Start kost €750 eenmalig, Website Business €1.000 eenmalig en Website Maatwerk start vanaf €1.500 eenmalig. Dit zijn scherpe startprijzen voor de expliciet genoemde scope; uitbreidingen worden vooraf geoffreerd.',
+            'Domeinregistratie, zakelijke mailboxen, betaalde licenties, advertentiebudget en externe abonnementen zijn niet inbegrepen, tenzij de offerte dit vermeldt. Correctierondes en paginalimieten volgen het gekozen pakket.',
+          ],
+        ],
+        [
+          '5. Maatwerk en acceptatie',
+          [
+            'Maatwerk wordt opgeleverd in afgesproken mijlpalen. Opdrachtgever test een oplevering binnen de in de offerte genoemde beoordelingstermijn en meldt reproduceerbare materiële gebreken. Kleine punten die normaal gebruik niet verhinderen, stellen acceptatie niet uit.',
+            'Werk buiten de afgesproken scope, gewijzigde wensen en aanpassingen door derden zijn meerwerk en vereisen vooraf overeenstemming over de gevolgen.',
+          ],
+        ],
+        [
+          '6. Prijzen, facturatie en betaling',
+          [
+            'Het betaalschema staat in de offerte. Facturen hebben een betaaltermijn van 30 dagen, tenzij anders afgesproken. Website Care wordt maandelijks vooraf gefactureerd; automatische betaling geldt alleen wanneer dit expliciet is overeengekomen.',
+            'LaventeCare mag terugkerende tarieven eenmaal per jaar aanpassen volgens de Nederlandse consumentenprijsindex en kondigt dit ten minste 30 dagen vooraf aan. Na een betalingsherinnering mag LaventeCare werk of dienstverlening evenredig opschorten.',
+          ],
+        ],
+        [
+          '7. Intellectueel eigendom en overdracht',
+          [
+            'Na volledige betaling kunnen projectspecifieke websitecode en afgesproken resultaten worden overgedragen naar een account op naam van opdrachtgever. Generieke modules, werkwijzen, tooling en bestaande componenten blijven eigendom van LaventeCare; opdrachtgever ontvangt het gebruiksrecht dat nodig is voor het opgeleverde resultaat.',
+            'Software van derden blijft onder de eigen licentie vallen. Klantdata blijft eigendom van opdrachtgever. Ruimere broncode- of exclusiviteitsrechten voor maatwerkplatformen gelden alleen als die uitdrukkelijk zijn afgesproken.',
+          ],
+        ],
+        [
+          '8. Website Care en systeemonderhoud',
+          [
+            'Website Care is optioneel: €29/maand voor Start, €49/maand voor Business en vanaf €75/maand voor Maatwerk. Opzeggen kan met één volledige kalendermaand. Normaal gebruik, fair-usegrenzen en externe kosten staan op de Website Care-pagina.',
+            'Website Care omvat geautomatiseerde bewaking en een handmatige reactiedoelstelling op werkdagen; dit is geen gegarandeerde 24/7-reactie-SLA. Applicaties met accounts, databases of bedrijfskritieke koppelingen vragen een apart overeengekomen Systeem-SLA.',
+          ],
+        ],
+        [
+          '9. Persoonsgegevens en beveiliging',
+          [
+            'Beide partijen houden zich aan toepasselijke privacywetgeving. Wanneer LaventeCare persoonsgegevens namens opdrachtgever verwerkt, sluiten partijen waar nodig een verwerkersovereenkomst.',
+            'LaventeCare past passende technische en organisatorische beveiliging toe, maar kan absolute veiligheid niet garanderen. De privacyverklaring beschrijft de verwerking via deze website en aanvragen.',
+          ],
+        ],
+        [
+          '10. Geheimhouding',
+          [
+            'Beide partijen houden vertrouwelijke informatie geheim en gebruiken die alleen voor de opdracht. Dit geldt niet voor informatie die zonder schending al openbaar is, zelfstandig is verkregen of op grond van een wettelijke plicht moet worden verstrekt.',
+          ],
+        ],
+        [
+          '11. Beschikbaarheid, derden en overmacht',
+          [
+            'Uitvoering en beschikbaarheid kunnen afhangen van hosting, e-mail, API’s, registrars en andere leveranciers. LaventeCare is niet aansprakelijk voor storingen buiten haar redelijke invloed, maar neemt binnen de afgesproken dienst redelijke maatregelen om gevolgen te beperken.',
+            'Bij overmacht worden getroffen verplichtingen opgeschort. Duurt de situatie langer dan 60 dagen, dan mag iedere partij het getroffen deel beëindigen zonder vergoeding voor toekomstig werk.',
+          ],
+        ],
+        [
+          '12. Aansprakelijkheid',
+          [
+            'LaventeCare is alleen aansprakelijk voor directe schade door een toerekenbare tekortkoming nadat een redelijke herstelkans is geboden. De aansprakelijkheid is beperkt tot het bedrag dat in de voorafgaande zes maanden voor de getroffen opdracht is betaald, met als maximum het door de verzekering uitgekeerde bedrag.',
+            'Gederfde winst, gemiste besparingen, bedrijfsstilstand, gegevensverlies en andere indirecte schade zijn uitgesloten, behalve wanneer dwingend recht dit verbiedt of bij opzet of bewuste roekeloosheid.',
+          ],
+        ],
+        [
+          '13. Duur en beëindiging',
+          [
+            'Projectopdrachten eindigen na oplevering en betaling. Doorlopende diensten kunnen worden opgezegd volgens de offerte of servicepagina. Verricht werk, aangegane externe kosten en een redelijke overdracht blijven verschuldigd.',
+            'Iedere partij mag beëindigen bij een wezenlijke tekortkoming die niet binnen een redelijke schriftelijke hersteltermijn wordt opgelost. Directe beëindiging blijft mogelijk wanneer voortzetting redelijkerwijs niet kan worden verlangd.',
+          ],
+        ],
+        [
+          '14. Wijzigingen, recht en geschillen',
+          [
+            'LaventeCare mag deze voorwaarden voor toekomstige opdrachten en doorlopende diensten wijzigen en kondigt een materiële wijziging ten minste 30 dagen vooraf aan. Voor een lopend vast project blijft de bij aanvang afgesproken versie gelden, tenzij partijen anders overeenkomen.',
+            'Nederlands recht is van toepassing. Partijen proberen een geschil eerst in goed overleg op te lossen. Lukt dat niet, dan is de bevoegde rechter in het arrondissement waar LaventeCare is gevestigd bevoegd, tenzij dwingend recht anders bepaalt.',
+          ],
+        ],
+      ],
+    };
+
+const sections = copy.sections as Array<[string, string[]]>;
+---
+
+<section class="section-padding pt-32 md:pt-40">
+  <div class="container mx-auto px-4">
+    <div class="mx-auto max-w-4xl">
+      <span
+        class="mb-3 block font-display text-xs font-bold uppercase tracking-[0.2em] text-active"
+      >
+        {copy.updated}
+      </span>
+      <h1 class="mb-5 font-display text-4xl font-black tracking-tight text-white md:text-6xl">
+        {isEnglish ? 'Terms & Conditions' : 'Algemene Voorwaarden'}
+      </h1>
+      <p class="max-w-3xl font-ui text-base leading-relaxed text-white/70">{copy.intro}</p>
+
+      <nav
+        class="my-8 flex flex-wrap gap-3"
+        aria-label={isEnglish ? 'Legal documents' : 'Juridische documenten'}
+      >
+        <a href="/LCVoorwaarden2026juli.pdf" class="btn-primary" download>{copy.download}</a>
+        <a href="/privacy" class="btn-secondary">{copy.privacy}</a>
+        <a href="/website-care" class="btn-secondary">{copy.care}</a>
+      </nav>
+
+      <p
+        class="mb-10 rounded-xl border border-active/20 bg-active/5 p-4 font-ui text-sm text-white/70"
+      >
+        {copy.note}
+      </p>
+
+      <div class="space-y-5">
+        {
+          sections.map(([title, paragraphs]) => (
+            <article class="clinical-glass rounded-(--radius-feature) border border-white/8 p-6 md:p-8">
+              <h2 class="mb-4 font-display text-xl font-bold text-white">{title}</h2>
+              <div class="space-y-3">
+                {paragraphs.map((paragraph) => (
+                  <p class="font-ui text-sm leading-7 text-white/70">{paragraph}</p>
+                ))}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

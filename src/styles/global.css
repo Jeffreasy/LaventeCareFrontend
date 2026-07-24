@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "tailwindcss-animate";
 
 /* ============================================
@@ -18,28 +18,28 @@
   /* OKLCH Color System — LaventeCare Brand */
   --color-background: oklch(0.13 0.03 230);
   --color-panel: oklch(0.18 0.04 230);
-  --color-active: oklch(0.53 0.10 166);
+  --color-active: oklch(0.53 0.1 166);
   --color-text-primary: oklch(0.97 0.01 230);
   --color-primary-hover: oklch(0.47 0.11 166);
-  --color-secondary: oklch(0.50 0.12 230);
-  --color-border: oklch(0.53 0.10 166 / 0.2);
-  --color-input: oklch(0.53 0.10 166 / 0.15);
-  --color-ring: oklch(0.53 0.10 166);
+  --color-secondary: oklch(0.5 0.12 230);
+  --color-border: oklch(0.53 0.1 166 / 0.2);
+  --color-input: oklch(0.53 0.1 166 / 0.15);
+  --color-ring: oklch(0.53 0.1 166);
   --color-success: oklch(0.58 0.16 160);
   --color-warning: oklch(0.75 0.15 90);
-  --color-error: oklch(0.60 0.22 25);
+  --color-error: oklch(0.6 0.22 25);
 
   /* CTA / Emerald Tokens */
   --color-cta: oklch(0.58 0.16 160);
   --color-cta-hover: oklch(0.52 0.18 160);
 
   /* Extended Color Tokens */
-  --color-active-gradient-from: oklch(0.53 0.10 166);
+  --color-active-gradient-from: oklch(0.53 0.1 166);
   --color-active-gradient-to: oklch(0.45 0.09 168);
   --color-cta-gradient-from: oklch(0.58 0.16 160);
-  --color-cta-gradient-to: oklch(0.50 0.14 170);
-  --color-icon-bg: oklch(0.53 0.10 166 / 0.15);
-  --color-icon-bg-hover: oklch(0.53 0.10 166 / 0.25);
+  --color-cta-gradient-to: oklch(0.5 0.14 170);
+  --color-icon-bg: oklch(0.53 0.1 166 / 0.15);
+  --color-icon-bg-hover: oklch(0.53 0.1 166 / 0.25);
   --color-navy: oklch(0.35 0.08 230);
   --color-navy-light: oklch(0.25 0.05 230);
 
@@ -84,7 +84,7 @@
 body {
   background-color: var(--color-background);
   background-image:
-    radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.20 0.05 230 / 0.5), transparent),
+    radial-gradient(ellipse 80% 50% at 50% -20%, oklch(0.2 0.05 230 / 0.5), transparent),
     radial-gradient(ellipse 50% 40% at 80% 80%, oklch(0.16 0.04 200 / 0.25), transparent),
     radial-gradient(ellipse 40% 30% at 10% 60%, oklch(0.15 0.03 210 / 0.15), transparent);
   background-attachment: fixed;
@@ -118,7 +118,7 @@ body {
 .ambient-mesh__orb--1 {
   width: clamp(350px, 45vw, 700px);
   height: clamp(350px, 45vw, 700px);
-  background: radial-gradient(circle, oklch(0.50 0.20 200 / 0.55), transparent 70%);
+  background: radial-gradient(circle, oklch(0.5 0.2 200 / 0.55), transparent 70%);
   top: -10%;
   left: 60%;
   animation: ambient-drift-1 25s ease-in-out infinite;
@@ -127,7 +127,7 @@ body {
 .ambient-mesh__orb--2 {
   width: clamp(300px, 40vw, 600px);
   height: clamp(300px, 40vw, 600px);
-  background: radial-gradient(circle, oklch(0.45 0.18 230 / 0.40), transparent 70%);
+  background: radial-gradient(circle, oklch(0.45 0.18 230 / 0.4), transparent 70%);
   bottom: -5%;
   left: -5%;
   animation: ambient-drift-2 30s ease-in-out infinite;
@@ -143,29 +143,58 @@ body {
 }
 
 @keyframes ambient-drift-1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25%      { transform: translate(-15vw, 12vh) scale(1.1); }
-  50%      { transform: translate(-8vw, 25vh) scale(0.95); }
-  75%      { transform: translate(5vw, 10vh) scale(1.05); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-15vw, 12vh) scale(1.1);
+  }
+  50% {
+    transform: translate(-8vw, 25vh) scale(0.95);
+  }
+  75% {
+    transform: translate(5vw, 10vh) scale(1.05);
+  }
 }
 
 @keyframes ambient-drift-2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  25%      { transform: translate(12vw, -8vh) scale(1.05); }
-  50%      { transform: translate(20vw, -15vh) scale(1.1); }
-  75%      { transform: translate(8vw, -5vh) scale(0.95); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(12vw, -8vh) scale(1.05);
+  }
+  50% {
+    transform: translate(20vw, -15vh) scale(1.1);
+  }
+  75% {
+    transform: translate(8vw, -5vh) scale(0.95);
+  }
 }
 
 @keyframes ambient-drift-3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33%      { transform: translate(-10vw, -12vh) scale(1.08); }
-  66%      { transform: translate(-18vw, 5vh) scale(0.92); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-10vw, -12vh) scale(1.08);
+  }
+  66% {
+    transform: translate(-18vw, 5vh) scale(0.92);
+  }
 }
 
 /* Disable ambient mesh animations on low-power mobile devices */
 @media (max-width: 768px) {
-  .ambient-mesh__orb { opacity: 0.6; }
-  .ambient-mesh__orb--3 { display: none; }
+  .ambient-mesh__orb {
+    opacity: 0.6;
+  }
+  .ambient-mesh__orb--3 {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -179,7 +208,12 @@ body {
   color: var(--color-text-primary);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
 }
 
@@ -187,7 +221,8 @@ h1, h2, h3, h4, h5, h6 {
    Clinical Glass v2 Components
    ============================================ */
 
-.clinical-glass {
+.clinical-glass,
+.clinical-glass-hover {
   background: color-mix(in oklch, var(--color-panel) 70%, transparent);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -200,7 +235,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .clinical-glass-hover {
-  composes: clinical-glass;
   cursor: pointer;
 }
 
@@ -223,7 +257,11 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, var(--color-active-gradient-from), var(--color-active-gradient-to));
+  background: linear-gradient(
+    135deg,
+    var(--color-active-gradient-from),
+    var(--color-active-gradient-to)
+  );
   color: white;
   padding: 0.875rem 1.75rem;
   border-radius: var(--radius-action);
@@ -231,10 +269,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
   text-decoration: none;
   box-shadow: 0 10px 25px -5px color-mix(in oklch, var(--color-active) 35%, transparent);
-  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              outline-offset 0.15s ease;
+  transition:
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    outline-offset 0.15s ease;
   cursor: pointer;
   border: none;
   min-height: 48px;
@@ -271,11 +310,12 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              outline-offset 0.15s ease;
+  transition:
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    outline-offset 0.15s ease;
   cursor: pointer;
   min-height: 48px;
 }
@@ -311,10 +351,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.125rem;
   text-decoration: none;
   box-shadow: 0 10px 30px -5px color-mix(in oklch, var(--color-active) 25%, transparent);
-  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              outline-offset 0.15s ease;
+  transition:
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    outline-offset 0.15s ease;
   cursor: pointer;
   min-height: 52px;
 }
@@ -350,10 +391,11 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-              outline-offset 0.15s ease;
+  transition:
+    background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    outline-offset 0.15s ease;
   cursor: pointer;
   min-height: 52px;
 }
@@ -419,14 +461,18 @@ h1, h2, h3, h4, h5, h6 {
   will-change: opacity, transform;
 }
 
-[data-animate="fade-up"] {
+[data-animate='fade-up'] {
   transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-[data-animate="scale-up"] {
+[data-animate='scale-up'] {
   transform: scale(0.95);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 [data-animate].is-visible {
@@ -435,11 +481,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Stagger Utilities (for dynamic lists) */
-.delay-100 { transition-delay: 100ms; }
-.delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
-.delay-400 { transition-delay: 400ms; }
-.delay-500 { transition-delay: 500ms; }
+.delay-100 {
+  transition-delay: 100ms;
+}
+.delay-200 {
+  transition-delay: 200ms;
+}
+.delay-300 {
+  transition-delay: 300ms;
+}
+.delay-400 {
+  transition-delay: 400ms;
+}
+.delay-500 {
+  transition-delay: 500ms;
+}
 
 /* ============================================
    Utility Classes
@@ -449,7 +505,8 @@ h1, h2, h3, h4, h5, h6 {
   width: 3rem;
   height: 3rem;
   border-radius: var(--radius-action);
-  background: linear-gradient(135deg,
+  background: linear-gradient(
+    135deg,
     var(--color-active-gradient-from),
     var(--color-active-gradient-to)
   );
@@ -466,8 +523,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-card {
-  transition: border-color var(--transition-base),
-              transform var(--transition-base);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base);
 }
 
 .feature-card:hover {
@@ -508,7 +566,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pillar-accent::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;

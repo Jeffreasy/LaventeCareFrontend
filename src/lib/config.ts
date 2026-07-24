@@ -44,7 +44,7 @@ const settingsNL: SiteSettings = {
   site_name: 'LaventeCare',
   meta_title: 'Software en systemen voor het mkb — van idee tot werkend systeem',
   meta_description:
-    'LaventeCare bouwt systemen die bedrijven efficiënter maken, fouten voorkomen en groei versnellen: AI, IoT, maatwerkplatformen, lead generation en security-first systemen.',
+    'LaventeCare bouwt professionele websites en systemen die bedrijven efficiënter maken: websites vanaf €750, AI, IoT, maatwerkplatformen en beveiliging vanaf de basis.',
   favicon: [{ filename: '/favicon.svg' }],
   logo: [{ filename: LOGO_URL, alt: 'LaventeCare' }],
   main_menu: [
@@ -54,6 +54,7 @@ const settingsNL: SiteSettings = {
       label: 'Diensten',
       link: { cached_url: 'diensten' },
       items: [
+        { label: 'Websites bouwen', link: { cached_url: 'diensten/websites' } },
         { label: 'IT Advies & Consultancy', link: { cached_url: 'diensten/consultancy' } },
         { label: 'AI & Automatisering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
@@ -71,6 +72,7 @@ const settingsNL: SiteSettings = {
     {
       title: 'Diensten',
       links: [
+        { label: 'Websites bouwen', link: { cached_url: 'diensten/websites' } },
         { label: 'IT Advies & Consultancy', link: { cached_url: 'diensten/consultancy' } },
         { label: 'AI & Automatisering', link: { cached_url: 'diensten/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'diensten/iot-hardware' } },
@@ -95,8 +97,9 @@ const settingsNL: SiteSettings = {
         { label: 'LinkedIn', link: { cached_url: 'https://linkedin.com/in/jeffrey-lavente' } },
         { label: 'GitHub', link: { cached_url: 'https://github.com/Jeffreasy' } },
         { label: 'Instagram', link: { cached_url: 'https://www.instagram.com/jjalavente/' } },
+        { label: 'Privacyverklaring', link: { cached_url: 'privacy' } },
+        { label: 'Website Care', link: { cached_url: 'website-care' } },
         { label: 'Algemene Voorwaarden', link: { cached_url: 'voorwaarden' } },
-        { label: 'Admin Login', link: { cached_url: 'login' } },
       ],
     },
   ],
@@ -106,10 +109,13 @@ const settingsNL: SiteSettings = {
     { platform: 'Instagram', url: 'https://www.instagram.com/jjalavente/' },
   ],
   copyright_text: '© 2026 LaventeCare — Jeffrey Lavente | KVK 88162710 | Dronten',
-  gtm_id: null,
+  gtm_id: import.meta.env.GTM_ID || null,
   cookie_consent_code: null,
   og_image: [
-    { filename: LOGO_URL, alt: 'LaventeCare — B2B systeempartner voor mkb. Van idee tot werkend systeem.' },
+    {
+      filename: '/og-laventecare-2026.png',
+      alt: 'LaventeCare — B2B systeempartner voor mkb. Van idee tot werkend systeem.',
+    },
   ],
 };
 
@@ -117,7 +123,7 @@ const settingsEN: SiteSettings = {
   site_name: 'LaventeCare',
   meta_title: 'Software and systems for SMEs — from idea to working system',
   meta_description:
-    'LaventeCare builds systems that make businesses more efficient, prevent errors and accelerate growth: AI, IoT, custom platforms, lead generation and security-first systems.',
+    'LaventeCare builds professional websites and systems that make businesses more efficient: websites from €750, AI, IoT, custom platforms and built-in security.',
   favicon: [{ filename: '/favicon.svg' }],
   logo: [{ filename: LOGO_URL, alt: 'LaventeCare' }],
   main_menu: [
@@ -127,6 +133,7 @@ const settingsEN: SiteSettings = {
       label: 'Services',
       link: { cached_url: 'services' },
       items: [
+        { label: 'Website Development', link: { cached_url: 'services/websites' } },
         { label: 'IT Advice & Consultancy', link: { cached_url: 'services/consultancy' } },
         { label: 'AI & Automation', link: { cached_url: 'services/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'services/iot-hardware' } },
@@ -144,6 +151,7 @@ const settingsEN: SiteSettings = {
     {
       title: 'Services',
       links: [
+        { label: 'Website Development', link: { cached_url: 'services/websites' } },
         { label: 'IT Advice & Consultancy', link: { cached_url: 'services/consultancy' } },
         { label: 'AI & Automation', link: { cached_url: 'services/ai-prompt-engineering' } },
         { label: 'IoT & Hardware', link: { cached_url: 'services/iot-hardware' } },
@@ -168,8 +176,9 @@ const settingsEN: SiteSettings = {
         { label: 'LinkedIn', link: { cached_url: 'https://linkedin.com/in/jeffrey-lavente' } },
         { label: 'GitHub', link: { cached_url: 'https://github.com/Jeffreasy' } },
         { label: 'Instagram', link: { cached_url: 'https://www.instagram.com/jjalavente/' } },
+        { label: 'Privacy Statement', link: { cached_url: 'privacy' } },
+        { label: 'Website Care', link: { cached_url: 'website-care' } },
         { label: 'Terms & Conditions', link: { cached_url: 'terms' } },
-        { label: 'Admin Login', link: { cached_url: 'login' } },
       ],
     },
   ],
@@ -179,10 +188,13 @@ const settingsEN: SiteSettings = {
     { platform: 'Instagram', url: 'https://www.instagram.com/jjalavente/' },
   ],
   copyright_text: '© 2026 LaventeCare — Jeffrey Lavente | CoC 88162710 | Dronten, Netherlands',
-  gtm_id: null,
+  gtm_id: import.meta.env.GTM_ID || null,
   cookie_consent_code: null,
   og_image: [
-    { filename: LOGO_URL, alt: 'LaventeCare — B2B systems partner for SMEs. From idea to working system.' },
+    {
+      filename: '/og-laventecare-2026.png',
+      alt: 'LaventeCare — B2B systems partner for SMEs. From idea to working system.',
+    },
   ],
 };
 

@@ -1,45 +1,37 @@
-# LaventeCare Frontend - AI Context & Guidelines
+# LaventeCare website — AI context
 
-> **Context**: This is an Astro 5 + React + Convex application using Tailwind CSS v4.
+> Current source of truth: Astro 7, React 19, Tailwind CSS 4 and a same-origin BFF for the LaventeCare Go backend.
 
-## Tech Stack
+## Architecture
 
-- **Framework**: [Astro 5](https://astro.build) (SSR/Static Hybrid)
-- **UI Architecture**: Islands Architecture (React for interactivity)
-- **Backend**: [Convex](https://convex.dev) (Realtime Database & Functions)
-- **State Management**: [Nanostores](https://github.com/nanostores/nanostores) (Framework-agnostic state)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com) + "Glassmorphism" Design System
-- **Testing**: Playwright (E2E)
+- Astro server-rendered pages provide the public Dutch and English website.
+- The same deployment serves `laventecare.nl` and `laventecare.com`; locale is domain-aware.
+- React islands are used only for interactive flows such as contact, consent and authenticated tools.
+- Browser requests to backend services go through `/api/*`; secure authentication cookies stay same-origin.
+- Nanostores manages small cross-framework client state.
+- Vercel hosts the production deployment.
 
-## Project Structure
+## Commercial source of truth
 
-```
-src/
-├── components/
-│   ├── ui/             # Atoms: reusable, small components (Button, Card)
-│   ├── blocks/         # Molecules/Organisms: sections of a page (Hero, Navbar, Footer)
-│   └── islands/        # Interactive: Client-side React components (Forms, Complex Logic)
-├── layouts/            # Astro Layouts
-├── lib/
-│   ├── convex.ts       # Convex Client initialization
-│   ├── utils.ts        # Helper functions (cn, etc.)
-│   └── config.ts       # Global constants
-├── pages/              # File-based routing
-└── styles/
-    └── global.css      # Global styles & Tailwind v4 configuration
-```
+- Website Start: €750 one-off; optional Website Care €29/month.
+- Website Business: €1,000 one-off; optional Website Care €49/month.
+- Custom Website: from €1,500 one-off; optional Website Care from €75/month.
+- Prices exclude VAT. Mailboxes, licences, domains and out-of-scope additions are separate unless quoted.
+- Do not silently increase these public website starting prices.
 
-## Key Patterns
+## Relevant files
 
-1.  **Islands Architecture**: Use `.astro` files for static content. Only use `.tsx` (React) when interactivity is required. Use `client:load` or `client:visible` directives in Astro.
-2.  **Styling**: Use Tailwind utility classes. For conflicts, use `cn()`.
-3.  **Data Fetching**:
-    *   **Static/Server**: Use Astro frontmatter (await/async).
-    *   **Client**: Use Convex React hooks (`useQuery`, `useMutation`) in islands.
-4.  **Glassmorphism**: The design relies heavily on transparency, backdrop-blur, and borders. Check `global.css` for implementation details.
+- `src/components/blocks/WebsitePackages.astro`: package scope and prices.
+- `src/components/blocks/PricingOverview.astro`: full pricing page.
+- `src/pages/website-care.astro`: recurring website management terms.
+- `src/components/blocks/TermsContent.astro`: public general terms.
+- `src/pages/privacy.astro`: public privacy information.
+- `src/lib/i18n/routes.ts`: paired Dutch and English routes.
+- `src/pages/api/[...path].ts`: BFF boundary.
 
-## Documentation References
+## Working conventions
 
-- `ARCHITECTURE.md`: High-level system design.
-- `README.md`: Quick start and overview.
-- `.agent/`: Custom agent behaviors and skills.
+1. Prefer `.astro` for server-rendered content and `.tsx` only when browser interactivity is needed.
+2. Keep claims measurable and contextual; do not publish unverified absolute performance, uptime or conversion claims.
+3. Keep Dutch and English routes, schemas, prices and legal links aligned.
+4. Run formatting, linting, type checks, tests and the production build before delivery.

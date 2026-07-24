@@ -1,0 +1,122 @@
+---
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  locale?: 'nl' | 'en';
+}
+
+const { locale = 'nl' } = Astro.props;
+const isEnglish = locale === 'en';
+
+const copy = isEnglish
+  ? {
+      label: 'New: fixed website packages',
+      heading: 'A professional website from €750',
+      description:
+        'A fast Astro website without a heavy page builder. Fixed scope, clear price and ready to grow into forms, customer acquisition or a custom platform.',
+      packages: [
+        ['Website Start', '€750'],
+        ['Website Business', '€1,000'],
+        ['Custom Website', 'from €1,500'],
+      ],
+      href: '/services/websites',
+      cta: 'View website packages',
+      note: 'Build from €750 · management from €29/month',
+    }
+  : {
+      label: 'Nieuw: vaste websitepakketten',
+      heading: 'Een professionele website vanaf €750',
+      description:
+        'Een snelle Astro-website zonder zware pagebuilder. Met een vaste afspraak, heldere prijs en ruimte om later door te groeien naar formulieren, klantenwerving of een maatwerkplatform.',
+      packages: [
+        ['Website Start', '€750'],
+        ['Website Business', '€1.000'],
+        ['Website Maatwerk', 'vanaf €1.500'],
+      ],
+      href: '/diensten/websites',
+      cta: 'Bekijk websitepakketten',
+      note: 'Realisatie vanaf €750 · beheer vanaf €29/maand',
+    };
+---
+
+<section class="py-8 md:py-12" aria-labelledby="website-teaser-heading">
+  <div class="container mx-auto px-4">
+    <div
+      data-animate="fade-up"
+      class="clinical-glass relative mx-auto max-w-5xl overflow-hidden rounded-(--radius-hero) border border-active/25 bg-active/5 p-6 md:p-8"
+    >
+      <div
+        class="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-active/15 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="relative grid grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_0.85fr]">
+        <div>
+          <span
+            class="mb-3 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.18em] text-active"
+          >
+            <Icon name="monitor" size={15} />
+            {copy.label}
+          </span>
+          <h2
+            id="website-teaser-heading"
+            class="mb-3 font-display text-2xl font-black text-white md:text-3xl"
+          >
+            {copy.heading}
+          </h2>
+          <p class="mb-5 max-w-2xl font-ui text-sm leading-relaxed text-white/60">
+            {copy.description}
+          </p>
+          <a
+            href={copy.href}
+            class="inline-flex items-center gap-2 font-ui text-sm font-bold text-active"
+          >
+            {copy.cta}
+            <Icon name="arrow-right" size={16} />
+          </a>
+        </div>
+
+        {
+          isEnglish ? (
+            <div>
+              <div class="space-y-2">
+                {copy.packages.map(([name, price], index) => (
+                  <div
+                    class:list={[
+                      'flex items-center justify-between gap-4 rounded-xl border px-4 py-3',
+                      index === 1 ? 'border-active/25 bg-active/8' : 'border-white/8 bg-white/3',
+                    ]}
+                  >
+                    <span class="font-ui text-sm text-white/65">{name}</span>
+                    <span class="whitespace-nowrap font-display text-sm font-black text-white">
+                      {price}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p class="mt-3 text-right font-ui text-xs text-white/60">{copy.note}</p>
+            </div>
+          ) : (
+            <figure>
+              <div class="overflow-hidden rounded-xl border border-active/20 bg-[#06161c] p-1.5">
+                <img
+                  src="/og-websites-display.webp"
+                  width="1200"
+                  height="630"
+                  alt="LaventeCare — professionele websites vanaf €750"
+                  class="aspect-[1200/630] w-full rounded-lg object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <figcaption class="mt-3 text-right font-ui text-xs text-white/60">
+                {copy.note}
+              </figcaption>
+            </figure>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

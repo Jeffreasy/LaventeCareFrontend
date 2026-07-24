@@ -53,7 +53,7 @@ const serviceSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="Custom Platforms — One System That Grows With You | LaventeCare"
@@ -62,10 +62,14 @@ const serviceSchema = {
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
+        <span
+          class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"
+        >
           <Icon name="building-2" size={16} class="text-active" /> Custom Platforms
         </span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight"
+        >
           Everything in <span class="text-active">one place</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
@@ -78,9 +82,14 @@ const serviceSchema = {
         </p>
         <div class="flex flex-wrap gap-2">
           {
-            ['One system:', 'Everything in one place', 'Workflows', 'Integrations', 'Dashboards', 'Management'].map(
-              (t) => <TechStackBadge tech={t} />
-            )
+            [
+              'One system:',
+              'Everything in one place',
+              'Workflows',
+              'Integrations',
+              'Dashboards',
+              'Management',
+            ].map((t) => <TechStackBadge tech={t} />)
           }
         </div>
       </div>
@@ -113,14 +122,16 @@ const serviceSchema = {
             data-animate="fade-up"
             class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
           >
-            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">
+            <h3
+              class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors"
+            >
               De Koninklijke Loop
             </h3>
             <p class="text-white/60 text-sm font-ui mb-2">
               Platform with real-time registration and live data.
             </p>
             <p class="text-active text-xs font-bold font-ui">
-              Real-time registration • 0 manual administration for the organisation
+              Real-time registration • less manual administration for the organisation
             </p>
           </a>
           <a
@@ -128,13 +139,17 @@ const serviceSchema = {
             data-animate="fade-up"
             class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors group"
           >
-            <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">
+            <h3
+              class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors"
+            >
               Whisky for Charity
             </h3>
             <p class="text-white/60 text-sm font-ui mb-2">
               Charity platform with secure donation flows.
             </p>
-            <p class="text-active text-xs font-bold font-ui">Astro • HTML email • secure donation flow</p>
+            <p class="text-active text-xs font-bold font-ui">
+              Astro • HTML email • secure donation flow
+            </p>
           </a>
         </div>
       </div>

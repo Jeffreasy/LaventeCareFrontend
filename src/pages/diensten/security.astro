@@ -88,7 +88,7 @@ const serviceSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="Beveiliging & Authenticatie — Veilig vanaf de basis | LaventeCare"
@@ -107,16 +107,21 @@ const serviceSchema = {
           Uw data <span class="text-active">beschermd</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
-          Beveiliging zit <span class="text-white font-semibold">vanaf de eerste regel code
-          ingebouwd</span>. De gegevens van uw klanten staan technisch gescheiden, iedereen ziet
-          alleen wat hij mag, en elke actie wordt vastgelegd. Zo blijft uw klantdata beschermd —
-          zelfs bij fouten in het systeem.
+          Beveiliging zit <span class="text-white font-semibold"
+            >vanaf de eerste regel code ingebouwd</span
+          >. De gegevens van uw klanten staan technisch gescheiden, iedereen ziet alleen wat hij
+          mag, en elke actie wordt vastgelegd. Zo blijft uw klantdata beschermd — zelfs bij fouten
+          in het systeem.
         </p>
         <div class="flex flex-wrap gap-2">
           {
-            ['Gescheiden klantdata', 'Toegang per rol', 'Alles traceerbaar', 'Versleuteling', 'Veilig gescheiden'].map(
-              (t) => <TechStackBadge tech={t} />
-            )
+            [
+              'Gescheiden klantdata',
+              'Toegang per rol',
+              'Alles traceerbaar',
+              'Versleuteling',
+              'Veilig gescheiden',
+            ].map((t) => <TechStackBadge tech={t} />)
           }
         </div>
       </div>
@@ -195,9 +200,10 @@ const serviceSchema = {
         <p class="text-white/70 font-ui text-sm leading-relaxed mb-6">
           Alle applicaties worden gebouwd volgens het principe van <strong class="text-white"
             >Privacy by Design</strong
-          >. Databescherming is van begin af aan meeontworpen — niet achteraf toegevoegd.
-          Concrete AVG-compliance hangt af van contractuele afspraken, uw inrichting en gebruik;
-          een <strong class="text-white">verwerkersovereenkomst</strong> is beschikbaar.
+          >. Databescherming is van begin af aan meeontworpen — niet achteraf toegevoegd. Concrete
+          AVG-compliance hangt af van contractuele afspraken, uw inrichting en gebruik; een <strong
+            class="text-white">verwerkersovereenkomst</strong
+          > is beschikbaar.
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <ul class="space-y-3 text-sm font-ui text-white/70">
@@ -220,8 +226,8 @@ const serviceSchema = {
               beschikbaar
             </li>
             <li class="flex gap-3">
-              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Elke actie wordt
-              vastgelegd in een logboek dat niet achteraf aangepast kan worden
+              <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Elke actie wordt vastgelegd
+              in een logboek dat niet achteraf aangepast kan worden
             </li>
             <li class="flex gap-3">
               <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Geteste procedure voor
@@ -283,7 +289,9 @@ const serviceSchema = {
 
       <!-- Trust Trigger -->
       <div class="max-w-4xl mx-auto mt-8">
-        <div class="clinical-glass p-5 md:p-6 rounded-(--radius-feature) border border-active/15 bg-active/5">
+        <div
+          class="clinical-glass p-5 md:p-6 rounded-(--radius-feature) border border-active/15 bg-active/5"
+        >
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
             <div>
               <Icon name="shield-check" size={22} class="text-active block mb-2 mx-auto" />
@@ -295,7 +303,9 @@ const serviceSchema = {
             </div>
             <div>
               <Icon name="lock" size={22} class="text-active block mb-2 mx-auto" />
-              <p class="text-white/60 text-xs font-ui">Iedereen ziet alleen wat hij mag (toegang per rol)</p>
+              <p class="text-white/60 text-xs font-ui">
+                Iedereen ziet alleen wat hij mag (toegang per rol)
+              </p>
             </div>
           </div>
           <p class="text-white/40 text-xs font-ui text-center mt-4">

@@ -33,6 +33,7 @@ export const nl = {
 
   // --- Services submenu ---
   services: {
+    websites: 'Websites bouwen',
     consultancy: 'IT Advies & Consultancy',
     ai: 'AI & Automatisering',
     iot: 'IoT & Hardware',
@@ -60,6 +61,9 @@ export const nl = {
     prijzen: 'Prijzen',
     contact: 'Contact',
     voorwaarden: 'Algemene Voorwaarden',
+    privacy: 'Privacyverklaring',
+    'website-care': 'Website Care',
+    websites: 'Websites bouwen',
     consultancy: 'IT Advies & Consultancy',
     'ai-prompt-engineering': 'AI & Automatisering',
     'iot-hardware': 'IoT & Hardware',
@@ -80,7 +84,7 @@ export const nl = {
     home: {
       title: 'LaventeCare — Maatwerkplatformen met Ingebouwde Beveiliging | Dronten',
       description:
-        'Systemen die werk uit handen nemen: maatwerkplatformen, AI-automatisering en IoT-monitoring — met eigen beveiligingslaag en 99/100 PageSpeed.',
+        'Systemen die werk uit handen nemen: maatwerkplatformen, AI-automatisering en IoT-monitoring — met een lichte technische basis en beveiliging vanaf het ontwerp.',
     },
     about: {
       title: 'Over Jeffrey Lavente — Systems Engineer | LaventeCare',
@@ -88,14 +92,14 @@ export const nl = {
         'Jeffrey Lavente: systems engineer met achtergrond in NAH-zorg. Bouwt complete digitale systemen van ontwerp tot productie.',
     },
     services: {
-      title: 'Diensten — AI, IoT, Maatwerk & Security | LaventeCare',
+      title: 'Diensten — Websites, AI, IoT, Maatwerk & Security | LaventeCare',
       description:
-        'Vijf geïntegreerde diensten: AI-automatisering, IoT-monitoring, maatwerk platformen, lead generation en security. Eén engineer, volledig eigenaarschap.',
+        'Van professionele website tot werkend systeem: vaste websitepakketten, consultancy, AI, IoT, maatwerkplatformen, klanten werven en beveiliging.',
     },
     pricing: {
       title: 'Prijzen & Pakketten — Transparante Tarieven | LaventeCare',
       description:
-        'Heldere tarieven zonder verborgen kosten. Uurtarief €95, vaste pakketten beschikbaar. Neem contact op voor een offerte op maat.',
+        'Websitepakketten vanaf €750, advies voor €95 per uur en vaste mijlpaalprijzen voor maatwerksystemen. Duidelijke scope zonder verborgen kosten.',
     },
     contact: {
       title: 'Contact — Plan een Intake | LaventeCare',
@@ -103,9 +107,9 @@ export const nl = {
         'Neem contact op met Jeffrey Lavente. Plan een vrijblijvende intake en ontdek waar uw bedrijf direct van kan profiteren.',
     },
     portfolio: {
-      title: "Portfolio — Bewezen Werk in Productie | LaventeCare",
+      title: 'Portfolio — Bewezen Werk in Productie | LaventeCare',
       description:
-        "Bekijk realworld projecten: De Koninklijke Loop, SmartCoolCare, C&F Bouw, Dustin Auto Garage en meer. Verifieerbare Lighthouse scores.",
+        'Bekijk praktijkprojecten zoals De Koninklijke Loop, SmartCoolCare, C&F Bouw en Dustin Auto Garage, met heldere context over het gerealiseerde werk.',
     },
     terms: {
       title: 'Algemene Voorwaarden | LaventeCare',

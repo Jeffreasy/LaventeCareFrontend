@@ -33,6 +33,7 @@ export const en = {
 
   // --- Services submenu ---
   services: {
+    websites: 'Website Development',
     consultancy: 'IT Advice & Consultancy',
     ai: 'AI & Automation',
     iot: 'IoT & Hardware',
@@ -59,6 +60,9 @@ export const en = {
     pricing: 'Pricing',
     contact: 'Contact',
     terms: 'Terms & Conditions',
+    privacy: 'Privacy Statement',
+    'website-care': 'Website Care',
+    websites: 'Website Development',
     consultancy: 'IT Advice & Consultancy',
     'ai-prompt-engineering': 'AI & Automation',
     'iot-hardware': 'IoT & Hardware',
@@ -79,7 +83,7 @@ export const en = {
     home: {
       title: 'LaventeCare — Custom Systems Built for Your Business | Netherlands',
       description:
-        'Systems that take work off your hands: custom platforms, AI automation and IoT monitoring — with built-in security and 99/100 PageSpeed. Designed and built by one engineer.',
+        'Systems that take work off your hands: custom platforms, AI automation and IoT monitoring — with a lightweight technical foundation and security designed in.',
     },
     about: {
       title: 'About Jeffrey Lavente — Systems Engineer | LaventeCare',
@@ -87,14 +91,14 @@ export const en = {
         'Jeffrey Lavente: systems engineer with a background in intensive care. Builds complete digital systems from design to production.',
     },
     services: {
-      title: 'Services — AI, IoT, Custom Platforms & Security | LaventeCare',
+      title: 'Services — Websites, AI, IoT, Custom Platforms & Security | LaventeCare',
       description:
-        'Five integrated services: AI automation, IoT monitoring, custom platforms, lead generation and security. One engineer, full ownership.',
+        'From professional website to working system: fixed website packages, consultancy, AI, IoT, custom platforms, customer acquisition and security.',
     },
     pricing: {
       title: 'Pricing & Packages — Transparent Rates | LaventeCare',
       description:
-        'Clear pricing with no hidden costs. Hourly rate €95, fixed packages available. Contact us for a custom quote.',
+        'Website packages from €750, advice at €95 per hour and fixed milestone pricing for custom systems. Clear scope with no hidden costs.',
     },
     contact: {
       title: 'Contact — Schedule an Intake | LaventeCare',
@@ -104,7 +108,7 @@ export const en = {
     portfolio: {
       title: 'Portfolio — Proven Work in Production | LaventeCare',
       description:
-        'View real-world projects: De Koninklijke Loop, SmartCoolCare, C&F Bouw, Dustin Auto Garage and more. Verifiable Lighthouse scores.',
+        'View practical projects such as De Koninklijke Loop, SmartCoolCare, C&F Bouw and Dustin Auto Garage, with clear context on the work delivered.',
     },
     terms: {
       title: 'Terms & Conditions | LaventeCare',

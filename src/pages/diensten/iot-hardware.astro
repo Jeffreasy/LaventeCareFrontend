@@ -52,7 +52,7 @@ const serviceSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="Slimme Monitoring & Sensoren — Risico's Voorkomen | LaventeCare"
@@ -93,20 +93,34 @@ const serviceSchema = {
 
       <!-- Resultaten -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
-        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+        <div
+          data-animate="fade-up"
+          class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center"
+        >
           <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">24/7</div>
           <p class="text-white/50 text-xs font-ui">Bewaking op afstand</p>
         </div>
-        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+        <div
+          data-animate="fade-up"
+          class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center"
+        >
           <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Maanden</div>
           <p class="text-white/50 text-xs font-ui">Zuinig — werkt maandenlang op één batterij</p>
         </div>
-        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
+        <div
+          data-animate="fade-up"
+          class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center"
+        >
           <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Draadloos</div>
           <p class="text-white/50 text-xs font-ui">Geen kabels nodig</p>
         </div>
-        <div data-animate="fade-up" class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center">
-          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">Op afstand</div>
+        <div
+          data-animate="fade-up"
+          class="clinical-glass p-5 rounded-(--radius-card) border border-active/20 text-center"
+        >
+          <div class="text-2xl md:text-3xl font-black text-active mb-1 font-display">
+            Op afstand
+          </div>
           <p class="text-white/50 text-xs font-ui">Updates op afstand, geen monteur nodig</p>
         </div>
       </div>
@@ -158,22 +172,30 @@ const serviceSchema = {
 
       <!-- Hoe het werkt -->
       <div data-animate="fade-up" class="max-w-3xl mx-auto mb-16">
-        <h2 class="text-xl font-bold text-white mb-6 font-display text-center">Van sensor tot actie</h2>
+        <h2 class="text-xl font-bold text-white mb-6 font-display text-center">
+          Van sensor tot actie
+        </h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
             <div class="text-2xl font-black text-active/40 font-display mb-2">01</div>
             <p class="text-sm font-bold text-white font-display mb-1">Sensor meet</p>
-            <p class="text-white/50 text-xs font-ui">De sensor meet de waarde en gaat daarna in slaapstand om stroom te sparen.</p>
+            <p class="text-white/50 text-xs font-ui">
+              De sensor meet de waarde en gaat daarna in slaapstand om stroom te sparen.
+            </p>
           </div>
           <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
             <div class="text-2xl font-black text-active/40 font-display mb-2">02</div>
             <p class="text-sm font-bold text-white font-display mb-1">Cloud verwerkt</p>
-            <p class="text-white/50 text-xs font-ui">Data wordt opgeslagen, geanalyseerd, vergeleken met drempels</p>
+            <p class="text-white/50 text-xs font-ui">
+              Data wordt opgeslagen, geanalyseerd, vergeleken met drempels
+            </p>
           </div>
           <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 text-center">
             <div class="text-2xl font-black text-active/40 font-display mb-2">03</div>
             <p class="text-sm font-bold text-white font-display mb-1">U krijgt actie</p>
-            <p class="text-white/50 text-xs font-ui">Live dashboard + automatisch alarm bij afwijkingen</p>
+            <p class="text-white/50 text-xs font-ui">
+              Live dashboard + automatisch alarm bij afwijkingen
+            </p>
           </div>
         </div>
       </div>
@@ -186,7 +208,11 @@ const serviceSchema = {
           data-animate="fade-up"
           class="clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-colors inline-block group"
         >
-          <h3 class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors">SmartCoolCare</h3>
+          <h3
+            class="text-lg font-bold text-white font-display mb-1 group-hover:text-active transition-colors"
+          >
+            SmartCoolCare
+          </h3>
           <p class="text-white/60 text-sm font-ui mb-2">
             Temperatuurbewaking met automatische signalering — voorkomt schade, minimaliseert
             stilstand en geeft continu inzicht.

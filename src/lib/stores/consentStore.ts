@@ -21,7 +21,7 @@ const defaultConsent: ConsentState = {
   analytics: false,
   marketing: false,
   necessary: true,
-  timestamp: Date.now(),
+  timestamp: 0,
   version: CONSENT_VERSION,
 };
 

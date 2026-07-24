@@ -11,14 +11,9 @@ The LaventeCare Frontend is structurally optimized for deployment on **Vercel** 
 
 ## 1. Build and Bundling Optimization
 
-### Rollup Manual Chunking
-To prevent bloated bundle downloads and allow granular browser caching, Vite is configured (`astro.config.mjs`) to aggressively slice `node_modules` into categorized chunks:
-- `react-vendor`: `react`, `react-dom`
-- `form-vendor`: `@conform-to/react`, `zod`
-- `analytics-vendor`: `@vercel/analytics`, `web-vitals`
-- `store-vendor`: `nanostores`, `@nanostores/persistent`
-
-This strategy ensures that if business logic (`islands`) updates, users do not redownload heavy React dependencies.
+Astro and Rolldown own chunk generation. The project deliberately avoids brittle manual vendor
+chunk rules and hydrates only interactive islands. Bundle size is checked through the production
+build and browser flows rather than package-name grouping.
 
 ## 2. CI/CD Pipeline (GitHub Actions)
 
@@ -38,8 +33,9 @@ Deployments are governed by strict pipeline requirements orchestrated via `.gith
 ## 3. Operations & SEO
 
 ### Sitemap Automation
-Generating sitemaps manually is error-prone. The `@astrojs/sitemap` integration intercepts the build process to generate a dynamic XML map, applying an `exclude` function to ensure protected paths remain unindexed.
-- **Excluded**: `/admin/*`, `/api/*`, `/login`, etc.
+`/sitemap.xml` and `/robots.txt` are SSR endpoints generated from the central NL/EN route map and
+incoming Host. This prevents `.nl` and `.com` URLs from being published under the wrong domain.
+Admin, API, login and internal rewrite routes are excluded.
 
 ### Diagnostics & Web Vitals
 When addressing performance regressions, operators should refer to the **Vercel Dashboard** (under "Speed Insights"). Focus strictly on:

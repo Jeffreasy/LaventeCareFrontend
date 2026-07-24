@@ -2,14 +2,14 @@
 
 > **Anti-Template Protocol**: "Static when possible, Dynamic when necessary, Beautiful always."
 
-LaventeCare Frontend is a high-performance, enterprise-ready web application built on **Astro 5**. Utilizing the **Islands Architecture**, it ships purely static HTML for unparalleled SEO and load speeds, while selectively hydrating interactive React components for a rich user experience. The application features a strict Glassmorphism design system driven by Tailwind CSS v4 and integrates securely with the LaventeCare Auth System using an advanced **Backend-For-Frontend (BFF)** proxy pattern.
+LaventeCare Frontend is a high-performance SSR application built on **Astro 7**. Using the **Islands Architecture**, it sends server-rendered HTML and selectively hydrates interactive React components. The application uses Tailwind CSS v4 and integrates with the LaventeCare Auth System through a secured **Backend-For-Frontend (BFF)** proxy.
 
 ## The Core 5 Master Documents
 
 Welcome to the consolidated frontend handbook. Everything you need to architect, design, and operate the frontend platform is divided into these chapters:
 
 ### [01. Architecture & Design System](./01_architecture_design.md)
-The foundation of the frontend platform. Details the Astro 5 Islands Architecture, the separation of concerns between Server Components (`.astro`) and Client Components (`.tsx`), Page Routing, and the core Glassmorphism design philosophy.
+The foundation of the frontend platform. Details the Astro 7 Islands Architecture, the separation of concerns between Server Components (`.astro`) and Client Components (`.tsx`), Page Routing, and the core Glassmorphism design philosophy.
 
 ### [02. Data, State & Integration](./02_data_state_integration.md)
 The integration manual. Explains how the frontend communicates with the **LaventeCare Auth System** via the universal BFF proxy. Details the custom `ApiClient`, automatic token-refresh queues, CSRF header injection, and Nanostores for cross-framework global state management.
@@ -34,5 +34,5 @@ The UI Toolbox. Comprehensive reference for Tailwind CSS v4 usage, the `cn()` cl
 - **Seamless State Sharing**: **Nanostores** enables type-safe, frictionless state sharing between Astro pages, React Islands, and vanilla JS modules.
 - **Type-Safe Routing & Props**: Astro's strict compile-time TypeScript checks guarantee prop validation and robust component boundaries.
 - **Automated Web Vitals**: Built-in integration with `@vercel/speed-insights` and `@vercel/analytics` for continuous real-user monitoring (RUM).
-- **SEO & Sitemap Injection**: Automated `sitemap.xml` generation filtering out private routes (`/admin`, `/api/`) to maintain pristine search engine indexing.
-- **Enterprise Testing Scope**: Native `Playwright` integration for UI interaction testing across multiple browser engines.
+- **SEO & Sitemap Isolation**: Host-aware `sitemap.xml` and `robots.txt` generation filters private routes and keeps the NL/EN domains separate.
+- **End-to-End Testing**: Playwright Chromium covers the critical public flows and both hostnames.

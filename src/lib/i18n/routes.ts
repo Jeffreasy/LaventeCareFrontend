@@ -11,6 +11,7 @@ export const ROUTE_MAP = {
     home: '/',
     over: '/over',
     diensten: '/diensten',
+    'diensten/websites': '/diensten/websites',
     'diensten/consultancy': '/diensten/consultancy',
     'diensten/ai-prompt-engineering': '/diensten/ai-prompt-engineering',
     'diensten/iot-hardware': '/diensten/iot-hardware',
@@ -29,12 +30,15 @@ export const ROUTE_MAP = {
     'portfolio/tuinhub': '/portfolio/tuinhub',
     'portfolio/whisky-for-charity': '/portfolio/whisky-for-charity',
     voorwaarden: '/voorwaarden',
+    privacy: '/privacy',
+    'website-care': '/website-care',
     login: '/login',
   },
   en: {
     home: '/',
     about: '/about',
     services: '/services',
+    'services/websites': '/services/websites',
     'services/consultancy': '/services/consultancy',
     'services/ai-prompt-engineering': '/services/ai-prompt-engineering',
     'services/iot-hardware': '/services/iot-hardware',
@@ -53,6 +57,8 @@ export const ROUTE_MAP = {
     'portfolio/tuinhub': '/portfolio/tuinhub',
     'portfolio/whisky-for-charity': '/portfolio/whisky-for-charity',
     terms: '/terms',
+    privacy: '/privacy',
+    'website-care': '/website-care',
     login: '/login',
   },
 } as const;
@@ -65,6 +71,7 @@ const NL_TO_EN_PATH: Record<string, string> = {
   '/': '/',
   '/over': '/about',
   '/diensten': '/services',
+  '/diensten/websites': '/services/websites',
   '/diensten/consultancy': '/services/consultancy',
   '/diensten/ai-prompt-engineering': '/services/ai-prompt-engineering',
   '/diensten/iot-hardware': '/services/iot-hardware',
@@ -83,6 +90,8 @@ const NL_TO_EN_PATH: Record<string, string> = {
   '/portfolio/tuinhub': '/portfolio/tuinhub',
   '/portfolio/whisky-for-charity': '/portfolio/whisky-for-charity',
   '/voorwaarden': '/terms',
+  '/privacy': '/privacy',
+  '/website-care': '/website-care',
 };
 
 /** EN slug → NL slug */

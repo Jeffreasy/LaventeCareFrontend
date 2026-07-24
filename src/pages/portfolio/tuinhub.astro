@@ -4,6 +4,10 @@ import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
+if (Astro.locals.locale === 'en') {
+  return Astro.rewrite('/en-case-study?slug=tuinhub');
+}
+
 const results = [
   { value: "2 regio's", label: 'Actief in Nederland' },
   { value: 'Direct', label: 'Aanvragen bij hoveniers' },
@@ -67,11 +71,7 @@ const challenges = [
           </a>
         </div>
         <div class="flex flex-wrap gap-2">
-          {
-            ['Astro', 'Convex', 'Go Auth', 'Vercel', 'SEO'].map((t) => (
-              <TechStackBadge tech={t} />
-            ))
-          }
+          {['Astro', 'Convex', 'Go Auth', 'Vercel', 'SEO'].map((t) => <TechStackBadge tech={t} />)}
         </div>
       </div>
 

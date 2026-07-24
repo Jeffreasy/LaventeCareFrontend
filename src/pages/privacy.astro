@@ -1,0 +1,222 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/ui/Icon.astro';
+
+const isEnglish = Astro.locals.locale === 'en';
+const updated = isEnglish ? '24 July 2026' : '24 juli 2026';
+
+const sections = isEnglish
+  ? [
+      {
+        title: '1. Who is responsible?',
+        body: [
+          'LaventeCare, the sole proprietorship of Jeffrey Lavente, is the controller for personal data processed through this website and its business contact.',
+          'Contact: Jeffrey Lavente, Spiegelstraat 6, 8251 ZB Dronten, the Netherlands · jeffrey@laventecare.nl · CoC 88162710.',
+        ],
+      },
+      {
+        title: '2. What data do I process?',
+        list: [
+          'Contact and intake details: name, email address, optional telephone number, company, project request, budget, timing and message.',
+          'Request context: the page and package from which you contacted me.',
+          'Technical and security data: IP address, browser information, timestamps and security events where needed to keep the service safe.',
+          'Account data and necessary session cookies when an authorised user signs in.',
+          'Consent choices and, only after consent, analytics or marketing data.',
+        ],
+      },
+      {
+        title: '3. Why and on what basis?',
+        list: [
+          'To answer a request and prepare a quotation: steps before entering into a contract.',
+          'To perform an agreement, deliver support and administer a customer relationship: performance of a contract.',
+          'To secure, diagnose and improve the website: LaventeCare’s legitimate interest in a reliable service.',
+          'To keep invoices and legally required records: compliance with a legal obligation.',
+          'To load optional analytics or marketing tools: your consent, which you can withdraw at any time.',
+        ],
+      },
+      {
+        title: '4. How long is data retained?',
+        list: [
+          'An enquiry that does not become an assignment: no longer than 12 months after the last substantive contact.',
+          'Quotation, project and customer correspondence: for the duration of the relationship and afterwards only as long as necessary for claims or administration.',
+          'Invoices and mandatory financial records: 7 years.',
+          'Routine security logs: normally no longer than 90 days, unless an incident requires longer retention.',
+          'Cookie consent choices on your device: 6 months, after which consent is requested again.',
+        ],
+      },
+      {
+        title: '5. Service providers and transfers',
+        body: [
+          'LaventeCare uses carefully selected providers for hosting, security, email delivery, analytics and business administration. These may include Vercel for website hosting and performance services, the LaventeCare backend hosted on Render, and configured Microsoft or Google email services.',
+          'Providers only receive data needed for their task and are bound by contractual and security requirements. Where data is processed outside the European Economic Area, LaventeCare relies on an applicable adequacy decision or contractual safeguards such as the EU Standard Contractual Clauses. Personal data is not sold.',
+        ],
+      },
+      {
+        title: '6. Cookies and measurement',
+        list: [
+          'Necessary storage: consent preferences and, for authorised users, secure authentication and CSRF protection.',
+          'Vercel Analytics: only after analytics consent.',
+          'Google Tag Manager or other marketing tools: only after marketing consent and only when configured.',
+          'Vercel Speed Insights: privacy-focused technical performance measurement without advertising profiles.',
+        ],
+        body: [
+          'You can reject optional categories without losing access to the website. Use “Cookie preferences” in the footer to change or withdraw your choice.',
+        ],
+      },
+      {
+        title: '7. Your privacy rights',
+        body: [
+          'You may request access, correction, deletion, restriction or transfer of your personal data, and you may object to processing based on legitimate interest. You may withdraw consent at any time without affecting earlier lawful processing.',
+          'Send your request to jeffrey@laventecare.nl. I may ask for information needed to verify your identity. You also have the right to lodge a complaint with the Dutch Data Protection Authority.',
+        ],
+      },
+      {
+        title: '8. Security and automated decisions',
+        body: [
+          'LaventeCare applies data minimisation, encrypted transport, access controls, logging and security updates appropriate to the service. No internet service can guarantee absolute security.',
+          'The website does not make decisions with legal or similarly significant effects solely by automated means.',
+        ],
+      },
+    ]
+  : [
+      {
+        title: '1. Wie is verantwoordelijk?',
+        body: [
+          'LaventeCare, de eenmanszaak van Jeffrey Lavente, is verwerkingsverantwoordelijke voor persoonsgegevens die via deze website en het zakelijke contact worden verwerkt.',
+          'Contact: Jeffrey Lavente, Spiegelstraat 6, 8251 ZB Dronten · jeffrey@laventecare.nl · KVK 88162710.',
+        ],
+      },
+      {
+        title: '2. Welke gegevens verwerk ik?',
+        list: [
+          'Contact- en intakegegevens: naam, e-mailadres, optioneel telefoonnummer, bedrijf, projectvraag, budget, planning en bericht.',
+          'Aanvraagcontext: de pagina en het pakket van waaruit u contact opneemt.',
+          'Technische en beveiligingsgegevens: IP-adres, browserinformatie, tijdstippen en beveiligingsgebeurtenissen wanneer dat nodig is om de dienst veilig te houden.',
+          'Accountgegevens en noodzakelijke sessiecookies wanneer een bevoegde gebruiker inlogt.',
+          'Toestemmingskeuzes en, uitsluitend na toestemming, analytics- of marketinggegevens.',
+        ],
+      },
+      {
+        title: '3. Waarom en op welke grondslag?',
+        list: [
+          'Een aanvraag beantwoorden en een offerte voorbereiden: stappen vóór het sluiten van een overeenkomst.',
+          'Een opdracht uitvoeren, ondersteuning leveren en de klantrelatie beheren: uitvoering van de overeenkomst.',
+          'De website beveiligen, diagnosticeren en verbeteren: het gerechtvaardigde belang van LaventeCare bij een betrouwbare dienst.',
+          'Facturen en wettelijk verplichte administratie bewaren: voldoen aan een wettelijke verplichting.',
+          'Optionele analytics- of marketingtools laden: uw toestemming, die u altijd kunt intrekken.',
+        ],
+      },
+      {
+        title: '4. Hoe lang worden gegevens bewaard?',
+        list: [
+          'Een aanvraag die geen opdracht wordt: maximaal 12 maanden na het laatste inhoudelijke contact.',
+          'Offerte-, project- en klantcorrespondentie: tijdens de relatie en daarna alleen zolang dit nodig is voor aanspraken of administratie.',
+          'Facturen en verplichte financiële administratie: 7 jaar.',
+          'Reguliere beveiligingslogs: normaal maximaal 90 dagen, tenzij een incident langer bewaren noodzakelijk maakt.',
+          'Cookievoorkeuren op uw apparaat: 6 maanden; daarna vragen we opnieuw om uw keuze.',
+        ],
+      },
+      {
+        title: '5. Dienstverleners en doorgifte',
+        body: [
+          'LaventeCare gebruikt zorgvuldig gekozen leveranciers voor hosting, beveiliging, e-mailbezorging, analytics en bedrijfsadministratie. Dit kunnen onder meer Vercel voor websitehosting en prestatiemeting, de LaventeCare-backend op Render en geconfigureerde e-maildiensten van Microsoft of Google zijn.',
+          'Leveranciers ontvangen alleen gegevens die zij voor hun taak nodig hebben en zijn gebonden aan contractuele en beveiligingsafspraken. Bij verwerking buiten de Europese Economische Ruimte gebruikt LaventeCare een toepasselijk adequaatheidsbesluit of contractuele waarborgen, zoals de EU-modelcontractbepalingen. Persoonsgegevens worden niet verkocht.',
+        ],
+      },
+      {
+        title: '6. Cookies en meting',
+        list: [
+          'Noodzakelijke opslag: toestemmingsvoorkeuren en, voor bevoegde gebruikers, beveiligde authenticatie en CSRF-bescherming.',
+          'Vercel Analytics: uitsluitend na toestemming voor analytics.',
+          'Google Tag Manager of andere marketingtools: uitsluitend na marketingtoestemming en alleen wanneer geconfigureerd.',
+          'Vercel Speed Insights: privacygerichte technische prestatiemeting zonder advertentieprofielen.',
+        ],
+        body: [
+          'U kunt optionele categorieën weigeren zonder toegang tot de website te verliezen. Via “Cookievoorkeuren” in de footer kunt u uw keuze aanpassen of intrekken.',
+        ],
+      },
+      {
+        title: '7. Uw privacyrechten',
+        body: [
+          'U kunt vragen om inzage, correctie, verwijdering, beperking of overdracht van uw persoonsgegevens. U kunt bezwaar maken tegen verwerking op basis van gerechtvaardigd belang en toestemming altijd intrekken zonder dat dit eerdere rechtmatige verwerking aantast.',
+          'Stuur uw verzoek naar jeffrey@laventecare.nl. Ik kan informatie vragen die nodig is om uw identiteit vast te stellen. U heeft daarnaast het recht een klacht in te dienen bij de Autoriteit Persoonsgegevens.',
+        ],
+      },
+      {
+        title: '8. Beveiliging en automatische besluiten',
+        body: [
+          'LaventeCare past dataminimalisatie, versleuteld transport, toegangscontrole, logging en passende beveiligingsupdates toe. Geen enkele internetdienst kan absolute veiligheid garanderen.',
+          'De website neemt geen uitsluitend geautomatiseerde besluiten met juridische of vergelijkbaar ingrijpende gevolgen.',
+        ],
+      },
+    ];
+---
+
+<Layout
+  title={isEnglish ? 'Privacy Statement | LaventeCare' : 'Privacyverklaring | LaventeCare'}
+  description={isEnglish
+    ? 'How LaventeCare processes contact, website, security and consent data.'
+    : 'Hoe LaventeCare omgaat met contactgegevens, websitegebruik, beveiliging en toestemming.'}
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-4xl">
+        <span
+          class="mb-4 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.2em] text-active"
+        >
+          <Icon name="shield-check" size={16} />
+          {isEnglish ? 'Privacy & data' : 'Privacy & gegevens'}
+        </span>
+        <h1 class="mb-5 font-display text-4xl font-black tracking-tight text-white md:text-6xl">
+          {isEnglish ? 'Privacy Statement' : 'Privacyverklaring'}
+        </h1>
+        <p class="max-w-3xl font-ui text-lg leading-relaxed text-white/70">
+          {
+            isEnglish
+              ? 'Clear information about which data LaventeCare processes, why it is needed and which choices and rights you have.'
+              : 'Heldere informatie over welke gegevens LaventeCare verwerkt, waarom dat nodig is en welke keuzes en rechten u heeft.'
+          }
+        </p>
+        <p class="mt-4 font-ui text-sm text-white/55">
+          {isEnglish ? 'Last updated:' : 'Laatst bijgewerkt:'}
+          {updated}
+        </p>
+
+        <div class="mt-12 space-y-6">
+          {
+            sections.map((section) => (
+              <article class="clinical-glass rounded-2xl border border-white/10 p-6 md:p-8">
+                <h2 class="mb-4 font-display text-xl font-bold text-white">{section.title}</h2>
+                {section.body?.map((paragraph) => (
+                  <p class="mt-3 font-ui text-sm leading-relaxed text-white/70">{paragraph}</p>
+                ))}
+                {section.list && (
+                  <ul class="mt-3 space-y-3 font-ui text-sm leading-relaxed text-white/70">
+                    {section.list.map((item) => (
+                      <li class="flex items-start gap-3">
+                        <Icon name="check" size={15} class="mt-1 shrink-0 text-active" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="mt-8 rounded-2xl border border-active/20 bg-active/5 p-6 text-center">
+          <p class="font-ui text-sm text-white/70">
+            {isEnglish ? 'Questions or a privacy request?' : 'Een vraag of privacyverzoek?'}
+          </p>
+          <a
+            href="mailto:jeffrey@laventecare.nl"
+            class="mt-3 inline-flex font-ui font-bold text-active hover:underline"
+          >
+            jeffrey@laventecare.nl
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

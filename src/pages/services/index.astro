@@ -59,16 +59,52 @@ const pillars = [
 ---
 
 <Layout
-  title="Services — Consultancy, AI, IoT, Platforms & Security | LaventeCare"
-  description="From independent IT advice to AI automation and built-in security — a long-term partner that turns the way you work into software that does the work for you. Six integrated services."
+  title="Services — Websites, AI, IoT, Platforms & Security | LaventeCare"
+  description="From professional website to working business system: websites, consultancy, AI automation, monitoring, custom platforms, winning customers and security."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <SectionHeader
+        level={1}
         label="Services"
-        heading='Six services, one <span class="text-active">partner that builds it</span>'
-        description="Not separate projects, but a long-term partner that turns the way you work into software that does the work for you. From independent advice to AI automation and data protection — from idea to working system."
+        heading='From online foundation to <span class="text-active">working system</span>'
+        description="Start with a professional website through a dedicated fast track. When your requirement reaches processes, data or automation, six specialist services connect to it."
       />
+
+      <a
+        href="/services/websites"
+        data-animate="fade-up"
+        class="group clinical-glass mx-auto mb-10 grid max-w-5xl grid-cols-1 items-center gap-6 rounded-(--radius-hero) border border-active/25 bg-active/5 p-6 transition-colors hover:border-active/45 md:grid-cols-[1fr_auto] md:p-8"
+      >
+        <div>
+          <span
+            class="mb-2 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.18em] text-active"
+          >
+            <Icon name="monitor" size={16} /> Fixed website packages
+          </span>
+          <h2 class="mb-2 font-display text-2xl font-black text-white">
+            Professional websites from €750
+          </h2>
+          <p class="max-w-2xl font-ui text-sm leading-relaxed text-white/60">
+            Fast, secure and without a heavy page builder. With a fixed price, clear scope and room
+            to grow later.
+          </p>
+        </div>
+        <span class="flex items-center gap-2 font-ui text-sm font-bold text-active">
+          View packages
+          <Icon
+            name="arrow-right"
+            size={17}
+            class="transition-transform group-hover:translate-x-1"
+          />
+        </span>
+      </a>
+
+      <div class="mx-auto mb-6 max-w-5xl">
+        <p class="font-display text-xs font-bold uppercase tracking-[0.18em] text-white/35">
+          Six specialist services
+        </p>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
         {
@@ -117,8 +153,8 @@ const pillars = [
             <Icon name="cog" size={24} class="text-active block mb-3 mx-auto" />
             <h3 class="text-sm font-bold text-white mb-2 font-display">Operational teams</h3>
             <p class="text-white/50 text-xs font-ui">
-              Teams with recurring processes that want to move from manual work to a digital
-              system that grows with them.
+              Teams with recurring processes that want to move from manual work to a digital system
+              that grows with them.
             </p>
           </div>
         </div>

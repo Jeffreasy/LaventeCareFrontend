@@ -40,7 +40,7 @@ function isActive(item: MenuItem): boolean {
       <Logo size="md" showText={true} />
 
       {/* Desktop Navigation */}
-      <div class="hidden md:flex items-center gap-1">
+      <div class="hidden lg:flex items-center gap-1">
         {
           menu.map((item) => {
             const href = item.link.cached_url === 'home' ? '/' : `/${item.link.cached_url}`;
@@ -52,7 +52,6 @@ function isActive(item: MenuItem): boolean {
                   <button
                     class={`nav-link flex items-center gap-1.5 cursor-pointer ${active ? 'is-active' : ''}`}
                     aria-label={`Open ${item.label} menu`}
-                    aria-expanded="false"
                     aria-haspopup="true"
                   >
                     <span>{item.label}</span>
@@ -116,7 +115,6 @@ function isActive(item: MenuItem): boolean {
               <button
                 class="nav-link flex items-center gap-1.5 cursor-pointer"
                 aria-label="Open admin menu"
-                aria-expanded="false"
                 aria-haspopup="true"
               >
                 <svg
@@ -175,7 +173,7 @@ function isActive(item: MenuItem): boolean {
       </div>
 
       {/* Desktop CTA + Auth */}
-      <div class="hidden md:flex items-center gap-3">
+      <div class="hidden lg:flex items-center gap-3">
         <a href="/contact" class="nav-cta-contact"> Contact </a>
         {
           Astro.locals.isLoggedIn ? (
@@ -192,29 +190,12 @@ function isActive(item: MenuItem): boolean {
                 <span>Logout</span>
               </button>
             </form>
-          ) : (
-            <a href="/login" class="nav-cta-auth">
-              <svg
-                class="w-4 h-4 text-active"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M11 16l4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                />
-              </svg>
-              <span>Login</span>
-            </a>
-          )
+          ) : null
         }
       </div>
 
       {/* Mobile Menu Button */}
-      <details id="mobile-menu" class="md:hidden group">
+      <details id="mobile-menu" class="lg:hidden group">
         <summary
           class="list-none p-2 text-white/70 hover:text-white cursor-pointer transition-colors"
           aria-label="Mobile menu toggle"
@@ -311,11 +292,7 @@ function isActive(item: MenuItem): boolean {
                       Logout
                     </button>
                   </form>
-                ) : (
-                  <a href="/login" class="mobile-cta mobile-cta--secondary">
-                    Login
-                  </a>
-                )
+                ) : null
               }
             </div>
           </div>
@@ -409,10 +386,15 @@ function isActive(item: MenuItem): boolean {
     min-width: 220px;
   }
 
-  .group:hover .nav-dropdown {
+  .group:hover .nav-dropdown,
+  .group:focus-within .nav-dropdown {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  .group:focus-within > .nav-link svg:last-child {
+    transform: rotate(180deg);
   }
 
   .nav-dropdown__panel {

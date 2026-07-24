@@ -16,6 +16,7 @@ interface Props {
   title?: string;
   description?: string;
   noindex?: boolean;
+  pathnameOverride?: string;
   seoOverride?: {
     title?: string;
     description?: string;
@@ -26,7 +27,7 @@ interface Props {
   };
 }
 
-const { title, description, noindex, seoOverride } = Astro.props;
+const { title, description, noindex, pathnameOverride, seoOverride } = Astro.props;
 
 // Locale-aware settings
 const locale = Astro.locals.locale;
@@ -35,7 +36,8 @@ const tr = getTranslations(locale);
 
 // Generate BreadcrumbList from URL path
 const siteUrl = tr.site.domain;
-const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const pagePath = pathnameOverride || Astro.url.pathname;
+const pathSegments = pagePath.split('/').filter(Boolean);
 
 const breadcrumbLabels: Record<string, string> = tr.breadcrumbs as Record<string, string>;
 
@@ -97,7 +99,8 @@ const breadcrumbSchema = {
       image={seoOverride?.image || settings.og_image?.[0]}
       noindex={noindex}
       locale={locale}
-      alternatePath={getAlternatePath(Astro.url.pathname, locale)}
+      alternatePath={getAlternatePath(pagePath, locale)}
+      canonicalPath={pagePath}
     />
 
     <!-- CSRF Token (only render if available) -->
@@ -106,7 +109,7 @@ const breadcrumbSchema = {
     <!-- Organization Schema moved to page-level (index.astro) to avoid duplication -->
 
     <!-- BreadcrumbList Schema (SEO Rich Results) -->
-    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
     <!-- Astro Client Router (View Transitions) -->
     <ClientRouter />
@@ -115,6 +118,7 @@ const breadcrumbSchema = {
     {
       settings.gtm_id && (
         <script
+          is:inline
           set:html={`(function(){function loadGTM(){try{var d=localStorage.getItem("consent_state");if(!d)return;var c=JSON.parse(d);if(c.marketing){(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f)})(window,document,"script","dataLayer","${settings.gtm_id}")}}catch(e){}}if(typeof requestIdleCallback==="function"){requestIdleCallback(loadGTM)}else{setTimeout(loadGTM,1)}})();`}
         />
       )
@@ -126,7 +130,7 @@ const breadcrumbSchema = {
       href="#main-content"
       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-active focus:text-background focus:rounded-lg focus:font-semibold focus:shadow-lg"
     >
-      Skip to content
+      {locale === 'en' ? 'Skip to content' : 'Ga naar de inhoud'}
     </a>
 
     <!-- Ambient Mesh Background Animation -->
@@ -135,20 +139,6 @@ const breadcrumbSchema = {
       <div class="ambient-mesh__orb ambient-mesh__orb--2"></div>
       <div class="ambient-mesh__orb ambient-mesh__orb--3"></div>
     </div>
-
-    <!-- GTM Body Noscript -->
-    {
-      settings.gtm_id && (
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${settings.gtm_id}`}
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
-          />
-        </noscript>
-      )
-    }
 
     <Navbar
       logo={settings.logo?.[0]}
@@ -164,6 +154,7 @@ const breadcrumbSchema = {
       columns={settings.footer_columns || []}
       socialLinks={settings.social_links || []}
       copyright={settings.copyright_text || '© 2026 LaventeCare'}
+      locale={locale}
     />
 
     <!-- Global UI Islands -->
@@ -171,7 +162,7 @@ const breadcrumbSchema = {
     <NotificationToast client:idle />
 
     <!-- GDPR Cookie Consent Banner -->
-    <CookieConsent client:idle />
+    <CookieConsent client:load locale={locale} />
 
     <!-- Vercel Analytics (Consent-Gated) -->
     <AnalyticsProvider client:idle />
@@ -182,6 +173,12 @@ const breadcrumbSchema = {
     <!-- Native Scroll Animations (Zero Dependencies, <1KB) -->
     <script is:inline>
       document.addEventListener('astro:page-load', () => {
+        document.querySelectorAll('[data-cookie-preferences]').forEach((button) => {
+          button.addEventListener('click', () => {
+            window.dispatchEvent(new CustomEvent('laventecare:open-cookie-preferences'));
+          });
+        });
+
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {

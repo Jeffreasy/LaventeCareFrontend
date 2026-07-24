@@ -3,16 +3,16 @@ import tseslint from 'typescript-eslint';
 import eslintPluginAstro from 'eslint-plugin-astro';
 
 export default [
-    js.configs.recommended,
-    ...tseslint.configs.recommended,
-    ...eslintPluginAstro.configs.recommended,
-    {
-        languageOptions: {
-            ecmaVersion: 'latest',
-            sourceType: 'module',
-        },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...eslintPluginAstro.configs.recommended,
+  {
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
     },
-    {
-        ignores: ['dist/', 'node_modules/', '.astro/'],
-    },
+  },
+  {
+    ignores: ['dist/', 'node_modules/', '.astro/'],
+  },
 ];

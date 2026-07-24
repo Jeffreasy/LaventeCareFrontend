@@ -1,333 +1,519 @@
-import { useState } from 'react';
+import { useState, type SyntheticEvent } from 'react';
 import { submitContactForm } from '@/lib/api/publicApi';
 
 interface FormData {
-    projectType: string;
-    goal: string;
-    companyName: string;
-    budget: string;
-    timeline: string;
-    name: string;
-    email: string;
-    phone: string;
+  projectType: string;
+  goal: string;
+  companyName: string;
+  budget: string;
+  timeline: string;
+  name: string;
+  email: string;
+  phone: string;
+}
+
+interface Props {
+  onSuccess?: (data: FormData) => void;
+  initialType?: string | null;
+  locale?: 'nl' | 'en';
 }
 
 const initialData: FormData = {
-    projectType: '',
-    goal: '',
-    companyName: '',
-    budget: '',
-    timeline: '',
-    name: '',
-    email: '',
-    phone: '',
+  projectType: '',
+  goal: '',
+  companyName: '',
+  budget: '',
+  timeline: '',
+  name: '',
+  email: '',
+  phone: '',
 };
 
-interface Props {
-    onSuccess?: (data: FormData) => void;
-    initialType?: string | null;
-}
+const COPY = {
+  nl: {
+    steps: ['Behoefte', 'Context', 'Gegevens'],
+    projectLegend: '1. Wat wilt u realiseren? *',
+    projects: [
+      'Professionele Website',
+      'IT Advies & Consultancy',
+      'AI & Automatisering',
+      'Maatwerk Platform / App',
+      'IoT & Monitoring',
+      'Klanten werven',
+      'Beveiliging & Toegang',
+      'Anders',
+    ],
+    goalLabel: '2. Wat is de belangrijkste uitkomst? *',
+    goalHelp: 'Wat is de grootste bottleneck op dit moment, of wat is het concrete doel?',
+    goalPlaceholder: 'Beschrijf uw uitdaging…',
+    company: 'Bedrijfsnaam *',
+    companyPlaceholder: 'Uw organisatie',
+    budget: 'Beschikbaar budget *',
+    websiteBudgetHelp:
+      'Vaste websitepakketten starten bij €750. Uitbreidingen worden vooraf apart geprijsd.',
+    selectedPackage: 'Geselecteerde route',
+    packageNames: {
+      'website-start': 'Website Start — €750 eenmalig · Care €29/maand',
+      'website-business': 'Website Business — €1.000 eenmalig · Care €49/maand',
+      'website-maatwerk': 'Website Maatwerk — vanaf €1.500 · Care vanaf €75/maand',
+      'website-custom': 'Website Maatwerk — vanaf €1.500 · Care vanaf €75/maand',
+      'website-care': 'Website Care — beheer vanaf €29/maand',
+    },
+    projectBudgetHelp:
+      'Maatwerktrajecten en optimalisaties starten doorgaans vanaf €3.000 om kwaliteit en zekerheid te waarborgen.',
+    budgetPlaceholder: 'Selecteer budgetindicatie',
+    budgets: ['< €1.000', '€1.000 – €2.500', '€2.500 – €5.000', '€5.000 – €10.000', '€10.000+'],
+    timeline: 'Gewenste tijdlijn *',
+    timelines: ['Zo snel mogelijk', 'Binnen 3 maanden', 'Oriënterend (lange termijn)'],
+    privacy: 'Laatste stap: ik gebruik deze gegevens om uw aanvraag te behandelen.',
+    privacyLink: 'Lees hoe LaventeCare met uw gegevens omgaat.',
+    name: 'Uw naam *',
+    namePlaceholder: 'Hoe mag ik u noemen?',
+    email: 'E-mailadres *',
+    phone: 'Telefoonnummer',
+    optional: 'Optioneel',
+    back: '← Terug',
+    next: 'Volgende stap',
+    send: 'Aanvraag versturen',
+    sending: 'Verzenden…',
+    error: 'Er is iets misgegaan. Probeer het later opnieuw.',
+    successTitle: 'Aanvraag ontvangen',
+    successBody: 'Bedankt voor de details. Ik neem binnen 24 uur op werkdagen contact met u op.',
+    progress: (step: number) => `Stap ${step} van 3`,
+  },
+  en: {
+    steps: ['Needs', 'Context', 'Details'],
+    projectLegend: '1. What would you like to achieve? *',
+    projects: [
+      'Professional Website',
+      'IT Advice & Consulting',
+      'AI & Automation',
+      'Custom Platform / App',
+      'IoT & Monitoring',
+      'Win customers',
+      'Security & Access',
+      'Other',
+    ],
+    goalLabel: '2. What is the most important outcome? *',
+    goalHelp: 'What is your main bottleneck right now, or what concrete goal do you have?',
+    goalPlaceholder: 'Describe your challenge…',
+    company: 'Company name *',
+    companyPlaceholder: 'Your organisation',
+    budget: 'Available budget *',
+    websiteBudgetHelp:
+      'Fixed website packages start at €750. Extensions are priced separately before work starts.',
+    selectedPackage: 'Selected route',
+    packageNames: {
+      'website-start': 'Website Start — €750 one-off · Care €29/month',
+      'website-business': 'Website Business — €1,000 one-off · Care €49/month',
+      'website-maatwerk': 'Custom Website — from €1,500 · Care from €75/month',
+      'website-custom': 'Custom Website — from €1,500 · Care from €75/month',
+      'website-care': 'Website Care — management from €29/month',
+    },
+    projectBudgetHelp:
+      'Custom development and optimisation projects generally start at €3,000 to ensure delivery quality.',
+    budgetPlaceholder: 'Select a budget range',
+    budgets: ['< €1,000', '€1,000 – €2,500', '€2,500 – €5,000', '€5,000 – €10,000', '€10,000+'],
+    timeline: 'Preferred timeline *',
+    timelines: ['As soon as possible', 'Within 3 months', 'Exploratory (long term)'],
+    privacy: 'Final step: I use these details to handle your request.',
+    privacyLink: 'Read how LaventeCare handles your data.',
+    name: 'Your name *',
+    namePlaceholder: 'How may I address you?',
+    email: 'Email address *',
+    phone: 'Phone number',
+    optional: 'Optional',
+    back: '← Back',
+    next: 'Next step',
+    send: 'Send request',
+    sending: 'Sending…',
+    error: 'Something went wrong. Please try again later.',
+    successTitle: 'Request received',
+    successBody: 'Thank you for the details. I will contact you within one business day.',
+    progress: (step: number) => `Step ${step} of 3`,
+  },
+} as const;
 
-const PROJECT_TYPES = [
-    'IT Advies & Consultancy',
-    'AI & Automatisering',
-    'Maatwerk Platform / App',
-    'IoT & Monitoring',
-    'Anders'
-];
+export function ContactForm({ onSuccess, initialType, locale = 'nl' }: Props) {
+  const copy = COPY[locale];
+  const requestedType = initialType?.toLowerCase() || '';
+  const packageInterest = copy.packageNames[requestedType as keyof typeof copy.packageNames] || '';
+  const defaultType = requestedType.startsWith('website')
+    ? copy.projects[0]
+    : requestedType === 'advies'
+      ? copy.projects[1]
+      : ['ai', 'automation', 'automatisering'].some((term) => requestedType.includes(term))
+        ? copy.projects[2]
+        : ['discovery', 'project', 'platform', 'event', 'evenement'].some((term) =>
+              requestedType.includes(term)
+            )
+          ? copy.projects[3]
+          : requestedType.includes('iot')
+            ? copy.projects[4]
+            : ['leadgen', 'klanten', 'customers'].some((term) => requestedType.includes(term))
+              ? copy.projects[5]
+              : requestedType.includes('security')
+                ? copy.projects[6]
+                : initialType
+                  ? copy.projects.find((type) =>
+                      type.toLowerCase().includes(initialType.toLowerCase())
+                    ) || ''
+                  : '';
 
-const BUDGET_OPTIONS = [
-    '< €3.000 (Oriënterend / Low-code)',
-    '€3.000 – €5.000',
-    '€5.000 – €10.000',
-    '€10.000+'
-];
+  const [step, setStep] = useState(1);
+  const [data, setData] = useState<FormData>({ ...initialData, projectType: defaultType });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-export function ContactForm({ onSuccess, initialType }: Props) {
-    const [step, setStep] = useState(1);
-    
-    // Map URL param to full project type name
-    let defaultType = '';
-    if (initialType === 'advies') defaultType = 'IT Advies & Consultancy';
-    else if (initialType === 'discovery') defaultType = 'Maatwerk Platform / App';
-    else if (initialType) {
-        const match = PROJECT_TYPES.find(t => t.toLowerCase().includes(initialType.toLowerCase()));
-        if (match) defaultType = match;
+  const updateData = (fields: Partial<FormData>) =>
+    setData((previous) => ({ ...previous, ...fields }));
+
+  const canContinue =
+    step === 1
+      ? Boolean(data.projectType && data.goal.trim())
+      : step === 2
+        ? Boolean(data.companyName.trim() && data.budget && data.timeline)
+        : Boolean(data.name.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email));
+
+  async function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (step < 3) {
+      if (canContinue) setStep((current) => current + 1);
+      return;
     }
+    if (!canContinue || isSubmitting) return;
 
-    const [data, setData] = useState<FormData>({ ...initialData, projectType: defaultType });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    try {
+      const selectedPackage =
+        packageInterest && data.projectType === copy.projects[0] ? packageInterest : '';
+      const subject = `Intake: ${selectedPackage || data.projectType} - ${data.companyName}`;
+      const packageLabel = locale === 'en' ? 'Selected package' : 'Pakketvoorkeur';
+      const message = `[${subject}]
 
-    // Validation per step
-    const canGoToNext = () => {
-        if (step === 1) return data.projectType !== '' && data.goal.trim() !== '';
-        if (step === 2) return data.companyName.trim() !== '' && data.budget !== '' && data.timeline !== '';
-        if (step === 3) {
-            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
-            return data.name.trim() !== '' && emailValid;
-        }
-        return false;
-    };
-
-    const nextStep = () => {
-        if (canGoToNext()) setStep((s) => s + 1);
-    };
-
-    const prevStep = () => {
-        setStep((s) => s - 1);
-    };
-
-    const updateData = (fields: Partial<FormData>) => {
-        setData((prev) => ({ ...prev, ...fields }));
-    };
-
-    const handleSubmit = async () => {
-        if (!canGoToNext()) return;
-        
-        setIsSubmitting(true);
-        setSubmitStatus('idle');
-
-        try {
-            const formattedSubject = `Intake: ${data.projectType} - ${data.companyName}`;
-            const formattedMessage = `
---- Intake Details ---
-Projecttype: ${data.projectType}
-Bedrijf: ${data.companyName}
+Project: ${data.projectType}
+${selectedPackage ? `${packageLabel}: ${selectedPackage}\n` : ''}Company: ${data.companyName}
 Budget: ${data.budget}
-Tijdlijn: ${data.timeline}
+Timeline: ${data.timeline}
 
---- Doelstelling ---
-${data.goal}
-            `.trim();
+Goal:
+${data.goal}`;
 
-            await submitContactForm({
-                name: data.name,
-                email: data.email,
-                message: `[${formattedSubject}]\n\n${formattedMessage}`,
-                dienst: data.projectType,
-                bedrijf: data.companyName,
-                telefoon: data.phone || undefined,
-                budget: data.budget,
-                timing: data.timeline,
-                goal: data.goal,
-                source: 'laventecare.nl',
-                pageUrl: typeof window !== 'undefined' ? window.location.href : undefined,
-            });
-
-            setSubmitStatus('success');
-            if (onSuccess) onSuccess(data);
-            
-            // Do not naturally reset data to keep the success message clean, 
-            // but we could if we wanted to allow multiple submits.
-        } catch (error) {
-            console.error('Form submission error:', error);
-            setSubmitStatus('error');
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-
-    if (submitStatus === 'success') {
-        return (
-            <div className="w-full text-center py-10 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4">
-                <div className="w-16 h-16 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-success/30">
-                    <svg className="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2 font-display">Aanvraag Ontvangen</h3>
-                <p className="text-white/70 font-ui max-w-sm mx-auto">
-                    Bedankt voor de details. Ik heb een helder beeld van uw situatie en neem binnen 24 uur (op werkdagen) contact met u op.
-                </p>
-            </div>
-        );
+      await submitContactForm({
+        name: data.name,
+        email: data.email,
+        message,
+        dienst: data.projectType,
+        bedrijf: data.companyName,
+        telefoon: data.phone || undefined,
+        budget: data.budget,
+        timing: data.timeline,
+        goal: data.goal,
+        source: locale === 'en' ? 'laventecare.com' : 'laventecare.nl',
+        pageUrl: window.location.href,
+      });
+      setSubmitStatus('success');
+      onSuccess?.(data);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
     }
+  }
 
+  if (submitStatus === 'success') {
     return (
-        <div className="w-full max-w-2xl mx-auto">
-            {/* Progress Bar */}
-            <div className="mb-8">
-                <div className="flex justify-between text-xs font-bold text-white/50 mb-2 font-display uppercase tracking-wider">
-                    <span className={step >= 1 ? 'text-active' : ''}>Behoefte</span>
-                    <span className={step >= 2 ? 'text-active' : ''}>Context</span>
-                    <span className={step >= 3 ? 'text-active' : ''}>Gegevens</span>
-                </div>
-                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden flex">
-                    <div className="h-full bg-active transition-all duration-300" style={{ width: `${(step / 3) * 100}%` }}></div>
-                </div>
-            </div>
-
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
-                
-                {/* STEP 1 */}
-                {step === 1 && (
-                    <div className="space-y-6">
-                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '0ms' }}>
-                            <label className="block text-sm font-bold text-white mb-3 font-display">1. Wat wilt u realiseren? *</label>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                {PROJECT_TYPES.map(type => (
-                                    <button
-                                        key={type}
-                                        type="button"
-                                        aria-pressed={data.projectType === type}
-                                        onClick={() => updateData({ projectType: type })}
-                                        className={`px-4 py-3 rounded-xl border text-left text-sm transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-active focus:border-active ${data.projectType === type ? 'bg-active/10 border-active text-white' : 'bg-white/5 border-white/10 text-white/70 hover:bg-white/10'}`}
-                                    >
-                                        {type}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '100ms' }}>
-                            <label className="block text-sm font-bold text-white mb-2 font-display">2. Wat is de belangrijkste uitkomst? *</label>
-                            <p className="text-xs text-white/50 mb-3 font-ui">Wat is de grootste bottleneck op dit moment, of wat is het concrete doel?</p>
-                            <textarea
-                                value={data.goal}
-                                onChange={(e) => updateData({ goal: e.target.value })}
-                                rows={4}
-                                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-active focus:border-active/50 transition-all duration-200 resize-none font-ui"
-                                placeholder="Beschrijf uw uitdaging..."
-                            />
-                        </div>
-                    </div>
-                )}
-
-                {/* STEP 2 */}
-                {step === 2 && (
-                    <div className="space-y-6">
-                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '0ms' }}>
-                            <label className="block text-sm font-bold text-white mb-2 font-display">Bedrijfsnaam *</label>
-                            <input
-                                type="text"
-                                value={data.companyName}
-                                onChange={(e) => updateData({ companyName: e.target.value })}
-                                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-active transition-all duration-200 font-ui"
-                                placeholder="Uw organisatie"
-                            />
-                        </div>
-
-                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '100ms' }}>
-                            <label className="block text-sm font-bold text-white mb-2 font-display">Beschikbaar budget *</label>
-                            <p className="text-xs text-active/80 mb-3 font-ui font-medium">Maatwerktrajecten en optimalisaties starten doorgaans vanaf €3.000 om ROI en zekerheid te waarborgen.</p>
-                            <select
-                                value={data.budget}
-                                onChange={(e) => updateData({ budget: e.target.value })}
-                                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-active transition-all duration-200 font-ui appearance-none"
-                            >
-                                <option value="" disabled className="text-gray-900">Selecteer budget indicatie</option>
-                                {BUDGET_OPTIONS.map(opt => (
-                                    <option key={opt} value={opt} className="text-gray-900">{opt}</option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '200ms' }}>
-                            <label className="block text-sm font-bold text-white mb-2 font-display">Gewenste tijdlijn *</label>
-                            <div className="flex flex-wrap gap-3">
-                                {['Zo snel mogelijk', 'Binnen 3 maanden', 'Oriënterend (lange termijn)'].map(timing => (
-                                    <button
-                                        key={timing}
-                                        type="button"
-                                        aria-pressed={data.timeline === timing}
-                                        onClick={() => updateData({ timeline: timing })}
-                                        className={`px-4 py-2 rounded-xl border text-sm transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-active focus:border-active ${data.timeline === timing ? 'bg-active/10 border-active text-white' : 'bg-white/5 border-white/10 text-white/70 hover:bg-white/10'}`}
-                                    >
-                                        {timing}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                )}
-
-                {/* STEP 3 */}
-                {step === 3 && (
-                    <div className="space-y-6">
-                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '0ms' }}>
-                            <div className="bg-active/10 border border-active/20 rounded-xl p-4 mb-6">
-                                <p className="text-sm text-white/80 font-ui">Laatste stap: Ik gebruik deze gegevens alleen om contact met u op te nemen voor de intake.</p>
-                            </div>
-                        </div>
-                        
-                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '100ms' }}>
-                            <label className="block text-sm font-bold text-white mb-2 font-display">Uw naam *</label>
-                            <input
-                                type="text"
-                                value={data.name}
-                                onChange={(e) => updateData({ name: e.target.value })}
-                                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-active transition-all duration-200 font-ui"
-                                placeholder="Hoe mag ik u noemen?"
-                            />
-                        </div>
-
-                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '200ms' }}>
-                            <label className="block text-sm font-bold text-white mb-2 font-display">E-mailadres *</label>
-                            <input
-                                type="email"
-                                value={data.email}
-                                onChange={(e) => updateData({ email: e.target.value })}
-                                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-active transition-all duration-200 font-ui"
-                                placeholder="je@email.com"
-                            />
-                        </div>
-
-                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationFillMode: 'both', animationDelay: '300ms' }}>
-                            <label className="block text-sm font-bold text-white mb-2 font-display">Telefoonnummer</label>
-                            <input
-                                type="tel"
-                                value={data.phone}
-                                onChange={(e) => updateData({ phone: e.target.value })}
-                                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-active transition-all duration-200 font-ui"
-                                placeholder="Optioneel"
-                            />
-                        </div>
-
-                        {submitStatus === 'error' && (
-                            <div className="p-4 rounded-xl bg-error/20 border border-error/30 text-white flex items-center gap-2">
-                                <svg className="w-5 h-5 text-error shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-                                Er is iets misgegaan met de server. Probeer het later opnieuw.
-                            </div>
-                        )}
-                    </div>
-                )}
-
-                {/* Navigation Buttons */}
-                <div className="pt-6 flex items-center justify-between border-t border-white/10 mt-8">
-                    {step > 1 ? (
-                        <button
-                            type="button"
-                            onClick={prevStep}
-                            disabled={isSubmitting}
-                            className="text-white/60 hover:text-white font-ui text-sm transition-colors py-2 px-4"
-                        >
-                            ← Terug
-                        </button>
-                    ) : (
-                        <div></div>
-                    )}
-
-                    {step < 3 ? (
-                        <button
-                            type="button"
-                            onClick={nextStep}
-                            disabled={!canGoToNext()}
-                            className="btn-primary py-2.5 px-8 disabled:opacity-50 disabled:cursor-not-allowed"
-                        >
-                            Volgende stap
-                        </button>
-                    ) : (
-                        <button
-                            type="button"
-                            onClick={handleSubmit}
-                            disabled={!canGoToNext() || isSubmitting}
-                            className="bg-active hover:bg-primary-hover text-white font-bold py-2.5 px-8 rounded-full transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed font-ui"
-                        >
-                            {isSubmitting ? 'Verzenden...' : 'Aanvraag Versturen'}
-                            {!isSubmitting && <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>}
-                        </button>
-                    )}
-                </div>
-            </form>
+      <div className="w-full py-10 text-center" role="status" aria-live="polite">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-success/30 bg-success/20">
+          <svg
+            className="h-8 w-8 text-success"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
         </div>
+        <h3 className="mb-2 font-display text-2xl font-bold text-white">{copy.successTitle}</h3>
+        <p className="mx-auto max-w-sm font-ui text-white/70">{copy.successBody}</p>
+      </div>
     );
+  }
+
+  const inputClass =
+    'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 font-ui text-white transition focus:border-active focus:outline-none focus:ring-2 focus:ring-active';
+  const choiceClass = (selected: boolean) =>
+    `cursor-pointer rounded-xl border px-4 py-3 text-left text-sm transition focus:outline-none focus:ring-2 focus:ring-active ${
+      selected
+        ? 'border-active bg-active/10 text-white'
+        : 'border-white/10 bg-white/5 text-white/70 hover:bg-white/10'
+    }`;
+
+  return (
+    <div className="mx-auto w-full max-w-2xl">
+      <div className="mb-8" aria-label={copy.progress(step)}>
+        <div className="mb-2 flex justify-between font-display text-xs font-bold uppercase tracking-wider text-white/50">
+          {copy.steps.map((label, index) => (
+            <span key={label} className={step >= index + 1 ? 'text-active' : ''}>
+              {label}
+            </span>
+          ))}
+        </div>
+        <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/5">
+          <div
+            className="h-full bg-active transition-all"
+            style={{ width: `${(step / 3) * 100}%` }}
+            role="progressbar"
+            aria-valuemin={1}
+            aria-valuemax={3}
+            aria-valuenow={step}
+            aria-valuetext={copy.progress(step)}
+          />
+        </div>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+        {step === 1 && (
+          <div className="space-y-6">
+            {packageInterest && data.projectType === copy.projects[0] && (
+              <div className="rounded-xl border border-active/25 bg-active/10 p-4">
+                <p className="font-display text-xs font-bold uppercase tracking-wider text-active">
+                  {copy.selectedPackage}
+                </p>
+                <p className="mt-1 font-ui text-sm font-semibold text-white">{packageInterest}</p>
+              </div>
+            )}
+            <fieldset>
+              <legend className="mb-3 block font-display text-sm font-bold text-white">
+                {copy.projectLegend}
+              </legend>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {copy.projects.map((type) => (
+                  <button
+                    key={type}
+                    type="button"
+                    aria-pressed={data.projectType === type}
+                    onClick={() => updateData({ projectType: type })}
+                    className={choiceClass(data.projectType === type)}
+                  >
+                    {type}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+            <div>
+              <label
+                htmlFor="contact-goal"
+                className="mb-2 block font-display text-sm font-bold text-white"
+              >
+                {copy.goalLabel}
+              </label>
+              <p id="contact-goal-help" className="mb-3 font-ui text-xs text-white/50">
+                {copy.goalHelp}
+              </p>
+              <textarea
+                id="contact-goal"
+                name="goal"
+                value={data.goal}
+                onChange={(event) => updateData({ goal: event.target.value })}
+                rows={4}
+                maxLength={3000}
+                required
+                aria-describedby="contact-goal-help"
+                className={`${inputClass} resize-none`}
+                placeholder={copy.goalPlaceholder}
+              />
+            </div>
+          </div>
+        )}
+
+        {step === 2 && (
+          <div className="space-y-6">
+            <div>
+              <label
+                htmlFor="contact-company"
+                className="mb-2 block font-display text-sm font-bold text-white"
+              >
+                {copy.company}
+              </label>
+              <input
+                id="contact-company"
+                name="company"
+                type="text"
+                autoComplete="organization"
+                maxLength={200}
+                required
+                value={data.companyName}
+                onChange={(event) => updateData({ companyName: event.target.value })}
+                className={inputClass}
+                placeholder={copy.companyPlaceholder}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="contact-budget"
+                className="mb-2 block font-display text-sm font-bold text-white"
+              >
+                {copy.budget}
+              </label>
+              <p
+                id="contact-budget-help"
+                className="mb-3 font-ui text-xs font-medium text-active/80"
+              >
+                {data.projectType === copy.projects[0]
+                  ? copy.websiteBudgetHelp
+                  : copy.projectBudgetHelp}
+              </p>
+              <select
+                id="contact-budget"
+                name="budget"
+                required
+                value={data.budget}
+                onChange={(event) => updateData({ budget: event.target.value })}
+                aria-describedby="contact-budget-help"
+                className={`${inputClass} appearance-none`}
+              >
+                <option value="" disabled className="text-gray-900">
+                  {copy.budgetPlaceholder}
+                </option>
+                {copy.budgets.map((option) => (
+                  <option key={option} value={option} className="text-gray-900">
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <fieldset>
+              <legend className="mb-3 block font-display text-sm font-bold text-white">
+                {copy.timeline}
+              </legend>
+              <div className="flex flex-wrap gap-3">
+                {copy.timelines.map((timing) => (
+                  <button
+                    key={timing}
+                    type="button"
+                    aria-pressed={data.timeline === timing}
+                    onClick={() => updateData({ timeline: timing })}
+                    className={choiceClass(data.timeline === timing)}
+                  >
+                    {timing}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+          </div>
+        )}
+
+        {step === 3 && (
+          <div className="space-y-6">
+            <div className="rounded-xl border border-active/20 bg-active/10 p-4 font-ui text-sm text-white/80">
+              <p>{copy.privacy}</p>
+              <a
+                href="/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex font-semibold text-active underline underline-offset-4"
+              >
+                {copy.privacyLink}
+              </a>
+            </div>
+            <div>
+              <label
+                htmlFor="contact-name"
+                className="mb-2 block font-display text-sm font-bold text-white"
+              >
+                {copy.name}
+              </label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                autoComplete="name"
+                maxLength={200}
+                required
+                value={data.name}
+                onChange={(event) => updateData({ name: event.target.value })}
+                className={inputClass}
+                placeholder={copy.namePlaceholder}
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="contact-email"
+                className="mb-2 block font-display text-sm font-bold text-white"
+              >
+                {copy.email}
+              </label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                inputMode="email"
+                autoComplete="email"
+                maxLength={320}
+                required
+                value={data.email}
+                onChange={(event) => updateData({ email: event.target.value })}
+                className={inputClass}
+                placeholder="you@example.com"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="contact-phone"
+                className="mb-2 block font-display text-sm font-bold text-white"
+              >
+                {copy.phone}
+              </label>
+              <input
+                id="contact-phone"
+                name="phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                maxLength={50}
+                value={data.phone}
+                onChange={(event) => updateData({ phone: event.target.value })}
+                className={inputClass}
+                placeholder={copy.optional}
+              />
+            </div>
+            {submitStatus === 'error' && (
+              <p
+                className="rounded-xl border border-error/30 bg-error/20 p-4 text-white"
+                role="alert"
+              >
+                {copy.error}
+              </p>
+            )}
+          </div>
+        )}
+
+        <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
+          {step > 1 ? (
+            <button
+              type="button"
+              onClick={() => setStep((current) => current - 1)}
+              disabled={isSubmitting}
+              className="px-4 py-2 font-ui text-sm text-white/60 transition hover:text-white"
+            >
+              {copy.back}
+            </button>
+          ) : (
+            <span />
+          )}
+          <button
+            type="submit"
+            disabled={!canContinue || isSubmitting}
+            className="btn-primary px-8 py-2.5 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {step < 3 ? copy.next : isSubmitting ? copy.sending : copy.send}
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }

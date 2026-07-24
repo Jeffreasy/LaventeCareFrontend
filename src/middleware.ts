@@ -11,7 +11,7 @@
 import type { APIContext } from 'astro';
 import { defineMiddleware } from 'astro:middleware';
 import { jwtVerify, createRemoteJWKSet } from 'jose';
-import { localeFromHost } from './lib/i18n';
+import { getAlternatePath, localeFromHost } from './lib/i18n';
 import { applyCookiesToAstro } from './lib/cookie-utils';
 
 // Lazy-init JWKS client (cached by jose internally)
@@ -28,8 +28,11 @@ function getJWKS(): ReturnType<typeof createRemoteJWKSet> {
 /** Decode access_token and extract role claim. Returns null on any failure (fail secure). */
 async function decodeRole(accessToken: string): Promise<string | null> {
   try {
+    const issuer = import.meta.env.JWT_ISSUER || new URL(import.meta.env.PUBLIC_API_URL).origin;
+    const audience = import.meta.env.JWT_AUDIENCE;
     const { payload } = await jwtVerify(accessToken, getJWKS(), {
-      issuer: 'https://laventecareauthsystems.onrender.com',
+      issuer,
+      ...(audience ? { audience } : {}),
     });
     const p = payload as { role?: string };
     return p.role || null;
@@ -45,7 +48,10 @@ interface RefreshResult {
 }
 
 /** Silent Session Rehydration (Server-Side Refresh) using Astro's cookie manager */
-async function serverSideRefresh(context: APIContext, refreshToken: string): Promise<RefreshResult | null> {
+async function serverSideRefresh(
+  context: APIContext,
+  refreshToken: string
+): Promise<RefreshResult | null> {
   const apiUrl = import.meta.env.PUBLIC_API_URL;
   const tenantId = import.meta.env.PUBLIC_TENANT_ID;
 
@@ -61,7 +67,7 @@ async function serverSideRefresh(context: APIContext, refreshToken: string): Pro
       headers: {
         'Content-Type': 'application/json',
         'X-Tenant-ID': tenantId,
-        'Cookie': `refresh_token=${refreshToken}`,
+        Cookie: `refresh_token=${refreshToken}`,
       },
     });
 
@@ -79,7 +85,9 @@ async function serverSideRefresh(context: APIContext, refreshToken: string): Pro
     const newAccessToken = context.cookies.get('access_token')?.value;
     if (!newAccessToken) {
       if (import.meta.env.DEV) {
-        console.warn('[Middleware] Silent Refresh succeeded but no access_token found in response cookies');
+        console.warn(
+          '[Middleware] Silent Refresh succeeded but no access_token found in response cookies'
+        );
       }
       return null;
     }
@@ -94,7 +102,8 @@ async function serverSideRefresh(context: APIContext, refreshToken: string): Pro
 
 export const onRequest = defineMiddleware(async (context, next) => {
   // --- i18n: Locale resolution from Host header ---
-  const host = context.request.headers.get('host') || '';
+  const forwardedHost = context.request.headers.get('x-forwarded-host')?.split(',')[0]?.trim();
+  const host = forwardedHost || context.request.headers.get('host') || '';
   context.locals.locale = localeFromHost(host);
 
   const accessToken = context.cookies.get('access_token')?.value;
@@ -110,7 +119,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   }
 
   // Set initial auth state in locals for pages to use
-  context.locals.isLoggedIn = !!refreshToken;
+  context.locals.isLoggedIn = false;
   context.locals.accessToken = accessToken;
   context.locals.csrfToken = csrfToken;
 
@@ -129,7 +138,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // attempt to refresh the session on the server side.
   if ((!activeAccessToken || !role) && refreshToken) {
     if (import.meta.env.DEV) {
-      console.log(`[Middleware] Access token missing or invalid, but refresh token present. Attempting silent refresh...`);
+      console.log(
+        `[Middleware] Access token missing or invalid, but refresh token present. Attempting silent refresh...`
+      );
     }
     const refreshed = await serverSideRefresh(context, refreshToken);
     if (refreshed) {
@@ -137,6 +148,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
       role = refreshed.role;
       context.locals.isLoggedIn = true;
       context.locals.accessToken = activeAccessToken;
+      context.locals.csrfToken =
+        context.cookies.get('csrf_token')?.value || context.cookies.get('XSRF-TOKEN')?.value;
       if (import.meta.env.DEV) {
         console.log(`[Middleware] Silent refresh successful. New role: ${role}`);
       }
@@ -153,6 +166,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
     }
   }
 
+  context.locals.isLoggedIn = Boolean(activeAccessToken && role);
+
   // isAdmin: only true if JWT role is 'admin' (weight 4 in backend RBAC)
   context.locals.isAdmin = role === 'admin';
 
@@ -160,9 +175,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (context.url.pathname.startsWith('/admin')) {
     // Admin is only accessible on .nl domain (security policy: NL-only admin)
     const isNLAdmin =
-      host.includes('laventecare.nl') ||
-      host.includes('localhost') ||
-      host.includes('127.0.0.1');
+      host.includes('laventecare.nl') || host.includes('localhost') || host.includes('127.0.0.1');
     if (!isNLAdmin) {
       return new Response('Not Found', { status: 404 });
     }
@@ -179,44 +192,19 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // --- i18n: Cross-domain slug guards ---
   const locale = context.locals.locale;
 
-  // .com visitors on NL-only slugs → redirect to EN equivalent
-  if (locale === 'en') {
-    const nlToEn: Record<string, string> = {
-      '/over': '/about',
-      '/diensten': '/services',
-      '/diensten/ai-prompt-engineering': '/services/ai-prompt-engineering',
-      '/diensten/iot-hardware': '/services/iot-hardware',
-      '/diensten/maatwerk-platformen': '/services/custom-platforms',
-      '/diensten/lead-generation': '/services/lead-generation',
-      '/diensten/security': '/services/security',
-      '/werkwijze': '/how-we-work',
-      '/prijzen': '/pricing',
-      '/voorwaarden': '/terms',
-    };
-    const enPath = nlToEn[context.url.pathname];
-    if (enPath) {
-      return context.redirect(enPath, 301);
-    }
+  const sourceLocale = locale === 'en' ? 'nl' : 'en';
+  const localizedPath = getAlternatePath(context.url.pathname, sourceLocale);
+  if (localizedPath && localizedPath !== context.url.pathname) {
+    return context.redirect(localizedPath, 301);
   }
 
-  // .nl visitors on EN-only slugs → redirect to NL equivalent
-  if (locale === 'nl') {
-    const enToNl: Record<string, string> = {
-      '/about': '/over',
-      '/services': '/diensten',
-      '/services/ai-prompt-engineering': '/diensten/ai-prompt-engineering',
-      '/services/iot-hardware': '/diensten/iot-hardware',
-      '/services/custom-platforms': '/diensten/maatwerk-platformen',
-      '/services/lead-generation': '/diensten/lead-generation',
-      '/services/security': '/diensten/security',
-      '/how-we-work': '/werkwijze',
-      '/terms': '/voorwaarden',
-    };
-    const nlPath = enToNl[context.url.pathname];
-    if (nlPath) {
-      return context.redirect(nlPath, 301);
-    }
+  const response = await next();
+  if (
+    context.url.pathname.startsWith('/admin') ||
+    context.url.pathname.startsWith('/login') ||
+    context.url.pathname.startsWith('/api/')
+  ) {
+    response.headers.set('Cache-Control', 'no-store');
   }
-
-  return next();
+  return response;
 });

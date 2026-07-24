@@ -6,13 +6,15 @@ import FAQSection from '../components/blocks/FAQSection.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import StatCard from '../components/ui/StatCard.astro';
 import PillarCard from '../components/blocks/PillarCard.astro';
+import WebsiteOfferTeaser from '../components/blocks/WebsiteOfferTeaser.astro';
+import BrandSystemVisual from '../components/blocks/BrandSystemVisual.astro';
 import { AntiGravityShield } from '../components/islands/AntiGravityShield';
 
 const heroData = {
   headline: 'B2B systems partner for SMEs',
   subtitle: 'From idea to working system',
   description:
-    'For SMEs that want to get digital growth, automation and custom software <span class="text-active font-bold">done right</span>. Not a one-off website builder or freelancer, but a <span class="text-active font-bold">long-term partner</span> that turns the way you work into software that does the work for you.',
+    'For SMEs that want to get digital growth, automation and custom software <span class="text-active font-bold">done right</span>. From a professional website to a complete business system: one <span class="text-active font-bold">long-term partner</span> whose technology grows with your business.',
   ctaPrimary: {
     label: 'Book a free intro call',
     url: '/contact',
@@ -22,9 +24,9 @@ const heroData = {
     url: '/portfolio',
   },
   stats: [
-    { value: 'up to 99/100', label: 'Google Lighthouse' },
-    { value: '6+', label: 'Live projects' },
-    { value: '<1.5s', label: 'Average load time' },
+    { value: 'Per project', label: 'Performance measured' },
+    { value: '7', label: 'Live projects' },
+    { value: 'Astro-first', label: 'Lightweight foundation' },
   ],
   alignment: 'center' as const,
   size: 'large' as const,
@@ -35,10 +37,10 @@ const jsonLd = {
   '@type': 'ProfessionalService',
   name: 'LaventeCare',
   url: 'https://www.laventecare.com',
-  logo: 'https://www.laventecare.com/og-image.png',
-  image: 'https://www.laventecare.com/og-image.png',
+  logo: 'https://www.laventecare.com/og-laventecare-2026.png',
+  image: 'https://www.laventecare.com/og-laventecare-2026.png',
   description:
-    'LaventeCare builds systems that make businesses more efficient, prevent errors and accelerate growth: AI, IoT, custom platforms, lead generation and security-first systems.',
+    'LaventeCare builds professional websites and systems that make businesses more efficient: websites from €750, AI, IoT, custom platforms and built-in security.',
   founder: {
     '@type': 'Person',
     name: 'Jeffrey Lavente',
@@ -69,6 +71,7 @@ const jsonLd = {
     },
   ],
   knowsAbout: [
+    'Professional Astro websites',
     'IT Consultancy',
     'Security-first Systems',
     'AI & Automation',
@@ -140,7 +143,7 @@ const pillars = [
   {
     title: 'Security & Authentication',
     description:
-      "Your data is strictly separated per client and protected, even in the event of errors or attacks. Under the hood: PostgreSQL RLS, role-based access (RBAC) and full logging.",
+      'Your data is strictly separated per client and protected, even in the event of errors or attacks. Under the hood: PostgreSQL RLS, role-based access (RBAC) and full logging.',
     icon: 'shield-check',
     tags: ['Separated client data', 'Access per role', 'Everything logged'],
     href: '/services/security',
@@ -149,13 +152,15 @@ const pillars = [
 ] as const;
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
   title="LaventeCare — B2B systems partner for SMEs | Netherlands"
   description="B2B systems partner for SMEs that want to get digital growth, automation and custom software done right. From idea to working system."
 >
   <Hero {...heroData} />
+
+  <WebsiteOfferTeaser locale="en" />
 
   <!-- Core Services -->
   <section class="section-padding relative overflow-hidden">
@@ -167,7 +172,7 @@ const pillars = [
     <div class="container mx-auto px-4 relative">
       <SectionHeader
         label="Services"
-        heading='Six services, one <span class="text-active">working system</span>'
+        heading='Six specialist services, one <span class="text-active">working system</span>'
         description="Not separate projects, but an integrated system: each service strengthens the other. From advice and AI automation to custom platforms and security — together from idea to working system."
       />
 
@@ -176,6 +181,8 @@ const pillars = [
       </div>
     </div>
   </section>
+
+  <BrandSystemVisual locale="en" />
 
   <!-- USPs -->
   <section class="section-padding">
@@ -197,9 +204,12 @@ const pillars = [
           >
             <Icon name="link" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">One point of contact, full ownership</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">
+            One point of contact, full ownership
+          </h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            From intake to go-live — one fixed point of contact who knows your processes and system inside out. No rotating developers, no miscommunication, no knowledge loss.
+            From intake to go-live — one fixed point of contact who knows your processes and system
+            inside out. No rotating developers, no miscommunication, no knowledge loss.
           </p>
         </div>
 
@@ -213,9 +223,12 @@ const pillars = [
           >
             <Icon name="zap" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Security-first architecture</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">
+            Security-first architecture
+          </h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Your data is strictly separated per client and every action is logged. Under the hood: Privacy by Design with PostgreSQL RLS, role-based access (RBAC) and full logging.
+            Your data is strictly separated per client and every action is logged. Under the hood:
+            Privacy by Design with PostgreSQL RLS, role-based access (RBAC) and full logging.
           </p>
         </div>
 
@@ -229,9 +242,12 @@ const pillars = [
           >
             <Icon name="gauge" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Measurably faster, demonstrably better</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">
+            Measurably faster, demonstrably better
+          </h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Systems that score up to 99/100 on Google Lighthouse and load in under 1.5s on average. Speed and stability as a foundation, not an afterthought.
+            I measure speed and stability per project and optimise for real-world use. A lightweight
+            technical foundation is the starting point, not a blanket promise.
           </p>
         </div>
       </div>
@@ -246,9 +262,9 @@ const pillars = [
         class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto"
       >
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value="6+" label="Live projects" />
-          <StatCard value="up to 99/100" label="Google Lighthouse" />
-          <StatCard value="<1.5s" label="Average load time" />
+          <StatCard value="7" label="Live projects" />
+          <StatCard value="Per project" label="Performance measured" />
+          <StatCard value="Astro-first" label="Lightweight foundation" />
           <StatCard value="SLA" label="Managed maintenance available" />
         </div>
       </div>
@@ -258,10 +274,7 @@ const pillars = [
   <!-- Secure by Design: Live Security -->
   <section class="py-8 md:py-12">
     <div class="container mx-auto px-4">
-      <div
-        data-animate="fade-up"
-        class="max-w-3xl mx-auto"
-      >
+      <div data-animate="fade-up" class="max-w-3xl mx-auto">
         <div class="text-center mb-8">
           <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-2 block"
             >Secure by Design</span
@@ -270,7 +283,8 @@ const pillars = [
             Active System Security
           </h2>
           <p class="text-white/50 text-sm font-ui mt-2">
-            No empty promises about security. See a live overview of the security layer that detects and blocks malicious traffic.
+            No empty promises about security. See a live overview of the security layer that detects
+            and blocks malicious traffic.
           </p>
         </div>
 
@@ -305,13 +319,19 @@ const pillars = [
           class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer"
         >
           <div class="flex items-start justify-between mb-4">
-            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">
+            <h3
+              class="text-xl font-bold text-white font-display group-hover:text-active transition-colors"
+            >
               De Koninklijke Loop
             </h3>
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">Event</span>
+            <span
+              class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20"
+              >Event</span
+            >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Real-time registration platform for a charity event. Registrations are processed instantly, with no manual management for the organisation.
+            Real-time registration platform for a charity event. Registrations are processed
+            instantly, reducing the manual work required from the organisation.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
@@ -326,12 +346,16 @@ const pillars = [
             </div>
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">0 manual management</span>
+              <span class="text-white/70 text-xs font-ui">Less manual work</span>
             </div>
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             View project
-            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
+            <Icon
+              name="arrow-right"
+              size={16}
+              class="group-hover:translate-x-1 transition-transform"
+            />
           </span>
         </a>
 
@@ -342,11 +366,19 @@ const pillars = [
           class="group clinical-glass p-6 rounded-(--radius-feature) border border-white/8 hover:border-active/30 transition-all cursor-pointer"
         >
           <div class="flex items-start justify-between mb-4">
-            <h3 class="text-xl font-bold text-white font-display group-hover:text-active transition-colors">SmartCoolCare</h3>
-            <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20">IoT</span>
+            <h3
+              class="text-xl font-bold text-white font-display group-hover:text-active transition-colors"
+            >
+              SmartCoolCare
+            </h3>
+            <span
+              class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-active/10 text-active border border-active/20"
+              >IoT</span
+            >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Cooling monitoring with automatic alerts on deviations. Sensor data directly visible on your screen, wherever you are.
+            Cooling monitoring with automatic alerts on deviations. Sensor data directly visible on
+            your screen, wherever you are.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">C++</span>
@@ -367,7 +399,11 @@ const pillars = [
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
             View project
-            <Icon name="arrow-right" size={16} class="group-hover:translate-x-1 transition-transform" />
+            <Icon
+              name="arrow-right"
+              size={16}
+              class="group-hover:translate-x-1 transition-transform"
+            />
           </span>
         </a>
       </div>
@@ -395,8 +431,8 @@ const pillars = [
           class="text-white/70 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-ui"
         >
           Systems engineer with a background in intensive neurological rehabilitation care. I build
-          systems that are not only technically solid, but also provide structure and safety
-          in the real world.
+          systems that are not only technically solid, but also provide structure and safety in the
+          real world.
         </p>
         <p class="text-white/40 text-sm font-ui mb-6">
           Book a free intro call and discover where you can immediately save time, costs or risk.
