@@ -13,6 +13,12 @@ const sizeMap = {
   lg: 'h-10',
 };
 
+const widthMap = {
+  sm: 'w-12',
+  md: 'w-16',
+  lg: 'w-20',
+};
+
 const textSizeMap = {
   sm: 'text-sm',
   md: 'text-lg',
@@ -31,7 +37,7 @@ const uid = `lc-${Math.random().toString(36).slice(2, 8)}`;
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 200 100"
-    class:list={[sizeMap[size], 'w-auto']}
+    class:list={[sizeMap[size], widthMap[size], 'shrink-0']}
     role="img"
     aria-hidden="true"
   >

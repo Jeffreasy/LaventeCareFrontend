@@ -6,6 +6,7 @@ interface Props extends Partial<SEOProps> {
   noindex?: boolean;
   locale?: Locale;
   alternatePath?: string | null;
+  canonicalPath?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   noindex = false,
   locale = 'nl',
   alternatePath = null,
+  canonicalPath = Astro.url.pathname,
 } = Astro.props;
 
 const isEN = locale === 'en';
@@ -23,15 +25,19 @@ const ogLocale = isEN ? 'en_US' : 'nl_NL';
 const ownDomain = isEN ? 'https://www.laventecare.com' : 'https://www.laventecare.nl';
 const altDomain = isEN ? 'https://www.laventecare.nl' : 'https://www.laventecare.com';
 
-const canonicalURL = new URL(Astro.url.pathname, ownDomain);
+const canonicalURL = new URL(canonicalPath, ownDomain);
 const ogImageUrl = image?.filename
   ? new URL(image.filename, ownDomain).href
-  : new URL('/og-image.png', ownDomain).href;
+  : new URL('/og-laventecare-2026.png', ownDomain).href;
 
 // hreflang alternate URL (if a mapping exists)
 const alternateURL = alternatePath ? new URL(alternatePath, altDomain).href : null;
 const selfHreflang = isEN ? 'en' : 'nl';
 const altHreflang = isEN ? 'nl' : 'en';
+const xDefaultURL =
+  isEN && alternatePath
+    ? new URL(alternatePath, 'https://www.laventecare.nl').href
+    : new URL(canonicalPath, 'https://www.laventecare.nl').href;
 ---
 
 <!-- Primary Meta Tags -->
@@ -50,8 +56,8 @@ const altHreflang = isEN ? 'nl' : 'en';
 <link rel="alternate" hreflang={selfHreflang} href={canonicalURL.href} />
 <!-- hreflang: alternate language (if mapping exists) -->
 {alternateURL && <link rel="alternate" hreflang={altHreflang} href={alternateURL} />}
-<!-- hreflang: x-default always points to NL (primary market) -->
-<link rel="alternate" hreflang="x-default" href="https://www.laventecare.nl" />
+<!-- hreflang: x-default points to the equivalent NL route (primary market) -->
+<link rel="alternate" hreflang="x-default" href={xDefaultURL} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

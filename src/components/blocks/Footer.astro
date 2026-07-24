@@ -17,9 +17,11 @@ interface Props {
   columns: FooterColumn[];
   socialLinks: SocialLink[];
   copyright: string;
+  locale?: 'nl' | 'en';
 }
 
-const { columns, socialLinks, copyright } = Astro.props;
+const { columns, socialLinks, copyright, locale = 'nl' } = Astro.props;
+const isEnglish = locale === 'en';
 const currentYear = new Date().getFullYear();
 
 function isExternal(url: string): boolean {
@@ -35,12 +37,16 @@ function isExternal(url: string): boolean {
       <div class="md:col-span-1">
         <Logo size="md" showText={true} class="mb-3" />
         <p class="text-white/50 text-sm leading-relaxed font-ui mb-4">
-          B2B systeempartner voor mkb. Van idee tot werkend systeem.
+          {
+            isEnglish
+              ? 'B2B technology partner for growing companies. From idea to a working system.'
+              : 'B2B systeempartner voor mkb. Van idee tot werkend systeem.'
+          }
         </p>
-        <div class="text-xs text-white/40 space-y-1 font-ui">
-          <p>Dronten, Nederland</p>
-          <p>KVK 88162710</p>
-          <p>BTW NL004553268B57</p>
+        <div class="text-xs text-white/60 space-y-1 font-ui">
+          <p>{isEnglish ? 'Dronten, the Netherlands' : 'Dronten, Nederland'}</p>
+          <p>{isEnglish ? 'Chamber of Commerce 88162710' : 'KVK 88162710'}</p>
+          <p>{isEnglish ? 'VAT NL004553268B57' : 'BTW NL004553268B57'}</p>
         </div>
       </div>
 
@@ -161,9 +167,18 @@ function isExternal(url: string): boolean {
         }
 
         <!-- Copyright -->
-        <p class="text-xs text-white/40 font-ui text-center md:text-right">
-          {copyright.replace('2026', currentYear.toString())}
-        </p>
+        <div class="flex flex-col items-center gap-2 text-center md:items-end md:text-right">
+          <button
+            type="button"
+            data-cookie-preferences
+            class="text-xs text-white/50 underline underline-offset-4 transition-colors hover:text-active focus-visible:rounded focus-visible:outline-2 focus-visible:outline-active"
+          >
+            {isEnglish ? 'Cookie preferences' : 'Cookievoorkeuren'}
+          </button>
+          <p class="text-xs text-white/60 font-ui">
+            {copyright.replace('2026', currentYear.toString())}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -196,7 +211,7 @@ function isExternal(url: string): boolean {
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.6);
   }
 
   .powered-badge__icon {

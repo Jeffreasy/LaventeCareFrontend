@@ -49,6 +49,9 @@ Gebruik overal hetzelfde woord — wisselende termen ondermijnen vertrouwen.
 | **alles op één plek** | single source of truth, één bron van waarheid |
 | **klanten werven** | lead generation (als menu-/kop-label) |
 | **Beveiliging & Toegang** | Security & Auth |
+| **Websites bouwen** / **websitepakket** | website-oplossing, webdesign-service |
+| **Website Start / Business / Maatwerk** | Basic, Pro, Premium |
+| **formuliermelding en bevestiging** | "mails inbegrepen" zonder uitleg |
 
 ## 5. Woordenlijst: moeilijk → simpel
 

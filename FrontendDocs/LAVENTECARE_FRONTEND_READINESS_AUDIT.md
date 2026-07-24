@@ -1,5 +1,7 @@
 # LaventeCare — Frontend Readiness Audit (2026-07-06)
 
+> Historische momentopname. De positionering, dienstenpariteit en website-instaproute zijn op 24 juli 2026 opnieuw vastgesteld in `LAVENTECARE_BEDRIJFSVOERING.md`. Gebruik die waarheidsmap voor actuele commerciële keuzes.
+
 > Diepe audit: is de canonieke bedrijfsdata compleet/consistent en **bruikbaar om de marketingsite mee te herbouwen**? Bron van waarheid = `JeffriesHomeapp/lib/laventecare/*`. Live pagina's = `LaventeCareFrontend/src/pages/*`. Portfolio geverifieerd tegen de echte project-repos onder `Desktop/Projecten/*`.
 
 ## 1. Verdict

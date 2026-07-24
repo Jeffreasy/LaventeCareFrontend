@@ -4,6 +4,10 @@ import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
+if (Astro.locals.locale === 'en') {
+  return Astro.rewrite('/en-case-study?slug=de-koninklijke-loop');
+}
+
 const results = [
   { value: 'Real-time', label: 'Registratie & live tellers' },
   { value: '0', label: 'Handmatig werk voor organisatie' },
@@ -50,7 +54,8 @@ const challenges = [
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-6">
           Een compleet evenementenplatform voor een liefdadigheidswandeltocht. Van aanmelden en
-          tickets tot donaties en live overzicht. Deelnemers worden verwerkt zonder één handmatige actie.
+          tickets tot donaties en live overzicht. Deelnemers worden verwerkt zonder één handmatige
+          actie.
         </p>
         <div class="flex flex-wrap items-center gap-4 mb-8">
           <span
@@ -125,7 +130,9 @@ const challenges = [
           class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 space-y-6"
         >
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Snelle schermen, veilige betalingen</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">
+              Snelle schermen, veilige betalingen
+            </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
               De schermen die live moeten bijwerken (registraties, tellers) draaien op een supersnel
               systeem. Alles wat met inloggen en geld te maken heeft, loopt apart over een extra
@@ -146,9 +153,7 @@ const challenges = [
             </p>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">
-              Automatische e-mails
-            </h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">Automatische e-mails</h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
               Bij elke registratie gaan er automatisch twee e-mails uit: de deelnemer krijgt een
               bevestiging met alle details, het organisatieteam krijgt een melding met een

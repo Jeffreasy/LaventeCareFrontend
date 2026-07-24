@@ -1,10 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const isEnglish = Astro.locals.locale === 'en';
 ---
 
 <Layout
-  title="404 - Pagina niet gevonden | LaventeCare"
-  description="De pagina die u zoekt bestaat niet of is verplaatst."
+  title={isEnglish
+    ? '404 — Page not found | LaventeCare'
+    : '404 — Pagina niet gevonden | LaventeCare'}
+  description={isEnglish
+    ? 'The page you are looking for does not exist or has moved.'
+    : 'De pagina die u zoekt bestaat niet of is verplaatst.'}
+  noindex
 >
   <section class="flex items-center justify-center min-h-[80vh] py-24">
     <div class="container mx-auto px-4 text-center max-w-2xl">
@@ -22,17 +28,24 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- Message -->
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-display">
-        Pagina niet gevonden
+        {isEnglish ? 'Page not found' : 'Pagina niet gevonden'}
       </h2>
       <p class="text-lg text-white/60 mb-10 font-ui leading-relaxed">
-        De pagina die u zoekt bestaat niet, is verplaatst of is tijdelijk niet beschikbaar.
-        Controleer de URL of ga terug naar de homepage.
+        {
+          isEnglish
+            ? 'The page you are looking for does not exist, has moved or is temporarily unavailable. Check the URL or return to the homepage.'
+            : 'De pagina die u zoekt bestaat niet, is verplaatst of is tijdelijk niet beschikbaar. Controleer de URL of ga terug naar de homepage.'
+        }
       </p>
 
       <!-- CTAs -->
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/" class="btn-hero-primary"> Terug naar Home </a>
-        <a href="/contact" class="btn-hero-secondary"> Contact Opnemen </a>
+        <a href="/" class="btn-hero-primary">
+          {isEnglish ? 'Back to home' : 'Terug naar home'}
+        </a>
+        <a href="/contact" class="btn-hero-secondary">
+          {isEnglish ? 'Contact us' : 'Contact opnemen'}
+        </a>
       </div>
     </div>
   </section>

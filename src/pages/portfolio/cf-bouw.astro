@@ -4,6 +4,10 @@ import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
+if (Astro.locals.locale === 'en') {
+  return Astro.rewrite('/en-case-study?slug=cf-bouw');
+}
+
 const results = [
   { value: 'In stappen', label: 'Offerte aanvragen' },
   { value: 'Direct', label: 'Melding bij nieuwe aanvraag' },

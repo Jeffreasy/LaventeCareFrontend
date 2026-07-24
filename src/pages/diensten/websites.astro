@@ -1,0 +1,517 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WebsitePackages from '../../components/blocks/WebsitePackages.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
+
+const outcomes = [
+  {
+    icon: 'gauge',
+    title: 'Snel op ieder apparaat',
+    description:
+      'Uw website laadt licht en snel. Bezoekers hoeven niet te wachten op een zware pagebuilder.',
+  },
+  {
+    icon: 'shield-check',
+    title: 'Veilig vanaf de basis',
+    description:
+      'Alleen noodzakelijke techniek wordt toegevoegd. Formulieren krijgen validatie en bescherming tegen misbruik.',
+  },
+  {
+    icon: 'smartphone',
+    title: 'Gebouwd voor mobiel',
+    description:
+      'Iedere pagina werkt helder op telefoon, tablet en desktop. Knoppen en formulieren blijven goed bruikbaar.',
+  },
+  {
+    icon: 'search',
+    title: 'Technisch vindbaar',
+    description:
+      'Heldere paginatitels, een sitemap en gestructureerde gegevens geven zoekmachines een goede basis.',
+  },
+  {
+    icon: 'code',
+    title: 'Geen gesloten pagebuilder',
+    description:
+      'U krijgt een overdraagbare codebasis. Projectspecifieke afspraken over eigendom staan vooraf in de offerte.',
+  },
+  {
+    icon: 'trending-up',
+    title: 'Klaar om door te groeien',
+    description:
+      'Een formulier, offerteflow of klantportaal kan later worden toegevoegd zonder opnieuw te beginnen.',
+  },
+] as const;
+
+const fastTrack = [
+  {
+    number: '01',
+    title: 'Gratis afstemming',
+    description:
+      'Samen bepalen we het passende pakket en leg ik pagina’s, inhoud, planning en verantwoordelijkheden vast.',
+  },
+  {
+    number: '02',
+    title: 'Inhoud compleet',
+    description:
+      'U levert teksten, logo en afbeeldingen aan. Ik controleer of alles compleet en bruikbaar is.',
+  },
+  {
+    number: '03',
+    title: 'Bouw en controle',
+    description:
+      'Ik bouw de website, test schermformaten, snelheid, links, formulieren en belangrijke zoekmachine-instellingen.',
+  },
+  {
+    number: '04',
+    title: 'Feedback en livegang',
+    description:
+      'U geeft feedback in één gebundelde ronde. Na akkoord gaat de website gecontroleerd live.',
+  },
+] as const;
+
+const additions = [
+  ['Extra pagina', '€125'],
+  ['Extra formulier', 'vanaf €200'],
+  ['Zakelijke mailbox instellen', '€150 + licentie'],
+  ['CMS of blogbeheer', 'vanaf €500'],
+  ['Boekingsmodule', 'vanaf €300'],
+  ['CRM-koppeling', 'vanaf €500'],
+] as const;
+
+const faq = [
+  {
+    question: 'Waarom zijn deze websites scherper geprijsd dan veel maatwerkwebsites?',
+    answer:
+      'Ik werk met een eigen technische basis, herbruikbare onderdelen en een gecontroleerde AI-ondersteunde werkwijze. Daardoor besteed ik minder tijd aan herhaalwerk. Architectuur, controle, beveiliging, testen en oplevering blijven mijn verantwoordelijkheid.',
+  },
+  {
+    question: 'Is Website Start een template?',
+    answer:
+      'De technische onderdelen zijn bewezen en herbruikbaar. De inhoud, kleuren, hiërarchie en uitstraling worden aangepast aan uw bedrijf. Website Maatwerk gaat verder met een unieke visuele en inhoudelijke richting.',
+  },
+  {
+    question: 'Zijn zakelijke e-mailadressen inbegrepen?',
+    answer:
+      'Nee. Website Business bevat het veilig versturen van een aanvraag en een automatische bevestiging. Een mailbox zoals info@uwbedrijf.nl, inclusief Microsoft 365 of Google Workspace, is een aparte dienst met eigen licentiekosten.',
+  },
+  {
+    question: 'Kan ik later zelf teksten wijzigen?',
+    answer:
+      'Dat kan wanneer we een CMS of beheeromgeving toevoegen. Bij de vaste pakketten is dit niet standaard inbegrepen. Zo blijft de website sneller, veiliger en voordeliger. Wijzigingen kunnen ook los worden aangevraagd.',
+  },
+  {
+    question: 'Ben ik verplicht om maandelijks beheer af te nemen?',
+    answer:
+      'Nee. De website kan worden overgedragen naar een account op uw naam. Bij beheer door LaventeCare kost Website Care €29 per maand voor Start, €49 per maand voor Business en vanaf €75 per maand voor Maatwerk. Uitgebreide systemen gebruiken een apart onderhoudscontract.',
+  },
+  {
+    question: 'Wat valt niet meer onder een normaal websitepakket?',
+    answer:
+      'Accounts, dashboards, betalingen, databases, uitgebreide offerteflows en procesautomatisering zijn maatwerksoftware. Daarvoor gebruiken we het normale traject met onderzoek en een technisch bouwplan.',
+  },
+] as const;
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Professionele websites laten maken',
+  serviceType: 'Websiteontwerp en websiteontwikkeling',
+  description:
+    'Snelle, veilige en overdraagbare bedrijfswebsites voor het mkb. Vaste pakketten vanaf €750, gebouwd met Astro en uitgebreid met een backend wanneer dat nodig is.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.nl',
+    priceRange: '€750 - €1.500+; beheer €29 - €75+/maand',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Nederland',
+  },
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Website Start',
+      price: '750',
+      priceCurrency: 'EUR',
+      description: 'Een complete responsive one-page bedrijfswebsite.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Website Business',
+      price: '1000',
+      priceCurrency: 'EUR',
+      description:
+        'Een bedrijfswebsite tot drie pagina’s met veilig formulier en automatische bevestiging.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Website Maatwerk',
+      price: '1500',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: '1500',
+        priceCurrency: 'EUR',
+      },
+      description: 'Een maatwerkwebsite vanaf €1.500.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Website Care Start',
+      price: '29',
+      priceCurrency: 'EUR',
+      unitText: 'per maand',
+      description: 'Beheerde hosting, SSL, bewaking en technische updates.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Website Care Business',
+      price: '49',
+      priceCurrency: 'EUR',
+      unitText: 'per maand',
+      description: 'Websitebeheer met bewaking van formulier en transactionele e-mail.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Website Care Maatwerk',
+      price: '75',
+      priceCurrency: 'EUR',
+      unitText: 'per maand',
+      description: 'Maatwerkhosting, bewaking en technische continuïteit vanaf €75 per maand.',
+    },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<Layout
+  title="Website laten maken — Snel, Veilig en Zonder Pagebuilder | LaventeCare"
+  description="Professionele website laten maken vanaf €750. Snelle Astro-websites voor het mkb, met vaste prijs, duidelijke scope en een veilige technische basis."
+  seoOverride={{
+    image: {
+      filename: '/og-websites.png',
+      alt: 'Professionele websites vanaf €750 — LaventeCare',
+    },
+  }}
+>
+  <section class="section-padding pt-32 md:pt-40 relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute left-1/2 top-0 h-96 w-3/4 -translate-x-1/2 rounded-full bg-active/10 blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="container relative mx-auto px-4">
+      <div class="mx-auto max-w-6xl">
+        <div class="grid grid-cols-1 items-end gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <span
+              class="mb-4 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.2em] text-active"
+            >
+              <Icon name="monitor" size={16} /> Websites bouwen
+            </span>
+            <h1
+              class="mb-6 font-display text-4xl font-black tracking-tight text-white md:text-5xl lg:text-6xl"
+            >
+              Een professionele website die <span class="text-active">snel blijft</span>
+            </h1>
+            <p class="mb-4 max-w-3xl font-ui text-lg leading-relaxed text-white/70 md:text-xl">
+              Geen zware pagebuilder of dichtgetimmerd template. U krijgt een snelle, overdraagbare
+              website met een duidelijke prijs en een heldere afspraak.
+            </p>
+            <p class="mb-8 max-w-2xl font-ui text-sm leading-relaxed text-white/50">
+              Ik bouw de website met Astro. Een veilige backend in Go of Convex voeg ik alleen toe
+              wanneer een formulier, gegevensstroom of uitbreiding dat nodig maakt.
+            </p>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <a href="#website-pakketten" class="btn-primary">
+                Bekijk de pakketten
+                <Icon name="arrow-right" size={16} />
+              </a>
+              <a href="/contact?type=website" class="btn-secondary"> Plan een gratis afstemming </a>
+            </div>
+          </div>
+
+          <figure class="relative">
+            <div
+              class="pointer-events-none absolute inset-8 rounded-full bg-active/20 blur-3xl"
+              aria-hidden="true"
+            >
+            </div>
+            <div
+              class="clinical-glass relative overflow-hidden rounded-(--radius-feature) border border-active/25 bg-active/5 p-2 shadow-2xl shadow-active/10"
+            >
+              <img
+                src="/og-websites.png"
+                width="1731"
+                height="909"
+                alt="LaventeCare — professionele websites vanaf €750"
+                class="aspect-[1200/630] w-full rounded-[calc(var(--radius-feature)-0.45rem)] object-cover"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </div>
+            <figcaption
+              class="relative mx-4 -mt-3 flex items-center justify-between gap-4 rounded-xl border border-white/10 bg-[#06161c]/95 px-4 py-3 font-ui text-[11px] text-white/50 shadow-xl"
+            >
+              <span>Vaste realisatieprijs</span>
+              <span class="font-bold text-active">Beheer vanaf €29/maand</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
+          {
+            [
+              ['Prijs', 'Vaste scope'],
+              ['Kwaliteit', 'Responsive getest'],
+              ['Basis', 'SEO & veiligheid'],
+              ['Beheer', 'Vanaf €29 p/m'],
+            ].map(([label, value]) => (
+              <div class="rounded-xl border border-white/8 bg-white/3 p-4 text-center">
+                <p class="font-ui text-xs uppercase tracking-wider text-white/60">{label}</p>
+                <p class="mt-1 font-display text-sm font-black text-white md:text-base">{value}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-6xl">
+        <WebsitePackages locale="nl" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Kwaliteit als basis"
+        heading='Compact geprijsd, <span class="text-active">professioneel gebouwd</span>'
+        description="De prijs blijft scherp door herhaalwerk te beperken. Controle, beveiliging en verantwoordelijkheid worden niet overgeslagen."
+      />
+
+      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          outcomes.map((item, index) => (
+            <article
+              data-animate="fade-up"
+              class={`delay-${(index % 3) * 100} clinical-glass rounded-(--radius-card) border border-white/8 p-5 transition-colors hover:border-active/20`}
+            >
+              <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-active/10">
+                <Icon name={item.icon as IconName} size={19} class="text-active" />
+              </div>
+              <h3 class="mb-2 font-display text-sm font-bold text-white">{item.title}</h3>
+              <p class="font-ui text-xs leading-relaxed text-white/55">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Een eigen snelle route"
+        heading='Van inhoud naar livegang in <span class="text-active">vier heldere stappen</span>'
+        description="Voor een vast websitepakket is geen betaald technisch bouwplan nodig. De snelle route werkt alleen wanneer de inhoud compleet is en de afspraak vaststaat."
+      />
+
+      <ol class="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {
+          fastTrack.map((step) => (
+            <li class="clinical-glass rounded-(--radius-card) border border-white/8 p-5">
+              <span class="font-display text-2xl font-black text-active/60">{step.number}</span>
+              <h3 class="mb-2 mt-4 font-display text-sm font-bold text-white">{step.title}</h3>
+              <p class="font-ui text-xs leading-relaxed text-white/55">{step.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="De juiste route"
+        heading='Een website, klantenwerving of een <span class="text-active">bedrijfsplatform</span>?'
+        description="Niet iedere vraag heeft dezelfde aanpak nodig. Daarom houd ik de drie niveaus bewust gescheiden."
+      />
+
+      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-5 lg:grid-cols-3">
+        <article
+          class="clinical-glass rounded-(--radius-feature) border border-active/25 bg-active/5 p-6"
+        >
+          <span class="font-display text-xs font-bold uppercase tracking-wider text-active"
+            >Vaste pakketten</span
+          >
+          <h3 class="mb-3 mt-2 font-display text-xl font-black text-white">
+            Professionele website
+          </h3>
+          <p class="mb-5 font-ui text-sm leading-relaxed text-white/60">
+            Voor duidelijke online zichtbaarheid, vertrouwen en eenvoudig contact.
+          </p>
+          <a href="#website-pakketten" class="font-ui text-sm font-bold text-active">Vanaf €750 →</a
+          >
+        </article>
+        <article class="clinical-glass rounded-(--radius-feature) border border-white/8 p-6">
+          <span class="font-display text-xs font-bold uppercase tracking-wider text-white/60"
+            >Conversietraject</span
+          >
+          <h3 class="mb-3 mt-2 font-display text-xl font-black text-white">Klanten werven</h3>
+          <p class="mb-5 font-ui text-sm leading-relaxed text-white/60">
+            Voor offertestappen, meetbare aanvragen, opvolging, SEO en verdere optimalisatie.
+          </p>
+          <a href="/diensten/lead-generation" class="font-ui text-sm font-bold text-active"
+            >Bekijk klanten werven →</a
+          >
+        </article>
+        <article class="clinical-glass rounded-(--radius-feature) border border-white/8 p-6">
+          <span class="font-display text-xs font-bold uppercase tracking-wider text-white/60"
+            >Systeemtraject</span
+          >
+          <h3 class="mb-3 mt-2 font-display text-xl font-black text-white">Maatwerkplatform</h3>
+          <p class="mb-5 font-ui text-sm leading-relaxed text-white/60">
+            Voor accounts, dashboards, betalingen, databases en processen die werk overnemen.
+          </p>
+          <a href="/diensten/maatwerk-platformen" class="font-ui text-sm font-bold text-active"
+            >Bekijk maatwerkplatformen →</a
+          >
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div class="clinical-glass rounded-(--radius-hero) border border-active/20 p-6 md:p-8">
+          <span class="font-display text-xs font-bold uppercase tracking-[0.18em] text-active"
+            >Onder de motorkap</span
+          >
+          <h2 class="mb-4 mt-3 font-display text-2xl font-black text-white">
+            Alleen techniek die werkelijk iets toevoegt
+          </h2>
+          <p class="mb-5 font-ui text-sm leading-relaxed text-white/65">
+            Astro vormt de snelle basis. Go gebruik ik voor streng gecontroleerde serverlogica.
+            Convex komt pas in beeld wanneer live gegevens, een database of een beheeromgeving nodig
+            zijn.
+          </p>
+          <p class="mb-6 font-ui text-sm leading-relaxed text-white/55">
+            AI helpt bij analyse en bouw. Ik bepaal de structuur, controleer de uitvoer en blijf
+            verantwoordelijk voor veiligheid, toegankelijkheid, testen en oplevering.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <TechStackBadge tech="Astro" />
+            <TechStackBadge tech="Go" />
+            <TechStackBadge tech="Convex" />
+            <TechStackBadge tech="Vercel" />
+            <TechStackBadge tech="HTML Email" />
+          </div>
+        </div>
+
+        <aside class="clinical-glass rounded-(--radius-hero) border border-white/8 p-6 md:p-8">
+          <span class="font-display text-xs font-bold uppercase tracking-[0.18em] text-white/60"
+            >Uitbreidingen</span
+          >
+          <h2 class="mb-5 mt-3 font-display text-xl font-black text-white">
+            Vooraf geprijsde vervolgstappen
+          </h2>
+          <dl class="divide-y divide-white/8">
+            {
+              additions.map(([label, price]) => (
+                <div class="flex items-center justify-between gap-4 py-3">
+                  <dt class="font-ui text-sm text-white/60">{label}</dt>
+                  <dd class="whitespace-nowrap font-display text-sm font-bold text-white">
+                    {price}
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+          <p class="mt-4 font-ui text-xs leading-relaxed text-white/60">
+            Definitieve prijs na controle van inhoud, leverancier en gewenste koppeling. Excl. btw
+            en externe licenties.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Veelgestelde vragen"
+        heading='Vooraf <span class="text-active">volledige duidelijkheid</span>'
+      />
+
+      <div class="mx-auto max-w-4xl space-y-3">
+        {
+          faq.map((item) => (
+            <details class="group clinical-glass rounded-(--radius-card) border border-white/8 p-5 open:border-active/20">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-sm font-bold text-white">
+                {item.question}
+                <Icon
+                  name="chevron-down"
+                  size={17}
+                  class="shrink-0 text-active transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <p class="mt-4 max-w-3xl font-ui text-sm leading-relaxed text-white/60">
+                {item.answer}
+              </p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div
+        class="clinical-glass mx-auto max-w-4xl rounded-(--radius-hero) border border-active/25 bg-active/5 p-8 text-center md:p-12"
+      >
+        <span
+          class="mb-4 block font-display text-xs font-bold uppercase tracking-[0.2em] text-active"
+          >Klaar voor een professionele basis?</span
+        >
+        <h2 class="mb-4 font-display text-2xl font-black text-white md:text-3xl">
+          Binnen één gesprek weet u welk pakket past
+        </h2>
+        <p class="mx-auto mb-7 max-w-2xl font-ui text-sm leading-relaxed text-white/65">
+          U krijgt direct duidelijkheid over inhoud, planning, aanvullende kosten en wat u zelf moet
+          aanleveren.
+        </p>
+        <a href="/contact?type=website" class="btn-primary">
+          Plan een gratis afstemming
+          <Icon name="arrow-right" size={16} />
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

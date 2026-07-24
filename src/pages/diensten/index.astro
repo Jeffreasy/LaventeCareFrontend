@@ -49,7 +49,7 @@ const pillars = [
   {
     title: 'Beveiliging & Authenticatie',
     description:
-      'Uw klantdata is beschermd en gescheiden op databaseniveau. Zo blijven risico\'s klein en gegevens veilig — ook bij fouten of aanvallen.',
+      "Uw klantdata is beschermd en gescheiden op databaseniveau. Zo blijven risico's klein en gegevens veilig — ook bij fouten of aanvallen.",
     icon: 'shield-check',
     tags: ['Gescheiden klantdata', 'Toegang per rol', 'Alles traceerbaar'],
     href: '/diensten/security',
@@ -59,16 +59,52 @@ const pillars = [
 ---
 
 <Layout
-  title="Diensten — Consultancy, AI, IoT, Platformen & Security | LaventeCare"
-  description="Van advies tot werkend systeem: consultancy, AI-automatisering, bewaking, maatwerkplatformen, klanten werven en beveiliging. Een vaste partner die software en systemen bouwt voor het mkb."
+  title="Diensten — Websites, AI, IoT, Platformen & Security | LaventeCare"
+  description="Van professionele website tot werkend bedrijfssysteem: websites, consultancy, AI-automatisering, bewaking, maatwerkplatformen, klanten werven en beveiliging."
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <SectionHeader
+        level={1}
         label="Diensten"
-        heading='Van idee tot <span class="text-active">werkend systeem</span>'
-        description="Geen losse projecten, maar een vaste partner die uw manier van werken omzet in software die het werk uit handen neemt. Zes diensten die op elkaar aansluiten — van eerste advies tot beheer en doorontwikkeling."
+        heading='Van online basis tot <span class="text-active">werkend systeem</span>'
+        description="Begin met een professionele website via een vaste snelle route. Zodra uw vraag processen, gegevens of automatisering raakt, sluiten zes specialistische diensten daarop aan."
       />
+
+      <a
+        href="/diensten/websites"
+        data-animate="fade-up"
+        class="group clinical-glass mx-auto mb-10 grid max-w-5xl grid-cols-1 items-center gap-6 rounded-(--radius-hero) border border-active/25 bg-active/5 p-6 transition-colors hover:border-active/45 md:grid-cols-[1fr_auto] md:p-8"
+      >
+        <div>
+          <span
+            class="mb-2 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.18em] text-active"
+          >
+            <Icon name="monitor" size={16} /> Vaste websitepakketten
+          </span>
+          <h2 class="mb-2 font-display text-2xl font-black text-white">
+            Professionele websites vanaf €750
+          </h2>
+          <p class="max-w-2xl font-ui text-sm leading-relaxed text-white/60">
+            Snel, veilig en zonder zware pagebuilder. Met een vaste prijs, duidelijke afbakening en
+            ruimte om later door te groeien.
+          </p>
+        </div>
+        <span class="flex items-center gap-2 font-ui text-sm font-bold text-active">
+          Bekijk pakketten
+          <Icon
+            name="arrow-right"
+            size={17}
+            class="transition-transform group-hover:translate-x-1"
+          />
+        </span>
+      </a>
+
+      <div class="mx-auto mb-6 max-w-5xl">
+        <p class="font-display text-xs font-bold uppercase tracking-[0.18em] text-white/35">
+          Zes specialistische diensten
+        </p>
+      </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
         {

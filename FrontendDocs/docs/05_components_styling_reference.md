@@ -19,10 +19,12 @@ Handling Tailwind class collisions accurately is critical. If a button base clas
 ## 3. UI Primitives Reality (`src/components/ui/`)
 
 Elements within the `ui/` directory are the simplest atoms of the system. 
-- **Astro Exclusive**: In this architecture, raw UI primitives (like `Card.astro`, `LighthouseGauge.astro`, `Logo.astro`, `Icon.astro`) are strictly `.astro` files. This means 0 React overhead.
+- **Astro Exclusive**: Raw UI primitives such as `Card.astro`, `Logo.astro`, `Icon.astro` and
+  `TechStackBadge.astro` are `.astro` files and add no client-side React overhead.
 - **No State**: They contain no business logic and no ties to `Nanostores`.
 - **Props Only**: They accept strongly-typed `Astro.props` and return structured HTML with Tailwind classes applied.
-- **React Delegation**: Heavier React component libraries (like `react-aria-components` for accessible select menus or dialogs) and interactive SVGs from `lucide-react` are entirely constrained and reserved for usage within `src/components/islands/`.
+- **React Delegation**: Interactive behaviour lives in `src/components/islands/`; controls use
+  native semantic HTML and explicit ARIA where needed.
 
 ## 4. Glassmorphism Design Guidelines
 

@@ -75,7 +75,13 @@ export const prerender = false;
         <!-- Honeypot field (hidden from users, catches dumb bots) -->
         <div class="hidden" aria-hidden="true" style="display: none;">
           <label for="confirm_email">Please leave this field empty</label>
-          <input type="email" id="confirm_email" name="confirm_email" tabindex="-1" autocomplete="off" />
+          <input
+            type="email"
+            id="confirm_email"
+            name="confirm_email"
+            tabindex="-1"
+            autocomplete="off"
+          />
         </div>
 
         <button
@@ -102,7 +108,7 @@ export const prerender = false;
     if (!loading || !errorMsg || isSubmitting) return;
 
     isSubmitting = true;
-    
+
     // Reset UI
     loading.classList.remove('hidden');
     loading.classList.add('flex');

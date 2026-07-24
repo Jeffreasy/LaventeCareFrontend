@@ -1,7 +1,7 @@
 # 03. Development & Testing Workflow
 
 ## Tooling Prerequisite
-- **Node.js**: v20 or later.
+- **Node.js**: v22.12 or later (v24 in CI).
 - **Package Manager**: NPM.
 
 ## 1. Local Development 
@@ -47,13 +47,15 @@ Given the combination of Astro static rendering and React islands, E2E testing i
 `playwright.config.ts` dictates the testing strategy. It automatically boots the development server prior to running suites.
 
 ### Running Tests
-Execute the testing suite against Chrome, Firefox, and WebKit (Safari).
+The required CI project is Chromium. Its desktop configuration maps both production hostnames to
+localhost so domain-specific routing can be verified.
 ```bash
 npm run test           # Headless CI execution
 npm run test:ui        # Interactive UI for debugging
 ```
 
 ### Testing Strategy
-- **Core Flows**: User authentication, Lead Generation form validation, and Admin dashboard rendering.
+- **Core Flows**: Domain routing, real 404 responses, consent persistence, contact intake, sitemap
+  isolation and English case studies.
 - **Accessibility Checks**: Ensure ARIA landmarks, `aria-expanded` toggles (like mobile navigation), and high-contrast texts maintain compliance across viewports.
 - **Visual Checks**: Ensure Glassmorphism backdrop blurs do not occlude vital action items on varying device widths.

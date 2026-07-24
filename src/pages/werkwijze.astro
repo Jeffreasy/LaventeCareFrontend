@@ -69,7 +69,7 @@ const howToSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
 
 <Layout
   title="Werkwijze — Duidelijk proces met een vast bouwplan | LaventeCare"
@@ -78,13 +78,74 @@ const howToSchema = {
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <SectionHeader
+        level={1}
         label="Werkwijze"
         heading='Van idee tot <span class="text-active">werkend systeem</span>'
-        description="Geen chaos of verrassingen, maar een gestructureerd proces dat zorgt voor controle, duidelijkheid en een betrouwbaar eindresultaat."
+        description="Een vast websitepakket gebruikt een korte route. Complexe systemen krijgen eerst onderzoek en een technisch bouwplan. Zo blijft de aanpak passend bij de vraag."
       />
+
+      <!-- Twee routes -->
+      <div class="max-w-5xl mx-auto mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <article
+            data-animate="fade-up"
+            class="clinical-glass rounded-(--radius-feature) border border-active/25 bg-active/5 p-6 md:p-8"
+          >
+            <span class="font-display text-xs font-bold uppercase tracking-[0.18em] text-active"
+              >Website Fast Track</span
+            >
+            <h2 class="mt-3 mb-3 font-display text-xl font-black text-white">
+              Vaste pakketten vanaf €750
+            </h2>
+            <p class="mb-5 font-ui text-sm leading-relaxed text-white/60">
+              Voor een one-page of compacte bedrijfswebsite met complete inhoud en een vaste
+              afspraak. Geen betaald bouwplan nodig.
+            </p>
+            <ol class="space-y-2 font-ui text-sm text-white/60">
+              <li>1. Gratis afstemming en pakketkeuze</li>
+              <li>2. Teksten, logo en afbeeldingen compleet</li>
+              <li>3. Bouw, controle en gebundelde feedback</li>
+              <li>4. Akkoord en gecontroleerde livegang</li>
+            </ol>
+            <a
+              href="/diensten/websites"
+              class="mt-6 inline-flex items-center gap-2 font-ui text-sm font-bold text-active"
+            >
+              Bekijk de websitepakketten <Icon name="arrow-right" size={15} />
+            </a>
+          </article>
+
+          <article
+            data-animate="fade-up"
+            class="delay-100 clinical-glass rounded-(--radius-feature) border border-white/8 p-6 md:p-8"
+          >
+            <span class="font-display text-xs font-bold uppercase tracking-[0.18em] text-white/40"
+              >Systeemtraject</span
+            >
+            <h2 class="mt-3 mb-3 font-display text-xl font-black text-white">
+              Eerst begrijpen, dan bouwen
+            </h2>
+            <p class="mb-5 font-ui text-sm leading-relaxed text-white/60">
+              Voor accounts, databases, koppelingen, dashboards en processen die werk overnemen.
+              Hier voorkomt een bouwplan verkeerde aannames en kostbaar meerwerk.
+            </p>
+            <ol class="space-y-2 font-ui text-sm text-white/60">
+              <li>1. Gratis intake en eerste haalbaarheid</li>
+              <li>2. Betaald onderzoek en technisch bouwplan</li>
+              <li>3. Realisatie met vaste mijlpalen</li>
+              <li>4. Beheer en gerichte doorontwikkeling</li>
+            </ol>
+          </article>
+        </div>
+      </div>
 
       <!-- Process Timeline -->
       <div class="max-w-5xl mx-auto mb-16">
+        <SectionHeader
+          label="Het systeemtraject"
+          heading='Controle bij iedere <span class="text-active">beslissing</span>'
+          description="Onderstaande fases gelden voor maatwerksoftware en uitbreidingen buiten de vaste websitepakketten."
+        />
         <ProcessTimeline steps={[...processSteps]} />
       </div>
 
@@ -124,7 +185,9 @@ const howToSchema = {
       <!-- Betalingsvoorwaarden -->
       <div class="max-w-3xl mx-auto mb-16">
         <div class="flex items-center gap-3 mb-6">
-          <div class="w-8 h-8 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0">
+          <div
+            class="w-8 h-8 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0"
+          >
             <Icon name="clipboard-list" size={16} class="text-active" />
           </div>
           <h3 class="text-lg font-bold text-white font-display">Betalingsvoorwaarden</h3>
@@ -132,30 +195,48 @@ const howToSchema = {
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <!-- 30 dagen (algemene voorwaarden art. 9) -->
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
-            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors"
+          >
+            <div
+              class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
               <Icon name="clock" size={16} class="text-active" />
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-white font-bold text-sm font-display">Betalingstermijn</span>
-                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">30 dagen</span>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display"
+                  >30 dagen</span
+                >
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Na factuurdatum, volgens artikel 9 van de algemene voorwaarden. Betaalt u niet op tijd, dan sturen we eerst een schriftelijke herinnering (ingebrekestelling); blijft betaling uit, dan mogen we <span class="text-white/80">het werk tijdelijk stilleggen</span>.
+                Na factuurdatum, volgens artikel 9 van de algemene voorwaarden. Betaalt u niet op
+                tijd, dan sturen we eerst een schriftelijke herinnering (ingebrekestelling); blijft
+                betaling uit, dan mogen we <span class="text-white/80"
+                  >het werk tijdelijk stilleggen</span
+                >.
               </p>
             </div>
           </div>
 
           <!-- Discovery vooraf -->
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
-            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors"
+          >
+            <div
+              class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
               <Icon name="search" size={16} class="text-active" />
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-white font-bold text-sm font-display">Onderzoek (Discovery)</span>
-                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Vooraf</span>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display"
+                  >Vooraf</span
+                >
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
                 Wordt gefactureerd voordat we beginnen. Geen start zonder betaalde factuur.
@@ -164,33 +245,50 @@ const howToSchema = {
           </div>
 
           <!-- Change Request -->
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
-            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors"
+          >
+            <div
+              class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
               <Icon name="git-merge" size={16} class="text-active" />
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-white font-bold text-sm font-display">Meerwerk</span>
-                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Change Request</span>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display"
+                  >Change Request</span
+                >
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Werk buiten de afspraak vereist altijd een <span class="text-white/80">goedgekeurde wijziging (Change Request)</span> voordat we het uitvoeren.
+                Werk buiten de afspraak vereist altijd een <span class="text-white/80"
+                  >goedgekeurde wijziging (Change Request)</span
+                > voordat we het uitvoeren.
               </p>
             </div>
           </div>
 
           <!-- SLA incasso -->
-          <div class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors">
-            <div class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <div
+            class="clinical-glass p-5 rounded-(--radius-card) border border-white/8 flex gap-4 group hover:border-active/20 transition-colors"
+          >
+            <div
+              class="w-9 h-9 rounded-lg bg-active/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+            >
               <Icon name="refresh-cw" size={16} class="text-active" />
             </div>
             <div>
               <div class="flex items-center gap-2 mb-1">
                 <span class="text-white font-bold text-sm font-display">Onderhoud (SLA)</span>
-                <span class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display">Maandelijks</span>
+                <span
+                  class="px-2 py-0.5 rounded-full bg-active/15 text-active text-[10px] font-bold uppercase tracking-wider font-display"
+                  >Maandelijks</span
+                >
               </div>
               <p class="text-white/55 text-xs font-ui leading-relaxed">
-                Maandelijks vooraf via automatische incasso. De prijs stijgt jaarlijks mee met de inflatie (CBS).
+                Maandelijks vooraf via automatische incasso. De prijs stijgt jaarlijks mee met de
+                inflatie (CBS).
               </p>
             </div>
           </div>
@@ -200,7 +298,11 @@ const howToSchema = {
           <div class="flex items-start gap-3">
             <Icon name="alert-triangle" size={14} class="text-active flex-shrink-0 mt-0.5" />
             <p class="text-white/40 text-xs font-ui leading-relaxed">
-              <span class="text-white/70 font-bold">Annulering advies/bouwfase:</span> Voor IT Advies: tot 24u vooraf kosteloos verzetten. Voor de bouwfase: de al gewerkte uren + 30% van het resterende bedrag. Zie <a href="/voorwaarden" class="text-active hover:underline">artikel 10 van de algemene voorwaarden</a>.
+              <span class="text-white/70 font-bold">Annulering advies/bouwfase:</span> Voor IT Advies:
+              tot 24u vooraf kosteloos verzetten. Voor de bouwfase: de al gewerkte uren + 30% van het
+              resterende bedrag. Zie <a href="/voorwaarden" class="text-active hover:underline"
+                >artikel 10 van de algemene voorwaarden</a
+              >.
             </p>
           </div>
         </div>
@@ -210,13 +312,15 @@ const howToSchema = {
           <Icon name="external-link" size={13} class="text-active flex-shrink-0" />
           <p class="text-white/40 text-xs font-ui">
             Volledige betalings- en annuleringsafspraken:
-            <a href="/voorwaarden" class="text-active hover:text-active/80 transition-colors ml-1 underline underline-offset-2">
+            <a
+              href="/voorwaarden"
+              class="text-active hover:text-active/80 transition-colors ml-1 underline underline-offset-2"
+            >
               Algemene Voorwaarden →
             </a>
           </p>
         </div>
       </div>
-
 
       <!-- Wanneer wel/niet -->
       <div class="max-w-3xl mx-auto">
@@ -234,10 +338,15 @@ const howToSchema = {
               <Icon name="check" size={16} class="text-cta shrink-0" /> Ideale match
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/60">
-              <li>Er is een concreet bedrijfsproces dat tijd, fouten, omzet of klantbeleving raakt</li>
+              <li>
+                Er is een concreet bedrijfsproces dat tijd, fouten, omzet of klantbeleving raakt
+              </li>
               <li>U heeft eigenaarschap: u kunt beslissen, prioriteren en feedback geven</li>
-              <li>Bereidheid om eerst het onderzoek en het bouwplan (Discovery en Blueprint) serieus te doorlopen vóór er gebouwd wordt</li>
-              <li>De vraag gaat over een systeem of werkproces, niet over losse opmaak</li>
+              <li>
+                Bereidheid om eerst het onderzoek en het bouwplan (Discovery en Blueprint) serieus
+                te doorlopen wanneer de vraag verder gaat dan een vast websitepakket
+              </li>
+              <li>Of: complete website-inhoud en bereidheid om binnen een vast pakket te werken</li>
               <li>Er is ruimte voor onderhoud, documentatie en doorontwikkeling</li>
             </ul>
           </div>
@@ -249,7 +358,7 @@ const howToSchema = {
               <Icon name="arrow-right" size={16} class="text-white/40 shrink-0" /> Doorverwijzing
             </h3>
             <ul class="space-y-2 text-sm font-ui text-white/40">
-              <li>Alleen een snelle, goedkope website zonder onderliggende procesvraag</li>
+              <li>Een vaste prijs verwachten terwijl inhoud, pagina’s en functies nog openstaan</li>
               <li>Geen eigenaar, budgetrichting of beslismoment binnen de organisatie</li>
               <li>De wens om te bouwen zonder eerst analyse te doen</li>
               <li>Doorlopend veel support nodig zonder passend onderhoudscontract (SLA)</li>
@@ -268,9 +377,9 @@ const howToSchema = {
         <Icon name="arrow-right" size={20} />
       </a>
       <p class="text-white/40 text-sm font-ui mt-3">
-        Plan een gratis adviesgesprek en krijg direct inzicht in haalbaarheid, aanpak en kosten voor uw situatie.
+        Plan een gratis adviesgesprek en krijg direct inzicht in haalbaarheid, aanpak en kosten voor
+        uw situatie.
       </p>
     </div>
   </section>
 </Layout>
-

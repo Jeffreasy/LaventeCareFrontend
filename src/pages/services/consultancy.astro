@@ -60,7 +60,7 @@ const serviceSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="IT Advice & Consultancy — Independent Sparring Partner | LaventeCare"
@@ -69,16 +69,20 @@ const serviceSchema = {
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto mb-16">
-        <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2">
+        <span
+          class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 flex items-center gap-2"
+        >
           <Icon name="handshake" size={16} class="text-active" /> IT Advice & Consultancy
         </span>
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight">
+        <h1
+          class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 font-display tracking-tight"
+        >
           Advice that <span class="text-active">holds up</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
-          Sometimes you do not need a build — you need someone who thinks along critically. LaventeCare
-          is an independent sparring partner and second opinion for your digital plans, without any
-          obligation to build.
+          Sometimes you do not need a build — you need someone who thinks along critically.
+          LaventeCare is an independent sparring partner and second opinion for your digital plans,
+          without any obligation to build.
         </p>
         <p class="text-base text-active/80 font-ui font-bold mb-6">
           Sober advice on architecture, tooling and choices — €95/hr, first conversation free.
@@ -136,12 +140,12 @@ const serviceSchema = {
             at €95/hr (excl. VAT)
           </li>
           <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> No obligation to build —
-            you decide what happens with the advice
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> No obligation to build
+            — you decide what happens with the advice
           </li>
           <li class="flex gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Change requests on
-            running projects are also billed at €95/hr
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> Change requests on running
+            projects are also billed at €95/hr
           </li>
         </ul>
       </div>

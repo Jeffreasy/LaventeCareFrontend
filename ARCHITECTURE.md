@@ -1,60 +1,52 @@
-# Architecture Guide
+# Architecture
 
-## System Overview
+## Runtime
 
-LaventeCare is built as a high-performance, SEO-optimized web application using the **Astro 5** framework. It leverages the **Islands Architecture** to minimize client-side JavaScript, shipping purely static HTML for the majority of the UI and hydrating only the interactive components (React).
+LaventeCare is an Astro 7 SSR application deployed through the Vercel adapter. Astro middleware
+runs at the edge and resolves locale, validates sessions and guards private routes before rendering.
+Most UI is server-rendered HTML; React 19 is used only for interactive islands.
 
-## Core Stack
+## Request flow
 
-| Layer | Technology | Rationale |
-|-------|------------|-----------|
-| **Frontend Framework** | Astro 5 | Best-in-class performance, SEO, and islands architecture. |
-| **Interactive UI** | React 19 | Rich ecosystem for extensive interactive components. |
-| **Backend / DB** | Convex | Typesafe, realtime backend-as-a-service. |
-| **State** | Nanostores | Lightweight, framework-agnostic state management sharing state between Astro & React. |
-| **Styling** | Tailwind CSS v4 | Utility-first, co-located styling with zero runtime overhead. |
-
-## Application Layers
-
-### 1. Presentation Layer (Astro & React)
-
--   **Static Blocks** (`src/components/blocks/`): These are Server Components (`.astro`). They render on the server and send no JS to the client. Used for Headers, Footers, Hero sections, and Content.
--   **Interactive Islands** (`src/components/islands/`): These are Client Components (`.tsx`). They are hydrated on the client. Used for Search, Forms, Auth, and Toggles.
-
-**Hydration Strategy:**
-We use partial hydration. Only interactive islands load JavaScript.
--   `<Navbar client:load />` -> Immediate hydration for critical UI.
--   `<Footer />` -> No hydration (static).
-
-### 2. Data Layer (Convex)
-
-The application connects to a managed Convex backend.
--   **Client**: Initialized in `src/lib/convex.ts`.
--   **Access**:
-    -   *Realtime*: React components use `useQuery` hooks.
-    -   *Actions*: RPC calls via `convex.mutation` or `convex.action`.
-
-### 3. State Management (Nanostores)
-
-Global state (like User Session, Theme, Shopping Cart) is managed via **Nanostores**.
--   **Why?** Nanostores can be read/written from standard JS modules, Astro components (during build/SSR), and React components (during runtime) without context wrappers.
-
-## Design System
-
-The application implements a "Glassmorphism" aesthetic.
-
--   **Core visual traits**: Translucency, vivid background gradients, light borders.
--   **Implementation**:
-    -   Global CSS variables for primary/secondary colors.
-    -   Tailwind v4 for utility composition.
-    -   `cn()` utility for merging class names safely.
-
-## Directory Structure Strategy
-
+```text
+Browser
+  -> Vercel security headers
+  -> Astro edge middleware
+       -> locale from Host (.nl / .com)
+       -> JWT verification through backend JWKS
+       -> route and role guards
+  -> Astro page or same-origin /api route
+       -> Go backend (BFF proxy)
+  -> response
 ```
-src/
-├── components/
-│   ├── blocks/    # ❌ No State. Pure rendering.
-│   ├── islands/   # ✅ State. Event listeners. API calls.
-│   └── ui/        # 🧩 Atoms. Buttons, Inputs, Badges.
-```
+
+The browser never needs a direct backend credential. The BFF forwards authorised same-origin
+requests, applies backend cookies through Astro's cookie manager, limits request bodies and disables
+caching for private/API responses.
+
+## Localisation
+
+`src/lib/i18n/routes.ts` owns all public NL/EN route pairs. Middleware redirects a route that belongs
+to the other locale, while SEO metadata, hreflang links and the dynamic sitemap use the same mapping.
+Shared URLs such as `/contact` and `/portfolio` render language-specific content from the Host.
+
+## Authentication
+
+- The backend remains the authority for login, refresh, logout and RBAC.
+- Access tokens are verified with a remote JWKS and configured issuer/audience.
+- Admin routes require both a valid access token and the `admin` role.
+- Auth cookies are HTTP-only except for the CSRF token required by the browser.
+- Login and logout enforce same-origin requests in production.
+- Private pages and API responses use `Cache-Control: no-store`.
+
+## Consent and analytics
+
+Necessary functionality is always available. Vercel Analytics and optional marketing scripts only
+load after the corresponding consent category is enabled. Users can reject, accept, customise and
+later reopen preferences from the footer. The preferences dialog traps focus and supports Escape.
+
+## Quality gates
+
+GitHub Actions uses Node 24 and runs Prettier, ESLint, Astro type checking, Chromium Playwright flows
+and a production build. E2E coverage includes locale routing, real 404 responses, consent persistence,
+host-aware SEO files, English case studies and the contact intake flow.

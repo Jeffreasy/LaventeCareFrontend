@@ -2,13 +2,13 @@
 
 ## System Overview
 
-LaventeCare is engineered for maximum performance, excellent SEO, and a premium user experience. To achieve this trinity, the application relies on **Astro 5** as the core rendering engine. By defaulting to zero-JavaScript HTML, it provides immediate First Contentful Paint (FCP). Interactivity is injected strictly where necessary using **React 19**.
+LaventeCare is engineered for maximum performance, excellent SEO, and a premium user experience. The application uses **Astro 7** as its server-first rendering engine and adds interactivity only where necessary with **React 19**.
 
 ## Core Stack Philosophy
 
 | Layer | Technology | Rationale |
 |-------|------------|-----------|
-| **Core Framework** | Astro 5 | Server-first rendering. Outputs highly optimized static or edge-rendered HTML. |
+| **Core Framework** | Astro 7 | Server-first rendering with Vercel Edge middleware and SSR output. |
 | **Interactive UI** | React 19 | Brings complex client-side state, form handling, and rich interactivity. |
 | **Backend Integration** | Astro BFF Proxy | Intercepts route requests and proxies them securely to the LaventeCare AuthSystem API. |
 | **Styling** | Tailwind CSS v4 | Provides a utility-first methodology with zero-runtime logic. |

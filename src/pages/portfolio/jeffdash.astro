@@ -4,6 +4,10 @@ import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
+if (Astro.locals.locale === 'en') {
+  return Astro.rewrite('/en-case-study?slug=jeffdash');
+}
+
 const results = [
   { value: 'Dynamisch', label: 'Aanpasbare QR codes' },
   { value: 'Real-time', label: 'Scan analytics' },

@@ -6,6 +6,8 @@ import FAQSection from '../components/blocks/FAQSection.astro';
 import SectionHeader from '../components/ui/SectionHeader.astro';
 import StatCard from '../components/ui/StatCard.astro';
 import PillarCard from '../components/blocks/PillarCard.astro';
+import WebsiteOfferTeaser from '../components/blocks/WebsiteOfferTeaser.astro';
+import BrandSystemVisual from '../components/blocks/BrandSystemVisual.astro';
 import { AntiGravityShield } from '../components/islands/AntiGravityShield';
 
 // Dual-domain: serve EN homepage on .com without changing the URL
@@ -17,7 +19,7 @@ const heroData = {
   headline: 'B2B systeempartner voor mkb-organisaties',
   subtitle: 'Van idee tot werkend systeem',
   description:
-    'Voor mkb-organisaties die digitale groei, automatisering en maatwerksoftware <span class="text-active font-bold">serieus willen aanpakken</span>. Geen losse websitebouwer of eenmalige freelancer, maar een <span class="text-active font-bold">vaste partner</span> die uw manier van werken omzet in software die het werk uit handen neemt.',
+    'Voor mkb-organisaties die digitale groei, automatisering en maatwerksoftware <span class="text-active font-bold">serieus willen aanpakken</span>. Van een professionele website tot een compleet bedrijfssysteem: één <span class="text-active font-bold">vaste partner</span> die techniek laat meegroeien met uw bedrijf.',
   ctaPrimary: {
     label: 'Plan een gratis adviesgesprek',
     url: '/contact',
@@ -27,9 +29,9 @@ const heroData = {
     url: '/portfolio',
   },
   stats: [
-    { value: 'tot 99/100', label: 'Google Lighthouse' },
-    { value: '6+', label: 'Live projecten' },
-    { value: '<1,5s', label: 'Gemiddelde laadtijd' },
+    { value: 'Per project', label: 'Snelheid gemeten' },
+    { value: '7', label: 'Live projecten' },
+    { value: 'Astro-first', label: 'Lichte technische basis' },
   ],
   alignment: 'center' as const,
   size: 'large' as const,
@@ -40,10 +42,10 @@ const jsonLd = {
   '@type': 'ProfessionalService',
   name: 'LaventeCare',
   url: 'https://www.laventecare.nl',
-  logo: 'https://www.laventecare.nl/og-image.png',
-  image: 'https://www.laventecare.nl/og-image.png',
+  logo: 'https://www.laventecare.nl/og-laventecare-2026.png',
+  image: 'https://www.laventecare.nl/og-laventecare-2026.png',
   description:
-    'LaventeCare bouwt systemen die bedrijven efficiënter maken, fouten voorkomen en groei versnellen: AI, IoT, maatwerkplatformen, lead generation en security-first systemen.',
+    'LaventeCare bouwt professionele websites en systemen die bedrijven efficiënter maken: websites vanaf €750, AI, IoT, maatwerkplatformen en beveiliging vanaf de basis.',
   founder: {
     '@type': 'Person',
     name: 'Jeffrey Lavente',
@@ -74,6 +76,7 @@ const jsonLd = {
     },
   ],
   knowsAbout: [
+    'Professionele websites met Astro',
     'IT Advies & Consultancy',
     'Security-first systemen',
     'AI & Automatisering',
@@ -145,7 +148,7 @@ const pillars = [
   {
     title: 'Beveiliging & Authenticatie',
     description:
-      "Uw gegevens zijn per klant strikt gescheiden en beschermd, ook bij fouten of aanvallen. Onder de motorkap: PostgreSQL RLS, toegang per rol (RBAC) en volledige logging.",
+      'Uw gegevens zijn per klant strikt gescheiden en beschermd, ook bij fouten of aanvallen. Onder de motorkap: PostgreSQL RLS, toegang per rol (RBAC) en volledige logging.',
     icon: 'shield-check',
     tags: ['Gescheiden klantdata', 'Toegang per rol', 'Alles vastgelegd'],
     href: '/diensten/security',
@@ -154,13 +157,15 @@ const pillars = [
 ] as const;
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 <Layout
   title="LaventeCare — B2B systeempartner voor mkb | Dronten"
   description="B2B systeempartner voor mkb-organisaties die digitale groei, automatisering en maatwerksoftware goed en betrouwbaar willen regelen. Van idee tot werkend systeem."
 >
   <Hero {...heroData} />
+
+  <WebsiteOfferTeaser locale="nl" />
 
   <!-- Kernactiviteiten -->
   <section class="section-padding relative overflow-hidden">
@@ -172,7 +177,7 @@ const pillars = [
     <div class="container mx-auto px-4 relative">
       <SectionHeader
         label="Diensten"
-        heading='Zes diensten, één <span class="text-active">werkend systeem</span>'
+        heading='Zes specialistische diensten, één <span class="text-active">werkend systeem</span>'
         description="Geen losse projecten, maar een geïntegreerd systeem: elke dienst versterkt de andere. Van advies en AI-automatisering tot maatwerkplatformen en beveiliging — samen van idee tot werkend systeem."
       />
 
@@ -181,6 +186,8 @@ const pillars = [
       </div>
     </div>
   </section>
+
+  <BrandSystemVisual locale="nl" />
 
   <!-- USPs -->
   <section class="section-padding">
@@ -202,9 +209,12 @@ const pillars = [
           >
             <Icon name="link" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Eén aanspreekpunt, volledig eigenaarschap</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">
+            Eén aanspreekpunt, volledig eigenaarschap
+          </h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Van intake tot livegang — één vast aanspreekpunt dat uw processen en systeem door en door kent. Geen wisselende developers, geen miscommunicatie, geen kennisverloop.
+            Van intake tot livegang — één vast aanspreekpunt dat uw processen en systeem door en
+            door kent. Geen wisselende developers, geen miscommunicatie, geen kennisverloop.
           </p>
         </div>
 
@@ -218,9 +228,13 @@ const pillars = [
           >
             <Icon name="zap" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Security-first architectuur</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">
+            Security-first architectuur
+          </h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Uw gegevens zijn per klant strikt gescheiden en elke actie wordt vastgelegd. Onder de motorkap: Privacy by Design met PostgreSQL RLS, toegang per rol (RBAC) en volledige logging.
+            Uw gegevens zijn per klant strikt gescheiden en elke actie wordt vastgelegd. Onder de
+            motorkap: Privacy by Design met PostgreSQL RLS, toegang per rol (RBAC) en volledige
+            logging.
           </p>
         </div>
 
@@ -234,9 +248,12 @@ const pillars = [
           >
             <Icon name="gauge" size={24} class="text-active" />
           </div>
-          <h3 class="text-lg font-bold text-white mb-3 font-display">Meetbaar sneller, aantoonbaar beter</h3>
+          <h3 class="text-lg font-bold text-white mb-3 font-display">
+            Meetbaar sneller, aantoonbaar beter
+          </h3>
           <p class="text-white/60 text-sm leading-relaxed font-ui">
-            Systemen die scoren tot 99/100 op Google Lighthouse en gemiddeld onder 1,5s laden. Snelheid en stabiliteit als fundament, niet als afterthought.
+            Ik meet snelheid en stabiliteit per project en optimaliseer op basis van het echte
+            gebruik. Een lichte technische basis is het vertrekpunt, geen losse belofte.
           </p>
         </div>
       </div>
@@ -251,9 +268,9 @@ const pillars = [
         class="clinical-glass p-6 md:p-8 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto"
       >
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatCard value="6+" label="Live projecten" />
-          <StatCard value="tot 99/100" label="Google Lighthouse" />
-          <StatCard value="<1,5s" label="Gemiddelde laadtijd" />
+          <StatCard value="7" label="Live projecten" />
+          <StatCard value="Per project" label="Snelheid gemeten" />
+          <StatCard value="Astro-first" label="Lichte technische basis" />
           <StatCard value="SLA" label="Doorlopend onderhoud mogelijk" />
         </div>
       </div>
@@ -263,10 +280,7 @@ const pillars = [
   <!-- Secure by Design: Live Security -->
   <section class="py-8 md:py-12">
     <div class="container mx-auto px-4">
-      <div
-        data-animate="fade-up"
-        class="max-w-3xl mx-auto"
-      >
+      <div data-animate="fade-up" class="max-w-3xl mx-auto">
         <div class="text-center mb-8">
           <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-2 block"
             >Secure by Design</span
@@ -275,7 +289,8 @@ const pillars = [
             Actieve Systeembeveiliging
           </h2>
           <p class="text-white/50 text-sm font-ui mt-2">
-            Geen loze beloftes over veiligheid. Zie hier live overzicht van de beveiligingslaag die kwaadwillend verkeer signaleert en weert.
+            Geen loze beloftes over veiligheid. Zie hier live overzicht van de beveiligingslaag die
+            kwaadwillend verkeer signaleert en weert.
           </p>
         </div>
 
@@ -323,7 +338,7 @@ const pillars = [
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
             Real-time registratieplatform voor een liefdadigheidsevenement. Aanmeldingen worden
-            direct verwerkt, zonder handmatig beheer voor de organisatie.
+            direct verwerkt, waardoor de organisatie minder handmatig hoeft over te nemen.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
@@ -331,16 +346,14 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go Auth</span>
           </div>
-          <div
-            class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
-          >
+          <div class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5">
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
               <span class="text-white/70 text-xs font-ui">Real-time registratie</span>
             </div>
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
-              <span class="text-white/70 text-xs font-ui">0 handmatig beheer</span>
+              <span class="text-white/70 text-xs font-ui">Minder handwerk</span>
             </div>
           </div>
           <span class="text-active text-sm font-bold flex items-center gap-2 font-ui">
@@ -372,8 +385,8 @@ const pillars = [
             >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Koelmonitoring met automatische alarmering bij afwijkingen. Sensordata direct
-            zichtbaar op uw scherm, waar u ook bent.
+            Koelmonitoring met automatische alarmering bij afwijkingen. Sensordata direct zichtbaar
+            op uw scherm, waar u ook bent.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">C++</span>
@@ -382,9 +395,7 @@ const pillars = [
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">React</span>
           </div>
-          <div
-            class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
-          >
+          <div class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5">
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
               <span class="text-white/70 text-xs font-ui">Realtime sensordata</span>
@@ -423,17 +434,15 @@ const pillars = [
             >
           </div>
           <p class="text-white/60 text-sm mb-4 font-ui leading-relaxed">
-            Stapsgewijs offertetraject, projectgalerij en automatische klantcommunicatie in
-            één systeem, gebouwd voor snelheid en vindbaarheid.
+            Stapsgewijs offertetraject, projectgalerij en automatische klantcommunicatie in één
+            systeem, gebouwd voor snelheid en vindbaarheid.
           </p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Astro</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Convex</span>
             <span class="text-xs text-white/40 bg-white/5 px-2 py-1 rounded-md">Go Auth</span>
           </div>
-          <div
-            class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5"
-          >
+          <div class="flex items-center gap-4 py-3 mb-4 border-t border-b border-white/5">
             <div class="flex items-center gap-1.5">
               <Icon name="check" size={14} class="text-active" />
               <span class="text-white/70 text-xs font-ui">Offertetraject geautomatiseerd</span>
@@ -475,7 +484,9 @@ const pillars = [
           </div>
           <span class="text-emerald-400 text-sm font-bold flex items-center gap-2 font-ui">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              ></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             Live in gebruik
@@ -505,12 +516,12 @@ const pillars = [
         <p
           class="text-white/70 text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto font-ui"
         >
-          Systems engineer met een achtergrond in intensieve NAH-zorg. Ik bouw
-          systemen die niet alleen technisch solide zijn, maar ook structuur en veiligheid
-          bieden in de echte wereld.
+          Systems engineer met een achtergrond in intensieve NAH-zorg. Ik bouw systemen die niet
+          alleen technisch solide zijn, maar ook structuur en veiligheid bieden in de echte wereld.
         </p>
         <p class="text-white/40 text-sm font-ui mb-6">
-          Plan een gratis adviesgesprek en ontdek waar u direct tijd, kosten of risico kunt besparen.
+          Plan een gratis adviesgesprek en ontdek waar u direct tijd, kosten of risico kunt
+          besparen.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/over" class="btn-secondary"> Lees mijn verhaal </a>

@@ -4,10 +4,19 @@ interface Props {
   heading: string;
   description?: string;
   alignment?: 'left' | 'center';
+  level?: 1 | 2;
   class?: string;
 }
 
-const { label, heading, description, alignment = 'center', class: className } = Astro.props;
+const {
+  label,
+  heading,
+  description,
+  alignment = 'center',
+  level = 2,
+  class: className,
+} = Astro.props;
+const HeadingTag = level === 1 ? 'h1' : 'h2';
 ---
 
 <div
@@ -24,7 +33,7 @@ const { label, heading, description, alignment = 'center', class: className } = 
       </span>
     )
   }
-  <h2
+  <HeadingTag
     class="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 font-display tracking-tight leading-[1.1]"
     set:html={heading}
   />

@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/ui/Icon.astro';
+import TechStackBadge from '../components/ui/TechStackBadge.astro';
+
+interface CaseStudy {
+  name: string;
+  category: string;
+  summary: string;
+  challenge: string;
+  solution: string;
+  impact: string[];
+  tech: string[];
+  liveUrl?: string;
+}
+
+const CASES: Record<string, CaseStudy> = {
+  'de-koninklijke-loop': {
+    name: 'De Koninklijke Loop',
+    category: 'Event Platform',
+    summary:
+      'A complete platform for participant registration, tickets, donations and event communication.',
+    challenge:
+      'The organisation needed one reliable flow for registrations, payments and participant updates, without repetitive spreadsheet work.',
+    solution:
+      'LaventeCare built a fast public website with a real-time registration back end, automated confirmations and a clear operational dashboard.',
+    impact: ['Real-time registrations', 'Automated ticket flow', 'Far less manual administration'],
+    tech: ['Astro', 'React 19', 'Convex', 'Go Auth', 'Vercel'],
+    liveUrl: 'https://www.dekoninklijkeloop.nl/',
+  },
+  jeffdash: {
+    name: 'JeffDash',
+    category: 'QR SaaS Platform',
+    summary:
+      'Dynamic, brand-ready QR codes with real-time scan analytics and high-quality exports.',
+    challenge:
+      'Printed QR codes needed editable destinations, reliable scan insights and professional exports without sacrificing ease of use.',
+    solution:
+      'A multi-tenant platform combines dynamic redirects, live analytics, brand controls and SVG/PNG exports in one dashboard.',
+    impact: ['Editable destinations', 'Live campaign insights', 'Print-ready branded exports'],
+    tech: ['Next.js', 'React 19', 'Convex', 'Clerk'],
+    liveUrl: 'https://www.jeffdash.com/',
+  },
+  'cf-bouw': {
+    name: 'C&F Bouw',
+    category: 'Lead Generation',
+    summary:
+      'A construction website redesigned as a focused lead-generation and quote-request system.',
+    challenge:
+      'Prospective customers needed clearer guidance while the business needed better-qualified requests and less administrative follow-up.',
+    solution:
+      'The new experience combines industry-specific SEO, a guided quote flow and automated request processing.',
+    impact: [
+      'Better-qualified enquiries',
+      'Automated quote intake',
+      'Stronger local search visibility',
+    ],
+    tech: ['Astro', 'Convex', 'Go Auth'],
+    liveUrl: 'https://www.cfbouw.nl/',
+  },
+  'whisky-for-charity': {
+    name: 'Whisky for Charity',
+    category: 'Charity Platform',
+    summary:
+      'A secure charity platform for donations, auctions and transparent impact communication.',
+    challenge:
+      'The initiative needed a trustworthy donation experience with clear communication and safeguards around payment and participant data.',
+    solution:
+      'LaventeCare delivered a focused platform with a closed payment flow, automated email communication and fraud-aware validation.',
+    impact: ['Secure donation journey', 'Automated communication', 'Clearer donor confidence'],
+    tech: ['Astro', 'HTML Email', 'Vercel'],
+    liveUrl: 'https://www.whiskyforcharity.com/',
+  },
+  tuinhub: {
+    name: 'TuinHub',
+    category: 'Marketplace',
+    summary:
+      'A matching platform that connects garden owners with relevant landscaping professionals.',
+    challenge:
+      'Homeowners struggled to find a suitable professional, while landscapers needed qualified leads in their service area.',
+    solution:
+      'A structured request flow captures project needs and automatically routes each lead to suitable professionals.',
+    impact: ['Instant lead routing', 'Automated matching', 'Less qualification work'],
+    tech: ['Astro', 'Convex', 'Go Auth', 'SEO'],
+    liveUrl: 'https://tuinhub.nl/',
+  },
+  smartcoolcare: {
+    name: 'SmartCoolCare',
+    category: 'IoT & Hardware',
+    summary: 'Live cold-chain monitoring that catches temperature anomalies before damage occurs.',
+    challenge:
+      'Cold-storage operators needed reliable monitoring without complex installation, excessive battery use or delayed alerts.',
+    solution:
+      'Custom low-power ESP32 hardware sends measurements to a cloud dashboard with live status, alerts and remote update support.',
+    impact: ['Months of battery life', 'Live cloud visibility', 'Remote firmware updates'],
+    tech: ['C++', 'ESP32', 'BLE', 'Convex', 'React'],
+    liveUrl: 'https://www.smartcoolcare.nl/',
+  },
+  'dustin-auto-garage': {
+    name: 'Dustin Auto Garage',
+    category: 'Workshop Operations',
+    summary:
+      'A tailored workshop system for vehicle intake, planning, administration and invoicing.',
+    challenge:
+      'Vehicle data, workshop planning and invoices lived in separate manual processes that consumed valuable mechanic time.',
+    solution:
+      'One operational platform brings vehicle-data lookup, job planning, customer records and automated invoices together.',
+    impact: ['Integrated vehicle data', 'Digital workshop planning', 'Automated invoicing'],
+    tech: ['Astro', 'React 19', 'Convex', 'Go Auth'],
+  },
+};
+
+const slug = Astro.url.searchParams.get('slug') || '';
+const study = CASES[slug];
+if (!study || Astro.locals.locale !== 'en') {
+  return new Response('Not Found', { status: 404 });
+}
+
+const publicPath = `/portfolio/${slug}`;
+---
+
+<Layout
+  title={`Case Study: ${study.name} — LaventeCare`}
+  description={study.summary}
+  pathnameOverride={publicPath}
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-4xl">
+        <a
+          href="/portfolio"
+          class="mb-8 inline-flex items-center gap-2 text-sm text-white/60 hover:text-active"
+        >
+          <span aria-hidden="true">←</span> Back to portfolio
+        </a>
+        <span class="mb-3 block text-xs font-bold uppercase tracking-[0.2em] text-active">
+          {study.category} · Case Study
+        </span>
+        <h1 class="mb-6 font-display text-4xl font-black tracking-tight text-white md:text-6xl">
+          {study.name}
+        </h1>
+        <p class="mb-8 max-w-3xl font-ui text-lg leading-relaxed text-white/70 md:text-xl">
+          {study.summary}
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {study.tech.map((tech) => <TechStackBadge tech={tech} />)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+        <article class="clinical-glass rounded-2xl border border-white/10 p-7">
+          <p class="mb-2 text-xs font-bold uppercase tracking-wider text-active">The challenge</p>
+          <h2 class="mb-4 font-display text-2xl font-bold text-white">What had to change</h2>
+          <p class="font-ui leading-relaxed text-white/65">{study.challenge}</p>
+        </article>
+        <article class="clinical-glass rounded-2xl border border-white/10 p-7">
+          <p class="mb-2 text-xs font-bold uppercase tracking-wider text-active">The solution</p>
+          <h2 class="mb-4 font-display text-2xl font-bold text-white">A focused working system</h2>
+          <p class="font-ui leading-relaxed text-white/65">{study.solution}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-4xl text-center">
+        <h2 class="mb-8 font-display text-3xl font-bold text-white">Practical impact</h2>
+        <div class="grid gap-4 sm:grid-cols-3">
+          {
+            study.impact.map((result) => (
+              <div class="rounded-2xl border border-active/20 bg-active/10 p-5 font-ui font-semibold text-white">
+                {result}
+              </div>
+            ))
+          }
+        </div>
+        <div class="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          {
+            study.liveUrl && (
+              <a
+                href={study.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-hero-secondary"
+              >
+                View live project <Icon name="external-link" size={16} />
+              </a>
+            )
+          }
+          <a href="/contact?type=discovery" class="btn-primary">
+            Discuss a similar project <Icon name="arrow-right" size={16} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -26,7 +26,7 @@ const features = [
   },
   {
     icon: 'shield-check',
-    title: 'Risico\'s vooraf in beeld',
+    title: "Risico's vooraf in beeld",
     desc: 'Beveiliging, afhankelijkheden, onderhoud en of het systeem met u kan meegroeien tegen het licht houden, zodat u niet voor verrassingen komt te staan.',
   },
   {
@@ -52,7 +52,7 @@ const serviceSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
 
 <Layout
   title="IT Advies & Consultancy — Onafhankelijk Sparringpartner | LaventeCare"
@@ -71,9 +71,9 @@ const serviceSchema = {
           Eerst helder <span class="text-active">advies</span>
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui leading-relaxed mb-4">
-          Niet elke vraag begint bij bouwen. Soms heeft u vooral behoefte aan een onafhankelijke blik
-          op uw digitale keuzes: een sparringpartner die meedenkt, een offerte toetst of een tweede
-          mening geeft — zonder dat daar een bouwopdracht aan vastzit.
+          Niet elke vraag begint bij bouwen. Soms heeft u vooral behoefte aan een onafhankelijke
+          blik op uw digitale keuzes: een sparringpartner die meedenkt, een offerte toetst of een
+          tweede mening geeft — zonder dat daar een bouwopdracht aan vastzit.
         </p>
         <p class="text-base text-active/80 font-ui font-bold mb-6">
           Onafhankelijk advies, second opinion en richting — zonder bouwverplichting.
@@ -115,7 +115,9 @@ const serviceSchema = {
         data-animate="fade-up"
         class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5 max-w-3xl mx-auto mb-16 text-center"
       >
-        <span class="text-active text-3xl md:text-4xl font-black font-display block mb-2">€95/u</span>
+        <span class="text-active text-3xl md:text-4xl font-black font-display block mb-2"
+          >€95/u</span
+        >
         <p class="text-white/70 font-ui text-sm mb-2">
           Transparant uurtarief voor advies en consultancy (excl. BTW).
         </p>
@@ -140,16 +142,16 @@ const serviceSchema = {
             voorstel ontvangen en wilt weten of het klopt
           </li>
           <li class="flex items-start gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U twijfelt tussen
-            technologieën of leveranciers en zoekt een neutrale blik
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U twijfelt tussen technologieën
+            of leveranciers en zoekt een neutrale blik
           </li>
           <li class="flex items-start gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U wilt een bestaand
-            systeem laten beoordelen op beveiliging, onderhoud en of het kan meegroeien
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U wilt een bestaand systeem
+            laten beoordelen op beveiliging, onderhoud en of het kan meegroeien
           </li>
           <li class="flex items-start gap-3">
-            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U wilt uw digitale
-            vraag eerst scherpstellen voordat er iets gebouwd wordt
+            <Icon name="check" size={14} class="text-active shrink-0 mt-0.5" /> U wilt uw digitale vraag
+            eerst scherpstellen voordat er iets gebouwd wordt
           </li>
         </ul>
       </div>

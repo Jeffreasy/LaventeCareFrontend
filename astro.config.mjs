@@ -2,59 +2,33 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 
-import vercel from "@astrojs/vercel";
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-    output: 'server',
-    adapter: vercel({
-        webAnalytics: {
-            enabled: true,
-        },
-    }),
-    site: process.env.SITE || 'https://www.laventecare.nl',
-
-    vite: {
-        plugins: [
-            // @ts-ignore
-            tailwindcss()
-        ],
-        build: {
-            rollupOptions: {
-                output: {
-                    manualChunks: {
-                        'react-vendor': ['react', 'react-dom'],
-                        'form-vendor': ['@conform-to/react', '@conform-to/zod', 'zod'],
-                        'analytics-vendor': ['@vercel/analytics', 'web-vitals'],
-                        'store-vendor': ['nanostores', '@nanostores/persistent'],
-                    },
-                },
-            },
-            chunkSizeWarningLimit: 600,
-            minify: 'esbuild',
-        },
-        optimizeDeps: {
-            include: ['react', 'react-dom', '@conform-to/react', '@conform-to/zod'],
-        },
+  output: 'server',
+  adapter: vercel({
+    middlewareMode: 'edge',
+    webAnalytics: {
+      enabled: true,
     },
+  }),
+  site: process.env.SITE || 'https://www.laventecare.nl',
 
-    integrations: [
-        react(),
-        sitemap({
-            filter: (page) =>
-                !page.includes('/admin') &&
-                !page.includes('/api/') &&
-                !page.includes('/login') &&
-                !page.includes('/en-index'),  // exclude draft EN homepage file
-            i18n: {
-                defaultLocale: 'nl',
-                locales: {
-                    nl: 'nl-NL',
-                    en: 'en-US',
-                },
-            },
-        }),
+  vite: {
+    plugins: [
+      // @ts-ignore
+      tailwindcss(),
     ],
+    build: {
+      chunkSizeWarningLimit: 600,
+      minify: 'esbuild',
+    },
+    optimizeDeps: {
+      include: ['react', 'react-dom'],
+    },
+  },
+
+  integrations: [react()],
 });

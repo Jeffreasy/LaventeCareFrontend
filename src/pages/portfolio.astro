@@ -4,7 +4,8 @@ import SectionHeader from '../components/ui/SectionHeader.astro';
 import CaseStudyCard from '../components/blocks/CaseStudyCard.astro';
 import Icon from '../components/ui/Icon.astro';
 
-const caseStudies = [
+const isEnglish = Astro.locals.locale === 'en';
+const nlCaseStudies = [
   {
     name: 'De Koninklijke Loop',
     category: 'Evenementen',
@@ -13,11 +14,7 @@ const caseStudies = [
     techStack: ['Astro', 'React 19', 'Convex', 'Go Auth', 'Vercel'],
     liveUrl: 'https://www.dekoninklijkeloop.nl/',
     caseStudyUrl: '/portfolio/de-koninklijke-loop',
-    metrics: [
-      'Real-time registratie',
-      '0 Handmatig beheer',
-      'Geautomatiseerde ticketflow',
-    ],
+    metrics: ['Real-time registratie', '0 Handmatig beheer', 'Geautomatiseerde ticketflow'],
   },
   {
     name: 'JeffDash',
@@ -27,11 +24,7 @@ const caseStudies = [
     techStack: ['Next.js', 'Convex', 'React 19', 'Clerk'],
     liveUrl: 'https://www.jeffdash.com/',
     caseStudyUrl: '/portfolio/jeffdash',
-    metrics: [
-      'Dynamische QR-codes',
-      'Real-time inzicht in scans',
-      'Gegevens strikt gescheiden',
-    ],
+    metrics: ['Dynamische QR-codes', 'Real-time inzicht in scans', 'Gegevens strikt gescheiden'],
   },
   {
     name: 'C&F Bouw',
@@ -55,10 +48,7 @@ const caseStudies = [
     techStack: ['Astro', 'HTML Email', 'Vercel'],
     liveUrl: 'https://www.whiskyforcharity.com/',
     caseStudyUrl: '/portfolio/whisky-for-charity',
-    metrics: [
-      'Gesloten Betaalsysteem',
-      'Fraude-preventie inbegrepen',
-    ],
+    metrics: ['Gesloten Betaalsysteem', 'Fraude-preventie inbegrepen'],
   },
   {
     name: 'TuinHub',
@@ -68,10 +58,7 @@ const caseStudies = [
     techStack: ['Astro', 'Convex', 'Go Auth', 'SEO'],
     liveUrl: 'https://tuinhub.nl/',
     caseStudyUrl: '/portfolio/tuinhub',
-    metrics: [
-      'Aanvragen direct doorgestuurd',
-      'Automatisch koppelen',
-    ],
+    metrics: ['Aanvragen direct doorgestuurd', 'Automatisch koppelen'],
   },
   {
     name: 'SmartCoolCare',
@@ -81,11 +68,7 @@ const caseStudies = [
     techStack: ['C++/ESP32', 'BLE', 'Convex', 'React'],
     liveUrl: 'https://www.smartcoolcare.nl/',
     caseStudyUrl: '/portfolio/smartcoolcare',
-    metrics: [
-      'Zuinig, werkt maandenlang',
-      'Live overzicht in de cloud',
-      'Updates op afstand',
-    ],
+    metrics: ['Zuinig, werkt maandenlang', 'Live overzicht in de cloud', 'Updates op afstand'],
   },
   {
     name: 'Dustin Auto Garage',
@@ -101,18 +84,101 @@ const caseStudies = [
     ],
   },
 ];
+
+const enCaseStudies = [
+  {
+    name: 'De Koninklijke Loop',
+    category: 'Events',
+    description:
+      'An event platform that handles registration, ticketing and donations without manual administration.',
+    techStack: ['Astro', 'React 19', 'Convex', 'Go Auth', 'Vercel'],
+    liveUrl: 'https://www.dekoninklijkeloop.nl/',
+    caseStudyUrl: '/portfolio/de-koninklijke-loop',
+    metrics: ['Real-time registration', 'Zero manual processing', 'Automated ticket flow'],
+  },
+  {
+    name: 'JeffDash',
+    category: 'QR Platform',
+    description:
+      'A dynamic QR platform with real-time scan analytics, campaign insights and brand-ready exports.',
+    techStack: ['Next.js', 'Convex', 'React 19', 'Clerk'],
+    liveUrl: 'https://www.jeffdash.com/',
+    caseStudyUrl: '/portfolio/jeffdash',
+    metrics: ['Dynamic QR codes', 'Real-time scan insights', 'Strict data isolation'],
+  },
+  {
+    name: 'C&F Bouw',
+    category: 'Lead Generation',
+    description:
+      'A construction website transformed into a focused system that generates and qualifies enquiries.',
+    techStack: ['Astro', 'Convex', 'Go Auth'],
+    liveUrl: 'https://www.cfbouw.nl/',
+    caseStudyUrl: '/portfolio/cf-bouw',
+    metrics: ['Guided quote requests', 'Automated follow-up', 'Industry-specific SEO'],
+  },
+  {
+    name: 'Whisky for Charity',
+    category: 'Charity',
+    description:
+      'A charity platform that processes donations and auctions securely and communicates impact clearly.',
+    techStack: ['Astro', 'HTML Email', 'Vercel'],
+    liveUrl: 'https://www.whiskyforcharity.com/',
+    caseStudyUrl: '/portfolio/whisky-for-charity',
+    metrics: ['Closed payment flow', 'Fraud prevention included'],
+  },
+  {
+    name: 'TuinHub',
+    category: 'Marketplace',
+    description:
+      'A platform that matches garden owners with landscaping professionals and routes qualified leads.',
+    techStack: ['Astro', 'Convex', 'Go Auth', 'SEO'],
+    liveUrl: 'https://tuinhub.nl/',
+    caseStudyUrl: '/portfolio/tuinhub',
+    metrics: ['Leads routed instantly', 'Automated matching'],
+  },
+  {
+    name: 'SmartCoolCare',
+    category: 'IoT & Hardware',
+    description:
+      'Live cold-chain monitoring that detects temperature anomalies before they cause product loss or downtime.',
+    techStack: ['C++/ESP32', 'BLE', 'Convex', 'React'],
+    liveUrl: 'https://www.smartcoolcare.nl/',
+    caseStudyUrl: '/portfolio/smartcoolcare',
+    metrics: ['Months of battery life', 'Live cloud dashboard', 'Remote updates'],
+  },
+  {
+    name: 'Dustin Auto Garage',
+    category: 'Workshop Operations',
+    description:
+      'A workshop system for vehicle registration, Dutch vehicle data, planning and invoicing.',
+    techStack: ['Astro', 'React 19', 'Convex', 'Go Auth'],
+    caseStudyUrl: '/portfolio/dustin-auto-garage',
+    metrics: ['Vehicle-data integration', 'Digital workshop planning', 'Automated invoicing'],
+  },
+];
+
+const caseStudies = isEnglish ? enCaseStudies : nlCaseStudies;
 ---
 
 <Layout
-  title="Portfolio & Case Studies - LaventeCare"
-  description="Bekijk hoe wij bedrijven helpen met IoT, automatisering en software die met u meegroeit."
+  title={isEnglish
+    ? 'Portfolio & Case Studies — LaventeCare'
+    : 'Portfolio & Case Studies — LaventeCare'}
+  description={isEnglish
+    ? 'See how LaventeCare helps organisations with IoT, automation and software built for growth.'
+    : 'Bekijk hoe wij bedrijven helpen met IoT, automatisering en software die met u meegroeit.'}
 >
   <section class="section-padding pt-32 md:pt-40">
     <div class="container mx-auto px-4 relative z-10">
       <SectionHeader
-        label="Live in gebruik"
-        heading='Elk project draait <span class="text-active">live in de praktijk</span>'
-        description="Systemen die elke dag echt gebruikt worden — gebouwd om tijd te besparen, fouten te voorkomen en resultaat te leveren."
+        level={1}
+        label={isEnglish ? 'Live in production' : 'Live in gebruik'}
+        heading={isEnglish
+          ? 'Every project runs <span class="text-active">in the real world</span>'
+          : 'Elk project draait <span class="text-active">live in de praktijk</span>'}
+        description={isEnglish
+          ? 'Systems used every day — built to save time, prevent errors and deliver measurable results.'
+          : 'Systemen die elke dag echt gebruikt worden — gebouwd om tijd te besparen, fouten te voorkomen en resultaat te leveren.'}
       />
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
@@ -134,13 +200,17 @@ const caseStudies = [
         class="clinical-glass p-8 md:p-12 rounded-(--radius-hero) border border-white/8 max-w-4xl mx-auto text-center"
       >
         <h2 class="text-2xl md:text-3xl font-bold text-white mb-4 font-display">
-          Klaar voor het volgende project?
+          {isEnglish ? 'Ready for the next project?' : 'Klaar voor het volgende project?'}
         </h2>
         <p class="text-white/70 mb-6 max-w-xl mx-auto font-ui">
-          Plan een gratis adviesgesprek en ontdek hoe we dit ook voor uw bedrijf kunnen realiseren.
+          {
+            isEnglish
+              ? 'Book a free discovery call and explore what a focused solution could do for your organisation.'
+              : 'Plan een gratis adviesgesprek en ontdek hoe we dit ook voor uw bedrijf kunnen realiseren.'
+          }
         </p>
         <a href="/contact" class="btn-primary">
-          Plan een gratis adviesgesprek
+          {isEnglish ? 'Book a free discovery call' : 'Plan een gratis adviesgesprek'}
           <Icon name="arrow-right" size={16} />
         </a>
       </div>

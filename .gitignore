@@ -6,6 +6,8 @@ dist/
 
 # dependencies
 node_modules/
+playwright-report/
+test-results/
 
 # logs
 npm-debug.log*
@@ -29,3 +31,12 @@ src/pages/backendDocs/
 
 # bedrijfsdocumentatie (vertrouwelijk — niet publiek)
 DocumentatieBedrijf/
+
+# confidential/internal business documents and local audit artefacts
+Bedrijfsplan.md
+Dossier - CV.pdf
+backendtofrontendAudit.md
+lint-output.txt
+remove_lighthouse.py
+tmp/
+output/

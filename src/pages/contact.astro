@@ -4,17 +4,22 @@ import Card from '../components/ui/Card.astro';
 import { ContactForm } from '../components/islands/ContactForm';
 import Icon from '../components/ui/Icon.astro';
 
-const pageTitle = 'Contact & Gratis Intake — LaventeCare';
+const locale = Astro.locals.locale;
+const isEnglish = locale === 'en';
+const pageTitle = isEnglish
+  ? 'Contact & Free Discovery Call — LaventeCare'
+  : 'Contact & Gratis Intake — LaventeCare';
 const initialType = Astro.url.searchParams.get('type');
-const pageDescription =
-  'Neem contact op voor een gratis intake gesprek van 30 minuten. Bespreek wat u wilt bouwen, of het technisch kan en wat het ongeveer kost. Reactie binnen 24 uur.';
+const pageDescription = isEnglish
+  ? 'Book a free 30-minute call about your website, software, AI or automation project. Get a response within one business day.'
+  : 'Neem contact op voor een gratis gesprek over uw website, software, AI of automatisering. Bespreek aanpak, haalbaarheid en een realistisch budget.';
 
 const contactSchema = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Contact LaventeCare',
+  name: isEnglish ? 'Contact LaventeCare' : 'Contact LaventeCare',
   description: pageDescription,
-  url: 'https://www.laventecare.nl/contact',
+  url: `https://www.laventecare.${isEnglish ? 'com' : 'nl'}/contact`,
   mainEntity: {
     '@type': 'Organization',
     name: 'LaventeCare',
@@ -26,13 +31,13 @@ const contactSchema = {
       email: 'jeffrey@laventecare.nl',
       telephone: '+31639034085',
       availableLanguage: ['Dutch', 'English'],
-      areaServed: 'NL',
+      areaServed: isEnglish ? ['NL', 'EU'] : 'NL',
     },
   },
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
 
 <Layout title={pageTitle} description={pageDescription}>
   <!-- Contact Hero Section -->
@@ -46,16 +51,31 @@ const contactSchema = {
           class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight"
           transition:name="contact-title"
         >
-          Laten we <span class="text-active">praten</span>
+          {isEnglish ? 'Let’s ' : 'Laten we '}<span class="text-active"
+            >{isEnglish ? 'talk' : 'praten'}</span
+          >
         </h1>
         <p class="text-lg md:text-xl text-white/70 font-ui">
-          Begin met een <span class="text-white font-semibold">gratis intake gesprek</span> van 30 minuten.
-          Ik bespreek met u wat u wilt bouwen, of het technisch kan, en wat het ongeveer kost.
+          {
+            isEnglish ? (
+              <>
+                Start with a{' '}
+                <span class="text-white font-semibold">free 30-minute discovery call</span>. We will
+                discuss your website or system, technical feasibility and a realistic budget.
+              </>
+            ) : (
+              <>
+                Begin met een <span class="text-white font-semibold">gratis intake gesprek</span>{' '}
+                van 30 minuten. Ik bespreek met u of u een website of systeem nodig heeft, wat
+                technisch verstandig is en wat het ongeveer kost.
+              </>
+            )
+          }
         </p>
       </div>
 
       <Card padding="lg" class="max-w-2xl mx-auto">
-        <ContactForm client:load initialType={initialType} />
+        <ContactForm client:load initialType={initialType} locale={locale} />
       </Card>
     </div>
   </section>
@@ -67,10 +87,14 @@ const contactSchema = {
         id="contact-info-heading"
         class="text-2xl md:text-3xl font-bold text-center text-white mb-8 font-display"
       >
-        Andere manieren om <span class="text-active">contact</span> op te nemen
+        {isEnglish ? 'Other ways to get in ' : 'Andere manieren om '}
+        <span class="text-active">{isEnglish ? 'touch' : 'contact'}</span>
+        {!isEnglish && ' op te nemen'}
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto"
+      >
         <Card hover padding="md" class="text-center">
           <Icon name="mail" size={24} class="text-active block mb-3 mx-auto" />
           <h3 class="font-semibold text-white mb-2 text-sm font-display">Email</h3>
@@ -83,7 +107,9 @@ const contactSchema = {
 
         <Card hover padding="md" class="text-center">
           <Icon name="phone" size={24} class="text-active block mb-3 mx-auto" />
-          <h3 class="font-semibold text-white mb-2 text-sm font-display">Telefoon</h3>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">
+            {isEnglish ? 'Phone' : 'Telefoon'}
+          </h3>
           <a
             href="tel:+31639034085"
             class="text-active hover:text-primary-hover transition-colors text-sm font-medium font-ui"
@@ -93,14 +119,22 @@ const contactSchema = {
 
         <Card hover padding="md" class="text-center">
           <Icon name="clock" size={24} class="text-active block mb-3 mx-auto" />
-          <h3 class="font-semibold text-white mb-2 text-sm font-display">Reactietijd</h3>
-          <p class="text-white/70 text-sm font-ui">Binnen 24 uur op werkdagen</p>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">
+            {isEnglish ? 'Response time' : 'Reactietijd'}
+          </h3>
+          <p class="text-white/70 text-sm font-ui">
+            {isEnglish ? 'Within one business day' : 'Binnen 24 uur op werkdagen'}
+          </p>
         </Card>
 
         <Card hover padding="md" class="text-center">
           <Icon name="map-pin" size={24} class="text-active block mb-3 mx-auto" />
-          <h3 class="font-semibold text-white mb-2 text-sm font-display">Locatie</h3>
-          <p class="text-white/70 text-sm font-ui">Dronten, Nederland</p>
+          <h3 class="font-semibold text-white mb-2 text-sm font-display">
+            {isEnglish ? 'Location' : 'Locatie'}
+          </h3>
+          <p class="text-white/70 text-sm font-ui">
+            {isEnglish ? 'Dronten, the Netherlands' : 'Dronten, Nederland'}
+          </p>
         </Card>
 
         <Card hover padding="md" class="text-center">
@@ -111,7 +145,7 @@ const contactSchema = {
             target="_blank"
             rel="noopener noreferrer"
             class="text-active hover:text-primary-hover transition-colors text-sm font-medium font-ui"
-            >Connecten</a
+            >{isEnglish ? 'Connect' : 'Connecten'}</a
           >
         </Card>
       </div>
@@ -126,20 +160,28 @@ const contactSchema = {
         class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 max-w-3xl mx-auto"
       >
         <h3 class="text-lg font-bold text-white mb-4 font-display text-center">
-          Wat kunt u verwachten?
+          {isEnglish ? 'What can you expect?' : 'Wat kunt u verwachten?'}
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
           <div>
             <span class="text-active text-2xl font-black font-display block mb-1">30 min</span>
-            <p class="text-white/60 text-xs font-ui">Vrijblijvend intake gesprek</p>
+            <p class="text-white/60 text-xs font-ui">
+              {isEnglish ? 'No-obligation discovery call' : 'Vrijblijvend intake gesprek'}
+            </p>
           </div>
           <div>
-            <span class="text-active text-2xl font-black font-display block mb-1">Ja of nee</span>
-            <p class="text-white/60 text-xs font-ui">Eerlijk advies over haalbaarheid</p>
+            <span class="text-active text-2xl font-black font-display block mb-1">
+              {isEnglish ? 'Clear answer' : 'Ja of nee'}
+            </span>
+            <p class="text-white/60 text-xs font-ui">
+              {isEnglish ? 'Honest feasibility advice' : 'Eerlijk advies over haalbaarheid'}
+            </p>
           </div>
           <div>
             <span class="text-active text-2xl font-black font-display block mb-1">24 uur</span>
-            <p class="text-white/60 text-xs font-ui">Reactie op werkdagen</p>
+            <p class="text-white/60 text-xs font-ui">
+              {isEnglish ? 'Response on business days' : 'Reactie op werkdagen'}
+            </p>
           </div>
         </div>
       </div>
@@ -149,13 +191,20 @@ const contactSchema = {
   <!-- Juridische verwijzing -->
   <section class="pb-8">
     <div class="container mx-auto px-4">
-      <p class="text-center text-white/30 text-xs font-ui">
-        Op alle opdrachten zijn de
+      <p class="text-center text-white/60 text-xs font-ui">
+        {isEnglish ? 'All engagements are subject to the ' : 'Op alle opdrachten zijn de '}
         <a
-          href="/voorwaarden"
+          href={isEnglish ? '/terms' : '/voorwaarden'}
           class="text-active/70 hover:text-active transition-colors underline underline-offset-2"
-          >Algemene Voorwaarden</a
-        > van LaventeCare van toepassing.
+          >{isEnglish ? 'Terms and Conditions' : 'Algemene Voorwaarden'}</a
+        >{isEnglish ? ' of LaventeCare.' : ' van LaventeCare van toepassing.'}
+        {' · '}
+        <a
+          href="/privacy"
+          class="text-active/80 hover:text-active transition-colors underline underline-offset-2"
+        >
+          {isEnglish ? 'Privacy statement' : 'Privacyverklaring'}
+        </a>
       </p>
     </div>
   </section>

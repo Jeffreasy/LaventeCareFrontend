@@ -1,0 +1,506 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WebsitePackages from '../../components/blocks/WebsitePackages.astro';
+import SectionHeader from '../../components/ui/SectionHeader.astro';
+import TechStackBadge from '../../components/ui/TechStackBadge.astro';
+import Icon, { type IconName } from '../../components/ui/Icon.astro';
+
+const outcomes = [
+  {
+    icon: 'gauge',
+    title: 'Fast on every device',
+    description:
+      'Your website stays light and fast. Visitors do not wait for a heavy page-building platform.',
+  },
+  {
+    icon: 'shield-check',
+    title: 'Secure by default',
+    description:
+      'Only necessary technology is added. Forms receive validation and protection against misuse.',
+  },
+  {
+    icon: 'smartphone',
+    title: 'Built for mobile',
+    description:
+      'Every page works clearly on phone, tablet and desktop. Buttons and forms remain easy to use.',
+  },
+  {
+    icon: 'search',
+    title: 'Technically discoverable',
+    description:
+      'Clear page titles, a sitemap and structured data give search engines a sound foundation.',
+  },
+  {
+    icon: 'code',
+    title: 'No closed page builder',
+    description:
+      'You receive a transferable codebase. Project-specific ownership terms are agreed in the quote.',
+  },
+  {
+    icon: 'trending-up',
+    title: 'Ready to grow',
+    description:
+      'A form, quote flow or client portal can be added later without rebuilding from scratch.',
+  },
+] as const;
+
+const fastTrack = [
+  {
+    number: '01',
+    title: 'Free alignment',
+    description:
+      'We select the right package and agree pages, content, planning and responsibilities.',
+  },
+  {
+    number: '02',
+    title: 'Content complete',
+    description:
+      'You supply copy, logo and images. I check whether everything is complete and usable.',
+  },
+  {
+    number: '03',
+    title: 'Build and verification',
+    description:
+      'I build and verify screen sizes, speed, links, forms and essential search settings.',
+  },
+  {
+    number: '04',
+    title: 'Feedback and launch',
+    description:
+      'You provide one consolidated feedback round. After approval, the website goes live in a controlled release.',
+  },
+] as const;
+
+const additions = [
+  ['Additional page', '€125'],
+  ['Additional form', 'from €200'],
+  ['Business mailbox setup', '€150 + licence'],
+  ['CMS or blog management', 'from €500'],
+  ['Booking module', 'from €300'],
+  ['CRM integration', 'from €500'],
+] as const;
+
+const faq = [
+  {
+    question: 'Why are these websites priced more sharply than many custom websites?',
+    answer:
+      'I use my own technical foundation, reusable components and a controlled AI-assisted workflow. This reduces repetitive work. Architecture, security, review, testing and delivery remain my responsibility.',
+  },
+  {
+    question: 'Is Website Start a template?',
+    answer:
+      'The technical components are proven and reusable. Content, colours, hierarchy and appearance are tailored to your business. A Custom Website goes further with a unique visual and content direction.',
+  },
+  {
+    question: 'Are business email accounts included?',
+    answer:
+      'No. Website Business includes secure enquiry delivery and an automatic confirmation. A mailbox such as info@yourcompany.com, including Microsoft 365 or Google Workspace, is a separate service with its own licence costs.',
+  },
+  {
+    question: 'Can I edit copy myself later?',
+    answer:
+      'Yes, when we add a CMS or management area. This is not standard in the fixed packages, keeping the site faster, safer and more affordable. You can also request individual changes.',
+  },
+  {
+    question: 'Do I have to purchase monthly management?',
+    answer:
+      'No. The website can be transferred to an account in your name. When managed by LaventeCare, Website Care costs €29 per month for Start, €49 per month for Business and starts at €75 per month for Custom. Extended systems use a separate maintenance agreement.',
+  },
+  {
+    question: 'What is outside a normal website package?',
+    answer:
+      'Accounts, dashboards, payments, databases, advanced quote flows and process automation are custom software. These use the standard route with research and a technical build plan.',
+  },
+] as const;
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Professional website development',
+  serviceType: 'Website design and development',
+  description:
+    'Fast, secure and transferable business websites for SMEs. Fixed packages from €750, built with Astro and extended with a backend only when needed.',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: 'LaventeCare',
+    url: 'https://www.laventecare.com',
+    priceRange: '€750 - €1,500+; management €29 - €75+/month',
+  },
+  areaServed: ['NL', 'BE', 'EU'],
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Website Start',
+      price: '750',
+      priceCurrency: 'EUR',
+      description: 'A complete responsive one-page business website.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Website Business',
+      price: '1000',
+      priceCurrency: 'EUR',
+      description:
+        'A business website of up to three pages with a secure form and automatic confirmation.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Custom Website',
+      price: '1500',
+      priceCurrency: 'EUR',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: '1500',
+        priceCurrency: 'EUR',
+      },
+      description: 'A custom website starting at €1,500.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Website Care Start',
+      price: '29',
+      priceCurrency: 'EUR',
+      unitText: 'per month',
+      description: 'Managed hosting, SSL, monitoring and technical updates.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Website Care Business',
+      price: '49',
+      priceCurrency: 'EUR',
+      unitText: 'per month',
+      description: 'Website management including form and transactional email monitoring.',
+    },
+    {
+      '@type': 'Offer',
+      name: 'Custom Website Care',
+      price: '75',
+      priceCurrency: 'EUR',
+      unitText: 'per month',
+      description: 'Custom hosting, monitoring and technical continuity from €75 per month.',
+    },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<Layout
+  title="Professional Website Development — Fast, Secure and Transferable | LaventeCare"
+  description="Professional website development from €750. Fast Astro websites for SMEs, with a fixed price, clear scope and secure technical foundation."
+  seoOverride={{
+    image: {
+      filename: '/og-laventecare-2026.png',
+      alt: 'LaventeCare — professional websites and custom systems',
+    },
+  }}
+>
+  <section class="section-padding pt-32 md:pt-40 relative overflow-hidden">
+    <div
+      class="pointer-events-none absolute left-1/2 top-0 h-96 w-3/4 -translate-x-1/2 rounded-full bg-active/10 blur-3xl"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="container relative mx-auto px-4">
+      <div class="mx-auto max-w-5xl">
+        <div class="grid grid-cols-1 items-end gap-10 lg:grid-cols-[1.35fr_0.65fr]">
+          <div>
+            <span
+              class="mb-4 flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.2em] text-active"
+            >
+              <Icon name="monitor" size={16} /> Website development
+            </span>
+            <h1
+              class="mb-6 font-display text-4xl font-black tracking-tight text-white md:text-5xl lg:text-6xl"
+            >
+              A professional website that <span class="text-active">stays fast</span>
+            </h1>
+            <p class="mb-4 max-w-3xl font-ui text-lg leading-relaxed text-white/70 md:text-xl">
+              No heavy page builder or boxed-in template. You receive a fast, transferable website
+              with a transparent price and clear scope.
+            </p>
+            <p class="mb-8 max-w-2xl font-ui text-sm leading-relaxed text-white/50">
+              I build the website with Astro. A secure Go or Convex backend is only added when a
+              form, data flow or future extension genuinely needs it.
+            </p>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <a href="#website-packages" class="btn-primary">
+                View packages
+                <Icon name="arrow-right" size={16} />
+              </a>
+              <a href="/contact?type=website" class="btn-secondary">Book a free alignment call</a>
+            </div>
+          </div>
+
+          <aside
+            class="clinical-glass rounded-(--radius-feature) border border-active/20 bg-active/5 p-6"
+            aria-label="Key benefits"
+          >
+            <p class="mb-4 font-display text-xs font-bold uppercase tracking-[0.18em] text-active">
+              Included as standard
+            </p>
+            <ul class="space-y-4 font-ui text-sm text-white/70">
+              <li class="flex items-center gap-3">
+                <Icon name="check" size={16} class="shrink-0 text-active" />
+                Fixed package price without hidden build hours
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="check" size={16} class="shrink-0 text-active" />
+                Responsive verification on mobile, tablet and desktop
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="check" size={16} class="shrink-0 text-active" />
+                Technical SEO, performance and security foundation
+              </li>
+              <li class="flex items-center gap-3">
+                <Icon name="check" size={16} class="shrink-0 text-active" />
+                One point of contact from intake to launch
+              </li>
+            </ul>
+          </aside>
+        </div>
+
+        <div class="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">
+          {
+            [
+              ['Starting at', '€750'],
+              ['Foundation', 'Astro'],
+              ['Delivery', 'Fixed scope'],
+              ['Extendable', 'No rebuild'],
+            ].map(([label, value]) => (
+              <div class="rounded-xl border border-white/8 bg-white/3 p-4 text-center">
+                <p class="font-ui text-xs uppercase tracking-wider text-white/60">{label}</p>
+                <p class="mt-1 font-display text-sm font-black text-white md:text-base">{value}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-6xl">
+        <WebsitePackages locale="en" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Quality as a foundation"
+        heading='Sharply priced, <span class="text-active">professionally built</span>'
+        description="The price remains sharp by reducing repetitive work. Review, security and accountability are never skipped."
+      />
+      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          outcomes.map((item, index) => (
+            <article
+              data-animate="fade-up"
+              class={`delay-${(index % 3) * 100} clinical-glass rounded-(--radius-card) border border-white/8 p-5 transition-colors hover:border-active/20`}
+            >
+              <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-active/10">
+                <Icon name={item.icon as IconName} size={19} class="text-active" />
+              </div>
+              <h3 class="mb-2 font-display text-sm font-bold text-white">{item.title}</h3>
+              <p class="font-ui text-xs leading-relaxed text-white/55">{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="A dedicated fast track"
+        heading='From content to launch in <span class="text-active">four clear steps</span>'
+        description="A fixed website package does not require a paid technical build plan. The fast track works when content is complete and the scope is fixed."
+      />
+      <ol class="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        {
+          fastTrack.map((step) => (
+            <li class="clinical-glass rounded-(--radius-card) border border-white/8 p-5">
+              <span class="font-display text-2xl font-black text-active/60">{step.number}</span>
+              <h3 class="mb-2 mt-4 font-display text-sm font-bold text-white">{step.title}</h3>
+              <p class="font-ui text-xs leading-relaxed text-white/55">{step.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="The right route"
+        heading='A website, customer acquisition or a <span class="text-active">business platform</span>?'
+        description="Not every requirement needs the same approach. I deliberately keep these three levels separate."
+      />
+      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-5 lg:grid-cols-3">
+        <article
+          class="clinical-glass rounded-(--radius-feature) border border-active/25 bg-active/5 p-6"
+        >
+          <span class="font-display text-xs font-bold uppercase tracking-wider text-active"
+            >Fixed packages</span
+          >
+          <h3 class="mb-3 mt-2 font-display text-xl font-black text-white">Professional website</h3>
+          <p class="mb-5 font-ui text-sm leading-relaxed text-white/60">
+            For clear online visibility, trust and straightforward contact.
+          </p>
+          <a href="#website-packages" class="font-ui text-sm font-bold text-active">From €750 →</a>
+        </article>
+        <article class="clinical-glass rounded-(--radius-feature) border border-white/8 p-6">
+          <span class="font-display text-xs font-bold uppercase tracking-wider text-white/60"
+            >Conversion project</span
+          >
+          <h3 class="mb-3 mt-2 font-display text-xl font-black text-white">Win customers</h3>
+          <p class="mb-5 font-ui text-sm leading-relaxed text-white/60">
+            For quote steps, measurable enquiries, follow-up, SEO and ongoing optimisation.
+          </p>
+          <a href="/services/lead-generation" class="font-ui text-sm font-bold text-active"
+            >Explore customer acquisition →</a
+          >
+        </article>
+        <article class="clinical-glass rounded-(--radius-feature) border border-white/8 p-6">
+          <span class="font-display text-xs font-bold uppercase tracking-wider text-white/60"
+            >Systems project</span
+          >
+          <h3 class="mb-3 mt-2 font-display text-xl font-black text-white">Custom platform</h3>
+          <p class="mb-5 font-ui text-sm leading-relaxed text-white/60">
+            For accounts, dashboards, payments, databases and processes that take work off your
+            hands.
+          </p>
+          <a href="/services/custom-platforms" class="font-ui text-sm font-bold text-active"
+            >Explore custom platforms →</a
+          >
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <div class="clinical-glass rounded-(--radius-hero) border border-active/20 p-6 md:p-8">
+          <span class="font-display text-xs font-bold uppercase tracking-[0.18em] text-active"
+            >Under the hood</span
+          >
+          <h2 class="mb-4 mt-3 font-display text-2xl font-black text-white">
+            Only technology that adds real value
+          </h2>
+          <p class="mb-5 font-ui text-sm leading-relaxed text-white/65">
+            Astro provides the fast foundation. I use Go for tightly controlled server logic. Convex
+            only enters the picture when live data, a database or management area is needed.
+          </p>
+          <p class="mb-6 font-ui text-sm leading-relaxed text-white/55">
+            AI supports analysis and delivery. I determine the structure, review the output and
+            remain accountable for security, accessibility, testing and launch.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <TechStackBadge tech="Astro" />
+            <TechStackBadge tech="Go" />
+            <TechStackBadge tech="Convex" />
+            <TechStackBadge tech="Vercel" />
+            <TechStackBadge tech="HTML Email" />
+          </div>
+        </div>
+
+        <aside class="clinical-glass rounded-(--radius-hero) border border-white/8 p-6 md:p-8">
+          <span class="font-display text-xs font-bold uppercase tracking-[0.18em] text-white/60"
+            >Additions</span
+          >
+          <h2 class="mb-5 mt-3 font-display text-xl font-black text-white">
+            Predictable next steps
+          </h2>
+          <dl class="divide-y divide-white/8">
+            {
+              additions.map(([label, price]) => (
+                <div class="flex items-center justify-between gap-4 py-3">
+                  <dt class="font-ui text-sm text-white/60">{label}</dt>
+                  <dd class="whitespace-nowrap font-display text-sm font-bold text-white">
+                    {price}
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+          <p class="mt-4 font-ui text-xs leading-relaxed text-white/60">
+            Final price after reviewing content, supplier and requested integration. Excluding VAT
+            and third-party licences.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <SectionHeader
+        label="Frequently asked questions"
+        heading='Complete clarity <span class="text-active">before work starts</span>'
+      />
+      <div class="mx-auto max-w-4xl space-y-3">
+        {
+          faq.map((item) => (
+            <details class="group clinical-glass rounded-(--radius-card) border border-white/8 p-5 open:border-active/20">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-sm font-bold text-white">
+                {item.question}
+                <Icon
+                  name="chevron-down"
+                  size={17}
+                  class="shrink-0 text-active transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <p class="mt-4 max-w-3xl font-ui text-sm leading-relaxed text-white/60">
+                {item.answer}
+              </p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container mx-auto px-4">
+      <div
+        class="clinical-glass mx-auto max-w-4xl rounded-(--radius-hero) border border-active/25 bg-active/5 p-8 text-center md:p-12"
+      >
+        <span
+          class="mb-4 block font-display text-xs font-bold uppercase tracking-[0.2em] text-active"
+          >Ready for a professional foundation?</span
+        >
+        <h2 class="mb-4 font-display text-2xl font-black text-white md:text-3xl">
+          One conversation is enough to choose the right package
+        </h2>
+        <p class="mx-auto mb-7 max-w-2xl font-ui text-sm leading-relaxed text-white/65">
+          You receive immediate clarity on content, planning, additional costs and what you need to
+          supply.
+        </p>
+        <a href="/contact?type=website" class="btn-primary">
+          Book a free alignment call
+          <Icon name="arrow-right" size={16} />
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

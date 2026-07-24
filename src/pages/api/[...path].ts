@@ -13,7 +13,17 @@ export const ALL: APIRoute = async ({ request, params, url, cookies }) => {
   const path = params.path; // e.g., "v1/admin/mail-config"
 
   if (!path || !API_URL) {
-    return new Response(JSON.stringify({ error: 'Proxy Configuration Error' }), { status: 500 });
+    return new Response(JSON.stringify({ error: 'Proxy Configuration Error' }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
+    });
+  }
+
+  if (!/^v1\/[a-zA-Z0-9/_-]+$/.test(path)) {
+    return new Response(JSON.stringify({ error: 'Invalid API path' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
+    });
   }
 
   // Construct Target URL
@@ -25,7 +35,7 @@ export const ALL: APIRoute = async ({ request, params, url, cookies }) => {
     const c = request.headers.get('cookie');
     const csrf = request.headers.get('x-csrf-token');
     console.log(`[Universal Proxy] In Cookies: ${c ? 'Present' : 'Missing'} (${c?.length} chars)`);
-    console.log(`[Universal Proxy] In CSRF Header: ${csrf ? 'Present' : 'Missing'} (${csrf})`);
+    console.log(`[Universal Proxy] In CSRF Header: ${csrf ? 'Present' : 'Missing'}`);
     console.log(`[Universal Proxy] In Tenant Header: ${request.headers.get('x-tenant-id')}`);
   }
 
@@ -34,6 +44,11 @@ export const ALL: APIRoute = async ({ request, params, url, cookies }) => {
   reqHeaders.delete('host');
   reqHeaders.delete('connection');
   reqHeaders.delete('content-length'); // Let fetch calculate it
+  reqHeaders.delete('x-forwarded-host');
+  reqHeaders.delete('x-forwarded-proto');
+  if (!reqHeaders.has('x-tenant-id') && import.meta.env.PUBLIC_TENANT_ID) {
+    reqHeaders.set('x-tenant-id', import.meta.env.PUBLIC_TENANT_ID);
+  }
 
   try {
     const fetchOptions: RequestInit = {
@@ -45,6 +60,12 @@ export const ALL: APIRoute = async ({ request, params, url, cookies }) => {
     // Forward Body (except for GET/HEAD)
     if (request.method !== 'GET' && request.method !== 'HEAD') {
       const body = await request.arrayBuffer();
+      if (body.byteLength > 1_000_000) {
+        return new Response(JSON.stringify({ error: 'Request too large' }), {
+          status: 413,
+          headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
+        });
+      }
       if (body.byteLength > 0) {
         fetchOptions.body = body;
       }
@@ -64,6 +85,7 @@ export const ALL: APIRoute = async ({ request, params, url, cookies }) => {
     resHeaders.delete('content-encoding');
     resHeaders.delete('content-length');
     resHeaders.delete('transfer-encoding');
+    resHeaders.set('Cache-Control', 'no-store');
 
     // Return Proxied Response
     return new Response(backendResponse.body, {
@@ -78,7 +100,7 @@ export const ALL: APIRoute = async ({ request, params, url, cookies }) => {
       }),
       {
         status: 502,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
       }
     );
   }

@@ -1,0 +1,519 @@
+---
+import Icon from '../ui/Icon.astro';
+import SectionHeader from '../ui/SectionHeader.astro';
+import WebsitePackages from './WebsitePackages.astro';
+
+interface Props {
+  locale?: 'nl' | 'en';
+}
+
+const { locale = 'nl' } = Astro.props;
+const isEnglish = locale === 'en';
+
+const copy = isEnglish
+  ? {
+      heroLabel: 'Investment',
+      heroTitle: 'Clear prices for <span class="text-active">three different routes</span>',
+      heroDescription:
+        'A compact website, a custom business system and ongoing management require different agreements. Here you can see the starting point, recurring costs and boundaries for each route.',
+      quickLinks: [
+        ['Website packages', '#website-packages'],
+        ['Advice & systems', '#systems'],
+        ['Management & SLA', '#management'],
+      ],
+      routeLabel: 'Choose the right route',
+      routeItems: [
+        ['Website', 'Fixed build price plus optional managed hosting'],
+        ['System', 'Research first, then a fixed project price'],
+        ['Management', 'A monthly agreement that matches the operational risk'],
+      ],
+      systemsLabel: 'Advice and systems',
+      systemsTitle:
+        'Custom development with <span class="text-active">control at every phase</span>',
+      systemsDescription:
+        'Requirements involving accounts, databases, integrations or business processes follow a separate route. That prevents a website package from quietly becoming a software project.',
+      systemSteps: [
+        {
+          eyebrow: 'Phase 0 · when you need direction',
+          title: 'IT Consultancy',
+          description: 'Independent technical advice without an obligation to build.',
+          price: '€95',
+          unit: '/hour',
+          meta: 'First meeting is free',
+          features: [
+            'Technical and strategic advice',
+            'Second opinion or focused audit',
+            'Clear decisions and next steps',
+            'Flexible use per hour',
+          ],
+          href: '/contact?type=advies',
+          cta: 'Schedule a meeting',
+        },
+        {
+          eyebrow: 'Step 1 · before custom development',
+          title: 'Discovery & Blueprint',
+          description: 'We research the requirement and translate it into a usable technical plan.',
+          price: '€500–€1,500',
+          unit: 'one-off',
+          meta: 'Fixed fee agreed in advance',
+          features: [
+            'Requirements and risk analysis',
+            'Architecture and solution direction',
+            'Scope, milestones and acceptance criteria',
+            'A build plan you can retain',
+          ],
+          href: '/contact?type=discovery',
+          cta: 'Start the research',
+          featured: true,
+        },
+        {
+          eyebrow: 'Step 2 · implementation',
+          title: 'Realisation',
+          description: 'A fixed project price based on the agreed Blueprint.',
+          price: 'Fixed price',
+          unit: 'per project',
+          meta: '40/40/20 milestone billing',
+          features: [
+            'Delivery within the agreed scope',
+            'Interim demos and acceptance',
+            'Security included from the start',
+            'Changes only through a separate agreement',
+          ],
+          href: '/contact?type=project',
+          cta: 'Discuss a project',
+        },
+      ],
+      iotTitle: 'IoT usage grows with the number of devices',
+      iotDescription:
+        'Secure sensor ingestion and managed cloud infrastructure start at €2 per connected device per month. The definitive rate depends on message volume and retention.',
+      iotCta: 'View IoT & hardware',
+      managementLabel: 'After delivery',
+      managementTitle: 'Management that matches <span class="text-active">what is running</span>',
+      managementDescription:
+        'Website Care is shown directly in the website packages. The plans below are intended for custom systems with a backend, database or business-critical integrations.',
+      slaPlans: [
+        {
+          name: 'Essential',
+          price: '€75',
+          description: 'Technical continuity for a compact system.',
+          features: [
+            'Managed hosting and SSL',
+            'Security and dependency updates',
+            'Availability monitoring',
+            'Technical email delivery monitoring',
+          ],
+        },
+        {
+          name: 'Professional',
+          price: '€150',
+          description: 'Proactive management with reserved support.',
+          features: [
+            'Everything in Essential',
+            'Performance monitoring',
+            'Four support hours per month',
+            'Priority during business hours',
+          ],
+          featured: true,
+        },
+        {
+          name: 'Continuity',
+          price: '€300+',
+          description: 'Custom escalation and continuity agreements.',
+          features: [
+            'Everything in Professional',
+            'Agreed incident classifications',
+            'Contracted target response times',
+            'Continuity and backup arrangements',
+          ],
+        },
+      ],
+      perMonth: '/month',
+      slaNote:
+        'All monthly prices exclude VAT. External licences, exceptional usage and third-party services are charged separately when applicable. Hard availability or response guarantees apply only when explicitly included in the contract.',
+      principles: [
+        ['Clear scope', 'You know in advance what is included and what is not.'],
+        ['No hidden build hours', 'Additional work is discussed before it starts.'],
+        ['Transferable', 'A website can be transferred to an account in your name.'],
+      ],
+      ctaTitle: 'Not sure which route fits?',
+      ctaDescription:
+        'The first conversation is free. You receive an honest recommendation for a website package, consultancy or a system project.',
+      cta: 'Book a free introduction',
+      terms: 'Terms & Conditions',
+      termsHref: '/terms',
+      legalPrefix: 'All assignments are subject to the LaventeCare',
+      legalSuffix: '. Prices exclude VAT.',
+    }
+  : {
+      heroLabel: 'Investering',
+      heroTitle: 'Heldere prijzen voor <span class="text-active">drie verschillende routes</span>',
+      heroDescription:
+        'Een compacte website, een maatwerksysteem en doorlopend beheer vragen om andere afspraken. Hier ziet u per route het startpunt, de maandelijkse kosten en de afbakening.',
+      quickLinks: [
+        ['Websitepakketten', '#website-pakketten'],
+        ['Advies & systemen', '#systemen'],
+        ['Beheer & SLA', '#beheer'],
+      ],
+      routeLabel: 'Kies de juiste route',
+      routeItems: [
+        ['Website', 'Vaste bouwprijs met optioneel beheerde hosting'],
+        ['Systeem', 'Eerst onderzoek, daarna een vaste projectprijs'],
+        ['Beheer', 'Een maandafspraak die past bij het operationele risico'],
+      ],
+      systemsLabel: 'Advies en systemen',
+      systemsTitle: 'Maatwerk met <span class="text-active">controle per fase</span>',
+      systemsDescription:
+        'Vragen met accounts, databases, koppelingen of bedrijfsprocessen volgen een aparte route. Zo groeit een websitepakket niet ongemerkt uit tot een softwareproject.',
+      systemSteps: [
+        {
+          eyebrow: 'Fase 0 · wanneer richting nodig is',
+          title: 'IT Advies & Consultancy',
+          description: 'Onafhankelijk technisch advies zonder verplicht bouwtraject.',
+          price: '€95',
+          unit: '/uur',
+          meta: 'Eerste gesprek gratis',
+          features: [
+            'Technisch en strategisch advies',
+            'Second opinion of gerichte audit',
+            'Heldere besluiten en vervolgstappen',
+            'Flexibel inzetbaar per uur',
+          ],
+          href: '/contact?type=advies',
+          cta: 'Plan een gesprek',
+        },
+        {
+          eyebrow: 'Stap 1 · vóór maatwerkontwikkeling',
+          title: 'Onderzoek & Blueprint',
+          description:
+            'We onderzoeken de vraag en vertalen die naar een bruikbaar technisch bouwplan.',
+          price: '€500–€1.500',
+          unit: 'eenmalig',
+          meta: 'Vaste vergoeding vooraf afgesproken',
+          features: [
+            'Analyse van eisen en risico’s',
+            'Architectuur en oplossingsrichting',
+            'Scope, mijlpalen en acceptatiecriteria',
+            'Een bouwplan dat van u blijft',
+          ],
+          href: '/contact?type=discovery',
+          cta: 'Start het onderzoek',
+          featured: true,
+        },
+        {
+          eyebrow: 'Stap 2 · realisatie',
+          title: 'Realisatie',
+          description: 'Een vaste projectprijs op basis van de afgesproken Blueprint.',
+          price: 'Vaste prijs',
+          unit: 'per project',
+          meta: 'Facturatie in 40/40/20-mijlpalen',
+          features: [
+            'Oplevering binnen de afgesproken scope',
+            'Tussentijdse demo’s en acceptatie',
+            'Veiligheid vanaf de basis',
+            'Wijzigingen alleen na aparte afspraak',
+          ],
+          href: '/contact?type=project',
+          cta: 'Bespreek een project',
+        },
+      ],
+      iotTitle: 'IoT-verbruik groeit mee met het aantal apparaten',
+      iotDescription:
+        'Veilige sensorinname en beheerde cloudinfrastructuur starten vanaf €2 per gekoppeld apparaat per maand. Het definitieve tarief hangt af van berichtvolume en bewaartermijn.',
+      iotCta: 'Bekijk IoT & hardware',
+      managementLabel: 'Na oplevering',
+      managementTitle: 'Beheer dat past bij <span class="text-active">wat er draait</span>',
+      managementDescription:
+        'Website Care staat direct bij de websitepakketten. De onderstaande plannen zijn bedoeld voor maatwerksystemen met een backend, database of bedrijfskritieke koppelingen.',
+      slaPlans: [
+        {
+          name: 'Essential',
+          price: '€75',
+          description: 'Technische continuïteit voor een compact systeem.',
+          features: [
+            'Beheerde hosting en SSL',
+            'Beveiligings- en dependency-updates',
+            'Bewaking van beschikbaarheid',
+            'Bewaking van technische e-mailbezorging',
+          ],
+        },
+        {
+          name: 'Professional',
+          price: '€150',
+          description: 'Proactief beheer met gereserveerde ondersteuning.',
+          features: [
+            'Alles uit Essential',
+            'Bewaking van prestaties',
+            'Vier supporturen per maand',
+            'Voorrang tijdens kantooruren',
+          ],
+          featured: true,
+        },
+        {
+          name: 'Continuïteit',
+          price: '€300+',
+          description: 'Maatwerkafspraken over escalatie en continuïteit.',
+          features: [
+            'Alles uit Professional',
+            'Afgesproken incidentclassificaties',
+            'Contractuele streeftijden voor reactie',
+            'Continuïteits- en back-upafspraken',
+          ],
+        },
+      ],
+      perMonth: '/maand',
+      slaNote:
+        'Alle maandprijzen zijn exclusief btw. Externe licenties, uitzonderlijk verbruik en diensten van derden worden waar van toepassing apart doorberekend. Harde beschikbaarheids- of reactiegaranties gelden alleen wanneer deze expliciet in het contract staan.',
+      principles: [
+        ['Heldere scope', 'U weet vooraf wat wel en niet is inbegrepen.'],
+        ['Geen verborgen bouwuren', 'Meerwerk wordt besproken voordat het start.'],
+        ['Overdraagbaar', 'Een website kan naar een account op uw naam worden overgedragen.'],
+      ],
+      ctaTitle: 'Twijfelt u welke route past?',
+      ctaDescription:
+        'Het eerste gesprek is gratis. U krijgt een eerlijk advies over een websitepakket, consultancy of een systeemtraject.',
+      cta: 'Plan een gratis kennismaking',
+      terms: 'Algemene Voorwaarden',
+      termsHref: '/voorwaarden',
+      legalPrefix: 'Op alle opdrachten zijn de',
+      legalSuffix: 'van LaventeCare van toepassing. Prijzen zijn exclusief btw.',
+    };
+
+const systemsAnchor = isEnglish ? 'systems' : 'systemen';
+const managementAnchor = isEnglish ? 'management' : 'beheer';
+---
+
+<section class="relative overflow-hidden pb-16 pt-32 md:pb-20 md:pt-40">
+  <div
+    class="pointer-events-none absolute left-1/2 top-0 h-96 w-4/5 -translate-x-1/2 rounded-full bg-active/12 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="container relative mx-auto px-4">
+    <div class="mx-auto max-w-5xl text-center">
+      <span
+        class="mb-4 inline-flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.2em] text-active"
+      >
+        <Icon name="briefcase" size={16} />
+        {copy.heroLabel}
+      </span>
+      <h1
+        class="mx-auto mb-6 max-w-4xl font-display text-4xl font-black tracking-tight text-white md:text-5xl lg:text-6xl"
+        set:html={copy.heroTitle}
+      />
+      <p class="mx-auto max-w-3xl font-ui text-base leading-relaxed text-white/65 md:text-lg">
+        {copy.heroDescription}
+      </p>
+
+      <nav class="mt-8 flex flex-wrap justify-center gap-2" aria-label={copy.routeLabel}>
+        {
+          copy.quickLinks.map(([label, href]) => (
+            <a
+              href={href}
+              class="rounded-full border border-white/10 bg-white/3 px-4 py-2 font-ui text-xs font-bold text-white/65 transition-colors hover:border-active/30 hover:bg-active/8 hover:text-white"
+            >
+              {label}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+
+    <div class="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-3 md:grid-cols-3">
+      {
+        copy.routeItems.map(([title, description], index) => (
+          <div class="rounded-xl border border-white/8 bg-white/3 p-4 text-left">
+            <div class="mb-3 flex items-center gap-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-active/10 font-display text-xs font-black text-active">
+                0{index + 1}
+              </span>
+              <p class="font-display text-sm font-bold text-white">{title}</p>
+            </div>
+            <p class="font-ui text-xs leading-relaxed text-white/45">{description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-16 md:py-24">
+  <div class="container mx-auto px-4">
+    <div class="mx-auto max-w-6xl">
+      <WebsitePackages locale={locale} />
+    </div>
+  </div>
+</section>
+
+<section
+  id={systemsAnchor}
+  class="scroll-mt-28 border-y border-white/5 bg-white/[0.015] py-16 md:py-24"
+>
+  <div class="container mx-auto px-4">
+    <SectionHeader
+      label={copy.systemsLabel}
+      heading={copy.systemsTitle}
+      description={copy.systemsDescription}
+    />
+
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-5 lg:grid-cols-3">
+      {
+        copy.systemSteps.map((step) => (
+          <article
+            class:list={[
+              'clinical-glass relative flex h-full flex-col rounded-(--radius-feature) p-6 md:p-8',
+              step.featured
+                ? 'border-2 border-active bg-active/5 shadow-xl shadow-active/10'
+                : 'border border-white/8',
+            ]}
+          >
+            <span class="mb-3 font-display text-[10px] font-bold uppercase tracking-[0.16em] text-active">
+              {step.eyebrow}
+            </span>
+            <h3 class="mb-2 font-display text-xl font-black text-white">{step.title}</h3>
+            <p class="mb-6 min-h-12 font-ui text-sm leading-relaxed text-white/55">
+              {step.description}
+            </p>
+            <div class="mb-1 flex flex-wrap items-end gap-2">
+              <span class="font-display text-3xl font-black tracking-tight text-white">
+                {step.price}
+              </span>
+              <span class="pb-1 font-ui text-xs text-white/60">{step.unit}</span>
+            </div>
+            <p class="mb-6 font-ui text-xs text-white/60">{step.meta}</p>
+            <div class="mb-6 h-px bg-white/8" />
+            <ul class="mb-8 flex-1 space-y-3 font-ui text-sm text-white/65">
+              {step.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <Icon name="check" size={15} class="mt-0.5 shrink-0 text-active" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={step.href}
+              class:list={[
+                'flex min-h-12 items-center justify-center gap-2 rounded-xl px-4 py-3 text-center font-ui text-sm font-bold transition-colors',
+                step.featured
+                  ? 'bg-active text-white hover:bg-active/90'
+                  : 'border border-white/15 text-white hover:border-active/35 hover:bg-white/5',
+              ]}
+            >
+              {step.cta}
+              <Icon name="arrow-right" size={16} />
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <aside
+      class="mx-auto mt-6 flex max-w-6xl flex-col gap-5 rounded-(--radius-feature) border border-active/15 bg-active/5 p-6 md:flex-row md:items-center md:justify-between"
+    >
+      <div class="max-w-3xl">
+        <p class="mb-1 font-display text-sm font-bold text-white">{copy.iotTitle}</p>
+        <p class="font-ui text-xs leading-relaxed text-white/50">{copy.iotDescription}</p>
+      </div>
+      <a
+        href={isEnglish ? '/services/iot-hardware' : '/diensten/iot-hardware'}
+        class="inline-flex shrink-0 items-center gap-2 font-ui text-sm font-bold text-active"
+      >
+        {copy.iotCta}
+        <Icon name="arrow-right" size={15} />
+      </a>
+    </aside>
+  </div>
+</section>
+
+<section id={managementAnchor} class="scroll-mt-28 py-16 md:py-24">
+  <div class="container mx-auto px-4">
+    <SectionHeader
+      label={copy.managementLabel}
+      heading={copy.managementTitle}
+      description={copy.managementDescription}
+    />
+
+    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-5 lg:grid-cols-3">
+      {
+        copy.slaPlans.map((plan) => (
+          <article
+            class:list={[
+              'clinical-glass relative flex h-full flex-col rounded-(--radius-feature) p-6 md:p-7',
+              plan.featured
+                ? 'border-2 border-active bg-active/5 shadow-xl shadow-active/10'
+                : 'border border-white/8',
+            ]}
+          >
+            {plan.featured && (
+              <span class="absolute right-0 top-0 rounded-bl-xl bg-active px-3 py-1.5 font-display text-[10px] font-black uppercase tracking-[0.14em] text-white">
+                {isEnglish ? 'Recommended' : 'Aanbevolen'}
+              </span>
+            )}
+            <h3 class="mb-3 font-display text-xl font-black text-white">{plan.name}</h3>
+            <div class="mb-2 flex items-end gap-2">
+              <span class="font-display text-3xl font-black text-white">{plan.price}</span>
+              <span class="pb-1 font-ui text-xs text-white/60">{copy.perMonth}</span>
+            </div>
+            <p class="mb-6 min-h-10 font-ui text-xs leading-relaxed text-white/45">
+              {plan.description}
+            </p>
+            <div class="mb-6 h-px bg-white/8" />
+            <ul class="flex-1 space-y-3 font-ui text-sm text-white/65">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <Icon name="check" size={15} class="mt-0.5 shrink-0 text-active" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="mx-auto mt-5 max-w-5xl font-ui text-xs leading-relaxed text-white/60">
+      {copy.slaNote}
+    </p>
+  </div>
+</section>
+
+<section class="pb-20 pt-4 md:pb-28">
+  <div class="container mx-auto px-4">
+    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-3">
+      {
+        copy.principles.map(([title, description]) => (
+          <div class="rounded-xl border border-white/8 bg-white/3 p-5">
+            <p class="mb-2 font-display text-sm font-bold text-white">{title}</p>
+            <p class="font-ui text-xs leading-relaxed text-white/45">{description}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class="clinical-glass relative mx-auto mt-8 max-w-5xl overflow-hidden rounded-(--radius-hero) border border-active/20 bg-active/5 p-7 text-center md:p-10"
+    >
+      <div
+        class="pointer-events-none absolute left-1/2 top-0 h-40 w-2/3 -translate-x-1/2 rounded-full bg-active/12 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+      <div class="relative">
+        <h2 class="mb-3 font-display text-2xl font-black text-white md:text-3xl">
+          {copy.ctaTitle}
+        </h2>
+        <p class="mx-auto mb-6 max-w-2xl font-ui text-sm leading-relaxed text-white/55">
+          {copy.ctaDescription}
+        </p>
+        <a href="/contact" class="btn-primary">
+          {copy.cta}
+          <Icon name="arrow-right" size={16} />
+        </a>
+        <p class="mt-5 font-ui text-xs text-white/60">
+          {copy.legalPrefix}
+          <a class="text-active underline underline-offset-2" href={copy.termsHref}>{copy.terms}</a>
+          {copy.legalSuffix}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

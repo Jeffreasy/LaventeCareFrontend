@@ -71,7 +71,7 @@ const personSchema = {
   name: 'Jeffrey Lavente',
   jobTitle: 'Founder LaventeCare — B2B systems partner for SMEs',
   description:
-    'Founder of LaventeCare, a B2B systems partner for SME organisations. Turns the way you work into software that does the work for you: AI, IoT, custom platforms, winning customers and security from the ground up.',
+    'Founder of LaventeCare, a B2B systems partner for SME organisations. Builds professional websites, AI, IoT, custom platforms and secure business systems.',
   image:
     'https://ik.imagekit.io/a0oim4e3e/LaventeCare/IMG_0040.JPG?tr=w-512,h-512,fo-face,f-auto,q-85',
   url: 'https://www.laventecare.com/about',
@@ -81,6 +81,7 @@ const personSchema = {
     url: 'https://www.laventecare.com',
   },
   knowsAbout: [
+    'Professional Astro websites',
     'AI & Automation',
     'LLM Integration',
     'Go',
@@ -108,7 +109,7 @@ const personSchema = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
 <Layout
   title="About LaventeCare — B2B systems partner for SMEs"
@@ -156,14 +157,16 @@ const personSchema = {
             <span class="text-active font-bold tracking-[0.2em] uppercase text-xs mb-3 block"
               >About LaventeCare</span
             >
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight">
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 font-display tracking-tight"
+            >
               From idea to working system
             </h1>
             <p class="text-lg md:text-xl text-white/70 leading-relaxed font-ui">
               LaventeCare is a <span class="text-white font-semibold"
                 >B2B systems partner for SME organisations</span
-              > that want to get digital growth, automation and custom software done right.
-              Not a one-off website builder or freelancer, but a <span
+              > that want to get digital growth, websites, automation and custom software done right.
+              Not a standard page builder or one-off supplier, but a <span
                 class="text-active font-semibold">long-term partner</span
               > that turns the way you work into software that does the work for you.
             </p>
@@ -181,18 +184,22 @@ const personSchema = {
           label="The partner"
           heading='A long-term partner, not a <span class="text-active">loose supplier</span>'
         />
-        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5">
+        <div
+          class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5"
+        >
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
             LaventeCare builds systems that make businesses more efficient, prevent errors and
             accelerate growth: <span class="text-white font-semibold"
-              >AI, IoT, custom platforms, winning customers and systems with security from the ground up</span
+              >AI, IoT, custom platforms, winning customers and systems with security from the
+              ground up</span
             >. We focus on SMEs, service providers and operational teams with recurring processes.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
             Our core promise: from loose tools and manual work to one <span
               class="text-active font-semibold">digital system that grows with you</span
-            >. Intro call, analysis, blueprint (the full build plan), build, maintenance and further development — not a loose
-            project that stalls after delivery, but a system that keeps working and grows with you.
+            >. Intro call, analysis, blueprint (the full build plan), build, maintenance and further
+            development — not a loose project that stalls after delivery, but a system that keeps
+            working and grows with you.
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
             <div class="text-center p-4 rounded-lg bg-white/3 border border-white/5">
@@ -227,16 +234,18 @@ const personSchema = {
         <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8">
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
             I believe in radical honesty about how LaventeCare works. LaventeCare was set up and is
-            led by <span class="text-white font-semibold">Jeffrey Lavente</span> as founder and
-            engineer. I act as the architect who defines the blueprint, and use advanced AI models as
-            my <span class="text-active font-semibold">executing build team</span>.
+            led by <span class="text-white font-semibold">Jeffrey Lavente</span> as founder and engineer.
+            I act as the architect who defines the blueprint, and use advanced AI models as my <span
+              class="text-active font-semibold">executing build team</span
+            >.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            AI builds at lightning speed, but tends to take the easiest route and skip the exceptions.
-            That's where the strength of this approach lies. I define the setup and steer where needed.
-            I enforce strict security rules: data kept strictly separated and every action logged.
-            This is how LaventeCare delivers systems with built-in security, separated data and
-            live monitoring — the discipline of a team, delivered by one accountable partner.
+            AI builds at lightning speed, but tends to take the easiest route and skip the
+            exceptions. That's where the strength of this approach lies. I define the setup and
+            steer where needed. I enforce strict security rules: data kept strictly separated and
+            every action logged. This is how LaventeCare delivers systems with built-in security,
+            separated data and live monitoring — the discipline of a team, delivered by one
+            accountable partner.
           </p>
           <div
             class="flex flex-col sm:flex-row gap-4 mt-6 p-4 rounded-lg bg-active/5 border border-active/15"
@@ -245,9 +254,7 @@ const personSchema = {
               <Icon name="cog" size={18} class="text-active shrink-0 mt-0.5" />
               <div>
                 <p class="text-white text-xs font-bold font-display">AI = Executor</p>
-                <p class="text-white/60 text-[11px] font-ui">
-                  Build, improve and test at speed
-                </p>
+                <p class="text-white/60 text-[11px] font-ui">Build, improve and test at speed</p>
               </div>
             </div>
             <div data-animate="fade-up" class="delay-100 flex-1 flex items-start gap-3">
@@ -282,7 +289,9 @@ const personSchema = {
           label="The background"
           heading='Structure and security, learned in <span class="text-active">care</span>'
         />
-        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5">
+        <div
+          class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 bg-active/5"
+        >
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
             Before starting LaventeCare, I worked for years as an intensive 1-on-1 care professional
             for individuals with complex acquired brain injuries. In that world I learned a
@@ -291,10 +300,10 @@ const personSchema = {
             >.
           </p>
           <p class="text-white/80 text-sm md:text-base leading-relaxed font-ui mb-4">
-            I apply that same lens to software architecture. I don't build loose websites, but
-            <span class="text-active font-semibold">systems with structure and boundaries</span> —
-            stable, secure and manageable. Staying analytical in complexity, setting boundaries and
-            taking 1-on-1 accountability: that's what I bring to every system I deliver.
+            I apply that same lens to digital technology. Even a compact website is built as
+            <span class="text-active font-semibold">a foundation with structure and boundaries</span
+            > — fast, secure and manageable. When the requirement grows, that foundation can expand into
+            forms, automation or a complete platform.
           </p>
         </div>
       </div>
@@ -305,7 +314,9 @@ const personSchema = {
   <section class="section-padding">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
-        <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 relative">
+        <div
+          class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-active/20 relative"
+        >
           <div class="absolute top-4 left-6 text-4xl text-active/30 font-display">"</div>
           <blockquote
             class="text-base md:text-lg text-white/80 leading-relaxed font-ui pl-4 md:pl-8 border-l-2 border-active/40"
@@ -340,9 +351,7 @@ const personSchema = {
             </li>
             <li>
               <p class="text-white font-semibold text-sm">MBO Level 3</p>
-              <p class="text-white/60 text-sm font-ui">
-                Social Care Worker (2015–2017)
-              </p>
+              <p class="text-white/60 text-sm font-ui">Social Care Worker (2015–2017)</p>
             </li>
             <li>
               <p class="text-white font-semibold text-sm">Self-Taught Systems Engineer</p>
@@ -375,9 +384,9 @@ const personSchema = {
                 <span class="text-active text-xs font-bold">2018 – present</span>
               </div>
               <p class="text-white/60 text-sm font-ui">
-                's Heeren Loo — Intensive individual support of clients with acquired brain injuries.
-                Staying analytical in chaos, taking 1-on-1 accountability, setting boundaries and
-                building safe structures.
+                's Heeren Loo — Intensive individual support of clients with acquired brain
+                injuries. Staying analytical in chaos, taking 1-on-1 accountability, setting
+                boundaries and building safe structures.
               </p>
             </li>
           </ul>
@@ -441,7 +450,9 @@ const personSchema = {
   <!-- Company Details -->
   <section class="section-padding">
     <div class="container mx-auto px-4">
-      <div class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 max-w-3xl mx-auto">
+      <div
+        class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 max-w-3xl mx-auto"
+      >
         <h2 class="text-xl font-bold text-white mb-6 font-display text-center">Company Details</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-ui">
           <div class="flex justify-between sm:flex-col gap-1">
@@ -481,7 +492,9 @@ const personSchema = {
 </Layout>
 
 <style>
-  .profile-photo-wrapper { position: relative; }
+  .profile-photo-wrapper {
+    position: relative;
+  }
   .profile-photo-container {
     position: relative;
     width: 160px;
@@ -492,7 +505,9 @@ const personSchema = {
       0 0 0 2px color-mix(in oklch, var(--color-active) 30%, transparent),
       0 0 30px -5px color-mix(in oklch, var(--color-active) 15%, transparent),
       0 8px 24px -8px rgba(0, 0, 0, 0.4);
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.4s ease;
   }
   .profile-photo-container:hover {
     transform: scale(1.03);
@@ -501,14 +516,38 @@ const personSchema = {
       0 0 40px -5px color-mix(in oklch, var(--color-active) 25%, transparent),
       0 16px 40px -8px rgba(0, 0, 0, 0.5);
   }
-  .profile-photo-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-  .profile-photo-overlay { position: absolute; inset: 0; border-radius: 1rem; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08); pointer-events: none; }
+  .profile-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .profile-photo-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 1rem;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+  }
   @media (min-width: 640px) {
-    .profile-photo-container { width: 200px; height: 240px; border-radius: 1.25rem; }
-    .profile-photo-overlay { border-radius: 1.25rem; }
+    .profile-photo-container {
+      width: 200px;
+      height: 240px;
+      border-radius: 1.25rem;
+    }
+    .profile-photo-overlay {
+      border-radius: 1.25rem;
+    }
   }
   @media (min-width: 1024px) {
-    .profile-photo-container { width: 220px; height: 280px; border-radius: 1.5rem; }
-    .profile-photo-overlay { border-radius: 1.5rem; }
+    .profile-photo-container {
+      width: 220px;
+      height: 280px;
+      border-radius: 1.5rem;
+    }
+    .profile-photo-overlay {
+      border-radius: 1.5rem;
+    }
   }
 </style>

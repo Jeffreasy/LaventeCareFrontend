@@ -4,6 +4,10 @@ import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
+if (Astro.locals.locale === 'en') {
+  return Astro.rewrite('/en-case-study?slug=dustin-auto-garage');
+}
+
 const results = [
   { value: 'Gescheiden', label: 'Gegevens per garage' },
   { value: 'Real-time', label: 'Alles direct bijgewerkt' },
@@ -98,9 +102,9 @@ const challenges = [
         </div>
         <div class="flex flex-wrap gap-2">
           {
-            ['Astro', 'React 18.3.1', 'Convex', 'Go Auth', 'RDW-proxy', 'Grok Vision OCR'].map((t) => (
-              <TechStackBadge tech={t} />
-            ))
+            ['Astro', 'React 18.3.1', 'Convex', 'Go Auth', 'RDW-proxy', 'Grok Vision OCR'].map(
+              (t) => <TechStackBadge tech={t} />
+            )
           }
         </div>
       </div>
@@ -151,7 +155,9 @@ const challenges = [
           class="clinical-glass p-6 md:p-10 rounded-(--radius-hero) border border-white/8 space-y-6"
         >
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Digitaal werkplaatsbord</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">
+              Digitaal werkplaatsbord
+            </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
               Een live bord waar werkorders van "Ingepland" naar "In behandeling" naar "Gereed"
               schuiven. Monteurs slepen kaarten, managers zien de status meteen. Onder de motorkap:
@@ -159,11 +165,13 @@ const challenges = [
             </p>
           </div>
           <div>
-            <h3 class="text-base font-bold text-white mb-2 font-display">Kenteken automatisch opgehaald</h3>
+            <h3 class="text-base font-bold text-white mb-2 font-display">
+              Kenteken automatisch opgehaald
+            </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
-              Vul een kenteken in en het systeem haalt de voertuiggegevens automatisch op bij de RDW:
-              merk, model, bouwjaar, brandstof en APK-datum. U kunt het kenteken ook met de camera
-              laten herkennen. Onder de motorkap: de open data van de RDW en xAI Grok Vision.
+              Vul een kenteken in en het systeem haalt de voertuiggegevens automatisch op bij de
+              RDW: merk, model, bouwjaar, brandstof en APK-datum. U kunt het kenteken ook met de
+              camera laten herkennen. Onder de motorkap: de open data van de RDW en xAI Grok Vision.
             </p>
           </div>
           <div>

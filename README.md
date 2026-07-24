@@ -1,256 +1,64 @@
-# LaventeCare - Enterprise Astro Application
+# LaventeCare website
 
-Een professioneel, enterprise-ready Astro project met moderne glassmorphism design, volledige type-safety en geautomatiseerde testing.
+Production website and BFF for LaventeCare, built with Astro 7, React 19 and Tailwind CSS 4.
+The same application serves Dutch content on `laventecare.nl` and English content on
+`laventecare.com`.
 
-## 🚀 Quick Start
+## Requirements
 
-### 1. Install Dependencies
+- Node.js 24 (the same major version used in CI and production)
+- npm
+- The environment variables listed in `.env.example`
+
+## Local development
 
 ```bash
-npm install
-```
-
-### 2. Start Development Server
-
-```bash
+npm ci
 npm run dev
 ```
 
-De applicatie draait op `http://localhost:4321`
+The local server is available at `http://localhost:4321`. Localhost defaults to Dutch.
 
-## LaventeCare Intake Bridge
-
-Het contactformulier post gestructureerde intakevelden naar `/api/v1/public/contact`: projecttype,
-bedrijf, budget, tijdlijn, doel, optioneel telefoonnummer, bron en huidige pagina-URL. De Go-backend
-kan die aanvraag vervolgens doorzetten naar Jeffrey's private Homeapp cockpit als lead en
-opvolgactie wanneer `HOMEAPP_LAVENTECARE_INTAKE_URL` en
-`HOMEAPP_LAVENTECARE_INTAKE_SECRET` daar geconfigureerd zijn.
-
-## 📁 Enterprise Architecture
-
-### Component-Driven Design
-
-- **UI Components** (`src/components/ui/`): Herbruikbare primitive components (Button, Card, etc.)
-- **Blocks** (`src/components/blocks/`): Samengestelde secties (Hero, Navbar, Footer)
-- **Islands** (`src/components/islands/`): Interactieve React components
-### Type Safety
-
-- **Build-time**: TypeScript interfaces voor compile-time garanties
-- **Component Props**: Strikt getypeerde props met TypeScript
-- **Utilities**: Type-safe helpers en utilities
-
-### Project Structure
-
-```
-src/
-├── components/
-│   ├── ui/             # Primitive UI componenten (Button, Card, Input)
-│   ├── blocks/         # Page sections & Layout (Hero, Navbar, Footer)
-│   └── islands/        # Interactive React componenten (Forms, Toggles)
-├── layouts/
-│   └── Layout.astro    # Base layout met SEO en metadata
-├── lib/
-│   ├── utils.ts        # cn() utility (Tailwind class merging)
-│   ├── convex.ts       # Convex backend initialization
-│   └── image.ts        # Image optimization helpers
-├── pages/              # Astro routing
-├── styles/
-│   └── global.css      # Global styles met design tokens
-└── types/              # TypeScript type definitions
-```
-
-## 🎨 Component Development
-
-### Creating a New Component
-
-1. **Create UI Component** (`src/components/ui/Button.astro`)
-
-```astro
----
-import { cn } from '../../lib/utils';
-
-interface Props {
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
-  class?: string;
-}
-
-const { variant = 'primary', size = 'md', class: className } = Astro.props;
----
-
-<button class={cn(
-  'inline-flex items-center justify-center rounded-lg transition-colors',
-  variant === 'primary' && 'bg-primary text-white hover:bg-primary/90',
-  variant === 'secondary' && 'bg-secondary text-white hover:bg-secondary/90',
-  variant === 'outline' && 'border-2 border-primary text-primary bg-transparent',
-  size === 'sm' && 'px-3 py-1.5 text-xs',
-  size === 'md' && 'px-5 py-2.5 text-sm',
-  size === 'lg' && 'px-8 py-4 text-lg',
-  className
-)}>
-  <slot />
-</button>
-```
-
-2. **Use in Pages** (`src/pages/index.astro`)
-
-```astro
----
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/sections/Hero.astro';
----
-
-<Layout title="Home">
-  <Hero
-    headline="LaventeCare"
-    subtitle="Enterprise Astro Application"
-    description="Modern, type-safe web development"
-    ctaPrimary={{ label: 'Get Started', url: '/start' }}
-  />
-</Layout>
-```
-
-## 🧪 NPM Scripts
-
-### Development
+## Commands
 
 ```bash
-npm run dev          # Start dev server
-npm run build        # Production build
-npm run preview      # Preview production build
+npm run format        # format source and test files
+npm run lint          # ESLint
+npm run type-check    # Astro and TypeScript diagnostics
+npm run test          # Playwright end-to-end tests
+npm run build         # Vercel production build
+npm run verify        # complete local quality gate
 ```
 
-### Code Quality
+Install the browser once before the first local E2E run:
 
 ```bash
-npm run lint         # ESLint check
-npm run format       # Format with Prettier
-npm run format:check # Check formatting
-npm run type-check   # TypeScript/Astro check
+npx playwright install chromium
 ```
 
-### Testing
+## Architecture
 
-```bash
-npm run test         # Run Playwright E2E tests
-npm run test:ui      # Interactive Playwright UI
-```
+- `src/pages/` contains SSR routes and API endpoints.
+- `src/components/blocks/` contains server-rendered page sections.
+- `src/components/islands/` contains interactive React islands.
+- `src/lib/i18n/` is the single source of truth for locale routes.
+- `/api/*` is a same-origin BFF proxy to the configured Go backend.
+- Authentication tokens remain in secure cookies; middleware verifies JWT roles using JWKS.
+- Consent is stored locally and gates optional analytics and marketing scripts.
+- `sitemap.xml` and `robots.txt` are generated per incoming domain.
 
-## 🎨 Styling met Tailwind CSS
+See [ARCHITECTURE.md](./ARCHITECTURE.md) for the request flow and security boundaries.
 
-### Design System
+## Deployment
 
-Het project gebruikt een custom design system gedefinieerd in [`tailwind.config.mjs`](./tailwind.config.mjs):
+The Vercel adapter runs Astro middleware at the edge. Configure both production domains on the
+same Vercel project and set the required environment variables before deploying.
 
-- **Colors**: Semantic color tokens (primary, secondary, background, foreground)
-- **Typography**: Custom font families en sizes
-- **Glassmorphism**: Modern transparent card designs met backdrop blur
-- **Responsive**: Mobile-first responsive utilities
+CI checks formatting, linting, types, Playwright flows and the production build on Node 24.
 
-### `cn()` Utility
+## Repository hygiene
 
-Combineer en los Tailwind class conflicten op met de `cn()` utility:
-
-```typescript
-import { cn } from './lib/utils';
-
-const className = cn(
-  'bg-gray-50',
-  isActive && 'bg-primary',
-  props.class
-);
-```
-
-### Global Styles
-
-Zie [`src/styles/global.css`](./src/styles/global.css) voor:
-- CSS custom properties
-- Design tokens
-- Global utility classes
-- Glassmorphism effects
-
-## 🖼️ Image Optimization
-
-Gebruik de image optimization helpers:
-
-```typescript
-import { optimizeImage } from './lib/image';
-
-const optimized = optimizeImage(imageUrl, {
-  width: 800,
-  format: 'webp',
-  quality: 80,
-});
-```
-
-## 🔄 CI/CD Pipeline
-
-GitHub Actions workflow ([`.github/workflows/ci.yml`](./.github/workflows/ci.yml)):
-
-1. **Code Quality**: Prettier, ESLint, TypeScript
-2. **E2E Tests**: Playwright op alle browsers
-3. **Build**: Productie build verificatie
-
-## 🧩 Key Features
-
-✅ **Modern Architecture** - Component-driven design  
-✅ **Type Safety** - Full TypeScript support  
-✅ **Testing** - Playwright E2E tests  
-✅ **CI/CD** - GitHub Actions pipeline  
-✅ **Code Quality** - ESLint + Prettier  
-✅ **Design System** - Tailwind CSS met custom tokens  
-✅ **Glassmorphism** - Modern transparent UI design  
-✅ **Responsive** - Mobile-first approach
-
-## 📚 Documentation
-
-- [**Styling Rules**](./StylingRules.md) - Complete styling guide
-- [Astro Docs](https://docs.astro.build)
-- [Tailwind CSS Docs](https://tailwindcss.com)
-
-## 🚢 Deployment
-
-### Vercel (Recommended)
-
-1. Push naar GitHub
-2. Connect met Vercel
-3. Deploy (automatisch detecteert Astro build)
-
-### Netlify
-
-1. Push naar GitHub  
-2. Connect met Netlify
-3. Build command: `npm run build`
-4. Publish directory: `dist`
-
-## 🎯 Next Steps
-
-1. Voeg custom components toe aan je pages
-2. Implementeer routing voor additional pages
-3. Voeg analytics toe (GA4, Plausible)
-4. Setup webhooks voor automated deployments
-5. Implementeer multilingual support (i18n)
-
-## 💡 Best Practices
-
-- Gebruik de `cn()` utility voor conditional styling
-- Optimaliseer images voor betere performance
-- Houd components klein en herbruikbaar
-- Schrijf E2E tests voor kritieke user flows
-- Run linting en formatting voor commits
-- Gebruik semantic HTML voor accessibility
-
-## 🏗️ Tech Stack
-
-- **Framework**: Astro 5.x
-- **Styling**: Tailwind CSS 3.x
-- **UI Components**: Custom components met glassmorphism design
-- **Icons**: Lucide React
-- **Testing**: Playwright
-- **Type Safety**: TypeScript
-- **Code Quality**: ESLint + Prettier
-
----
-
-**Built with Enterprise Standards** 🚀  
-Type-safe • Tested • Scalable • Modern
+Commercial plans, résumés, exports, audit output and generated reports are internal working files
+and must not be published with the website or added to a public repository. The public source of
+truth for website pricing is `WebsitePackages.astro`; the public legal scope is maintained in
+`TermsContent.astro` and `website-care.astro`.

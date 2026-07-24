@@ -4,6 +4,10 @@ import SectionHeader from '../../components/ui/SectionHeader.astro';
 import TechStackBadge from '../../components/ui/TechStackBadge.astro';
 import Icon from '../../components/ui/Icon.astro';
 
+if (Astro.locals.locale === 'en') {
+  return Astro.rewrite('/en-case-study?slug=smartcoolcare');
+}
+
 const results = [
   { value: '24/7', label: 'Bewaking op afstand' },
   { value: '< 1W', label: 'Zuinig, werkt maandenlang' },
@@ -153,8 +157,8 @@ const challenges = [
             </h3>
             <p class="text-white/60 text-sm font-ui leading-relaxed">
               Live temperaturen en waarschuwingen in één helder scherm. U stelt zelf de grenswaarden
-              in, ziet grafieken uit het verleden en krijgt automatisch een melding zodra iets buiten
-              de veilige zone valt. Onder de motorkap: een React-dashboard met Convex.
+              in, ziet grafieken uit het verleden en krijgt automatisch een melding zodra iets
+              buiten de veilige zone valt. Onder de motorkap: een React-dashboard met Convex.
             </p>
           </div>
         </div>

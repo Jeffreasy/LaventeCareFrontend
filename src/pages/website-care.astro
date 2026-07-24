@@ -1,0 +1,274 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/ui/Icon.astro';
+
+const isEnglish = Astro.locals.locale === 'en';
+const plans = isEnglish
+  ? [
+      {
+        name: 'Website Care Start',
+        price: '€29',
+        text: 'For a compact static business website.',
+        features: [
+          'Managed hosting and SSL',
+          'Automated availability monitoring',
+          'Necessary technical and security updates',
+          'Deployment history for technical recovery',
+        ],
+      },
+      {
+        name: 'Website Care Business',
+        price: '€49',
+        text: 'For a website that also processes enquiries.',
+        features: [
+          'Everything in Website Care Start',
+          'Monitoring of the form flow',
+          'Monitoring of transactional confirmations',
+          'Technical investigation when the enquiry flow fails',
+        ],
+        featured: true,
+      },
+      {
+        name: 'Custom Website Care',
+        price: '€75+',
+        text: 'For custom hosting, integrations or non-standard operational requirements.',
+        features: [
+          'Scope agreed in the quotation',
+          'Monitoring matched to the custom components',
+          'Custom recovery and continuity arrangements',
+          'Clear route to a system SLA when needed',
+        ],
+      },
+    ]
+  : [
+      {
+        name: 'Website Care Start',
+        price: '€29',
+        text: 'Voor een compacte statische bedrijfswebsite.',
+        features: [
+          'Beheerde hosting en SSL',
+          'Automatische beschikbaarheidsbewaking',
+          'Noodzakelijke technische en beveiligingsupdates',
+          'Versiehistorie voor technisch herstel',
+        ],
+      },
+      {
+        name: 'Website Care Business',
+        price: '€49',
+        text: 'Voor een website die ook aanvragen verwerkt.',
+        features: [
+          'Alles uit Website Care Start',
+          'Bewaking van de formulierflow',
+          'Bewaking van transactionele bevestigingen',
+          'Technisch onderzoek wanneer de aanvraagflow faalt',
+        ],
+        featured: true,
+      },
+      {
+        name: 'Website Care Maatwerk',
+        price: '€75+',
+        text: 'Voor maatwerkhosting, koppelingen of afwijkende continuïteitseisen.',
+        features: [
+          'Scope vastgelegd in de offerte',
+          'Bewaking passend bij de maatwerkonderdelen',
+          'Maatwerkafspraken over herstel en continuïteit',
+          'Heldere overgang naar een systeem-SLA wanneer nodig',
+        ],
+      },
+    ];
+
+const agreements = isEnglish
+  ? [
+      [
+        'Optional after launch',
+        'Website Care is not mandatory. After full payment, a website can instead be transferred to an account in the client’s name.',
+      ],
+      [
+        'Monthly and cancellable',
+        'The agreement runs monthly for an indefinite period and can be cancelled in writing with one full calendar month’s notice.',
+      ],
+      [
+        'Billing',
+        'Website Care is invoiced monthly in advance. Automatic payment applies only when explicitly agreed. All prices exclude VAT.',
+      ],
+      [
+        'Normal business use',
+        'The prices cover normal SME website traffic. Exceptional traffic, paid licences, domains and third-party usage are discussed before additional costs are charged.',
+      ],
+      [
+        'Monitoring, not a hard SLA',
+        'Monitoring is automated continuously. Manual follow-up takes place on business days, with a target to respond within one business day. Hard uptime or resolution guarantees require a separate SLA.',
+      ],
+      [
+        'Changes are separate',
+        'Copy changes, new pages, design changes and new functionality are not included and are priced before work starts.',
+      ],
+      [
+        'Email boundary',
+        'Business Care monitors the technical form and confirmation flow. It does not include a business mailbox, mailbox support or Microsoft 365/Google Workspace licences.',
+      ],
+      [
+        'Recovery and data',
+        'Static deployments retain technical version history. Database backups, retention and recovery objectives apply only when explicitly included in a custom quotation or system SLA.',
+      ],
+      [
+        'Transfer and offboarding',
+        'After outstanding invoices are paid, LaventeCare provides reasonable cooperation to transfer the project-specific website and deployment. Generic LaventeCare modules remain licensed; third-party software keeps its own licence.',
+      ],
+      [
+        'Price changes',
+        'Recurring prices may be adjusted once per year in line with the Dutch CPI. LaventeCare gives at least 30 days’ written notice.',
+      ],
+    ]
+  : [
+      [
+        'Vrijwillig na livegang',
+        'Website Care is niet verplicht. Na volledige betaling kan een website ook worden overgedragen naar een account op naam van de opdrachtgever.',
+      ],
+      [
+        'Maandelijks opzegbaar',
+        'De overeenkomst loopt voor onbepaalde tijd per maand en kan schriftelijk worden opgezegd met één volledige kalendermaand opzegtermijn.',
+      ],
+      [
+        'Facturatie',
+        'Website Care wordt maandelijks vooraf gefactureerd. Automatische betaling geldt alleen wanneer dit expliciet is afgesproken. Alle prijzen zijn exclusief btw.',
+      ],
+      [
+        'Normaal zakelijk gebruik',
+        'De prijzen gelden voor normaal mkb-websiteverkeer. Uitzonderlijk verkeer, betaalde licenties, domeinen en extern verbruik worden besproken voordat extra kosten in rekening worden gebracht.',
+      ],
+      [
+        'Bewaking, geen harde SLA',
+        'Bewaking loopt automatisch door. Handmatige opvolging vindt plaats op werkdagen, met als streeftijd een reactie binnen één werkdag. Harde uptime- of oplosgaranties vereisen een aparte SLA.',
+      ],
+      [
+        'Wijzigingen apart',
+        'Tekstwijzigingen, nieuwe pagina’s, ontwerpwijzigingen en nieuwe functies zijn niet inbegrepen en worden vooraf geprijsd.',
+      ],
+      [
+        'Grens van e-mailbeheer',
+        'Business Care bewaakt de technische formulier- en bevestigingsflow. Een zakelijke mailbox, mailboxondersteuning en Microsoft 365- of Google Workspace-licenties zijn niet inbegrepen.',
+      ],
+      [
+        'Herstel en gegevens',
+        'Statische deployments houden technische versiehistorie. Databaseback-ups, bewaartermijnen en hersteltijden gelden alleen wanneer deze expliciet in een maatwerkofferte of systeem-SLA staan.',
+      ],
+      [
+        'Overdracht en einde beheer',
+        'Na betaling van openstaande facturen werkt LaventeCare redelijkerwijs mee aan overdracht van de projectspecifieke website en deployment. Generieke LaventeCare-modules blijven gelicentieerd; software van derden behoudt de eigen licentie.',
+      ],
+      [
+        'Prijswijzigingen',
+        'Periodieke prijzen kunnen eenmaal per jaar meestijgen met de Nederlandse CPI. LaventeCare kondigt dit minimaal 30 dagen vooraf schriftelijk aan.',
+      ],
+    ];
+---
+
+<Layout
+  title={isEnglish
+    ? 'Website Care — Managed hosting from €29/month | LaventeCare'
+    : 'Website Care — Beheerde hosting vanaf €29/maand | LaventeCare'}
+  description={isEnglish
+    ? 'Clear monthly agreements for hosting, monitoring and technical website maintenance from €29 per month.'
+    : 'Heldere maandafspraken voor hosting, bewaking en technisch websiteonderhoud vanaf €29 per maand.'}
+>
+  <section class="section-padding pt-32 md:pt-40">
+    <div class="container mx-auto px-4">
+      <div class="mx-auto max-w-5xl text-center">
+        <span
+          class="mb-4 inline-flex items-center gap-2 font-display text-xs font-bold uppercase tracking-[0.2em] text-active"
+        >
+          <Icon name="refresh-cw" size={16} />
+          Website Care
+        </span>
+        <h1 class="font-display text-4xl font-black tracking-tight text-white md:text-6xl">
+          {
+            isEnglish
+              ? 'Managed after launch, without hidden scope'
+              : 'Beheerd na livegang, zonder verborgen scope'
+          }
+        </h1>
+        <p class="mx-auto mt-5 max-w-3xl font-ui text-lg leading-relaxed text-white/70">
+          {
+            isEnglish
+              ? 'Keep the sharp build price and choose only the monthly technical care your website actually needs.'
+              : 'Behoud de scherpe bouwprijs en kies alleen het maandelijkse technische beheer dat uw website werkelijk nodig heeft.'
+          }
+        </p>
+      </div>
+
+      <div class="mx-auto mt-12 grid max-w-6xl gap-6 lg:grid-cols-3">
+        {
+          plans.map((plan) => (
+            <article
+              class:list={[
+                'clinical-glass flex h-full flex-col rounded-2xl p-6 md:p-8',
+                plan.featured ? 'border-2 border-active bg-active/5' : 'border border-white/10',
+              ]}
+            >
+              <h2 class="font-display text-xl font-black text-white">{plan.name}</h2>
+              <p class="mt-2 font-ui text-sm leading-relaxed text-white/65">{plan.text}</p>
+              <div class="mt-6 flex items-end gap-2">
+                <span class="font-display text-4xl font-black text-white">{plan.price}</span>
+                <span class="pb-1 font-ui text-sm text-white/60">
+                  {isEnglish ? '/month' : '/maand'}
+                </span>
+              </div>
+              <p class="mt-1 font-ui text-xs text-white/60">
+                {isEnglish ? 'excluding VAT' : 'exclusief btw'}
+              </p>
+              <ul class="mt-6 flex-1 space-y-3 font-ui text-sm text-white/70">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start gap-3">
+                    <Icon name="check" size={15} class="mt-1 shrink-0 text-active" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="mx-auto mt-16 max-w-5xl">
+        <h2 class="text-center font-display text-3xl font-black text-white">
+          {
+            isEnglish
+              ? 'The operating agreement in plain language'
+              : 'De beheerafspraak in gewone taal'
+          }
+        </h2>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          {
+            agreements.map(([title, text]) => (
+              <article class="rounded-2xl border border-white/10 bg-white/3 p-6">
+                <h3 class="font-display text-base font-bold text-white">{title}</h3>
+                <p class="mt-2 font-ui text-sm leading-relaxed text-white/65">{text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+
+      <div
+        class="mx-auto mt-12 max-w-4xl rounded-2xl border border-active/20 bg-active/5 p-6 text-center md:p-8"
+      >
+        <p class="font-ui text-sm leading-relaxed text-white/70">
+          {
+            isEnglish
+              ? 'Website Care is for websites. Accounts, databases, dashboards and business-critical integrations use a separate system SLA matched to their operational risk.'
+              : 'Website Care is bedoeld voor websites. Accounts, databases, dashboards en bedrijfskritieke koppelingen gebruiken een aparte systeem-SLA die past bij het operationele risico.'
+          }
+        </p>
+        <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href="/contact?type=website-care" class="btn-primary">
+            {isEnglish ? 'Discuss Website Care' : 'Bespreek Website Care'}
+          </a>
+          <a href={isEnglish ? '/terms' : '/voorwaarden'} class="btn-secondary">
+            {isEnglish ? 'Terms & Conditions' : 'Algemene Voorwaarden'}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
